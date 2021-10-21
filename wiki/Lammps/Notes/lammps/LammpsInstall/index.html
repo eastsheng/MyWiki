@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Lammps安装 | Eastsheng&#39;s Wiki Site</title>
+    
+    
+        <meta name="keywords" content="Notes,Lammps安装" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc] - Windows下Lammps安装 官网下载Windows版Lammps,和并行包mpich2； 下载完成后，直接双击LAMMPS-64bit-stable-MPI.exe安装,可以自定义安装位置； Similarly，接着安装MPICH2mpich2-1.4.1p1-win-x86-64.msi； 完了之后，进入到Administrator用户下操作，win+R输入cmd，调出cm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lammps安装">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/Lammps/Notes/lammps/LammpsInstall/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki Site">
+<meta property="og:description" content="[toc] - Windows下Lammps安装 官网下载Windows版Lammps,和并行包mpich2； 下载完成后，直接双击LAMMPS-64bit-stable-MPI.exe安装,可以自定义安装位置； Similarly，接着安装MPICH2mpich2-1.4.1p1-win-x86-64.msi； 完了之后，进入到Administrator用户下操作，win+R输入cmd，调出cm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-22T10:11:28.000Z">
+<meta property="article:modified_time" content="2021-10-19T13:24:02.364Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Lammps安装">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki Site" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki Site</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/photo">图片</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/photo">图片</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Collections
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Collections/Resources/collections/OpenResources/">Open Resources</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            好用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Collections/%E5%A5%BD%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Collections/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/Collections/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/Collections/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/Collections/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/Collections/collections/bloggers/">博客/主页收藏</a></li>  <li class="file"><a href="/wiki/Collections/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorial
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Fortran/Tutorial/fortran/tutorial/">Fortran Tutorial</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            error
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Fortran/error/fortran/error/">Fortran error</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Git/linux/Git/">Git 相关：资源/教程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Command
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Lammps/Command/lammps/command/">Lammps Command</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Notes
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Lammps/Notes/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file active"><a href="/wiki/Lammps/Notes/lammps/LammpsInstall/">Lammps安装</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            error
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Lammps/error/lammps/error/">Lammps error</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Command
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux/Command/linux/LinuxCommand/">Linux Command</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Problems
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux/Problems/linux/problems/">Linux Problems</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            虚拟机
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA/linux/linux-kuorong/">虚拟机扩容</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Notes
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Notes/notes/PaperReadNote2020/">论文笔记2020</a></li>  <li class="file"><a href="/wiki/Notes/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/Notes/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/Notes/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file"><a href="/wiki/Notes/notes/PaperReadNote202104/">论文笔记202104</a></li>  <li class="file"><a href="/wiki/Notes/notes/PaperReadNote202107/">论文笔记202107</a></li>  <li class="file"><a href="/wiki/Notes/notes/PaperReadNote202108/">论文笔记202108</a></li>  <li class="file"><a href="/wiki/Notes/notes/PaperReadNote202109/">论文笔记202109</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bug
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Bug/python/problems/">Python问题与解决方法汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Code
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Code/python/python_code_study/">Python 常用基本命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Matplotlib/python/matplotlib/">Matplotlib学习</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorials
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Tutorials/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/Python/Tutorials/python/Tutorials/">Python Tutorials</a></li>  <li class="file"><a href="/wiki/Python/Tutorials/python/python_link/">Linux Python默认版本设置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VScode
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/VScode/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            examples
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/examples/python/codes/">Code examples</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            科学计算
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/python/numpy/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>归档</span></h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 12.5px;">Collections</a> <a href="/tags/Command/" style="font-size: 12.5px;">Command</a> <a href="/tags/Daily-Notes/" style="font-size: 15px;">Daily Notes</a> <a href="/tags/Fortran/" style="font-size: 10px;">Fortran</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Lammps/" style="font-size: 17.5px;">Lammps</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Notes/" style="font-size: 12.5px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 10px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Paper-Notes/" style="font-size: 17.5px;">Paper Notes</a> <a href="/tags/Problems/" style="font-size: 10px;">Problems</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 15px;">Tutorials</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 12.5px;">error</a> <a href="/tags/examples/" style="font-size: 10px;">examples</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 12.5px;">乱七八糟的收藏</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" style="font-size: 10px;">虚拟机扩容</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title"><span>链接</span></h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-lammps/LammpsInstall" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Lammps/">Lammps</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Lammps/Notes/">Notes</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Lammps%E5%AE%89%E8%A3%85/" rel="tag">Lammps安装</a>, <a class="tag-link-link" href="/tags/Notes/" rel="tag">Notes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Lammps/Notes/lammps/LammpsInstall/">
+            <time datetime="2019-01-22T10:11:28.000Z" itemprop="datePublished">2019-01-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Lammps安装
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>[toc]</p>
+<h3 id="Windows下Lammps安装"><a href="#Windows下Lammps安装" class="headerlink" title="- Windows下Lammps安装"></a>- Windows下Lammps安装</h3><ol>
+<li><a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网下载Windows版Lammps,和并行包mpich2</a>；</li>
+<li>下载完成后，直接双击<code>LAMMPS-64bit-stable-MPI.exe</code>安装,可以自定义安装位置；</li>
+<li>Similarly，接着安装MPICH2<code>mpich2-1.4.1p1-win-x86-64.msi</code>；</li>
+<li>完了之后，进入到<code>Administrator</code>用户下操作，<code>win+R</code>输入<code>cmd</code>，调出cmd窗口；</li>
+<li><code>cd</code>到MPICH2安装目录的<code>bin</code>下，也即是<code>D:\Program Files\MPICH2\bin</code>；</li>
+<li>然后，输入命令：<code>smpd.exe -install -phrase behappy</code>；</li>
+<li>别忘记设置环境变量，即是将对应的Lammps@MPICH2路径加入到path中：<code>D:\Program Files\LAMMPS 64-bit 7Aug2019-MPI\bin</code>，<code>D:\Program Files\MPICH2\bin</code></li>
+<li>怎么设置环境变量：<blockquote>
+<ul>
+<li>鼠标右键<code>此电脑</code>；点开<code>高级系统设置</code>；找到<code>高级</code>；点开右下角<code>环境变量(N)</code>；</li>
+<li>在系统变量下<code>path</code>中找找看，是否已经设置；若没有，点击新建，将路径复制过来，确定即可</li>
+</ul>
+</blockquote>
+</li>
+<li>至此，完成，可以进入lammps目录下<code>Examples</code>中测试一下并行；例如：<code>mpiexec -np 8 lmp_mpi -i inputfile.in</code>；具体看<a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网</a></li>
+</ol>
+<h3 id="Linux下Lammps并行安装"><a href="#Linux下Lammps并行安装" class="headerlink" title="- Linux下Lammps并行安装"></a>- Linux下Lammps并行安装</h3><ol>
+<li>安装必要的编译器</li>
+</ol>
+<ul>
+<li>安装/更新必要的C/C++编译器等：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install make</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>并行计算程序MIPCH安装</li>
+</ol>
+<ul>
+<li>下载<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">MPICH安装包</a> ，并解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mpich-3.2.1.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>然后，进入该文件夹:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mpich-3.2.1</span><br></pre></td></tr></table></figure></li>
+<li>另外新建<code>mpich</code>文件夹（用于安装路径）；</li>
+<li>在<code>mpich-3.2.1</code>文件夹内输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/..(your path)../mpich 2&gt;&amp;1|tee c.txt</span><br></pre></td></tr></table></figure></li>
+<li>编译完后，继续终端输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make 2&gt;&amp;1|tee m.txt</span><br></pre></td></tr></table></figure></li>
+<li>完成后，继续输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install 2&gt;&amp;1|tee mi.txt</span><br></pre></td></tr></table></figure></li>
+<li>完成MPICH安装，接着把mpich的安装路径添加到环境变量中，参考<a target="_blank" rel="noopener" href="https://eastsheng.cf/2020/01/22/linux/LinuxCommand/">这里</a></li>
+<li>输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> mpiexec <span class="comment">#检查mpi是否添加路径到环境变量</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>注：若已有mpich，请略过。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>LAMMPS安装</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://lammps.sandia.gov/download.html">下载安装包</a>， 解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf lammps-stable.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>进入解压文件夹内：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lammps-stable/src</span><br></pre></td></tr></table></figure></li>
+<li>输入：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make ps <span class="comment"># 或者</span></span><br><span class="line">make package-status <span class="comment">#查看扩展包安装状态</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">ASPHERE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="keyword">BODY</span></span><br><span class="line"><span class="title">Installed  NO: <span class="keyword">package</span> CLASS2</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">COLLOID</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">COMPRESS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">CORESHELL</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">DIPOLE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">GPU</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">GRANULAR</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">KIM</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">KOKKOS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">KSPACE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">LATTE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MANYBODY</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MC</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MESSAGE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">M</span>ISC</span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MOLECULE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MPIIO</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">MSCG</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">OPT</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">PERI</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">POEMS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">PYTHON</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">QEQ</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">REPLICA</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">RIGID</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">SHOCK</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">SNAP</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">SPIN</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">SRD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">VORONOI</span></span><br><span class="line"></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-ADIOS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-ATC</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-AWPMD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-BOCS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-CGDNA</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-CGSDK</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-COLVARS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-DIFFRACTION</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-DPD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-DRUDE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-EFF</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-FEP</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-H5MD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-INTEL</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-LB</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MANIFOLD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MEAMC</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MESO</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MGPT</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-M</span>ISC</span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MOFFF</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-MOLFILE</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-NETCDF</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-OMP</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-PHONON</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-PLUMED</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-PTM</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-QMMM</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-QTB</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-QUIP</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-REAXC</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-SCAFACOS</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-SMD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-SMTBQ</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-SDPD</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-SPH</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-TALLY</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-UEF</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-VTK</span></span><br><span class="line">Installed  NO: <span class="keyword">package</span> <span class="title">USER-YAFF</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>输入：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make yes-MANYBODY <span class="comment">#安装所需扩展包</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>完成后，输入:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make mpi</span><br></pre></td></tr></table></figure>
+<ul>
+<li>待编译完成后，LAMMPS就安装成功了。<blockquote>
+<ul>
+<li>注意如果提示<code>mpicxx:command not found</code>的错误,是由于mpich的环境变量没有添加成功；</li>
+<li>进入<code>lammps-stable/examples</code>中任意测试一个例子；</li>
+<li>运行lammps，例如：</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 lmp_mpi -i in.atm</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">mpiexec -np 4 lmp_mpi -i in.atm</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><strong>注意</strong>：记得在<code>~/.bashrc</code>中设置<code>/home/.../lammps-stable/src</code>环境变量 </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>参考:<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1484595">https://cloud.tencent.com/developer/article/1484595</a></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Lammps/Notes/lammps/LammpsNotes/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Lammps Notes
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/Lammps/error/lammps/error/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Lammps error</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2021 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
