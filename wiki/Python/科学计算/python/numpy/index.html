@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/cov.gif">
 <meta property="article:published_time" content="2021-01-22T10:11:28.000Z">
-<meta property="article:modified_time" content="2021-05-08T16:03:16.867Z">
+<meta property="article:modified_time" content="2021-10-28T09:37:57.777Z">
 <meta property="article:author" content="Eastsheng">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Numpy">
@@ -612,11 +612,11 @@
 <h3 id="5-矩阵排序"><a href="#5-矩阵排序" class="headerlink" title="5. 矩阵排序"></a>5. 矩阵排序</h3><ul>
 <li>例如：按照第一列对矩阵fe进行排序<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fe_sort = fe[np.argsort(fe[:,<span class="number">0</span>])]</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="6-loadtxt"><a href="#6-loadtxt" class="headerlink" title="6. loadtxt"></a>6. loadtxt</h3><ul>
-<li>numpy.loadtxt<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.loadtxt(fname, dtype=&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">float</span>&#x27;&gt;, <span class="title">comments</span>=&#x27;#&#x27;, <span class="title">delimiter</span>=<span class="title">None</span>, <span class="title">converters</span>=<span class="title">None</span>, <span class="title">skiprows</span>=0, <span class="title">usecols</span>=<span class="title">None</span>, <span class="title">unpack</span>=<span class="title">False</span>, <span class="title">ndmin</span>=0, <span class="title">encoding</span>=&#x27;<span class="title">bytes</span>&#x27;, <span class="title">max_rows</span>=<span class="title">None</span>, *, <span class="title">like</span>=<span class="title">None</span>)</span></span><br></pre></td></tr></table></figure></li>
+<h3 id="6-loadtxt-amp-amp-savetxt"><a href="#6-loadtxt-amp-amp-savetxt" class="headerlink" title="6. loadtxt &amp;&amp; savetxt"></a>6. loadtxt &amp;&amp; savetxt</h3><ul>
+<li>numpy.loadtxt<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numpy.loadtxt(fname, dtype=&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">float</span>&#x27;&gt;, <span class="title">comments</span>=&#x27;#&#x27;, <span class="title">delimiter</span>=<span class="title">None</span>, <span class="title">converters</span>=<span class="title">None</span>, <span class="title">skiprows</span>=0, <span class="title">usecols</span>=<span class="title">None</span>, <span class="title">unpack</span>=<span class="title">False</span>, <span class="title">ndmin</span>=0, <span class="title">encoding</span>=&#x27;<span class="title">bytes</span>&#x27;, <span class="title">max_rows</span>=<span class="title">None</span>, *, <span class="title">like</span>=<span class="title">None</span>)</span></span><br><span class="line"><span class="class"><span class="title">numpy</span>.<span class="title">savetxt</span>(<span class="params">fname, X, fmt=<span class="string">&#x27;%.18e&#x27;</span>, delimiter=<span class="string">&#x27; &#x27;</span>, newline=<span class="string">&#x27;\n&#x27;</span>, header=<span class="string">&#x27;&#x27;</span>, footer=<span class="string">&#x27;&#x27;</span>, comments=<span class="string">&#x27;# &#x27;</span>, encoding=<span class="literal">None</span></span>)</span></span><br></pre></td></tr></table></figure></li>
 <li>常用参数解释：<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fname #文件名</span><br><span class="line">dtype=&lt;<span class="keyword">class</span> &#x27;<span class="symbol">float</span>&#x27;&gt; #读取数据类型</span><br><span class="line"><span class="symbol">skiprows</span>=<span class="symbol">0</span> #跳过几行读取</span><br><span class="line"><span class="symbol">usecols</span>=<span class="symbol">None</span> #读取哪几列，例如：<span class="symbol">usecols</span> = (<span class="symbol">1,<span class="symbol">4</span>,<span class="symbol">5</span></span>)</span><br><span class="line"><span class="symbol">max_rows</span>=<span class="symbol">None</span> #最大读取几行</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="7-显示输出时省略的数据"><a href="#7-显示输出时省略的数据" class="headerlink" title="7. 显示输出时省略的数据"></a>7. 显示输出时省略的数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.set_printoptions(threshold=<span class="number">100000000</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="7-展示输出"><a href="#7-展示输出" class="headerlink" title="7. 展示输出"></a>7. 展示输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.set_printoptions(threshold=<span class="number">100000000</span>) <span class="comment">#显示省略的数据</span></span><br><span class="line">np.set_printoptions(suppress=<span class="literal">True</span>) <span class="comment">#不易科学计数法输出</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="8-计算行列式"><a href="#8-计算行列式" class="headerlink" title="8. 计算行列式"></a>8. 计算行列式</h3><ul>
 <li><p>计算二维数组行列式 [[a, b], [c, d]] 也即是 ad - bc:</p>
@@ -671,19 +671,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Python/Bug/python/problems/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/Python/Matplotlib/python/matplotlib/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Python问题与解决方法汇总
+                    Matplotlib学习
                 
             </div>
         </a>
     
     
-        <a href="/wiki/Notes/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/notes/DailyNotes2021/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/Python/Bug/python/problems/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">日常笔记2021</div>
+            <div class="article-nav-title">Python问题与解决方法汇总</div>
         </a>
     
 </nav>
