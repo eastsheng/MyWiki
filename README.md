@@ -1,2 +1,2 @@
-# MyDocs
-My Docs
+# WikiSite
+My WikiSite
