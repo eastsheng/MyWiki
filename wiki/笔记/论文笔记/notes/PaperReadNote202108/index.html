@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>论文笔记2021-08 | Eastsheng&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="Paper Notes,2021-08" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc] 2021-08-01润湿  润湿是指一种流体在某一固体表面被另一种流体置换现象。 润湿包括三相，其中至少有两相是流体。固体之外的液体、气体都属于流体。   岩石表面润湿性  岩石表面润湿性是影响油、水在岩石孔隙中分布、流动的一个主要因素; 岩石润湿性直接制约着油、水两相相对渗透率、毛细管力以及石油采收率。 按照油藏岩石表面微观结构、表面原子、分子、化学基团分布的不同，润湿可分为均匀润湿">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记2021-08">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202108/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki">
+<meta property="og:description" content="[toc] 2021-08-01润湿  润湿是指一种流体在某一固体表面被另一种流体置换现象。 润湿包括三相，其中至少有两相是流体。固体之外的液体、气体都属于流体。   岩石表面润湿性  岩石表面润湿性是影响油、水在岩石孔隙中分布、流动的一个主要因素; 岩石润湿性直接制约着油、水两相相对渗透率、毛细管力以及石油采收率。 按照油藏岩石表面微观结构、表面原子、分子、化学基团分布的不同，润湿可分为均匀润湿">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Oil/angle.PNG">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/HeatTransport/1.PNG">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/53/A-quartz.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/12/B-quartz.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/56/A-cristobalite.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/a3/B-cristobalite.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Oil/china_petroleum.PNG">
+<meta property="article:published_time" content="2021-08-01T06:14:28.000Z">
+<meta property="article:modified_time" content="2022-03-07T17:18:55.547Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="Paper Notes">
+<meta property="article:tag" content="2021-08">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Oil/angle.PNG">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            程序学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorial
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/fortran/tutorial/">Fortran Tutorial</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            error
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/error/fortran/error/">Fortran error</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bug
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Bug/python/problems/">Python问题与解决方法汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Code
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Code/python/python_code_study/">Python 常用基本命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/python/matplotlib/">Matplotlib学习</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Numpy
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Numpy/python/numpy/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Pandas
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Pandas/python/pandas_1/">Pandas 基本操作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorials
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/Tutorials/">Python Tutorials</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/python_link/">Linux Python默认版本设置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VScode
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/VScode/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            examples
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/examples/python/codes/">Code examples</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Notes
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/Notes/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/Notes/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/Notes/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/Notes/notes/LaTeX_study/">LaTex Study</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            论文笔记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote2020/">论文笔记2020</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202104/">论文笔记2021-04</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202107/">论文笔记2021-07</a></li>  <li class="file active"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202108/">论文笔记2021-08</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202109/">论文笔记2021-09</a></li>  <li class="file"><a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202111/">论文笔记2021-11</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            资源收藏
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/">高质量博客/科研主页收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_1/">Open Resources 1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">Open Resources 2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            实用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具收藏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsInstall/">Lammps安装</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/command/">Lammps Command</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/error/">Lammps error</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsTutorials2021/">Lammps Tutorials 2021</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/others/index/">Welcome to My Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/2021-11/" style="font-size: 10px;">2021-11</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 12.5px;">Collections</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Daily-Notes/" style="font-size: 15px;">Daily Notes</a> <a href="/tags/Fortran/" style="font-size: 12.5px;">Fortran</a> <a href="/tags/LaTex/" style="font-size: 10px;">LaTex</a> <a href="/tags/Lammps/" style="font-size: 10px;">Lammps</a> <a href="/tags/Lammps-Notes/" style="font-size: 10px;">Lammps Notes</a> <a href="/tags/Lammps-Tutorials/" style="font-size: 10px;">Lammps Tutorials</a> <a href="/tags/Lammps-error/" style="font-size: 10px;">Lammps error</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Linux-error/" style="font-size: 10px;">Linux error</a> <a href="/tags/Linux%E2%80%94Command/" style="font-size: 10px;">Linux—Command</a> <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">Linux学习</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Notes/" style="font-size: 15px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 12.5px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Pandas%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Pandas基础</a> <a href="/tags/Paper-Notes/" style="font-size: 17.5px;">Paper Notes</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 15px;">Tutorials</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/Windows10-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">Windows10 Linux 子系统</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/examples/" style="font-size: 10px;">examples</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 12.5px;">乱七八糟的收藏</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-notes/PaperReadNote202108" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/2021-08/" rel="tag">2021-08</a>, <a class="tag-link-link" href="/tags/Paper-Notes/" rel="tag">Paper Notes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202108/">
+            <time datetime="2021-08-01T06:14:28.000Z" itemprop="datePublished">2021-08-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            论文笔记2021-08
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>[toc]</p>
+<h2 id="2021-08-01"><a href="#2021-08-01" class="headerlink" title="2021-08-01"></a>2021-08-01</h2><h3 id="润湿"><a href="#润湿" class="headerlink" title="润湿"></a>润湿</h3><blockquote>
+<ul>
+<li>润湿是指一种流体在某一固体表面被另一种流体置换现象。</li>
+<li>润湿包括三相，其中至少有两相是流体。固体之外的液体、气体都属于流体。</li>
+</ul>
+</blockquote>
+<h3 id="岩石表面润湿性"><a href="#岩石表面润湿性" class="headerlink" title="岩石表面润湿性"></a>岩石表面润湿性</h3><blockquote>
+<ul>
+<li>岩石表面润湿性是影响油、水在岩石孔隙中分布、流动的一个主要因素;</li>
+<li>岩石润湿性直接制约着油、水两相相对渗透率、毛细管力以及石油采收率。</li>
+<li>按照油藏岩石表面微观结构、表面原子、分子、化学基团分布的不同，润湿可分为<strong>均匀润湿</strong>和<strong>非均匀润湿</strong>。</li>
+<li><strong>均匀润湿</strong>是指岩石表面结构、化学基团完全一致，岩石表面的润湿性处处相同。<strong>均匀润湿是一种理想情况</strong>，实际的岩石都是非均匀润湿的。</li>
+<li>润湿从<strong>强水润湿</strong>渐变到<strong>中间润湿</strong>直到<strong>强油润湿</strong>，<strong>非均匀润湿</strong>包括<strong>斑点润湿</strong>、<strong>混合润湿</strong>。</li>
+</ul>
+</blockquote>
+<h3 id="相对渗透率曲线法"><a href="#相对渗透率曲线法" class="headerlink" title="相对渗透率曲线法"></a>相对渗透率曲线法</h3><blockquote>
+<ul>
+<li>相对渗透率曲线法是在大量实验的基础上提出的评定润湿性的方法</li>
+</ul>
+</blockquote>
+<h3 id="表征润湿性参数"><a href="#表征润湿性参数" class="headerlink" title="表征润湿性参数"></a>表征润湿性参数</h3><blockquote>
+<ul>
+<li>接触角</li>
+<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Oil/angle.PNG" alt="接触角"></li>
+</ul>
+</blockquote>
+<h3 id="分子模拟"><a href="#分子模拟" class="headerlink" title="分子模拟"></a>分子模拟</h3><blockquote>
+<ul>
+<li>分子模拟一般会被分为两大类</li>
+<li><strong>分子动力学（Molecular dynamics, MD）</strong></li>
+<li>分子动力学方法的理论基础是牛顿力学力学方程，使用经验势函数描述相互作用，根据粒子的受力情况计算粒子的轨迹，计算体系的物理化学性质。</li>
+<li>分子动力学模拟的一般步骤依次是，构建模型；给定合适的初始条件和模拟参数；平衡体系；基于平衡体系计算宏观物理量，分析构型。</li>
+<li><strong>蒙特卡洛方法（Monte Carlo, MC）</strong></li>
+<li>蒙特卡洛模拟的理论基础是统计热力学。在模拟过程中根据一定的规则随机地产生很多尝试构象。对于各个尝试构象，软件会计算其能量，保留合理的构象。</li>
+<li>分子模拟根据模拟尺度的不同，又可以分为介观模拟、粗粒化模拟、原子模拟等。</li>
+</ul>
+</blockquote>
+<h2 id="2021-08-01-1"><a href="#2021-08-01-1" class="headerlink" title="2021-08-01"></a>2021-08-01</h2><h3 id="格子Boltzmann方法（LBM）"><a href="#格子Boltzmann方法（LBM）" class="headerlink" title="格子Boltzmann方法（LBM）"></a>格子Boltzmann方法（LBM）</h3><blockquote>
+<ul>
+<li>诞生于上世纪80-90年代，是一种介观尺度数值模拟；</li>
+<li>由于该方法在格子空间求解Boltzmann方程，因此称为格子Boltzmann方法。</li>
+<li>可以模拟多种输运现象，包括流动、扩散、导热等。</li>
+</ul>
+</blockquote>
+<h3 id="导热微分方程"><a href="#导热微分方程" class="headerlink" title="导热微分方程"></a>导热微分方程</h3><blockquote>
+<ul>
+<li><strong>物理意义：</strong> 反映了物体的温度随时间和空间的变化关系。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/HeatTransport/1.PNG" alt="导热微分方程"></li>
+<li>不含内热源时</li>
+<li>$\rho c_p \frac {\partial T} {\partial t}$ = $\Delta \cdot (\lambda \Delta T)$</li>
+<li><strong>$\rho$为密度，$\lambda$为热导率，$c_p$为比热容。</strong></li>
+<li>一维导热过程：$\rho c_p \frac {\partial T} {\partial t}$ = $\frac \partial {\partial x} (\lambda \frac {\partial T} {\partial x} )$</li>
+</ul>
+</blockquote>
+<h3 id="热扩散率（Thermal-diffusivity）"><a href="#热扩散率（Thermal-diffusivity）" class="headerlink" title="热扩散率（Thermal diffusivity）"></a>热扩散率（Thermal diffusivity）</h3><blockquote>
+<ul>
+<li>$a=\frac \lambda {\rho c}$ </li>
+<li>单位 ($m^2/s$)</li>
+<li><strong>物理意义：</strong> 热扩散率$a$反应了导热过程中材料的导热能力（$\lambda$）与沿途物质储热能力（$\rho c$）之间的关系。</li>
+<li>表征物体被加热或冷却时，物体内各部分温度趋于均匀一致的能力。</li>
+</ul>
+</blockquote>
+<h2 id="2021-08-04"><a href="#2021-08-04" class="headerlink" title="2021-08-04"></a>2021-08-04</h2><h3 id="流固耦合"><a href="#流固耦合" class="headerlink" title="流固耦合"></a>流固耦合</h3><blockquote>
+<ul>
+<li>一般而言，流固耦合过程中只有一种流体（单相）起主导作用，称为单相流固耦合。</li>
+<li>准确计算流体对固体施加的作用力是流固耦合模拟的基础和前提，只有流固作用力计算得准才能保证后续流固耦合过程的真实有效。</li>
+<li>另外，对于一些特殊的流固耦合过程会涉及两相流体与固体相互作用，因此称为两相流固耦合。</li>
+<li>对于流固耦合模型，最重要的是，如何将固体求解器与流体求解器进行耦合，也即，<strong>保证固体附近流体的无滑移边界条件以及准确计算流体对固体施加的作用力。</strong></li>
+<li></li>
+</ul>
+</blockquote>
+<h2 id="2021-08-18"><a href="#2021-08-18" class="headerlink" title="2021-08-18"></a>2021-08-18</h2><h3 id="油水前缘"><a href="#油水前缘" class="headerlink" title="油水前缘"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B2%B9%E6%B0%B4%E5%89%8D%E7%BC%98/22080689?fr=aladdin">油水前缘</a></h3><blockquote>
+<ul>
+<li>油水<strong>前缘</strong>是指水驱过程中，分隔油区与油水两相区的界面。油水前缘的形状会严重影响体积波及效率。</li>
+</ul>
+</blockquote>
+<h3 id="EOR-Enhanced-Oil-Recovery-提高石油采收率"><a href="#EOR-Enhanced-Oil-Recovery-提高石油采收率" class="headerlink" title="EOR(Enhanced Oil Recovery):提高石油采收率"></a>EOR(Enhanced Oil Recovery):提高石油采收率</h3><h2 id="2021-08-22"><a href="#2021-08-22" class="headerlink" title="2021-08-22"></a>2021-08-22</h2><h3 id="二氧化硅-SiO2"><a href="#二氧化硅-SiO2" class="headerlink" title="二氧化硅(SiO2)"></a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%B0%A7%E5%8C%96%E7%A1%85">二氧化硅(SiO<sub>2</sub>)</a></h3><blockquote>
+<ul>
+<li>是一种酸性氧化物</li>
+<li>约占地壳质量的12%</li>
+<li>自然界中二氧化硅的存在形态有结晶形和无定形两大类</li>
+<li>石英部分分类：</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>形式</th>
+<th>晶体对称性(皮尔逊符号, 组号)</th>
+<th>ρ(g/cm<sup>3</sup>)</th>
+<th>注释</th>
+<th>结构</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>α-石英</td>
+<td>六方晶系 (三角形)hP9, P3221 No.154</td>
+<td>2.648</td>
+<td>使单个单晶具有光学活性的螺旋链; α-石英在846K下转化为β-石英</td>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/A-quartz.png"></td>
+</tr>
+<tr>
+<td>β-石英</td>
+<td>六方晶系hP18, P6222, No. 180[7]</td>
+<td>2.533</td>
+<td>与α-石英密切相关（具有155°的Si-O-Si角）和光学活性; β-石英在1140K转化为β-鳞石英</td>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/B-quartz.png"></td>
+</tr>
+<tr>
+<td>α-方石英</td>
+<td>四方晶系tP12, P41212, No. 92[9]</td>
+<td>2.334</td>
+<td>正常压力下的稳定形式</td>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/A-cristobalite.png"></td>
+</tr>
+<tr>
+<td>β-方石英</td>
+<td>立方晶系cF104, Fd3m, No.227[10]</td>
+<td></td>
+<td>与α-方石英密切相关; 在1978 K熔化</td>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/B-cristobalite.png"></td>
+</tr>
+</tbody></table>
+<h3 id="密勒指数-Miller-indices"><a href="#密勒指数-Miller-indices" class="headerlink" title="密勒指数(Miller indices)"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%86%E5%8B%92%E6%8C%87%E6%95%B0/3385323?fr=aladdin">密勒指数(Miller indices)</a></h3><blockquote>
+<ul>
+<li>是一种用来描述某一种晶格点阵(布拉菲格子)中某一晶面族的数组。</li>
+</ul>
+</blockquote>
+<h2 id="2021-08-24"><a href="#2021-08-24" class="headerlink" title="2021-08-24"></a>2021-08-24</h2><h3 id="羟基（oxhydryl）"><a href="#羟基（oxhydryl）" class="headerlink" title="羟基（oxhydryl）"></a>羟基（oxhydryl）</h3><blockquote>
+<ul>
+<li>是一种常见的极性基团，化学式为-OH</li>
+<li>羟基与水有某些相似的性质，羟基是典型的极性基团，与水可形成氢键，在无机化合物水溶液中以带负电荷的离子形式存在（OH -），称为氢氧根。 羟基主要分为醇羟基，酚羟基等。</li>
+</ul>
+</blockquote>
+<h3 id="烷烃"><a href="#烷烃" class="headerlink" title="烷烃"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%83%B7%E7%83%83/1138261">烷烃</a></h3><blockquote>
+<ul>
+<li>烷烃是一类有机化合物，分子中的碳原子都以碳碳单键相连，其余的价键都与氢结合而成的化合物，分为环烷烃和链烷烃两类。 链烷烃的通式为C<sub>n</sub>H<sub>2n+2</sub>，环烷烃的通式为C<sub>n</sub>H<sub>2n</sub>，是最简单的一类有机化合物。烷烃的主要来源是石油和天然气，是重要的化工原料和能源物资。</li>
+</ul>
+</blockquote>
+</div><table log-set-param="table_view" data-sort="sortDisabled"><caption>一些链烷烃和环烷烃的物理常数</caption><tr><th align="center" width="159"><div class="para" label-module="para">名称</div></th><th align="center" width="144"><div class="para" label-module="para">分子式</div></th><th align="center" width="134"><div class="para" label-module="para">沸点/℃</div></th><th align="center" width="145"><div class="para" label-module="para">熔点/℃</div></th><th align="center" width="165"><div class="para" label-module="para">相对密度</div></th></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E7%94%B2%E7%83%B7/634659" data-lemmaid="634659">甲烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">CH<sub>4</sub></div></td><td align="center" width="134"><div class="para" label-module="para">-161.7</div></td><td align="center" width="145"><div class="para" label-module="para">-182.6</div></td><td align="center" width="165"><div class="para" label-module="para">——</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E4%B9%99%E7%83%B7/2518917" data-lemmaid="2518917">乙烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>2</sub>H<sub>6</sub></div></td><td align="center" width="134"><div class="para" label-module="para">-88.6</div></td><td align="center" width="145"><div class="para" label-module="para">-182.8</div></td><td align="center" width="165"><div class="para" label-module="para">——</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E4%B8%99%E7%83%B7/2276587" data-lemmaid="2276587">丙烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E4%B8%99%E7%83%B7/2283184" data-lemmaid="2283184">环丙烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>3</sub>H<sub>8</sub>(C<sub>3</sub>H<sub>6</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">-42.2(-32.7)</div></td><td align="center" width="145"><div class="para" label-module="para">-187.1(-127.6)</div></td><td align="center" width="165"><div class="para" label-module="para">0.5005</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E4%B8%81%E7%83%B7/16148" data-lemmaid="16148">丁烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E4%B8%81%E7%83%B7/1094770" data-lemmaid="1094770">环丁烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>4</sub>H<sub>10</sub>(C<sub>4</sub>H<sub>8</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">-0.5(12.5)</div></td><td align="center" width="145"><div class="para" label-module="para">-138.4(-80)</div></td><td align="center" width="165"><div class="para" label-module="para">0.5788</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E6%88%8A%E7%83%B7/16218" data-lemmaid="16218">戊烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E6%88%8A%E7%83%B7/2283575" data-lemmaid="2283575">环戊烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>5</sub>H<sub>12</sub>(C<sub>5</sub>H<sub>10</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">36.1(49.3)</div></td><td align="center" width="145"><div class="para" label-module="para">-129.3(-93.9)</div></td><td align="center" width="165"><div class="para" label-module="para">0.6264(0.7457)</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%B7%B1%E7%83%B7/67751" data-lemmaid="67751">己烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E5%B7%B1%E7%83%B7/2283421" data-lemmaid="2283421">环己烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>6</sub>H<sub>14</sub>(C<sub>6</sub>H<sub>12</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">68.7(80.7)</div></td><td align="center" width="145"><div class="para" label-module="para">-94.0(6.6)</div></td><td align="center" width="165"><div class="para" label-module="para">0.6594(0.7786)</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%BA%9A%E7%83%B7/67752" data-lemmaid="67752">庚烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E5%BA%9A%E7%83%B7/2283298" data-lemmaid="2283298">环庚烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>7</sub>H<sub>16</sub>(C<sub>7</sub>H<sub>14</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">98.4(118.5)</div></td><td align="center" width="145"><div class="para" label-module="para">-90.5(-12.0)</div></td><td align="center" width="165"><div class="para" label-module="para">0.6837(0.8098)</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E8%BE%9B%E7%83%B7/53485069" data-lemmaid="53485069">辛烷</a>（<a target=_blank href="https://baike.baidu.com/item/%E7%8E%AF%E8%BE%9B%E7%83%B7/2283629" data-lemmaid="2283629">环辛烷</a>）</div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>8</sub>H<sub>18</sub>(C<sub>8</sub>H<sub>16</sub>)</div></td><td align="center" width="134"><div class="para" label-module="para">125.6(150)</div></td><td align="center" width="145"><div class="para" label-module="para">-56.8(14.3)</div></td><td align="center" width="165"><div class="para" label-module="para">0.7028(0.8349)</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%A3%AC%E7%83%B7/2278510" data-lemmaid="2278510">壬烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>9</sub>H<sub>20</sub></div></td><td align="center" width="134"><div class="para" label-module="para">150.7</div></td><td align="center" width="145"><div class="para" label-module="para">-53.7</div></td><td align="center" width="165"><div class="para" label-module="para">0.7179</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E7%99%B8%E7%83%B7/2277942" data-lemmaid="2277942">癸烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>10</sub>H<sub>22</sub></div></td><td align="center" width="134"><div class="para" label-module="para">174.0</div></td><td align="center" width="145"><div class="para" label-module="para">-29.7</div></td><td align="center" width="165"><div class="para" label-module="para">0.7298</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%B8%80%E7%83%B7/2202828" data-lemmaid="2202828">十一烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>11</sub>H<sub>24</sub></div></td><td align="center" width="134"><div class="para" label-module="para">195.8</div></td><td align="center" width="145"><div class="para" label-module="para">-25.6</div></td><td align="center" width="165"><div class="para" label-module="para">0.7404</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%BA%8C%E7%83%B7/8030427" data-lemmaid="8030427">十二烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>12</sub>H<sub>26</sub></div></td><td align="center" width="134"><div class="para" label-module="para">216.3</div></td><td align="center" width="145"><div class="para" label-module="para">-9.6</div></td><td align="center" width="165"><div class="para" label-module="para">0.7493</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%B8%89%E7%83%B7/2202502" data-lemmaid="2202502">十三烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>13</sub>H<sub>28</sub></div></td><td align="center" width="134"><div class="para" label-module="para">245.4</div></td><td align="center" width="145"><div class="para" label-module="para">-6</div></td><td align="center" width="165"><div class="para" label-module="para">0.7568</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E5%9B%9B%E7%83%B7/2202706" data-lemmaid="2202706">十四烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>14</sub>H<sub>30</sub></div></td><td align="center" width="134"><div class="para" label-module="para">251</div></td><td align="center" width="145"><div class="para" label-module="para">5.5</div></td><td align="center" width="165"><div class="para" label-module="para">0.7636</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%BA%94%E7%83%B7/9731541" data-lemmaid="9731541">十五烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>15</sub>H<sub>32</sub></div></td><td align="center" width="134"><div class="para" label-module="para">268</div></td><td align="center" width="145"><div class="para" label-module="para">10</div></td><td align="center" width="165"><div class="para" label-module="para">0.7688</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E5%85%AD%E7%83%B7/2202136" data-lemmaid="2202136">十六烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>16</sub>H<sub>34</sub></div></td><td align="center" width="134"><div class="para" label-module="para">280</div></td><td align="center" width="145"><div class="para" label-module="para">18.1</div></td><td align="center" width="165"><div class="para" label-module="para">0.7749</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%B8%83%E7%83%B7/10582157" data-lemmaid="10582157">十七烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>17</sub>H<sub>36</sub></div></td><td align="center" width="134"><div class="para" label-module="para">303</div></td><td align="center" width="145"><div class="para" label-module="para">22.0</div></td><td align="center" width="165"><div class="para" label-module="para">0.7767</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E5%85%AB%E7%83%B7/2221838" data-lemmaid="2221838">十八烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>18</sub>H<sub>38</sub></div></td><td align="center" width="134"><div class="para" label-module="para">308</div></td><td align="center" width="145"><div class="para" label-module="para">28.0</div></td><td align="center" width="165"><div class="para" label-module="para">0.7767</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%8D%81%E4%B9%9D%E7%83%B7/2201712" data-lemmaid="2201712">十九烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>19</sub>H<sub>40</sub></div></td><td align="center" width="134"><div class="para" label-module="para">330</div></td><td align="center" width="145"><div class="para" label-module="para">32.0</div></td><td align="center" width="165"><div class="para" label-module="para">0.7776</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E4%BA%8C%E5%8D%81%E7%83%B7/9535207" data-lemmaid="9535207">二十烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>20</sub>H<sub>42</sub></div></td><td align="center" width="134"><div class="para" label-module="para">343</div></td><td align="center" width="145"><div class="para" label-module="para">36.4</div></td><td align="center" width="165"><div class="para" label-module="para">0.7886</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E4%B8%89%E5%8D%81%E7%83%B7/3036509" data-lemmaid="3036509">三十烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>30</sub>H<sub>62</sub></div></td><td align="center" width="134"><div class="para" label-module="para">449.7</div></td><td align="center" width="145"><div class="para" label-module="para">66</div></td><td align="center" width="165"><div class="para" label-module="para">0.7750</div></td></tr><tr><td align="center" width="159"><div class="para" label-module="para"><a target=_blank href="https://baike.baidu.com/item/%E5%9B%9B%E5%8D%81%E7%83%B7/585616" data-lemmaid="585616">四十烷</a></div></td><td align="center" width="144"><div class="para" label-module="para">C<sub>40</sub>H<sub>82</sub></div></td><td align="center" width="134"><div class="para" label-module="para">——</div></td><td align="center" width="145"><div class="para" label-module="para">81</div></td><td align="center" width="165"><div class="para" label-module="para">——</div></td></tr></table><div class="para" label-module="para"><sup class="sup--normal" data-sup="2" data-ctrmap=":2,">
+
+<h2 id="2021-08-29"><a href="#2021-08-29" class="headerlink" title="2021-08-29"></a>2021-08-29</h2><h3 id="精细化力场"><a href="#精细化力场" class="headerlink" title="精细化力场"></a>精细化力场</h3><blockquote>
+<ul>
+<li>精细化力场对分子的描述是超原子级别的，力场中所包含的位点个数多于分子中的原子数，可以更加细致地描述分子的相互作用，如水分子力场中就存在质荷与电荷分开的情况。</li>
+</ul>
+</blockquote>
+<h3 id="全-联合原子力场"><a href="#全-联合原子力场" class="headerlink" title="全/联合原子力场"></a>全/联合原子力场</h3><blockquote>
+<ul>
+<li>原子力场对分子的描述是（准）原子级别的，若考虑分子中的所有原子并为其定义力场参数，则称为全原子力场(OPLS-AA).</li>
+<li>若忽略分子中的一些原子（如非极性H原子），将相互作用整合到相邻原子上，则称为联合原子力场(OPLS-UA)。</li>
+</ul>
+</blockquote>
+<h3 id="粗粒化力场"><a href="#粗粒化力场" class="headerlink" title="粗粒化力场"></a>粗粒化力场</h3><blockquote>
+<ul>
+<li>粗粒化力场对分子的描述是亚原子级别的，它进一步抽象分子结构，将更大的基团视为一个位点，从而简化分子的拓扑形态。</li>
+</ul>
+</blockquote>
+<h3 id="水分子"><a href="#水分子" class="headerlink" title="水分子"></a>水分子</h3><blockquote>
+<ul>
+<li>水分子是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9E%81%E6%80%A7%E5%88%86%E5%AD%90/391574">极性分子</a></li>
+<li>SPC（Simple Point Charge）模型</li>
+</ul>
+</blockquote>
+<h2 id="2021-08-30"><a href="#2021-08-30" class="headerlink" title="2021-08-30"></a>2021-08-30</h2><h3 id="There-are-three-major-types-of-EOR"><a href="#There-are-three-major-types-of-EOR" class="headerlink" title="There are three major types of EOR :"></a>There are three major types of EOR :</h3><blockquote>
+<ul>
+<li>miscible displacement</li>
+<li>chemical flooding</li>
+<li>and thermal recovery.</li>
+</ul>
+</blockquote>
+<h3 id="稠油"><a href="#稠油" class="headerlink" title="稠油"></a>稠油</h3><blockquote>
+<ul>
+<li>稠油四组分：沥青质、胶质、饱和烃和芳香烃（剩余分）</li>
+<li>一般认为，稠油具有粘度高，密度大的特性，其内所含有的沥青质、胶质含量远远高于普通原油。</li>
+<li>中国稠油油藏与国外相差较大，表现在高黏度、低密度、沥青质含量较低、胶质含量较高以及金属含量较低等方面。</li>
+<li><strong>胶质</strong>中含有较多的－ＯＲ、－ＯＨ、－ＣＯＯＲ、－ＳＨ等活性基团。因此，胶质的热稳定性较差，在中高温条件下易发生化学反应，向沥青质进行转化。</li>
+<li><strong>沥青质</strong>是原油中分子量最大的一类组分，相对密度大于１，主要由多环含氧和含硫化合物组成。沥青质不溶于正戊烷但可溶于甲苯。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Oil/china_petroleum.PNG" alt="中国稠油分类标准"></li>
+<li>渤海油田所蕴含的油藏中，85%为稠油油藏;且较为分散，开采时出砂现象较为严重，有一定的开采困难。</li>
+</ul>
+</blockquote>
+<h3 id="海上油藏"><a href="#海上油藏" class="headerlink" title="海上油藏"></a>海上油藏</h3><blockquote>
+<ul>
+<li>我国海上油田稠油储量占总地质储量的 70%左右,开采方式主要有两种</li>
+<li>一种是常规的注水开采，即普通的水驱采油</li>
+<li>一种开采方式为冷采-蒸汽吞吐-蒸汽或热水驱的一系列连续操作流程的热力采油开采方式</li>
+</ul>
+</blockquote>
+<h3 id="渤海油田特点："><a href="#渤海油田特点：" class="headerlink" title="渤海油田特点："></a>渤海油田特点：</h3><blockquote>
+<ul>
+<li>油区分布零散,油藏区块小而多</li>
+<li>油藏储层大多数为疏松的砂岩结构,开采过程中出砂情况比较严重</li>
+<li></li>
+</ul>
+</blockquote>
+<h2 id="2021-08-31"><a href="#2021-08-31" class="headerlink" title="2021-08-31"></a>2021-08-31</h2><h3 id="蒸汽吞吐（CyclicSteamStimulation，CSS）"><a href="#蒸汽吞吐（CyclicSteamStimulation，CSS）" class="headerlink" title="蒸汽吞吐（CyclicSteamStimulation，CSS）"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%92%B8%E6%B1%BD%E5%90%9E%E5%90%90/8461120">蒸汽吞吐（CyclicSteamStimulation，CSS）</a></h3><blockquote>
+<ul>
+<li>汽吞吐就是先向油井注入一定量的蒸汽，关井一段时间，待蒸汽的热能向油层扩散后，再开井生产的一种开采重油的增产方法。蒸汽吞吐作业的过程可分为三个阶段，即注汽、焖井及回采。</li>
+<li>具体步骤为：①将高温蒸汽快速注入到油层中；②焖井，通常2～5天；③开井生产。要根据井深、油层性质、黏度等因素来确定蒸汽注入量以及焖井时间。</li>
+</ul>
+</blockquote>
+<h3 id="蒸汽干度"><a href="#蒸汽干度" class="headerlink" title="蒸汽干度"></a><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%92%B8%E6%B1%BD%E5%B9%B2%E5%BA%A6/159536?fr=aladdin">蒸汽干度</a></h3><blockquote>
+<ul>
+<li>每千克湿蒸汽中含有干饱和蒸汽的质量百分数。蒸汽干度 是油田注汽锅炉安全运行中的一个重要参数，也是影响稠油热采效果的一个重要指标。</li>
+<li>湿蒸汽中气相质量与湿蒸汽总质量（气相+液相）的比值。它是衡量蒸汽质量的重要指标。</li>
+</ul>
+</blockquote>
+<h3 id="我国稠油开发的难点"><a href="#我国稠油开发的难点" class="headerlink" title="我国稠油开发的难点"></a>我国稠油开发的难点</h3><blockquote>
+<ul>
+<li>我国目前已在12个盆地发现了70多个稠油油田，探明储量40亿吨。储量最多的是辽河油田，然后依次是胜利油田、克拉玛依油田和河南油田。海上稠油集中分布在渤海地区，渤海已探明原油地质储量45亿立方米，其中62％为稠油。</li>
+<li>难点1：黏度大、流动性差</li>
+<li>难点2：埋藏深、储层差：与国外稠油油田相比，我国的稠油埋藏深（集中在1000～1500米），又因为储集在疏松的砂岩层中，在开发过程中容易出砂，所以综合开发成本较高。</li>
+</ul>
+</blockquote>
+<h3 id="稠油开发方式"><a href="#稠油开发方式" class="headerlink" title="稠油开发方式"></a><a target="_blank" rel="noopener" href="http://www.cnpc.com.cn/syzs/ktkf/201609/91d90f92948b4c099598c66d120d7527.shtml">稠油开发方式</a></h3><blockquote>
+<ul>
+<li>1．露天开采（SurfaceMining）</li>
+<li>2．注入降黏剂（InjectionViscosityReducingAgent）</li>
+<li>3．蒸汽吞吐法（CyclicSteamStimulation，CSS）</li>
+<li>4．蒸汽驱油（SteamFlooding）</li>
+<li>5．火烧油层法（InSituCombustion）</li>
+<li>6．蒸汽辅助重力泄油（SteamAssistedGravityDrainage，SAGD）</li>
+<li>7．水平段注空气技术（ToetoHeelAirInjection，THAI）</li>
+<li>8．稠油出砂冷采技术（ColdHeavyOilProductionwithSand，CHOPS）</li>
+<li></li>
+</ul>
+</blockquote>
+<h3 id="稠油屈服力"><a href="#稠油屈服力" class="headerlink" title="稠油屈服力"></a>稠油屈服力</h3><blockquote>
+<ul>
+<li> 稠油流变性中一个非常重要的特征就是其具<br>有宾汉流体特征，即为屈服应力值。</li>
+<li>稠油的屈服应力值表征了稠油塑性的大小，体现了稠油具有<br>一定固体类物质的特性。</li>
+<li>稠油屈服值的大小同样也可以反映稠油在管内流动或在地层中渗流时其<br>初始启动压力值的大小，屈服应力值越大，表明稠油的初始启动压力值越大。</li>
+</ul>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202109/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    论文笔记2021-09
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/notes/PaperReadNote202107/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">论文笔记2021-07</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
