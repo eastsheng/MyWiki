@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>论文笔记2021-04 | Eastsheng&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="Paper Notes,2021-04" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc]  黏度（viscosity）：黏度也可以称为粘度，是指流体对流动所表现的阻力。   当流体 (气体或液体) 流动时， 一部分在另一部分上面流动时， 就受到阻力， 这是流体的内摩擦力。 要使流体流动就需在流体流动方向上加一切线力以对抗阻力作用。 黏度系数(简称黏度)η的物理意义是： 在相距单位距离的两液层中， 使单位面积液层维持单位速度差所需的切线力。 其单位在厘米·克·秒(c·g·s)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记2021-04">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki">
+<meta property="og:description" content="[toc]  黏度（viscosity）：黏度也可以称为粘度，是指流体对流动所表现的阻力。   当流体 (气体或液体) 流动时， 一部分在另一部分上面流动时， 就受到阻力， 这是流体的内摩擦力。 要使流体流动就需在流体流动方向上加一切线力以对抗阻力作用。 黏度系数(简称黏度)η的物理意义是： 在相距单位距离的两液层中， 使单位面积液层维持单位速度差所需的切线力。 其单位在厘米·克·秒(c·g·s)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/Blog/latent_heat.jfif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_8.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_9.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_11.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_12.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_13.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_14.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_15.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_16.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_17.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_18.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_19.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_20.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_21.png">
+<meta property="article:published_time" content="2021-04-28T04:18:28.000Z">
+<meta property="article:modified_time" content="2022-03-11T14:40:32.353Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="Paper Notes">
+<meta property="article:tag" content="2021-04">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/Blog/latent_heat.jfif">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            学习笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            杂记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/LaTeX_study/">LaTex Study</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            论文笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2020
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2020/notes/PaperReadNote2020/">论文笔记2020</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            2021
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file active"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/">论文笔记2021-04</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202107/">论文笔记2021-07</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202108/">论文笔记2021-08</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202109/">论文笔记2021-09</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202111/">论文笔记2021-11</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2022
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote2022_01~03/">论文笔记2022-Jan~Mar</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            程序学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C&C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/C&C++/C&C++_%E5%88%9D%E7%BA%A7/">C&C++初级</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorial
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/fortran/tutorial/">Fortran Tutorial</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            error
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/error/fortran/error/">Fortran error</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bug
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Bug/python/problems/">Python问题与解决方法汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Code
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Code/python/python_code_study/">Python 常用基本命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/python/matplotlib/">Matplotlib基本</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/python/matplotlib_bar/">Matplotlib Bar</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/python/matplotlib_legend/">Matplotlib Legend</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/python/matplotlib_twinx/">Matplotlib 双轴</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Numpy
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Numpy/python/numpy/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Pandas
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Pandas/python/pandas_1/">Pandas 基本操作</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tutorials
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/Tutorials/">Python Tutorials</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Tutorials/python/python_link/">Linux Python默认版本设置</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VScode
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/VScode/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            examples
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/examples/python/codes/">Code examples</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            资源收藏
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/">高质量博客/科研主页收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_1/">Open Resources 1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">Open Resources 2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            实用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具收藏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GROMACS
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GULP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GULP/lammps/GULP/">GULP 汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsInstall/">Lammps安装</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/command/">Lammps Command</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/error/">Lammps error</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/lammps/LammpsTutorials2021/">Lammps Tutorials 2021</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/others/index/">Welcome to My Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/2021-11/" style="font-size: 10px;">2021-11</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C-C/" style="font-size: 10px;">C&C++</a> <a href="/tags/C-C-%E5%88%9D%E7%BA%A7/" style="font-size: 10px;">C&C++初级</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 12px;">Collections</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Daily-Notes/" style="font-size: 14px;">Daily Notes</a> <a href="/tags/Fortran/" style="font-size: 12px;">Fortran</a> <a href="/tags/GROMACS%E5%85%A5%E9%97%A8/" style="font-size: 10px;">GROMACS入门</a> <a href="/tags/GULP/" style="font-size: 10px;">GULP</a> <a href="/tags/LaTex/" style="font-size: 10px;">LaTex</a> <a href="/tags/Lammps/" style="font-size: 10px;">Lammps</a> <a href="/tags/Lammps-Notes/" style="font-size: 10px;">Lammps Notes</a> <a href="/tags/Lammps-Tutorials/" style="font-size: 10px;">Lammps Tutorials</a> <a href="/tags/Lammps-error/" style="font-size: 10px;">Lammps error</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Learning-Notes-2022-Jan-Mar/" style="font-size: 10px;">Learning Notes 2022 Jan~Mar</a> <a href="/tags/Linux-error/" style="font-size: 10px;">Linux error</a> <a href="/tags/Linux%E2%80%94Command/" style="font-size: 10px;">Linux—Command</a> <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/" style="font-size: 16px;">Linux学习</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Matplotlib-Bar/" style="font-size: 10px;">Matplotlib Bar</a> <a href="/tags/Matplotlib-Legend/" style="font-size: 10px;">Matplotlib Legend</a> <a href="/tags/Matplotlib-%E5%8F%8C%E8%BD%B4/" style="font-size: 10px;">Matplotlib 双轴</a> <a href="/tags/Notes/" style="font-size: 14px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 12px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Pandas%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Pandas基础</a> <a href="/tags/Paper-Notes/" style="font-size: 18px;">Paper Notes</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 10px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 14px;">Tutorials</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/Windows10-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">Windows10 Linux 子系统</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/examples/" style="font-size: 10px;">examples</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 12px;">乱七八糟的收藏</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" style="font-size: 10px;">虚拟机扩容</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-notes/PaperReadNote202104" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/">2021</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/2021-04/" rel="tag">2021-04</a>, <a class="tag-link-link" href="/tags/Paper-Notes/" rel="tag">Paper Notes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/">
+            <time datetime="2021-04-28T04:18:28.000Z" itemprop="datePublished">2021-04-28</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            论文笔记2021-04
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E5%AD%A6%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">热学概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%83%AD%E5%8A%9B%E5%AD%A6"><span class="toc-number">2.</span> <span class="toc-text">工程热力学</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>[toc]</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%BB%8F%E5%BA%A6">黏度（viscosity）</a>：黏度也可以称为粘度，是指流体对流动所表现的阻力。</p>
+<blockquote>
+<ul>
+<li>当流体 (气体或液体) 流动时， 一部分在另一部分上面流动时， 就受到阻力， 这是流体的内摩擦力。</li>
+<li>要使流体流动就需在流体流动方向上加一切线力以对抗阻力作用。</li>
+<li>黏度系数(简称黏度)η的物理意义是： 在相距单位距离的两液层中， 使单位面积液层维持单位速度差所需的切线力。</li>
+<li>其单位在厘米·克·秒(c·g·s)制中为泊(g·cm-1·s-1)，在SI制中为帕斯卡·秒(Pa·s或kg·m-1·s-1)，1泊=0.1帕·秒。</li>
+<li>黏度又称黏滞系数，是量度流体黏滞性大小的物理量。流体中相距dx的两平行液层，由于内摩擦，使垂直于流动方向的液层间存在速度梯度dv/dx，当速度梯度为1个单位，相邻流层接触面S上所产生的黏滞力F(亦称内摩擦力)即黏度，单位：Pa·s。</li>
+<li>2021/6/6</li>
+</ul>
+</blockquote>
+<h3 id="热学概念"><a href="#热学概念" class="headerlink" title="热学概念"></a><strong>热学概念</strong></h3></li>
+<li><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%BD%9C%E7%83%AD">潜热（latent heat）</a>：状态量<br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/Blog/latent_heat.jfif"></p>
+<blockquote>
+<ul>
+<li>潜热，<strong>相变潜热</strong>的简称，指物质在等温等压情况下，从一个相变化到另一个相吸收或放出的热量。</li>
+<li>这是物体在固、液、气三相之间以及不同的固相之间相互转变时具有的特点之一。</li>
+<li>固、液之间的潜热称为<strong>熔解热</strong>（或凝固热）；</li>
+<li>液、气之间的称为<strong>汽化热</strong>（或凝结热）；</li>
+<li>而固、气之间的称为<strong>升华热</strong>（或凝华热）。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%A5%B1%E5%92%8C%E8%92%B8%E6%B1%BD">饱和蒸汽（saturated vapor）</a>：指饱和状态下的蒸汽</p>
+<blockquote>
+<ul>
+<li>未经过热处理的蒸汽称为饱和蒸汽；</li>
+<li>饱和蒸汽是在一个大气压下，温度为100度的蒸汽，温度不能再升高，是饱和状态下的蒸汽。</li>
+<li>饱和蒸汽由气体分子之间的热运动现象造成的。</li>
+<li>在饱和状态下的液体称为饱和液体，其蒸汽称为干饱和蒸汽（也称饱和蒸汽）。 </li>
+<li>它是无色、无味、不能燃烧又无腐蚀性的气体。</li>
+<li>饱和蒸汽的温度与压力之间一一对应，二者之间只有一个独立变量。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="工程热力学"><a href="#工程热力学" class="headerlink" title="工程热力学"></a><strong>工程热力学</strong></h3><ol>
+<li><p>刚性绝热容器分隔成两部分，一部分装气体，一部分抽成真空，中间是隔板，当取气体为系统时，若突然抽去隔板，系统不做功？<sup>[1]</sup><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_1.png"></p>
+</li>
+<li><p>思考题<sup>[2],[4]</sup>：<br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_2.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_3.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_5.png"></p>
+</li>
+<li><p>选择题<sup>[3]</sup><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_4.png"></p>
+</li>
+</ol>
+<ol start="4">
+<li>概念<sup>[5]</sup><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_6.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_7.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_8.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_9.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_10.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_11.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_12.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_13.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_14.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_15.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_16.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_17.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_18.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_19.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_20.png"><br><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/gcrlx_21.png"></li>
+</ol>
+<ul>
+<li>参考：<br>[1] 慕课片段 <a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231964">https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231964</a><br>[2] 慕课片段 <a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231978&amp;sm=1">https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231978&amp;sm=1</a><br>[3] 慕课片段 <a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231979&amp;cid=1261672279&amp;replay=true">https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231979&amp;cid=1261672279&amp;replay=true</a><br>[4] 慕课片段 <a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231981&amp;sm=1">https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231981&amp;sm=1</a><br>[5] 慕课片段 <a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231982&amp;sm=1">https://www.icourse163.org/learn/SJTU-1002535024?tid=1463098466#/learn/content?type=detail&amp;id=1240231982&amp;sm=1</a></li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    软件收藏
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">高质量博客/科研主页收藏</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
