@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Fortran-01 | Eastsheng&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="Fortran,Fortran Tutorial" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc] Sublime Text配置Fortran高亮 下载插件fortran.tmbundle 解压到C:\Users\xxx\AppData\Roaming\Sublime Text\Packages,通过Sublime Text面板中Preferences&gt;Browse Packages可以打开  一个Fortran程序基本格式12345678!program main ! 程序开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fortran-01">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki">
+<meta property="og:description" content="[toc] Sublime Text配置Fortran高亮 下载插件fortran.tmbundle 解压到C:\Users\xxx\AppData\Roaming\Sublime Text\Packages,通过Sublime Text面板中Preferences&gt;Browse Packages可以打开  一个Fortran程序基本格式12345678!program main ! 程序开">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/323590300227051.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/274301000247217.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/244921700239886.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/251471800236441.png">
+<meta property="article:published_time" content="2022-07-16T10:11:28.000Z">
+<meta property="article:modified_time" content="2022-07-16T16:24:54.998Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="Fortran">
+<meta property="article:tag" content="Fortran Tutorial">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/323590300227051.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/journals">Journals</a>
+                
+                    <a class="main-nav-link" href="/lifetime">倒计时</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/journals">Journals</a></td>
+                
+                    <td><a class="main-nav-link" href="/lifetime">倒计时</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            杂记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2022/">日常笔记2022</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            论文笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2020
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2020/notes/PaperReadNote2020/">论文笔记2020</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2021
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/">论文笔记2021-04</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202107/">论文笔记2021-07</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202108/">论文笔记2021-08</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202109/">论文笔记2021-09</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202111/">论文笔记2021-11</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2022
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202201/">论文笔记2022-01</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202206/">论文笔记2022-06</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            程序学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C&C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E5%88%9D%E7%BA%A7/">C&C++初级</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B001/">C&C++笔记-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B002/">C&C++笔记-02</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Tutorial
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/tutorial/">Fortran Tutorial</a></li>  <li class="file active"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/">Fortran-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            error
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/error/codes/fortran/error/">Fortran error</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/basics/">Markdown Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/LaTeX_study/">LaTex Study</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matlab
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Matlab/codes/matlab/basics/">Matlab Tutorial</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            APP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/APP/codes/python/app/app_coding/">Python写APP</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib/">Matplotlib基本</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_bar/">Matplotlib Bar</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_twinx/">Matplotlib 双轴</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_legend/">Matplotlib Legend</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Numpy
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Numpy/codes/python/numpy/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Pandas
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Pandas/codes/python/pandas_1/">Pandas 基本操作</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/codes/">Code examples</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/problems/">Python问题与解决方法汇总</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_code_study/">Python 常用基本命令</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Tutorials/">Python Tutorials收藏</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_link/">Linux Python默认版本设置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Anaconda/">Python Anaconda</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_skills/">Python奇淫巧计</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            资源收藏
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/">高质量博客/科研主页收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_1/">Open Resources 1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">Open Resources 2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            实用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具收藏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            FLUENT
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/FLUENT/softwares/fluent/Fluent_%E7%AC%94%E8%AE%B0/">FLUENT 笔记-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GROMACS
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GULP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GULP/softwares/GULP/">GULP 汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsInstall/">Lammps安装</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/command/">Lammps Command</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/error/">Lammps error</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsTutorials2021/">Lammps Tutorials 2021</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/read_multi_data/">LAMMPS中读取多个Data</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/change_box/">Change Box</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/others/index/">Welcome to My Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title"><span>友链</span></h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://zequnw.github.io/wiki/">Zequn&#39;s Wiki Site</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://eastsheng.github.io/">EASTSHENG</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/2021-11/" style="font-size: 10px;">2021-11</a> <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C-C/" style="font-size: 14px;">C&C++</a> <a href="/tags/C-C-%E5%88%9D%E7%BA%A7/" style="font-size: 14px;">C&C++初级</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 12px;">Collections</a> <a href="/tags/Command/" style="font-size: 10px;">Command</a> <a href="/tags/Daily-Notes/" style="font-size: 16px;">Daily Notes</a> <a href="/tags/FLUENT%E5%85%A5%E9%97%A8/" style="font-size: 10px;">FLUENT入门</a> <a href="/tags/Fortran/" style="font-size: 14px;">Fortran</a> <a href="/tags/Fortran-Tutorial/" style="font-size: 10px;">Fortran Tutorial</a> <a href="/tags/GROMACS%E5%85%A5%E9%97%A8/" style="font-size: 10px;">GROMACS入门</a> <a href="/tags/GULP/" style="font-size: 10px;">GULP</a> <a href="/tags/LAMMPS%E4%B8%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E4%B8%AAData/" style="font-size: 10px;">LAMMPS中读取多个Data</a> <a href="/tags/LaTex/" style="font-size: 10px;">LaTex</a> <a href="/tags/Lammps/" style="font-size: 10px;">Lammps</a> <a href="/tags/Lammps-Notes/" style="font-size: 10px;">Lammps Notes</a> <a href="/tags/Lammps-Tutorials/" style="font-size: 14px;">Lammps Tutorials</a> <a href="/tags/Lammps-error/" style="font-size: 10px;">Lammps error</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Learning-Notes-2022/" style="font-size: 12px;">Learning Notes 2022</a> <a href="/tags/Linux-error/" style="font-size: 10px;">Linux error</a> <a href="/tags/Linux%E2%80%94Command/" style="font-size: 10px;">Linux—Command</a> <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/" style="font-size: 16px;">Linux学习</a> <a href="/tags/Markdown/" style="font-size: 12px;">Markdown</a> <a href="/tags/Matlab/" style="font-size: 10px;">Matlab</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Matplotlib-Bar/" style="font-size: 10px;">Matplotlib Bar</a> <a href="/tags/Matplotlib-Legend/" style="font-size: 10px;">Matplotlib Legend</a> <a href="/tags/Matplotlib-%E5%8F%8C%E8%BD%B4/" style="font-size: 10px;">Matplotlib 双轴</a> <a href="/tags/Notes/" style="font-size: 16px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 12px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Pandas%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Pandas基础</a> <a href="/tags/Paper-Notes/" style="font-size: 18px;">Paper Notes</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 14px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 18px;">Tutorials</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/Windows10-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">Windows10 Linux 子系统</a> <a href="/tags/change-box/" style="font-size: 10px;">change_box</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/examples/" style="font-size: 10px;">examples</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 12px;">乱七八糟的收藏</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" style="font-size: 10px;">虚拟机扩容</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-codes/fortran/fortran_01" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/">程序学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/">Fortran</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/">Tutorial</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Fortran/" rel="tag">Fortran</a>, <a class="tag-link-link" href="/tags/Fortran-Tutorial/" rel="tag">Fortran Tutorial</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/">
+            <time datetime="2022-07-16T10:11:28.000Z" itemprop="datePublished">2022-07-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Fortran-01
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sublime-Text%E9%85%8D%E7%BD%AEFortran%E9%AB%98%E4%BA%AE"><span class="toc-number">1.</span> <span class="toc-text">Sublime Text配置Fortran高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AAFortran%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">一个Fortran程序基本格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%9C%86%E9%94%A5%E5%BA%95%E9%9D%A2%E5%8D%8A%E5%BE%84r%E5%92%8C%E9%AB%98h%EF%BC%8C%E6%B1%82%E4%BD%93%E7%A7%AF%E5%92%8C%E8%A1%A8%E9%9D%A2%E7%A7%AF"><span class="toc-number">3.</span> <span class="toc-text">输入圆锥底面半径r和高h，求体积和表面积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%88%AB%E6%B1%82%E5%8D%8A%E5%BE%84R-1%EF%BC%8C3%EF%BC%8C12-5%E6%97%B6%E7%9A%84%E5%9C%86%E5%91%A8%E9%95%BF%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">分别求半径R&#x3D;1，3，12.5时的圆周长。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">一些内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E8%AF%AF%E5%B7%AE"><span class="toc-number">6.</span> <span class="toc-text">运算误差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%89%87%E5%BD%A2%E7%9A%84%E5%8D%8A%E5%BE%84-r-%E5%8F%8A%E5%9C%86%E5%BF%83%E8%A7%92-theta-%EF%BC%8C%E6%B1%82%E9%9D%A2%E7%A7%AF%E7%AD%89"><span class="toc-number">7.</span> <span class="toc-text">对于给定扇形的半径$r$及圆心角$\theta$，求面积等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0N-N%EF%BC%9E3-%E6%98%AF%E5%90%A6%E7%B4%A0%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">判断一个数N(N＞3)是否素数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">9.</span> <span class="toc-text">关系运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91"><span class="toc-number">10.</span> <span class="toc-text">逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%94%9F%E8%80%83%E8%AF%95%E5%90%88%E6%A0%BC%E4%BA%BA%E6%95%B0"><span class="toc-number">11.</span> <span class="toc-text">统计学生考试合格人数</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>[toc]</p>
+<h3 id="Sublime-Text配置Fortran高亮"><a href="#Sublime-Text配置Fortran高亮" class="headerlink" title="Sublime Text配置Fortran高亮"></a>Sublime Text配置Fortran高亮</h3><ul>
+<li>下载插件<a target="_blank" rel="noopener" href="https://github.com/textmate/fortran.tmbundle">fortran.tmbundle</a></li>
+<li>解压到<code>C:\Users\xxx\AppData\Roaming\Sublime Text\Packages</code>,通过Sublime Text面板中<code>Preferences&gt;Browse Packages</code>可以打开</li>
+</ul>
+<h3 id="一个Fortran程序基本格式"><a href="#一个Fortran程序基本格式" class="headerlink" title="一个Fortran程序基本格式"></a>一个Fortran程序基本格式</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">!program main ! 程序开始，其后跟程序名。这一行可省略。</span></span><br><span class="line"><span class="keyword">real</span> :: c, d, av3, av4 <span class="comment">! 定义实数型变量。整数型，则用 integer。</span></span><br><span class="line"><span class="comment">!read *, c, d ! 输入语句1</span></span><br><span class="line">read(*,*) c, d <span class="comment">! 输入语句2:星号意指默认的输入输出硬件(键盘和屏幕)及格式</span></span><br><span class="line">	av3 = (c + d)/<span class="number">2</span>; av4 = (c*d)**<span class="number">0.5</span> <span class="comment">! 运算 + - * / **</span></span><br><span class="line"><span class="built_in">print</span> *, av3, av4 <span class="comment">! 输出语句1</span></span><br><span class="line"><span class="built_in">write</span>(*,*) av3, av4 <span class="comment">! 输出语句2</span></span><br><span class="line"><span class="keyword">end</span><span class="comment">! 程序结束</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输入圆锥底面半径r和高h，求体积和表面积"><a href="#输入圆锥底面半径r和高h，求体积和表面积" class="headerlink" title="输入圆锥底面半径r和高h，求体积和表面积"></a>输入圆锥底面半径r和高h，求体积和表面积</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main </span><br><span class="line"><span class="keyword">real</span> :: r, h, pi, v, s <span class="comment">! 定义半径、高、体积变量</span></span><br><span class="line">pi = <span class="number">3.1415926</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;输入圆锥半径r和高h！&quot;</span></span><br><span class="line">read(*,*) r, h <span class="comment">! 输入半径和高</span></span><br><span class="line">v = (pi*r**<span class="number">2</span>*h)/<span class="number">3</span> <span class="comment">! 计算圆锥体积</span></span><br><span class="line">s = pi*r**<span class="number">2</span>+pi*r*(<span class="built_in">sqrt</span>(r**<span class="number">2</span>+h**<span class="number">2</span>)) <span class="comment">! 计算圆锥体积</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;圆锥体积为v:&quot;</span>,v ; <span class="built_in">write</span>(*,*) <span class="string">&quot;圆锥表面积为s:&quot;</span>,s  <span class="comment">! F90中用“；”将两行并为一行。</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<h3 id="分别求半径R-1，3，12-5时的圆周长。"><a href="#分别求半径R-1，3，12-5时的圆周长。" class="headerlink" title="分别求半径R=1，3，12.5时的圆周长。"></a>分别求半径R=1，3，12.5时的圆周长。</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">real</span> :: r(<span class="number">3</span>) </span><br><span class="line"><span class="keyword">data</span> r /<span class="number">1</span>, <span class="number">3</span>, <span class="number">12.5</span>/</span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>,<span class="number">3</span></span><br><span class="line">	<span class="built_in">print</span> *, <span class="string">&#x27;半径＝&#x27;</span>, r(i), <span class="string">&#x27;圆周长＝&#x27;</span>, C(r(i))</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> c(radius)</span><br><span class="line">	pi=<span class="built_in">acos</span>(-<span class="number">1.0</span>)</span><br><span class="line">	c=<span class="number">2</span>*pi*radius</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一些内置函数"><a href="#一些内置函数" class="headerlink" title="一些内置函数"></a>一些内置函数</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="comment">! 变量类型</span></span><br><span class="line"><span class="keyword">integer</span> :: i,j				 <span class="comment">! (整型说明语句)</span></span><br><span class="line"><span class="keyword">real</span> :: x,y 				 <span class="comment">! (实型说明语句)</span></span><br><span class="line"><span class="keyword">double</span> <span class="keyword">precision</span> :: m,n 	 <span class="comment">! (双精度说明语句)</span></span><br><span class="line"><span class="keyword">complex</span> :: o,p 				 <span class="comment">! (复型说明语句)</span></span><br><span class="line"><span class="keyword">logical</span> :: t,f 				 <span class="comment">! (逻辑型说明语句)</span></span><br><span class="line"><span class="keyword">character</span> :: a,b 			 <span class="comment">! (字符型说明语句)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">! 内置函数</span></span><br><span class="line">i = <span class="built_in">sqrt</span>(<span class="number">4.0</span>)	<span class="comment">! 开方!括号内必须是 REAL or COMPLEX</span></span><br><span class="line"><span class="built_in">print</span> *, <span class="string">&quot;4.0开方=(整型)&quot;</span>,i</span><br><span class="line">j = <span class="built_in">sin</span>(<span class="number">2.0</span>)	<span class="comment">! 三角函数!括号内必须是 REAL or COMPLEX</span></span><br><span class="line">j1 = <span class="built_in">cos</span>(<span class="number">2.0</span>); j2 = <span class="built_in">asin</span>(<span class="number">1.0</span>); j3 = <span class="built_in">acos</span>(<span class="number">1.0</span>)</span><br><span class="line">j4 = <span class="built_in">tan</span>(<span class="number">2.0</span>); j5 = <span class="built_in">atan</span>(<span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*)  <span class="string">&quot;2.0的正弦函数值=(整型)&quot;</span>,j,j1,j2,j3,j4,j5</span><br><span class="line"></span><br><span class="line">x = <span class="built_in">exp</span>(<span class="number">6.0</span>)<span class="comment">!括号内必须是 REAL or COMPLEX</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;6.0的e指数(实型)=&quot;</span>,x</span><br><span class="line"></span><br><span class="line">y = <span class="built_in">log</span>(<span class="number">3.0</span>)<span class="comment">!括号内必须是 REAL or COMPLEX</span></span><br><span class="line">y1 = <span class="built_in">log10</span>(<span class="number">3.0</span>)</span><br><span class="line">y2 = <span class="built_in">alog</span>(<span class="number">3.0</span>)</span><br><span class="line">y3 = <span class="built_in">alog10</span>(<span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;3.0的log值(实型)=&quot;</span>,y,y1,y2,y3</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">abs</span>(-<span class="number">3.333</span>); m1 = <span class="built_in">int</span>(<span class="keyword">real</span>(-<span class="number">3</span>))</span><br><span class="line"><span class="built_in">write</span>(*,*) m,m1</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">mod</span>(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">!求余</span></span><br><span class="line">n1 = <span class="built_in">sign</span>(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">!求符号</span></span><br><span class="line">n2 = <span class="built_in">max</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n3 = <span class="built_in">max0</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n4 = <span class="built_in">min</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n5 = <span class="built_in">min0</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*) n,n1,n2,n3,n4,n5</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/323590300227051.png"></li>
+<li>函数名分为“通用名”和“专用名”例如求余函数的“通用名”为MOD，“专用名”有三个(MOD，AMOD，DMOD)。</li>
+<li>根据自变量的类型就自动确定了函数值的类型，如MOD(8,3)的值为整型，而MOD(8.0,3.0)的值为实型。</li>
+<li>当调用子程序时如果用内在函数作为自变量(实参)，必须使用该内在函数的专用名。</li>
+</ul>
+<h3 id="运算误差"><a href="#运算误差" class="headerlink" title="运算误差"></a>运算误差</h3><ul>
+<li>为减小误差，在写表达式时应尽量使每一次运算结果都在有效位数范围之内;</li>
+<li>尽量不要使两个相差很大的数值直接相加或相减。</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">real</span>*<span class="number">8</span> a</span><br><span class="line"></span><br><span class="line">a=<span class="number">11111.1</span>  *<span class="number">1111.11</span>  ; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">11111.1d0</span>*<span class="number">1111.11d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"></span><br><span class="line">a=<span class="number">0.001</span>+<span class="number">1246825.0</span>-<span class="number">1246820.0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"></span><br><span class="line">a=<span class="number">1246825.0</span>  -<span class="number">1246820.0</span>  +<span class="number">0.001</span>  ; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825.0d0</span>-<span class="number">1246820.0d0</span>+<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825</span>    -<span class="number">1246820</span>    +<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825.0</span>  -<span class="number">1246820.0</span>  +<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">! output</span></span><br><span class="line"><span class="comment">!    12345654.000000000</span></span><br><span class="line"><span class="comment">!    12345654.320999999</span></span><br><span class="line"><span class="comment">!    5.0000000000000000</span></span><br><span class="line"><span class="comment">!    5.0009999275207520</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对于给定扇形的半径-r-及圆心角-theta-，求面积等"><a href="#对于给定扇形的半径-r-及圆心角-theta-，求面积等" class="headerlink" title="对于给定扇形的半径$r$及圆心角$\theta$，求面积等"></a>对于给定扇形的半径$r$及圆心角$\theta$，求面积等</h3><ul>
+<li>对于给定扇形的半径$r$及圆心角$\theta$，弦长$b=2rsin(\frac \theta 2)$，拱高$h=2rsin^2(\frac \theta 4)$，弧度$\alpha=\frac {2\pi\theta} {360}$，面积$S={\frac 1 2}\alpha r^2-\alpha \sqrt{r^2-{\theta}^2}$。编一程序，对任意给定的$r$及$\theta$，输出$h$、$b$及$S$值。</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">real</span> :: r, theta, b, h, alpha, S</span><br><span class="line"></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;请分别输入扇形半径、圆心角: &quot;</span></span><br><span class="line">read(*,*) r, theta</span><br><span class="line">b = huchang(r,theta)</span><br><span class="line">h = gonggao(r,theta)</span><br><span class="line">alpha = hudu(theta)</span><br><span class="line">S = mianji(r,alpha)</span><br><span class="line"></span><br><span class="line"><span class="built_in">write</span>(*,*) b,h,alpha,S</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> huchang(r,theta)</span><br><span class="line">	b = <span class="number">2</span>*r*<span class="built_in">sin</span>(theta/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> huchang</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> gonggao(r,theta)</span><br><span class="line">	h = <span class="number">2</span>*r*(<span class="built_in">sin</span>(theta/<span class="number">4</span>)**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> gonggao</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> hudu(theta)</span><br><span class="line">	<span class="keyword">real</span> :: pi</span><br><span class="line">	pi = <span class="number">3.1415926</span></span><br><span class="line">	alpha = <span class="number">2</span>*pi*theta/<span class="number">360.0</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> hudu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> mianji(r,alpha)</span><br><span class="line">	S = <span class="number">0.5</span>*alpha*(r**<span class="number">2</span>)-alpha*<span class="built_in">sqrt</span>(r**<span class="number">2</span>-alpha**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> mianji</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断一个数N-N＞3-是否素数"><a href="#判断一个数N-N＞3-是否素数" class="headerlink" title="判断一个数N(N＞3)是否素数"></a>判断一个数N(N＞3)是否素数</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">    read *, n</span><br><span class="line">    i=<span class="number">2</span></span><br><span class="line">    <span class="number">1</span> <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">mod</span>(n,i).eq<span class="number">.0</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">print</span> *, <span class="string">&#x27;不是素数，可被&#x27;</span>,i,<span class="string">&#x27;整除&#x27;</span></span><br><span class="line"><span class="comment">!       end if</span></span><br><span class="line"><span class="comment">!     if(mod(n,i).ne.0) then</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">          i=i+<span class="number">1</span></span><br><span class="line">          <span class="keyword">if</span>(i.le.<span class="built_in">int</span>(<span class="built_in">sqrt</span>(n*<span class="number">1.</span>))) <span class="keyword">goto</span> <span class="number">1</span></span><br><span class="line">          <span class="built_in">print</span> *, <span class="string">&#x27;是素数&#x27;</span></span><br><span class="line">      <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><ul>
+<li><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/274301000247217.png"></li>
+</ul>
+<h3 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h3><ul>
+<li>逻辑量：<code>Fortran</code>的逻辑常量只有两个：<code>.TRUE.</code> (表示“真”，即满足逻辑条件)； <code>.FALSE.</code> (表示“假”，即不满足逻辑条件)。</li>
+<li>逻辑运算符<blockquote>
+<p><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/244921700239886.png"></p>
+</blockquote>
+</li>
+<li>逻辑表达式的运算<blockquote>
+<p><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_01.md/251471800236441.png"></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="统计学生考试合格人数"><a href="#统计学生考试合格人数" class="headerlink" title="统计学生考试合格人数"></a>统计学生考试合格人数</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">! F90的固定格式 －－－－－统计学生考试合格人数 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">  <span class="keyword">INTEGER</span> :: n, s, k</span><br><span class="line">  s = <span class="number">0</span>; k = <span class="number">0</span></span><br><span class="line">  <span class="number">1</span> <span class="built_in">PRINT</span>*,<span class="string">&#x27;键入分数 （负数时退出）：&#x27;</span></span><br><span class="line">  READ*, n </span><br><span class="line">  <span class="keyword">IF</span>(n &lt; <span class="number">0</span>) <span class="keyword">GOTO</span> <span class="number">666</span></span><br><span class="line">  s = s + <span class="number">1</span></span><br><span class="line">  <span class="keyword">IF</span>(n &gt;= <span class="number">60</span>) k = k + <span class="number">1</span></span><br><span class="line">  <span class="keyword">GOTO</span> <span class="number">1</span></span><br><span class="line">  <span class="number">666</span> <span class="built_in">PRINT</span>*, k,<span class="string">&#x27; 个学生合格。 总人数＝&#x27;</span>, s</span><br><span class="line"><span class="keyword">END</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_skills/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Python奇淫巧计</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
