@@ -3,37 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>日常笔记2021 | Eastsheng&#39;s Wiki</title>
+    <title>Fortran-02 | Eastsheng&#39;s Wiki</title>
     
     
-        <meta name="keywords" content="Daily Notes" />
+        <meta name="keywords" content="Fortran,Fortran Tutorial" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="[toc] 1. 只要使用键盘Materials Studio就卡住 解决方法：在微软拼音输入法的“中”(或“英”)字上右击鼠标，然后点“设置”，在弹出界面中点“常规”，在新界面中向下滚动动底部，有个兼容性，打开兼容性，然后就OK了。 参考链接:[1] http:&#x2F;&#x2F;muchong.com&#x2F;t-14329827-1  2. 最新WIN10 20H2系统找回经典系统属性界面的最彻底的方法 重装了Wi">
+    <meta name="description" content="[toc] IF ELSE THEN 语句12345678910PROGRAM MAIN   REAL :: x; READ *, x   IF(x&gt;0.0 .and. x&lt;1.0) THEN      PRINT *, &quot;  在区间(0, 1)中&quot;   ELSE IF(x&lt;0 .and. x&gt;-1) THEN      PRINT *, &quot;在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日常笔记2021">
-<meta property="og:url" content="https://eastsheng.github.io/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/index.html">
+<meta property="og:title" content="Fortran-02">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_02/index.html">
 <meta property="og:site_name" content="Eastsheng&#39;s Wiki">
-<meta property="og:description" content="[toc] 1. 只要使用键盘Materials Studio就卡住 解决方法：在微软拼音输入法的“中”(或“英”)字上右击鼠标，然后点“设置”，在弹出界面中点“常规”，在新界面中向下滚动动底部，有个兼容性，打开兼容性，然后就OK了。 参考链接:[1] http:&#x2F;&#x2F;muchong.com&#x2F;t-14329827-1  2. 最新WIN10 20H2系统找回经典系统属性界面的最彻底的方法 重装了Wi">
+<meta property="og:description" content="[toc] IF ELSE THEN 语句12345678910PROGRAM MAIN   REAL :: x; READ *, x   IF(x&gt;0.0 .and. x&lt;1.0) THEN      PRINT *, &quot;  在区间(0, 1)中&quot;   ELSE IF(x&lt;0 .and. x&gt;-1) THEN      PRINT *, &quot;在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://filestore.community.support.microsoft.com/api/images/25b29daa-46b9-47c5-8875-3952d3cf174b?upload=true">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/origin_bug.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Office/1.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/others/vscode_1.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_1.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_2.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_3.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_4.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_5.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_6.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_7.PNG">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_8.PNG">
-<meta property="article:published_time" content="2021-01-22T10:11:28.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:41:35.166Z">
+<meta property="article:published_time" content="2022-07-17T10:11:28.000Z">
+<meta property="article:modified_time" content="2022-07-17T04:48:46.922Z">
 <meta property="article:author" content="Eastsheng">
-<meta property="article:tag" content="Daily Notes">
+<meta property="article:tag" content="Fortran">
+<meta property="article:tag" content="Fortran Tutorial">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://filestore.community.support.microsoft.com/api/images/25b29daa-46b9-47c5-8875-3952d3cf174b?upload=true">
     
 
     
@@ -209,20 +197,20 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             学习笔记
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             杂记
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file active"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2022/">日常笔记2022</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2022/">日常笔记2022</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -263,9 +251,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             程序学习
                         </a>
@@ -279,20 +267,20 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E5%88%9D%E7%BA%A7/">C&C++初级</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B001/">C&C++笔记-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B002/">C&C++笔记-02</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Fortran
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Tutorial
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/tutorial/">Fortran Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/">Fortran-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_02/">Fortran-02</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/tutorial/">Fortran Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/">Fortran-01</a></li>  <li class="file active"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_02/">Fortran-02</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -551,7 +539,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-notes/DailyNotes2021" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-codes/fortran/fortran_02" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -561,20 +549,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/">杂记</a>
+        <a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/">程序学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/">Fortran</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/">Tutorial</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Daily-Notes/" rel="tag">Daily Notes</a>
+        <a class="tag-link-link" href="/tags/Fortran/" rel="tag">Fortran</a>, <a class="tag-link-link" href="/tags/Fortran-Tutorial/" rel="tag">Fortran Tutorial</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">
-            <time datetime="2021-01-22T10:11:28.000Z" itemprop="datePublished">2021-01-22</time>
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_02/">
+            <time datetime="2022-07-17T10:11:28.000Z" itemprop="datePublished">2022-07-17</time>
         </a>
     </div>
 
@@ -589,7 +577,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            日常笔记2021
+            Fortran-02
         </h1>
     
 
@@ -602,125 +590,19 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%AA%E8%A6%81%E4%BD%BF%E7%94%A8%E9%94%AE%E7%9B%98Materials-Studio%E5%B0%B1%E5%8D%A1%E4%BD%8F"><span class="toc-number">1.</span> <span class="toc-text">1. 只要使用键盘Materials Studio就卡住</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%80%E6%96%B0WIN10-20H2%E7%B3%BB%E7%BB%9F%E6%89%BE%E5%9B%9E%E7%BB%8F%E5%85%B8%E7%B3%BB%E7%BB%9F%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2%E7%9A%84%E6%9C%80%E5%BD%BB%E5%BA%95%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">2. 最新WIN10 20H2系统找回经典系统属性界面的最彻底的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-OPLS-optimized-potentials-for-liquid-simulations"><span class="toc-number">3.</span> <span class="toc-text">3. OPLS(optimized potentials for liquid simulations)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-AMBER%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8BB0%EF%BC%9AAMBER%E5%88%86%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%A8%A1%E6%8B%9F%E5%85%A5%E9%97%A8"><span class="toc-number">4.</span> <span class="toc-text">4. [AMBER基础教程B0：AMBER分子动力学模拟入门]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%9B%BD%E5%86%859%E5%A4%A7%E5%85%8D%E8%B4%B9CDN%E6%B1%87%E6%80%BB-%E8%BD%AC"><span class="toc-number">5.</span> <span class="toc-text">5. 国内9大免费CDN汇总 转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-ctrl-c%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="toc-number">6.</span> <span class="toc-text">6. ctrl+c没反应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-R7000office%E6%97%B6%E4%B8%8D%E6%97%B6%E9%97%AA%E9%BB%91%E5%B1%8F"><span class="toc-number">7.</span> <span class="toc-text">7. R7000office时不时闪黑屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B%E5%8F%82%E8%80%83"><span class="toc-number">8.</span> <span class="toc-text">8. 双系统教程参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Origin-Copy-Page%E5%88%B0Word%E6%88%96PPT%E5%90%8E%E4%BE%A7%E8%BE%B9%E7%A9%BA%E7%99%BD%E5%A4%9A%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">9. Origin, Copy Page到Word或PPT后侧边空白多？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-FFTW"><span class="toc-number">10.</span> <span class="toc-text">10. FFTW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%8C%E6%95%B4%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAlinux"><span class="toc-number">11.</span> <span class="toc-text">11. Vmware虚拟机完整创建一个linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%9C%A8VMD%E4%B8%AD%E6%98%BE%E7%A4%BA%E5%8E%9F%E5%AD%90%E5%BA%8F%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">12. 在VMD中显示原子序号的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-PhpStudy"><span class="toc-number">13.</span> <span class="toc-text">13. PhpStudy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">14.</span> <span class="toc-text">14. 搭建本地服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-MathType7"><span class="toc-number">15.</span> <span class="toc-text">15. MathType7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-Office%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E8%87%B3C%E7%9B%98%E4%BF%AE%E6%94%B9%EF%BC%88%E5%A6%82%E6%9E%9C%E5%A4%9F%E7%94%A8%E4%B8%8D%E5%BB%BA%E8%AE%AE%EF%BC%89"><span class="toc-number">16.</span> <span class="toc-text">16. Office自动安装至C盘修改（如果够用不建议）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-npm-install-error-code-EBADPLATFORM"><span class="toc-number">17.</span> <span class="toc-text">17. npm install error (code EBADPLATFORM)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-PC-VMware%E5%AE%89%E8%A3%85%E5%AE%89%E5%8D%93%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">18.</span> <span class="toc-text">18. PC VMware安装安卓虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-autoCAD-plant-3D-2022"><span class="toc-number">19.</span> <span class="toc-text">19. autoCAD plant 3D 2022</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-VS-code%E6%80%8E%E4%B9%88%E5%90%8C%E6%97%B6%E5%BC%80%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">20.</span> <span class="toc-text">20. VS code怎么同时开多个文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E6%8C%96%E7%9F%BF%E6%B5%81%E7%A8%8B"><span class="toc-number">21.</span> <span class="toc-text">21. 挖矿流程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#IF-ELSE-THEN-%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.</span> <span class="toc-text">IF ELSE THEN 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tiny%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">tiny函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CASE%E8%AF%AD%E5%8F%A5%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%94%9F%E8%80%83%E8%AF%95%E6%88%90%E7%BB%A9"><span class="toc-number">3.</span> <span class="toc-text">CASE语句：统计学生考试成绩</span></a></li></ol>
                 </div>
             
         
         
             <p>[toc]</p>
-<h3 id="1-只要使用键盘Materials-Studio就卡住"><a href="#1-只要使用键盘Materials-Studio就卡住" class="headerlink" title="1. 只要使用键盘Materials Studio就卡住"></a><strong>1. 只要使用键盘Materials Studio就卡住</strong></h3><ul>
-<li>解决方法：在微软拼音输入法的“中”(或“英”)字上右击鼠标，然后点“设置”，在弹出界面中点“常规”，在新界面中向下滚动动底部，有个兼容性，打开兼容性，然后就OK了。</li>
-<li>参考链接:<br>[1] <a target="_blank" rel="noopener" href="http://muchong.com/t-14329827-1">http://muchong.com/t-14329827-1</a></li>
-</ul>
-<h3 id="2-最新WIN10-20H2系统找回经典系统属性界面的最彻底的方法"><a href="#2-最新WIN10-20H2系统找回经典系统属性界面的最彻底的方法" class="headerlink" title="2. 最新WIN10 20H2系统找回经典系统属性界面的最彻底的方法"></a><strong>2. 最新WIN10 20H2系统找回经典系统属性界面的最彻底的方法</strong></h3><ul>
-<li>重装了Win10 20H2以后，右键此电脑后的属性面板变了，要彻底换回经典的属性面板方法。</li>
-<li>（1）打开注册表，直接搜索<code>注册表</code>、或者<code>Win+R</code>，然后输入<code>regedit</code>；</li>
-<li>（2）找到路径<code>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\FeatureManagement\Overrides\0\2093230218</code>;</li>
-<li>（3）将EnabledState的数值数据修改为 <code>1</code> 即可。</li>
-<li>（4）参考链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv8197364">https://www.bilibili.com/read/cv8197364</a></li>
-</ul>
-<h3 id="3-OPLS-optimized-potentials-for-liquid-simulations"><a href="#3-OPLS-optimized-potentials-for-liquid-simulations" class="headerlink" title="3. OPLS(optimized potentials for liquid simulations)"></a><strong>3. OPLS(optimized potentials for liquid simulations)</strong></h3><ul>
-<li>参考链接:<br>[1] <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31346429/article/details/106358251">https://blog.csdn.net/qq_31346429/article/details/106358251</a></li>
-</ul>
-<h3 id="4-AMBER基础教程B0：AMBER分子动力学模拟入门"><a href="#4-AMBER基础教程B0：AMBER分子动力学模拟入门" class="headerlink" title="4. [AMBER基础教程B0：AMBER分子动力学模拟入门]"></a><strong>4. [AMBER基础教程B0：AMBER分子动力学模拟入门]</strong></h3><ul>
-<li>参考链接:<br>[1] <a target="_blank" rel="noopener" href="https://jerkwin.github.io/2018/01/17/AMBER%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8BB0-AMBER%E5%88%86%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%A8%A1%E6%8B%9F%E5%85%A5%E9%97%A8/">https://jerkwin.github.io/2018/01/17/AMBER%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8BB0-AMBER%E5%88%86%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%A8%A1%E6%8B%9F%E5%85%A5%E9%97%A8/</a></li>
-</ul>
-<h3 id="5-国内9大免费CDN汇总-转"><a href="#5-国内9大免费CDN汇总-转" class="headerlink" title="5. 国内9大免费CDN汇总 转"></a><strong>5. 国内9大免费CDN汇总 转</strong></h3><ul>
-<li>转 [1] <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1352398">https://cloud.tencent.com/developer/article/1352398</a></li>
-</ul>
-<h3 id="6-ctrl-c没反应"><a href="#6-ctrl-c没反应" class="headerlink" title="6. ctrl+c没反应"></a><strong>6. <code>ctrl+c</code>没反应</strong></h3><ul>
-<li>可能是开着有道翻译快捷键冲突了，关了有道或者其他快捷键冲突软件即可</li>
-</ul>
-<h3 id="7-R7000office时不时闪黑屏"><a href="#7-R7000office时不时闪黑屏" class="headerlink" title="7. R7000office时不时闪黑屏"></a><strong>7. <code>R7000</code>office时不时闪黑屏</strong></h3><p><img src="https://filestore.community.support.microsoft.com/api/images/25b29daa-46b9-47c5-8875-3952d3cf174b?upload=true"></p>
-<ul>
-<li>打开office，文件&gt;选项&gt;高级&gt;显示</li>
-<li>勾选“禁用硬件图形加速”，“应用”并“确定”</li>
-<li>参考：[1] <a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hans/msoffice/forum/msoffice_word-mso_win10-mso_2019/office-%E9%97%AA%E5%B1%8F/33c9a15d-595b-4c62-8d30-fbce21a24fc8">https://answers.microsoft.com/zh-hans/msoffice/forum/msoffice_word-mso_win10-mso_2019/office-%E9%97%AA%E5%B1%8F/33c9a15d-595b-4c62-8d30-fbce21a24fc8</a></li>
-</ul>
-<h3 id="8-双系统教程参考"><a href="#8-双系统教程参考" class="headerlink" title="8. 双系统教程参考"></a><strong>8. 双系统教程参考</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/masbay/p/10745170.html">https://www.cnblogs.com/masbay/p/10745170.html</a></li>
-</ul>
-<h3 id="9-Origin-Copy-Page到Word或PPT后侧边空白多？"><a href="#9-Origin-Copy-Page到Word或PPT后侧边空白多？" class="headerlink" title="9. Origin, Copy Page到Word或PPT后侧边空白多？"></a><strong>9. Origin, Copy Page到Word或PPT后侧边空白多？</strong></h3><ul>
-<li>修改Tools→Options→page选项卡，将Margin Control 设置为Tight，或者将Clip Border Width设置为0，两种都可行。</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/origin_bug.png"></p>
-<ul>
-<li>若以上步骤不行，那应该是电脑的屏幕缩放不是100%，改为100%就好；</li>
-<li>或者换更高版本的Origin.</li>
-</ul>
-<h3 id="10-FFTW"><a href="#10-FFTW" class="headerlink" title="10. FFTW"></a><strong>10. FFTW</strong></h3><ul>
-<li>Windows安装跟使用fftw  <a target="_blank" rel="noopener" href="http://m.myexceptions.net/windows/1616414.html">http://m.myexceptions.net/windows/1616414.html</a></li>
-<li>linux 和 Windows下FFTW库的安装  <a target="_blank" rel="noopener" href="https://blog.csdn.net/dengm155/article/details/53819704">https://blog.csdn.net/dengm155/article/details/53819704</a></li>
-</ul>
-<h3 id="11-Vmware虚拟机完整创建一个linux"><a href="#11-Vmware虚拟机完整创建一个linux" class="headerlink" title="11. Vmware虚拟机完整创建一个linux"></a><strong>11. Vmware虚拟机完整创建一个linux</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42533541/article/details/81877207">https://blog.csdn.net/weixin_42533541/article/details/81877207</a></li>
-</ul>
-<h3 id="12-在VMD中显示原子序号的方法"><a href="#12-在VMD中显示原子序号的方法" class="headerlink" title="12. 在VMD中显示原子序号的方法"></a><strong>12. 在VMD中显示原子序号的方法</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="http://sobereva.com/197">http://sobereva.com/197</a></li>
-</ul>
-<h3 id="13-PhpStudy"><a href="#13-PhpStudy" class="headerlink" title="13. PhpStudy"></a><strong>13. PhpStudy</strong></h3><ul>
-<li>PhpStudy <a target="_blank" rel="noopener" href="https://www.xp.cn/">https://www.xp.cn/</a></li>
-<li><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/148a1921b820c34d70c3b168.html">https://jingyan.baidu.com/article/148a1921b820c34d70c3b168.html</a></li>
-<li>phpStudy V8 使用手册 <a target="_blank" rel="noopener" href="https://www.xp.cn/phpstudy-v8/">https://www.xp.cn/phpstudy-v8/</a></li>
-<li>FileZilla <a target="_blank" rel="noopener" href="https://www.filezilla.cn/">https://www.filezilla.cn/</a></li>
-</ul>
-<h3 id="14-搭建本地服务器"><a href="#14-搭建本地服务器" class="headerlink" title="14. 搭建本地服务器"></a><strong>14. 搭建本地服务器</strong></h3><ul>
-<li>Web服务器——保姆级教程！ <a target="_blank" rel="noopener" href="https://my.oschina.net/u/4383725/blog/4510772">https://my.oschina.net/u/4383725/blog/4510772</a></li>
-</ul>
-<h3 id="15-MathType7"><a href="#15-MathType7" class="headerlink" title="15. MathType7"></a><strong>15. MathType7</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.mathtype.cn/">https://www.mathtype.cn/</a></li>
-<li>30天到期后，删除注册表<code>计算机\HKEY_CURRENT_USER\SOFTWARE\Install Options</code>中的<code>Options7.4</code></li>
-<li>便可再获得30天（还没试过）</li>
-</ul>
-<h3 id="16-Office自动安装至C盘修改（如果够用不建议）"><a href="#16-Office自动安装至C盘修改（如果够用不建议）" class="headerlink" title="16. Office自动安装至C盘修改（如果够用不建议）"></a><strong>16. Office自动安装至C盘修改（如果够用不建议）</strong></h3><ul>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/Office/1.PNG"></li>
-<li>安装前修改注册表<code>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion</code>下<code>ProgramFilesDir</code>路径为其他盘路径（千万不要乱改后又重启电脑）<blockquote>
-<ul>
-<li>一定要注意，改完安装后，立马注册表修改回到原来，没改前千万别重启电脑。</li>
-<li>被迫重装系统后的反思。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h3 id="17-npm-install-error-code-EBADPLATFORM"><a href="#17-npm-install-error-code-EBADPLATFORM" class="headerlink" title="17. npm install error (code EBADPLATFORM)"></a><strong>17. npm install error (code EBADPLATFORM)</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49475492/npm-install-error-code-ebadplatform/49475537">https://stackoverflow.com/questions/49475492/npm-install-error-code-ebadplatform/49475537</a></li>
-<li>删除<code>package-lock.json</code>文件后，输入命令：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> </span><br></pre></td></tr></table></figure>
-<h3 id="18-PC-VMware安装安卓虚拟机"><a href="#18-PC-VMware安装安卓虚拟机" class="headerlink" title="18. PC VMware安装安卓虚拟机"></a><strong>18. PC VMware安装安卓虚拟机</strong></h3></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/muzihuaner/article/details/105284177">https://blog.csdn.net/muzihuaner/article/details/105284177</a></li>
-</ul>
-<h3 id="19-autoCAD-plant-3D-2022"><a href="#19-autoCAD-plant-3D-2022" class="headerlink" title="19. autoCAD plant 3D 2022"></a><strong>19. autoCAD plant 3D 2022</strong></h3><ul>
-<li><a target="_blank" rel="noopener" href="http://www.ddooo.com/softdown/193119.htm#dltab">http://www.ddooo.com/softdown/193119.htm#dltab</a></li>
-</ul>
-<h3 id="20-VS-code怎么同时开多个文件夹"><a href="#20-VS-code怎么同时开多个文件夹" class="headerlink" title="20. VS code怎么同时开多个文件夹"></a><strong>20. VS code怎么同时开多个文件夹</strong></h3><ul>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/others/vscode_1.png"></li>
-<li>右键资源管理器空白处，将文件夹添加到工作区即可。</li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/magic_xiang/article/details/84024493">https://blog.csdn.net/magic_xiang/article/details/84024493</a></li>
-</ul>
-<h3 id="21-挖矿流程"><a href="#21-挖矿流程" class="headerlink" title="21. 挖矿流程"></a><strong>21. 挖矿流程</strong></h3><ul>
-<li><ol>
-<li><a target="_blank" rel="noopener" href="https://electrum.org/#home">electrum钱包</a><blockquote>
-<ul>
-<li>安装钱包</li>
-<li>生成地址</li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_1.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_2.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_3.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_4.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_5.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_6.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_7.PNG"></li>
-<li><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/bit/electrum_8.PNG"></li>
-</ul>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>挖矿软件<a target="_blank" rel="noopener" href="https://www.nicehash.com/">nicehash</a></li>
-</ol>
-</li>
-</ul>
+<h3 id="IF-ELSE-THEN-语句"><a href="#IF-ELSE-THEN-语句" class="headerlink" title="IF ELSE THEN 语句"></a>IF ELSE THEN 语句</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">PROGRAM</span></span> MAIN</span><br><span class="line">   <span class="keyword">REAL</span> :: x; READ *, x</span><br><span class="line">   <span class="keyword">IF</span>(x&gt;<span class="number">0.0</span> .and. x&lt;<span class="number">1.0</span>) <span class="keyword">THEN</span></span><br><span class="line">      <span class="built_in">PRINT</span> *, <span class="string">&quot;  在区间(0, 1)中&quot;</span></span><br><span class="line">   <span class="keyword">ELSE</span> <span class="keyword">IF</span>(x&lt;<span class="number">0</span> .and. x&gt;-<span class="number">1</span>) <span class="keyword">THEN</span></span><br><span class="line">      <span class="built_in">PRINT</span> *, <span class="string">&quot;在区间(-1,0)&quot;</span></span><br><span class="line">   <span class="keyword">ELSE</span></span><br><span class="line">      <span class="built_in">PRINT</span> *, <span class="string">&quot;不在区间(0, 1)中&quot;</span></span><br><span class="line">   <span class="keyword">END</span> <span class="keyword">IF</span></span><br><span class="line"><span class="keyword">END</span> <span class="function"><span class="keyword">PROGRAM</span></span> MAIN</span><br></pre></td></tr></table></figure>
 
+
+<h3 id="tiny函数"><a href="#tiny函数" class="headerlink" title="tiny函数"></a>tiny函数</h3><ul>
+<li><code>tiny(x)</code>表示查询<code>x</code>的最小正值,<code>x</code>所能表示的最小的数，近似于<code>0</code>。</li>
+</ul>
+<h3 id="CASE语句：统计学生考试成绩"><a href="#CASE语句：统计学生考试成绩" class="headerlink" title="CASE语句：统计学生考试成绩"></a>CASE语句：统计学生考试成绩</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">implicit</span> <span class="keyword">none</span> <span class="comment">!`implicit none`即设计任何和隐含说明语句无效，所有变量都要显式地人工声明，不能未声明就直接使用，有效地避免了可能的大量错误。</span></span><br><span class="line"><span class="keyword">integer</span> :: score,n0=<span class="number">0</span>,n1=<span class="number">0</span>,n2=<span class="number">0</span>,n3=<span class="number">0</span>,n4=<span class="number">0</span></span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">	read *, score</span><br><span class="line">	<span class="keyword">if</span>(score&lt;<span class="number">0</span> .or. score&gt;<span class="number">100</span>) <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">print</span> *,<span class="string">&#x27;满分=&#x27;</span>,n0,<span class="string">&#x27; 优=&#x27;</span>,n1,<span class="string">&#x27; 良=&#x27;</span>,n2,<span class="string">&#x27; 及格=&#x27;</span>,n3,<span class="string">&#x27; 不及格=&#x27;</span>,n4</span><br><span class="line">		<span class="keyword">exit</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">select</span> <span class="keyword">case</span>(score)</span><br><span class="line">			<span class="keyword">case</span>(<span class="number">100</span>)</span><br><span class="line">				<span class="built_in">print</span> *, <span class="string">&#x27;满分&#x27;</span>; n0=n0+<span class="number">1</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">85</span>:<span class="number">99</span>)</span><br><span class="line">				<span class="built_in">print</span> *, <span class="string">&#x27;优  &#x27;</span>; n1=n1+<span class="number">1</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">70</span>:<span class="number">84</span>)</span><br><span class="line">				<span class="built_in">print</span> *, <span class="string">&#x27;良  &#x27;</span>; n2=n2+<span class="number">1</span></span><br><span class="line">			<span class="keyword">case</span>(<span class="number">60</span>:<span class="number">69</span>)</span><br><span class="line">				<span class="built_in">print</span> *, <span class="string">&#x27;及格&#x27;</span>; n3=n3+<span class="number">1</span></span><br><span class="line">			<span class="keyword">case</span> <span class="keyword">default</span></span><br><span class="line">				<span class="built_in">print</span> *, <span class="string">&#x27;不及格&#x27;</span>; n4=n4+<span class="number">1</span></span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">select</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
             </div>
         
         <footer class="article-footer">
@@ -732,19 +614,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    虚拟机扩容
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_bar/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/Tutorial/codes/fortran/fortran_01/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Matplotlib Bar</div>
+            <div class="article-nav-title">Fortran-01</div>
         </a>
     
 </nav>
