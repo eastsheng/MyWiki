@@ -17,8 +17,9 @@
 <meta property="og:description" content="倒计时    body{background:#ebeef1;color:#333;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:&#39;Muli&#39;;height:100vh;margin:0}.reviews-container{background-color:#">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/xiaonuo2/blog-img/89.png">
-<meta property="article:published_time" content="2022-07-12T06:37:03.838Z">
-<meta property="article:modified_time" content="2022-07-12T06:37:03.838Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/2022/figs.md/424533119239893.gif">
+<meta property="article:published_time" content="2022-07-24T11:31:58.485Z">
+<meta property="article:modified_time" content="2022-07-24T11:31:58.485Z">
 <meta property="article:author" content="Eastsheng">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xiaonuo2/blog-img/89.png">
@@ -194,7 +195,7 @@
                             &nbsp;
                             Linux学习
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -645,6 +646,7 @@ progressDone.forEach(progress => {
     
 });
 </script>
+
 <center>
 <div>
 <h3 id="title-2"><div class="text" style=" text-align:center;">毕业倒计时<img class="wp-smiley" src="https://cdn.jsdelivr.net/gh/xiaonuo2/blog-img/89.png" ></div></h3>
@@ -670,6 +672,34 @@ document.getElementById("t_s").innerHTML = s + " 秒";
 setInterval(getRTime,1000);
 </script>
 </center>
+
+<center>
+<div>
+<h3 id="title-2"><div class="text" style=" text-align:center;">人生倒计时<img class="wp-smiley" src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/2022/figs.md/424533119239893.gif" width=200></div></h3>
+<div><div class="text" style=" text-align:center;">
+<span id="t_d1">00</span>
+<span id="t_h1">00</span>
+<span id="t_m1">00</span>
+<span id="t_s1">00</span>
+</div>
+<script type="text/javascript">
+function getRTime(){
+var EndTime= new Date('2073/01/01 00:00:00'); //截止时间
+var NowTime = new Date();
+var t =EndTime.getTime() - NowTime.getTime();
+var d=Math.floor(t/1000/60/60/24);
+var h=Math.floor(t/1000/60/60%24);
+var m=Math.floor(t/1000/60%60);
+var s=Math.floor(t/1000%60);document.getElementById("t_d1").innerHTML = d + " 天";
+document.getElementById("t_h1").innerHTML = h + " 时";
+document.getElementById("t_m1").innerHTML = m + " 分";
+document.getElementById("t_s1").innerHTML = s + " 秒";
+}
+setInterval(getRTime,1000);
+</script>
+<p1>假如能活到80岁</p1>
+</center>
+
 
 </body>
 </html>
