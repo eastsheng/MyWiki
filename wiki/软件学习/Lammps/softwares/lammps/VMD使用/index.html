@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Lammps Notes | Eastsheng&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="Lammps Notes" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc] VMD使用VMD TkConsole常用命令 设定盒子边界类命令：12345678910pbc box -style lines # 显示boxpbc box -width 2     # 改变lines宽pbc box -color white # 改变lines颜色set cell [pbc set &amp;#123;10.0 10.0 10.0&amp;#125; -all] # 设置边界pb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lammps Notes">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki">
+<meta property="og:description" content="[toc] VMD使用VMD TkConsole常用命令 设定盒子边界类命令：12345678910pbc box -style lines # 显示boxpbc box -width 2     # 改变lines宽pbc box -color white # 改变lines颜色set cell [pbc set &amp;#123;10.0 10.0 10.0&amp;#125; -all] # 设置边界pb">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-22T10:11:28.000Z">
+<meta property="article:modified_time" content="2022-09-22T16:10:03.343Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="Lammps Notes">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/journals">Journals</a>
+                
+                    <a class="main-nav-link" href="/lifetime">倒计时</a>
+                
+                    <a class="main-nav-link" href="/Gallery">Gallery</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/journals">Journals</a></td>
+                
+                    <td><a class="main-nav-link" href="/lifetime">倒计时</a></td>
+                
+                    <td><a class="main-nav-link" href="/Gallery">Gallery</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Git_command/">Git—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/WebServer/">Ubuntu手动搭建Web服务器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Matplotlib/codes/python/matplotlib_2/">Matplotlib基本-2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Pandas
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Pandas/codes/python/pandas_1/">Pandas 基本操作</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            学习笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/notes/MachineLearning/MLPython-1/">机器学习基础-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            杂记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2022/">日常笔记2022</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            论文笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2020
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2020/notes/PaperReadNote2020/">论文笔记2020</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2021
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/">论文笔记2021-04</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202107/">论文笔记2021-07</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202108/">论文笔记2021-08</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202109/">论文笔记2021-09</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202111/">论文笔记2021-11</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2022
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202201/">论文笔记2022-01</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202206/">论文笔记2022-06</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            程序学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C&C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E5%88%9D%E7%BA%A7/">C&C++初级</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B001/">C&C++笔记-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B002/">C&C++笔记-02</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/error/">Fortran error</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/tutorial/">Fortran Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_01/">Fortran-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_02/">Fortran-02</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_03/">Fortran-03</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_04/">Fortran-04</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/basics/">Markdown Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/LaTeX_study/">LaTex Study</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matlab
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Matlab/codes/matlab/matlab-1/">Matlab Tutorial-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            APP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/APP/codes/python/app/app_coding/">Python写APP</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_1/">Matplotlib基本-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Numpy
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Numpy/codes/python/numpy_1/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/problems/">Python问题与解决方法汇总</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_code_study/">Python 常用基本命令</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Tutorials/">Python Tutorials收藏</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_link/">Linux Python默认版本设置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_color_marker/">Python color and marker</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Anaconda/">Python Anaconda</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_skills/">Python奇淫巧计</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            资源收藏
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/">高质量博客/科研主页收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_1/">Open Resources 1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">Open Resources 2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            实用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具收藏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            软件学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Comsol
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Comsol/softwares/comsol/Comsol%E5%9F%BA%E6%9C%AC/">Comsol 笔记-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            FLUENT
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/FLUENT/softwares/fluent/Fluent_%E7%AC%94%E8%AE%B0/">FLUENT 笔记-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GROMACS
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GULP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GULP/softwares/GULP/">GULP 汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsInstall/">Lammps安装</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file active"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/error/">Lammps error</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsBuildModel/">Lammps Tutorials - 建模</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VASP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/VASP/softwares/vasp/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/">VASP安装与编译</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/others/index/">Welcome to My Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title"><span>友链</span></h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://zequnw.github.io/wiki/">Zequn&#39;s Wiki Site</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://eastsheng.github.io/">EASTSHENG</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/2021-11/" style="font-size: 10px;">2021-11</a> <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C-C/" style="font-size: 13.33px;">C&C++</a> <a href="/tags/C-C-%E5%88%9D%E7%BA%A7/" style="font-size: 13.33px;">C&C++初级</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 11.67px;">Collections</a> <a href="/tags/Comsol%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Comsol笔记</a> <a href="/tags/Daily-Notes/" style="font-size: 15px;">Daily Notes</a> <a href="/tags/FLUENT%E5%85%A5%E9%97%A8/" style="font-size: 10px;">FLUENT入门</a> <a href="/tags/Fortran/" style="font-size: 18.33px;">Fortran</a> <a href="/tags/Fortran-Tutorial/" style="font-size: 15px;">Fortran Tutorial</a> <a href="/tags/GROMACS%E5%85%A5%E9%97%A8/" style="font-size: 10px;">GROMACS入门</a> <a href="/tags/GULP/" style="font-size: 10px;">GULP</a> <a href="/tags/Git%E2%80%94Command/" style="font-size: 10px;">Git—Command</a> <a href="/tags/Git%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Git学习</a> <a href="/tags/LaTex/" style="font-size: 10px;">LaTex</a> <a href="/tags/Lammps-Notes/" style="font-size: 11.67px;">Lammps Notes</a> <a href="/tags/Lammps-Tutorials/" style="font-size: 10px;">Lammps Tutorials</a> <a href="/tags/Lammps-error/" style="font-size: 10px;">Lammps error</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Learning-Notes-2022/" style="font-size: 11.67px;">Learning Notes 2022</a> <a href="/tags/Linux-error/" style="font-size: 10px;">Linux error</a> <a href="/tags/Linux%E2%80%94Command/" style="font-size: 10px;">Linux—Command</a> <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/" style="font-size: 16.67px;">Linux学习</a> <a href="/tags/Markdown/" style="font-size: 11.67px;">Markdown</a> <a href="/tags/Matlab/" style="font-size: 10px;">Matlab</a> <a href="/tags/Matplotlib/" style="font-size: 11.67px;">Matplotlib</a> <a href="/tags/Notes/" style="font-size: 11.67px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 11.67px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Pandas%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Pandas基础</a> <a href="/tags/Paper-Notes/" style="font-size: 16.67px;">Paper Notes</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python-color-and-marker/" style="font-size: 10px;">Python color and marker</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 13.33px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 16.67px;">Tutorials</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Ubuntu%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Ubuntu手动搭建Web服务器</a> <a href="/tags/VASP/" style="font-size: 10px;">VASP</a> <a href="/tags/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/" style="font-size: 10px;">VASP安装与编译</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/Windows10-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">Windows10 Linux 子系统</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 11.67px;">乱七八糟的收藏</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" style="font-size: 10px;">虚拟机扩容</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-softwares/lammps/VMD使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/">软件学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/">Lammps</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Lammps-Notes/" rel="tag">Lammps Notes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">
+            <time datetime="2019-01-22T10:11:28.000Z" itemprop="datePublished">2019-01-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Lammps Notes
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VMD%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">VMD使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VMD-TkConsole%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">VMD TkConsole常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E9%AB%98%E6%B8%85%E5%9B%BE%E7%89%87"><span class="toc-number">1.2.</span> <span class="toc-text">输出高清图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BAVideo"><span class="toc-number">1.3.</span> <span class="toc-text">输出Video</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCL%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">TCL命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97z%E6%96%B9%E5%90%91%E7%9A%84%E6%B0%A2%E9%94%AEHbonds-cal-z-tcl"><span class="toc-number">2.1.</span> <span class="toc-text">计算z方向的氢键Hbonds_cal_z.tcl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#proc"><span class="toc-number">2.2.1.</span> <span class="toc-text">proc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#incr"><span class="toc-number">2.2.2.</span> <span class="toc-text">incr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#puts"><span class="toc-number">2.2.3.</span> <span class="toc-text">puts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#llength"><span class="toc-number">2.2.4.</span> <span class="toc-text">llength</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lindex"><span class="toc-number">2.2.5.</span> <span class="toc-text">lindex</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">2.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>[toc]</p>
+<h2 id="VMD使用"><a href="#VMD使用" class="headerlink" title="VMD使用"></a>VMD使用</h2><h3 id="VMD-TkConsole常用命令"><a href="#VMD-TkConsole常用命令" class="headerlink" title="VMD TkConsole常用命令"></a>VMD TkConsole常用命令</h3><ul>
+<li>设定盒子边界类命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pbc box -style lines <span class="comment"># 显示box</span></span><br><span class="line">pbc box -width 2     <span class="comment"># 改变lines宽</span></span><br><span class="line">pbc box -color white <span class="comment"># 改变lines颜色</span></span><br><span class="line"><span class="built_in">set</span> cell [pbc <span class="built_in">set</span> &#123;10.0 10.0 10.0&#125; -all] <span class="comment"># 设置边界</span></span><br><span class="line">pbc box -center origin -shiftcenter &#123;-1 -1 0&#125; <span class="comment">#移动盒子</span></span><br><span class="line">pbc box -center origin -color black -width 1.0 -center com</span><br><span class="line">pbc box -on</span><br><span class="line">pbc wrap</span><br><span class="line">pbc wrap -shiftcenterrel &#123;0 0 0.95&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>视角切换<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rotate x by 90</span><br><span class="line">rotate y by 90</span><br><span class="line">rotate z by 90</span><br></pre></td></tr></table></figure></li>
+<li>读取lammpsdata<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topo readlammpsdata lammps.data</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="输出高清图片"><a href="#输出高清图片" class="headerlink" title="输出高清图片"></a>输出高清图片</h3><ul>
+<li><code>File&gt;&gt;Render...&gt;&gt;Tachyon</code></li>
+<li><code>Figure.bat</code>文件内内容：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;..\VMD\tachyon_WIN32.exe&quot;</span> vmdscene.dat -aasamples 100 -mediumshade -trans_vmd -res 1024 742 -format BMP -o Figure.bmp</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="输出Video"><a href="#输出Video" class="headerlink" title="输出Video"></a>输出Video</h3><ul>
+<li>输出帧图片：<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Extensions&gt;&gt;Visualizations&gt;&gt;Movie </span>Maker</span><br></pre></td></tr></table></figure></li>
+<li>组合图片成视频</li>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="http://gromada.com/videomach/">VideoMach</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="TCL命令"><a href="#TCL命令" class="headerlink" title="TCL命令"></a>TCL命令</h2><h3 id="计算z方向的氢键Hbonds-cal-z-tcl"><a href="#计算z方向的氢键Hbonds-cal-z-tcl" class="headerlink" title="计算z方向的氢键Hbonds_cal_z.tcl"></a>计算z方向的氢键<code>Hbonds_cal_z.tcl</code></h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TCL VMD script to calculate Avg No. of HBonds for given Acceptor and Donor groups in the z direction </span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Authour : KAPAKAYALA ANJI BABU</span></span><br><span class="line"><span class="comment">#          IIT KANPUR, INDIA.</span></span><br><span class="line"><span class="comment">#Modified by : Dongsheng Chen</span></span><br><span class="line"><span class="comment">#USAGE   : Open VMD/Extensions - Tk console then execute script as &quot; source hbonds_direction_z.tcl&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#OUTPUT Files ::   hbonds-details_new.dat  ; which contains details of all given Donor &amp; Acceptor atoms.</span></span><br><span class="line"><span class="comment">#				   hbonds-z.dat			   ; which contains z position vs No.of Hbonds.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set outfile [open &quot;hbonds-details-all.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-all-z.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-wat-wat-z.dat&quot; w]</span></span><br><span class="line"><span class="keyword">set</span> hbzfile [<span class="keyword">open</span> <span class="string">&quot;hbonds-wat-sdbs-z.dat&quot;</span> w]</span><br><span class="line"><span class="keyword">set</span> n [ molinfo top get numframes]</span><br><span class="line"><span class="keyword">set</span> sum <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> i <span class="number">901</span>&#125; &#123;<span class="variable">$i</span> &lt;= <span class="variable">$n</span>&#125; &#123;<span class="keyword">incr</span> i&#125; &#123;</span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> j <span class="number">-34</span>&#125; &#123;<span class="variable">$j</span> &lt;=<span class="number">94</span>&#125; &#123;<span class="keyword">incr</span> j&#125; &#123;</span><br><span class="line"><span class="keyword">set</span> k [<span class="keyword">expr</span> <span class="variable">$j</span>]</span><br><span class="line"><span class="comment">#set D [atomselect top &quot;all and z&lt;[expr $k+0.5] and z&gt;=$k&quot; frame $i] </span></span><br><span class="line"><span class="keyword">set</span> D [atomselect top <span class="string">&quot;type 411 to 412 and z&lt;[expr $k+0.5] and z&gt;=$k&quot;</span> frame <span class="variable">$i</span>] </span><br><span class="line"><span class="comment">#set A [atomselect top &quot;all&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;type 411 to 412&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 3108 3109&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 1608 1609 3110 3111 3112 3113&quot; frame $i]</span></span><br><span class="line"><span class="keyword">set</span> A [atomselect top <span class="string">&quot;resid 1606 1607 1608 1609 1610 1611 1612 1613 1614 1615 3116 3117 3118 3119 3120 3121 3122 3123 3124 3125&quot;</span> frame <span class="variable">$i</span>]</span><br><span class="line"><span class="keyword">set</span> D_list [<span class="variable">$D</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> A_list [<span class="variable">$A</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> lists [measure hbonds <span class="number">3.5</span> <span class="number">30</span> <span class="variable">$D</span> <span class="variable">$A</span>]</span><br><span class="line"><span class="keyword">set</span> atoms [<span class="keyword">lindex</span> <span class="variable">$lists</span> <span class="number">0</span>]</span><br><span class="line"><span class="keyword">set</span> Num [<span class="keyword">llength</span> <span class="variable">$atoms</span>]  </span><br><span class="line"></span><br><span class="line"><span class="comment">##---------Writing OUTPUT----------------------#</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;========================================&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Frame :: $i &quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;DONARS_list ::\n$D_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Acceptors_list ::\n$A_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;Hbonds List :: $lists&quot;</span></span><br><span class="line"><span class="comment">##set HBnum [llength $lists ]</span></span><br><span class="line"><span class="comment">#puts &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;No. of Hbonds :: $HBnum&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;HB Atoms:: $atoms&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;No. of Hbonds::  $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="variable">$hbzfile</span> <span class="string">&quot;$i $k [expr $k+0.5] $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span>  <span class="string">&quot;$i $k [expr $k+0.5] :: No. of Hbonds =  $Num&quot;</span></span><br><span class="line"><span class="comment">#------------------Calculating Avg HBonds--------#</span></span><br><span class="line"><span class="keyword">set</span> sum [<span class="keyword">expr</span> <span class="variable">$sum</span> + <span class="variable">$Num</span> ]</span><br><span class="line"><span class="comment">#puts &quot;Sum :: $sum&quot;</span></span><br><span class="line">&#125;&#125;</span><br><span class="line"><span class="keyword">set</span> Hbavg [<span class="keyword">expr</span> <span class="variable">$sum</span>/<span class="variable">$i</span>]</span><br><span class="line"><span class="comment">#puts $hbfile &quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="variable">$D</span> delete</span><br><span class="line"><span class="variable">$A</span> delete</span><br><span class="line"><span class="comment">#close $outfile</span></span><br><span class="line"><span class="keyword">close</span> <span class="variable">$hbzfile</span></span><br><span class="line"><span class="comment">#lsort -unique [$sel get resname]</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br><span class="line"><span class="comment">#       Written By ANJI BABU KAPAKAYALA                    #</span></span><br><span class="line"><span class="comment">#       Modifed By Dongsheng Chen                          #</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>导入轨迹后在<code>VMD TkConsole</code>中使用<code>source Hbonds_cal_z.tcl</code>命令执行该代码</li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h4><ul>
+<li><code>proc</code>：<code>procedure</code>的简称，类似于<code>python</code>中的函数定义<code>def</code></li>
+</ul>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># proc 函数名 &#123;参数x 参数y&#125;&#123;函数过程&#125;</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> add</span>   &#123;x y&#125; &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">expr</span> <span class="variable">$x</span>+<span class="variable">$y</span>] # <span class="keyword">expr</span>将参数做表达式处理 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h4 id="incr"><a href="#incr" class="headerlink" title="incr"></a>incr</h4><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>  x <span class="number">5</span></span><br><span class="line"><span class="comment"># 5</span></span><br><span class="line"><span class="keyword">incr</span> x <span class="number">10</span> #相当于给x加<span class="number">10</span></span><br><span class="line"><span class="comment"># 15</span></span><br><span class="line"><span class="keyword">incr</span> x #相当于给x加<span class="number">1</span></span><br><span class="line"><span class="comment"># 16</span></span><br></pre></td></tr></table></figure>
+<h4 id="puts"><a href="#puts" class="headerlink" title="puts"></a>puts</h4><ul>
+<li>相当于<code>python</code>的<code>print</code></li>
+</ul>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">puts</span> <span class="string">&quot;welcome to TkConsole!&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="llength"><a href="#llength" class="headerlink" title="llength"></a>llength</h4><ul>
+<li>相当于<code>python</code>的<code>len</code>，返回列表的元素个数<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">llength</span> &#123;a b c d e&#125;</span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="lindex"><a href="#lindex" class="headerlink" title="lindex"></a>lindex</h4><ul>
+<li>从列表中获得元素<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125;</span><br><span class="line"><span class="comment"># a b c d</span></span><br><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125; <span class="number">2</span></span><br><span class="line"><span class="comment"># c</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/24241276">Atomselect命令介绍</a></li>
+<li><a target="_blank" rel="noopener" href="http://sobereva.com/504">VMD里原子选择语句的语法和例子</a></li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsNotes/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Lammps Notes
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/error/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Lammps error</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

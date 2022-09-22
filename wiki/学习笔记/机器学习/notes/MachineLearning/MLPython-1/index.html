@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>机器学习基础-1 | Eastsheng&#39;s Wiki</title>
+    
+    
+        <meta name="keywords" content="机器学习" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[toc] Machine Learning with Python机器学习前期基础监督&#x2F;无监督学习算法 从输入&#x2F; 输出对中进行学习的机器学习算法叫作监督学习算法（supervised learning algorithm）； 无监督学习算法（unsupervised learning algorithm）：在无监督学习中，只有输入数据是已知的，没有为算法提供输出数据。虽然这种算法有许多成功的应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习基础-1">
+<meta property="og:url" content="https://eastsheng.github.io/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/notes/MachineLearning/MLPython-1/index.html">
+<meta property="og:site_name" content="Eastsheng&#39;s Wiki">
+<meta property="og:description" content="[toc] Machine Learning with Python机器学习前期基础监督&#x2F;无监督学习算法 从输入&#x2F; 输出对中进行学习的机器学习算法叫作监督学习算法（supervised learning algorithm）； 无监督学习算法（unsupervised learning algorithm）：在无监督学习中，只有输入数据是已知的，没有为算法提供输出数据。虽然这种算法有许多成功的应用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/331633410220872.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/476982710220942.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/107180511239381.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/66930110227254.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/377650310247420.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/398050910240089.png">
+<meta property="og:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/447251410236644.png">
+<meta property="article:published_time" content="2022-09-22T04:18:28.000Z">
+<meta property="article:modified_time" content="2022-09-22T15:48:33.912Z">
+<meta property="article:author" content="Eastsheng">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/331633410220872.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Eastsheng&#39;s Wiki" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Eastsheng&#39;s Wiki</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/journals">Journals</a>
+                
+                    <a class="main-nav-link" href="/lifetime">倒计时</a>
+                
+                    <a class="main-nav-link" href="/Gallery">Gallery</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/journals">Journals</a></td>
+                
+                    <td><a class="main-nav-link" href="/lifetime">倒计时</a></td>
+                
+                    <td><a class="main-nav-link" href="/Gallery">Gallery</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Git_command/">Git—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">Linux—error</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">Linux—Command</a></li>  <li class="file"><a href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/WebServer/">Ubuntu手动搭建Web服务器</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Matplotlib/codes/python/matplotlib_2/">Matplotlib基本-2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Pandas
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Python/Pandas/codes/python/pandas_1/">Pandas 基本操作</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            学习笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/notes/MachineLearning/MLPython-1/">机器学习基础-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            杂记
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/units_or_constants/">单位/常数</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2021/">日常笔记2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9D%82%E8%AE%B0/notes/DailyNotes2022/">日常笔记2022</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            论文笔记
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2020
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2020/notes/PaperReadNote2020/">论文笔记2020</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2021
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/EnglishNote2021/">Learning English Notes 2021</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202104/">论文笔记2021-04</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202107/">论文笔记2021-07</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202108/">论文笔记2021-08</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202109/">论文笔记2021-09</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202111/">论文笔记2021-11</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            2022
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202201/">论文笔记2022-01</a></li>  <li class="file"><a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2022/notes/PaperReadNote202206/">论文笔记2022-06</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            程序学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            C&C++
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E5%88%9D%E7%BA%A7/">C&C++初级</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B001/">C&C++笔记-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/C-C/codes/C&C++/C&C++_%E7%AC%94%E8%AE%B002/">C&C++笔记-02</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Fortran
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/error/">Fortran error</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/tutorial/">Fortran Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_01/">Fortran-01</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_02/">Fortran-02</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_03/">Fortran-03</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/fortran_04/">Fortran-04</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Markdown
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/basics/">Markdown Tutorial</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/LaTeX_study/">LaTex Study</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matlab
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Matlab/codes/matlab/matlab-1/">Matlab Tutorial-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            APP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/APP/codes/python/app/app_coding/">Python写APP</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Matplotlib
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Matplotlib/codes/python/matplotlib_1/">Matplotlib基本-1</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Numpy
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/Numpy/codes/python/numpy_1/">Numpy/math</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/pip_install/">python镜像配置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/problems/">Python问题与解决方法汇总</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_code_study/">Python 常用基本命令</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Tutorials/">Python Tutorials收藏</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_link/">Linux Python默认版本设置</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_color_marker/">Python color and marker</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/Anaconda/">Python Anaconda</a></li>  <li class="file"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_skills/">Python奇淫巧计</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            资源收藏
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Resources
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20211/">乱七八糟的收藏1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/bloggers/">高质量博客/科研主页收藏</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_1/">Open Resources 1</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/luan78zao_20212/">乱七八糟的收藏2</a></li>  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">Open Resources 2</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            实用工具
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/collections/tools/">好用工具收藏</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件收藏
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/%E8%BD%AF%E4%BB%B6%E6%94%B6%E8%97%8F/collections/softwares/">软件收藏</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            软件学习
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Comsol
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Comsol/softwares/comsol/Comsol%E5%9F%BA%E6%9C%AC/">Comsol 笔记-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            FLUENT
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/FLUENT/softwares/fluent/Fluent_%E7%AC%94%E8%AE%B0/">FLUENT 笔记-01</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GROMACS
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            GULP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GULP/softwares/GULP/">GULP 汇总</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Lammps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsInstall/">Lammps安装</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsNotes/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">Lammps Notes</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/error/">Lammps error</a></li>  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsBuildModel/">Lammps Tutorials - 建模</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            VASP
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/VASP/softwares/vasp/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/">VASP安装与编译</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/others/index/">Welcome to My Wiki</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title"><span>友链</span></h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://zequnw.github.io/wiki/">Zequn&#39;s Wiki Site</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://eastsheng.github.io/">EASTSHENG</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>标签云</span></h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2020/" style="font-size: 10px;">2020</a> <a href="/tags/2021/" style="font-size: 10px;">2021</a> <a href="/tags/2021-04/" style="font-size: 10px;">2021-04</a> <a href="/tags/2021-07/" style="font-size: 10px;">2021-07</a> <a href="/tags/2021-08/" style="font-size: 10px;">2021-08</a> <a href="/tags/2021-09/" style="font-size: 10px;">2021-09</a> <a href="/tags/2021-11/" style="font-size: 10px;">2021-11</a> <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Bloggers/" style="font-size: 10px;">Bloggers</a> <a href="/tags/Books/" style="font-size: 10px;">Books</a> <a href="/tags/Bug/" style="font-size: 10px;">Bug</a> <a href="/tags/C-C/" style="font-size: 13.33px;">C&C++</a> <a href="/tags/C-C-%E5%88%9D%E7%BA%A7/" style="font-size: 13.33px;">C&C++初级</a> <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/Collections/" style="font-size: 11.67px;">Collections</a> <a href="/tags/Comsol%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Comsol笔记</a> <a href="/tags/Daily-Notes/" style="font-size: 15px;">Daily Notes</a> <a href="/tags/FLUENT%E5%85%A5%E9%97%A8/" style="font-size: 10px;">FLUENT入门</a> <a href="/tags/Fortran/" style="font-size: 18.33px;">Fortran</a> <a href="/tags/Fortran-Tutorial/" style="font-size: 15px;">Fortran Tutorial</a> <a href="/tags/GROMACS%E5%85%A5%E9%97%A8/" style="font-size: 10px;">GROMACS入门</a> <a href="/tags/GULP/" style="font-size: 10px;">GULP</a> <a href="/tags/Git%E2%80%94Command/" style="font-size: 10px;">Git—Command</a> <a href="/tags/Git%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Git学习</a> <a href="/tags/LaTex/" style="font-size: 10px;">LaTex</a> <a href="/tags/Lammps-Notes/" style="font-size: 11.67px;">Lammps Notes</a> <a href="/tags/Lammps-Tutorials/" style="font-size: 10px;">Lammps Tutorials</a> <a href="/tags/Lammps-error/" style="font-size: 10px;">Lammps error</a> <a href="/tags/Lammps%E5%AE%89%E8%A3%85/" style="font-size: 10px;">Lammps安装</a> <a href="/tags/Learning-Notes/" style="font-size: 10px;">Learning Notes</a> <a href="/tags/Learning-Notes-2022/" style="font-size: 11.67px;">Learning Notes 2022</a> <a href="/tags/Linux-error/" style="font-size: 10px;">Linux error</a> <a href="/tags/Linux%E2%80%94Command/" style="font-size: 10px;">Linux—Command</a> <a href="/tags/Linux%E5%AD%A6%E4%B9%A0/" style="font-size: 16.67px;">Linux学习</a> <a href="/tags/Markdown/" style="font-size: 11.67px;">Markdown</a> <a href="/tags/Matlab/" style="font-size: 10px;">Matlab</a> <a href="/tags/Matplotlib/" style="font-size: 11.67px;">Matplotlib</a> <a href="/tags/Notes/" style="font-size: 11.67px;">Notes</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/Open-Resources/" style="font-size: 11.67px;">Open Resources</a> <a href="/tags/Pages/" style="font-size: 10px;">Pages</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Pandas%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Pandas基础</a> <a href="/tags/Paper-Notes/" style="font-size: 16.67px;">Paper Notes</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Python-color-and-marker/" style="font-size: 10px;">Python color and marker</a> <a href="/tags/Python%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC%E8%AE%BE%E7%BD%AE/" style="font-size: 10px;">Python默认版本设置</a> <a href="/tags/Softwares/" style="font-size: 10px;">Softwares</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Tutorial/" style="font-size: 13.33px;">Tutorial</a> <a href="/tags/Tutorials/" style="font-size: 16.67px;">Tutorials</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Ubuntu20-04/" style="font-size: 10px;">Ubuntu20.04</a> <a href="/tags/Ubuntu%E6%89%8B%E5%8A%A8%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Ubuntu手动搭建Web服务器</a> <a href="/tags/VASP/" style="font-size: 10px;">VASP</a> <a href="/tags/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/" style="font-size: 10px;">VASP安装与编译</a> <a href="/tags/Videos/" style="font-size: 10px;">Videos</a> <a href="/tags/Windows10-Linux-%E5%AD%90%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">Windows10 Linux 子系统</a> <a href="/tags/community/" style="font-size: 10px;">community</a> <a href="/tags/constants/" style="font-size: 10px;">constants</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/fora/" style="font-size: 10px;">fora</a> <a href="/tags/forum/" style="font-size: 10px;">forum</a> <a href="/tags/math/" style="font-size: 10px;">math</a> <a href="/tags/mklink/" style="font-size: 10px;">mklink</a> <a href="/tags/python%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">python镜像配置</a> <a href="/tags/units/" style="font-size: 10px;">units</a> <a href="/tags/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84%E6%94%B6%E8%97%8F/" style="font-size: 11.67px;">乱七八糟的收藏</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/" style="font-size: 10px;">虚拟机扩容</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-notes/MachineLearning/MLPython-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/notes/MachineLearning/MLPython-1/">
+            <time datetime="2022-09-22T04:18:28.000Z" itemprop="datePublished">2022-09-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            机器学习基础-1
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Machine-Learning-with-Python"><span class="toc-number">1.</span> <span class="toc-text">Machine Learning with Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%89%8D%E6%9C%9F%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">机器学习前期基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3-%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">监督&#x2F;无监督学习算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.3.</span> <span class="toc-text">工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.2.</span> <span class="toc-text">机器学习步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">构建一个机器学习模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%82%E6%B5%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.2.</span> <span class="toc-text">观测数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">1.2.4.</span> <span class="toc-text">训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B-%E8%AF%84%E4%BC%B0"><span class="toc-number">1.2.5.</span> <span class="toc-text">预测@评估</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.3.</span> <span class="toc-text">监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88-%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="toc-number">1.3.1.</span> <span class="toc-text">过拟合&#x2F;欠拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">监督学习算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KNN%EF%BC%9AKNeighbors"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">KNN：KNeighbors</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">线性模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.2.1.</span> <span class="toc-text">用于回归的线性模型:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-%E6%99%AE%E9%80%9A%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="toc-number">1.3.2.2.2.</span> <span class="toc-text">线性回归(普通最小二乘法)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92-ridge-regression"><span class="toc-number">1.3.2.2.3.</span> <span class="toc-text">岭回归(ridge regression)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lasso"><span class="toc-number">1.3.2.2.4.</span> <span class="toc-text">lasso</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%88%86%E7%B1%BB%E7%9A%84%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.2.5.</span> <span class="toc-text">用于分类的线性模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%A4%9A%E5%88%86%E7%B1%BB%E7%9A%84%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.2.6.</span> <span class="toc-text">用于多分类的线性模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%E3%80%81%E7%BC%BA%E7%82%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.2.2.7.</span> <span class="toc-text">优点、缺点和参数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">朴素贝叶斯分类器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.2.3.1.</span> <span class="toc-text">优缺点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%86%B3%E7%AD%96%E6%A0%91png"><span class="toc-number">1.3.2.4.1.</span> <span class="toc-text">生成决策树png</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E9%9B%86%E6%88%90"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">决策树集成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88kernelized-support-vector-machine%EF%BC%89"><span class="toc-number">1.3.2.6.</span> <span class="toc-text">核支持向量机（kernelized support vector machine）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="toc-number">1.3.2.7.</span> <span class="toc-text">神经网络（深度学习）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%BA%A6%E4%BC%B0%E8%AE%A1"><span class="toc-number">1.3.3.</span> <span class="toc-text">分类器的不确定度估计</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>[toc]</p>
+<h1 id="Machine-Learning-with-Python"><a href="#Machine-Learning-with-Python" class="headerlink" title="Machine Learning with Python"></a>Machine Learning with Python</h1><h2 id="机器学习前期基础"><a href="#机器学习前期基础" class="headerlink" title="机器学习前期基础"></a>机器学习前期基础</h2><h3 id="监督-无监督学习算法"><a href="#监督-无监督学习算法" class="headerlink" title="监督/无监督学习算法"></a>监督/无监督学习算法</h3><ul>
+<li>从输入/ 输出对中进行学习的机器学习算法叫作<strong>监督学习算法（supervised learning algorithm）</strong>；</li>
+<li><strong>无监督学习算法（unsupervised learning algorithm）</strong>：在无监督学习中，只有输入数据是已知的，没有为算法提供输出数据。虽然这种算法有许多成功的应用，但理解和评估这些算法往往更加困难。<blockquote>
+<ol>
+<li>无论是监督学习任务还是无监督学习任务，将输入数据表征为计算机可以理解的形式都是十分重要的。</li>
+<li>每当想要根据给定输入预测某个结果，并且还有输入/ 输出对的示例时，都应该使用监督学习。</li>
+</ol>
+</blockquote>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3></li>
+<li>将数据想象成表格：每一行被称为一个样本（sample）或数据点；而每一列（用来描述这些实体的属性）则被称为特征（feature）。</li>
+</ul>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/">scikit-learn</a></li>
+<li><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/user_guide.html">scikit-learn user_guide</a></li>
+<li>numpy; scipy; matplotlib; pandas</li>
+<li>Jupyter Notebook</li>
+</ul>
+<h2 id="机器学习步骤"><a href="#机器学习步骤" class="headerlink" title="机器学习步骤"></a>机器学习步骤</h2><h3 id="构建一个机器学习模型"><a href="#构建一个机器学习模型" class="headerlink" title="构建一个机器学习模型"></a>构建一个机器学习模型</h3><ul>
+<li>一部分数据用于构建机器学习模型，叫作<strong>训练数据（training data）</strong>或<strong>训练集（training set）</strong></li>
+<li>其余的数据用来评估模型性能，叫作<strong>测试数据（test data）</strong>、<strong>测试集（test set）</strong>或<strong>留出集（hold-out set）</strong><blockquote>
+<p>一般将75%的行数据及对应标签作为训练集，剩下25%的数据及其标签作为测试集。<br><code>scikit-learn</code> 中的<code>train_test_split</code> 函数</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">iris_dataset = load_iris()</span><br><span class="line"><span class="comment"># 训练集、测试集划分函数</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment"># train_test_split 函数利用伪随机数生成器将数据集打乱，确保测试集中包含所有类别的数据。</span></span><br><span class="line">X_train, X_test, y_train, y_test  = train_test_split(</span><br><span class="line">	iris_dataset[<span class="string">&quot;data&quot;</span>],iris_dataset[<span class="string">&quot;target&quot;</span>],random_state=<span class="number">0</span>) </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="观测数据"><a href="#观测数据" class="headerlink" title="观测数据"></a>观测数据</h3><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li>分类算法：如，k近邻算法<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引入K近邻分类器，并实例化，给出近邻数目</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line">knn = KNeighborsClassifier(n_neighbors = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">knn.fit(X_train,y_train)</span><br></pre></td></tr></table></figure>
+<h3 id="预测-评估"><a href="#预测-评估" class="headerlink" title="预测@评估"></a>预测@评估</h3></li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">y_pred = knn.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集预测：\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(y_pred))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;测试集精度：\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(np.mean(y_pred == y_test)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测某一朵花的数据</span></span><br><span class="line"><span class="comment"># sepal length (cm)&#x27;, &#x27;sepal width (cm)&#x27;, &#x27;petal length (cm)&#x27;, &#x27;petal width (cm)&#x27;</span></span><br><span class="line">X_new = np.array([<span class="number">5.6</span>,<span class="number">2.9</span>,<span class="number">1</span>,<span class="number">0.5</span>]).reshape(<span class="number">1</span>,-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">y_pred_new = knn.predict(X_new)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预测：&#123;&#125;&quot;</span>.<span class="built_in">format</span>(y_pred_new))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;预测花种类：&#123;&#125;&quot;</span>.<span class="built_in">format</span>(iris_dataset[<span class="string">&quot;target_names&quot;</span>][y_pred_new]))</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><ul>
+<li>监督机器学习问题主要有两种，分别叫作<strong>分类（classification）</strong>与<strong>回归（regression）</strong>。<blockquote>
+<p>如果在可能的结果之间具有连续性，那么它就是一个回归问题</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[监督学习]==&gt;B(分类)</span><br><span class="line">A==&gt;C(回归)</span><br><span class="line">B==&gt;D(二分类/多分类:目标是预测类别标签)</span><br><span class="line">D==&gt;E1(正类)</span><br><span class="line">D==&gt;E2(反类)</span><br><span class="line">C==&gt;F(回归任务的目标是预测一个连续值)</span><br><span class="line">style A fill:#ffff</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="过拟合-欠拟合"><a href="#过拟合-欠拟合" class="headerlink" title="过拟合/欠拟合"></a>过拟合/欠拟合</h3><ul>
+<li><p>如果你在拟合模型时过分关注训练集的细节，得到了一个在训练集上表现很好、但不能泛化到新数据上的模型，那么就存在<strong>过拟合（overfitting）</strong>。</p>
+</li>
+<li><p>选择过于简单的模型被称为<strong>欠拟合（underfitting）</strong>。</p>
+<blockquote>
+<p>我们的模型越复杂，在训练数据上的预测结果就越好。但是，如果我们的模型过于复杂，我们开始过多关注训练集中每个单独的数据点，模型就不能很好地泛化到新数据上。</p>
+</blockquote>
+</li>
+<li><p><strong>正则化方法</strong>：在训练数据不够多时，或者overtraining时，常常会导致过拟合（overfitting）。正则化方法即为在此时向原始模型引入额外信息，以便防止过拟合和提高模型泛化性能的一类方法的统称。在实际的深度学习场景中我们几乎总是会发现，最好的拟合模型（从最小化泛化误差的意义上）是一个适当正则化的大型模型。</p>
+</li>
+</ul>
+<h3 id="监督学习算法"><a href="#监督学习算法" class="headerlink" title="监督学习算法"></a>监督学习算法</h3><h4 id="KNN：KNeighbors"><a href="#KNN：KNeighbors" class="headerlink" title="KNN：KNeighbors"></a>KNN：KNeighbors</h4><pre><code>&gt; KNeighbors 分类器有2 个重要参数：邻居个数与数据点之间距离的度量方法;
+&gt; 虽然k 近邻算法很容易理解，但由于预测速度慢且不能处理具有很多特征的数据集，所以
+</code></pre>
+<p>在实践中往往不会用到</p>
+<ul>
+<li>以n_neighbors 为自变量，对比训练集精度和测试集精度<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">cancer = load_breast_cancer()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">cancer.data, cancer.target, stratify=cancer.target, random_state=<span class="number">66</span>)</span><br><span class="line">training_accuracy = []</span><br><span class="line">test_accuracy = []</span><br><span class="line"><span class="comment"># n_neighbors取值从1到10</span></span><br><span class="line">neighbors_settings = <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>)</span><br><span class="line"><span class="keyword">for</span> n_neighbors <span class="keyword">in</span> neighbors_settings:</span><br><span class="line">    <span class="comment"># 构建模型</span></span><br><span class="line">    clf = KNeighborsClassifier(n_neighbors=n_neighbors)</span><br><span class="line">    clf.fit(X_train, y_train)</span><br><span class="line">    <span class="comment"># 记录训练集精度</span></span><br><span class="line">    training_accuracy.append(clf.score(X_train, y_train))</span><br><span class="line">    <span class="comment"># 记录泛化精度</span></span><br><span class="line">    test_accuracy.append(clf.score(X_test, y_test))</span><br><span class="line">plt.plot(neighbors_settings, training_accuracy, label=<span class="string">&quot;training accuracy&quot;</span>)</span><br><span class="line">plt.plot(neighbors_settings, test_accuracy, label=<span class="string">&quot;test accuracy&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Accuracy&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;n_neighbors&quot;</span>)</span><br><span class="line">plt.legend() </span><br><span class="line">plt.show()   </span><br></pre></td></tr></table></figure>
+<h4 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h4></li>
+<li>线性模型利用输入特征的线性函数（linear function）进行预测<h5 id="用于回归的线性模型"><a href="#用于回归的线性模型" class="headerlink" title="用于回归的线性模型:"></a>用于回归的线性模型:</h5><blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/331633410220872.png"><br>用于回归的线性模型可以表示为这样的回归模型：对单一特征的预测结果是一条直线，两<br>个特征时是一个平面，或者在更高维度（即更多特征）时是一个超平面。<br>有许多不同的线性回归模型。这些模型之间的区别在于如何从训练数据中学习参数w 和<br>b，以及如何控制模型复杂度</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="线性回归-普通最小二乘法"><a href="#线性回归-普通最小二乘法" class="headerlink" title="线性回归(普通最小二乘法)"></a>线性回归(普通最小二乘法)</h5><pre><code>&gt; 线性回归，或者普通最小二乘法（ordinary least squares，OLS），是回归问题最简单也最经
+</code></pre>
+<p>典的线性方法。<br>    &gt; 线性回归没有参数，这是一个优点，但也因此无法控制模型的复杂度。<br>    &gt; 均方误差（mean squared error）是预测值与真实值之差的平方和除<br>以样本数<br>    &gt; 线性回归寻找参数w 和b，使得对训练集的预测值与真实的回归目标值y<br>之间的均方误差最小<br>    &gt; 训练集和测试集之间的性能差异是过拟合的明显标志</p>
+<ul>
+<li>线性回归使用例子：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> mglearn</span><br><span class="line"></span><br><span class="line">X, y = mglearn.datasets.make_wave(n_samples=<span class="number">60</span>)</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="number">42</span>)</span><br><span class="line">lr = LinearRegression().fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;scikit-learn</span></span><br><span class="line"><span class="string">总是将从训练数据中得出的值保存在以下划线结尾的属性中。这是为了将其</span></span><br><span class="line"><span class="string">与用户设置的参数区分开。&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;lr.coef_: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(lr.coef_)) <span class="comment"># 斜率</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;lr.intercept_: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(lr.intercept_)) <span class="comment"># 截距</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Training set score: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(lr.score(X_train, y_train)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Test set score: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(lr.score(X_test, y_test)))</span><br></pre></td></tr></table></figure>
+
+<h5 id="岭回归-ridge-regression"><a href="#岭回归-ridge-regression" class="headerlink" title="岭回归(ridge regression)"></a>岭回归(ridge regression)</h5><ul>
+<li>岭回归也是一种用于回归的线性模型，因此它的预测公式与普通最小二乘法相同<blockquote>
+<p>但在岭回归中，对系数（w）的选择不仅要在训练数据上得到好的预测结果，而且还要<strong>拟合附加约束</strong>。我们还希望系数尽量小。换句话说，w 的所有元素都应接近于0。<br>这种约束是所谓<strong>正则化（regularization）</strong>的一个例子<br>岭回归用到的这种被称为L2 正则化<br>Ridge 是一种约束更强的模型，所以更不容易过拟合。</p>
+</blockquote>
+</li>
+<li>岭回归使用例子：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line">ridge = Ridge(alpha=<span class="number">1.0</span>).fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Training set score: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(ridge.score(X_train, y_trai</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Ridge 模型在模型的简单性（系数都接近于0）与训练集性能之间做出权衡。简单性和训练<br>集性能二者对于模型的重要程度可以由用户通过设置alpha 参数来指定<br>默认alpha=1.0<br>增大alpha 会使得系数更加趋向于0，从而降低训练集性能，但可能会提高泛化性能。</p>
+</blockquote>
+</li>
+<li>如果数据点少，线性回归可能学不到任何内容。随着模型可用的数据越来越多，两个模型的性能都在提升，最终线性回归的性能追上了岭回归    </li>
+<li>如果有足够多的训练数据，正则化变得不那么重要，并且岭回归和线性回归将具有相同的性能.</li>
+</ul>
+<h5 id="lasso"><a href="#lasso" class="headerlink" title="lasso"></a>lasso</h5><ul>
+<li>除了Ridge，还有一种正则化的线性回归是Lasso。与岭回归相同，使用lasso 也是约束系数使其接近于0，但用到的方法不同，叫作L1 正则化。<blockquote>
+<p>L1 正则化的结果是，使用lasso 时某些系数刚好为0。这说明某些特征被模型完全忽略。</p>
+</blockquote>
+</li>
+<li>Lasso使用例子：<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Lasso</span><br><span class="line">lasso = Lasso().fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Training set score: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(lasso.score(X_train, y_train)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Test set score: &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(lasso.score(X_test, y_test)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Number of features used: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(np.<span class="built_in">sum</span>(lasso.coef_ != <span class="number">0</span>)))</span><br></pre></td></tr></table></figure></li>
+<li>在两个模型中一般首选岭回归。但如果特征很多，你认为只有其中几个是重要的，那么选择Lasso 可能更好。</li>
+<li>如果你想要一个容易解释的模型，Lasso 可以给出更容易理解的模型，因为它只选择了一部分输入特征</li>
+</ul>
+<h5 id="用于分类的线性模型"><a href="#用于分类的线性模型" class="headerlink" title="用于分类的线性模型"></a>用于分类的线性模型</h5><ul>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/476982710220942.png"></p>
+<blockquote>
+<p>对于用于回归的线性模型，输出ŷ 是特征的线性函数，是直线、平面或超平面（对于更高维的数据集）。对于用于分类的线性模型，决策边界是输入的线性函数。换句话说，（二元）<strong>线性分类器是利用直线、平面或超平面来分开两个类别的分类器</strong>。</p>
+</blockquote>
+</li>
+<li><p>学习线性模型有很多种算法。这些算法的区别在于以下两点：</p>
+<blockquote>
+<p>系数和截距的特定组合对训练数据拟合好坏的度量方法；<br>是否使用正则化，以及使用哪种正则化方法。</p>
+</blockquote>
+</li>
+<li><p>最常见的两种线性分类算法:</p>
+<blockquote>
+<p><strong>Logistic 回归（logistic regression）</strong>:<code>linear_model.LogisticRegression</code> 中实现，虽然<code>LogisticRegression</code>的名字中含有回归（<code>regression</code>）， 但它是一种分类算法， 并不是回归算法， 不应与<code>LinearRegression</code> 混淆。<br><strong>线性支持向量机（linear support vector machine， 线性SVM）</strong></p>
+</blockquote>
+</li>
+</ul>
+<h5 id="用于多分类的线性模型"><a href="#用于多分类的线性模型" class="headerlink" title="用于多分类的线性模型"></a>用于多分类的线性模型</h5><ul>
+<li>许多线性分类模型只适用于二分类问题，不能轻易推广到多类别问题（除了Logistic 回归）。将二分类算法推广到多分类算法的一种常见方法是“一对其余”（one-vs.-rest）方法。</li>
+</ul>
+<h5 id="优点、缺点和参数"><a href="#优点、缺点和参数" class="headerlink" title="优点、缺点和参数"></a>优点、缺点和参数</h5><ul>
+<li>线性模型的主要参数是<strong>正则化参数</strong>：<blockquote>
+<p>回归模型中叫作alpha<br>alpha，在LinearSVC 和Logistic-Regression 中叫作C。<br>alpha 值较大或C 值较小，说明模型比较简单<br>通常在对数尺度上对C 和alpha 进行搜索</p>
+</blockquote>
+</li>
+<li>正则化选择：<blockquote>
+<p>如果你假定只有几个特征是真正重要的，那么你应该用L1 正则化，否则应默认使用L2 正则化</p>
+</blockquote>
+</li>
+<li>优点和缺点：<blockquote>
+<p>线性模型的训练速度非常快，预测速度也很快<br>这种模型可以推广到非常大的数据集，对稀疏数据也很有效。<br>如果你的数据包含数十万甚至上百万个样本，你可能需要研究如何使用LogisticRegression 和Ridge 模型的solver=’sag’ 选项，在处理大型数据时，这一选项比默认值要更快。<br>线性模型的另一个优点在于，利用我们之间见过的用于回归和分类的公式，理解如何进行预测是相对比较容易的。不幸的是，往往并不完全清楚系数为什么是这样的。<br>如果特征数量大于样本数量，线性模型的表现通常都很好</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h4><ul>
+<li><code>sklearn</code>中一共三种朴素贝叶斯分类器：<code>GaussianNB</code>、<code>BernoulliNB</code> 和<code>MultinomialNB</code></li>
+<li><code>GaussianNB</code> 可应用于任意连续数据， 而<code>BernoulliNB</code> 假定输入数据为二分类数据，<code>MultinomialNB</code> 假定输入数据为计数数据（即每个特征代表某个对象的整数计数，比如一个单词在句子里出现的次数）。<code>BernoulliNB</code> 和<code>MultinomialNB</code> 主要用于文本数据分类。</li>
+</ul>
+<h5 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h5><ul>
+<li><blockquote>
+<p>训练速度快；但是泛化能力差点儿</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><blockquote>
+<p>决策树是广泛用于分类和回归任务的模型，本质上，它从一层层的if/else 问题中进行学习，并得出结论。</p>
+</blockquote>
+<ul>
+<li>使用乳腺癌数据集进行决策树学习<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">cancer = load_breast_cancer()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">cancer.data, cancer.target, stratify=cancer.target, random_state=<span class="number">40</span>)</span><br><span class="line">tree = DecisionTreeClassifier(random_state=<span class="number">0</span>)</span><br><span class="line">tree.fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on training set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_train, y_train)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on test set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_test, y_test)))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>未剪枝的树容易过拟合，对新数据的泛化性能不佳。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">cancer = load_breast_cancer()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">cancer.data, cancer.target, stratify=cancer.target, random_state=<span class="number">40</span>)</span><br><span class="line"><span class="comment"># tree = DecisionTreeClassifier(random_state=0)</span></span><br><span class="line"><span class="comment"># tree.fit(X_train, y_train)</span></span><br><span class="line">tree = DecisionTreeClassifier(max_depth=<span class="number">4</span>,random_state=<span class="number">0</span>)</span><br><span class="line">tree.fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on training set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_train, y_train)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on test set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_test, y_test)))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>设置max_depth=4，这意味着只可以连续问4 个问题;<br>限制树的深度可以减少过拟合;<br>会降低训练集的精度，但可以提高测试集的精度;<br>防止过拟合有两种常见的策略：一种是及早停止树的生长，也叫预剪枝（pre-pruning）；另一种是先构造树，但随后删除或折叠信息量很少的结点，也叫后剪枝（post-pruning）或剪枝（pruning）。预剪枝的限制条件可能包括限制树的最大深度、限制叶结点的最大数目，或者规定一个结点中数据点的最小数目来防止继续划分。</p>
+<ul>
+<li>scikit-learn 的决策树在DecisionTreeRegressor 类和DecisionTreeClassifier 类中实现。scikit-learn 只实现了预剪枝，没有实现后剪枝。</li>
+</ul>
+</blockquote>
+<h5 id="生成决策树png"><a href="#生成决策树png" class="headerlink" title="生成决策树png"></a>生成决策树png</h5><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> export_graphviz</span><br><span class="line"><span class="comment"># import graphviz</span></span><br><span class="line">cancer = load_breast_cancer()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">cancer.data, cancer.target, stratify=cancer.target, random_state=<span class="number">42</span>)</span><br><span class="line"><span class="comment"># tree = DecisionTreeClassifier(random_state=0)</span></span><br><span class="line"><span class="comment"># tree.fit(X_train, y_train)</span></span><br><span class="line">tree = DecisionTreeClassifier(max_depth=<span class="number">4</span>,random_state=<span class="number">0</span>)</span><br><span class="line">tree.fit(X_train, y_train)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on training set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_train, y_train)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Accuracy on test set: &#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(tree.score(X_test, y_test)))</span><br><span class="line">export_graphviz(tree, out_file=<span class="string">&quot;tree.dot&quot;</span>, class_names=[<span class="string">&quot;malignant&quot;</span>,<span class="string">&quot;benign&quot;</span>],</span><br><span class="line">feature_names=cancer.feature_names, impurity=<span class="literal">False</span>, filled=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># with open(&quot;tree.dot&quot;) as f:</span></span><br><span class="line"><span class="comment"># 	dot_graph = f.read()</span></span><br><span class="line"><span class="comment"># graphviz.Source(dot_graph)</span></span><br></pre></td></tr></table></figure></li>
+<li>安装<a target="_blank" rel="noopener" href="http://graphviz.org/download/">graphviz</a></li>
+<li>转换dot to png<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/coding/python/machinelearning/mlpython-1.md/107180511239381.png" alt="tree"></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot -Tpng tree.dot -o tree.png</span><br></pre></td></tr></table></figure>
+~p53</li>
+</ul>
+<h4 id="决策树集成"><a href="#决策树集成" class="headerlink" title="决策树集成"></a>决策树集成</h4><blockquote>
+<p>决策树的主要缺点在于，即使做了预剪枝，它也经常会过拟合，泛化性能很差。因此，在大多数应用中，往往使用集成方法来替代单棵决策树。<br>集成（ensemble）是合并多个机器学习模型来构建更强大模型的方法<br>有两种常用集成模型：分别是随机森林（random forest）和梯度提升决策树（gradient boosted decision tree）。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line">forest = RandomForestClassifier(n_estimators=<span class="number">100</span>, random_state=<span class="number">0</span>) <span class="comment"># n_estimators为随机森林树的数目</span></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingClassifier</span><br><span class="line">gbrt = GradientBoostingClassifier(random_state=<span class="number">0</span>, max_depth=<span class="number">1</span>) <span class="comment"># 可以通过max_depth学习深度调控过拟合</span></span><br><span class="line">gbrt = GradientBoostingClassifier(random_state=<span class="number">0</span>, learning_rate=<span class="number">0.01</span>) <span class="comment"># learning_rate学习率，为纠正上一棵树的错误的强度</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>梯度提升决策树是监督学习中最强大也最常用的模型之一，主要缺点是需要仔细调参，而且训练时间可能会比较长</li>
+<li>梯度提升树模型的主要参数包括树的数量n_estimators 和学习率learning_rate，后者用于控制每棵树对前一棵树的错误的纠正强度。这两个参数高度相关，因为learning_rate 越低，就需要更多的树来构建具有相似复杂度的模型</li>
+<li>随机森林的n_estimators 值总是越大越好，但梯度提升不同，增大n_estimators 会导致模型更加复杂，进而可能导致过拟合。通常的做法是根据时间和内存的预算选择合适的n_estimators，然后对不同的learning_rate 进行遍历。</li>
+<li>另一个重要参数是max_depth（或max_leaf_nodes），用于降低每棵树的复杂度。梯度提升模型的max_depth 通常都设置得很小，一般不超过5。<h4 id="核支持向量机（kernelized-support-vector-machine）"><a href="#核支持向量机（kernelized-support-vector-machine）" class="headerlink" title="核支持向量机（kernelized support vector machine）"></a>核支持向量机（kernelized support vector machine）</h4></li>
+<li>这里需要记住的是，向数据表示中添加非线性特征，可以让线性模型变得更强大</li>
+<li>核技巧（kernel trick），它的原理是直接计算扩展特征表示中数据点之间的距离（更准确地说是内积），而不用实际对扩展进行计算。</li>
+<li>一种是多项式核，在一定阶数内计算原始特征所有可能的多项式（比如feature1 ** 2 * feature2 ** 5）；另一种是径向基函数（radial basis function，RBF）核，也叫高斯核。高斯核有点难以解释，因为它对应无限维的特征空间。一种对高斯核的解释是它考虑所有阶数的所有可能的多项式，但阶数越高，特征的重要性越小。</li>
+</ul>
+<h4 id="神经网络（深度学习）"><a href="#神经网络（深度学习）" class="headerlink" title="神经网络（深度学习）"></a>神经网络（深度学习）</h4><ul>
+<li>虽然深度学习在许多机器学习应用中都有巨大的潜力，但深度学习算法往往经过精确调整，只适用于特定的使用场景。<blockquote>
+<p>多层感知机（multilayer perceptron，MLP），它可以作为研究更复杂的深度学习方法的起点。MLP 也被称为（普通）前馈神经网络，有时也简称为神经网络。<br>MLP 可以被视为广义的线性模型，执行多层处理后得到结论。<br>$ŷ = w[0] * x[0] + w[1] * x[1] + … + w[p] * x[p] + b$<br><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/66930110227254.png"><br>图中，左边的每个结点代表一个输入特征，连线代表学到的系数，右边的结点代表输出，是输入的加权求和。<br>在MLP 中，多次重复这个计算加权求和的过程，首先计算代表中间过程的隐单元（hiddenunit），然后再计算这些隐单元的加权求和并得到最终结果<br><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/377650310247420.png"><br>这个模型需要学习更多的系数（也叫作权重）：在每个输入与每个隐单元（隐单元组成了隐层）之间有一个系数，在每个隐单元与输出之间也有一个系数。<br><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/398050910240089.png"><br>校正非线性（rectifying nonlinearity，也叫校正线性单元或relu）或正切双曲线（tangens hyperbolicus，tanh）有了这两种非线性函数，神经网络可以学习比线性模型复杂得多的函数。</p>
+</blockquote>
+</li>
+<li>这些由许多计算层组成的大型神经网络，正是术语“深度学习”的灵感来源。</li>
+<li>包含100 个隐单元的神经网络在two_moons 数据集上学到的决策边界<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neural_network <span class="keyword">import</span> MLPClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_moons</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> mglearn</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">X, y = make_moons(n_samples=<span class="number">100</span>, noise=<span class="number">0.25</span>, random_state=<span class="number">3</span>)</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y,</span><br><span class="line">random_state=<span class="number">42</span>)</span><br><span class="line">mlp = MLPClassifier(solver=<span class="string">&#x27;lbfgs&#x27;</span>, hidden_layer_sizes=[<span class="number">100</span>],random_state=<span class="number">0</span>).fit(X_train, y_train)</span><br><span class="line">mglearn.plots.plot_2d_separator(mlp, X_train, fill=<span class="literal">True</span>, alpha=<span class="number">.3</span>)</span><br><span class="line">mglearn.discrete_scatter(X_train[:, <span class="number">0</span>], X_train[:, <span class="number">1</span>], y_train)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 0&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/machinelearning/mlpython-1.md/447251410236644.png" alt="Figure_1"></li>
+<li>控制神经网络复杂度的方法有很多种：<strong>隐层的个数</strong>、<strong>每个隐层中的单元个数</strong>与<strong>正则化（alpha）等</strong>。</li>
+</ul>
+<h3 id="分类器的不确定度估计"><a href="#分类器的不确定度估计" class="headerlink" title="分类器的不确定度估计"></a>分类器的不确定度估计</h3><p>~p91</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/VASP/softwares/vasp/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">VASP安装与编译</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Eastsheng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
