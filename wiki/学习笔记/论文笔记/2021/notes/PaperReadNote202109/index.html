@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="referrer" content="no-referrer" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
@@ -256,17 +257,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/2021/notes/PaperReadNote202108/">
+      <a class="nav-left" href="/wiki/Windows/other/2021/windows-usb/">
         <span class="nav-arrow">← </span>
         
-          论文笔记2021-08
+          U盘突然出现错误“文件或目录损坏且无法读取”？
         
       </a>
     
     
-      <a class="nav-right" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Python/codes/python/python_link/">
+      <a class="nav-right" href="/wiki/Windows/other/2021/windows-internet/">
         
-          Linux Python默认版本设置
+          远程计算机或设备将不接受连接
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -320,13 +321,13 @@
     }
     $('.header').removeClass('fixed-header')
 
-    // error image
-    $(".markdown-content img").on('error', function() {
-      $(this).attr('src', '/css/images/error_icon.png')
-      $(this).css({
-        'cursor': 'default'
-      })
-    })
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
 
     // zoom image
     $(".markdown-content img").on('click', function() {

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Code, Research">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E6%9D%82%E8%B0%88/Hexo/other/2020/Hexo-icarus/">给icarus主题换背景图片</a>
+      </h2>
+      <p class="article-date">2020年6月29日</p>
+      
+        
+  <a href="/tags#Icarus" >
+    <span class="tag-code">Icarus</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          在./themes/../source/css/style.styl添加如下代码12345678// Custom styles.body &#123; 	background:url(https://source.unsplash.com/random/1600x900?wallpaper ...
+        
+      </div>
+      <a class="more" href="/wiki/%E6%9D%82%E8%B0%88/Hexo/other/2020/Hexo-icarus/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/Windows/other/2020/windows-problems/">Windows相关</a>
+      </h2>
+      <p class="article-date">2020年6月24日</p>
+      
+        
+  <a href="/tags#Windows problems" >
+    <span class="tag-code">Windows problems</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. 自动获取 ip 地址，获取了 169 开头的ip地址？自从家里来到学校之后，就连接不上校网，自动获取的ip地址老是169开头，但，电脑是可以连上路由器无线和网线的，就是在直接连校网的网线(需要登录账号密码)出现的这种问题。
+2. windows定时关机定时3600s后关机：shutdo ...
+        
+      </div>
+      <a class="more" href="/wiki/Windows/other/2020/windows-problems/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Origin/other/2020/Origin-2/">Origin Integrate</a>
+      </h2>
+      <p class="article-date">2020年6月22日</p>
+      
+        
+  <a href="/tags#origin" >
+    <span class="tag-code">origin</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          积分
+选中数据，并按照figure2找到 Integrate
+操作完之后，就会在figure1中E(Y2)列出现积分后的数据
+接下来就是画图，plot&gt;line
+
+
+
+
+
+
+
+
+
+figure1
+figure2
+
+
+
+
+
+
+
+        
+      </div>
+      <a class="more" href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Origin/other/2020/Origin-2/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Origin/other/2020/Origin-1/">Origin 画双y轴</a>
+      </h2>
+      <p class="article-date">2020年6月22日</p>
+      
+        
+  <a href="/tags#origin" >
+    <span class="tag-code">origin</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. 首先画一个单y轴
+选中数据并，plot&gt;line 画出图
+
+
+
+
+
+
+
+
+
+figure1
+figure2
+
+
+
+
+
+
+2. 然后插入另一个坐标轴
+如图figure3,可以得到figure4–双y轴
+
+
+
+
+
+
+
+
+
+figure3
+figure4
+
+
+
+
+
+
+3. 插入数据，并 ...
+        
+      </div>
+      <a class="more" href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Origin/other/2020/Origin-1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">书籍/社区/论坛收藏</a>
+      </h2>
+      <p class="article-date">2020年6月18日</p>
+      
+        
+  <a href="/tags#Books" >
+    <span class="tag-code">Books</span>
+  </a>
+
+  <a href="/tags#fora" >
+    <span class="tag-code">fora</span>
+  </a>
+
+  <a href="/tags#forum" >
+    <span class="tag-code">forum</span>
+  </a>
+
+  <a href="/tags#community" >
+    <span class="tag-code">community</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+编程语言
+
+
+C/C++
+
+
+名称
+链接
+
+
+
+C语言中文网
+http://c.biancheng.net/cpp/compiler/
+
+
+
+
+
+
+
+Markdown
+
+
+名称
+链接
+
+
+
+Markdown中文文档
+https://markdown-zh.readthedocs ...
+        
+      </div>
+      <a class="more" href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/communities_fora/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">视频收藏</a>
+      </h2>
+      <p class="article-date">2020年6月18日</p>
+      
+        
+  <a href="/tags#Videos" >
+    <span class="tag-code">Videos</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+学习视频1. 讲座
+
+
+讲座/平台
+链接
+
+
+
+蔻享
+https://www.koushare.com
+
+
+微纳传热
+https://space.bilibili.com/609834262?spm_id_from=333.788.b_765f7570696e666f.1
+
+
+2 ...
+        
+      </div>
+      <a class="more" href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/videos/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E6%9D%82%E8%B0%88/Hexo/other/2020/Hexo-command/">Common Commands of Hexo</a>
+      </h2>
+      <p class="article-date">2020年6月18日</p>
+      
+        
+  <a href="/tags#Hexo command" >
+    <span class="tag-code">Hexo command</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. Create a new post123$ hexo new [layout] &quot;My New Post&quot;where layout: post; page; draftdefault layout==post
+
+More info: Writing
+2. Run s ...
+        
+      </div>
+      <a class="more" href="/wiki/%E6%9D%82%E8%B0%88/Hexo/other/2020/Hexo-command/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Ovito/other/2020/Ovito/">Ovito</a>
+      </h2>
+      <p class="article-date">2020年5月9日</p>
+      
+        
+  <a href="/tags#Ovito" >
+    <span class="tag-code">Ovito</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. 去掉盒子
+直接把Display下的Simulation Cell前的框框里的√去掉即可。
+
+
+
+
+        
+      </div>
+      <a class="more" href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Ovito/other/2020/Ovito/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Tecplot/other/2020/Tecplot-1/">控制Tecplot里的原子间距</a>
+      </h2>
+      <p class="article-date">2020年5月8日</p>
+      
+        
+  <a href="/tags#Tecplot" >
+    <span class="tag-code">Tecplot</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. Plot&lt;Axis&lt;独立操作x,y,z的Size Factors
+Plot&lt;Axis  
+
+
+独立操作x,y,z的Size Factors
+
+调原子间距效果
+
+
+
+
+2. x,y,z方向的视角调整
+可以手动调，但正视图、侧视图、俯视图手动调可能不太好调
+一般这种可视化 ...
+        
+      </div>
+      <a class="more" href="/wiki/%E7%A7%91%E7%A0%94%E5%AD%A6%E4%B9%A0/Tecplot/other/2020/Tecplot-1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/error/">Fortran error</a>
+      </h2>
+      <p class="article-date">2020年4月16日</p>
+      
+        
+  <a href="/tags#Fortran" >
+    <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/tags#error" >
+    <span class="tag-code">error</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+1. FFTW调用出错1234567/tmp/cc7nhiwo.o: In function `MAIN__&#x27;:xxx.f90:(.text+0x200c): undefined reference to `dfftw_plan_dft_1d_&#x27;xxx.f90 ...
+        
+      </div>
+      <a class="more" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/error/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/page/7/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/9/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2023 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
