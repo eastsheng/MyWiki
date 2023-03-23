@@ -204,16 +204,10 @@
 </li>
 <li>至此，完成，可以进入lammps目录下<code>Examples</code>中测试一下并行；例如：<code>mpiexec -np 8 lmp_mpi -i inputfile.in</code>；具体看<a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网</a></li>
 </ol>
-<h3 id="Linux下Lammps并行安装"><a href="#Linux下Lammps并行安装" class="headerlink" title="- Linux下Lammps并行安装"></a>- Linux下Lammps并行安装</h3><ol>
-<li>安装必要的编译器</li>
-</ol>
-<ul>
+<h3 id="Linux下Lammps并行安装"><a href="#Linux下Lammps并行安装" class="headerlink" title="- Linux下Lammps并行安装"></a>- Linux下Lammps并行安装</h3><h4 id="1-安装必要的编译器"><a href="#1-安装必要的编译器" class="headerlink" title="1. 安装必要的编译器"></a>1. 安装必要的编译器</h4><ul>
 <li>安装/更新必要的C/C++编译器等：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install make</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol start="2">
-<li>并行计算程序MIPCH安装</li>
-</ol>
-<ul>
+<h4 id="2-并行计算程序MIPCH安装"><a href="#2-并行计算程序MIPCH安装" class="headerlink" title="2. 并行计算程序MIPCH安装"></a>2. 并行计算程序MIPCH安装</h4><ul>
 <li>下载<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">MPICH安装包</a> ，并解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mpich-3.2.1.tar.gz</span><br></pre></td></tr></table></figure></li>
 <li>然后，进入该文件夹:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mpich-3.2.1</span><br></pre></td></tr></table></figure></li>
 <li>另外新建<code>mpich</code>文件夹（用于安装路径）；</li>
@@ -229,10 +223,11 @@
 </blockquote>
 </li>
 </ul>
-<ol start="3">
-<li>LAMMPS安装</li>
-</ol>
-<ul>
+<h4 id="3-FFTW3安装"><a href="#3-FFTW3安装" class="headerlink" title="3. FFTW3安装"></a>3. FFTW3安装</h4><ul>
+<li><a target="_blank" rel="noopener" href="http://www.fftw.org/download.html">Downloading FFTW</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">Installation on Unix</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/your fftw3 path(默认/usr/<span class="built_in">local</span>/include)不能使用绝对路径/</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-LAMMPS安装"><a href="#4-LAMMPS安装" class="headerlink" title="4. LAMMPS安装"></a>4. LAMMPS安装</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://lammps.sandia.gov/download.html">下载安装包</a>， 解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf lammps-stable.tar.gz</span><br></pre></td></tr></table></figure></li>
 <li>进入解压文件夹内：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lammps-stable/src</span><br></pre></td></tr></table></figure></li>
 <li>输入：</li>
@@ -333,7 +328,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows%E4%B8%8BLammps%E5%AE%89%E8%A3%85"><span class="toc-nav-text">- Windows下Lammps安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux%E4%B8%8BLammps%E5%B9%B6%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="toc-nav-text">- Linux下Lammps并行安装</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows%E4%B8%8BLammps%E5%AE%89%E8%A3%85"><span class="toc-nav-text">- Windows下Lammps安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux%E4%B8%8BLammps%E5%B9%B6%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="toc-nav-text">- Linux下Lammps并行安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-nav-text">1. 安装必要的编译器</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8FMIPCH%E5%AE%89%E8%A3%85"><span class="toc-nav-text">2. 并行计算程序MIPCH安装</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-FFTW3%E5%AE%89%E8%A3%85"><span class="toc-nav-text">3. FFTW3安装</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-LAMMPS%E5%AE%89%E8%A3%85"><span class="toc-nav-text">4. LAMMPS安装</span></a></li></ol></li></ol>
     
   </div>
 </aside>
