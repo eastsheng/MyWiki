@@ -209,129 +209,7 @@
 <li>指定倒易空间中的收缩因子，收缩系数越高，倒空间的采样范围越广。</li>
 <li>并不清楚为什么加了这条命令之后DOS为空。</li>
 </ul>
-<p>n<br>group    g_ID    region    reg_ID</p>
-<h1 id="or"><a href="#or" class="headerlink" title="or"></a>or</h1><p>group   g_ID    type 1 2  # atom type</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 所分的组的个数不能大于<span class="number">32</span>个。</span><br><span class="line"></span><br><span class="line">## <span class="number">3</span>. `meam`势函数</span><br><span class="line"></span><br><span class="line">- meam 势函数，data很多重复元素的原子的时候，library那个文件后面只需要写元素，另一个需要写全原子类型。</span><br><span class="line"></span><br><span class="line">## <span class="number">4</span>. LJ 交互 mix</span><br><span class="line">```in</span><br><span class="line">pair_modify mix geometric</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果需要交互LJ势参数时，可以使用此命令</li>
-</ul>
-<h2 id="5-Berendsen控温"><a href="#5-Berendsen控温" class="headerlink" title="5. Berendsen控温"></a>5. Berendsen控温</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fix ID group-ID temp/berendsen Tstart Tstop Tdamp</span><br><span class="line">fix 1  all      temp/berendsen 300.0  300.0 100.0</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>Tdamp 温度阻尼参数，时间单位（例如ps，fs）</li>
-<li>使用Berendsen恒温器重新设置一组原子的温度，Berendsen每一步都会调整原子的速度。<br>温度不能为0</li>
-</ul>
-</blockquote>
-<h2 id="6-LAMMPS中dihedral与improper具体有什么区别？"><a href="#6-LAMMPS中dihedral与improper具体有什么区别？" class="headerlink" title="6. LAMMPS中dihedral与improper具体有什么区别？"></a>6. LAMMPS中dihedral与improper具体有什么区别？</h2><blockquote>
-<ul>
-<li>这不是lammps问题，是力场问题。A dihedral angle potentials depends on four consecutive bonded atoms, whereas the improper torsion depends on three atoms centered around a fourth atom. … The main difference between both torsion potentials is the definition of the torsional angle and the functional form of the potential function.</li>
-</ul>
-</blockquote>
-<ul>
-<li>参考：<a target="_blank" rel="noopener" href="http://muchong.com/t-12670230-1">http://muchong.com/t-12670230-1</a></li>
-<li>这两个improper不用可以吗？</li>
-</ul>
-<h2 id="7-lj-cut-coul-long"><a href="#7-lj-cut-coul-long" class="headerlink" title="7. lj/cut/coul/long"></a>7. lj/cut/coul/long</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lj/cut/coul/long args = cutoff (<span class="name">cutoff2</span>)</span><br><span class="line">cutoff = global cutoff for LJ (<span class="name">and</span> Coulombic if only <span class="number">1</span> arg) (<span class="name">distance</span> units)</span><br><span class="line">cutoff2 = global cutoff for Coulombic (<span class="name">optional</span>) (<span class="name">distance</span> units)</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-SHAKE-vs-RATTLE"><a href="#8-SHAKE-vs-RATTLE" class="headerlink" title="8. SHAKE vs RATTLE"></a>8. <code>SHAKE vs RATTLE</code></h2><h4 id="在LAMMPS模拟中，通过SHAKE或RATTLE算法对指定的键和角度应用键和角度约束。这通常会启用更长的时间步长。"><a href="#在LAMMPS模拟中，通过SHAKE或RATTLE算法对指定的键和角度应用键和角度约束。这通常会启用更长的时间步长。" class="headerlink" title="在LAMMPS模拟中，通过SHAKE或RATTLE算法对指定的键和角度应用键和角度约束。这通常会启用更长的时间步长。"></a>在LAMMPS模拟中，通过SHAKE或RATTLE算法对指定的键和角度应用键和角度约束。这通常会启用更长的时间步长。</h4><blockquote>
-<ul>
-<li><code>SHAKE</code></li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fix ID group-ID style tol iter N constraint values ... keyword value ...</span><br><span class="line">fix ID group-ID shake 0.0001 20 10 b 254 a 459</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>tol = accuracy tolerance of SHAKE solution</li>
-<li>iter = max # of iterations in each SHAKE solution</li>
-<li>N = print SHAKE statistics every this many timesteps (0 = never)</li>
-<li>b values = one or more bond types</li>
-<li>a values = one or more angle types</li>
-<li>t values = one or more atom types</li>
-<li>m value = one or more mass values</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><code>SHAKE</code>算法是为标准<code>Verlet timestepping</code>等方案而发明的，在这些方案中，只有坐标被积分，速度被近似为轨迹的有限差分；</li>
-<li>如果速度被明确地积分，就像LAMMPS使用的<code>velocity Verlet</code>积分方法一样，为了消除沿着键的速度分量，就需要第二组约束力；</li>
-<li><code>SHAKE and RATTLE</code>都是针对单个分子来设置的；</li>
-<li>i原子和j原子的位移矢量为：r<sub>ij</sub><sup>n+1</sup> = r<sub>j</sub><sup>n</sup>-r<sub>i</sub><sup>n</sup></li>
-<li>约束条件为：① r<sub>ij</sub><sup>n+1</sup>.r<sub>ij</sub><sup>n+1</sup>=d<sub>ij</sub><sup>2</sup> and ② v<sub>ij</sub><sup>n+1</sup>.r<sub>ij</sub><sup>n+1</sup>=0</li>
-<li>其中，<code>SHAKE</code>算法满足第一条件，如果强加第二条件，沿键方向的速度分量就会消失；</li>
-<li>而<code>RATTLE</code>算法满足这两个条件；</li>
-<li>fix <code>SHAKE</code>和<code>RATTLE</code>有着相同的设置和选项；</li>
-<li>通过<code>SHAKE算法</code>每一步都指定键和角去重新设置它们的平衡长度和角度值<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/0021999177900985">J of Comp Phys, 23, 327-341 (1977)</a>；这是通过施加额外的约束力来实现的，这样新的位置就保持了所需的原子分离。<code>小的delta值意味着SHAKE的很好</code>；</li>
-<li>另外，由于<code>fix RATTLE</code>修改力和速度，因此<code>fix RATTLE</code>应该定义在所有其他<code>fix</code>的后面。</li>
-<li>为了计算效率，在一个模拟中只能定义一个<code>SHAKE或RATTLE</code></li>
-</ul>
-</blockquote>
-<h2 id="9-fix-npt"><a href="#9-fix-npt" class="headerlink" title="9. fix npt"></a>9. <code>fix npt</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fix ID group-ID style_name keyword value</span><br><span class="line">fix 1  water    npt        temp    300.0 300.0 100.0 iso 0.0 0.0 1000.0</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>基于Nose-Hoover style对非哈密顿运动方程执行时间积分，在每个时间步更新组中原子的位置和速度。</li>
-<li><strong>压力里是怎么给的？</strong></li>
-<li>温度调节和压力调节是通过添加一些动态变量来实现的，这些动态变量与粒子速度(温度调节)和模拟域尺寸(压力调节)耦合。</li>
-<li>除了基本的恒温和恒压调节外，这些修复还可以创建一个与粒子恒温器耦合的恒温器链，以及另一个与恒压调节变量耦合的恒温器链。该稳压器可以耦合到整体盒体积，或个别尺寸，包括xy, xz和yz倾斜尺寸。恒温器的外部压力可以指定为标量压力(等压系综)或对称应力张量的分量(恒应力系综)。当使用正确时，粒子的时间平均温度和应力张量将会和指定的Tstart/Tstop和Pstart/Pstop目标值匹配。</li>
-</ul>
-</blockquote>
-<h2 id="10-定义一种计算一组原子温度的方法"><a href="#10-定义一种计算一组原子温度的方法" class="headerlink" title="10. 定义一种计算一组原子温度的方法"></a>10. 定义一种计算一组原子温度的方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">compute ID group-ID temp</span><br><span class="line">compute   temp_HeavyOil  HeavyOil temp</span><br><span class="line">compute   press_HeavyOil all pressure temp_HeavyOil</span><br><span class="line">thermo_style  custom step temp press pxx pyy pzz pe ke etotal epair ebond eangle edihed</span><br><span class="line">thermo_modify temp temp_HeavyOil format 3 %15.8g press press_HeavyOil</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>计算压力必须是对all进行。</li>
-</ul>
-</blockquote>
-<h2 id="11-设置一组或多组原子刚体"><a href="#11-设置一组或多组原子刚体" class="headerlink" title="11. 设置一组或多组原子刚体"></a>11. 设置一组或多组原子刚体</h2><blockquote>
-<ul>
-<li>设置一组</li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix 1       Water  rigid   single</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ul>
-<li>设置多组</li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fix 2       all  rigid   group 2 Water Quartz</span><br><span class="line"># 排除刚体组内原子之间的相互作用力</span><br><span class="line">neigh_modify    exclude group Water Water</span><br><span class="line">neigh_modify    exclude group Quartz Quartz</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-read-data"><a href="#12-read-data" class="headerlink" title="12. read_data"></a>12. read_data</h2><ul>
-<li>该命令通过使用add、offset、shift关键字可以多次读取data文件，可以组件比较复杂的系统，比如：先读取一个流体结构，再读取一个壁面的结构，然后还可以再次读取第二个壁面结构，并可以通过<code>displace_atoms</code>命令对该结构进行旋转，以实现对面的另一个壁面。<h3 id="读取单个data时"><a href="#读取单个data时" class="headerlink" title="读取单个data时"></a>读取单个data时</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read_data <span class="keyword">file</span>.<span class="keyword">data</span></span><br></pre></td></tr></table></figure>
-<h3 id="读取多个data时"><a href="#读取多个data时" class="headerlink" title="读取多个data时"></a>读取多个data时</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">read_data</span> file.data keyword args</span><br><span class="line"><span class="attribute">read_data</span> data.water add append offset <span class="number">3</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> shift <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">50</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h4 id="keyword：add、offset、shift、extra、group"><a href="#keyword：add、offset、shift、extra、group" class="headerlink" title="keyword：add、offset、shift、extra、group"></a>keyword：add、offset、shift、extra、group</h4><h5 id="add-如果没有模拟盒子，不能用add，如果已经通过create-box命令或先前的read-data命令构建了盒子（也即是data中的xlo、xhi等）。"><a href="#add-如果没有模拟盒子，不能用add，如果已经通过create-box命令或先前的read-data命令构建了盒子（也即是data中的xlo、xhi等）。" class="headerlink" title="add:如果没有模拟盒子，不能用add，如果已经通过create_box命令或先前的read_data命令构建了盒子（也即是data中的xlo、xhi等）。"></a>add:如果没有模拟盒子，不能用<code>add</code>，如果已经通过<code>create_box</code>命令或先前的<code>read_data</code>命令构建了盒子（也即是data中的xlo、xhi等）。</h5><blockquote>
-<ul>
-<li>另外，<code>add</code>后面还跟着一个参数，有四个选择:<code>append;IDoffset;MOLoffset merge</code>分别表示：<br>（append）后面加上来的data中的原子id直接顺延，比如之前读取的data一共5个原子类型，后来加的data有2个原子id，那么合起来的原子id就是5+2；<br>（IDoffset）是指定一个具体数值代替前面的5，例如：IDoffset 10， 这里表示下一个data读取的原子id会从11开始；<br>（MOLoffset）与IDoffset相似，表示分子ID<br>（merge）表示不改变原子id直接合并</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h5 id="offset在data文件中读取atom-bond-angle-…-types"><a href="#offset在data文件中读取atom-bond-angle-…-types" class="headerlink" title="offset在data文件中读取atom bond angle … types"></a>offset在data文件中读取atom bond angle … types</h5><blockquote>
-<ul>
-<li>offset后面跟五个参数</li>
-</ul>
-</blockquote>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">toff = <span class="keyword">offset</span> <span class="keyword">to</span> <span class="keyword">add</span> <span class="keyword">to</span> atom <span class="keyword">types</span></span><br><span class="line">boff = <span class="keyword">offset</span> <span class="keyword">to</span> <span class="keyword">add</span> <span class="keyword">to</span> bond <span class="keyword">types</span></span><br><span class="line">aoff = <span class="keyword">offset</span> <span class="keyword">to</span> <span class="keyword">add</span> <span class="keyword">to</span> angle <span class="keyword">types</span></span><br><span class="line">doff = <span class="keyword">offset</span> <span class="keyword">to</span> <span class="keyword">add</span> <span class="keyword">to</span> dihedral <span class="keyword">types</span></span><br><span class="line">ioff = <span class="keyword">offset</span> <span class="keyword">to</span> <span class="keyword">add</span> <span class="keyword">to</span> improper <span class="keyword">types</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>以第一个为例，如果toff=2，添加的原子的原来id为1 2 3，那么添加后将会变为3 4 5；</li>
-</ul>
-</blockquote>
-<h5 id="shift关键字可以改变加入系统data的位置"><a href="#shift关键字可以改变加入系统data的位置" class="headerlink" title="shift关键字可以改变加入系统data的位置"></a>shift关键字可以改变加入系统data的位置</h5><blockquote>
-<ul>
-<li>有三个参数分别代表在三个方向的原子偏移量;</li>
-</ul>
-</blockquote>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">shift</span> Sx, Sy, Sz</span><br><span class="line"><span class="attribute">shift</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="extra关键字为稍后再次使用read-data命令添加新的atom、bond、angle等而准备"><a href="#extra关键字为稍后再次使用read-data命令添加新的atom、bond、angle等而准备" class="headerlink" title="extra关键字为稍后再次使用read_data命令添加新的atom、bond、angle等而准备"></a>extra关键字为稍后再次使用read_data命令添加新的atom、bond、angle等而准备</h5><blockquote>
-<ul>
-<li>该关键字只能在第一次读取data时使用；</li>
-<li>当系统第一次初始化时，LAMMPS设置了允许的原子、键、角度等类型的最大数目;</li>
-<li>如果不使用extra关键字，那么这些类型的数量将被限制在您读的第一个数据文件中出现的数量。</li>
-<li>例如，如果第一个数据文件是Si的固体基底，它可能会指定一个单个原子类型；如果读取第二个数据文件而且是不同的材料(例如水分子)，位于基底上方，将需要使用不同的原子类型。<strong>只有在读取基底数据文件时将extra/atom/types关键字的值设置的足够大，才能做到</strong></li>
-<li>注意，使用extra关键字还允许每个数据文件包含如下部分:Masses或Pair Coeffs或Bond Coeffs，其大小与数据文件中的类型数量相匹配</li>
-</ul>
-</blockquote>
-<h5 id="group关键字是可以把新添加data设为一组"><a href="#group关键字是可以把新添加data设为一组" class="headerlink" title="group关键字是可以把新添加data设为一组"></a>group关键字是可以把新添加data设为一组</h5><h5 id="nocoeff关键字，顾名思义"><a href="#nocoeff关键字，顾名思义" class="headerlink" title="nocoeff关键字，顾名思义"></a>nocoeff关键字，顾名思义</h5></section>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -349,10 +227,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsInstall/">
+      <a class="nav-left" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">
         <span class="nav-arrow">← </span>
         
-          Lammps安装
+          GROMACS 入门
         
       </a>
     
@@ -392,7 +270,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-Run-GULP-Command"><span class="toc-nav-text">1. Run GULP Command</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-dispersion-amp-DOS"><span class="toc-nav-text">2. dispersion &amp; DOS</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#or"><span class="toc-nav-text">or</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-Berendsen%E6%8E%A7%E6%B8%A9"><span class="toc-nav-text">5. Berendsen控温</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-LAMMPS%E4%B8%ADdihedral%E4%B8%8Eimproper%E5%85%B7%E4%BD%93%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-nav-text">6. LAMMPS中dihedral与improper具体有什么区别？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-lj-cut-coul-long"><span class="toc-nav-text">7. lj&#x2F;cut&#x2F;coul&#x2F;long</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-SHAKE-vs-RATTLE"><span class="toc-nav-text">8. SHAKE vs RATTLE</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9C%A8LAMMPS%E6%A8%A1%E6%8B%9F%E4%B8%AD%EF%BC%8C%E9%80%9A%E8%BF%87SHAKE%E6%88%96RATTLE%E7%AE%97%E6%B3%95%E5%AF%B9%E6%8C%87%E5%AE%9A%E7%9A%84%E9%94%AE%E5%92%8C%E8%A7%92%E5%BA%A6%E5%BA%94%E7%94%A8%E9%94%AE%E5%92%8C%E8%A7%92%E5%BA%A6%E7%BA%A6%E6%9D%9F%E3%80%82%E8%BF%99%E9%80%9A%E5%B8%B8%E4%BC%9A%E5%90%AF%E7%94%A8%E6%9B%B4%E9%95%BF%E7%9A%84%E6%97%B6%E9%97%B4%E6%AD%A5%E9%95%BF%E3%80%82"><span class="toc-nav-text">在LAMMPS模拟中，通过SHAKE或RATTLE算法对指定的键和角度应用键和角度约束。这通常会启用更长的时间步长。</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-fix-npt"><span class="toc-nav-text">9. fix npt</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E5%AE%9A%E4%B9%89%E4%B8%80%E7%A7%8D%E8%AE%A1%E7%AE%97%E4%B8%80%E7%BB%84%E5%8E%9F%E5%AD%90%E6%B8%A9%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-nav-text">10. 定义一种计算一组原子温度的方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E8%AE%BE%E7%BD%AE%E4%B8%80%E7%BB%84%E6%88%96%E5%A4%9A%E7%BB%84%E5%8E%9F%E5%AD%90%E5%88%9A%E4%BD%93"><span class="toc-nav-text">11. 设置一组或多组原子刚体</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#12-read-data"><span class="toc-nav-text">12. read_data</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E5%8D%95%E4%B8%AAdata%E6%97%B6"><span class="toc-nav-text">读取单个data时</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E5%A4%9A%E4%B8%AAdata%E6%97%B6"><span class="toc-nav-text">读取多个data时</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#keyword%EF%BC%9Aadd%E3%80%81offset%E3%80%81shift%E3%80%81extra%E3%80%81group"><span class="toc-nav-text">keyword：add、offset、shift、extra、group</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#add-%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E6%A8%A1%E6%8B%9F%E7%9B%92%E5%AD%90%EF%BC%8C%E4%B8%8D%E8%83%BD%E7%94%A8add%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%B7%B2%E7%BB%8F%E9%80%9A%E8%BF%87create-box%E5%91%BD%E4%BB%A4%E6%88%96%E5%85%88%E5%89%8D%E7%9A%84read-data%E5%91%BD%E4%BB%A4%E6%9E%84%E5%BB%BA%E4%BA%86%E7%9B%92%E5%AD%90%EF%BC%88%E4%B9%9F%E5%8D%B3%E6%98%AFdata%E4%B8%AD%E7%9A%84xlo%E3%80%81xhi%E7%AD%89%EF%BC%89%E3%80%82"><span class="toc-nav-text">add:如果没有模拟盒子，不能用add，如果已经通过create_box命令或先前的read_data命令构建了盒子（也即是data中的xlo、xhi等）。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#offset%E5%9C%A8data%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96atom-bond-angle-%E2%80%A6-types"><span class="toc-nav-text">offset在data文件中读取atom bond angle … types</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shift%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E5%8A%A0%E5%85%A5%E7%B3%BB%E7%BB%9Fdata%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-nav-text">shift关键字可以改变加入系统data的位置</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#extra%E5%85%B3%E9%94%AE%E5%AD%97%E4%B8%BA%E7%A8%8D%E5%90%8E%E5%86%8D%E6%AC%A1%E4%BD%BF%E7%94%A8read-data%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84atom%E3%80%81bond%E3%80%81angle%E7%AD%89%E8%80%8C%E5%87%86%E5%A4%87"><span class="toc-nav-text">extra关键字为稍后再次使用read_data命令添加新的atom、bond、angle等而准备</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#group%E5%85%B3%E9%94%AE%E5%AD%97%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%8A%8A%E6%96%B0%E6%B7%BB%E5%8A%A0data%E8%AE%BE%E4%B8%BA%E4%B8%80%E7%BB%84"><span class="toc-nav-text">group关键字是可以把新添加data设为一组</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#nocoeff%E5%85%B3%E9%94%AE%E5%AD%97%EF%BC%8C%E9%A1%BE%E5%90%8D%E6%80%9D%E4%B9%89"><span class="toc-nav-text">nocoeff关键字，顾名思义</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-Run-GULP-Command"><span class="toc-nav-text">1. Run GULP Command</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-dispersion-amp-DOS"><span class="toc-nav-text">2. dispersion &amp; DOS</span></a></li></ol>
     
   </div>
 </aside>
