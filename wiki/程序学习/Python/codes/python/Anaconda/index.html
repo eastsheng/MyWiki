@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -190,7 +204,7 @@
 <h2 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h2><h3 id="Linux-Anconda安装"><a href="#Linux-Anconda安装" class="headerlink" title="Linux Anconda安装"></a>Linux Anconda安装</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda官网下载</a>或使用<code>wget</code>下显</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /Anaconda;</span><br><span class="line"><span class="built_in">cd</span> /Anaconda;</span><br><span class="line">wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh</span><br><span class="line">bash Anaconda3-5.3.1-Linux-x86_64.sh <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /Anaconda;</span><br><span class="line"><span class="built_in">cd</span> /Anaconda;</span><br><span class="line">wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x86_64.sh</span><br><span class="line">bash Anaconda3-5.3.1-Linux-x86_64.sh <span class="comment">#安装</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p><strong>记得在安装的时候可以修改安装路径：</strong></p>
@@ -201,7 +215,7 @@
 </li>
 <li><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyWiki/Python/conda_2.png"></p>
 </li>
-<li><p> <strong>是否安装VScode? no</strong></p>
+<li><p><strong>是否安装VScode? no</strong></p>
 </li>
 <li><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyWiki/Python/conda_3.png"></p>
 </li>
@@ -210,17 +224,18 @@
 </ul>
 <h3 id="Linux-Anconda-卸载"><a href="#Linux-Anconda-卸载" class="headerlink" title="Linux Anconda 卸载"></a>Linux Anconda 卸载</h3><ul>
 <li><p>直接删除文件夹名</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rm</span> -rf anaconda<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf anaconda3</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>清理环境变量</p>
 </blockquote>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~<span class="string">/.bashrc</span><span class="comment">#打开后删除anaconda的环境变量</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bashrc<span class="comment">#打开后删除anaconda的环境变量</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>或者使用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /usr/<span class="built_in">local</span>/cuda/bin</span><br><span class="line">sudo ./uninstall_cuda_x.x.pl </span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">sudo ./cuda-uninstaller</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /usr/local/cuda/bin</span><br><span class="line">sudo ./uninstall_cuda_x.x.pl </span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">sudo ./cuda-uninstaller</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Anconda-常用命令"><a href="#Anconda-常用命令" class="headerlink" title="Anconda 常用命令"></a>Anconda 常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">conda activate <span class="comment">#启动</span></span><br><span class="line">conda deactivate <span class="comment">#关闭</span></span><br><span class="line"><span class="comment">#创建python=3.7版本的环境，取名叫py37</span></span><br><span class="line">conda create -n py37 python=3.7 </span><br><span class="line"><span class="comment">#删除python3.7环境</span></span><br><span class="line">conda remove -n py37 --all</span><br><span class="line"><span class="comment">#激活py37环境</span></span><br><span class="line">conda activate py37</span><br><span class="line"><span class="comment">#退出环境</span></span><br><span class="line">conda deactivate</span><br><span class="line"><span class="comment">#查看已经安装的python环境</span></span><br><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
 
-<h3 id="取消-开启，默认启动base环境"><a href="#取消-开启，默认启动base环境" class="headerlink" title="取消/开启，默认启动base环境"></a>取消/开启，默认启动base环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span> <span class="comment">#取消</span></span><br><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">true</span>  <span class="comment">#开启</span></span><br></pre></td></tr></table></figure>
+<h3 id="取消-x2F-开启，默认启动base环境"><a href="#取消-x2F-开启，默认启动base环境" class="headerlink" title="取消&#x2F;开启，默认启动base环境"></a>取消&#x2F;开启，默认启动base环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span> <span class="comment">#取消</span></span><br><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">true</span>  <span class="comment">#开启</span></span><br></pre></td></tr></table></figure>
 
 </section>
     <!-- Tags START -->
@@ -287,7 +302,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Conda"><span class="toc-nav-text">Conda</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-Anconda%E5%AE%89%E8%A3%85"><span class="toc-nav-text">Linux Anconda安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-Anconda-%E5%8D%B8%E8%BD%BD"><span class="toc-nav-text">Linux Anconda 卸载</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Anconda-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-nav-text">Anconda 常用命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%96%E6%B6%88-%E5%BC%80%E5%90%AF%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8base%E7%8E%AF%E5%A2%83"><span class="toc-nav-text">取消&#x2F;开启，默认启动base环境</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Conda"><span class="toc-nav-text">Conda</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-Anconda%E5%AE%89%E8%A3%85"><span class="toc-nav-text">Linux Anconda安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-Anconda-%E5%8D%B8%E8%BD%BD"><span class="toc-nav-text">Linux Anconda 卸载</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Anconda-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-nav-text">Anconda 常用命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%96%E6%B6%88-x2F-%E5%BC%80%E5%90%AF%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8base%E7%8E%AF%E5%A2%83"><span class="toc-nav-text">取消&#x2F;开启，默认启动base环境</span></a></li></ol></li></ol>
     
   </div>
 </aside>

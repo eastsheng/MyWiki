@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -193,14 +207,15 @@
 <li><p><a target="_blank" rel="noopener" href="https://www.intel.cn/content/www/cn/zh/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">intel® oneAPI Base Toolkit 安装</a>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18673/l_BaseKit_p_2022.2.0.262_offline.sh</span><br><span class="line">sudo sh ./l_BaseKit_p_2022.2.0.262_offline.sh</span><br></pre></td></tr></table></figure></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">Intel® oneAPI HPC 安装</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18679/l_HPCKit_p_2022.2.0.191_offline.sh</span><br><span class="line">sudo sh ./l_HPCKit_p_2022.2.0.191_offline.sh</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/irc_nas/18679/l_HPCKit_p_2022.2.0.191_offline.sh</span><br><span class="line">sudo sh ./l_HPCKit_p_2022.2.0.191_offline.sh</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>添加环境变量并查看是否安装好：</p>
 <blockquote>
-<p>最好把<code>source /opt/intel/oneapi/setvars.sh intel64</code>写进~/.bashrc中</p>
+<p>最好把<code>source /opt/intel/oneapi/setvars.sh intel64</code>写进~&#x2F;.bashrc中</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/intel/oneapi/setvars.sh intel64</span><br><span class="line">icc -v</span><br><span class="line">ifort -v</span><br><span class="line">mpiicc -v</span><br><span class="line">mpiifort -v</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="二、编译vasp-5-4-4"><a href="#二、编译vasp-5-4-4" class="headerlink" title="二、编译vasp 5.4.4"></a>二、编译vasp 5.4.4</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line">cp -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">cp arch/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<h3 id="二、编译vasp-5-4-4"><a href="#二、编译vasp-5-4-4" class="headerlink" title="二、编译vasp 5.4.4"></a>二、编译vasp 5.4.4</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>添加环境变量</p>
 </li>
@@ -215,7 +230,7 @@
 <li>POSCAR</li>
 </ul>
 </blockquote>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">H2O</span> _<span class="number">2</span></span><br><span class="line"><span class="attribute">0</span>.<span class="number">52918</span>   ! scaling parameter</span><br><span class="line"> <span class="attribute">15</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">15</span> <span class="number">0</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">0</span> <span class="number">15</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">2</span></span><br><span class="line"><span class="attribute">select</span></span><br><span class="line"><span class="attribute">cart</span></span><br><span class="line">     <span class="attribute">0</span>.<span class="number">00</span>     <span class="number">0</span>.<span class="number">00</span>     <span class="number">0</span>.<span class="number">00</span> F F F</span><br><span class="line">     <span class="attribute">1</span>.<span class="number">10</span>    -<span class="number">1</span>.<span class="number">43</span>     <span class="number">0</span>.<span class="number">00</span> T T F</span><br><span class="line">     <span class="attribute">1</span>.<span class="number">10</span>     <span class="number">1</span>.<span class="number">43</span>     <span class="number">0</span>.<span class="number">00</span> T T F</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">H2O</span> _2</span><br><span class="line"><span class="attribute">0</span>.<span class="number">52918</span>   ! scaling parameter</span><br><span class="line"> <span class="attribute">15</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">15</span> <span class="number">0</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">0</span> <span class="number">15</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">2</span></span><br><span class="line"><span class="attribute">select</span></span><br><span class="line"><span class="attribute">cart</span></span><br><span class="line">     <span class="attribute">0</span>.<span class="number">00</span>     <span class="number">0</span>.<span class="number">00</span>     <span class="number">0</span>.<span class="number">00</span> F F F</span><br><span class="line">     <span class="attribute">1</span>.<span class="number">10</span>    -<span class="number">1</span>.<span class="number">43</span>     <span class="number">0</span>.<span class="number">00</span> T T F</span><br><span class="line">     <span class="attribute">1</span>.<span class="number">10</span>     <span class="number">1</span>.<span class="number">43</span>     <span class="number">0</span>.<span class="number">00</span> T T F</span><br></pre></td></tr></table></figure></li>
 </ul>
 <blockquote>
 <ul>
@@ -235,7 +250,7 @@
 <li>官网自带的有，也可以从赝势库中自己手动生成：</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/softwares/VASP/PAW_PBE/O/POTCAR ~/softwares/VASP/PAW_PBE/H/POTCAR &gt;POTCAR</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/softwares/VASP/PAW_PBE/O/POTCAR ~/softwares/VASP/PAW_PBE/H/POTCAR &gt;POTCAR</span><br></pre></td></tr></table></figure>
 <ul>
 <li>运行命令：<code>mpirun -np 16 vasp_std</code></li>
 </ul>

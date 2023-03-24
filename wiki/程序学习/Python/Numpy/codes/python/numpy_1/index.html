@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -188,9 +202,10 @@
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
 <h2 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h2><h3 id="矩阵创建"><a href="#矩阵创建" class="headerlink" title="矩阵创建"></a>矩阵创建</h3><ul>
-<li><p>创建0向量/三维矩阵</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.zeros((<span class="number">10</span>))</span><br><span class="line">np.zeros((<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure></li>
-<li><p>创建1向量/三维矩阵</p>
+<li><p>创建0向量&#x2F;三维矩阵</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.zeros((<span class="number">10</span>))</span><br><span class="line">np.zeros((<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建1向量&#x2F;三维矩阵</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.ones((<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>))</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="矩阵拼接-转置"><a href="#矩阵拼接-转置" class="headerlink" title="矩阵拼接\转置"></a>矩阵拼接\转置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.hstack((matrix1,matrix2)) <span class="comment">#横向拼接</span></span><br><span class="line">np.vstack((matrix1,matrix2)) <span class="comment">#纵向拼接</span></span><br><span class="line">matrix1.T <span class="comment">#转置</span></span><br></pre></td></tr></table></figure>
@@ -207,16 +222,18 @@
 <li>按照矩阵的第一列排序np.argsort(x[:,0])<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([[<span class="number">9</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">11</span>],[<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>],[<span class="number">12</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">10</span>]])</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[[ 9  6  5 11]</span></span><br><span class="line"><span class="string"> [ 7  5  4  6]</span></span><br><span class="line"><span class="string"> [12  9  8 10]]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(x[np.argsort(x[:,<span class="number">0</span>])]) <span class="comment">#从小到大</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[[ 7  5  4  6]</span></span><br><span class="line"><span class="string"> [ 9  6  5 11]</span></span><br><span class="line"><span class="string"> [12  9  8 10]]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(x[np.argsort(-x[:,<span class="number">0</span>])]) <span class="comment">#从大到小</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[[12  9  8 10]</span></span><br><span class="line"><span class="string"> [ 9  6  5 11]</span></span><br><span class="line"><span class="string"> [ 7  5  4  6]]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="loadtxt-amp-amp-savetxt"><a href="#loadtxt-amp-amp-savetxt" class="headerlink" title="loadtxt &amp;&amp; savetxt"></a>loadtxt &amp;&amp; savetxt</h3><ul>
-<li>numpy.loadtxt<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numpy.loadtxt(fname, dtype=&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">float</span>&#x27;&gt;, <span class="title">comments</span>=&#x27;#&#x27;, <span class="title">delimiter</span>=<span class="title">None</span>, <span class="title">converters</span>=<span class="title">None</span>, <span class="title">skiprows</span>=0, <span class="title">usecols</span>=<span class="title">None</span>, <span class="title">unpack</span>=<span class="title">False</span>, <span class="title">ndmin</span>=0, <span class="title">encoding</span>=&#x27;<span class="title">bytes</span>&#x27;, <span class="title">max_rows</span>=<span class="title">None</span>, *, <span class="title">like</span>=<span class="title">None</span>)</span></span><br><span class="line"><span class="class"><span class="title">numpy</span>.<span class="title">savetxt</span>(<span class="params">fname, X, fmt=<span class="string">&#x27;%.18e&#x27;</span>, delimiter=<span class="string">&#x27; &#x27;</span>, newline=<span class="string">&#x27;\n&#x27;</span>, header=<span class="string">&#x27;&#x27;</span>, footer=<span class="string">&#x27;&#x27;</span>, comments=<span class="string">&#x27;# &#x27;</span>, encoding=<span class="literal">None</span></span>)</span></span><br></pre></td></tr></table></figure></li>
+<li>numpy.loadtxt<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numpy.loadtxt(fname, dtype=&lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt;, comments=<span class="string">&#x27;#&#x27;</span>, delimiter=<span class="literal">None</span>, converters=<span class="literal">None</span>, skiprows=<span class="number">0</span>, usecols=<span class="literal">None</span>, unpack=<span class="literal">False</span>, ndmin=<span class="number">0</span>, encoding=<span class="string">&#x27;bytes&#x27;</span>, max_rows=<span class="literal">None</span>, *, like=<span class="literal">None</span>)</span><br><span class="line">numpy.savetxt(fname, X, fmt=<span class="string">&#x27;%.18e&#x27;</span>, delimiter=<span class="string">&#x27; &#x27;</span>, newline=<span class="string">&#x27;\n&#x27;</span>, header=<span class="string">&#x27;&#x27;</span>, footer=<span class="string">&#x27;&#x27;</span>, comments=<span class="string">&#x27;# &#x27;</span>, encoding=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure></li>
 <li>常用参数解释：<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fname #文件名</span><br><span class="line">dtype=&lt;<span class="keyword">class</span> &#x27;<span class="symbol">float</span>&#x27;&gt; #读取数据类型</span><br><span class="line"><span class="symbol">skiprows</span>=<span class="symbol">0</span> #跳过几行读取</span><br><span class="line"><span class="symbol">usecols</span>=<span class="symbol">None</span> #读取哪几列，例如：<span class="symbol">usecols</span> = (<span class="symbol">1,<span class="symbol">4</span>,<span class="symbol">5</span></span>)</span><br><span class="line"><span class="symbol">max_rows</span>=<span class="symbol">None</span> #最大读取几行</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="展示输出"><a href="#展示输出" class="headerlink" title="展示输出"></a>展示输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.set_printoptions(threshold=<span class="number">100000000</span>) <span class="comment">#显示省略的数据</span></span><br><span class="line">np.set_printoptions(suppress=<span class="literal">True</span>) <span class="comment">#不易科学计数法输出</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="计算行列式"><a href="#计算行列式" class="headerlink" title="计算行列式"></a>计算行列式</h3><ul>
 <li><p>计算二维数组行列式 [[a, b], [c, d]] 也即是 ad - bc:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line">b = np.linalg.det(a)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line">b = np.linalg.det(a)</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>计算多个矩阵的行列式:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([ [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">1</span>]], [[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">1</span>]] ])</span><br><span class="line">b = np.linalg.det(a)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([ [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">2</span>, <span class="number">1</span>]], [[<span class="number">1</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">1</span>]] ])</span><br><span class="line">b = np.linalg.det(a)</span><br></pre></td></tr></table></figure>
+</li>
 <li><p><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html">https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html</a></p>
 </li>
 <li><p>相似的用法：<br><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.slogdet.html#numpy.linalg.slogdet">slogdet</a><br><a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">scipy.linalg.det</a></p>
@@ -231,11 +248,11 @@
 <h3 id="计算协方差矩阵"><a href="#计算协方差矩阵" class="headerlink" title="计算协方差矩阵"></a>计算协方差矩阵</h3><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/cov.gif"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># numpy.cov(m, y=None, rowvar=True, bias=False, ddof=None, fweights=None, aweights=None)</span></span><br><span class="line">X=np.array([[<span class="number">1</span> ,<span class="number">5</span> ,<span class="number">6</span>] ,[<span class="number">4</span> ,<span class="number">3</span> ,<span class="number">9</span> ],[ <span class="number">4</span> ,<span class="number">2</span> ,<span class="number">9</span>],[ <span class="number">4</span> ,<span class="number">7</span> ,<span class="number">2</span>]])</span><br><span class="line"><span class="built_in">print</span>(X)</span><br><span class="line"><span class="built_in">print</span>(np.cov(X,rowvar=<span class="literal">False</span>))</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>rowvar=True,每行为一个变量,每一列是对这个变量的观察</p>
+<li><p>rowvar&#x3D;True,每行为一个变量,每一列是对这个变量的观察</p>
 </li>
-<li><p>rowvar=False,与上相反</p>
+<li><p>rowvar&#x3D;False,与上相反</p>
 </li>
-<li><p>y=None，另外一组变量和观察结果。y和m有相同的形式</p>
+<li><p>y&#x3D;None，另外一组变量和观察结果。y和m有相同的形式</p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.cov.html">https://numpy.org/doc/stable/reference/generated/numpy.cov.html</a></p>
 </li>
@@ -259,7 +276,7 @@
 <ul>
 <li>x – 数值表达式</li>
 <li>base – 可选，底数，默认为 e</li>
-<li>math.log(x) 就相当于数学中的ln(x)，x&gt;0，求底数为e的对数，e = 2.718281828459；</li>
+<li>math.log(x) 就相当于数学中的ln(x)，x&gt;0，求底数为e的对数，e &#x3D; 2.718281828459；</li>
 </ul>
 </section>
     <!-- Tags START -->

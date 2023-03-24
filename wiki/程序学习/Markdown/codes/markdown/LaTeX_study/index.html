@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -188,38 +202,48 @@
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
 <h3 id="LaTex基本"><a href="#LaTex基本" class="headerlink" title="LaTex基本"></a>LaTex基本</h3><ul>
-<li>行内公式，并编号：$f(x)=ax+b \tag{1.1}$</li>
+<li>行内公式，并编号：$f(x)&#x3D;ax+b \tag{1.1}$</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$f(x)=ax+b \tag&#123;1.1&#125;$</span><br></pre></td></tr></table></figure>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span>f(x)=ax+b <span class="keyword">\tag</span>&#123;1.1&#125;<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>行间公式，并编号：$$f(x)=ax+b \tag{1.2}$$</li>
+<li>行间公式，并编号：$$f(x)&#x3D;ax+b \tag{1.2}$$</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$f(x)=ax+b \tag&#123;1.2&#125;$$</span><br></pre></td></tr></table></figure>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span>f(x)=ax+b <span class="keyword">\tag</span>&#123;1.2&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>四则运算$$f(x,y)=x+a-b*y/c \cdot{d}$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x,y)=x+a-b*y/c \cdot&#123;d&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>运算符号$$f(x,y)= \neq x \equiv {x} \bmod y$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x,y)= \neq x \equiv &#123;x&#125; \bmod y<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>上下标与上下标记（水平线/大括号）：$$\underbrace{\overline {f(x,y)}}<em>{xy}=\overbrace{\underline {x</em>{12}^2}+f’(x)}^{x}$$</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">$$\underbrace</span><span class="template-variable">&#123;\overline &#123;f(x,y)&#125;</span><span class="xml">&#125;_</span><span class="template-variable">&#123;xy&#125;</span><span class="xml">=\overbrace</span><span class="template-variable">&#123;\underline &#123;x_&#123;12&#125;</span><span class="xml">^2&#125;+f&#x27;(x)&#125;^</span><span class="template-variable">&#123;x&#125;</span><span class="xml">$$</span></span><br></pre></td></tr></table></figure></li>
+<li><p>四则运算$$f(x,y)&#x3D;x+a-b*y&#x2F;c \cdot{d}$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x,y)=x+a-b*y/c \cdot&#123;d&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运算符号$$f(x,y)&#x3D; \neq x \equiv {x} \bmod y$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x,y)= \neq x \equiv &#123;x&#125; \bmod y<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上下标与上下标记（水平线&#x2F;大括号）：$$\underbrace{\overline {f(x,y)}}<em>{xy}&#x3D;\overbrace{\underline {x</em>{12}^2}+f’(x)}^{x}$$</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">$</span><span class="operator">$</span>\<span class="keyword">underbrace</span>&#123;\<span class="keyword">overline</span> &#123;f(x,y)&#125;&#125;<span class="keyword">_</span>&#123;xy&#125;<span class="operator">=</span>\<span class="keyword">overbrace</span>&#123;\<span class="keyword">underline</span> &#123;<span class="keyword">x_</span>&#123;<span class="number">12</span>&#125;<span class="operator">^</span><span class="number">2</span>&#125;<span class="operator">+</span>f&#x27;(x)&#125;<span class="operator">^</span>&#123;x&#125;<span class="operator">$</span><span class="operator">$</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>根号：$$\sqrt{x+y}+\sqrt[10]{x+y}$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\<span class="built_in">sqrt</span>&#123;x+y&#125;+\<span class="built_in">sqrt</span>[<span class="number">10</span>]&#123;x+y&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\<span class="built_in">sqrt</span>&#123;x+y&#125;+\<span class="built_in">sqrt</span>[<span class="number">10</span>]&#123;x+y&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>分式：$$\frac {\sqrt{x+y}} {\sqrt[10]{x+y}}$$</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\<span class="built_in">frac</span> &#123;\<span class="built_in">sqrt</span>&#123;x+y&#125;&#125; &#123;\<span class="built_in">sqrt</span>[<span class="number">10</span>]&#123;x+y&#125;&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
 <li><p>向量符号：$$\vec{x}+\overrightarrow{xy}+\overleftarrow{yz}$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\vec&#123;x&#125;+\overrightarrow&#123;xy&#125;+\overleftarrow&#123;yz&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>积分符号：$$f(x)=\int_{0}^{1}x^2$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\int_&#123;<span class="number">0</span>&#125;^&#123;<span class="number">1</span>&#125;x^<span class="number">2</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>求和符号：$$f(x)=\sum_{n=0}^{n}nx^2$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>\vec&#123;x&#125;+\overrightarrow&#123;xy&#125;+\overleftarrow&#123;yz&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\sum_&#123;n=<span class="number">0</span>&#125;^&#123;n&#125;nx^<span class="number">2</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>求极限符号：$$f(x,y)=\lim_{x \to 0} \lim_{y \to \infty} x+y$$</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="keyword">$f</span>(x,y)=<span class="symbol">\l</span>im_&#123;x <span class="symbol">\t</span>o 0&#125; <span class="symbol">\l</span>im_&#123;y <span class="symbol">\t</span>o <span class="symbol">\i</span>nfty&#125; x+y$$</span><br></pre></td></tr></table></figure></li>
-<li><p>乘积符号：$$f(x)=\prod_{n=0}^{n+1} nx^6$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\prod_&#123;n=<span class="number">0</span>&#125;^&#123;n+<span class="number">1</span>&#125; nx^<span class="number">6</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
-<li><p>省略号：$$x=1,2,3,\ldots,100,\cdots,200,\vdots,300,\ddots,n,n+1$$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>x=<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,\ldots,<span class="number">100</span>,\cdots,<span class="number">200</span>,\vdots,<span class="number">300</span>,\ddots,n,n+<span class="number">1</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
+<li><p>积分符号：$$f(x)&#x3D;\int_{0}^{1}x^2$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\int_&#123;<span class="number">0</span>&#125;^&#123;<span class="number">1</span>&#125;x^<span class="number">2</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求和符号：$$f(x)&#x3D;\sum_{n&#x3D;0}^{n}nx^2$$</p>
+</li>
+<li><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\sum_&#123;n=<span class="number">0</span>&#125;^&#123;n&#125;nx^<span class="number">2</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求极限符号：$$f(x,y)&#x3D;\lim_{x \to 0} \lim_{y \to \infty} x+y$$</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$f(x,y)=<span class="string">\lim_&#123;x</span> <span class="string">\to</span> <span class="number">0</span>&#125; <span class="string">\lim_&#123;y</span> <span class="string">\to</span> <span class="string">\infty&#125;</span> x+y$$</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>乘积符号：$$f(x)&#x3D;\prod_{n&#x3D;0}^{n+1} nx^6$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>f(x)=\prod_&#123;n=<span class="number">0</span>&#125;^&#123;n+<span class="number">1</span>&#125; nx^<span class="number">6</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>省略号：$$x&#x3D;1,2,3,\ldots,100,\cdots,200,\vdots,300,\ddots,n,n+1$$</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span>x=<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,\ldots,<span class="number">100</span>,\cdots,<span class="number">200</span>,\vdots,<span class="number">300</span>,\ddots,n,n+<span class="number">1</span><span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>取平均：$\bar{x}$</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span>\bar&#123;x&#125;<span class="symbol">$</span></span><br></pre></td></tr></table></figure></li>
 </ul>

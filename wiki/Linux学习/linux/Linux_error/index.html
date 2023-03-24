@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -193,7 +207,7 @@
 <li>查看命令：pip list</li>
 <li>查看cuda当前版本</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat  /usr/<span class="built_in">local</span>/cuda/version.txt </span><br><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>  /usr/local/cuda/version.txt </span><br><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-虚拟机不显示ip地址的解决方法"><a href="#2-虚拟机不显示ip地址的解决方法" class="headerlink" title="2. 虚拟机不显示ip地址的解决方法"></a>2. 虚拟机不显示ip地址的解决方法</h3><ul>
 <li>在root下：<code>dhclient -v</code>;或者ubuntu下：<code>sudo dhclient -v</code></li>
@@ -204,7 +218,7 @@
 <ul>
 <li>解决方法：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r /var/crash/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -r /var/crash/*</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-failed-to-start-ssh-service-unit-not-found"><a href="#4-failed-to-start-ssh-service-unit-not-found" class="headerlink" title="4. failed to start ssh.service unit not found"></a>4. <code>failed to start ssh.service unit not found</code></h3><ul>
 <li><code>sudo service ssh restart</code>打不开<code>Centos7</code>的<code>ssh</code></li>
@@ -231,7 +245,7 @@
 <li>解决方法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libdvdnav4 libdvd-pkg gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg</span><br><span class="line">sudo apt install ubuntu-restricted-extras</span><br></pre></td></tr></table></figure></li>
 <li>参考：<a target="_blank" rel="noopener" href="https://websiteforstudents.com/how-to-enable-ubuntu-18-04-lts-beta-to-play-videos-files/">https://websiteforstudents.com/how-to-enable-ubuntu-18-04-lts-beta-to-play-videos-files/</a></li>
 </ul>
-<h3 id="7-‘python-r’-No-such-file-or-directory"><a href="#7-‘python-r’-No-such-file-or-directory" class="headerlink" title="7. ‘python\r’: No such file or directory`"></a>7. ‘python\r’: No such file or directory`</h3><blockquote>
+<h3 id="7-‘python-r’-No-such-file-or-directory-96"><a href="#7-‘python-r’-No-such-file-or-directory-96" class="headerlink" title="7. ‘python\r’: No such file or directory&#96;"></a>7. ‘python\r’: No such file or directory&#96;</h3><blockquote>
 <ul>
 <li>在Ubuntu上运行python脚本出现错误：<code>/usr/bin/env: ‘python\r’: No such file or directory</code></li>
 <li>直接运行:</li>
@@ -255,7 +269,7 @@
 <li>给root用户添加可写权限</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 640 /etc/sudoers</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 640 /etc/sudoers</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
 <li>修改sudoers</li>
@@ -267,7 +281,7 @@
 <li>查看验证是否成功</li>
 </ul>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/sudoers</span><br><span class="line"><span class="built_in">exit</span> </span><br><span class="line">sudo cat /etc/sudoers</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/sudoers</span><br><span class="line"><span class="built_in">exit</span> </span><br><span class="line">sudo <span class="built_in">cat</span> /etc/sudoers</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <ul>
@@ -299,17 +313,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Git_command/">
+      <a class="nav-left" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">
         <span class="nav-arrow">← </span>
         
-          Git—Command
+          Windows10—Linux—子系统
         
       </a>
     
     
-      <a class="nav-right" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">
+      <a class="nav-right" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Git_command/">
         
-          Linux—Command
+          Git—Command
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -342,7 +356,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-CUDA-driver-version-is-insufficient-for-CUDA-runtime-version"><span class="toc-nav-text">1. CUDA driver version is insufficient for CUDA runtime version</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8D%E6%98%BE%E7%A4%BAip%E5%9C%B0%E5%9D%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-nav-text">2. 虚拟机不显示ip地址的解决方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E2%80%9CSorry-Ubuntu-20-04-has-experienced-an-internal-error%E2%80%9D"><span class="toc-nav-text">3. “Sorry, Ubuntu 20.04 has experienced an internal error”</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-failed-to-start-ssh-service-unit-not-found"><span class="toc-nav-text">4. failed to start ssh.service unit not found</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-GULP-mkgulp%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%EF%BC%9A"><span class="toc-nav-text">5. GULP.&#x2F;mkgulp编译错误：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-Ubuntu-%E6%92%AD%E6%94%BE%E4%B8%8D%E4%BA%86%E8%A7%86%E9%A2%91"><span class="toc-nav-text">6. Ubuntu 播放不了视频</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E2%80%98python-r%E2%80%99-No-such-file-or-directory"><span class="toc-nav-text">7. ‘python\r’: No such file or directory&#96;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#xxx-%E4%B8%8D%E5%9C%A8-sudoers-%E6%96%87%E4%BB%B6%E4%B8%AD%E3%80%82%E6%AD%A4%E4%BA%8B%E5%B0%86%E8%A2%AB%E6%8A%A5%E5%91%8A"><span class="toc-nav-text">xxx 不在 sudoers 文件中。此事将被报告</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-CUDA-driver-version-is-insufficient-for-CUDA-runtime-version"><span class="toc-nav-text">1. CUDA driver version is insufficient for CUDA runtime version</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8D%E6%98%BE%E7%A4%BAip%E5%9C%B0%E5%9D%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-nav-text">2. 虚拟机不显示ip地址的解决方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E2%80%9CSorry-Ubuntu-20-04-has-experienced-an-internal-error%E2%80%9D"><span class="toc-nav-text">3. “Sorry, Ubuntu 20.04 has experienced an internal error”</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-failed-to-start-ssh-service-unit-not-found"><span class="toc-nav-text">4. failed to start ssh.service unit not found</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-GULP-mkgulp%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%EF%BC%9A"><span class="toc-nav-text">5. GULP.&#x2F;mkgulp编译错误：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-Ubuntu-%E6%92%AD%E6%94%BE%E4%B8%8D%E4%BA%86%E8%A7%86%E9%A2%91"><span class="toc-nav-text">6. Ubuntu 播放不了视频</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E2%80%98python-r%E2%80%99-No-such-file-or-directory-96"><span class="toc-nav-text">7. ‘python\r’: No such file or directory&#96;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#xxx-%E4%B8%8D%E5%9C%A8-sudoers-%E6%96%87%E4%BB%B6%E4%B8%AD%E3%80%82%E6%AD%A4%E4%BA%8B%E5%B0%86%E8%A2%AB%E6%8A%A5%E5%91%8A"><span class="toc-nav-text">xxx 不在 sudoers 文件中。此事将被报告</span></a></li></ol>
     
   </div>
 </aside>

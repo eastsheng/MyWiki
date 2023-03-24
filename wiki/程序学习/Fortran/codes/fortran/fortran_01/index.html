@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -195,7 +209,7 @@
 
 <h3 id="输入圆锥底面半径r和高h，求体积和表面积"><a href="#输入圆锥底面半径r和高h，求体积和表面积" class="headerlink" title="输入圆锥底面半径r和高h，求体积和表面积"></a>输入圆锥底面半径r和高h，求体积和表面积</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main </span><br><span class="line"><span class="keyword">real</span> :: r, h, pi, v, s <span class="comment">! 定义半径、高、体积变量</span></span><br><span class="line">pi = <span class="number">3.1415926</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;输入圆锥半径r和高h！&quot;</span></span><br><span class="line">read(*,*) r, h <span class="comment">! 输入半径和高</span></span><br><span class="line">v = (pi*r**<span class="number">2</span>*h)/<span class="number">3</span> <span class="comment">! 计算圆锥体积</span></span><br><span class="line">s = pi*r**<span class="number">2</span>+pi*r*(<span class="built_in">sqrt</span>(r**<span class="number">2</span>+h**<span class="number">2</span>)) <span class="comment">! 计算圆锥体积</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;圆锥体积为v:&quot;</span>,v ; <span class="built_in">write</span>(*,*) <span class="string">&quot;圆锥表面积为s:&quot;</span>,s  <span class="comment">! F90中用“；”将两行并为一行。</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
 
-<h3 id="分别求半径R-1，3，12-5时的圆周长。"><a href="#分别求半径R-1，3，12-5时的圆周长。" class="headerlink" title="分别求半径R=1，3，12.5时的圆周长。"></a>分别求半径R=1，3，12.5时的圆周长。</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">real</span> :: r(<span class="number">3</span>) </span><br><span class="line"><span class="keyword">data</span> r /<span class="number">1</span>, <span class="number">3</span>, <span class="number">12.5</span>/</span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>,<span class="number">3</span></span><br><span class="line">	<span class="built_in">print</span> *, <span class="string">&#x27;半径＝&#x27;</span>, r(i), <span class="string">&#x27;圆周长＝&#x27;</span>, C(r(i))</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> c(radius)</span><br><span class="line">	pi=<span class="built_in">acos</span>(-<span class="number">1.0</span>)</span><br><span class="line">	c=<span class="number">2</span>*pi*radius</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="分别求半径R-x3D-1，3，12-5时的圆周长。"><a href="#分别求半径R-x3D-1，3，12-5时的圆周长。" class="headerlink" title="分别求半径R&#x3D;1，3，12.5时的圆周长。"></a>分别求半径R&#x3D;1，3，12.5时的圆周长。</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">real</span> :: r(<span class="number">3</span>) </span><br><span class="line"><span class="keyword">data</span> r /<span class="number">1</span>, <span class="number">3</span>, <span class="number">12.5</span>/</span><br><span class="line"><span class="keyword">do</span> i=<span class="number">1</span>,<span class="number">3</span></span><br><span class="line">	<span class="built_in">print</span> *, <span class="string">&#x27;半径＝&#x27;</span>, r(i), <span class="string">&#x27;圆周长＝&#x27;</span>, C(r(i))</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> c(radius)</span><br><span class="line">	pi=<span class="built_in">acos</span>(-<span class="number">1.0</span>)</span><br><span class="line">	c=<span class="number">2</span>*pi*radius</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="一些内置函数"><a href="#一些内置函数" class="headerlink" title="一些内置函数"></a>一些内置函数</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="comment">! 变量类型</span></span><br><span class="line"><span class="keyword">integer</span> :: i,j				 <span class="comment">! (整型说明语句)</span></span><br><span class="line"><span class="keyword">real</span> :: x,y 				 <span class="comment">! (实型说明语句)</span></span><br><span class="line"><span class="keyword">double</span> <span class="keyword">precision</span> :: m,n 	 <span class="comment">! (双精度说明语句)</span></span><br><span class="line"><span class="keyword">complex</span> :: o,p 				 <span class="comment">! (复型说明语句)</span></span><br><span class="line"><span class="keyword">logical</span> :: t,f 				 <span class="comment">! (逻辑型说明语句)</span></span><br><span class="line"><span class="keyword">character</span> :: a,b 			 <span class="comment">! (字符型说明语句)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">! 内置函数</span></span><br><span class="line">i = <span class="built_in">sqrt</span>(<span class="number">4.0</span>)	<span class="comment">! 开方!括号内必须是 REAL or COMPLEX</span></span><br><span class="line"><span class="built_in">print</span> *, <span class="string">&quot;4.0开方=(整型)&quot;</span>,i</span><br><span class="line">j = <span class="built_in">sin</span>(<span class="number">2.0</span>)	<span class="comment">! 三角函数!括号内必须是 REAL or COMPLEX</span></span><br><span class="line">j1 = <span class="built_in">cos</span>(<span class="number">2.0</span>); j2 = <span class="built_in">asin</span>(<span class="number">1.0</span>); j3 = <span class="built_in">acos</span>(<span class="number">1.0</span>)</span><br><span class="line">j4 = <span class="built_in">tan</span>(<span class="number">2.0</span>); j5 = <span class="built_in">atan</span>(<span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*)  <span class="string">&quot;2.0的正弦函数值=(整型)&quot;</span>,j,j1,j2,j3,j4,j5</span><br><span class="line"></span><br><span class="line">x = <span class="built_in">exp</span>(<span class="number">6.0</span>)<span class="comment">!括号内必须是 REAL or COMPLEX</span></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;6.0的e指数(实型)=&quot;</span>,x</span><br><span class="line"></span><br><span class="line">y = <span class="built_in">log</span>(<span class="number">3.0</span>)<span class="comment">!括号内必须是 REAL or COMPLEX</span></span><br><span class="line">y1 = <span class="built_in">log10</span>(<span class="number">3.0</span>)</span><br><span class="line">y2 = <span class="built_in">alog</span>(<span class="number">3.0</span>)</span><br><span class="line">y3 = <span class="built_in">alog10</span>(<span class="number">3.0</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;3.0的log值(实型)=&quot;</span>,y,y1,y2,y3</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">abs</span>(-<span class="number">3.333</span>); m1 = <span class="built_in">int</span>(<span class="keyword">real</span>(-<span class="number">3</span>))</span><br><span class="line"><span class="built_in">write</span>(*,*) m,m1</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">mod</span>(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">!求余</span></span><br><span class="line">n1 = <span class="built_in">sign</span>(<span class="number">5</span>,<span class="number">2</span>) <span class="comment">!求符号</span></span><br><span class="line">n2 = <span class="built_in">max</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n3 = <span class="built_in">max0</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n4 = <span class="built_in">min</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line">n5 = <span class="built_in">min0</span>(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">44</span>)</span><br><span class="line"><span class="built_in">write</span>(*,*) n,n1,n2,n3,n4,n5</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
 <ul>
@@ -211,7 +225,7 @@
 <figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">real</span>*<span class="number">8</span> a</span><br><span class="line"></span><br><span class="line">a=<span class="number">11111.1</span>  *<span class="number">1111.11</span>  ; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">11111.1d0</span>*<span class="number">1111.11d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"></span><br><span class="line">a=<span class="number">0.001</span>+<span class="number">1246825.0</span>-<span class="number">1246820.0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"></span><br><span class="line">a=<span class="number">1246825.0</span>  -<span class="number">1246820.0</span>  +<span class="number">0.001</span>  ; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825.0d0</span>-<span class="number">1246820.0d0</span>+<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825</span>    -<span class="number">1246820</span>    +<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line">a=<span class="number">1246825.0</span>  -<span class="number">1246820.0</span>  +<span class="number">0.001d0</span>; <span class="built_in">print</span> *, a</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">! output</span></span><br><span class="line"><span class="comment">!    12345654.000000000</span></span><br><span class="line"><span class="comment">!    12345654.320999999</span></span><br><span class="line"><span class="comment">!    5.0000000000000000</span></span><br><span class="line"><span class="comment">!    5.0009999275207520</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br><span class="line"><span class="comment">!    5.0010000000000003</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="对于给定扇形的半径-r-及圆心角-theta-，求面积等"><a href="#对于给定扇形的半径-r-及圆心角-theta-，求面积等" class="headerlink" title="对于给定扇形的半径$r$及圆心角$\theta$，求面积等"></a>对于给定扇形的半径$r$及圆心角$\theta$，求面积等</h3><ul>
-<li>对于给定扇形的半径$r$及圆心角$\theta$，弦长$b=2rsin(\frac \theta 2)$，拱高$h=2rsin^2(\frac \theta 4)$，弧度$\alpha=\frac {2\pi\theta} {360}$，面积$S={\frac 1 2}\alpha r^2-\alpha \sqrt{r^2-{\theta}^2}$。编一程序，对任意给定的$r$及$\theta$，输出$h$、$b$及$S$值。</li>
+<li>对于给定扇形的半径$r$及圆心角$\theta$，弦长$b&#x3D;2rsin(\frac \theta 2)$，拱高$h&#x3D;2rsin^2(\frac \theta 4)$，弧度$\alpha&#x3D;\frac {2\pi\theta} {360}$，面积$S&#x3D;{\frac 1 2}\alpha r^2-\alpha \sqrt{r^2-{\theta}^2}$。编一程序，对任意给定的$r$及$\theta$，输出$h$、$b$及$S$值。</li>
 </ul>
 <figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">real</span> :: r, theta, b, h, alpha, S</span><br><span class="line"></span><br><span class="line"><span class="built_in">write</span>(*,*) <span class="string">&quot;请分别输入扇形半径、圆心角: &quot;</span></span><br><span class="line">read(*,*) r, theta</span><br><span class="line">b = huchang(r,theta)</span><br><span class="line">h = gonggao(r,theta)</span><br><span class="line">alpha = hudu(theta)</span><br><span class="line">S = mianji(r,alpha)</span><br><span class="line"></span><br><span class="line"><span class="built_in">write</span>(*,*) b,h,alpha,S</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> huchang(r,theta)</span><br><span class="line">	b = <span class="number">2</span>*r*<span class="built_in">sin</span>(theta/<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> huchang</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> gonggao(r,theta)</span><br><span class="line">	h = <span class="number">2</span>*r*(<span class="built_in">sin</span>(theta/<span class="number">4</span>)**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> gonggao</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> hudu(theta)</span><br><span class="line">	<span class="keyword">real</span> :: pi</span><br><span class="line">	pi = <span class="number">3.1415926</span></span><br><span class="line">	alpha = <span class="number">2</span>*pi*theta/<span class="number">360.0</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> hudu</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span></span> mianji(r,alpha)</span><br><span class="line">	S = <span class="number">0.5</span>*alpha*(r**<span class="number">2</span>)-alpha*<span class="built_in">sqrt</span>(r**<span class="number">2</span>-alpha**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">function</span></span> mianji</span><br></pre></td></tr></table></figure>
 
@@ -297,7 +311,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Sublime-Text%E9%85%8D%E7%BD%AEFortran%E9%AB%98%E4%BA%AE"><span class="toc-nav-text">Sublime Text配置Fortran高亮</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%B8%AAFortran%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-nav-text">一个Fortran程序基本格式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E5%9C%86%E9%94%A5%E5%BA%95%E9%9D%A2%E5%8D%8A%E5%BE%84r%E5%92%8C%E9%AB%98h%EF%BC%8C%E6%B1%82%E4%BD%93%E7%A7%AF%E5%92%8C%E8%A1%A8%E9%9D%A2%E7%A7%AF"><span class="toc-nav-text">输入圆锥底面半径r和高h，求体积和表面积</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%86%E5%88%AB%E6%B1%82%E5%8D%8A%E5%BE%84R-1%EF%BC%8C3%EF%BC%8C12-5%E6%97%B6%E7%9A%84%E5%9C%86%E5%91%A8%E9%95%BF%E3%80%82"><span class="toc-nav-text">分别求半径R&#x3D;1，3，12.5时的圆周长。</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-nav-text">一些内置函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%90%E7%AE%97%E8%AF%AF%E5%B7%AE"><span class="toc-nav-text">运算误差</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%89%87%E5%BD%A2%E7%9A%84%E5%8D%8A%E5%BE%84-r-%E5%8F%8A%E5%9C%86%E5%BF%83%E8%A7%92-theta-%EF%BC%8C%E6%B1%82%E9%9D%A2%E7%A7%AF%E7%AD%89"><span class="toc-nav-text">对于给定扇形的半径$r$及圆心角$\theta$，求面积等</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0N-N%EF%BC%9E3-%E6%98%AF%E5%90%A6%E7%B4%A0%E6%95%B0"><span class="toc-nav-text">判断一个数N(N＞3)是否素数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-nav-text">关系运算符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%BB%E8%BE%91"><span class="toc-nav-text">逻辑</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%94%9F%E8%80%83%E8%AF%95%E5%90%88%E6%A0%BC%E4%BA%BA%E6%95%B0"><span class="toc-nav-text">统计学生考试合格人数</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Sublime-Text%E9%85%8D%E7%BD%AEFortran%E9%AB%98%E4%BA%AE"><span class="toc-nav-text">Sublime Text配置Fortran高亮</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%B8%AAFortran%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="toc-nav-text">一个Fortran程序基本格式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E5%9C%86%E9%94%A5%E5%BA%95%E9%9D%A2%E5%8D%8A%E5%BE%84r%E5%92%8C%E9%AB%98h%EF%BC%8C%E6%B1%82%E4%BD%93%E7%A7%AF%E5%92%8C%E8%A1%A8%E9%9D%A2%E7%A7%AF"><span class="toc-nav-text">输入圆锥底面半径r和高h，求体积和表面积</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%86%E5%88%AB%E6%B1%82%E5%8D%8A%E5%BE%84R-x3D-1%EF%BC%8C3%EF%BC%8C12-5%E6%97%B6%E7%9A%84%E5%9C%86%E5%91%A8%E9%95%BF%E3%80%82"><span class="toc-nav-text">分别求半径R&#x3D;1，3，12.5时的圆周长。</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-nav-text">一些内置函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%90%E7%AE%97%E8%AF%AF%E5%B7%AE"><span class="toc-nav-text">运算误差</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%89%87%E5%BD%A2%E7%9A%84%E5%8D%8A%E5%BE%84-r-%E5%8F%8A%E5%9C%86%E5%BF%83%E8%A7%92-theta-%EF%BC%8C%E6%B1%82%E9%9D%A2%E7%A7%AF%E7%AD%89"><span class="toc-nav-text">对于给定扇形的半径$r$及圆心角$\theta$，求面积等</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0N-N%EF%BC%9E3-%E6%98%AF%E5%90%A6%E7%B4%A0%E6%95%B0"><span class="toc-nav-text">判断一个数N(N＞3)是否素数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-nav-text">关系运算符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%BB%E8%BE%91"><span class="toc-nav-text">逻辑</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E7%94%9F%E8%80%83%E8%AF%95%E5%90%88%E6%A0%BC%E4%BA%BA%E6%95%B0"><span class="toc-nav-text">统计学生考试合格人数</span></a></li></ol>
     
   </div>
 </aside>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -252,9 +266,9 @@
 </ul>
 <h4 id="cin-和cout-格式"><a href="#cin-和cout-格式" class="headerlink" title="cin 和cout 格式"></a>cin 和cout 格式</h4><ul>
 <li>cin 和cout 语句最大的好处是程序可以自动区分变量类型</li>
-<li>cin 函数和cout 函数的头部函数是：iostream<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; <span class="comment">//命名空间</span></span><br><span class="line"></span><br><span class="line">cin&gt;&gt;变量名;</span><br><span class="line">cout&lt;&lt;变量名<span class="number">1</span>&lt;&lt;变量名<span class="number">2</span>&lt;&lt;<span class="string">&quot;字符&quot;</span>&lt;&lt;endl； <span class="comment">//endl为换行符</span></span><br></pre></td></tr></table></figure></li>
+<li>cin 函数和cout 函数的头部函数是：iostream<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; <span class="comment">//命名空间</span></span><br><span class="line"></span><br><span class="line">cin&gt;&gt;变量名;</span><br><span class="line">cout&lt;&lt;变量名<span class="number">1</span>&lt;&lt;变量名<span class="number">2</span>&lt;&lt;<span class="string">&quot;字符&quot;</span>&lt;&lt;endl； <span class="comment">//endl为换行符</span></span><br></pre></td></tr></table></figure></li>
 <li>cout 执行输出操作后，数据并非立刻传到输出设备，而是先进入一个缓冲区，等时机适当时（如设备空闲）再由缓冲区传入，而printf 函数是直接打印到屏幕上</li>
-<li>C 语言的输出/输入语句（printf、scanf）不要和C++的输出/输入语句（cout、cin）混合使用</li>
+<li>C 语言的输出&#x2F;输入语句（printf、scanf）不要和C++的输出&#x2F;输入语句（cout、cin）混合使用</li>
 </ul>
 <h4 id="运算符汇总"><a href="#运算符汇总" class="headerlink" title="运算符汇总"></a>运算符汇总</h4><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyWiki/Notes/yunsuanfu.png"></p>
 <ul>
@@ -266,7 +280,7 @@
 </li>
 <li>3）赋值运算符用于赋值运算。</li>
 <li><blockquote>
-<p>① 简单赋值“=”。<br>② 复合算术赋值（+=，-=，*=，/=，%=）。<br>③ 复合位运算赋值（&amp;=，|=，^=，&gt;&gt;=，&lt;&lt;=）。</p>
+<p>① 简单赋值“&#x3D;”。<br>② 复合算术赋值（+&#x3D;，-&#x3D;，*&#x3D;，&#x2F;&#x3D;，%&#x3D;）。<br>③ 复合位运算赋值（&amp;&#x3D;，|&#x3D;，^&#x3D;，&gt;&gt;&#x3D;，&lt;&lt;&#x3D;）。</p>
 </blockquote>
 </li>
 <li>4）条件运算符：这是一个三目运算符，用于条件求值（？：）。</li>
@@ -280,13 +294,13 @@
 </li>
 </ul>
 <h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h4><ul>
-<li>并行分支判断语句<code>switch()</code>的一般形式为：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">switch</span></span>(表达式K)&#123;</span><br><span class="line">	<span class="keyword">case</span> 常量表达式k1:<span class="comment">//常量表达式ki 是常数或ASCII 码</span></span><br><span class="line">		语句段<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> 常量表达式k2:</span><br><span class="line">		语句段<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	<span class="keyword">case</span> 常量表达式kn:</span><br><span class="line">		语句段n;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span> : 语句段n+<span class="number">1</span>;<span class="comment">//default 语句可以缺省，即匹配失败后，程序直接退出switch 语句。</span></span><br><span class="line">&#125;		</span><br></pre></td></tr></table></figure></li>
+<li>并行分支判断语句<code>switch()</code>的一般形式为：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式K)&#123;</span><br><span class="line">	<span class="keyword">case</span> 常量表达式k1:<span class="comment">//常量表达式ki 是常数或ASCII 码</span></span><br><span class="line">		语句段<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> 常量表达式k2:</span><br><span class="line">		语句段<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">		.</span><br><span class="line">	<span class="keyword">case</span> 常量表达式kn:</span><br><span class="line">		语句段n;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span> : 语句段n+<span class="number">1</span>;<span class="comment">//default 语句可以缺省，即匹配失败后，程序直接退出switch 语句。</span></span><br><span class="line">&#125;		</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="C-语言控制语句"><a href="#C-语言控制语句" class="headerlink" title="C 语言控制语句"></a>C 语言控制语句</h4><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyWiki/Notes/ctrl_code.png"></p>
 <h4 id="C-语言常量与宏"><a href="#C-语言常量与宏" class="headerlink" title="C 语言常量与宏"></a>C 语言常量与宏</h4><ul>
 <li>C 程序设计中一个重要的原则是，所有在程序中使用的常量都应用宏<code>define</code>在头部文件说明，</li>
 <li>这样，一旦常量的值需要改变，则仅仅是头部定义处需要修改，而与程序中引用该常量的语句无关</li>
-<li>例如：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> AMOUNT 10 <span class="comment">//宏定义人数 //数组的长度一定要大于或等于要存放的变量数目</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MINIMUM 20 <span class="comment">//宏定义年龄下限</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> age[AMOUNT] = &#123; <span class="number">19</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">18</span>,<span class="number">20</span>,<span class="number">20</span>,<span class="number">19</span>,<span class="number">20</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; AMOUNT; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (age[i] &gt;= MINIMUM)</span><br><span class="line">			x++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;x=&quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>例如：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> AMOUNT 10 <span class="comment">//宏定义人数 //数组的长度一定要大于或等于要存放的变量数目</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MINIMUM 20 <span class="comment">//宏定义年龄下限</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> age[AMOUNT] = &#123; <span class="number">19</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">18</span>,<span class="number">20</span>,<span class="number">20</span>,<span class="number">19</span>,<span class="number">20</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; AMOUNT; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (age[i] &gt;= MINIMUM)</span><br><span class="line">			x++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;x=&quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h4><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyWiki/Notes/string.png"></p>
 </section>

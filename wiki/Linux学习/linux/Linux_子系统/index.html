@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -193,7 +207,7 @@
 <li><p>以管理员身份打开 PowerShell（“开始”菜单 &gt;“PowerShell”&gt; 单击右键 &gt;“以管理员身份运行”），然后输入以下命令：</p>
 </li>
 </ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe <span class="string">/online</span> <span class="string">/enable-feature</span> <span class="string">/featurename</span><span class="function">:Microsoft-Windows-Subsystem-Linux</span> <span class="string">/all</span> <span class="string">/norestart</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br></pre></td></tr></table></figure>
 
 <h2 id="步骤-2-检查运行-WSL-2-的要求"><a href="#步骤-2-检查运行-WSL-2-的要求" class="headerlink" title="步骤 2 - 检查运行 WSL 2 的要求"></a>步骤 2 - 检查运行 WSL 2 的要求</h2><ul>
 <li>若要检查 Windows 版本及内部版本号，选择 Windows 徽标键 + R，然后键入“winver”，选择“确定”。 更新到“设置”菜单中的最新 Windows 版本。</li>
@@ -204,7 +218,7 @@
 <li><p>以管理员身份打开 PowerShell 并运行：</p>
 </li>
 </ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe <span class="string">/online</span> <span class="string">/enable-feature</span> <span class="string">/featurename</span><span class="function">:VirtualMachinePlatform</span> <span class="string">/all</span> <span class="string">/norestart</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
 
 <h2 id="步骤-4-下载-Linux-内核更新包"><a href="#步骤-4-下载-Linux-内核更新包" class="headerlink" title="步骤 4 - 下载 Linux 内核更新包"></a>步骤 4 - 下载 Linux 内核更新包</h2><ul>
 <li><p>下载最新包：</p>
@@ -253,10 +267,10 @@
 
 <h2 id="把子系统-WSL-搬到非系统盘"><a href="#把子系统-WSL-搬到非系统盘" class="headerlink" title="把子系统(WSL)搬到非系统盘"></a>把子系统(WSL)搬到非系统盘</h2><ul>
 <li>下载并解压<a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline/releases/tag/v3.5.0">LxRunOffline-v3.5.0-msvc.zip</a></li>
-<li>查看安装的子系统<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">LxRunOffline</span>.</span></span>exe <span class="built_in">list</span></span><br></pre></td></tr></table></figure></li>
+<li>查看安装的子系统<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LxRunOffline.exe <span class="type">list</span></span><br></pre></td></tr></table></figure></li>
 <li>子系统迁移<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">LxRunOffline</span>.exe move -n Ubuntu-<span class="number">20</span>.<span class="number">04</span> -d D:\Ubuntu</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="子系统访问电脑目录"><a href="#子系统访问电脑目录" class="headerlink" title="子系统访问电脑目录"></a>子系统访问电脑目录</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/mnt</span></span><br></pre></td></tr></table></figure>
+<h2 id="子系统访问电脑目录"><a href="#子系统访问电脑目录" class="headerlink" title="子系统访问电脑目录"></a>子系统访问电脑目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br></pre></td></tr></table></figure>
 
 <h2 id="启动、停止WSL"><a href="#启动、停止WSL" class="headerlink" title="启动、停止WSL"></a>启动、停止WSL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 停止LxssManager服务</span></span><br><span class="line">net stop LxssManager</span><br><span class="line"><span class="comment"># 启动LxssManager服务</span></span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
 
@@ -273,7 +287,8 @@
 </ul>
 <h2 id="参考的对象类型不支持尝试的操作。"><a href="#参考的对象类型不支持尝试的操作。" class="headerlink" title="参考的对象类型不支持尝试的操作。"></a>参考的对象类型不支持尝试的操作。</h2><ul>
 <li><p>打开WSL Terminal后出现：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考的对象类型不支持尝试的操作。</span><br><span class="line">[已退出进程，代码为 4294967295]</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考的对象类型不支持尝试的操作。</span><br><span class="line">[已退出进程，代码为 4294967295]</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>解决方法：</p>
 </li>
 </ul>
@@ -299,7 +314,7 @@
 <li>永久解决！！！</li>
 </ul>
 </blockquote>
-<h2 id="WLS2连接不上网络"><a href="#WLS2连接不上网络" class="headerlink" title="WLS2连接不上网络"></a>WLS2连接不上网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /etc/resolv.conf</span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;nameserver 8.8.8.8&quot; &gt; /etc/resolv.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;[network]&quot; &gt; /etc/wsl.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;generateResolvConf = false&quot; &gt;&gt; /etc/wsl.conf&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="WLS2连接不上网络"><a href="#WLS2连接不上网络" class="headerlink" title="WLS2连接不上网络"></a>WLS2连接不上网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> /etc/resolv.conf</span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;nameserver 8.8.8.8&quot; &gt; /etc/resolv.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;[network]&quot; &gt; /etc/wsl.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;generateResolvConf = false&quot; &gt;&gt; /etc/wsl.conf&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43577131/article/details/119279749">119279749</a></li>
 </ul>
@@ -333,17 +348,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/%E8%B5%84%E6%BA%90%E6%94%B6%E8%97%8F/Resources/collections/OpenResources_2/">
+      <a class="nav-left" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">
         <span class="nav-arrow">← </span>
         
-          Open Resources 2
+          Linux—Command
         
       </a>
     
     
-      <a class="nav-right" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Git_command/">
+      <a class="nav-right" href="/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_error/">
         
-          Git—Command
+          Linux—error
         
         <span class="nav-arrow"> →</span>
       </a>

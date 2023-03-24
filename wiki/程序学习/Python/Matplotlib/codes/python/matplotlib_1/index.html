@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -207,7 +221,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> brokenaxes <span class="keyword">import</span> brokenaxes</span><br><span class="line"></span><br><span class="line">X = np.linspace(<span class="number">0</span>,<span class="number">1</span>,<span class="number">10</span>)</span><br><span class="line">Y = np.ones(X.size)</span><br><span class="line">plt.rc(<span class="string">&#x27;font&#x27;</span>, family=<span class="string">&#x27;Times New Roman&#x27;</span>,size=<span class="number">26</span>)</span><br><span class="line">fig, ax= plt.subplots(figsize=(<span class="number">10</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># fig = plt.figure(figsize=(10,4))</span></span><br><span class="line"><span class="comment"># ax = brokenaxes(ylims=((0,0.5),(0.6,1)),hspace=0.06,despine=False)</span></span><br><span class="line">fig.subplots_adjust(bottom=<span class="number">0.2</span>,left=<span class="number">0.2</span>)</span><br><span class="line">ax.bar(X,Y,<span class="number">0.05</span>,hatch=<span class="string">&#x27;\\\\&#x27;</span>,color=<span class="string">&#x27;white&#x27;</span>,edgecolor=<span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Eigenvector Amplitude&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Count&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;x、y坐标log&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># ax.set_xscale(&quot;log&quot;)</span></span><br><span class="line">ax.set_yscale(<span class="string">&quot;log&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-点线图（Error-Bar）"><a href="#5-点线图（Error-Bar）" class="headerlink" title="5. 点线图（Error Bar）"></a>5. 点线图（Error Bar）</h3><p><img src="https://cdn.jsdelivr.net/gh/eastsheng/PicGoImg/Figures/MyDocs/plot_Error_bar.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plt_tc</span>(<span class="params">tcfile</span>):</span></span><br><span class="line">	tc = np.loadtxt(tcfile)</span><br><span class="line">	<span class="comment"># print(tc)</span></span><br><span class="line">	x = tc[:,<span class="number">0</span>]/<span class="number">32.06</span></span><br><span class="line">	y = tc[:,<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">	y_mean = np.mean(y,axis=<span class="number">1</span>)</span><br><span class="line">	y_std = np.std(y,axis=<span class="number">1</span>)</span><br><span class="line">	<span class="comment"># print(y_mean,y_std)</span></span><br><span class="line">	plt.rc(<span class="string">&#x27;font&#x27;</span>,family=<span class="string">&#x27;Times New Roman&#x27;</span>,size=<span class="number">26</span>)</span><br><span class="line">	fig, ax = plt.subplots(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">	fig.subplots_adjust(bottom=<span class="number">0.2</span>,left=<span class="number">0.2</span>)</span><br><span class="line">	s1 = ax.errorbar(x,y_mean,yerr=y_std,capsize=<span class="number">10</span>,capthick=<span class="number">4</span>,</span><br><span class="line">		fmt=<span class="string">&#x27;bo:&#x27;</span>,mfc=<span class="string">&#x27;w&#x27;</span>,mec=<span class="string">&#x27;b&#x27;</span>,markersize=<span class="number">16</span>,mew=<span class="number">2</span>)</span><br><span class="line">	ax.legend(handles=[s1],labels=[<span class="string">&#x27;$\mathregular&#123;MoS_2&#125;$/$\mathregular&#123;MoSe^&#123;78&#125;&#125;_\mathregular&#123;2&#125;$&#x27;</span>]</span><br><span class="line">		,loc=<span class="string">&#x27;best&#x27;</span>, fontsize=<span class="number">26</span>)</span><br><span class="line">	ax.set_xlabel(<span class="string">&#x27;Mass ratio (R)&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line">	ax.set_ylabel(<span class="string">&#x27;Thermal conductivity (W/m-K)&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line">	ax.set_xticks([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">	plt.show()</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	tcfile = <span class="string">&#x27;./Thermal_conductivity.txt&#x27;</span></span><br><span class="line">	plt_tc(tcfile)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plt_tc</span>(<span class="params">tcfile</span>):</span><br><span class="line">	tc = np.loadtxt(tcfile)</span><br><span class="line">	<span class="comment"># print(tc)</span></span><br><span class="line">	x = tc[:,<span class="number">0</span>]/<span class="number">32.06</span></span><br><span class="line">	y = tc[:,<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">	y_mean = np.mean(y,axis=<span class="number">1</span>)</span><br><span class="line">	y_std = np.std(y,axis=<span class="number">1</span>)</span><br><span class="line">	<span class="comment"># print(y_mean,y_std)</span></span><br><span class="line">	plt.rc(<span class="string">&#x27;font&#x27;</span>,family=<span class="string">&#x27;Times New Roman&#x27;</span>,size=<span class="number">26</span>)</span><br><span class="line">	fig, ax = plt.subplots(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">	fig.subplots_adjust(bottom=<span class="number">0.2</span>,left=<span class="number">0.2</span>)</span><br><span class="line">	s1 = ax.errorbar(x,y_mean,yerr=y_std,capsize=<span class="number">10</span>,capthick=<span class="number">4</span>,</span><br><span class="line">		fmt=<span class="string">&#x27;bo:&#x27;</span>,mfc=<span class="string">&#x27;w&#x27;</span>,mec=<span class="string">&#x27;b&#x27;</span>,markersize=<span class="number">16</span>,mew=<span class="number">2</span>)</span><br><span class="line">	ax.legend(handles=[s1],labels=[<span class="string">&#x27;$\mathregular&#123;MoS_2&#125;$/$\mathregular&#123;MoSe^&#123;78&#125;&#125;_\mathregular&#123;2&#125;$&#x27;</span>]</span><br><span class="line">		,loc=<span class="string">&#x27;best&#x27;</span>, fontsize=<span class="number">26</span>)</span><br><span class="line">	ax.set_xlabel(<span class="string">&#x27;Mass ratio (R)&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line">	ax.set_ylabel(<span class="string">&#x27;Thermal conductivity (W/m-K)&#x27;</span>,fontsize=<span class="number">26</span>,fontweight=<span class="string">&#x27;bold&#x27;</span>)</span><br><span class="line">	ax.set_xticks([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">	plt.show()</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	tcfile = <span class="string">&#x27;./Thermal_conductivity.txt&#x27;</span></span><br><span class="line">	plt_tc(tcfile)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>数据</li>

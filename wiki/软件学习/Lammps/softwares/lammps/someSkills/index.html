@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -189,11 +203,11 @@
     <section class="markdown-content"><h2 id="PyLAT用法"><a href="#PyLAT用法" class="headerlink" title="PyLAT用法"></a>PyLAT用法</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/MaginnGroup/PyLAT">PyLAT</a></li>
 </ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="string">/home/chends/softwares/PyLAT/PyLAT.py</span> -g -d <span class="params">--mol</span> Saturate <span class="params">--mol</span> Aromatic <span class="params">--mol</span> Resin <span class="params">--mol</span> Asphaltene <span class="params">--mol</span> water <span class="params">--nummol</span> 66 <span class="params">--nummol</span> 16 <span class="params">--nummol</span> 20 <span class="params">--nummol</span> 3 <span class="params">--nummol</span> 3000 -p <span class="string">./</span> -v 2 log_interface.lammps 1_system_out_498.data traj_out_1.lammpstrj -f output.json</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /home/chends/softwares/PyLAT/PyLAT<span class="selector-class">.py</span> -g -d <span class="attr">--mol</span> Saturate <span class="attr">--mol</span> Aromatic <span class="attr">--mol</span> Resin <span class="attr">--mol</span> Asphaltene <span class="attr">--mol</span> water <span class="attr">--nummol</span> <span class="number">66</span> <span class="attr">--nummol</span> <span class="number">16</span> <span class="attr">--nummol</span> <span class="number">20</span> <span class="attr">--nummol</span> <span class="number">3</span> <span class="attr">--nummol</span> <span class="number">3000</span> -<span class="selector-tag">p</span> ./ -v <span class="number">2</span> log_interface<span class="selector-class">.lammps</span> <span class="number">1</span>_system_out_498<span class="selector-class">.data</span> traj_out_1<span class="selector-class">.lammpstrj</span> -f output.json</span><br></pre></td></tr></table></figure>
 <h2 id="Units"><a href="#Units" class="headerlink" title="Units"></a>Units</h2><ul>
 <li><input checked="" disabled="" type="checkbox"> 力单位转换</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span> kJ/mol-Angstrom = <span class="number">1</span>.<span class="number">66053892103219</span>×<span class="number">10</span>^−<span class="number">11</span>  J/m</span><br><span class="line"><span class="attribute">1</span> kcal/mol-Angstrom = <span class="number">1</span>.<span class="number">66053892103219</span>/<span class="number">0</span>.<span class="number">239006</span> ×<span class="number">10</span>^−<span class="number">11</span> J/m = <span class="number">6</span>.<span class="number">947687</span>×<span class="number">10</span>^−<span class="number">11</span> N</span><br><span class="line"><span class="attribute">1</span> kcal/mol-Angstrom = <span class="number">6</span>.<span class="number">947687</span>×<span class="number">10</span>^−<span class="number">11</span> N</span><br><span class="line"><span class="attribute">1</span> N = <span class="number">1</span>.<span class="number">4393279374848</span>x<span class="number">10</span>^<span class="number">10</span> kcal/mol-Angstrom</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span> kJ/mol-Angstrom = <span class="number">1</span>.<span class="number">66053892103219</span>×<span class="number">10</span>^−<span class="number">11</span>  J/m</span><br><span class="line"><span class="attribute">1</span> kcal/mol-Angstrom = <span class="number">1</span>.<span class="number">66053892103219</span>/<span class="number">0</span>.<span class="number">239006</span> ×<span class="number">10</span>^−<span class="number">11</span> J/m = <span class="number">6</span>.<span class="number">947687</span>×<span class="number">10</span>^−<span class="number">11</span> N</span><br><span class="line"><span class="attribute">1</span> kcal/mol-Angstrom = <span class="number">6</span>.<span class="number">947687</span>×<span class="number">10</span>^−<span class="number">11</span> N</span><br><span class="line"><span class="attribute">1</span> N = <span class="number">1</span>.<span class="number">4393279374848</span>x10^<span class="number">10</span> kcal/mol-Angstrom</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
 
 <h2 id="LAMMPS-PYTHON"><a href="#LAMMPS-PYTHON" class="headerlink" title="LAMMPS PYTHON"></a>LAMMPS PYTHON</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make mpi mode=shlib</span><br><span class="line">make install-python</span><br></pre></td></tr></table></figure>
 

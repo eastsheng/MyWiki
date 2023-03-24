@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -199,13 +213,15 @@
 <li><p>一个函数可以调用其他函数或其本身，但任何函数均不可调用主函数.</p>
 </li>
 <li><p>声明一个函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">function</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">char</span>)</span></span>; </span><br><span class="line"><span class="comment">//int:声明一个整数型函数，其返回值是一个整数</span></span><br><span class="line"><span class="comment">//函数有两个形参，整数值变量在前，字符值变量在后</span></span><br><span class="line"><span class="comment">//函数声明时，只需要说明形参的类型和个数，不必写变量名</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">function</span><span class="params">(<span class="type">int</span>,<span class="type">char</span>)</span></span>; </span><br><span class="line"><span class="comment">//int:声明一个整数型函数，其返回值是一个整数</span></span><br><span class="line"><span class="comment">//函数有两个形参，整数值变量在前，字符值变量在后</span></span><br><span class="line"><span class="comment">//函数声明时，只需要说明形参的类型和个数，不必写变量名</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>调用函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">function</span>(<span class="number">10</span>,<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"><span class="comment">//程序调用函数时，代入函数参数表的参数值称为实际参数</span></span><br><span class="line"><span class="comment">/*等效于：</span></span><br><span class="line"><span class="comment">int i_p=10； //整数10 赋给被调函数的第1 个形参</span></span><br><span class="line"><span class="comment">char ch_a=&#x27;A&#x27;； //字母A 赋给被调函数的第2 个形参*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">function</span>(<span class="number">10</span>,<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line"><span class="comment">//程序调用函数时，代入函数参数表的参数值称为实际参数</span></span><br><span class="line"><span class="comment">/*等效于：</span></span><br><span class="line"><span class="comment">int i_p=10； //整数10 赋给被调函数的第1 个形参</span></span><br><span class="line"><span class="comment">char ch_a=&#x27;A&#x27;； //字母A 赋给被调函数的第2 个形参*/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>for example:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">readnum</span><span class="params">()</span></span>;<span class="comment">//声明一个整数型函数，无参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sqrnum</span><span class="params">(<span class="keyword">int</span>)</span></span>;<span class="comment">//声明一个无返回值的函数，形参是一个整数变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="keyword">while</span> (t = <span class="built_in">readnum</span>())<span class="comment">//调用函数</span></span><br><span class="line">		<span class="built_in">sqrnum</span>(t);<span class="comment">//调用函数</span></span><br><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">readnum</span><span class="params">()</span><span class="comment">//定义函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;input a num:\n&quot;</span>;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">return</span>(t);<span class="comment">//return 返回变量的类型必须与函数类型相符</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果函数无需返回，则函数定义时应说明为“void”，意指空类型</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sqrnum</span><span class="params">(<span class="keyword">int</span> num)</span><span class="comment">//定义函数 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sqr(&quot;</span> &lt;&lt; num &lt;&lt; <span class="string">&quot;)=&quot;</span> &lt;&lt; num * num &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">readnum</span><span class="params">()</span></span>;<span class="comment">//声明一个整数型函数，无参数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sqrnum</span><span class="params">(<span class="type">int</span>)</span></span>;<span class="comment">//声明一个无返回值的函数，形参是一个整数变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="keyword">while</span> (t = <span class="built_in">readnum</span>())<span class="comment">//调用函数</span></span><br><span class="line">		<span class="built_in">sqrnum</span>(t);<span class="comment">//调用函数</span></span><br><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">readnum</span><span class="params">()</span><span class="comment">//定义函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;input a num:\n&quot;</span>;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">return</span>(t);<span class="comment">//return 返回变量的类型必须与函数类型相符</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果函数无需返回，则函数定义时应说明为“void”，意指空类型</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sqrnum</span><span class="params">(<span class="type">int</span> num)</span><span class="comment">//定义函数 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sqr(&quot;</span> &lt;&lt; num &lt;&lt; <span class="string">&quot;)=&quot;</span> &lt;&lt; num * num &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="变量类型强制转换"><a href="#变量类型强制转换" class="headerlink" title="变量类型强制转换"></a>变量类型强制转换</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(类型说明符)(表达式);</span></span><br><span class="line">(<span class="keyword">float</span>)a <span class="comment">//把a 转换为实型变量</span></span><br><span class="line">(<span class="keyword">int</span>)(x+y) <span class="comment">//把x+y的结果转换为整型</span></span><br></pre></td></tr></table></figure>
+<h4 id="变量类型强制转换"><a href="#变量类型强制转换" class="headerlink" title="变量类型强制转换"></a>变量类型强制转换</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(类型说明符)(表达式);</span></span><br><span class="line">(<span class="type">float</span>)a <span class="comment">//把a 转换为实型变量</span></span><br><span class="line">(<span class="type">int</span>)(x+y) <span class="comment">//把x+y的结果转换为整型</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>它不改变在数据说明时对该变量定义的类型!(临时性转换)</li>
 </ul>
@@ -215,16 +231,16 @@
 <li><p>2）既然指针变量需要存储空间，那么它必定需要声明。</p>
 </li>
 <li><p>例如：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i_a,i_b;<span class="comment">//整数变量</span></span><br><span class="line"><span class="keyword">int</span> *i_p;<span class="comment">//整数型指针</span></span><br><span class="line">i_p=&amp;i_a;<span class="comment">//把i_a的地址赋值给指针i_p </span></span><br><span class="line">*i_p=<span class="number">10</span>;<span class="comment">//把10赋值给i_a</span></span><br><span class="line">i_p=&amp;i_b;<span class="comment">//把i_b的地址赋值给指针i_p </span></span><br><span class="line">*i_p=<span class="number">2</span>;<span class="comment">//把20赋值给i_b</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i_a,i_b;<span class="comment">//整数变量</span></span><br><span class="line"><span class="type">int</span> *i_p;<span class="comment">//整数型指针</span></span><br><span class="line">i_p=&amp;i_a;<span class="comment">//把i_a的地址赋值给指针i_p </span></span><br><span class="line">*i_p=<span class="number">10</span>;<span class="comment">//把10赋值给i_a</span></span><br><span class="line">i_p=&amp;i_b;<span class="comment">//把i_b的地址赋值给指针i_p </span></span><br><span class="line">*i_p=<span class="number">2</span>;<span class="comment">//把20赋值给i_b</span></span><br></pre></td></tr></table></figure></li>
 <li><p>指针是一个地址变量，可以存储某个变量的内存地址，通过获取该变量的地址，让指针指向该变量，从而可以访问（读写）该变量的值。</p>
 </li>
 <li><p>让指针取得一个数组的地址：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="built_in">array</span>[N],*i_p;</span><br><span class="line">i_p=<span class="built_in">array</span>; <span class="comment">//array即是数组的地址，与上述的&amp;i_b相似</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="built_in">array</span>[N],*i_p;</span><br><span class="line">i_p=<span class="built_in">array</span>; <span class="comment">//array即是数组的地址，与上述的&amp;i_b相似</span></span><br></pre></td></tr></table></figure></li>
 <li><p>指针变量加上或减去一个整数<code>i</code>的意义是把指针指向的当前位置（指向某数组元素）向前或向后跨过<code>i</code>个位置。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i_p+=i;</span><br><span class="line">i_p-=i;</span><br><span class="line">i_p++;</span><br><span class="line">++i_p;</span><br><span class="line">i_p--;</span><br><span class="line">--i_p;</span><br></pre></td></tr></table></figure></li>
 <li><p>指针变量的加减运算只能对数组指针变量进行，对指向其他类型变量的指针变量做加减运算是毫无意义的。</p>
 </li>
-<li><p>并且，由于数组中元素类型不同（int/char/float），指针每加1，表示向后移动1个元素位置，表示指针变量指向下一个数据元素的首<br>地址，而不是简单的指针变量+1；</p>
+<li><p>并且，由于数组中元素类型不同（int&#x2F;char&#x2F;float），指针每加1，表示向后移动1个元素位置，表示指针变量指向下一个数据元素的首<br>地址，而不是简单的指针变量+1；</p>
 </li>
 <li><p>例如：</p>
 </li>

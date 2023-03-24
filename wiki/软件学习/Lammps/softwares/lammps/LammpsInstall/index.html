@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -188,8 +202,7 @@
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
 <h3 id="Windows下Lammps安装"><a href="#Windows下Lammps安装" class="headerlink" title="- Windows下Lammps安装"></a>- Windows下Lammps安装</h3><ol>
-<li><a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网下载Windows版Lammps,和并行包mpich2</a>；</li>
-<li>下载完成后，直接双击<code>LAMMPS-64bit-stable-MPI.exe</code>安装,可以自定义安装位置；</li>
+<li><a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网下载Windows版Lammps,和并行包mpich2</a>；<br>2.下载完成后，直接双击<code>LAMMPS-64bit-stable-MPI.exe</code>安装,可以自定义安装位置；</li>
 <li>Similarly，接着安装MPICH2<code>mpich2-1.4.1p1-win-x86-64.msi</code>；</li>
 <li>完了之后，进入到<code>Administrator</code>用户下操作，<code>win+R</code>输入<code>cmd</code>，调出cmd窗口；</li>
 <li><code>cd</code>到MPICH2安装目录的<code>bin</code>下，也即是<code>D:\Program Files\MPICH2\bin</code>；</li>
@@ -205,15 +218,15 @@
 <li>至此，完成，可以进入lammps目录下<code>Examples</code>中测试一下并行；例如：<code>mpiexec -np 8 lmp_mpi -i inputfile.in</code>；具体看<a target="_blank" rel="noopener" href="http://packages.lammps.org/windows.html">官网</a></li>
 </ol>
 <h3 id="Linux下Lammps并行安装"><a href="#Linux下Lammps并行安装" class="headerlink" title="- Linux下Lammps并行安装"></a>- Linux下Lammps并行安装</h3><h4 id="1-安装必要的编译器"><a href="#1-安装必要的编译器" class="headerlink" title="1. 安装必要的编译器"></a>1. 安装必要的编译器</h4><ul>
-<li>安装/更新必要的C/C++编译器等：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install make</span><br></pre></td></tr></table></figure></li>
+<li>安装&#x2F;更新必要的C&#x2F;C++编译器等：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install make</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="2-并行计算程序MIPCH安装"><a href="#2-并行计算程序MIPCH安装" class="headerlink" title="2. 并行计算程序MIPCH安装"></a>2. 并行计算程序MIPCH安装</h4><ul>
 <li>下载<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">MPICH安装包</a> ，并解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mpich-3.2.1.tar.gz</span><br></pre></td></tr></table></figure></li>
 <li>然后，进入该文件夹:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mpich-3.2.1</span><br></pre></td></tr></table></figure></li>
 <li>另外新建<code>mpich</code>文件夹（用于安装路径）；</li>
-<li>在<code>mpich-3.2.1</code>文件夹内输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/..(your path)../mpich 2&gt;&amp;1|tee c.txt</span><br></pre></td></tr></table></figure></li>
-<li>编译完后，继续终端输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make 2&gt;&amp;1|tee m.txt</span><br></pre></td></tr></table></figure></li>
-<li>完成后，继续输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install 2&gt;&amp;1|tee mi.txt</span><br></pre></td></tr></table></figure></li>
+<li>在<code>mpich-3.2.1</code>文件夹内输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/..(your path)../mpich 2&gt;&amp;1|<span class="built_in">tee</span> c.txt</span><br></pre></td></tr></table></figure></li>
+<li>编译完后，继续终端输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make 2&gt;&amp;1|<span class="built_in">tee</span> m.txt</span><br></pre></td></tr></table></figure></li>
+<li>完成后，继续输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install 2&gt;&amp;1|<span class="built_in">tee</span> mi.txt</span><br></pre></td></tr></table></figure></li>
 <li>完成MPICH安装，接着把mpich的安装路径添加到环境变量中，参考<a target="_blank" rel="noopener" href="https://eastsheng.cf/2020/01/22/linux/LinuxCommand/">这里</a></li>
 <li>输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> mpiexec <span class="comment">#检查mpi是否添加路径到环境变量</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -225,7 +238,7 @@
 </ul>
 <h4 id="3-FFTW3安装"><a href="#3-FFTW3安装" class="headerlink" title="3. FFTW3安装"></a>3. FFTW3安装</h4><ul>
 <li><a target="_blank" rel="noopener" href="http://www.fftw.org/download.html">Downloading FFTW</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">Installation on Unix</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/your fftw3 path(默认/usr/<span class="built_in">local</span>/include)不能使用相对路径/</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
+<li><a target="_blank" rel="noopener" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">Installation on Unix</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/your fftw3 path(默认/usr/local/include)不能使用相对路径/</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="4-LAMMPS安装"><a href="#4-LAMMPS安装" class="headerlink" title="4. LAMMPS安装"></a>4. LAMMPS安装</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://lammps.sandia.gov/download.html">下载安装包</a>， 解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf lammps-stable.tar.gz</span><br></pre></td></tr></table></figure></li>
@@ -257,7 +270,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 lmp_mpi -i in.atm</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line">mpiexec -np 4 lmp_mpi -i in.atm</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
-<li><strong>注意</strong>：记得在<code>~/.bashrc</code>中设置<code>/home/.../lammps-stable/src</code>环境变量 </li>
+<li><strong>注意</strong>：记得在<code>~/.bashrc</code>中设置<code>/home/.../lammps-stable/src</code>环境变量</li>
 </ul>
 </blockquote>
 </li>
@@ -285,17 +298,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsCommond/">
+      <a class="nav-left" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsNotes/">
         <span class="nav-arrow">← </span>
         
-          Lammps Command
+          Lammps 笔记
         
       </a>
     
     
-      <a class="nav-right" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">
+      <a class="nav-right" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsCommond/">
         
-          GROMACS 入门
+          Lammps Command
         
         <span class="nav-arrow"> →</span>
       </a>

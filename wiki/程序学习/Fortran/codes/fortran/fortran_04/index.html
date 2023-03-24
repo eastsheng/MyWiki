@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -191,10 +205,12 @@
 <li><code>F90</code>程序中的数据都有三个特征：<code>类型、种别、属性</code>.</li>
 <li>一般形式：<code>类型说明[(种别说明)][,属性说明] :: 变量名[=初值]</code></li>
 <li>例：<code>REAL(KIND=2), DIMENSION(1:10):: X,Y</code></li>
-<li>种别说明与属性说明可以省略，<code>类型说明:: 变量名</code><h4 id="类型说明"><a href="#类型说明" class="headerlink" title="类型说明"></a>类型说明</h4><blockquote>
-<p>三种数值型：整数型(<code>INTEGER</code>)、实数型(<code>REAL</code>)、复数型(<code>COMPLEX</code>)<br>两种非数值型：逻辑型、字符型</p>
-</blockquote>
-</li>
+<li>种别说明与属性说明可以省略，<code>类型说明:: 变量名</code></li>
+</ul>
+<h4 id="类型说明"><a href="#类型说明" class="headerlink" title="类型说明"></a>类型说明</h4><pre><code>&gt; 三种数值型：整数型(`INTEGER`)、实数型(`REAL`)、复数型(`COMPLEX`)
+&gt; 两种非数值型：逻辑型、字符型
+</code></pre>
+<ul>
 <li>在F90中，每个变量名都应该在说明部分中说明其类型，不应该使用<code>隐式说明</code>，应该在程序说明部分开始就写出语句：<code>IMIPLlCIT NONE</code>，既声明不使用隐式说明。</li>
 </ul>
 <h4 id="种别说明"><a href="#种别说明" class="headerlink" title="种别说明"></a>种别说明</h4><ul>
@@ -246,7 +262,7 @@
 <li>一般形式：<code>CHARACTER[(LEN=整型字符长度表达式[,KIND=种别值])][,属性说明] :: 变量名表[=初始值]</code></li>
 <li>在字符型说明语句中，长度说明必须有，不可省略，为正整数；</li>
 <li>仅有关键字CHARACTER而没有括号时认为字符是一个字节长；</li>
-<li>可以省去LEN=及KTND=，只写参数值，此时字符长度必须写在前面；</li>
+<li>可以省去LEN&#x3D;及KTND&#x3D;，只写参数值，此时字符长度必须写在前面；</li>
 <li>只有长度说明的语句可分为有括号和无括号两种，例如以下语句都是等价的：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHARACTER</span>(LEN=<span class="number">12</span>,<span class="keyword">KIND</span>=<span class="number">1</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>(<span class="keyword">KIND</span>=<span class="number">1</span>,LEN=<span class="number">12</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>(<span class="number">12</span>,<span class="number">1</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>*<span class="number">12</span> :: A,B</span><br><span class="line">```   </span><br><span class="line">- 长度也可以写成一个*号，表示长度暂不确定，待以后与程序中实际需要的长度相一致，如：</span><br><span class="line">```f90</span><br><span class="line"><span class="keyword">CHARACTER</span>(LEN=*),<span class="keyword">PARAMETER</span> :: C_NAME=‘GIRL’</span><br></pre></td></tr></table></figure></li>
 <li><blockquote>
 <p>说明字符常量C_NAME，长度为4</p>
@@ -272,35 +288,49 @@
 </li>
 </ol>
 <h3 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h3><ul>
-<li>F90允许把字符型的值转换成整型值(已知字符，取字符型的序号数值)，</li>
-<li>也允许把数值型的值转换成字符型的值(已知序号，取它对应的字符)。</li>
-<li>字符与数值相互转换的函数(F90的内部函数)：<code>ICHAR，CHAR，IACHR，ACHAR</code></li>
-<li>函数<code>ICHAR</code>的功能是把字符型转换成数值，它的引用方式是：<code>ICHAR(字符实体)</code><blockquote>
+<li><p>F90允许把字符型的值转换成整型值(已知字符，取字符型的序号数值)，</p>
+</li>
+<li><p>也允许把数值型的值转换成字符型的值(已知序号，取它对应的字符)。</p>
+</li>
+<li><p>字符与数值相互转换的函数(F90的内部函数)：<code>ICHAR，CHAR，IACHR，ACHAR</code></p>
+</li>
+<li><p>函数<code>ICHAR</code>的功能是把字符型转换成数值，它的引用方式是：<code>ICHAR(字符实体)</code></p>
+<blockquote>
 <p>函数值<code>ICHAR</code>返回字符实体第一个字符的序号值<br>如果指明要按照ASCII码求它的序号，则本功能的函数名应改写为<code>IACHAR</code></p>
 </blockquote>
 </li>
-<li>函数<code>CHAR</code>的功能是把一个序号转换成它的字符。它的引用方式是：<code>CHAR(整型数值表达式)</code>。<blockquote>
+<li><p>函数<code>CHAR</code>的功能是把一个序号转换成它的字符。它的引用方式是：<code>CHAR(整型数值表达式)</code>。</p>
+<blockquote>
 <p>如果按照<code>ASCII</code>码求它的对应字符，则函数名为<code>ACHAR</code>。</p>
 </blockquote>
 </li>
-<li>求字符串长度<code>LEN(字符实体)</code><blockquote>
+<li><p>求字符串长度<code>LEN(字符实体)</code></p>
+<blockquote>
 <p>函数值返回一个正整教，为该字符实体的长度（包括尾随空格、中间空格在内）</p>
 </blockquote>
 </li>
-<li>不计尾部空格的字符串长度函数：<code>LEN_TRIM</code></li>
-<li>求子串在父串位置的函数：<code>INDEX(父串,子串)</code><blockquote>
-<p>如：<code>INDEX(&quot;Einstein&quot;,&quot;s&quot;)</code>的值4。<br>如果第二个字符实体不是第一个字符实体的子串，返回函数值为0。</p>
+<li><p>不计尾部空格的字符串长度函数：<code>LEN_TRIM</code></p>
+</li>
+<li><p>求子串在父串位置的函数：<code>INDEX(父串,子串)</code></p>
+<blockquote>
+<p>如：<code>INDEX(&quot;Einstein&quot;,&quot;s&quot;)</code>的值4。<br>如果第二个字符实体不是第一个字符实体的子串，返回函数值为0。
+  </p>
 </blockquote>
 </li>
-<li>验证字符串的函数：<code>VERIFY(字符串,字符集)</code><blockquote>
-<p>确认指定的字符集是否包含了给定字符串中所有的字符<br>函数值返回一个正整数，指明字符串中与字符集相异的第一个字符是从左边第几个字符开始的<br>如果没有相异的字符，则返回函数值为0</p>
+<li><p>验证字符串的函数：<code>VERIFY(字符串,字符集)</code></p>
+<blockquote>
+<p>确认指定的字符集是否包含了给定字符串中所有的字符<br>函数值返回一个正整数，指明字符串中与字符集相异的第一个字符是从左边第几个字符开始的<br>如果没有相异的字符，则返回函数值为0
+  </p>
 </blockquote>
 </li>
-<li>除去尾部空格函数：<code>TRIM</code><blockquote>
-<p><code>TRIM(&quot;ABCD 12 &quot;)//&quot;34&quot;</code>的值是<code>&quot;ABCD 1234&quot;</code>。</p>
+<li><p>除去尾部空格函数：<code>TRIM</code></p>
+<blockquote>
+<p><code>TRIM(&quot;ABCD 12 &quot;)//&quot;34&quot;</code>的值是<code>&quot;ABCD 1234&quot;</code>。
+ </p>
 </blockquote>
 </li>
-<li>比较字符大小的函数：<code>LGE、LGT、LLE、LLT</code><blockquote>
+<li><p>比较字符大小的函数：<code>LGE、LGT、LLE、LLT</code></p>
+<blockquote>
 <p><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_04.md/311661713220767.png"></p>
 </blockquote>
 </li>
@@ -315,7 +345,10 @@
 <li>某一维中元素的个数称为该维的长度(extent)</li>
 <li>数组中所有元素的个数称为数组的大小(size)，它等于各维的长度的乘积，<mark>数组的大小可以为0</mark></li>
 <li>例如：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REAL</span> A(<span class="number">10</span>,<span class="number">3</span>,<span class="number">2</span>)     <span class="comment">! 秩为3，大小为10×3×2＝60，形状为10乘3乘2，或表示成(10，3，2)。</span></span><br><span class="line"><span class="built_in">SHAPE</span>(A)           <span class="comment">! 获得数组的形状结果为：(10，3，2)</span></span><br></pre></td></tr></table></figure></li>
-<li>下标不是从0开始，是从1开始的，例如<code>A(0,0,0)</code>时错误的，<code>A(1,1,1)</code>是正确的<h4 id="数组声明"><a href="#数组声明" class="headerlink" title="数组声明"></a>数组声明</h4><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REAL</span> A(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>) 				<span class="comment">! 类型说明</span></span><br><span class="line"><span class="keyword">DIMENSION</span> B(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>)			<span class="comment">! DIMENSI0N语句</span></span><br><span class="line"><span class="keyword">ALLOCATABLE</span> C(:,:)			<span class="comment">! ALLOCATABLE语句</span></span><br><span class="line"><span class="keyword">POINTER</span> D(:,:,:)			<span class="comment">! POINTER语句</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">DIMENSION</span>(<span class="number">2</span>,<span class="number">5</span>) :: E 	<span class="comment">! 类型说明中的DIMENSION属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">ALLOCATABLE</span> :: F(:,:,:)   <span class="comment">! 类型说明中的ALLOCATABLE属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">POINTER</span> ::     G(:,:)     <span class="comment">! 类型说明中的POINTER属性</span></span><br></pre></td></tr></table></figure></li>
+<li>下标不是从0开始，是从1开始的，例如<code>A(0,0,0)</code>时错误的，<code>A(1,1,1)</code>是正确的</li>
+</ul>
+<h4 id="数组声明"><a href="#数组声明" class="headerlink" title="数组声明"></a>数组声明</h4><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REAL</span> A(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>) 				<span class="comment">! 类型说明</span></span><br><span class="line"><span class="keyword">DIMENSION</span> B(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>)			<span class="comment">! DIMENSI0N语句</span></span><br><span class="line"><span class="keyword">ALLOCATABLE</span> C(:,:)			<span class="comment">! ALLOCATABLE语句</span></span><br><span class="line"><span class="keyword">POINTER</span> D(:,:,:)			<span class="comment">! POINTER语句</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">DIMENSION</span>(<span class="number">2</span>,<span class="number">5</span>) :: E 	<span class="comment">! 类型说明中的DIMENSION属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">ALLOCATABLE</span> :: F(:,:,:)   <span class="comment">! 类型说明中的ALLOCATABLE属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">POINTER</span> ::     G(:,:)     <span class="comment">! 类型说明中的POINTER属性</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>无论何种情况，数组的秩总是要指定的；</li>
 <li>数组的大小和形状是否需要声明视数组的形式而定；</li>
 <li>当<code>COMMON</code>语句指定了数组的秩和大小后，只能定义数组的类型而不能再次重复给定维界.</li>

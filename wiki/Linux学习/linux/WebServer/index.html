@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -187,16 +201,18 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
-<h2 id="使用Ubuntu手动搭建Web服务器"><a href="#使用Ubuntu手动搭建Web服务器" class="headerlink" title="使用Ubuntu手动搭建Web服务器"></a>使用Ubuntu手动搭建Web服务器</h2><h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install apache2</span><br></pre></td></tr></table></figure>
+<h2 id="使用Ubuntu手动搭建Web服务器"><a href="#使用Ubuntu手动搭建Web服务器" class="headerlink" title="使用Ubuntu手动搭建Web服务器"></a>使用Ubuntu手动搭建Web服务器</h2><h3 id="安装Apache2"><a href="#安装Apache2" class="headerlink" title="安装Apache2"></a>安装Apache2</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install apache2</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后即可打开刘浏览器访问<code>127.0.0.1</code>或Ubuntu ip地址</li>
 </ul>
 <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt-get install mysql-client</span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
 <ul>
-<li>检查是否安装成功：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure>
-<h4 id="启动Mysql失败"><a href="#启动Mysql失败" class="headerlink" title="启动Mysql失败"></a>启动Mysql失败</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can‘t connect to <span class="built_in">local</span> MySQL server through socket ‘/tmp/mysql.sock</span><br></pre></td></tr></table></figure></li>
+<li>检查是否安装成功：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="启动Mysql失败"><a href="#启动Mysql失败" class="headerlink" title="启动Mysql失败"></a>启动Mysql失败</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can‘t connect to <span class="built_in">local</span> MySQL server through socket ‘/tmp/mysql.sock</span><br></pre></td></tr></table></figure>
+<ul>
 <li>找不到<code>mysql.sock</code>文件位置</li>
-<li>执行下面命令:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf </span><br></pre></td></tr></table></figure></li>
+<li>执行下面命令:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cat</span> /etc/mysql/debian.cnf </span><br></pre></td></tr></table></figure></li>
 <li>即可找到：<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Automatically generated for Debian scripts. DO NOT TOUCH!</span></span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">host</span>     = localhost</span><br><span class="line"><span class="attr">user</span>     = debian-sys-maint</span><br><span class="line"><span class="attr">password</span> = QtryCctbOk7ZV2nl</span><br><span class="line"><span class="attr">socket</span>   = /var/run/mysqld/mysqld.sock</span><br><span class="line"><span class="section">[mysql_upgrade]</span></span><br><span class="line"><span class="attr">host</span>     = localhost</span><br><span class="line"><span class="attr">user</span>     = debian-sys-maint</span><br><span class="line"><span class="attr">password</span> = QtryCctbOk7ZV2nl</span><br><span class="line"><span class="attr">socket</span>   = /var/run/mysqld/mysqld.sock</span><br></pre></td></tr></table></figure></li>
 <li>并在<code>my.cnf</code>中修改<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -207,7 +223,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install php7.2-fpm php7.2-mysql php7.2-curl php7.2-json php7.2-mbstring php7.2-xml  php7.2-intl php7.2-odbc php7.2-cgi</span><br></pre></td></tr></table></figure>
 
-<h3 id="展示PHP网页"><a href="#展示PHP网页" class="headerlink" title="展示PHP网页"></a>展示PHP网页</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /var/www/html</span><br><span class="line"><span class="keyword">ls</span>    #列出当前目录下只有一个<span class="built_in">index</span>.html文件</span><br><span class="line">rm <span class="built_in">index</span>.html    #删掉<span class="built_in">index</span>.html</span><br><span class="line"><span class="keyword">echo</span> Hello World! &gt; <span class="built_in">index</span>.php</span><br></pre></td></tr></table></figure>
+<h3 id="展示PHP网页"><a href="#展示PHP网页" class="headerlink" title="展示PHP网页"></a>展示PHP网页</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line"><span class="built_in">ls</span>    <span class="comment">#列出当前目录下只有一个index.html文件</span></span><br><span class="line"><span class="built_in">rm</span> index.html    <span class="comment">#删掉index.html</span></span><br><span class="line"><span class="built_in">echo</span> Hello World! &gt; index.php</span><br></pre></td></tr></table></figure>
 
 
 <ul>
@@ -239,26 +255,35 @@
 <p><img src="https://img.xp.cn/upload/image/545/693/122/1571284607234622.png"></p>
 </blockquote>
 </li>
-</ul>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://m.xp.cn/linux.html#install-show">Ref 1</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ycx95/p/12122178.html">Ref 2</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.xp.cn/phpstudy-linux/install.html">Ref 3</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://m.xp.cn/linux.html#install-show">Ref 1</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ycx95/p/12122178.html">Ref 2</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.xp.cn/phpstudy-linux/install.html">Ref 3</a></p>
+</li>
 </ul>
 <h3 id="访问所配置的域名"><a href="#访问所配置的域名" class="headerlink" title="访问所配置的域名"></a>访问所配置的域名</h3><ul>
 <li>需要在所使用电脑，例如windows<code>(C:\Windows\System32\drivers\etc\hosts)</code>中添加<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#ip</span>              域名</span><br><span class="line">xxx<span class="selector-class">.xx</span><span class="selector-class">.xxx</span><span class="selector-class">.xx</span>    www<span class="selector-class">.xxx</span>.com</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h3><h4 id="花生壳"><a href="#花生壳" class="headerlink" title="花生壳"></a>花生壳</h4><ul>
-<li>安装花生壳</li>
-<li>Ubuntu版安装命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">&quot;https://down.oray.com/hsk/linux/phddns_5.2.0_amd64.deb&quot;</span> -O phddns_5.2.0_amd64.deb</span><br><span class="line">sudo dpkg -i phddns_5.2.0_amd64.deb</span><br></pre></td></tr></table></figure></li>
-<li>安装成功<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+--------------------------------------------------+</span><br><span class="line">|             Oray PeanutHull Linux 5.2.0          |</span><br><span class="line">+--------------------------------------------------+</span><br><span class="line">|  SN: xxxxxxxxxxxx   Default password: admin  |</span><br><span class="line">+--------------------------------------------------+</span><br><span class="line">|    Remote Management Address http://b.oray.com   |</span><br><span class="line">+--------------------------------------------------+</span><br></pre></td></tr></table></figure></li>
-<li>功能</li>
-<li><img src="https://upload-cdn.orayimg.com/upload/help/2008/202008241841111211.png"><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phddns start（启动）| <span class="type">status</span>（状态）| <span class="type">stop</span>（停止）|<span class="type">restart</span>（重启）| <span class="type">reset</span>（重置）|<span class="type">enable</span>（开机自启动）|<span class="type">disable</span>（关闭开机自启动）|<span class="type">version</span>（版本）**</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li>浏览器访问<a target="_blank" rel="noopener" href="http://b.oray.com/">http://b.oray.com</a> ，输入花生壳Linux 5.0在安装时产生SN码与默认登录密码admin登录。</li>
-<li>参考：<a target="_blank" rel="noopener" href="https://service.oray.com/question/11630.html">11630.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyh458/article/details/107834282">107834282</a></li>
+<li><p>安装花生壳</p>
+</li>
+<li><p>Ubuntu版安装命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">&quot;https://down.oray.com/hsk/linux/phddns_5.2.0_amd64.deb&quot;</span> -O phddns_5.2.0_amd64.deb</span><br><span class="line">sudo dpkg -i phddns_5.2.0_amd64.deb</span><br></pre></td></tr></table></figure></li>
+<li><p>安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+--------------------------------------------------+</span><br><span class="line">|             Oray PeanutHull Linux 5.2.0          |</span><br><span class="line">+--------------------------------------------------+</span><br><span class="line">|  SN: xxxxxxxxxxxx   Default password: admin  |</span><br><span class="line">+--------------------------------------------------+</span><br><span class="line">|    Remote Management Address http://b.oray.com   |</span><br><span class="line">+--------------------------------------------------+</span><br></pre></td></tr></table></figure></li>
+<li><p>功能</p>
+</li>
+<li><p><img src="https://upload-cdn.orayimg.com/upload/help/2008/202008241841111211.png"></p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phddns start（启动）| <span class="type">status</span>（状态）| <span class="type">stop</span>（停止）|<span class="type">restart</span>（重启）| <span class="type">reset</span>（重置）|<span class="type">enable</span>（开机自启动）|<span class="type">disable</span>（关闭开机自启动）|<span class="type">version</span>（版本）**</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>浏览器访问<a target="_blank" rel="noopener" href="http://b.oray.com/">http://b.oray.com</a> ，输入花生壳Linux 5.0在安装时产生SN码与默认登录密码admin登录。</p>
+</li>
+<li><p>参考：<a target="_blank" rel="noopener" href="https://service.oray.com/question/11630.html">11630.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lyh458/article/details/107834282">107834282</a></p>
+</li>
 </ul>
 <h4 id="cpolar"><a href="#cpolar" class="headerlink" title="cpolar"></a><a target="_blank" rel="noopener" href="https://www.cpolar.com/">cpolar</a></h4><ul>
 <li><a target="_blank" rel="noopener" href="https://www.cpolar.com/docs">文档</a></li>

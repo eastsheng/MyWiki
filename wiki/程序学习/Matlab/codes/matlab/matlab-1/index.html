@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Code, Research">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
   
     <link rel="shortcut icon" href="/css/images/logo.png">
   
@@ -28,28 +28,6 @@
   
   
   
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
-  
 
 
   
@@ -58,7 +36,7 @@
 <script src="/js/local-search.js"></script>
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
 </div>
@@ -79,19 +57,37 @@
       
         <li class="list-item">
           
-            <a href="/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
             <a href="/archives/" class="item-link">Archives</a>
           
         </li>
       
         <li class="list-item">
           
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">Atgb</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
           
         </li>
       
@@ -125,19 +121,37 @@
         
           <li class="menu-item">
             
-              <a href="/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
               <a href="/archives/" class="menu-link">Archives</a>
             
           </li>
         
           <li class="menu-item">
             
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">Atgb</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
             
           </li>
         
@@ -190,7 +204,8 @@
 <h2 id="基本常用代码"><a href="#基本常用代码" class="headerlink" title="基本常用代码"></a>基本常用代码</h2><p><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/index.html?s_tid=CRUX_lftnav">MATLAB</a></p>
 <h3 id="fopen-amp-fgetl-amp-fclose"><a href="#fopen-amp-fgetl-amp-fclose" class="headerlink" title="fopen &amp; fgetl &amp; fclose"></a>fopen &amp; fgetl &amp; fclose</h3><ul>
 <li><p><strong><mark>打开文件</mark></strong> tsunamis.txt 并获取文件标识符。</p>
-<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileID <span class="built_in">=</span> fopen(<span class="string">&#x27;tsunamis.txt&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileID <span class="built_in">=</span> fopen(<span class="string">&#x27;tsunamis.txt&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>将 fileID 传递给 fgetl 函数以从文件 <strong><mark>读取</mark></strong> 一行。</p>
 <figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tline <span class="built_in">=</span> fgetl(fileID)</span><br></pre></td></tr></table></figure></li>
 <li><p><strong><mark>关闭</mark></strong> 一个或所有打开的文件</p>
@@ -211,7 +226,8 @@
 <li><p>创建一个图窗并指定 Name 属性。默认情况下，生成的标题包含图窗编号。</p>
 </li>
 <li><p><img src="https://ww2.mathworks.cn/help/matlab/ref/figure_ref_numtitle.png"></p>
-<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">figure(<span class="string">&#x27;Name&#x27;</span>,<span class="string">&#x27;Measured Data&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">figure(<span class="string">&#x27;Name&#x27;</span>,<span class="string">&#x27;Measured Data&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>再次指定 Name 属性，但这次将 NumberTitle 属性设置为 ‘off’。生成的标题不包含图窗编号。</p>
 </li>
 <li><p><img src="https://ww2.mathworks.cn/help/matlab/ref/figure_ref_numtitle_off.png"></p>
@@ -226,7 +242,7 @@
 <li>每列元素乘积<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B <span class="built_in">=</span> prod(A)</span><br></pre></td></tr></table></figure></li>
 <li>每行元素乘积<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B <span class="built_in">=</span> prod(A,<span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="Matlab-和-和-有什么区别"><a href="#Matlab-和-和-有什么区别" class="headerlink" title="Matlab ./和/   .和  有什么区别"></a>Matlab ./和/   .<em>和</em>  有什么区别</h3><ul>
+<h3 id="Matlab-x2F-和-x2F-和-有什么区别"><a href="#Matlab-x2F-和-x2F-和-有什么区别" class="headerlink" title="Matlab .&#x2F;和&#x2F;   .和  有什么区别"></a>Matlab .&#x2F;和&#x2F;   .<em>和</em>  有什么区别</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013346007/article/details/54583271">https://blog.csdn.net/u013346007/article/details/54583271</a></li>
 </ul>
 <h3 id="ceil"><a href="#ceil" class="headerlink" title="ceil"></a>ceil</h3><ul>
@@ -237,7 +253,8 @@
 
 <h3 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h3><ul>
 <li><p>语法</p>
-<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch switch_expression</span><br><span class="line">   case case_expression</span><br><span class="line">      statements</span><br><span class="line">   case case_expression</span><br><span class="line">      statements</span><br><span class="line">    ...</span><br><span class="line">   otherwise</span><br><span class="line">      statements</span><br><span class="line">end</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch switch_expression</span><br><span class="line">   case case_expression</span><br><span class="line">      statements</span><br><span class="line">   case case_expression</span><br><span class="line">      statements</span><br><span class="line">    ...</span><br><span class="line">   otherwise</span><br><span class="line">      statements</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>例子1</p>
 </li>
 </ul>
@@ -268,17 +285,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/tutorial/">
+      <a class="nav-left" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/basics/">
         <span class="nav-arrow">← </span>
         
-          Fortran Tutorial
+          Markdown Tutorial
         
       </a>
     
     
-      <a class="nav-right" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Markdown/codes/markdown/basics/">
+      <a class="nav-right" href="/wiki/%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/Fortran/codes/fortran/tutorial/">
         
-          Markdown Tutorial
+          Fortran Tutorial
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -311,7 +328,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81"><span class="toc-nav-text">基本常用代码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fopen-amp-fgetl-amp-fclose"><span class="toc-nav-text">fopen &amp; fgetl &amp; fclose</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rand-amp-amp-size"><span class="toc-nav-text">rand &amp;&amp; size</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#figure"><span class="toc-nav-text">figure</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#prod"><span class="toc-nav-text">prod</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Matlab-%E5%92%8C-%E5%92%8C-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">Matlab .&#x2F;和&#x2F;   .和  有什么区别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ceil"><span class="toc-nav-text">ceil</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Switch"><span class="toc-nav-text">Switch</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81"><span class="toc-nav-text">基本常用代码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fopen-amp-fgetl-amp-fclose"><span class="toc-nav-text">fopen &amp; fgetl &amp; fclose</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rand-amp-amp-size"><span class="toc-nav-text">rand &amp;&amp; size</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#figure"><span class="toc-nav-text">figure</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#prod"><span class="toc-nav-text">prod</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Matlab-x2F-%E5%92%8C-x2F-%E5%92%8C-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-nav-text">Matlab .&#x2F;和&#x2F;   .和  有什么区别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ceil"><span class="toc-nav-text">ceil</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Switch"><span class="toc-nav-text">Switch</span></a></li></ol></li></ol>
     
   </div>
 </aside>
