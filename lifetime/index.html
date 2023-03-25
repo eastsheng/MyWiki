@@ -278,7 +278,7 @@ const dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天�
 const leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数
 const hours=Math.floor(leave1/(3600*1000))//计算出小时数
 const  dayDifft = 365+dayDiff;
-document.querySelector('.festival .icon-container').innerText = '距离2024年春节还有 - ' + Math.abs(dayDiff) + ' - 天 - ' +Math.abs(hours)+' -时';
+document.querySelector('.festival .icon-container').innerText = '距离 2024 年春节还有 ' + Math.abs(dayDiff) + ' 天 ' +Math.abs(hours)+' 小时';
 document.querySelector('.festival .progress-done').setAttribute("data-done", parseInt(dayDifft/365*100));
 document.querySelector('.festival .percent').innerText = parseInt(dayDifft/365*100) + '%';
 const progressDone = document.querySelectorAll('.progress-done');
@@ -343,7 +343,7 @@ setInterval(getRTime,1000);
 <span id="t_m1">00</span>
 <span id="t_s1">00</span>
 <p4 id="title-2"><div class="text" style=" text-align:center;">---假如能活到80岁---</div></p4>
-<h3 id="title-2"><div class="text" style=" text-align:center;">人生倒计时<img class="wp-smiley" src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/2022/figs.md/424533119239893.gif" width=200></div></h3> 
+<h3 id="title-2"><div class="text" style=" text-align:center;">人生倒计时<img class="wp-smiley" src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2022/figs.md/300711514230366.webp" width=200></div></h3> 
 </div>
 <script type="text/javascript">
 function getRTime(){
