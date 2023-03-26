@@ -709,8 +709,8 @@ h2.article-head {
   margin: 10px 0;
 }
 #category-cloud {
-  margin: 30px 0;
-  text-align: center;
+  margin: 50px 0;
+  text-align: left;
 }
 #category-cloud a {
   border: none;
@@ -719,8 +719,8 @@ h2.article-head {
   margin-bottom: 8px;
   background: #63a35c;
   display: inline-block;
-  border-radius: 4px;
-  padding: 0 10px;
+  border-radius: 6px;
+  padding: 0 20px;
   color: #fff;
   transition: background 0.5s;
 }
@@ -737,7 +737,7 @@ h2.article-head {
   background-color: rgba(0,133,161,0.8);
 }
 .category-list {
-  margin-left: 1em;
+  margin-left: 15em;
   margin-right: 1em;
 }
 .category-name {
