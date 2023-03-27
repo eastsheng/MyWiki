@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Fortran-03 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Fortran-03</h2>
+  <p class="post-date">2022-07-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="停止语句"><a href="#停止语句" class="headerlink" title="停止语句"></a>停止语句</h3><h4 id="PAUSE"><a href="#PAUSE" class="headerlink" title="PAUSE"></a>PAUSE</h4><ul>
+<li>一般形式是：<code>PAUSE [暂停值]</code>，暂停值为字符串常量或5位数以下的整型数，当程序运行至断点处将输出暂停值。</li>
+<li>PAUSE语句(在F90中不推荐使用，在F95中被废除)暂时中止程序的运行，将系统挂起，使程序操作员可以执行其它操作系统命令。</li>
+</ul>
+<h4 id="STOP"><a href="#STOP" class="headerlink" title="STOP"></a>STOP</h4><ul>
+<li>STOP语句的一般形式为: <code>STOP [停止值]</code>，与PAUSE语句类似，程序停止运行时将输出停止值。</li>
+<li>STOP语句是停止运行，一个程序单位中可以有多个STOP语句，执行到任一个STOP语句处时，程序即完全中止运行。在子程序中如果有STOP语句，也是使整个程序停止运行而不是使控制返回主程序。</li>
+</ul>
+<h3 id="隐DO循环控制重复读写的次数"><a href="#隐DO循环控制重复读写的次数" class="headerlink" title="隐DO循环控制重复读写的次数"></a>隐DO循环控制重复读写的次数</h3><ul>
+<li>一般形式为：<code>(I/O列表,循环变量名=初值,终值,增值)</code>。<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">READ *,(<span class="keyword">VALUE</span>(I),I=<span class="number">1</span>,<span class="number">20</span>) <span class="comment">!读入VALUE(1),VALUE(2),…,VALUE(20)的值。</span></span><br><span class="line"><span class="built_in">WRITE</span>(*,*)(A,B,N=<span class="number">1</span>,<span class="number">5</span>) <span class="comment">!在当前设备用默认格式重复输出A、B的值5次。</span></span><br></pre></td></tr></table></figure></li>
+<li>隐DO循环只能作为输入输出表的一部分出现，不能用于其它场合。</li>
+<li>隐DO表可以嵌套，如：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">PRINT</span> *, ((A(I,J),I=<span class="number">1</span>,<span class="number">3</span>),J=<span class="number">1</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="无循环变量的DO构造"><a href="#无循环变量的DO构造" class="headerlink" title="无循环变量的DO构造"></a>无循环变量的DO构造</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>DO</code>块中必须有<code>EXIT</code>语句，使它停止循环，否则循环将无休无止地一直进行下去，形成死循环。<blockquote>
+<p><code>EXIT</code>语句（<code>EXIT [DO构造名]</code>）的作用是停止循环，使控制退出循环结构，因此又称出口语句。<br>通常将<code>EXIT</code>语句与<code>IF</code>语句结合使用，即在<code>DO</code>构造内使用：<code>IF(逻辑表达式) EXIT</code></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="一个猜数游戏"><a href="#一个猜数游戏" class="headerlink" title="一个猜数游戏"></a>一个猜数游戏</h3><ul>
+<li>用随机数产生器产生1－10之间的一个整数，你猜它，如果猜得太大或太小都会提示，猜对了结束。<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"><span class="keyword">CALL</span> <span class="built_in">RANDOM_SEED</span> <span class="comment">! 用来获取或设置新的种子；注意，这个函数在整个程序里，通常只调用一次！</span></span><br><span class="line"><span class="keyword">call</span> <span class="built_in">random_number</span>(R)</span><br><span class="line"><span class="keyword">Number</span>=<span class="built_in">int</span>(<span class="number">10</span>*R+<span class="number">1</span>)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">write</span>(*,<span class="string">&#x27;(&quot;Your Guess:&quot;)&#x27;</span>); read *, MyGuess</span><br><span class="line">	<span class="keyword">if</span>(MyGuess.eq.<span class="keyword">Number</span>) <span class="keyword">exit</span></span><br><span class="line">	<span class="keyword">if</span>(MyGuess.gt.<span class="keyword">Number</span>) <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">print</span> *, <span class="string">&#x27;Too high. Try again.&#x27;</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">print</span> *, <span class="string">&#x27;Too low.  Try again.&#x27;</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="built_in">print</span> *,<span class="string">&#x27;You are lucky. It is&#x27;</span>,<span class="keyword">Number</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure></li>
+<li><code>Fortran90</code> 以后，语法规范引入了两个标准的函数用来产生随机数(<code>0 ~1 之间</code>)： <code>random_seed</code>和 <code>random_number</code>(如上代码， 通常这两个函数需配合使用 )</li>
+<li><code>random_seed</code><blockquote>
+<p><code>call random_seed( size , get , put )</code>,一共三个参数（一般一次只能选择一个参数使用，而不能三个一起使用）<br><code>size</code>是输出参数，会返回种子的大小。在获取或设置新的种子时，输入输出的种子数组，必须与size的大小一样。<br><code>get</code>是输出参数，用来返回当前的种子。必须是<code>integer</code>类型的数组（数组大小取决于<code>size</code>），通常很少使用它。<br><code>put</code>是输入参数，用来设置新的种子。<br>只要<code>random_seed</code>不加入任何参数，则自动用时间设置种子。所以这个操作可以简化为<code>call random_seed()</code>或<code>call random_seed</code></p>
+</blockquote>
+</li>
+<li><code>random_number</code><blockquote>
+<p>用来产生随机数的，当我们需要产生时，调用它就可以了。整个程序可以不限次数地调用它。<br><code>call random_number(R)</code><br>这里的<code>R</code>必须是<code>real</code>类型，可以是单变量，也可以是数组。调用后，<code>R</code>的值变为当前的（伪）随机数。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="求两个整数的最大公约数"><a href="#求两个整数的最大公约数" class="headerlink" title="求两个整数的最大公约数"></a>求两个整数的最大公约数</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">! !碾转相除法：如27和6，先用27除以6，余数为3。再用6除以3，余数为零，即3为最大公约数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">! program main</span></span><br><span class="line"><span class="comment">! 	read *, m,n</span></span><br><span class="line"><span class="comment">! 	if(m.lt.n) then</span></span><br><span class="line"><span class="comment">! 		k=m; m=n; n=k</span></span><br><span class="line"><span class="comment">! 	end if</span></span><br><span class="line"><span class="comment">! 	k=mod(m,n)</span></span><br><span class="line"><span class="comment">! 	do while (k/=0)</span></span><br><span class="line"><span class="comment">! 		m=n; n=k; k=mod(m,n)</span></span><br><span class="line"><span class="comment">! 	end do</span></span><br><span class="line"><span class="comment">! 	print *, &#x27;最大公约数＝&#x27;,n</span></span><br><span class="line"><span class="comment">! end program main</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">	read *, m,n</span><br><span class="line">	<span class="keyword">do</span> <span class="keyword">while</span> (m/=n)</span><br><span class="line">		<span class="keyword">do</span> <span class="keyword">while</span> (m&gt;n)</span><br><span class="line">			m=m-n</span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">		<span class="keyword">do</span> <span class="keyword">while</span> (n&gt;m)</span><br><span class="line">			n=n-m</span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">	<span class="built_in">print</span> *, <span class="string">&#x27;最大公约数＝&#x27;</span>,m</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>do while</code>的一般形式为：<code>[构造名] DO WHILE (逻辑表达式)</code></li>
+</ul>
+<h3 id="求正弦函数的近似值"><a href="#求正弦函数的近似值" class="headerlink" title="求正弦函数的近似值"></a>求正弦函数的近似值</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">!正弦函数用泰勒级数展开：sinx=x-x^3/3!+x^5/5!-x^7/7!+...。计算有限精度范围内的值。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">	<span class="keyword">real</span>   , <span class="keyword">parameter</span>:: pi=<span class="number">3.141592</span>, err=<span class="number">1.e-6</span></span><br><span class="line">	<span class="keyword">integer</span>, <span class="keyword">parameter</span>:: max_terms=<span class="number">10</span></span><br><span class="line"></span><br><span class="line">	read *, x; x=x*pi/<span class="number">180</span></span><br><span class="line">	k=<span class="number">1</span>; term=x; sin_=term</span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span> <span class="keyword">while</span>((<span class="built_in">abs</span>(term)&gt;err) .and. (k&lt;=max_terms))</span><br><span class="line">		term=-term*x*x/(<span class="number">2</span>*k*(<span class="number">2</span>*k+<span class="number">1</span>))</span><br><span class="line">		k=k+<span class="number">1</span></span><br><span class="line">		sin_=sin_+term</span><br><span class="line">		<span class="built_in">print</span> *,k,sin_</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">print</span> *,<span class="built_in">sin</span>(x)</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<h3 id="DO-构造的一般形式"><a href="#DO-构造的一般形式" class="headerlink" title="DO 构造的一般形式"></a>DO 构造的一般形式</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[构造名:] <span class="keyword">DO</span> [标号][循环控制]</span><br><span class="line"></span><br><span class="line">块</span><br><span class="line"></span><br><span class="line">终止语句</span><br></pre></td></tr></table></figure>
+
+<h3 id="用不带循环控制变量的DO构造求下列式"><a href="#用不带循环控制变量的DO构造求下列式" class="headerlink" title="用不带循环控制变量的DO构造求下列式"></a>用不带循环控制变量的DO构造求下列式</h3><ul>
+<li>$1^2+2^2+3^2+…+m^2$</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">! 1^2+2^2+3^2+...+m^2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line"></span><br><span class="line">	<span class="keyword">integer</span> :: m</span><br><span class="line">	m = <span class="number">1</span></span><br><span class="line">	<span class="built_in">sum</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">do</span></span><br><span class="line">		<span class="keyword">if</span>(m&lt;<span class="number">1000</span>) <span class="keyword">then</span></span><br><span class="line">			<span class="built_in">sum</span> = <span class="built_in">sum</span>+m**<span class="number">2</span></span><br><span class="line">			m = m + <span class="number">1</span></span><br><span class="line">			<span class="built_in">print</span> *, m</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">EXIT</span></span><br><span class="line">		<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="comment">! 	write(*,*) sum</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Fortran" >
+    <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/tags#Fortran Tutorial" >
+    <span class="tag-code">Fortran Tutorial</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2022/07/17/codes/fortran/fortran_02/">
+        <span class="nav-arrow">← </span>
+        
+          Fortran-02
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/2022/07/24/codes/fortran/fortran_04/">
+        
+          Fortran-04
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%81%9C%E6%AD%A2%E8%AF%AD%E5%8F%A5"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">停止语句</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#PAUSE"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">PAUSE</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#STOP"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">STOP</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9A%90DO%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%86%99%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">隐DO循环控制重复读写的次数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%97%A0%E5%BE%AA%E7%8E%AF%E5%8F%98%E9%87%8F%E7%9A%84DO%E6%9E%84%E9%80%A0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">无循环变量的DO构造</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%B8%AA%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">一个猜数游戏</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">求两个整数的最大公约数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B1%82%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%91%E4%BC%BC%E5%80%BC"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">求正弦函数的近似值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DO-%E6%9E%84%E9%80%A0%E7%9A%84%E4%B8%80%E8%88%AC%E5%BD%A2%E5%BC%8F"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">DO 构造的一般形式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%A8%E4%B8%8D%E5%B8%A6%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E5%8F%98%E9%87%8F%E7%9A%84DO%E6%9E%84%E9%80%A0%E6%B1%82%E4%B8%8B%E5%88%97%E5%BC%8F"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">用不带循环控制变量的DO构造求下列式</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2022/07/23/codes/fortran/fortran_03/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href=https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

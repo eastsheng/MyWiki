@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Fortran-04 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Fortran-04</h2>
+  <p class="post-date">2022-07-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><code>F90</code>程序中的数据都有三个特征：<code>类型、种别、属性</code>.</li>
+<li>一般形式：<code>类型说明[(种别说明)][,属性说明] :: 变量名[=初值]</code></li>
+<li>例：<code>REAL(KIND=2), DIMENSION(1:10):: X,Y</code></li>
+<li>种别说明与属性说明可以省略，<code>类型说明:: 变量名</code></li>
+</ul>
+<h4 id="类型说明"><a href="#类型说明" class="headerlink" title="类型说明"></a>类型说明</h4><pre><code>&gt; 三种数值型：整数型(`INTEGER`)、实数型(`REAL`)、复数型(`COMPLEX`)
+&gt; 两种非数值型：逻辑型、字符型
+</code></pre>
+<ul>
+<li>在F90中，每个变量名都应该在说明部分中说明其类型，不应该使用<code>隐式说明</code>，应该在程序说明部分开始就写出语句：<code>IMIPLlCIT NONE</code>，既声明不使用隐式说明。</li>
+</ul>
+<h4 id="种别说明"><a href="#种别说明" class="headerlink" title="种别说明"></a>种别说明</h4><ul>
+<li>种别值确定了数据的大小范围和精度。有了种别说明后，程序更易于移植。（因为在不同的计算机系统上，同一种变量类型可以有不同的精度，因此当程序在另一种机子上运行时可能出现溢出或下溢。规定种别后可以避免这种情况的出现。）</li>
+<li>种别由种别选择符说明，写在类型关键字后括号内，其关键字是<code>KIND</code>，后跟<code>=</code>号及种别值。其形式为：<code>类型说明([KIND=]种别值)</code>。</li>
+<li>一个变量必有一个种别，如果变量的类型说明语句中没有种别说明符，说明采用系统规定的标准值。</li>
+<li><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_04.md/143862220232202.png"></li>
+<li><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_04.md/525872220250082.png"></li>
+<li><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_04.md/92212420247686.png"></li>
+</ul>
+<h5 id="种别函数"><a href="#种别函数" class="headerlink" title="种别函数"></a>种别函数</h5><ul>
+<li><code>KIND(X)</code>：与python中的type(x)相似；</li>
+</ul>
+<h4 id="属性说明"><a href="#属性说明" class="headerlink" title="属性说明"></a>属性说明</h4><ul>
+<li>一个对象被说明具有某一属性时，就使该对象具有某种附加功能、特殊的使用方式与适用范围。</li>
+<li>一个被说明对象可以没有附加的属性说明，此时它只是最基本的变量，与F77中的变量相同。</li>
+<li>它也可以有多个属性说明，分别对被说明对象附加各件功能，规定它在各种场合下的使用方式。</li>
+<li>每种属性说明都有专门的关键字，各属性关键字间用逗号分开，全部属性关键字写在说明语句种别说明符之后，双分隔号::之前，各属性关键字之间次序任意。属性不仅用于说明数据，还用于说明过程。</li>
+<li>常见属性：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">属性关键字</th>
+<th align="center">描述</th>
+<th align="center">适用范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ALLOCATABLE</td>
+<td align="center">说明动态数组</td>
+<td align="center">数组</td>
+</tr>
+<tr>
+<td align="center">DIMENSION</td>
+<td align="center">说明数组</td>
+<td align="center">数组变量</td>
+</tr>
+<tr>
+<td align="center">PARAMETER</td>
+<td align="center">声明常量</td>
+<td align="center">常量</td>
+</tr>
+</tbody></table>
+<h3 id="输入实数x，求下面的函数值–逻辑变量赋值"><a href="#输入实数x，求下面的函数值–逻辑变量赋值" class="headerlink" title="输入实数x，求下面的函数值–逻辑变量赋值"></a>输入实数x，求下面的函数值–逻辑变量赋值</h3><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">! 逻辑变量的赋值</span></span><br><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">	<span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">	<span class="keyword">real</span> :: x,y</span><br><span class="line">	<span class="keyword">logical</span> :: in_side</span><br><span class="line"></span><br><span class="line">	<span class="built_in">print</span>*,<span class="string">&quot;	x^2 (1&lt;x&lt;2)&quot;</span></span><br><span class="line">	<span class="built_in">print</span>*,<span class="string">&quot;y = &#123;&quot;</span></span><br><span class="line">	<span class="built_in">print</span>*,<span class="string">&quot;	1-x (x&lt;=1, x&gt;=2)&quot;</span></span><br><span class="line">	<span class="built_in">print</span> *, <span class="string">&quot;请输入x值：&quot;</span></span><br><span class="line">	read *,x</span><br><span class="line">	<span class="built_in">print</span> *,<span class="string">&quot;x=&quot;</span>,x</span><br><span class="line">	in_side=x&gt;<span class="number">1.0</span>.and.x&lt;<span class="number">2.0</span> <span class="comment">!这里赋值给in_side一个逻辑值，是或否</span></span><br><span class="line">	<span class="keyword">if</span>(in_side) <span class="keyword">then</span></span><br><span class="line">		y = x**<span class="number">2</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		y = <span class="number">1</span>-x</span><br><span class="line">	<span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">	<span class="built_in">print</span> *,<span class="string">&quot;y= &quot;</span>,y</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符型数据"><a href="#字符型数据" class="headerlink" title="字符型数据"></a>字符型数据</h3><ul>
+<li>字符型数据除了有类型、种别外，比其它类型还多了一个长度特性，即规定它有几个字符数</li>
+<li>一般形式：<code>CHARACTER[(LEN=整型字符长度表达式[,KIND=种别值])][,属性说明] :: 变量名表[=初始值]</code></li>
+<li>在字符型说明语句中，长度说明必须有，不可省略，为正整数；</li>
+<li>仅有关键字CHARACTER而没有括号时认为字符是一个字节长；</li>
+<li>可以省去LEN&#x3D;及KTND&#x3D;，只写参数值，此时字符长度必须写在前面；</li>
+<li>只有长度说明的语句可分为有括号和无括号两种，例如以下语句都是等价的：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHARACTER</span>(LEN=<span class="number">12</span>,<span class="keyword">KIND</span>=<span class="number">1</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>(<span class="keyword">KIND</span>=<span class="number">1</span>,LEN=<span class="number">12</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>(<span class="number">12</span>,<span class="number">1</span>) :: A,B</span><br><span class="line"><span class="keyword">CHARACTER</span>*<span class="number">12</span> :: A,B</span><br><span class="line">```   </span><br><span class="line">- 长度也可以写成一个*号，表示长度暂不确定，待以后与程序中实际需要的长度相一致，如：</span><br><span class="line">```f90</span><br><span class="line"><span class="keyword">CHARACTER</span>(LEN=*),<span class="keyword">PARAMETER</span> :: C_NAME=‘GIRL’</span><br></pre></td></tr></table></figure></li>
+<li><blockquote>
+<p>说明字符常量C_NAME，长度为4</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>PARAMETER</code>表示常量。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p><code>CHARACTER</code>后面说明的长度是其后所有实体名的公共长度，如果某一变量的长度与其它不同，可以在其变量名后标出自己的特有长度，例加：</p>
+</blockquote>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CHARACTER</span>(LEN=<span class="number">12</span>) :: A,B*<span class="number">5</span>,C,D*<span class="number">7</span>,E</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><ul>
+<li>形式基本和<code>python</code>相似，差别是形式不同，<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="string">&quot;ABCDEFG&quot;</span></span><br><span class="line">A<span class="selector-attr">[1:5]</span> <span class="selector-id">#python</span></span><br><span class="line"><span class="function"><span class="title">A</span><span class="params">(<span class="number">1</span>:<span class="number">5</span>)</span></span> !fortran</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>字符串拼接<code>//</code>—并置符<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;AB&quot;</span><span class="regexp">//</span><span class="string">&quot;CDE&quot;</span> ! <span class="string">&quot;ABCDE&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>字符比较<blockquote>
+<p>各种系统字符排序不一样，同一字符，在不同机上排序值可能不一样。<br>小写英文字母排序在大写英文字母之后，它们的序号不同。<br>虽然在书写FORTRAN语句时，大小写字母是等价的，但当进行字符操作和字符比较时必须看成是不同的。<br>字符作比较实际上是比较它们的序号大小。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h3><ul>
+<li><p>F90允许把字符型的值转换成整型值(已知字符，取字符型的序号数值)，</p>
+</li>
+<li><p>也允许把数值型的值转换成字符型的值(已知序号，取它对应的字符)。</p>
+</li>
+<li><p>字符与数值相互转换的函数(F90的内部函数)：<code>ICHAR，CHAR，IACHR，ACHAR</code></p>
+</li>
+<li><p>函数<code>ICHAR</code>的功能是把字符型转换成数值，它的引用方式是：<code>ICHAR(字符实体)</code></p>
+<blockquote>
+<p>函数值<code>ICHAR</code>返回字符实体第一个字符的序号值<br>如果指明要按照ASCII码求它的序号，则本功能的函数名应改写为<code>IACHAR</code></p>
+</blockquote>
+</li>
+<li><p>函数<code>CHAR</code>的功能是把一个序号转换成它的字符。它的引用方式是：<code>CHAR(整型数值表达式)</code>。</p>
+<blockquote>
+<p>如果按照<code>ASCII</code>码求它的对应字符，则函数名为<code>ACHAR</code>。</p>
+</blockquote>
+</li>
+<li><p>求字符串长度<code>LEN(字符实体)</code></p>
+<blockquote>
+<p>函数值返回一个正整教，为该字符实体的长度（包括尾随空格、中间空格在内）</p>
+</blockquote>
+</li>
+<li><p>不计尾部空格的字符串长度函数：<code>LEN_TRIM</code></p>
+</li>
+<li><p>求子串在父串位置的函数：<code>INDEX(父串,子串)</code></p>
+<blockquote>
+<p>如：<code>INDEX(&quot;Einstein&quot;,&quot;s&quot;)</code>的值4。<br>如果第二个字符实体不是第一个字符实体的子串，返回函数值为0。
+  </p>
+</blockquote>
+</li>
+<li><p>验证字符串的函数：<code>VERIFY(字符串,字符集)</code></p>
+<blockquote>
+<p>确认指定的字符集是否包含了给定字符串中所有的字符<br>函数值返回一个正整数，指明字符串中与字符集相异的第一个字符是从左边第几个字符开始的<br>如果没有相异的字符，则返回函数值为0
+  </p>
+</blockquote>
+</li>
+<li><p>除去尾部空格函数：<code>TRIM</code></p>
+<blockquote>
+<p><code>TRIM(&quot;ABCD 12 &quot;)//&quot;34&quot;</code>的值是<code>&quot;ABCD 1234&quot;</code>。
+ </p>
+</blockquote>
+</li>
+<li><p>比较字符大小的函数：<code>LGE、LGT、LLE、LLT</code></p>
+<blockquote>
+<p><img src="https://raw.githubusercontent.com/eastsheng/PicGoImg/main/worknotes/notes/coding/fortran/fortran_04.md/311661713220767.png"></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="派生类型定义"><a href="#派生类型定义" class="headerlink" title="派生类型定义"></a>派生类型定义</h3><ul>
+<li>一般形式：</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TYPE</span>[,访问属性说明::] 派生类型名 <span class="comment">!TYPE是关键字，表示派生类型定义开始</span></span><br><span class="line"></span><br><span class="line">成员<span class="number">1</span>类型说明</span><br><span class="line"></span><br><span class="line">……</span><br><span class="line"></span><br><span class="line">成员n类型说明</span><br><span class="line"></span><br><span class="line"><span class="keyword">END</span> <span class="keyword">TYPE</span> [派生类型名]</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>数组的维数称为秩(rank)，<mark>F90中规定数组最多可以有7维</mark></li>
+<li>某一维中元素的个数称为该维的长度(extent)</li>
+<li>数组中所有元素的个数称为数组的大小(size)，它等于各维的长度的乘积，<mark>数组的大小可以为0</mark></li>
+<li>例如：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REAL</span> A(<span class="number">10</span>,<span class="number">3</span>,<span class="number">2</span>)     <span class="comment">! 秩为3，大小为10×3×2＝60，形状为10乘3乘2，或表示成(10，3，2)。</span></span><br><span class="line"><span class="built_in">SHAPE</span>(A)           <span class="comment">! 获得数组的形状结果为：(10，3，2)</span></span><br></pre></td></tr></table></figure></li>
+<li>下标不是从0开始，是从1开始的，例如<code>A(0,0,0)</code>时错误的，<code>A(1,1,1)</code>是正确的</li>
+</ul>
+<h4 id="数组声明"><a href="#数组声明" class="headerlink" title="数组声明"></a>数组声明</h4><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">REAL</span> A(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>) 				<span class="comment">! 类型说明</span></span><br><span class="line"><span class="keyword">DIMENSION</span> B(<span class="number">10</span>,<span class="number">2</span>,<span class="number">3</span>)			<span class="comment">! DIMENSI0N语句</span></span><br><span class="line"><span class="keyword">ALLOCATABLE</span> C(:,:)			<span class="comment">! ALLOCATABLE语句</span></span><br><span class="line"><span class="keyword">POINTER</span> D(:,:,:)			<span class="comment">! POINTER语句</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">DIMENSION</span>(<span class="number">2</span>,<span class="number">5</span>) :: E 	<span class="comment">! 类型说明中的DIMENSION属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">ALLOCATABLE</span> :: F(:,:,:)   <span class="comment">! 类型说明中的ALLOCATABLE属性</span></span><br><span class="line"><span class="keyword">REAL</span>, <span class="keyword">POINTER</span> ::     G(:,:)     <span class="comment">! 类型说明中的POINTER属性</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>无论何种情况，数组的秩总是要指定的；</li>
+<li>数组的大小和形状是否需要声明视数组的形式而定；</li>
+<li>当<code>COMMON</code>语句指定了数组的秩和大小后，只能定义数组的类型而不能再次重复给定维界.</li>
+</ul>
+<h4 id="数组索引、切片和赋值"><a href="#数组索引、切片和赋值" class="headerlink" title="数组索引、切片和赋值"></a>数组索引、切片和赋值</h4><figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A            <span class="comment">! 代表数组A中所有元素</span></span><br><span class="line">A(<span class="number">1</span>)         <span class="comment">! 代表数组A中第一个元素</span></span><br><span class="line">A(<span class="number">1</span>:<span class="number">10</span>:<span class="number">2</span>)    <span class="comment">! 三元下标, A(下界:上界:步长), 代表数组A从第1开始到第10，每隔2的元素，也即是第1 3 5 7 9</span></span><br><span class="line">A(<span class="number">2</span>) = <span class="number">5.0</span>   <span class="comment">! 给A(2)元素赋值</span></span><br><span class="line">B(<span class="number">1</span>:<span class="number">5</span>,<span class="number">2</span>:<span class="number">3</span>,<span class="number">3</span>:<span class="number">5</span>)   <span class="comment">! 三维数组切片</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于—个多维数组的数组片段，它的每一维都可以用三元下标来声明</li>
+<li>三元下标只能算一个下标</li>
+</ul>
+<h4 id="向量索引-下标"><a href="#向量索引-下标" class="headerlink" title="向量索引(下标)"></a>向量索引(下标)</h4><ul>
+<li>向量下标可以以任何顺序来指定数组元素</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> main</span><br><span class="line">	<span class="keyword">real</span> A(<span class="number">10</span>),B(<span class="number">5</span>,<span class="number">5</span>)  <span class="comment">! 定义一个一维数组A，和二维数组B</span></span><br><span class="line">	<span class="keyword">integer</span> I(<span class="number">4</span>),J(<span class="number">3</span>)  <span class="comment">! 定义向量I、J的大小</span></span><br><span class="line">	I = (/<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">2</span>/)    <span class="comment">! 定义向量I，表示第5、3、8、2位置的元素下标</span></span><br><span class="line">	J = (/<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>/)      <span class="comment">! 定义向量J，表示第3、1、5位置的元素下标</span></span><br><span class="line">	A(I) = <span class="number">3.0</span>         <span class="comment">! 给一维素组中（向量I）下标为5,3,8,2的元素赋值为3.0 </span></span><br><span class="line">	B(<span class="number">2</span>,J)=<span class="number">5.0</span>         <span class="comment">! 给二维素组中第二行中（向量J）下标为3,1,5的元素赋值为5.0 </span></span><br><span class="line">	<span class="built_in">print</span>*,I</span><br><span class="line">	<span class="built_in">print</span>*,A</span><br><span class="line">	<span class="built_in">print</span>*,J</span><br><span class="line">	<span class="built_in">print</span>*,B</span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span> main</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组赋值"><a href="#数组赋值" class="headerlink" title="数组赋值"></a>数组赋值</h4><ul>
+<li><code>F90</code>中数组赋值语句的形式为：<code>V=e</code>，<code>V</code>代表数组名或数组片段，<code>e</code>为数组表达式，它们必须有相同的形状（即维数相同，每维长度相同但上下界可不同）。</li>
+<li>当<code>V</code>大小为<code>0</code>或为长度为<code>0</code>的字符型时，则没有值赋给<code>V</code>。</li>
+<li>当<code>e</code>为标量时，则把<code>e</code>处理成与<code>V</code>相同的形状，<code>V</code>的每个元素均等于标量<code>e</code>的值。</li>
+<li>数组表达式<code>e</code>中允许使用<code>+、-、*、/、**</code>等内部算术操作符。</li>
+<li>例如，给A(2,2)中元素全部赋值为0：<code>A = 0</code></li>
+</ul>
+<h4 id="数组构造器"><a href="#数组构造器" class="headerlink" title="数组构造器"></a>数组构造器</h4><ul>
+<li>其一般形式为：<code>(/取值列表/)</code>,取值列表可以是标量，隐DO循环或任意秩的数组。</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A1 = (/<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>/)            <span class="comment">!! 标量表示, 斜杠与括号间不能有空格</span></span><br><span class="line">A2 = (/B(I,<span class="number">1</span>:<span class="number">5</span>),B(I:J,<span class="number">7</span>:<span class="number">9</span>)/)    <span class="comment">! 数组表示</span></span><br><span class="line">A3=(/(I,I=<span class="number">1</span>,<span class="number">4</span>)/)                <span class="comment">! 隐DO循环</span></span><br><span class="line">A4=(/<span class="number">4</span>,C(<span class="number">1</span>:<span class="number">5</span>),(I,I=<span class="number">1</span>,<span class="number">4</span>),<span class="number">7</span>/)     <span class="comment">! 混合表示</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>斜杠与括号间不能有空格</li>
+<li>可以用方括号代替括号和斜线：<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A1 = (/<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>/) </span><br><span class="line">A1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br></pre></td></tr></table></figure></li>
+<li>冒号三元下标(代替隐DO循环)来指定值的范围和步长</li>
+</ul>
+<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A1 = (/<span class="number">1</span>:<span class="number">6</span>:<span class="number">2</span>/)         <span class="comment">!这种三元格式好像不行，老出错，找不到啥原因</span></span><br><span class="line">A1 = (/(I,I=<span class="number">1</span>,<span class="number">6</span>,<span class="number">2</span>)/) </span><br></pre></td></tr></table></figure>
+
+<h4 id="RESHAPE语句"><a href="#RESHAPE语句" class="headerlink" title="RESHAPE语句"></a>RESHAPE语句</h4><ul>
+<li>与<code>python</code>相似: </li>
+<li>一般形式为：<code>结果=RESHAPE(源,形状[,补充][,顺序])</code></li>
+<li>变成两行三列<figure class="highlight f90"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">RESHAPE</span>((/<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>/),(/<span class="number">2</span>,<span class="number">3</span>/))</span><br></pre></td></tr></table></figure></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Fortran" >
+    <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/tags#Fortran Tutorial" >
+    <span class="tag-code">Fortran Tutorial</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2022/07/23/codes/fortran/fortran_03/">
+        <span class="nav-arrow">← </span>
+        
+          Fortran-03
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/2022/09/02/softwares/comsol/Comsol%E5%9F%BA%E6%9C%AC/">
+        
+          Comsol 笔记-01
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">数据类型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">类型说明</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A7%8D%E5%88%AB%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">种别说明</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%A7%8D%E5%88%AB%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">种别函数</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">属性说明</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E5%AE%9E%E6%95%B0x%EF%BC%8C%E6%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%87%BD%E6%95%B0%E5%80%BC%E2%80%93%E9%80%BB%E8%BE%91%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">输入实数x，求下面的函数值–逻辑变量赋值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">字符型数据</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">字符串操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">字符函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">派生类型定义</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E7%BB%84%E5%A3%B0%E6%98%8E"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">数组声明</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95%E3%80%81%E5%88%87%E7%89%87%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">数组索引、切片和赋值</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%90%91%E9%87%8F%E7%B4%A2%E5%BC%95-%E4%B8%8B%E6%A0%87"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">向量索引(下标)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E7%BB%84%E8%B5%8B%E5%80%BC"><span class="toc-nav-number">7.4.</span> <span class="toc-nav-text">数组赋值</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E7%BB%84%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-nav-number">7.5.</span> <span class="toc-nav-text">数组构造器</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RESHAPE%E8%AF%AD%E5%8F%A5"><span class="toc-nav-number">7.6.</span> <span class="toc-nav-text">RESHAPE语句</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2022/07/24/codes/fortran/fortran_04/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href=https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

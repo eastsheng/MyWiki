@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Python写APP | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Python写APP</h2>
+  <p class="post-date">2022-06-16</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="PyWebIO"><a href="#PyWebIO" class="headerlink" title="PyWebIO"></a>PyWebIO</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pywebio/PyWebIO">https://github.com/pywebio/PyWebIO</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pywebio.readthedocs.io/zh_CN/latest/">https://pywebio.readthedocs.io/zh_CN/latest/</a></p>
+</li>
+<li><p>pyqtgraph绘图库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pyqtgraph <span class="comment">#安装</span></span><br><span class="line">import pyqtgraph as pg <span class="comment"># 引入</span></span><br><span class="line">python -m pyqtgraph.examples <span class="comment">#例子</span></span><br></pre></td></tr></table></figure></li>
+<li><p>多线程，<a target="_blank" rel="noopener" href="https://www.pythonguis.com/tutorials/multithreading-pyqt-applications-qthreadpool/">https://www.pythonguis.com/tutorials/multithreading-pyqt-applications-qthreadpool/</a></p>
+</li>
+</ul>
+<h2 id="Electron"><a href="#Electron" class="headerlink" title="Electron"></a>Electron</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.electronjs.org/">https://www.electronjs.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/electronmanual/">https://www.w3cschool.cn/electronmanual/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/electronmanual/##">https://www.w3cschool.cn/electronmanual/##</a> PyWebIO</li>
+</ul>
+<h2 id="PyQt5-总结"><a href="#PyQt5-总结" class="headerlink" title="PyQt5 总结"></a>PyQt5 总结</h2><h3 id="PyQt5基础"><a href="#PyQt5基础" class="headerlink" title="PyQt5基础"></a>PyQt5基础</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://zmister.com/archives/category/guidevelop/pyqt5_basic/">https://zmister.com/archives/category/guidevelop/pyqt5_basic/</a></li>
+<li>Qt设计师 ui转py：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyuic5 -x -o MDDP.py MDDP.ui</span><br></pre></td></tr></table></figure></li>
+<li>打包：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller <span class="comment">#install</span></span><br><span class="line">pyinstaller -F -w -i ./imgs/fig.ico MDDP.py</span><br><span class="line"><span class="comment"># -F (-onefile)代表产生单个可执行文件；</span></span><br><span class="line"><span class="comment"># -D (--onedir)产生一个目录（包含多个文件）作为可执行程序</span></span><br><span class="line"><span class="comment"># -a (--ascii)不包含 Unicode 字符集支持</span></span><br><span class="line"><span class="comment"># -d (--debug)产生 debug 版本的可执行文件</span></span><br><span class="line"><span class="comment"># -w (-windowed，--noconsolc) 指定程序运行时不显示命令行窗口（仅对 Windows 有效）</span></span><br><span class="line"><span class="comment"># -c (--nowindowed，--console)指定使用命令行窗口运行程序（仅对 Windows 有效）</span></span><br><span class="line"><span class="comment"># -o (DIR，--out=DIR)指定 spec 文件的生成目录。如果没有指定，则默认使用当前目录来生成 spec 文件</span></span><br><span class="line"><span class="comment"># -p (DIR，--path=DIR)设置 Python 导入模块的路径（和设置 PYTHONPATH 环境变量的作用相似）。也可使用路径分隔符（Windows 使用分号，Linux 使用冒号）来分隔多个路径</span></span><br><span class="line"><span class="comment"># -n (NAME, --name=NAME)指定项目（产生的 spec）名字。如果省略该选项，那么第一个脚本的主文件名将作为 spec 的名字</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="打开文件-x2F-夹"><a href="#打开文件-x2F-夹" class="headerlink" title="打开文件&#x2F;夹"></a>打开文件&#x2F;夹</h3><ul>
+<li>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/AI414010/article/details/107559281">https://blog.csdn.net/AI414010/article/details/107559281</a></li>
+<li>例子：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtWidgets</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QFileDialog</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyWindow</span>(QtWidgets.QWidget):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">super</span>(MyWindow,self).__init__()</span><br><span class="line">    self.myButton = QtWidgets.QPushButton(self)</span><br><span class="line">    self.myButton.setObjectName(<span class="string">&quot;myButton&quot;</span>)</span><br><span class="line">    self.myButton.setText(<span class="string">&quot;Test&quot;</span>)</span><br><span class="line">    self.myButton.clicked.connect(self.msg)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">msg</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="comment"># directory1 = QFileDialog.getExistingDirectory(self, #当窗口非继承QtWidgets.QDialog时，self需替换成 None</span></span><br><span class="line">    <span class="comment">#               &quot;选取文件夹&quot;,</span></span><br><span class="line">    <span class="comment">#               &quot;./&quot;)                 #起始路径</span></span><br><span class="line">    <span class="comment"># print(directory1)</span></span><br><span class="line">    fileName1, filetype = QFileDialog.getOpenFileName(self, <span class="comment">#当窗口非继承QtWidgets.QDialog时，self需替换成 None</span></span><br><span class="line">                  <span class="string">&quot;选取文件&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;./&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;All Files (*);;Text Files (*.txt)&quot;</span>)  <span class="comment">#设置文件扩展名过滤,注意用双分号间隔</span></span><br><span class="line">    <span class="built_in">print</span>(fileName1,filetype)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># files, ok1 = QFileDialog.getOpenFileNames(self, #当窗口非继承QtWidgets.QDialog时，self需替换成 None</span></span><br><span class="line">    <span class="comment">#               &quot;多文件选择&quot;,</span></span><br><span class="line">    <span class="comment">#               &quot;./&quot;,</span></span><br><span class="line">    <span class="comment">#               &quot;All Files (*);;Text Files (*.txt)&quot;)</span></span><br><span class="line">    <span class="comment"># print(files,ok1)</span></span><br><span class="line"></span><br><span class="line">    fileName2, ok2 = QFileDialog.getSaveFileName(self, <span class="comment">#当窗口非继承QtWidgets.QDialog时，self需替换成 None</span></span><br><span class="line">                  <span class="string">&quot;文件保存&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;./&quot;</span>,</span><br><span class="line">                  <span class="string">&quot;All Files (*);;Text Files (*.txt)&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">  <span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">  app=QtWidgets.QApplication(sys.argv)</span><br><span class="line">  myshow=MyWindow()</span><br><span class="line">  myshow.show()</span><br><span class="line">  sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置QlineEdit不可编辑"><a href="#设置QlineEdit不可编辑" class="headerlink" title="设置QlineEdit不可编辑"></a>设置QlineEdit不可编辑</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.density_ui.outputFolder.setEnabled(<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Tutorials" >
+    <span class="tag-code">Tutorials</span>
+  </a>
+
+  <a href="/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2022/06/08/linux/WebServer/">
+        <span class="nav-arrow">← </span>
+        
+          Ubuntu手动搭建Web服务器
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/2022/06/16/codes/python/python_skills/">
+        
+          Python奇淫巧计
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PyWebIO"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">PyWebIO</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Electron"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Electron</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PyQt5-%E6%80%BB%E7%BB%93"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">PyQt5 总结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PyQt5%E5%9F%BA%E7%A1%80"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">PyQt5基础</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6-x2F-%E5%A4%B9"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">打开文件&#x2F;夹</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%BE%E7%BD%AEQlineEdit%E4%B8%8D%E5%8F%AF%E7%BC%96%E8%BE%91"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">设置QlineEdit不可编辑</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2022/06/16/codes/python/app/app_coding/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href=https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Windows10—Linux—子系统 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Project</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Project</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Windows10—Linux—子系统</h2>
+  <p class="post-date">2022-03-08</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="Windows10子系统–Linux"><a href="#Windows10子系统–Linux" class="headerlink" title="Windows10子系统–Linux"></a>Windows10子系统–Linux</h1><h2 id="步骤-1-启用适用于-Linux-的-Windows-子系统"><a href="#步骤-1-启用适用于-Linux-的-Windows-子系统" class="headerlink" title="步骤 1 - 启用适用于 Linux 的 Windows 子系统"></a>步骤 1 - 启用适用于 Linux 的 Windows 子系统</h2><ul>
+<li><p>需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在 Windows 上安装 Linux 分发。</p>
+</li>
+<li><p>以管理员身份打开 PowerShell（“开始”菜单 &gt;“PowerShell”&gt; 单击右键 &gt;“以管理员身份运行”），然后输入以下命令：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-2-检查运行-WSL-2-的要求"><a href="#步骤-2-检查运行-WSL-2-的要求" class="headerlink" title="步骤 2 - 检查运行 WSL 2 的要求"></a>步骤 2 - 检查运行 WSL 2 的要求</h2><ul>
+<li>若要检查 Windows 版本及内部版本号，选择 Windows 徽标键 + R，然后键入“winver”，选择“确定”。 更新到“设置”菜单中的最新 Windows 版本。</li>
+</ul>
+<h2 id="步骤-3-启用虚拟机功能"><a href="#步骤-3-启用虚拟机功能" class="headerlink" title="步骤 3 - 启用虚拟机功能"></a>步骤 3 - 启用虚拟机功能</h2><ul>
+<li><p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要虚拟化功能才能使用此功能。</p>
+</li>
+<li><p>以管理员身份打开 PowerShell 并运行：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-4-下载-Linux-内核更新包"><a href="#步骤-4-下载-Linux-内核更新包" class="headerlink" title="步骤 4 - 下载 Linux 内核更新包"></a>步骤 4 - 下载 Linux 内核更新包</h2><ul>
+<li><p>下载最新包：</p>
+</li>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">适用于 x64 计算机的 WSL2 Linux 内核更新包</a></p>
+</blockquote>
+</li>
+<li><p>运行上一步中下载的更新包。 （双击以运行 - 系统将提示你提供提升的权限，选择“是”以批准此安装。）</p>
+</li>
+</ul>
+<h2 id="步骤-5-将-WSL-2-设置为默认版本"><a href="#步骤-5-将-WSL-2-设置为默认版本" class="headerlink" title="步骤 5 - 将 WSL 2 设置为默认版本"></a>步骤 5 - 将 WSL 2 设置为默认版本</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --<span class="keyword">set</span>-<span class="keyword">default</span>-version <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="步骤-6-安装所选的-Linux-分发"><a href="#步骤-6-安装所选的-Linux-分发" class="headerlink" title="步骤 6 - 安装所选的 Linux 分发"></a>步骤 6 - 安装所选的 Linux 分发</h2><ul>
+<li>打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft Store</a>，并选择你偏好的 Linux 分发版。</li>
+<li><blockquote>
+<p>单击以下链接会打开每个分发版的 Microsoft Store 页面：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?rtc=1#activetab=pivot:overviewtab">Ubuntu 20.04 LTS</a><br><img src="https://docs.microsoft.com/zh-cn/windows/wsl/media/ubuntustore.png"></p>
+</blockquote>
+</li>
+<li>在分发版的页面中，选择“获取”。</li>
+<li>首次启动新安装的 Linux 分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。 未来的所有启动时间应不到一秒。</li>
+</ul>
+<h2 id="创建用户帐户和密码。"><a href="#创建用户帐户和密码。" class="headerlink" title="创建用户帐户和密码。"></a>创建用户帐户和密码。</h2><ul>
+<li><blockquote>
+<p>使用 WSL 安装 Linux 发行版的过程完成后，使用“开始”菜单打开该发行版（默认情况下为 Ubuntu）。 系统将要求你为 Linux 发行版创建“用户名”和“密码”。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>此用户名和密码特定于安装的每个单独的 Linux 分发版，与 Windows 用户名无关。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>创建用户名和密码后，该帐户将是分发版的默认用户，并将在启动时自动登录。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>此帐户将被视为 Linux 管理员，能够运行 sudo (Super User Do) 管理命令。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>在 WSL 上运行的每个 Linux 发行版都有其自己的 Linux 用户帐户和密码。 每当添加分发版、重新安装或重置时，都必须配置一个 Linux 用户帐户。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="打开子系统的主目录"><a href="#打开子系统的主目录" class="headerlink" title="打开子系统的主目录"></a>打开子系统的主目录</h2><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explorer.exe .</span><br></pre></td></tr></table></figure>
+
+<h2 id="把子系统-WSL-搬到非系统盘"><a href="#把子系统-WSL-搬到非系统盘" class="headerlink" title="把子系统(WSL)搬到非系统盘"></a>把子系统(WSL)搬到非系统盘</h2><ul>
+<li>下载并解压<a target="_blank" rel="noopener" href="https://github.com/DDoSolitary/LxRunOffline/releases/tag/v3.5.0">LxRunOffline-v3.5.0-msvc.zip</a></li>
+<li>查看安装的子系统<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LxRunOffline.exe <span class="type">list</span></span><br></pre></td></tr></table></figure></li>
+<li>子系统迁移<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">LxRunOffline</span>.exe move -n Ubuntu-<span class="number">20</span>.<span class="number">04</span> -d D:\Ubuntu</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="子系统访问电脑目录"><a href="#子系统访问电脑目录" class="headerlink" title="子系统访问电脑目录"></a>子系统访问电脑目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动、停止WSL"><a href="#启动、停止WSL" class="headerlink" title="启动、停止WSL"></a>启动、停止WSL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 停止LxssManager服务</span></span><br><span class="line">net stop LxssManager</span><br><span class="line"><span class="comment"># 启动LxssManager服务</span></span><br><span class="line">net start LxssManager</span><br></pre></td></tr></table></figure>
+
+<h1 id="WSL2可视化界面"><a href="#WSL2可视化界面" class="headerlink" title="WSL2可视化界面"></a>WSL2可视化界面</h1><h2 id="WLS2-Ubuntu-Windows远程桌面连接"><a href="#WLS2-Ubuntu-Windows远程桌面连接" class="headerlink" title="WLS2+Ubuntu+Windows远程桌面连接"></a>WLS2+Ubuntu+Windows远程桌面连接</h2><ul>
+<li>轻松开启 WSL2 图形界面功能 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/382480486">https://zhuanlan.zhihu.com/p/382480486</a></li>
+<li>WSL2 Ubuntu图形界面使用指南 <a target="_blank" rel="noopener" href="https://blog.csdn.net/liyunxin_c_language/article/details/114107994">https://blog.csdn.net/liyunxin_c_language/article/details/114107994</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014792301/article/details/106888202">https://blog.csdn.net/u014792301/article/details/106888202</a></li>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/editions/community/docker-ce-desktop-windows/">https://hub.docker.com/editions/community/docker-ce-desktop-windows/</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/150555651">https://zhuanlan.zhihu.com/p/150555651</a></li>
+</ul>
+<h1 id="WSL2问题与解决方案"><a href="#WSL2问题与解决方案" class="headerlink" title="WSL2问题与解决方案"></a>WSL2问题与解决方案</h1><h2 id="若远程连接不上"><a href="#若远程连接不上" class="headerlink" title="若远程连接不上"></a>若远程连接不上</h2><ul>
+<li>检查<code>ip</code>是否正确；</li>
+<li>若不是ip问题，在命令行输入以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install xrdp</span><br><span class="line">sudo apt-get install vnc4server</span><br><span class="line">sudo apt-get install xubuntu-desktop</span><br><span class="line">sudo service xrdp restart <span class="comment">#主要是是这一命令</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考的对象类型不支持尝试的操作。"><a href="#参考的对象类型不支持尝试的操作。" class="headerlink" title="参考的对象类型不支持尝试的操作。"></a>参考的对象类型不支持尝试的操作。</h2><ul>
+<li><p>打开WSL Terminal后出现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">参考的对象类型不支持尝试的操作。</span><br><span class="line">[已退出进程，代码为 4294967295]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法：</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>临时解决：管理员身份打开Windows PowerShell，输入</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh winsock reset</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>永久解决：<blockquote>
+<ul>
+<li>下载<a target="_blank" rel="noopener" href="http://www.proxifier.com/tmp/Test20200228/NoLsp.exe">NoLsp.exe</a>,需要梯子</li>
+<li>管理员身份打开Windows PowerShell，输入</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\NoLsp.exe C:\windows\system32\wsl.exe</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>永久解决！！！</li>
+</ul>
+</blockquote>
+<h2 id="WLS2连接不上网络"><a href="#WLS2连接不上网络" class="headerlink" title="WLS2连接不上网络"></a>WLS2连接不上网络</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> /etc/resolv.conf</span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;nameserver 8.8.8.8&quot; &gt; /etc/resolv.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;[network]&quot; &gt; /etc/wsl.conf&#x27;</span></span><br><span class="line">sudo bash -c <span class="string">&#x27;echo &quot;generateResolvConf = false&quot; &gt;&gt; /etc/wsl.conf&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43577131/article/details/119279749">119279749</a></li>
+</ul>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual">win10安装子系统</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1594940">子系统位置迁移</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/setup/environment#set-up-your-linux-user-info">设置 WSL 开发环境的最佳做法</a></li>
+<li>WSL——windows上的linux子系统 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1687414?from=article.detail.1594940">https://cloud.tencent.com/developer/article/1687414?from=article.detail.1594940</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42361881/article/details/121500438">win10启动ubuntu报错 参考的对象类型不支持尝试的操作</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/151392411">关于使用WSL2出现“参考的对象类型不支持尝试的操作”的解决方法。</a></li>
+</ul>
+<h1 id="其他扩展"><a href="#其他扩展" class="headerlink" title="其他扩展"></a>其他扩展</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/357038111">如何用笔记本ssh连接局域网内其他电脑上的wsl2 ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/425312804">如何在局域网的其他主机上中访问本机的WSL2</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/tags#Windows10 Linux 子系统" >
+    <span class="tag-code">Windows10 Linux 子系统</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2022/03/07/collections/OpenResources_2/">
+        <span class="nav-arrow">← </span>
+        
+          Open Resources 2
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/2022/03/08/linux/Linux_error/">
+        
+          Linux—error
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Windows10%E5%AD%90%E7%B3%BB%E7%BB%9F%E2%80%93Linux"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Windows10子系统–Linux</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-1-%E5%90%AF%E7%94%A8%E9%80%82%E7%94%A8%E4%BA%8E-Linux-%E7%9A%84-Windows-%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">步骤 1 - 启用适用于 Linux 的 Windows 子系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-2-%E6%A3%80%E6%9F%A5%E8%BF%90%E8%A1%8C-WSL-2-%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">步骤 2 - 检查运行 WSL 2 的要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-3-%E5%90%AF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">步骤 3 - 启用虚拟机功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-4-%E4%B8%8B%E8%BD%BD-Linux-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">步骤 4 - 下载 Linux 内核更新包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-5-%E5%B0%86-WSL-2-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">步骤 5 - 将 WSL 2 设置为默认版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-6-%E5%AE%89%E8%A3%85%E6%89%80%E9%80%89%E7%9A%84-Linux-%E5%88%86%E5%8F%91"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">步骤 6 - 安装所选的 Linux 分发</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B8%90%E6%88%B7%E5%92%8C%E5%AF%86%E7%A0%81%E3%80%82"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">创建用户帐户和密码。</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%89%93%E5%BC%80%E5%AD%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%BB%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">打开子系统的主目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8A%8A%E5%AD%90%E7%B3%BB%E7%BB%9F-WSL-%E6%90%AC%E5%88%B0%E9%9D%9E%E7%B3%BB%E7%BB%9F%E7%9B%98"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">把子系统(WSL)搬到非系统盘</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AD%90%E7%B3%BB%E7%BB%9F%E8%AE%BF%E9%97%AE%E7%94%B5%E8%84%91%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">子系统访问电脑目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2WSL"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">启动、停止WSL</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#WSL2%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">WSL2可视化界面</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#WLS2-Ubuntu-Windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">WLS2+Ubuntu+Windows远程桌面连接</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#WSL2%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">WSL2问题与解决方案</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%8B%A5%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">若远程连接不上</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83%E7%9A%84%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E4%B8%8D%E6%94%AF%E6%8C%81%E5%B0%9D%E8%AF%95%E7%9A%84%E6%93%8D%E4%BD%9C%E3%80%82"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">参考的对象类型不支持尝试的操作。</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#WLS2%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">WLS2连接不上网络</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">参考链接</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96%E6%89%A9%E5%B1%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">其他扩展</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2022/03/08/linux/Linux_子系统/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a href=https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
