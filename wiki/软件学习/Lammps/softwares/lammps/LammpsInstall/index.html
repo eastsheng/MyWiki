@@ -232,7 +232,7 @@
 <li>在<code>mpich-3.2.1</code>文件夹内输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/..(your path)../mpich 2&gt;&amp;1|<span class="built_in">tee</span> c.txt</span><br></pre></td></tr></table></figure></li>
 <li>编译完后，继续终端输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make 2&gt;&amp;1|<span class="built_in">tee</span> m.txt</span><br></pre></td></tr></table></figure></li>
 <li>完成后，继续输入：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install 2&gt;&amp;1|<span class="built_in">tee</span> mi.txt</span><br></pre></td></tr></table></figure></li>
-<li>完成MPICH安装，接着把mpich的安装路径添加到环境变量中，参考<a target="_blank" rel="noopener" href="https://eastsheng.cf/2020/01/22/linux/LinuxCommand/">这里</a></li>
+<li>完成MPICH安装，接着把mpich的安装路径添加到环境变量中，参考<a target="_blank" rel="noopener" href="https://eastsheng.cf/wiki/Linux%E5%AD%A6%E4%B9%A0/linux/Linux_command/">这里</a></li>
 <li>输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> mpiexec <span class="comment">#检查mpi是否添加路径到环境变量</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
@@ -243,11 +243,11 @@
 </ul>
 <h4 id="3-FFTW3安装"><a href="#3-FFTW3安装" class="headerlink" title="3. FFTW3安装"></a>3. FFTW3安装</h4><ul>
 <li><a target="_blank" rel="noopener" href="http://www.fftw.org/download.html">Downloading FFTW</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">Installation on Unix</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/your fftw3 path(默认/usr/local/include)不能使用相对路径/</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
+<li><a target="_blank" rel="noopener" href="http://www.fftw.org/fftw3_doc/Installation-on-Unix.html">Installation on Unix</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.fftw.org/fftw-3.3.10.tar.gz</span><br><span class="line"><span class="built_in">cd</span> fftw-3.3.10</span><br><span class="line">./configure <span class="comment"># --prefix=/your fftw3 path(默认/usr/local/include)不能使用相对路径/</span></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="4-LAMMPS安装"><a href="#4-LAMMPS安装" class="headerlink" title="4. LAMMPS安装"></a>4. LAMMPS安装</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://lammps.sandia.gov/download.html">下载安装包</a>， 解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf lammps-stable.tar.gz</span><br></pre></td></tr></table></figure></li>
-<li>进入解压文件夹内：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lammps-stable/src</span><br></pre></td></tr></table></figure></li>
+<li><a target="_blank" rel="noopener" href="https://lammps.sandia.gov/download.html">下载安装包</a>， 解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.lammps.org/tars/lammps-3Mar2020.tar.gz</span><br><span class="line">tar -zxvf lammps-stable.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li>进入解压文件夹内：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lammps-3Mar2020/src</span><br></pre></td></tr></table></figure></li>
 <li>输入：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make ps <span class="comment"># 或者</span></span><br><span class="line">make package-status <span class="comment">#查看扩展包安装状态</span></span><br></pre></td></tr></table></figure>
@@ -258,7 +258,7 @@
 <ul>
 <li>输入：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">make yes-MANYBODY <span class="comment">#安装所需扩展包</span></span><br><span class="line"><span class="comment"># 常用包一次性安装</span></span><br><span class="line">make yes-BODY yes-MANYBODY yes-CLASS2 yes-KSPACE yes-MISC yes-MOLECULE yes-RIGID</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># make yes-xxx #安装所需扩展包</span></span><br><span class="line"><span class="comment"># 常用包一次性安装</span></span><br><span class="line">make yes-BODY yes-MANYBODY yes-CLASS2 yes-KSPACE yes-MISC yes-MOLECULE yes-RIGID</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>完成后，输入:</li>
@@ -287,12 +287,12 @@
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Notes" >
-    <span class="tag-code">Notes</span>
-  </a>
-
   <a href="/tags#Lammps安装" >
     <span class="tag-code">Lammps安装</span>
+  </a>
+
+  <a href="/tags#Notes" >
+    <span class="tag-code">Notes</span>
   </a>
 
       </div>
@@ -303,10 +303,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-    
-      <a class="nav-right" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/error/">
+      <a class="nav-left" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/GROMACS/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">
+        <span class="nav-arrow">← </span>
         
-          Lammps error汇总
+          GROMACS 入门
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/%E8%BD%AF%E4%BB%B6%E5%AD%A6%E4%B9%A0/Lammps/softwares/lammps/LammpsCommond/">
+        
+          Lammps Command
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -352,7 +359,7 @@
 <script>
   (function () {
     var url = 'https://eastsheng.github.io/wiki/软件学习/Lammps/softwares/lammps/LammpsInstall/';
-    var banner = ''
+    var banner = 'https://www.lammps.org/movies/logo.gif'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
         'background-image': 'url(' + banner + ')'
