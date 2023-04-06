@@ -326,11 +326,11 @@
     if (from_teunit == "°C") {
       to_tevalue = from_tevalue + 273.15;
     } else if (from_teunit == "°F") {
-      to_tevalue = from_tevalue + 255.372222222222;
+      to_tevalue = (from_tevalue + 459.66999999999996)*5/9;
     } else if (from_teunit == "°R") {
-      to_tevalue = from_tevalue + 0;
+      to_tevalue = from_tevalue *5/9;
     } else if (from_teunit == "°Re") {
-      to_tevalue = from_tevalue + 273.15;
+      to_tevalue = from_tevalue/0.8+273.15;
     } else {
       to_tevalue = from_tevalue;
     }
@@ -339,11 +339,11 @@
     if (to_teunit == "°C") {
       to_tevalue -= 273.15;
     } else if (to_teunit == "°F") {
-      to_tevalue -= 459.66999999999996;
+      to_tevalue = (to_tevalue * 9 / 5) - 459.66999999999996;
     } else if (to_teunit == "°R") {
-      to_tevalue -= 0;
+      to_tevalue = to_tevalue * 9 / 5;
     } else if (to_teunit == "°Re") {
-      to_tevalue -= 218.51999999999998;
+      to_tevalue = (to_tevalue - 273.15) * 0.8;
     }
 
     if ((to_tevalue>0.001 && to_tevalue<10000) || (to_tevalue>-10000 && to_tevalue<-1e-3)){
@@ -467,48 +467,48 @@
 
 <h2>📏Length</h2>
 <label for="from_value">From:</label><input type="number" id="from_value" value="0" onchange="lengthconvert()"><select id="from_unit" onchange="lengthconvert()">
-  <option value="m">m</option>
-  <option value="cm">cm</option>
-  <option value="mm">mm</option>
-  <option value="μm">μm</option>
-  <option value="nm">nm</option>
-  <option value="Å">Å</option>
-  <option value="pm">pm</option>
-  <option value="in">inches</option>
-  <option value="ft">feet</option>
+  <option value="m">米 m</option>
+  <option value="cm">厘米 cm</option>
+  <option value="mm">毫米 mm</option>
+  <option value="μm">微米 μm</option>
+  <option value="nm">纳米 nm</option>
+  <option value="Å">埃米 Å</option>
+  <option value="pm">皮米 pm</option>
+  <option value="in">英寸 inches</option>
+  <option value="ft">英尺 feet</option>
 </select><label for="to_value">  To:</label><input type="number" id="to_value" value="0" disabled><select id="to_unit" onchange="lengthconvert()">
-  <option value="m">m</option>
-  <option value="cm">cm</option>
-  <option value="mm">mm</option>
-  <option value="μm">μm</option>
-  <option value="nm" selected>nm</option>
-  <option value="Å">Å</option>
-  <option value="pm">pm</option>
-  <option value="in">inches</option>
-  <option value="ft">feet</option>
+  <option value="m">米 m</option>
+  <option value="cm">厘米 cm</option>
+  <option value="mm">毫米 mm</option>
+  <option value="μm">微米 μm</option>
+  <option value="nm" selected>纳米 nm</option>
+  <option value="Å">埃米 Å</option>
+  <option value="pm">皮米 pm</option>
+  <option value="in">英寸 inches</option>
+  <option value="ft">英尺 feet</option>
 </select>
 
 <h2>⌚Time</h2>
 <label for="from_tvalue">From:</label><input type="number" id="from_tvalue" value="0" onchange="timeconvert()"><select id="from_tunit" onchange="timeconvert()">
-  <option value="s">s</option>
-  <option value="ms">ms</option>
-  <option value="μs">μs</option>
-  <option value="ns">ns</option>
-  <option value="ps">ps</option>
-  <option value="fs">fs</option>
-  <option value="min">min</option>
-  <option value="hour">hour</option>
-  <option value="day">day</option>
+  <option value="s">秒 s</option>
+  <option value="ms">毫秒 ms</option>
+  <option value="μs">微秒 μs</option>
+  <option value="ns">纳秒 ns</option>
+  <option value="ps">皮秒 ps</option>
+  <option value="fs">飞秒 fs</option>
+  <option value="min">分钟 min</option>
+  <option value="hour">小时 hour</option>
+  <option value="day">天 day</option>
 </select><label for="to_tvalue">  To:</label><input type="number" id="to_tvalue" value="0" disabled><select id="to_tunit" onchange="timeconvert()">
-  <option value="s">s</option>
-  <option value="ms">ms</option>
-  <option value="μs">μs</option>
-  <option value="ns" selected>ns</option>
-  <option value="ps">ps</option>
-  <option value="fs">fs</option>
-  <option value="min">min</option>
-  <option value="hour">hour</option>
-  <option value="day">day</option>
+  <option value="s">秒 s</option>
+  <option value="ms">毫秒 ms</option>
+  <option value="μs">微秒 μs</option>
+  <option value="ns selected">纳秒 ns</option>
+  <option value="ps">皮秒 ps</option>
+  <option value="fs">飞秒 fs</option>
+  <option value="min">分钟 min</option>
+  <option value="hour">小时 hour</option>
+  <option value="day">天 day</option>
 
 </select>
 
@@ -516,17 +516,17 @@
 
 <h2>🌡Temperature</h2>
 <label for="from_tevalue">From:</label><input type="number" id="from_tevalue" value="0" onchange="tempconvert()"><select id="from_teunit" onchange="tempconvert()">
-  <option value="K">K</option> 
-  <option value="°C">°C</option>
-  <option value="°F">°F</option>
-  <option value="°R">°R</option>
-  <option value="°Re">°Re</option>
+  <option value="K">开氏度 K</option> 
+  <option value="°C">摄氏度 °C</option>
+  <option value="°F">华氏度 °F</option>
+  <option value="°R">兰氏度 °R</option>
+  <option value="°Re">列氏度 °Re</option>
 </select><label for="to_tevalue">  To:</label><input type="number" id="to_tevalue" value="0" disabled><select id="to_teunit" onchange="tempconvert()">
-  <option value="K" selected>K</option> 
-  <option value="°C">°C</option>
-  <option value="°F">°F</option>
-  <option value="°R">°R</option>
-  <option value="°Re">°Re</option>
+  <option value="K" selected>开氏度 K</option> 
+  <option value="°C">摄氏度 °C</option>
+  <option value="°F">华氏度 °F</option>
+  <option value="°R">兰氏度 °R</option>
+  <option value="°Re">列氏度 °Re</option>
 
 </select>
 
@@ -534,42 +534,42 @@
 
 <h2>🔳Pressure</h2>
 <label for="from_pvalue">From:</label><input type="number" id="from_pvalue" value="0" onchange="pressconvert()"><select id="from_punit" onchange="pressconvert()">
-  <option value="Pa">Pa</option> 
-  <option value="kPa">kPa</option>
-  <option value="MPa">MPa</option>
-  <option value="GPa">GPa</option>
-  <option value="bar">bar</option>
-  <option value="atm">atm</option>
+  <option value="Pa">帕斯卡 Pa</option> 
+  <option value="kPa">千帕 kPa</option>
+  <option value="MPa">兆帕 MPa</option>
+  <option value="GPa">吉帕 GPa</option>
+  <option value="bar">巴 bar</option>
+  <option value="atm">大气压 atm</option>
 </select><label for="to_pvalue">  To:</label><input type="number" id="to_pvalue" value="0" disabled><select id="to_punit" onchange="pressconvert()">
-  <option value="Pa" selected>Pa</option> 
-  <option value="kPa">kPa</option>
-  <option value="MPa">MPa</option>
-  <option value="GPa">GPa</option>
-  <option value="bar">bar</option>
-  <option value="atm">atm</option>
+  <option value="Pa selected">帕斯卡 Pa</option> 
+  <option value="kPa">千帕 kPa</option>
+  <option value="MPa">兆帕 MPa</option>
+  <option value="GPa">吉帕 GPa</option>
+  <option value="bar">巴 bar</option>
+  <option value="atm">大气压 atm</option>
 </select>
 
 
 <h2>🔥Energy</h2>
 <label for="from_evalue">From:</label><input type="number" id="from_evalue" value="0" onchange="energyconvert()"><select id="from_eunit" onchange="energyconvert()">
-  <option value="J">J</option> 
-  <option value="kJ">kJ</option>
-  <option value="MJ">MJ</option>
-  <option value="GJ">GJ</option>
-  <option value="eV">eV</option>
-  <option value="cal">cal</option>
-  <option value="kcal">kcal</option>
+  <option value="J">焦耳 J</option> 
+  <option value="kJ">千焦 kJ</option>
+  <option value="MJ">兆焦 MJ</option>
+  <option value="GJ">吉焦 GJ</option>
+  <option value="eV">电子伏 eV</option>
+  <option value="cal">卡路里 cal</option>
+  <option value="kcal">千卡 kcal</option>
   <option value="kJ/mol">kJ/mol</option>
   <option value="kcal/mol">kcal/mol</option>
   <option value="N.m">N.m</option>
 </select><label for="to_evalue">  To:</label><input type="number" id="to_evalue" value="0" disabled><select id="to_eunit" onchange="energyconvert()">
-  <option value="J" selected>J</option> 
-  <option value="kJ">kJ</option>
-  <option value="MJ">MJ</option>
-  <option value="GJ">GJ</option>
-  <option value="eV">eV</option>
-  <option value="cal">cal</option>
-  <option value="kcal">kcal</option>
+  <option value="J selected">焦耳 J</option> 
+  <option value="kJ">千焦 kJ</option>
+  <option value="MJ">兆焦 MJ</option>
+  <option value="GJ">吉焦 GJ</option>
+  <option value="eV">电子伏 eV</option>
+  <option value="cal">卡路里 cal</option>
+  <option value="kcal">千卡 kcal</option>
   <option value="kJ/mol">kJ/mol</option>
   <option value="kcal/mol">kcal/mol</option>
   <option value="N.m">N.m</option>
