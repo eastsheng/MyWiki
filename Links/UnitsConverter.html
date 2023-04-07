@@ -466,7 +466,8 @@
 <body>
 
 <h2>📏Length</h2>
-<label for="from_value">From:</label><input type="number" id="from_value" value="0" onchange="lengthconvert()"><select id="from_unit" onchange="lengthconvert()">
+<label for="from_value">From:</label><input type="number"  id="from_value" value="0" onchange="lengthconvert()">
+<select id="from_unit" onchange="lengthconvert()" style="width: 100px;">
   <option value="m">米 m</option>
   <option value="cm">厘米 cm</option>
   <option value="mm">毫米 mm</option>
@@ -476,7 +477,9 @@
   <option value="pm">皮米 pm</option>
   <option value="in">英寸 inches</option>
   <option value="ft">英尺 feet</option>
-</select><label for="to_value">  To:</label><input type="number" id="to_value" value="0" disabled><select id="to_unit" onchange="lengthconvert()">
+</select>
+<label for="to_value">  To:</label><input type="number" id="to_value" value="0" disabled>
+<select id="to_unit" onchange="lengthconvert()" style="width: 100px;">
   <option value="m">米 m</option>
   <option value="cm">厘米 cm</option>
   <option value="mm">毫米 mm</option>
@@ -489,8 +492,9 @@
 </select>
 
 <h2>⌚Time</h2>
-<label for="from_tvalue">From:</label><input type="number" id="from_tvalue" value="0" onchange="timeconvert()"><select id="from_tunit" onchange="timeconvert()">
-  <option value="s">秒 s</option>
+<label for="from_tvalue">From:</label><input type="number" id="from_tvalue" value="0" onchange="timeconvert()">
+<select id="from_tunit" onchange="timeconvert()" style="width: 100px;">
+  <option value="s">秒 s   </option>
   <option value="ms">毫秒 ms</option>
   <option value="μs">微秒 μs</option>
   <option value="ns">纳秒 ns</option>
@@ -499,7 +503,9 @@
   <option value="min">分钟 min</option>
   <option value="hour">小时 hour</option>
   <option value="day">天 day</option>
-</select><label for="to_tvalue">  To:</label><input type="number" id="to_tvalue" value="0" disabled><select id="to_tunit" onchange="timeconvert()">
+</select>
+<label for="to_tvalue">  To:</label><input type="number" id="to_tvalue" value="0" disabled>
+<select id="to_tunit" onchange="timeconvert()" style="width: 100px;">
   <option value="s">秒 s</option>
   <option value="ms">毫秒 ms</option>
   <option value="μs">微秒 μs</option>
@@ -509,19 +515,21 @@
   <option value="min">分钟 min</option>
   <option value="hour">小时 hour</option>
   <option value="day">天 day</option>
-
 </select>
 
 
 
 <h2>🌡Temperature</h2>
-<label for="from_tevalue">From:</label><input type="number" id="from_tevalue" value="0" onchange="tempconvert()"><select id="from_teunit" onchange="tempconvert()">
+<label for="from_tevalue">From:</label><input type="number" id="from_tevalue" value="0" onchange="tempconvert()">
+<select id="from_teunit" onchange="tempconvert()" style="width: 100px;">
   <option value="K">开氏度 K</option> 
   <option value="°C">摄氏度 °C</option>
   <option value="°F">华氏度 °F</option>
   <option value="°R">兰氏度 °R</option>
   <option value="°Re">列氏度 °Re</option>
-</select><label for="to_tevalue">  To:</label><input type="number" id="to_tevalue" value="0" disabled><select id="to_teunit" onchange="tempconvert()">
+</select>
+<label for="to_tevalue">  To:</label><input type="number" id="to_tevalue" value="0" disabled>
+<select id="to_teunit" onchange="tempconvert()" style="width: 100px;">
   <option value="K" selected>开氏度 K</option> 
   <option value="°C">摄氏度 °C</option>
   <option value="°F">华氏度 °F</option>
@@ -533,14 +541,17 @@
 
 
 <h2>🔳Pressure</h2>
-<label for="from_pvalue">From:</label><input type="number" id="from_pvalue" value="0" onchange="pressconvert()"><select id="from_punit" onchange="pressconvert()">
+<label for="from_pvalue">From:</label><input type="number" id="from_pvalue" value="0" onchange="pressconvert()">
+<select id="from_punit" onchange="pressconvert()" style="width: 100px;">
   <option value="Pa">帕斯卡 Pa</option> 
   <option value="kPa">千帕 kPa</option>
   <option value="MPa">兆帕 MPa</option>
   <option value="GPa">吉帕 GPa</option>
   <option value="bar">巴 bar</option>
   <option value="atm">大气压 atm</option>
-</select><label for="to_pvalue">  To:</label><input type="number" id="to_pvalue" value="0" disabled><select id="to_punit" onchange="pressconvert()">
+</select>
+<label for="to_pvalue">  To:</label><input type="number" id="to_pvalue" value="0" disabled>
+<select id="to_punit" onchange="pressconvert()"  style="width: 100px;">
   <option value="Pa selected">帕斯卡 Pa</option> 
   <option value="kPa">千帕 kPa</option>
   <option value="MPa">兆帕 MPa</option>
@@ -551,7 +562,8 @@
 
 
 <h2>🔥Energy</h2>
-<label for="from_evalue">From:</label><input type="number" id="from_evalue" value="0" onchange="energyconvert()"><select id="from_eunit" onchange="energyconvert()">
+<label for="from_evalue">From:</label><input type="number" id="from_evalue" value="0" onchange="energyconvert()">
+<select id="from_eunit" onchange="energyconvert()"  style="width: 100px;">
   <option value="J">焦耳 J</option> 
   <option value="kJ">千焦 kJ</option>
   <option value="MJ">兆焦 MJ</option>
@@ -562,7 +574,9 @@
   <option value="kJ/mol">kJ/mol</option>
   <option value="kcal/mol">kcal/mol</option>
   <option value="N.m">N.m</option>
-</select><label for="to_evalue">  To:</label><input type="number" id="to_evalue" value="0" disabled><select id="to_eunit" onchange="energyconvert()">
+</select>
+<label for="to_evalue">  To:</label><input type="number" id="to_evalue" value="0" disabled>
+<select id="to_eunit" onchange="energyconvert()" style="width: 100px;">
   <option value="J selected">焦耳 J</option> 
   <option value="kJ">千焦 kJ</option>
   <option value="MJ">兆焦 MJ</option>
