@@ -36,6 +36,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -245,7 +264,14 @@
 </blockquote>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[监督学习]==&gt;B(分类)</span><br><span class="line">A==&gt;C(回归)</span><br><span class="line">B==&gt;D(二分类/多分类:目标是预测类别标签)</span><br><span class="line">D==&gt;E1(正类)</span><br><span class="line">D==&gt;E2(反类)</span><br><span class="line">C==&gt;F(回归任务的目标是预测一个连续值)</span><br><span class="line">style A fill:#ffff</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+A[监督学习]==>B(分类)
+A==>C(回归)
+B==>D(二分类/多分类:目标是预测类别标签)
+D==>E1(正类)
+D==>E2(反类)
+C==>F(回归任务的目标是预测一个连续值)
+style A fill:#ffff</pre>
 
 
 <h3 id="过拟合-x2F-欠拟合"><a href="#过拟合-x2F-欠拟合" class="headerlink" title="过拟合&#x2F;欠拟合"></a>过拟合&#x2F;欠拟合</h3><ul>

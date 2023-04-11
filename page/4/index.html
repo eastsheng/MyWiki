@@ -58,6 +58,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -213,6 +232,38 @@
 </header>
 
     <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/2022/02/19/others/2022/windows_VIDEO_MEMORY_MANAGEMENT_INTERNAL/">WIN10蓝屏，终止代码:VIDEO_MEMORY_MANAGEMENT_INTERNAL</a>
+      </h2>
+      <p class="article-date">2022年2月19日</p>
+      
+        
+  <a href="/tags#Windows 蓝屏" >
+    <span class="tag-code">Windows 蓝屏</span>
+  </a>
+
+  <a href="/tags#VIDEO_MEMORY_MANAGEMENT_INTERNAL" >
+    <span class="tag-code">VIDEO_MEMORY_MANAGEMENT_INTERNAL</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          WIN10蓝屏
+终止代码:VIDEO_MEMORY_MANAGEMENT_INTERNAL
+只要在谷歌浏览器打开视频，WIN10就蓝屏；
+所以应该是谷歌的问题。
+
+解决办法：
+谷歌设置&gt;高级&gt;系统&gt;关闭使用硬件加速模式
+
+
+        
+      </div>
+      <a class="more" href="/wiki/2022/02/19/others/2022/windows_VIDEO_MEMORY_MANAGEMENT_INTERNAL/">Read more</a>
+    </article>
   
     <article class="article-card">
       <h2 class="article-head">
@@ -502,32 +553,6 @@ QQ、微信有网，浏览器没网
         
       </div>
       <a class="more" href="/wiki/2021/10/06/others/2021/windows-internet/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2021/09/01/notes/PaperReadNote202109/">论文笔记2021-09</a>
-      </h2>
-      <p class="article-date">2021年9月1日</p>
-      
-        
-  <a href="/tags#Paper Notes" >
-    <span class="tag-code">Paper Notes</span>
-  </a>
-
-  <a href="/tags#2021-09" >
-    <span class="tag-code">2021-09</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-2021-09-01沥青：宏观&amp;微观论[1]
-While asphalt physical failures and performance are observed on the macroscale, the asphalt chemistries, mechanic ...
-        
-      </div>
-      <a class="more" href="/wiki/2021/09/01/notes/PaperReadNote202109/">Read more</a>
     </article>
   
 

@@ -36,6 +36,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -567,7 +586,21 @@
 <ol>
 <li>稠油降黏两大方法：物理（加热、注汽，所需设备昂贵和能耗大）、化学（添加剂，一般三种，水溶性乳化剂、纳米颗粒、油溶性降黏剂）</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[稠油降黏两大方法]==&gt;B(物理)</span><br><span class="line">A==&gt;C(化学)</span><br><span class="line">B==&gt;B1(注汽)</span><br><span class="line">B==&gt;B2(加热)</span><br><span class="line">B1==&gt;B3(所需设备昂贵和能耗大)</span><br><span class="line">B2==&gt;B3(所需设备昂贵和能耗大)</span><br><span class="line">C==&gt;C1(化学添加剂)</span><br><span class="line">C1==&gt;D1(水溶性乳化剂)</span><br><span class="line">D1==&gt;E1(在后处理中难以移除注入水和保持乳化剂稳定性)</span><br><span class="line">C1==&gt;D2(纳米颗粒)</span><br><span class="line">D2==&gt;E2(后期难以移除纳米颗粒 高的花费)</span><br><span class="line">C1==&gt;D3(油溶性降黏剂)</span><br><span class="line">D3==&gt;E3(不需要后处理 有很大优势)</span><br><span class="line">style A fill:#ffff</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+A[稠油降黏两大方法]==>B(物理)
+A==>C(化学)
+B==>B1(注汽)
+B==>B2(加热)
+B1==>B3(所需设备昂贵和能耗大)
+B2==>B3(所需设备昂贵和能耗大)
+C==>C1(化学添加剂)
+C1==>D1(水溶性乳化剂)
+D1==>E1(在后处理中难以移除注入水和保持乳化剂稳定性)
+C1==>D2(纳米颗粒)
+D2==>E2(后期难以移除纳米颗粒 高的花费)
+C1==>D3(油溶性降黏剂)
+D3==>E3(不需要后处理 有很大优势)
+style A fill:#ffff</pre>
 
 <ol start="2">
 <li>emulsifier 乳化剂：一种表面活性剂（surfactant）。<br><img src="https://bkimg.cdn.bcebos.com/pic/c8ea15ce36d3d53930e9f6673287e950342ab0ba?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto"></li>

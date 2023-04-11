@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      论文笔记2023-夏 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文笔记2023-夏</h2>
+  <p class="post-date">2023-04-01 00:00:00</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="Paper-Notes-2023"><a href="#Paper-Notes-2023" class="headerlink" title="Paper Notes 2023"></a>Paper Notes 2023</h2><h3 id="2023-4月-5月-6月"><a href="#2023-4月-5月-6月" class="headerlink" title="2023-4月@5月@6月"></a>2023-4月@5月@6月</h3><h4 id="English-phrases"><a href="#English-phrases" class="headerlink" title="English phrases"></a>English phrases</h4><ul>
+<li><p><strong>complimentary</strong> to its thermo effect</p>
+</li>
+<li><p><strong>mitigates</strong> the kinetic nucleation of gas hydrate.</p>
+<ul>
+<li><strong>mitigates</strong> v. &lt;正式&gt;减轻，缓和</li>
+</ul>
+</li>
+<li><p>The growth morphology of hydrates <strong>against with</strong> simulation time is shown in Fig. 2A</p>
+</li>
+<li><p>This seems to contradict to the fact that …</p>
+</li>
+<li><p>play crucial roles.</p>
+</li>
+<li><p>play the <strong>auxiliary</strong> roles</p>
+<ul>
+<li><strong>auxiliary</strong> adj. 辅助的；备用的，后备的</li>
+</ul>
+</li>
+<li><p>On the basis of these analyzations, </p>
+</li>
+<li><p>it is suggested the hydrate inhibition efficiency of $CH_3OH$ can be regulated by changing its H-bond formation ability with waters, which is furtherly verified by MD simulations.</p>
+</li>
+</ul>
+<h4 id="水合物出砂"><a href="#水合物出砂" class="headerlink" title="水合物出砂"></a>水合物出砂</h4><ul>
+<li>从世界范围内已进行的水合物试采项目来看，出砂问题严重制约着水合物安全高效开采<ol>
+<li>从技术的角度，出砂会导致井筒内沉砂、量增加，砂颗粒随流体在管道内运移会引起管道堵塞以及电潜泵等井下设施损坏；</li>
+<li>从经济的角度出砂导致的生产故障会延长生产周期，甚至导致停产，对产出的砂液混合物也要进行处理；</li>
+<li>从安全的角度出砂会使储层结构破坏、强度降低，增加地质灾害发生的风险。</li>
+</ol>
+</li>
+<li></li>
+</ul>
+<h4 id="arbitrary-units"><a href="#arbitrary-units" class="headerlink" title="arbitrary units"></a>arbitrary units</h4><ul>
+<li>“(ab. units)”表示的是 “arbitrary units”，即任意单位。在论文中，有时候为了便于表示数据，可以采用无量纲单位或者自定义的单位，这时就使用 “arbitrary units” 来表示。这种单位通常只是用来表示相对大小而不是具体数值，因此不能用于进行具体的数值计算。</li>
+</ul>
+<h4 id="水合物试采示意图"><a href="#水合物试采示意图" class="headerlink" title="水合物试采示意图"></a>水合物试采示意图</h4><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/papernote2023-b.md/278503216248873.png"></p>
+<h4 id="水合物抑制剂"><a href="#水合物抑制剂" class="headerlink" title="水合物抑制剂"></a>水合物抑制剂</h4><pre class="mermaid">graph TD;
+  抑制剂-->LDHIs(低剂量水合物抑制剂);
+  抑制剂-->T((热力学抑制剂));
+  LDHIs-->K((动力学抑制剂));
+  LDHIs-->AAs(抗凝聚剂);
+  K-->PVP;
+  K-->VC-713;
+  K-->PVcap(聚己内酰胺);
+  K-->AFP(I型抗冻蛋白);
+  PVP(聚乙烯吡咯烷酮PVP)-->PVP-ME
+  PVP-->PVP-EE
+  PVP-->PVP-PE
+  PVP-->PVP-A
+  PVP-->PVP-BN
+  
+
+  T-->M(甲醇/CH3OH);
+  T-->Nacl;
+  T-->CaCl2;
+  T-->MEG(乙二醇);
+  M-->增加Hydrate相平衡压力-->YK(也具有动力学作用);
+  M-->降低Hydrate相平衡温度-->YK(也具有动力学作用);
+  YK-->如甲醇中OH基团能够与水合层中水分子形成氢键-->高浓度的甲醇甚至能够把水和层中水全部替换导致水合物-->但是水和层丰富的水是水合物成核的必要条件</pre>
+
+<ul>
+<li>[1] High efficient development of green kinetic hydrate inhibitors via combined molecular dynamic simulation and experimental test approach</li>
+<li>[2] Molecular dynamics simulation to explore the synergistic inhibition effect of kinetic and thermodynamic hydrate inhibitors</li>
+<li>[3] Microscopic insights into synergism effect of different hydrate inhibitors on methane hydrate formation: Experiments and molecular dynamics simulations</li>
+<li>[4] Experimental and molecular dynamics studies of zwitterionic inhibitors of methane hydrate dissociation</li>
+<li>[5] Role of chemical cementation and hydration inhibition on wellbore stability in hydrate bearing sediment: Experimental and molecular dynamics simulation studies</li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Learning Notes 2023" >
+    <span class="tag-code">Learning Notes 2023</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/03/22/others/2023/del_win_remote_connect_records/">
+        <span class="nav-arrow">← </span>
+        
+          删除过期远程桌面连接记录
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/wiki/2023/04/10/git/github_speedup/">
+        
+          修改HOSTS文件加速Github
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2023</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2023-4%E6%9C%88-5%E6%9C%88-6%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2023-4月@5月@6月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#English-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">English phrases</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%87%BA%E7%A0%82"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">水合物出砂</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#arbitrary-units"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">arbitrary units</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E8%AF%95%E9%87%87%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">水合物试采示意图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E6%8A%91%E5%88%B6%E5%89%82"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">水合物抑制剂</span></a></li></ol></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/04/01/notes/PaperReadNote202304/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>

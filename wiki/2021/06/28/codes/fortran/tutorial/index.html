@@ -36,6 +36,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -231,12 +250,12 @@
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Tutorial" >
-    <span class="tag-code">Tutorial</span>
-  </a>
-
   <a href="/tags#Fortran" >
     <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/tags#Tutorial" >
+    <span class="tag-code">Tutorial</span>
   </a>
 
       </div>

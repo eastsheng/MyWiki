@@ -58,6 +58,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -216,6 +235,44 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/wiki/2021/07/03/collections/OpenResources_1/">Open Resources 1</a>
+      </h2>
+      <p class="article-date">2021年7月3日</p>
+      
+        
+  <a href="/tags#Open Resources" >
+    <span class="tag-code">Open Resources</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+数据库
+
+
+名称
+链接
+
+
+
+Crystallography Open Database
+http://www.crystallography.net/cod/
+
+
+Materials Project
+https://materialsproject.org/
+
+
+自动化拓扑构 ...
+        
+      </div>
+      <a class="more" href="/wiki/2021/07/03/collections/OpenResources_1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/wiki/2021/07/03/index/">Welcome to My Wiki</a>
       </h2>
       <p class="article-date">2021年7月3日</p>
@@ -291,9 +348,16 @@ PyQt E ...
       <div class="article-summary">
         
           [toc]
-流程图123456graph LRA[直接法]==&gt;B(高斯Gauss消元)A==&gt;C(矩阵分解)B==&gt;D(有限次运算求出精确解)C==&gt;D(有限次运算求出精确解)style A fill:#ffff
+流程图graph LR
+A[直接法]==>B(高斯Gauss消元)
+A==>C(矩阵分解)
+B==>D(有限次运算求出精确解)
+C==>D(有限次运算求出精确解)
+style A fill:#ffff
 
-12345graph TD    A[稠油]--& ...
+graph TD
+    A[稠油]-->B[吸附];
+    A-->C[ ...
         
       </div>
       <a class="more" href="/wiki/2021/06/28/codes/markdown/basics/">Read more</a>
@@ -306,12 +370,12 @@ PyQt E ...
       <p class="article-date">2021年6月28日</p>
       
         
-  <a href="/tags#Tutorial" >
-    <span class="tag-code">Tutorial</span>
-  </a>
-
   <a href="/tags#Fortran" >
     <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/tags#Tutorial" >
+    <span class="tag-code">Tutorial</span>
   </a>
 
       
@@ -509,42 +573,6 @@ http://ww ...
         
       </div>
       <a class="more" href="/wiki/2021/04/25/collections/bloggers/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2021/04/11/codes/python/python_code_study/">Python 常用基本命令</a>
-      </h2>
-      <p class="article-date">2021年4月11日</p>
-      
-        
-  <a href="/tags#Python" >
-    <span class="tag-code">Python</span>
-  </a>
-
-  <a href="/tags#Code" >
-    <span class="tag-code">Code</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-1. 操作文件（夹）等
-
-例如：获得当前文件所在目录
-
-
-123import ospath=os.getcwd()print(path)
-
-
-在当前文件夹生成文件夹，以时间命名
-
-
-123folder=time.strftime(r&quot;%Y-%m-%d_%H-%M-%S& ...
-        
-      </div>
-      <a class="more" href="/wiki/2021/04/11/codes/python/python_code_study/">Read more</a>
     </article>
   
 

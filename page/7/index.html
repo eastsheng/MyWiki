@@ -58,6 +58,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -216,6 +235,42 @@
   
     <article class="article-card">
       <h2 class="article-head">
+        <a href="/wiki/2021/04/11/codes/python/python_code_study/">Python 常用基本命令</a>
+      </h2>
+      <p class="article-date">2021年4月11日</p>
+      
+        
+  <a href="/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/tags#Code" >
+    <span class="tag-code">Code</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+1. 操作文件（夹）等
+
+例如：获得当前文件所在目录
+
+
+123import ospath=os.getcwd()print(path)
+
+
+在当前文件夹生成文件夹，以时间命名
+
+
+123folder=time.strftime(r&quot;%Y-%m-%d_%H-%M-%S& ...
+        
+      </div>
+      <a class="more" href="/wiki/2021/04/11/codes/python/python_code_study/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
         <a href="/wiki/2021/03/15/collections/luan78zao_20211/">乱七八糟的收藏1</a>
       </h2>
       <p class="article-date">2021年3月15日</p>
@@ -356,10 +411,8 @@ Although we have a preliminary understan ...
         
           [toc]
 Matplotlib 中文
-1. 画自定义颜色曲线
-
-
-1234567891011121314151617181920212223242526import numpy as npimport matplotlib.pyplot as pltfrom matplotlib.coll ...
+调整ylabel位置: labelpad1ax.set_ylabel(&quot;Interaction energy (kcal/mol)&quot;,fontweight=&#x27;bold&#x27;,size=28,labelpad=20)
+ ...
         
       </div>
       <a class="more" href="/wiki/2021/01/22/codes/python/matplotlib_1/">Read more</a>
@@ -501,36 +554,6 @@ MODE &#x3D; suggest的时候可以获得一个包含笛卡尔坐标的displaceme
         
       </div>
       <a class="more" href="/wiki/2020/11/21/others/2020/alamode-1/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2020/07/23/notes/PaperReadNote2020/">论文笔记2020</a>
-      </h2>
-      <p class="article-date">2020年7月23日</p>
-      
-        
-  <a href="/tags#Daily Notes" >
-    <span class="tag-code">Daily Notes</span>
-  </a>
-
-  <a href="/tags#2020" >
-    <span class="tag-code">2020</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-2020-07
-07-23
-1. 声子线宽Γ(phonon linewidth)
-
-声子线宽与声子的寿命τ(lifetime or relaxtion time)有关,声子寿命(τ)=1/2*半高宽(FWHM)。
-Full width at half maximum (FWHM) ...
-        
-      </div>
-      <a class="more" href="/wiki/2020/07/23/notes/PaperReadNote2020/">Read more</a>
     </article>
   
 

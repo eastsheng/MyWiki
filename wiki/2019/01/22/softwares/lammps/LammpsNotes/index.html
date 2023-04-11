@@ -36,6 +36,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -281,9 +300,9 @@
       </a>
     
     
-      <a class="nav-right" href="/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">
+      <a class="nav-right" href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">
         
-          GROMACS 入门
+          VMD 基本操作
         
         <span class="nav-arrow"> →</span>
       </a>

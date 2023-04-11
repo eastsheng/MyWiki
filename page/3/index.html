@@ -58,6 +58,25 @@
 <script src="/js/local-search.js"></script>
 
 
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
 <div class="wechat-share">
   <img src="/css/images/logo.png" />
@@ -213,6 +232,34 @@
 </header>
 
     <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/2022/04/02/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-01/">C&C++笔记-01</a>
+      </h2>
+      <p class="article-date">2022年4月2日</p>
+      
+        
+  <a href="/tags#C&amp;C++" >
+    <span class="tag-code">C&amp;C++</span>
+  </a>
+
+  <a href="/tags#C&amp;C++初级" >
+    <span class="tag-code">C&amp;C++初级</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+推荐书籍Visual Studio 2021运行C++，返回值被忽略:“scanf”
+方法1：把scanf改成scanf_s,如果又报其他错误的话，使用方法2；
+方法2：右键项目文件 —— 属性 —— 配置属性 ——C/C++——常规——SDL检查改为否即可
+参考https:// ...
+        
+      </div>
+      <a class="more" href="/wiki/2022/04/02/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-01/">Read more</a>
+    </article>
   
     <article class="article-card">
       <h2 class="article-head">
@@ -479,38 +526,6 @@ Downloadly
         
       </div>
       <a class="more" href="/wiki/2022/03/07/collections/OpenResources_2/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2022/02/19/others/2022/windows_VIDEO_MEMORY_MANAGEMENT_INTERNAL/">WIN10蓝屏，终止代码:VIDEO_MEMORY_MANAGEMENT_INTERNAL</a>
-      </h2>
-      <p class="article-date">2022年2月19日</p>
-      
-        
-  <a href="/tags#Windows 蓝屏" >
-    <span class="tag-code">Windows 蓝屏</span>
-  </a>
-
-  <a href="/tags#VIDEO_MEMORY_MANAGEMENT_INTERNAL" >
-    <span class="tag-code">VIDEO_MEMORY_MANAGEMENT_INTERNAL</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          WIN10蓝屏
-终止代码:VIDEO_MEMORY_MANAGEMENT_INTERNAL
-只要在谷歌浏览器打开视频，WIN10就蓝屏；
-所以应该是谷歌的问题。
-
-解决办法：
-谷歌设置&gt;高级&gt;系统&gt;关闭使用硬件加速模式
-
-
-        
-      </div>
-      <a class="more" href="/wiki/2022/02/19/others/2022/windows_VIDEO_MEMORY_MANAGEMENT_INTERNAL/">Read more</a>
     </article>
   
 
