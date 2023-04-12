@@ -474,7 +474,64 @@
     }
   }    
 
-  
+
+  //质量单位
+  function massconvert() {
+    var from_munit = document.getElementById("from_munit").value;
+    var to_munit = document.getElementById("to_munit").value;
+    var from_mvalue = parseFloat(document.getElementById("from_mvalue").value);
+    var to_mvalue;
+
+    // 转换为g
+    if (from_munit == "mg") {
+      to_mvalue = from_mvalue * 1e-3;
+    } else if (from_munit == "g") {
+      to_mvalue = from_mvalue * 1;
+    } else if (from_munit == "kg") {
+      to_mvalue = from_mvalue * 1e3;
+    } else if (from_munit == "t") {
+      to_mvalue = from_mvalue * 1e6;
+    } else if (from_munit == "oz") {
+      to_mvalue = from_mvalue * 28.349523125;
+    } else if (from_munit == "lb") {
+      to_mvalue = from_mvalue * 453.59237;
+    } else if (from_munit == "jin") {
+      to_mvalue = from_mvalue * 500;
+    } else if (from_munit == "liang") {
+      to_mvalue = from_mvalue * 50;
+    } else if (from_munit == "qian") {
+      to_mvalue = from_mvalue * 5;
+    } else {
+      to_mvalue = from_mvalue;
+    }
+
+    // 转换为目标质量单位
+    if (to_munit == "mg") {
+      to_mvalue /= 1e-3;
+    } else if (to_munit == "g") {
+      to_mvalue /= 1;
+    } else if (to_munit == "kg") {
+      to_mvalue /= 1e3;
+    } else if (to_munit == "t") {
+      to_mvalue /= 1e6;
+    } else if (to_munit == "oz") {
+      to_mvalue /= 28.349523125;
+    } else if (to_munit == "lb") {
+      to_mvalue /= 453.59237;
+    } else if (to_munit == "jin") {
+      to_mvalue /= 500;
+    } else if (to_munit == "liang") {
+      to_mvalue /= 50;
+    } else if (to_munit == "qian") {
+      to_mvalue /= 5;
+    }
+
+    if ((to_mvalue>0.001 && to_mvalue<10000) || (to_mvalue>-10000 && to_mvalue<-1e-3)){
+     document.getElementById("to_mvalue").value = to_mvalue.toFixed(12);
+    }else{
+    document.getElementById("to_mvalue").value = to_mvalue.toExponential(12);
+    }
+  }  
 
   
 </script>
@@ -608,6 +665,43 @@
   <option value="N.m">N.m</option>
 </select>
 
+
+
+
+<h2>🔥Mass</h2>
+<label for="from_mvalue">From:</label><input type="number" id="from_mvalue" value="0" onchange="massconvert()">
+<select id="from_munit" onchange="massconvert()"  style="width: 100px;">
+  <option value="mg">毫克 mg</option> 
+  <option value="g">克 g</option>
+  <option value="kg">千克 kg</option>
+  <option value="t">吨 t</option>
+  <option value="jin">斤 jin</option>
+  <option value="liang">两 liang</option>
+  <option value="qian">钱 qian</option>
+  <option value="oz">盎司 oz</option>
+  <option value="lb">磅 lb</option>
+
+</select>
+<label for="to_mvalue">  To:</label><input type="number" id="to_mvalue" value="0" disabled>
+<select id="to_munit" onchange="massconvert()" style="width: 100px;">
+  <option value="mg">毫克 mg</option> 
+  <option value="g selected">克 g</option>
+  <option value="kg">千克 kg</option>
+  <option value="t">吨 t</option>
+  <option value="jin">斤 jin</option>
+  <option value="liang">两 liang</option>
+  <option value="qian">钱 qian</option>
+  <option value="oz">盎司 oz</option>
+  <option value="lb">磅 lb</option>
+
+</select>
+
+
+
+
+
+
+
 </body></section>
     <!-- Tags and categories START -->
     
@@ -641,7 +735,7 @@
     
 	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">📏Length</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">⌚Time</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">🌡Temperature</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">🔳Pressure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">🔥Energy</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">📏Length</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">⌚Time</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">🌡Temperature</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">🔳Pressure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">🔥Energy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">🔥Mass</span></a></li></ol>
     
 
   </div>
