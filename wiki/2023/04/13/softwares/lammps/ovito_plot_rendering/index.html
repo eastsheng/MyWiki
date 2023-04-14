@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Ovito高质量图片渲染Python模块 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Ovito高质量图片渲染Python模块</h2>
+  <p class="post-date">2023-04-13 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="安装ovito"><a href="#安装ovito" class="headerlink" title="安装ovito"></a>安装<a target="_blank" rel="noopener" href="https://www.ovito.org/windows-downloads/">ovito</a></h2><h2 id="安装OVITO-Python-Module"><a href="#安装OVITO-Python-Module" class="headerlink" title="安装OVITO Python Module"></a>安装OVITO Python Module</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U ovito</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ovito</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, this is OVITO %i.%i.%i&quot;</span> % ovito.version)</span><br></pre></td></tr></table></figure>
+
+<h2 id="渲染脚本"><a href="#渲染脚本" class="headerlink" title="渲染脚本"></a>渲染脚本</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ovito.io <span class="keyword">import</span> import_file</span><br><span class="line"><span class="keyword">from</span> ovito.vis <span class="keyword">import</span> Viewport,TachyonRenderer</span><br><span class="line"><span class="comment">#读入data文件</span></span><br><span class="line">d = <span class="string">&quot;1_nvt_-0.07&quot;</span></span><br><span class="line">pipeline = import_file(d+<span class="string">&#x27;.data&#x27;</span>)</span><br><span class="line">pipeline.add_to_scene()</span><br><span class="line">vp = Viewport(<span class="built_in">type</span> = Viewport.<span class="type">Type</span>.FRONT, camera_dir = (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)) <span class="comment">#(0, 1, 0))</span></span><br><span class="line">vp.zoom_all()</span><br><span class="line"><span class="comment">#配置输出</span></span><br><span class="line">vp.render_image(filename=d+<span class="string">&#x27;.png&#x27;</span>, </span><br><span class="line">                size=(<span class="number">3200</span>, <span class="number">2400</span>), </span><br><span class="line">                renderer=TachyonRenderer(shadows=<span class="literal">False</span>, direct_light_intensity=<span class="number">1.1</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/notes/lammps/ovito_plot_rendering.md/420294515236747.png" alt="1_nvt_-0"></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.ovito.org/docs/current/python/introduction/rendering.html#viewports">[1] Rendering &amp; visualization</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUxMjI1NTczMA==&mid=2247487922&idx=1&sn=064278c7c008679691b18b82ad1188b7&chksm=f966622fce11eb39c6eece38b5d1725a1e3a87b4e4ab5920e71818608605f15b22395ccb78fa&scene=126&sessionid=1681362030&subscene=227&key=5754df8c22b8427b68e284a42941473503ef54da8eb7831aeb611a5a74cd06e7c244ee99830ee6f90144d4b8597abaecde772f46a6a133eb3f65ddbaf1885edb92f2898917ba18c5271c11906e3b9754ed17a511588ce0deb55cdcff9f9b069c9cb60973d9d1386d03b3b56bd7959af0bd0881e78bb61da8a3041ca2f16e2f1b&ascene=7&uin=MjIxNjUxOTQzNA==&devicetype=Windows+10+x64&version=63090217&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQhhvjc5w7Lptr1sEB7aHwuhLgAQIE97dBBAEAAAAAAJ8MBWniDmQAAAAOpnltbLcz9gKNyK89dVj0BEM5cysFk6MNyD26L938zIaF3fpwDXQZoSrpVmtjTf4IClbytALMjS8mZZdrZn2+x2eJYjKbaTwB1kBJk1tz8c3QNADvxxI2vS6i94K5SRujimvi9vmJArI+dVGaAF7JcceZt0z+aJ6/BkJYokVOCKurDW1l6W1v5JnDcKWW8qldyypRkIVL6NBijhOQnAPxSOsqheexaPaRLJ3lNigYNDvMM7tfl8NgtrXrpdaj/fGKpwM6teC25OHq&acctmode=0&pass_ticket=9LppUSIThUFk3ioyybmb1VGMTeZ7yBHDmmigcW0ivQvWVkTHDjkuO2/Soso24wohJta52Es3WedLI8R6ndZZRg==&wx_header=1&fontgear=2">[2] lammps教程：ovito免费输出高清图片方法</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Notes" >
+    <span class="tag-code">Notes</span>
+  </a>
+
+  <a href="/tags#Ovito图片渲染" >
+    <span class="tag-code">Ovito图片渲染</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/04/10/git/github_speedup/">
+        <span class="nav-arrow">← </span>
+        
+          修改HOSTS文件加速Github
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85ovito"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装ovito</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85OVITO-Python-Module"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装OVITO Python Module</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">测试</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B8%B2%E6%9F%93%E8%84%9A%E6%9C%AC"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">渲染脚本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/04/13/softwares/lammps/ovito_plot_rendering/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
