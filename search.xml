@@ -7945,7 +7945,7 @@ style A fill:#ffff</pre>
   </entry>
   <entry>
     <title>Phonon package安装与使用</title>
-    <url>/wiki/20213/04/22/softwares/lammps/phonon_package/</url>
+    <url>/wiki/2023/04/22/softwares/lammps/phonon_package/</url>
     <content><![CDATA[<p>[toc]</p>
 <h3 id="1-安装phonon"><a href="#1-安装phonon" class="headerlink" title="1. 安装phonon"></a>1. 安装phonon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lammps/src</span><br><span class="line">make ps <span class="comment"># 查看是否安装phonon</span></span><br><span class="line">make yes-USER-PHONON <span class="comment"># 安装phonon</span></span><br><span class="line"><span class="comment"># or make yes-PHONON # 安装phonon</span></span><br><span class="line">make clean</span><br><span class="line">make mpi -j8 <span class="comment"># 重新编译lammps</span></span><br></pre></td></tr></table></figure>
 
