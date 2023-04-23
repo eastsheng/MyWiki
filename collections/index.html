@@ -12,7 +12,7 @@
   
   <title>
     
-      Eastsheng&#39;s Wiki
+      资源收集 | Eastsheng&#39;s Wiki
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -28,28 +28,6 @@
   
   
   
-  
-    <!-- MathJax support START -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <!-- MathJax support END -->
   
 
 
@@ -93,7 +71,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">Home</a>
+            <a href="/" class="item-link">Home</a>
           
         </li>
       
@@ -135,6 +113,12 @@
       
         <li class="list-item">
           
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
             <a href="/about/" class="item-link">About</a>
           
         </li>
@@ -157,7 +141,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">Home</a>
+              <a href="/" class="menu-link">Home</a>
             
           </li>
         
@@ -199,6 +183,12 @@
         
           <li class="menu-item">
             
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/about/" class="menu-link">About</a>
             
           </li>
@@ -232,151 +222,130 @@
   </div>
 </header>
 
-    <main class="app-body">
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Lammps Command</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Lammps" >
-    <span class="tag-code">Lammps</span>
-  </a>
-
-  <a href="/tags#Command" >
-    <span class="tag-code">Command</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-neighbor 2.0 multi 
-neighbor skin style
-此命令用于设置cutoff distance;
-3种style代表不同的算法去构建list,bin nsq multi
-一般使用bin较多；
-nsq没有用过，手册上讲，在计算非周期性的盒子里的未溶解的 ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/LammpsNotes/">Lammps 笔记</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Lammps Notes" >
-    <span class="tag-code">Lammps Notes</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-11-17
-使用LAMMPS和Alamode计算热导率、PDOS、弛豫时间等
-运行alm.in,生成xxx.pattern_HARMONIC和xxx.pattern_ANHARM3
-
-需要注意：NORDER = 2  # 1: harmonic, 2: cubic, ..
-其他信 ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsNotes/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/LammpsInstall/">Lammps安装</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Notes" >
-    <span class="tag-code">Notes</span>
-  </a>
-
-  <a href="/tags#Lammps安装" >
-    <span class="tag-code">Lammps安装</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-- Windows下Lammps安装
-官网下载Windows版Lammps,和并行包mpich2；2.下载完成后，直接双击LAMMPS-64bit-stable-MPI.exe安装,可以自定义安装位置；
-Similarly，接着安装MPICH2mpich2-1.4.1p1-win ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsInstall/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">VMD 基本操作</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Lammps Notes" >
-    <span class="tag-code">Lammps Notes</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-VMD使用VMD TkConsole常用命令
-设定盒子边界类命令：12345678910pbc box -style lines # 显示boxpbc box -width 2     # 改变lines宽pbc box -color white # 改变lines颜色set c ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/error/">Lammps error汇总</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Lammps error" >
-    <span class="tag-code">Lammps error</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-1. 跑MD结构散了跑MD结构结构散了，常见原因总结：
-(1). 势函数的问题，调研一下该势函数是否有人模拟过成果过。(2). 原子结构不稳定导致的，例如：
-
-模拟 缺陷 的时候，缺陷过多导致结构不稳定；
-模拟 高温 或者 高压 环境下时，导致结构不稳定；
-可以先低温弛豫（NPT ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/error/">Read more</a>
-    </article>
-  
-
-  
-    <div class="guide-pager">
-  
-    <a href="/page/9/"><span class="page-arrow">← </span>Prev</a>
-  
-  
-    <a class="unvisible" href="/">Next <span class="page-arrow">→</span></a>
-  
+    <div id="article-banner">
+  <h2>资源收集</h2>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
 </div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><hr>
+<p><a href="./pages/softwares">💻软件</a>	|	<a href="./pages/bloggers">📑博客</a>	|	<a href="./pages/communities_fora">💭论坛</a>	|	<a href="./pages/tools">💼工具</a>	|	<a href="./pages/videos">📺视频</a></p>
+<hr>
+<h2 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h2><ul>
+<li><a href="./pages/luan78zao_20231">luan78zao_20231</a></li>
+</ul>
+<h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><ul>
+<li><a href="./pages/OpenResources_1">OpenResources_1</a></li>
+<li><a href="./pages/OpenResources_2">OpenResources_2</a></li>
+</ul>
+<h2 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h2><ul>
+<li><a href="./pages/luan78zao_20211">luan78zao_20211</a></li>
+<li><a href="./pages/luan78zao_20212">luan78zao_20212</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
   
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">2023</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2022"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2022</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2021"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2021</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
 </main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/collections/index.html';
+    var banner = 'https://mcdn.wallpapersafari.com/medium/32/30/gIB8ws.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
 
 
     <div class="scroll-top">
