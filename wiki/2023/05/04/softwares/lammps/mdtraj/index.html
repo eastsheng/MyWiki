@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Python mdtraj库安装过程 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Gallery/" class="item-link">Gallery</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/lifetime/" class="item-link">ATGB</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Gallery/" class="menu-link">Gallery</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/lifetime/" class="menu-link">ATGB</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Python mdtraj库安装过程</h2>
+  <p class="post-date">2023-05-04 12:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="mdtraj库安装"><a href="#mdtraj库安装" class="headerlink" title="mdtraj库安装"></a>mdtraj库安装</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a><a target="_blank" rel="noopener" href="https://www.mdtraj.org/1.9.8.dev0/installation.html">Installation</a></h3><ul>
+<li><p>官网推荐conda安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge mdtraj</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PIP安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mdtraj</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Windows环境python安装失败"><a href="#Windows环境python安装失败" class="headerlink" title="Windows环境python安装失败"></a>Windows环境python安装失败</h3><ul>
+<li><p>不想装conda，直接<code>pip install mdtraj</code>报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Looking <span class="keyword">in</span> indexes: http://pypi.douban.com/simple/</span><br><span class="line">Collecting mdtraj</span><br><span class="line">  Downloading http://pypi.doubanio.com/packages/2f/03/c174bfb6471f796472ce1d8695f6c0d1a20ad6516cb789b70052df45b7a6/mdtraj-1.9.7.tar.gz (2.1 MB)</span><br><span class="line">     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 3.7 MB/s eta 0:00:00</span><br><span class="line">  Installing build dependencies ... <span class="keyword">done</span></span><br><span class="line">  Getting requirements to build wheel ... error</span><br><span class="line">  error: subprocess-exited-with-error</span><br><span class="line"></span><br><span class="line">  × Getting requirements to build wheel did not run successfully.</span><br><span class="line">  │ <span class="built_in">exit</span> code: 1</span><br><span class="line">  ╰─&gt; [34 lines of output]</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接源码安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mdtraj/mdtraj</span><br><span class="line"><span class="built_in">cd</span> mdtraj</span><br><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>跟上面直接<code>pip</code>报同样的错误</li>
+</ul>
+</li>
+<li><p>在<code>mdtraj</code>文件夹下直接<code>python .\setup.py install</code>出现了不同的错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">cc.initialize()</span><br><span class="line">  File <span class="string">&quot;D:\softwares\Python\Python311\Lib\site-packages\setuptools\_distutils\_msvccompiler.py&quot;</span>, line 253, <span class="keyword">in</span> initialize</span><br><span class="line">    vc_env = _get_vc_env(plat_spec)</span><br><span class="line">             ^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;D:\softwares\Python\Python311\Lib\site-packages\setuptools\msvc.py&quot;</span>, line 214, <span class="keyword">in</span> msvc14_get_vc_env</span><br><span class="line">    <span class="built_in">return</span> _msvc14_get_vc_env(plat_spec)</span><br><span class="line">           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;D:\softwares\Python\Python311\Lib\site-packages\setuptools\msvc.py&quot;</span>, line 168, <span class="keyword">in</span> _msvc14_get_vc_env</span><br><span class="line">    raise distutils.errors.DistutilsPlatformError(</span><br><span class="line">distutils.errors.DistutilsPlatformError: Microsoft Visual C++ 14.0 or greater is required. Get it with <span class="string">&quot;Microsoft C++ Build Tools&quot;</span>: https://visualstudio.microsoft.com/visual-cpp-build-tools/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>看样子需要安装：<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/">Microsoft C++ Build Tools</a></li>
+</ul>
+</li>
+<li><p>下载安装 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/">Microsoft C++ Build Tools</a> 后（默认安装），再次安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python .\setup.py install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成功一部分，显示<code>Cython</code>包未安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">C compiler:</span><br><span class="line">用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.35.32217.1 版</span><br><span class="line">版权所有(C) Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">用法: cl [ 选项... ] 文件名... [ /link 链接选项... ]</span><br><span class="line">Attempting to autodetect OpenMP support... Compiler supports OpenMP</span><br><span class="line"></span><br><span class="line">mdtrajs setup depends on Cython (&gt;=0.29). Install it prior invoking setup.py</span><br><span class="line">No module named <span class="string">&#x27;Cython&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>Cython</code>包后再次安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install cython</span><br><span class="line"> python .\setup.py install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以为安装成功了，又报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">mdtraj/formats/tng/src/lib/tng_io.c(32): fatal error C1083: 无法打开包括文件: “zlib.h”: No such file or directory</span><br><span class="line">error: <span class="built_in">command</span> <span class="string">&#x27;D:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.35.32215\\bin\\HostX86\\x64\\cl.exe&#x27;</span> failed with <span class="built_in">exit</span> code 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Raink_LH/article/details/113612457">Windows下ZLib的编译（使用VS2019）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64206188/article/details/129903489">Windows中zlib的安装与配置</a></p>
+</li>
+<li><p>安装zlib：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/madler/zlib.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>安装<a target="_blank" rel="noopener" href="https://cmake.org/download/">cmake</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Raink_LH/article/details/113612457">Windows下ZLib的编译（使用VS2019）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_64206188/article/details/129903489">Windows中zlib的安装与配置</a></p>
+</li>
+</ul>
+</li>
+<li><p>不想装vs，太臃肿了，所以这里我不尝试了（有机会再试），还是用Linux版的吧</p>
+</li>
+</ul>
+<h3 id="Ubuntu环境python安装"><a href="#Ubuntu环境python安装" class="headerlink" title="Ubuntu环境python安装"></a>Ubuntu环境python安装</h3><ul>
+<li><p>PIP安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mdtraj</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Collecting mdtraj</span><br><span class="line">  Using cached mdtraj-<span class="number">1.9</span>.<span class="number">7</span>.tar.gz (<span class="number">2.1</span> MB)</span><br><span class="line">  Installing build <span class="keyword">dependencies</span> ... done</span><br><span class="line">  Getting requirements to build wheel ... done</span><br><span class="line">    Preparing wheel metadata ... done</span><br><span class="line">Requirement already satisfied: scipy in <span class="regexp">/home/</span>cup<span class="regexp">/.local/</span>lib<span class="regexp">/python3.8/</span>site-packages (<span class="keyword">from</span> mdtraj) (<span class="number">1.7</span>.<span class="number">3</span>)</span><br><span class="line">......</span><br><span class="line">Building wheels <span class="keyword">for</span> collected packages: mdtraj</span><br><span class="line">  Building wheel <span class="keyword">for</span> mdtraj (PEP <span class="number">517</span>) ... done</span><br><span class="line">  Created wheel <span class="keyword">for</span> mdtraj: filename=mdtraj-<span class="number">1.9</span>.<span class="number">7</span>-cp38-cp38-linux_x86_64.whl <span class="keyword">size</span>=<span class="number">8473679</span> sha256=<span class="number">31</span>b82b30935b14413c5d62fe126d29f8837dcc745bb46ba030902d8ba54facfc</span><br><span class="line">  Stored in directory: <span class="regexp">/home/</span>cup<span class="regexp">/.cache/</span>pip<span class="regexp">/wheels/</span><span class="number">68</span><span class="regexp">/ff/</span><span class="number">96</span>/<span class="number">5</span>d9a2efac5e5918e5c8fd799e8703e2f8b804a029bcbbd2431</span><br><span class="line">Successfully built mdtraj</span><br><span class="line">Installing collected packages: astunparse, mdtraj</span><br><span class="line">Successfully installed astunparse-<span class="number">1.6</span>.<span class="number">3</span> mdtraj-<span class="number">1.9</span>.<span class="number">7</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="mdtraj测试"><a href="#mdtraj测试" class="headerlink" title="mdtraj测试"></a>mdtraj测试</h3><ul>
+<li><p>安装测试包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mdtraj/mdtraj.git</span><br><span class="line"><span class="built_in">cd</span> mdtraj</span><br><span class="line"><span class="comment"># If using conda, make sure to have your conda environment active</span></span><br><span class="line">py.test</span><br></pre></td></tr></table></figure></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Lammps后处理" >
+    <span class="tag-code">Lammps后处理</span>
+  </a>
+
+  <a href="/tags#mdtraj" >
+    <span class="tag-code">mdtraj</span>
+  </a>
+
+  <a href="/tags#Python package" >
+    <span class="tag-code">Python package</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/04/29/softwares/lammps/VORONOI_package/">
+        <span class="nav-arrow">← </span>
+        
+          Lammps VORONOI Package安装
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=552194857&auto=1&height=66"></iframe>
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#mdtraj%E5%BA%93%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">mdtraj库安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Installation"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Installation</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows%E7%8E%AF%E5%A2%83python%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Windows环境python安装失败</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu%E7%8E%AF%E5%A2%83python%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Ubuntu环境python安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mdtraj%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">mdtraj测试</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/05/04/softwares/lammps/mdtraj/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
