@@ -7084,11 +7084,26 @@ style A fill:#ffff</pre>
 </li>
 </ul>
 <h4 id="Direct-phase-coexistence-methodology"><a href="#Direct-phase-coexistence-methodology" class="headerlink" title="Direct phase coexistence methodology"></a>Direct phase coexistence methodology</h4><ul>
-<li>In the direct phase coexistence methodology,<span style="color:red"> <strong>different phases including a solid hydrate, liquid water and gas methane are brought in contact</strong>；</span></li>
-<li>and <span style="color:red"><strong>through MD NPT simulations</strong></span>, the system is allowed to evolve to the equilibrium state that corresponds to the given condition；</li>
-<li><span style="color:red"><strong>By scanning the temperature for a given pressure, it is possible to determine the coexistence temperature.</strong></span></li>
-<li><img src="https://aipp.silverchair-cdn.com/aipp/content_public/journal/jcp/142/4/10.1063_1.4905572/3/m_044501_1_f1.jpeg?Expires=1687847271&Signature=goNE2QUyJLtAfZ6KY9Py3YEothqMUH6KTfjcxOBLyWkOyJO8CHg0qD8YqUlBercAJ4LgZhZ5RKUYVm9~wPiAmbTRnjrmRayXuYgm2gfQn0kZ3~sNqylqn1xAL9XkajdE9KgWrIjRAIUw-T2qO-yUCT8PPABWCs-gKb6MEb6wRGR7Ef2z-2GUCG62ZFfla7Wg-u2SJSHREg0474ZaKL~y9JsioveHsf8toC7J23M8fKX67jxx~55gR0iuxoKUZCo5cXTjvUHUjP5gA7Ul~AxTGx49zBv6qvzcoQBgsF~1Qd8qBR~GdtZdEke1FPfFIZPEZzdUNATOAyC0mdufFvLHPQ__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="水合物三相共存模型（a初始、b 600ns、c 1500 ns）"></li>
-<li><h2 id="具体模拟细节：-全部在NPT系综下模拟；-采用aniso各向异性进行控压，使每个方向可压缩；-timestep-x3D-2-fs、leap-frog-integrator-总模拟时间取决于压力和温度条件，通常在1000-4000-ns-cutoff-distance-x3D-1-1-nm-多次独立运行系综平均；"><a href="#具体模拟细节：-全部在NPT系综下模拟；-采用aniso各向异性进行控压，使每个方向可压缩；-timestep-x3D-2-fs、leap-frog-integrator-总模拟时间取决于压力和温度条件，通常在1000-4000-ns-cutoff-distance-x3D-1-1-nm-多次独立运行系综平均；" class="headerlink" title="具体模拟细节：- 全部在NPT系综下模拟；- 采用aniso各向异性进行控压，使每个方向可压缩；- timestep&#x3D;2 fs、leap-frog integrator;- 总模拟时间取决于压力和温度条件，通常在1000-4000 ns;- cutoff distance&#x3D;1.1 nm;- 多次独立运行系综平均；"></a>具体模拟细节：<br>- 全部在NPT系综下模拟；<br>- 采用aniso各向异性进行控压，使每个方向可压缩；<br>- timestep&#x3D;2 fs、leap-frog integrator;<br>- 总模拟时间取决于压力和温度条件，通常在1000-4000 ns;<br>- cutoff distance&#x3D;1.1 nm;<br>- 多次独立运行系综平均；</h2></li>
+<li><p>In the direct phase coexistence methodology,<span style="color:red"> <strong>different phases including a solid hydrate, liquid water and gas methane are brought in contact</strong>；</span></p>
+</li>
+<li><p>and <span style="color:red"><strong>through MD NPT simulations</strong></span>, the system is allowed to evolve to the equilibrium state that corresponds to the given condition；</p>
+</li>
+<li><p><span style="color:red"><strong>By scanning the temperature for a given pressure, it is possible to determine the coexistence temperature.</strong></span></p>
+</li>
+<li><p><img src="https://aipp.silverchair-cdn.com/aipp/content_public/journal/jcp/142/4/10.1063_1.4905572/3/m_044501_1_f1.jpeg?Expires=1687847271&Signature=goNE2QUyJLtAfZ6KY9Py3YEothqMUH6KTfjcxOBLyWkOyJO8CHg0qD8YqUlBercAJ4LgZhZ5RKUYVm9~wPiAmbTRnjrmRayXuYgm2gfQn0kZ3~sNqylqn1xAL9XkajdE9KgWrIjRAIUw-T2qO-yUCT8PPABWCs-gKb6MEb6wRGR7Ef2z-2GUCG62ZFfla7Wg-u2SJSHREg0474ZaKL~y9JsioveHsf8toC7J23M8fKX67jxx~55gR0iuxoKUZCo5cXTjvUHUjP5gA7Ul~AxTGx49zBv6qvzcoQBgsF~1Qd8qBR~GdtZdEke1FPfFIZPEZzdUNATOAyC0mdufFvLHPQ__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="水合物三相共存模型（a初始、b 600ns、c 1500 ns）"></p>
+</li>
+<li><p>具体模拟细节：</p>
+<blockquote>
+<ul>
+<li>全部在NPT系综下模拟；</li>
+<li>采用aniso各向异性进行控压，使每个方向可压缩；</li>
+<li>timestep&#x3D;2 fs、leap-frog integrator;</li>
+<li>总模拟时间取决于压力和温度条件，通常在1000-4000 ns;</li>
+<li>cutoff distance&#x3D;1.1 nm;</li>
+<li>多次独立运行系综平均；</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <h4 id="甲烷过饱和到底在自然界水合物储层常见不常见？"><a href="#甲烷过饱和到底在自然界水合物储层常见不常见？" class="headerlink" title="甲烷过饱和到底在自然界水合物储层常见不常见？"></a>甲烷过饱和到底在自然界水合物储层常见不常见？</h4><ul>
 <li><p><strong>Supersaturated conditions are not commonly encountered in nature</strong>, while on the other hand, methane concentration that corresponds to the solubility limit is believed to offer improved accuracy.</p>
