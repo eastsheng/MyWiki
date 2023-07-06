@@ -12,7 +12,7 @@
   
   <title>
     
-      C&amp;C++初级 | Eastsheng&#39;s Wiki
+      Unit Converter | Eastsheng&#39;s Wiki
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -199,8 +199,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>C&C++初级</h2>
-  <p class="post-date">2022-03-09 18:11:28</p>
+  <h2>Unit Converter</h2>
+
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -213,69 +213,159 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>[toc]</p>
-<h3 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h3><h4 id="C"><a href="#C" class="headerlink" title="C"></a>C</h4><ul>
-<li>《C程序设计语言（第二版.新版）》</li>
-<li>《明解C语言》柴田望洋编著</li>
-<li>《C程序设计》（第三版）谭浩强</li>
-</ul>
-<h4 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h4><ul>
-<li>《C++语言程序设计教程习题解答与实验指导》杨进才</li>
-<li>《Accelerated C++中文版》Andrew Koenig ,中国电力出版社</li>
-<li>《C++Primer (3RD)中文版》 ,中国电力《Essential C++中文版》 ,华中科技</li>
-<li>《Effective C++中文版》 ,华中科技</li>
-<li>《More Effective C++中文版》 ,中国电力5. </li>
-<li>《Exceptional C++中文版》 ,中国电力</li>
-<li>《More Exceptional C++中文版》 ,华中科技</li>
-</ul>
-<h3 id="推荐网站"><a href="#推荐网站" class="headerlink" title="推荐网站"></a>推荐网站</h3><ul>
-<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/">C语言中文网</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.icourse163.org/">中国大学慕课</a></li>
-</ul>
-<h3 id="VSCode配置C-amp-C-环境"><a href="#VSCode配置C-amp-C-环境" class="headerlink" title="VSCode配置C&amp;C++环境"></a>VSCode配置C&amp;C++环境</h3><ul>
-<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/8077.html">http://c.biancheng.net/view/8077.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87864677">https://zhuanlan.zhihu.com/p/87864677</a></li>
-</ul>
-<h3 id="C语言库函数速查手册"><a href="#C语言库函数速查手册" class="headerlink" title="C语言库函数速查手册"></a><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/cyykhsscsc/">C语言库函数速查手册</a></h3></section>
-    <!-- Tags and categories START -->
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#C&amp;C++" >
-    <span class="tag-code">C&amp;C++</span>
-  </a>
+    <section class="markdown-content"><script language="JavaScript">
+<!--HIDE FROM OTHER BROWSERS
 
-  <a href="/tags#C&amp;C++初级" >
-    <span class="tag-code">C&amp;C++初级</span>
-  </a>
+// JavaScript by Tom Shattuck, Dept. of Chemistry, COlby College
+// twshattu@colby.edu. Please feel free to grab this application,
+// but please leave the acknowledgements.
+//JM hacked in GHz
 
-      </div>
+//DEFINE METHODS
+function constants(conv) {
+    var numE = 9;
+          conv[0] = 1.000 ;
+// eV
+          conv[1] = 2.7211399E+01 ;
+// kJ/mol
+          conv[2] = 2.6255002E+03 ;
+// kcal/mol
+          conv[3] = conv[2]/4.184 ;
+// cm-1
+          conv[4] = 2.1947463E+05 ;
+// V
+          conv[5] = 2.6255002E+06/96484.6 ;
+// K
+          conv[6] =3.1577709E+05 ;
+// Boltzman
+          conv[7] = -conv[6] ;
+// GHz
+          conv[8] = 2.1947463E+05*29.9792458E+00 ;
+// nm-1
+          conv[9] = 2.1947463E+05*1E-07 ;
+            return numE;
+}
+
+function displayInfo(form,field) {
+// find field index
+   for (var i=0; i<=nfields; i++) {
+   if ( form.elements[i].name == field ) {
+   idx = i ;
+   break;
+     }
+}
+// find number of characters in input string for significant figure functions
+    nchars = form.elements[idx].value.length +1 ;
+
+// calculate the base energy in Hartrees
+ if ( idx != 7) {
+  energy = form.elements[idx].value/conv[idx];
+                                   } else {
+  energy = Math.log(form.elements[idx].value)*298.15/conv[idx];
+                     }
+
+// convert to other units
+for (var i=0; i<=nfields; i++) {
+   if ( i != idx ) {
+        if ( i != 7 ) {
+//         form.elements[i].value = trunc(energy*conv[i],nchars) ;
+         form.elements[i].value = energy*conv[i] ;
+                   } else {
+        form.elements[i].value = trunc(Math.exp(energy*conv[i]/298.15),4) ;
+                   } 
+     }
+   }
+   boltzman()
+}
+
+function boltzman() {
+// calculate boltzman fractions and voltage for general conditions
+      var T = document.Boltzman.T.value ;
+      var gj = document.Boltzman.gj.value ;
+      var gi = document.Boltzman.gi.value ;
+      var z= document.Boltzman.z.value ; 
+      var r = Math.exp(energy*conv[7]/T)*gj/gi ;
+      document.Boltzman.flow.value = trunc(1/(r+1)*100.0,3) ;
+         var fup = trunc(r/(r+1)*100.0,3) ;
+    if ( fup > 1e-20 ) {
+             document.Boltzman.fup.value = fup 
+                              } else {
+             document.Boltzman.fup.value = 0 }
+// Put in diagram poulations
+          var all = "-oooooooooo" ;
+          var molecules = Math.floor(r/(r+1)*10.0+0.5) ;
+            document.Boltzman.up.value = all.substring(0,molecules+1) + "-" ;
+            document.Boltzman.low.value = all.substring(0,11-molecules) + "-" ;
+// Voltage for z != 1
+      document.Boltzman.V.value = trunc(energy*conv[5]/z,nchars) ;
+}
+
+// Significant figure functions
+function ord(x) {
+   return Math.floor(Math.log(Math.abs(x+1e-35))/2.303)
+}
+// Truncate to n sign. figures
+function trunc(x,n) {
+   return Math.floor(x*Math.pow(10,-ord(x)+n-1)+.5)/Math.pow(10,-ord(x)+n-1)
+}
+
+// MAIN variable declarations
+ var energy = 0.000;
+ var nchars = 0;
+ var conv = new Array();
+ var nfields = constants(conv);
+
+// STOP HIDING FROM OTHER BROWSERS -->
+</script>
+
+<style type="text/css" id="tts-styles">[data-tts-block-id].tts-active {background: rgba(206, 225, 255, 0.9) !important;} [data-tts-sentence-id].tts-active {background: rgba(0, 89, 191, 0.7) !important;}</style></head>
+
+<body>
+<h3>Energy Units Converter</h3>
+Enter your energy value in the box with the appropriate units, then press "tab"
+or click outside of the input box.
+<p>
+</p><form name="Hartree" method="POST">
+
+<p><input type="text" name="H" value="0" onchange="displayInfo(this.form,this.name);">Hartrees<br><br><input type="text" name="eV" value="0" onchange="displayInfo(this.form,this.name);">eV<br><br><input type="text" name="kJ/mol" value="0" onchange="displayInfo(this.form,this.name);">kJ&#x2F;mol<br><br><input type="text" name="kcal/mol" value="0" onchange="displayInfo(this.form,this.name);">kcal&#x2F;mol<br><br><input type="text" name="cm-1" value="0" onchange="displayInfo(this.form,this.name);">cm<sup>-1</sup><br><br><input type="text" name="V" value="0" onchange="displayInfo(this.form,this.name);">V for 1e<sup>-</sup> transfer<br><br><input type="text" name="K" value="0" onchange="displayInfo(this.form,this.name);">K (equivalent temperature)<br><br><input type="text" name="B" value="1" onchange="displayInfo(this.form,this.name);">Boltzmann population ratio at 298.15K<br><br><input type="text" name="GHz" value="0" onchange="displayInfo(this.form,this.name);">GHz<br><br><input type="text" name="nm-1" value="0" onchange="displayInfo(this.form,this.name);">nm<sup>-1</sup></p>
+</form>
+<hr>
+<h5>Boltzmann Populations</h5>
+Change the temperature and degeneracies:
+<form name="Boltzman" method="POST">
+<table>
+<tbody><tr><td><input type="text" name="T" size="6" value="298.15" onchange="boltzman();">K</td>
+<td></td><td></td></tr>
+<tr><td>
+upper degeneracy=<input type="text" name="gj" size="2" value="1" onchange="boltzman();"></td>
+<td><input type="text" name="fup" size="7" value="50.0" onfocus="blur();">%</td>
+<td><input type="text" name="up" size="12" value="-ooooo-" onfocus="blur();"></td></tr>
+<tr><td>
+lower degeneracy=<input type="text" name="gi" size="2" value="1" onchange="boltzman();"></td>
+<td><input type="text" name="flow" size="7" value="50.0" onfocus="blur();">%</td>
+<td><input type="text" name="low" size="12" value="-ooooo-" onfocus="blur();"></td></tr>
+</tbody></table>
+<h5>Electrochemical Voltage</h5>
+Change the number of electrons transferred, z=
+<input type="text" name="z" size="2" value="1" onchange="boltzman();"><br>
+Then, V=
+<input type="text" name="V" value="0" onfocus="blur();">V<br>
+
+</form>
+
+
+
+<script id="f5_cspm">(function(){var f5_cspm={f5_p:'EIHHKPDBMGJHCFPIKELJPECEAPDEKKHPCHCMNNDNEINJPKFPGALIJPEHMIIHGGOCKDBBKFNFAAKGAOLHAJGACLBJAAFNMPCEAJPFPJNNDFMDLJEHDJOONIAEIPOCLANG',setCharAt:function(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);},get_byte:function(str,i){var s=(i/16)|0;i=(i&15);s=s*32;return((str.charCodeAt(i+16+s)-65)<<4)|(str.charCodeAt(i+s)-65);},set_byte:function(str,i,b){var s=(i/16)|0;i=(i&15);s=s*32;str=f5_cspm.setCharAt(str,(i+16+s),String.fromCharCode((b>>4)+65));str=f5_cspm.setCharAt(str,(i+s),String.fromCharCode((b&15)+65));return str;},set_latency:function(str,latency){latency=latency&0xffff;str=f5_cspm.set_byte(str,40,(latency>>8));str=f5_cspm.set_byte(str,41,(latency&0xff));str=f5_cspm.set_byte(str,35,2);return str;},wait_perf_data:function(){try{var wp=window.performance.timing;if(wp.loadEventEnd>0){var res=wp.loadEventEnd-wp.navigationStart;if(res<60001){var cookie_val=f5_cspm.set_latency(f5_cspm.f5_p,res);window.document.cookie='f5avr1434717743aaaaaaaaaaaaaaaa_cspm_='+encodeURIComponent(cookie_val)+';path=/';}
+return;}}
+catch(err){return;}
+setTimeout(f5_cspm.wait_perf_data,100);return;},go:function(){var chunk=window.document.cookie.split(/\s*;\s*/);for(var i=0;i<chunk.length;++i){var pair=chunk[i].split(/\s*=\s*/);if(pair[0]=='f5_cspm'&&pair[1]=='1234')
+{var d=new Date();d.setTime(d.getTime()-1000);window.document.cookie='f5_cspm=;expires='+d.toUTCString()+';path=/;';setTimeout(f5_cspm.wait_perf_data,100);}}}}
+f5_cspm.go();}());</script></body></section>
+    <!-- Tags START -->
     
-    <!-- Tags and categories END -->
+    <!-- Tags END -->
     <!-- NAV START -->
     
-  <div class="nav-container">
-    <!-- reverse left and right to put prev and next in a more logic postition -->
-    
-      <a class="nav-left" href="/wiki/2022/03/08/linux/Linux_command/">
-        <span class="nav-arrow">← </span>
-        
-          Linux—Command
-        
-      </a>
-    
-    
-      <a class="nav-right" href="/wiki/2022/03/14/codes/python/Anaconda/">
-        
-          Python Anaconda
-        
-        <span class="nav-arrow"> →</span>
-      </a>
-    
-  </div>
-
     <!-- NAV END -->
     <!-- 打赏 START -->
     
@@ -295,27 +385,13 @@
       <!-- Utterances END -->
     
   </article>
-  <!-- Article END -->
-  <!-- Catalog START -->
-  
-    <aside class="catalog-container">
-  <div class="toc-main">
-    
-	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1974443814&auto=1&height=66"></iframe>
-	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8E%A8%E8%8D%90%E4%B9%A6%E7%B1%8D"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">推荐书籍</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#C"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">C</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#C-1"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">C++</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8E%A8%E8%8D%90%E7%BD%91%E7%AB%99"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">推荐网站</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VSCode%E9%85%8D%E7%BD%AEC-amp-C-%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">VSCode配置C&amp;C++环境</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#C%E8%AF%AD%E8%A8%80%E5%BA%93%E5%87%BD%E6%95%B0%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">C语言库函数速查手册</span></a></li></ol>
-    
 
-  </div>
-</aside>
-  
-  <!-- Catalog END -->
 </main>
 
 <script>
   (function () {
-    var url = 'https://eastsheng.github.io/wiki/2022/03/09/codes/C&amp;C++/C&amp;C++笔记-00/';
-    var banner = ''
+    var url = 'https://eastsheng.github.io/Links/energyConverter.html';
+    var banner = './img/502681317230446.jpg'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
         'background-image': 'url(' + banner + ')'

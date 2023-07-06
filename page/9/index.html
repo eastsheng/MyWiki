@@ -354,29 +354,32 @@ GULP 执行命令：gulpoutputfile
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a>
+        <a href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Lammps Command</a>
       </h2>
       <p class="article-date">2019年1月22日</p>
       
         
-  <a href="/tags#GROMACS" >
-    <span class="tag-code">GROMACS</span>
+  <a href="/tags#Lammps" >
+    <span class="tag-code">Lammps</span>
   </a>
 
-  <a href="/tags#GROMACS入门" >
-    <span class="tag-code">GROMACS入门</span>
+  <a href="/tags#Lammps Command" >
+    <span class="tag-code">Lammps Command</span>
   </a>
 
       
       <div class="article-summary">
         
           [toc]
-GROMACS 入门GROMACS 安装
-安装：
-12345678wget https://ftp.gromacs.org/gromacs/gromacs-2023.tar.gztar -zxvf gromacs-2023.tar.gzcd gromacs-2023mkdir b ...
+neighbor 2.0 multi 
+neighbor skin style
+此命令用于设置cutoff distance;
+3种style代表不同的算法去构建list,bin nsq multi
+一般使用bin较多；
+nsq没有用过，手册上讲，在计算非周期性的盒子里的未溶解的 ...
         
       </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">Read more</a>
+      <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Read more</a>
     </article>
   
     <article class="article-card">
@@ -408,58 +411,29 @@ Similarly，接着安装MPICH2mpich2-1.4.1p1-win ...
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Lammps Command</a>
+        <a href="/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">GROMACS 入门</a>
       </h2>
       <p class="article-date">2019年1月22日</p>
       
         
-  <a href="/tags#Lammps" >
-    <span class="tag-code">Lammps</span>
+  <a href="/tags#GROMACS" >
+    <span class="tag-code">GROMACS</span>
   </a>
 
-  <a href="/tags#Lammps Command" >
-    <span class="tag-code">Lammps Command</span>
+  <a href="/tags#GROMACS入门" >
+    <span class="tag-code">GROMACS入门</span>
   </a>
 
       
       <div class="article-summary">
         
           [toc]
-neighbor 2.0 multi 
-neighbor skin style
-此命令用于设置cutoff distance;
-3种style代表不同的算法去构建list,bin nsq multi
-一般使用bin较多；
-nsq没有用过，手册上讲，在计算非周期性的盒子里的未溶解的 ...
+GROMACS 入门GROMACS 安装
+安装：
+12345678wget https://ftp.gromacs.org/gromacs/gromacs-2023.tar.gztar -zxvf gromacs-2023.tar.gzcd gromacs-2023mkdir b ...
         
       </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsCommond/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">VMD 基本操作</a>
-      </h2>
-      <p class="article-date">2019年1月22日</p>
-      
-        
-  <a href="/tags#Lammps" >
-    <span class="tag-code">Lammps</span>
-  </a>
-
-  <a href="/tags#VMD 基本操作" >
-    <span class="tag-code">VMD 基本操作</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          [toc]
-VMD使用VMD TkConsole常用命令
-设定盒子边界类命令：12345678910pbc box -style lines # 显示boxpbc box -width 2     # 改变lines宽pbc box -color white # 改变lines颜色set c ...
-        
-      </div>
-      <a class="more" href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">Read more</a>
+      <a class="more" href="/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">Read more</a>
     </article>
   
     <article class="article-card">
@@ -490,6 +464,32 @@ VMD使用VMD TkConsole常用命令
         
       </div>
       <a class="more" href="/wiki/2019/01/22/softwares/lammps/LammpsNotes/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">VMD 基本操作</a>
+      </h2>
+      <p class="article-date">2019年1月22日</p>
+      
+        
+  <a href="/tags#Lammps" >
+    <span class="tag-code">Lammps</span>
+  </a>
+
+  <a href="/tags#VMD 基本操作" >
+    <span class="tag-code">VMD 基本操作</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+VMD使用VMD TkConsole常用命令
+设定盒子边界类命令：12345678910pbc box -style lines # 显示boxpbc box -width 2     # 改变lines宽pbc box -color white # 改变lines颜色set c ...
+        
+      </div>
+      <a class="more" href="/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/">Read more</a>
     </article>
   
     <article class="article-card">
