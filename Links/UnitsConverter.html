@@ -200,7 +200,7 @@
 
     <div id="article-banner">
   <h2>Unit Converter</h2>
-  <p class="post-date">2023-07-06 18:15:11</p>
+  <p class="post-date">2023-07-08 22:35:50</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -241,7 +241,7 @@
     } else {
       to_value = from_value;
     }
-
+    
     // 转换为目标长度单位
     if (to_unit == "cm") {
       to_value *= 1e2;
@@ -295,7 +295,7 @@
     } else {
       to_tvalue = from_tvalue;
     }
-
+    
     // 转换为目标时间单位
     if (to_tunit == "ms") {
       to_tvalue *= 1e3;
@@ -314,7 +314,7 @@
     } else if (to_tunit == "day") {
       to_tvalue /= 3600*24;
     }
-
+    
     if ((to_tvalue>0.001 && to_tvalue<10000) || (to_tvalue>-10000 && to_tvalue<-1e-3)){
      document.getElementById("to_tvalue").value = to_tvalue.toFixed(12);
     }else{
@@ -343,7 +343,7 @@
     } else {
       to_tevalue = from_tevalue;
     }
-
+    
     // 转换为目标温度单位
     if (to_teunit == "°C") {
       to_tevalue -= 273.15;
@@ -354,7 +354,7 @@
     } else if (to_teunit == "°Re") {
       to_tevalue = (to_tevalue - 273.15) * 0.8;
     }
-
+    
     if ((to_tevalue>0.001 && to_tevalue<10000) || (to_tevalue>-10000 && to_tevalue<-1e-3)){
      document.getElementById("to_tevalue").value = to_tevalue.toFixed(12);
     }else{
@@ -384,7 +384,7 @@
     } else {
       to_pvalue = from_pvalue;
     }
-
+    
     // 转换为目标压力单位
     if (to_punit == "kPa") {
       to_pvalue /= 1e3;
@@ -397,14 +397,14 @@
     } else if (to_punit == "atm") {
       to_pvalue /= 101325;
     }
-
+    
     if ((to_pvalue>0.001 && to_pvalue<10000) || (to_pvalue>-10000 && to_pvalue<-1e-3)){
      document.getElementById("to_pvalue").value = to_pvalue.toFixed(12);
     }else{
     document.getElementById("to_pvalue").value = to_pvalue.toExponential(12);
     }
   }  
-  
+
 
   //能量单位
   function energyconvert() {
@@ -435,7 +435,7 @@
     } else {
       to_evalue = from_evalue;
     }
-
+    
     // 转换为目标能量单位
     if (to_eunit == "kJ") {
       to_evalue /= 1e3;
@@ -456,7 +456,7 @@
     } else if (to_eunit == "kcal/mol") {
       to_evalue *= 6.022e23/4184;
     }
-
+    
     if ((to_evalue>0.001 && to_evalue<10000) || (to_evalue>-10000 && to_evalue<-1e-3)){
      document.getElementById("to_evalue").value = to_evalue.toFixed(12);
     }else{
@@ -494,7 +494,7 @@
     } else {
       to_mvalue = from_mvalue;
     }
-
+    
     // 转换为目标质量单位
     if (to_munit == "mg") {
       to_mvalue /= 1e-3;
@@ -515,7 +515,7 @@
     } else if (to_munit == "qian") {
       to_mvalue /= 5;
     }
-
+    
     if ((to_mvalue>0.001 && to_mvalue<10000) || (to_mvalue>-10000 && to_mvalue<-1e-3)){
      document.getElementById("to_mvalue").value = to_mvalue.toFixed(12);
     }else{
@@ -523,7 +523,7 @@
     }
   }  
 
-  
+
 </script>
 
 
@@ -732,7 +732,7 @@
 <script>
   (function () {
     var url = 'https://eastsheng.github.io/Links/UnitsConverter.html';
-    var banner = './img/502681317230446.jpg'
+    var banner = 'https://cdn.pixabay.com/photo/2017/11/24/12/19/banner-2974800_1280.jpg'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
         'background-image': 'url(' + banner + ')'
