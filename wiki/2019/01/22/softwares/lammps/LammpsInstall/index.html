@@ -234,7 +234,7 @@
 <li>安装&#x2F;更新必要的C&#x2F;C++编译器等：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br><span class="line">sudo apt-get install g++</span><br><span class="line">sudo apt-get install gfortran</span><br><span class="line">sudo apt-get install make</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h4 id="2-并行计算程序MIPCH安装"><a href="#2-并行计算程序MIPCH安装" class="headerlink" title="2. 并行计算程序MIPCH安装"></a>2. 并行计算程序MIPCH安装</h4><ul>
-<li>下载<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">MPICH安装包</a> ，并解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.mpich.org/static/downloads/4.1.1/mpich-4.1.1.tar.gz</span><br><span class="line">tar -zxvf mpich-4.1.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mpich-4.1.1</span><br><span class="line">./configure --prefix=/opt/mpich 2&gt;&amp;1|<span class="built_in">tee</span> c.txt</span><br><span class="line">make 2&gt;&amp;1|<span class="built_in">tee</span> m.txt</span><br><span class="line">make install 2&gt;&amp;1|<span class="built_in">tee</span> mi.txt</span><br></pre></td></tr></table></figure></li>
+<li>官网<a target="_blank" rel="noopener" href="http://www.mpich.org/downloads/">MPICH安装包</a> ，或者<a target="_blank" rel="noopener" href="https://src.fedoraproject.org/repo/pkgs/mpich/">https://src.fedoraproject.org/repo/pkgs/mpich/</a>下载并解压:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.mpich.org/static/downloads/4.1.1/mpich-4.1.1.tar.gz</span><br><span class="line">tar -zxvf mpich-4.1.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mpich-4.1.1</span><br><span class="line">./configure --prefix=/opt/mpich 2&gt;&amp;1|<span class="built_in">tee</span> c.txt</span><br><span class="line">make 2&gt;&amp;1|<span class="built_in">tee</span> m.txt</span><br><span class="line">make install 2&gt;&amp;1|<span class="built_in">tee</span> mi.txt</span><br></pre></td></tr></table></figure></li>
 <li>完成MPICH安装，接着把mpich的安装路径添加到环境变量中，参考<a target="_blank" rel="noopener" href="https://eastsheng.cf/wiki/2022/03/08/linux/Linux_command/">这里</a></li>
 <li>输入:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> mpirun <span class="comment"># 检查mpi是否添加路径到环境变量</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -266,7 +266,7 @@
 <ul>
 <li>完成后，输入:</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make mpi -j8</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make mpi </span><br><span class="line">make mpi -j8 <span class="comment"># 8核并行</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>待编译完成后，LAMMPS就安装成功了。<blockquote>
 <ul>
@@ -283,7 +283,7 @@
 </blockquote>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1484595">参考 1</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1484595">[1]</a> <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1484595">https://cloud.tencent.com/developer/article/1484595</a></p>
 </section>
     <!-- Tags and categories START -->
     
