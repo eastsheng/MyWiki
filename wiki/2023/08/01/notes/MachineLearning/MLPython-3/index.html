@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      机器学习基础-3-深度学习 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>机器学习基础-3-深度学习</h2>
+  <p class="post-date">2023-08-01 12:18:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><ul>
+<li><code>Tensorflow</code>可以更简洁地实现模型;</li>
+<li><code>tensorflow.data</code>模块提供了有关数据处理的工具;</li>
+<li><code>tensorflow.keras.layers</code>模块定义了大量神经网络的层;</li>
+<li><code>tensorflow.initializers</code>模块定义了各种初始化方法;</li>
+<li><code>tensorflow.optimizers</code>模块提供了模型的各种优化算法。</li>
+</ul>
+<h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><ul>
+<li>将训练数据的特征<code>features</code>和标签<code>labels</code>l组合</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">dataset = tf.data.Dataset.from_tensor_slices((features, labels))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>随机读取小批量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dataset = dataset.shuffle(buffer_size=num_examples) <span class="comment"># 随机打乱数据集， buffer_size应&gt;=样本数</span></span><br><span class="line">dataset = dataset.batch(batch_size) <span class="comment"># 分成小数据集，尺寸为batch_size</span></span><br><span class="line">data_iter = <span class="built_in">iter</span>(dataset)</span><br><span class="line"><span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter: <span class="comment"># 读取</span></span><br><span class="line">    <span class="built_in">print</span>(X, y)</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><h4 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dataset.isna().<span class="built_in">sum</span>() <span class="comment"># 查看 dataset为dataframe格式</span></span><br><span class="line">dataset = dataset.dropna() <span class="comment"># 删除</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="划分数据集"><a href="#划分数据集" class="headerlink" title="划分数据集"></a>划分数据集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_dataset = dataset.sample(frac=<span class="number">0.8</span>,random_state=<span class="number">0</span>)</span><br><span class="line">test_dataset = dataset.drop(train_dataset.index)</span><br></pre></td></tr></table></figure>
+
+<h3 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h3><h4 id="自动求梯度"><a href="#自动求梯度" class="headerlink" title="自动求梯度"></a>自动求梯度</h4><ul>
+<li><p>使用tensorflow2.0提供的GradientTape来对$y&#x3D;2X^TX$自动求梯度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = tf.reshape(tf.Variable(<span class="built_in">range</span>(<span class="number">4</span>), dtype=tf.float32),(<span class="number">4</span>,<span class="number">1</span>))</span><br><span class="line"><span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> t:</span><br><span class="line">    t.watch(x) <span class="comment">#对于Variable类型的变量，一般不用加此监控</span></span><br><span class="line">    y = <span class="number">2</span> * tf.matmul(tf.transpose(x), x)</span><br><span class="line"></span><br><span class="line">    dy_dx = t.gradient(y, x)</span><br><span class="line">dy_dx</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h3><ul>
+<li><p>线性&#x2F;softmax回归都是一个单层神经网络</p>
+</li>
+<li><p>softmax是一个非线性函数，但softmax回归是一个<em>线性模型</em>（linear model）</p>
+<ul>
+<li>线性回归（全连接层）：</li>
+</ul>
+<p><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.1_linreg.svg" alt="线性回归是一个单层神经网络"></p>
+<ul>
+<li>softmax回归（全连接层）：</li>
+</ul>
+<p><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.4_softmaxreg.svg" alt="softmax"></p>
+</li>
+</ul>
+<h3 id="多层感知机（multilayer-perceptron，MLP）"><a href="#多层感知机（multilayer-perceptron，MLP）" class="headerlink" title="多层感知机（multilayer perceptron，MLP）"></a>多层感知机（multilayer perceptron，MLP）</h3><ul>
+<li><p>多层感知机就是含有至少一个隐藏层的由全连接层组成的神经网络;</p>
+</li>
+<li><p>每个隐藏层的输出通过激活函数进行变换;</p>
+</li>
+<li><p>多层感知机的层数和各隐藏层中隐藏单元个数都是超参数;</p>
+</li>
+<li><p>多层感知机在单层神经网络的基础上引入了一到多个隐藏层（hidden layer）；</p>
+</li>
+<li><p>隐藏层位于输入层和输出层之间</p>
+</li>
+<li><p><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.8_mlp.svg"></p>
+<blockquote>
+<ul>
+<li>含有一个隐藏层，该层中有5个隐藏单元；</li>
+<li>由于输入层不涉及计算，图中的多层感知机的层数为2；</li>
+<li>多层感知机中的隐藏层和输出层都是全连接层；</li>
+<li>将隐藏层的输出直接作为输出层的输入；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h3><h4 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h4><ul>
+<li>ReLU（rectified linear unit）函数提供了一个很简单的非线性变换：$ReLU(x)&#x3D;max(x,0)$，其导数：<ul>
+<li><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.8_relu_grad.png"></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tensorflow.nn提供了ReLU函数</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">y = tf.nn.relu(x)</span><br></pre></td></tr></table></figure>
+
+<h4 id="sigmoid函数"><a href="#sigmoid函数" class="headerlink" title="sigmoid函数"></a>sigmoid函数</h4><ul>
+<li><p>sigmoid函数可以将元素的值变换到0和1之间：$sigmoid(x)&#x3D;\frac {1} {1+exp(-x)}$</p>
+</li>
+<li><p>sigmoid函数在早期的神经网络中较为普遍，但它目前逐渐被更简单的ReLU函数取代;</p>
+</li>
+<li><p>sigmoid函数导数：</p>
+<ul>
+<li><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.8_sigmoid_grad.png"></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tensorflow.nn提供了sigmoid函数</span></span><br><span class="line">y = tf.nn.sigmoid(x)</span><br></pre></td></tr></table></figure>
+
+<h4 id="tanh函数"><a href="#tanh函数" class="headerlink" title="tanh函数"></a>tanh函数</h4><ul>
+<li>tanh（双曲正切）函数可以将元素的值变换到-1和1之间：$tanh(x)&#x3D;\frac {1-exp(-2x)} {1+exp(-2x)}$;</li>
+</ul>
+<h3 id="模型定义与初始化"><a href="#模型定义与初始化" class="headerlink" title="模型定义与初始化"></a>模型定义与初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> initializers <span class="keyword">as</span> init</span><br><span class="line"><span class="comment"># 使用Keras定义网络，先定义一个模型变量model（Sequential实例），Sequential实例可以看作是一个串联各个层的容器</span></span><br><span class="line">model = keras.Sequential() </span><br><span class="line"><span class="comment"># 在该容器中依次添加层，这里添加一层，代表线性回归；init随机初始化权重，偏差参数默认为0，标准差为0.01</span></span><br><span class="line">model.add(layers.Dense(<span class="number">1</span>, kernel_initializer=init.RandomNormal(stddev=<span class="number">0.01</span>)))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><ul>
+<li><p>将衡量误差的函数称为损失函数（loss function）；</p>
+</li>
+<li><p>在模型训练中，需要衡量预测值与真实值之间的误差；</p>
+</li>
+<li><p>通常会选取一个非负数作为误差，且数值越小表示误差越小；</p>
+</li>
+<li><p>$l(\mathbf{y}, \hat{\mathbf{y}}) &#x3D; - \sum_{j&#x3D;1}^q y_j \log \hat{y}_j$</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">loss = tf.keras.losses.MeanSquaredError()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>或者</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> losses</span><br><span class="line">loss = losses.MeanSquaredError()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><ul>
+<li>当模型和损失函数形式较为简单时，误差最小化问题的解可以直接用公式表达出来，这类解叫作解析解（analytical solution）；</li>
+<li>大多数深度学习模型并没有解析解，只能通过优化算法有限次迭代模型参数来尽可能降低损失函数的值，这类解叫作数值解（numerical solution）;</li>
+<li>无须自己实现小批量随机梯度下降算法;</li>
+<li><code>tensorflow.keras.optimizers</code> 模块提供了很多常用的优化算法比如<code>SGD</code>、<code>Adam</code>和<code>RMSProp</code>等</li>
+</ul>
+<h4 id="小批量随机梯度下降"><a href="#小批量随机梯度下降" class="headerlink" title="小批量随机梯度下降"></a>小批量随机梯度下降</h4><ul>
+<li>小批量随机梯度下降（mini-batch stochastic gradient descent，MSGD）在深度学习中被广泛使用。</li>
+</ul>
+<pre class="mermaid">graph TB;
+    A[随机选取模型参数初始值]-->B[多次迭代降低损失函数的值];
+    B-->C[随机均匀采样一个由固定数目训练数据样本所组成的小批量];
+    C-->B;
+    C-->D[然后求小批量中数据样本的平均损失有关模型参数的梯度]
+    D-->E[用此结果与预先设定的一个正数的乘积作为模型参数在本次迭代的减小量]</pre>
+
+<ul>
+<li>代码实现：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> optimizers</span><br><span class="line">trainer = optimizers.SGD(learning_rate=<span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>批量大小和学习率的值是人为设定的，并不是通过模型训练学出的，因此叫作超参数（hyperparameter）；</li>
+<li>通常所说的“调参”指的正是调节超参数，通过反复试错来找到超参数合适的值；</li>
+<li>在少数情况下，超参数也可以通过模型训练学出。</li>
+</ul>
+<h3 id="误差"><a href="#误差" class="headerlink" title="误差"></a>误差</h3><ul>
+<li><p><strong>训练误差（training error）</strong>：模型在训练数据集上表现出的误差；</p>
+</li>
+<li><p><strong>泛化误差（generalization error）</strong>：模型在任意一个测试数据样本上表现出的误差的期望，并常常通过测试数据集上的误差来近似；</p>
+<blockquote>
+<ul>
+<li><p>使用损失函数（如平方损失函数、交叉熵损失函数）可以计算训练误差和泛化误差；</p>
+</li>
+<li><p>由于无法从训练误差估计泛化误差，因此一味地降低训练误差并不意味着泛化误差一定会降低；</p>
+</li>
+<li><p>机器学习模型应关注降低泛化误差。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a>K折交叉验证</h3><ul>
+<li><ol>
+<li>把原始训练数据集分割成<code>K</code>个不重合的子数据集；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>做<code>K</code>次模型训练和验证；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>每次使用一个子数据集验证模型，并使用其他<code>K−1</code>个子数据集来训练模型；</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>在这<code>K</code>次训练和验证中，每次用来验证模型的子数据集都不同；</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>最后，对这K次训练误差和验证误差分别求平均。</li>
+</ol>
+</li>
+</ul>
+<h3 id="欠拟合和过拟合"><a href="#欠拟合和过拟合" class="headerlink" title="欠拟合和过拟合"></a>欠拟合和过拟合</h3><ul>
+<li><p><strong>欠拟合（underfitting）</strong>：模型无法得到较低的训练误差；</p>
+</li>
+<li><p><strong>过拟合（overfitting）</strong>：模型的训练误差远小于它在测试数据集上的误差；</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>尽可能同时应对欠拟合和过拟合</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>两个主要因素：模型复杂度和训练数据集大小</li>
+</ul>
+</blockquote>
+<h4 id="模型复杂度"><a href="#模型复杂度" class="headerlink" title="模型复杂度"></a>模型复杂度</h4><ul>
+<li><p>模型复杂度与误差的关系，以及其对欠拟合和过拟合的影响：</p>
+<p><img src="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/img/chapter03/3.11_capacity_vs_error.svg"></p>
+</li>
+<li><p>给定训练数据集，如果模型的复杂度过低，很容易出现欠拟合；</p>
+</li>
+<li><p>如果模型复杂度过高，很容易出现过拟合。</p>
+</li>
+<li><p>应对欠拟合和过拟合的一个办法是针对数据集选择合适复杂度的模型。</p>
+</li>
+</ul>
+<h4 id="训练数据集大小"><a href="#训练数据集大小" class="headerlink" title="训练数据集大小"></a>训练数据集大小</h4><ul>
+<li>一般来说，如果训练数据集中样本数过少，特别是比模型参数数量（按元素计）更少时，过拟合更容易发生。</li>
+</ul>
+<h3 id="读取和存储"><a href="#读取和存储" class="headerlink" title="读取和存储"></a>读取和存储</h3><ul>
+<li>在实际中，我们有时需要把训练好的模型部署到很多不同的设备</li>
+<li>这种情况下，我们可以把内存中训练好的模型参数存储在硬盘上供后续读取使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以直接使用save函数和load函数分别存储和读取</span></span><br><span class="line">x = tf.ones(<span class="number">3</span>)</span><br><span class="line">np.save(<span class="string">&#x27;../data/x.npy&#x27;</span>, x)</span><br><span class="line">x2 = np.load(<span class="string">&#x27;../data/x.npy&#x27;</span>)</span><br><span class="line">x2</span><br><span class="line"><span class="comment"># 还可以存储一列tensor并读回内存</span></span><br><span class="line">y = tf.zeros(<span class="number">3</span>)</span><br><span class="line">np.save(<span class="string">&#x27;../data/xy.npy&#x27;</span>,[x,y])</span><br><span class="line">x2, y2 = np.load(<span class="string">&#x27;../data/xy.npy&#x27;</span>, allow_pickle=<span class="literal">True</span>)</span><br><span class="line">(x2, y2)</span><br><span class="line"><span class="comment"># 甚至可以存储并读取一个从字符串映射到tensor的字典</span></span><br><span class="line">mydict = &#123;<span class="string">&#x27;x&#x27;</span>: x, <span class="string">&#x27;y&#x27;</span>: y&#125;</span><br><span class="line">np.save(<span class="string">&#x27;../data/mydict.npy&#x27;</span>, mydict)</span><br><span class="line">mydict2 = np.load(<span class="string">&#x27;../data/mydict.npy&#x27;</span>, allow_pickle=<span class="literal">True</span>)</span><br><span class="line">mydict2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还可以读写模型的参数</span></span><br><span class="line">X = tf.random.normal((<span class="number">2</span>,<span class="number">20</span>))</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>(tf.keras.Model):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.flatten = tf.keras.layers.Flatten()    <span class="comment"># Flatten层将除第一维（batch_size）以外的维度展平</span></span><br><span class="line">        self.dense1 = tf.keras.layers.Dense(units=<span class="number">256</span>, activation=tf.nn.relu)</span><br><span class="line">        self.dense2 = tf.keras.layers.Dense(units=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">call</span>(<span class="params">self, inputs</span>):         </span><br><span class="line">        x = self.flatten(inputs)   </span><br><span class="line">        x = self.dense1(x)    </span><br><span class="line">        output = self.dense2(x)     </span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">net = MLP()</span><br><span class="line">Y = net(X)</span><br><span class="line">Y</span><br><span class="line"><span class="comment"># 把该模型的参数存成文件</span></span><br><span class="line">net.save_weights(<span class="string">&quot;../data/4.5saved_model.h5&quot;</span>)</span><br><span class="line"><span class="comment"># 再实例化一次定义好的多层感知机</span></span><br><span class="line"><span class="comment"># 直接读取保存在文件里的参数</span></span><br><span class="line">net2 = MLP()</span><br><span class="line">net2(X)</span><br><span class="line">net2.load_weights(<span class="string">&quot;../data/4.5saved_model.h5&quot;</span>)</span><br><span class="line">Y2 = net2(X)</span><br><span class="line">Y2 == Y</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Mikoto10032/DeepLearning">Deep Learning</a></li>
+<li><a target="_blank" rel="noopener" href="https://cnbeining.github.io/deep-learning-with-python-cn/1-introduction/ch1-welcome.html">Deep Learning with Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh-v2.d2l.ai/index.html">《动手学深度学习》</a></li>
+<li><a target="_blank" rel="noopener" href="https://trickygo.github.io/Dive-into-DL-TensorFlow2.0/">《动手学深度学习》Tensorflow2实现</a></li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/MachineLP/Tensorflow-">Tensorflow-</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/Azure-Sky-L/TensorFlow-MNIST-">TensorFlow-MNIST-</a></strong></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">Deep-Learning-with-TensorFlow-book</a>:2.0</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/czy36mengfei/tensorflow2_tutorials_chinese">tensorflow2中文教程</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#机器学习" >
+    <span class="tag-code">机器学习</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/07/29/codes/python/networkx_python_package/">
+        <span class="nav-arrow">← </span>
+        
+          Networkx：强大的 Python 网络分析库使用
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36953776&auto=1&height=66"></iframe>
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">深度学习</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">读取数据</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">数据处理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">缺失值处理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%88%92%E5%88%86%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">划分数据集</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">技巧</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%87%AA%E5%8A%A8%E6%B1%82%E6%A2%AF%E5%BA%A6"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">自动求梯度</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%9E%E5%BD%92"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">回归</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%EF%BC%88multilayer-perceptron%EF%BC%8CMLP%EF%BC%89"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">多层感知机（multilayer perceptron，MLP）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">激活函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ReLU%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">ReLU函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#sigmoid%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">sigmoid函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#tanh%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.6.3.</span> <span class="toc-nav-text">tanh函数</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">模型定义与初始化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">损失函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">优化算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B0%8F%E6%89%B9%E9%87%8F%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D"><span class="toc-nav-number">1.9.1.</span> <span class="toc-nav-text">小批量随机梯度下降</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%AF%E5%B7%AE"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">误差</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#K%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">K折交叉验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AC%A0%E6%8B%9F%E5%90%88%E5%92%8C%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">欠拟合和过拟合</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-nav-number">1.12.1.</span> <span class="toc-nav-text">模型复杂度</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A4%A7%E5%B0%8F"><span class="toc-nav-number">1.12.2.</span> <span class="toc-nav-text">训练数据集大小</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E5%92%8C%E5%AD%98%E5%82%A8"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">读取和存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%99%E7%A8%8B"><span class="toc-nav-number">1.14.</span> <span class="toc-nav-text">教程</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/08/01/notes/MachineLearning/MLPython-3/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
