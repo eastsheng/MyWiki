@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      RDKit安装与使用 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>RDKit安装与使用</h2>
+  <p class="post-date">2023-09-08 10:48:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="RDKit安装"><a href="#RDKit安装" class="headerlink" title="RDKit安装"></a>RDKit安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conda install</span></span><br><span class="line">conda install -c rdkit rdkit</span><br><span class="line"><span class="comment"># pip install </span></span><br><span class="line">pip install rdkit</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取与写入"><a href="#读取与写入" class="headerlink" title="读取与写入"></a>读取与写入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> Chem</span><br><span class="line">smi=<span class="string">&#x27;C=CN1CCCC1=O&#x27;</span> <span class="comment"># PVP K90</span></span><br><span class="line">mol = Chem.MolFromSmiles(smi) <span class="comment"># 读取Smiles</span></span><br><span class="line">N = mol.GetNumAtoms() <span class="comment"># 原子个数</span></span><br><span class="line">M = mol.GetNumBonds() <span class="comment"># 共价键个数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取mol文件写smiles</span></span><br><span class="line">m = Chem.MolFromMolFile(<span class="string">&#x27;data/(C6H9NO)1.mol&#x27;</span>)</span><br><span class="line">Chem.MolToSmiles(m) <span class="comment"># &#x27;C=CN1CCCC1=O&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>获取原子对象：</p>
+<ul>
+<li><code>GetAtomMapNum</code>: map id 原子smarts形式冒号后面的数字，如[N:4], map id 就是4。</li>
+<li><code>GetAtomicNum</code>： 获取原子对应的元素编号，如碳原子的AtomicNum就是6</li>
+<li><code>GetBonds</code>: 该原子参与形成的键的列表。</li>
+<li><code>GetFormalCharge</code>: 该原子的电荷</li>
+<li><code>GetChiralTag</code>:原子的手性信息</li>
+<li><code>GetDegree</code>： 原子的度，这里的度指的是这个原子参与形成键的数目</li>
+<li><code>GetIsAromatic</code>: 判断原子是否是芳香性原子</li>
+<li><code>GetIdx</code>： 获取原子的编号</li>
+<li><code>GetNeighbors</code>： 获取相连的原子列表</li>
+<li><code>GetSmarts</code>： 获取原子的Smarts形式</li>
+<li><code>GetSymbol</code>：获取原子的元素符号</li>
+<li><code>IsInRing()</code>： 判断原子是否在环上</li>
+<li><code>IsInRingSize(n)</code>: 判断原字是否在n-元环上</li>
+</ul>
+</li>
+<li><p>获取键的信息</p>
+<ul>
+<li><code>GetBondType()</code>：获取键的类型</li>
+<li><code>GetBeginAtom()</code>: 组成键的第一个原子</li>
+<li><code>GetBeginAtomIdx()</code>： 键的第一个组成原子编号</li>
+<li><code>GetEndAtomIdx()</code>：键的第二个组成原子编号</li>
+<li><code>GetEndAtom()</code>: 组成键的第二个原子</li>
+<li><code>IsInRing()</code>: 判断是否在环上</li>
+<li><code>IsInRingSize(n)</code>：判断是否在n-元环上</li>
+</ul>
+</li>
+</ul>
+<h3 id="分子描述符"><a href="#分子描述符" class="headerlink" title="分子描述符"></a>分子描述符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 描述符生成：用于表示和表征分子特性的数值特征或属性</span></span><br><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> Descriptors</span><br><span class="line"><span class="comment"># 计算分子质量</span></span><br><span class="line">mol_weight = Descriptors.MolWt(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;分子质量 (Molecular Weight):&quot;</span>, mol_weight)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子的LogP（脂水分配系数）</span></span><br><span class="line">logp = Descriptors.MolLogP(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;LogP:&quot;</span>, logp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子的HBA（氢键受体数）</span></span><br><span class="line">hba = Descriptors.NumHAcceptors(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;氢键受体数 (HBA):&quot;</span>, hba)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子的HBD（氢键供体数）</span></span><br><span class="line">hbd = Descriptors.NumHDonors(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;氢键供体数 (HBD):&quot;</span>, hbd)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子的TPSA（极性表面积）</span></span><br><span class="line">tpsa = Descriptors.TPSA(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;极性表面积 (TPSA):&quot;</span>, tpsa)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子的价电子数目</span></span><br><span class="line">nve = Descriptors.NumValenceElectrons(mol)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;分子的价电子数目:&quot;</span>, nve)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="分子指纹"><a href="#分子指纹" class="headerlink" title="分子指纹"></a>分子指纹</h3><h4 id="Topological-Fingerprints"><a href="#Topological-Fingerprints" class="headerlink" title="Topological Fingerprints"></a>Topological Fingerprints</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Topological Fingerprints</span></span><br><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> DataStructs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取分子指纹 </span></span><br><span class="line">m1 = Chem.MolFromSmiles(<span class="string">&#x27;CCOC&#x27;</span>)</span><br><span class="line">m2 = Chem.MolFromSmiles(<span class="string">&#x27;CCO&#x27;</span>)</span><br><span class="line">fps1 = Chem.RDKFingerprint(m1) <span class="comment"># Fingerprints</span></span><br><span class="line">fps2 = Chem.RDKFingerprint(m2)</span><br><span class="line"><span class="comment"># 计算分子相似性</span></span><br><span class="line">DataStructs.FingerprintSimilarity(fps1,fps2)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="MACCS-Keys"><a href="#MACCS-Keys" class="headerlink" title="MACCS Keys"></a>MACCS Keys</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MACCS Keys</span></span><br><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> MACCSkeys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取分子指纹MACCS</span></span><br><span class="line">ms = [Chem.MolFromSmiles(<span class="string">&#x27;CCOC&#x27;</span>), Chem.MolFromSmiles(<span class="string">&#x27;CCO&#x27;</span>), Chem.MolFromSmiles(<span class="string">&#x27;COC&#x27;</span>)]</span><br><span class="line">fps = [MACCSkeys.GenMACCSKeys(x) <span class="keyword">for</span> x <span class="keyword">in</span> ms]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子相似性</span></span><br><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> DataStructs</span><br><span class="line">DataStructs.FingerprintSimilarity(fps[<span class="number">0</span>],fps[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Atom-Pairs-and-Topological-Torsions"><a href="#Atom-Pairs-and-Topological-Torsions" class="headerlink" title="Atom Pairs and Topological Torsions"></a>Atom Pairs and Topological Torsions</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Atom Pairs and Topological Torsions</span></span><br><span class="line"><span class="keyword">from</span> rdkit.Chem.AtomPairs <span class="keyword">import</span> Pairs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取分子指纹MACCS</span></span><br><span class="line">ms = [Chem.MolFromSmiles(<span class="string">&#x27;CCOC&#x27;</span>), Chem.MolFromSmiles(<span class="string">&#x27;CCO&#x27;</span>), Chem.MolFromSmiles(<span class="string">&#x27;COC&#x27;</span>)]</span><br><span class="line">pairFps = [Pairs.GetAtomPairFingerprint(x) <span class="keyword">for</span> x <span class="keyword">in</span> ms]</span><br><span class="line"><span class="comment">#pairFps = [Pairs.GetAtomPairFingerprintAsBitVect(x) for x in ms]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算分子相似性</span></span><br><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> DataStructs</span><br><span class="line">DataStructs.DiceSimilarity(pairFps[<span class="number">0</span>],pairFps[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="可视化分子"><a href="#可视化分子" class="headerlink" title="可视化分子"></a>可视化分子</h3><h4 id="显示分子中原子的编号"><a href="#显示分子中原子的编号" class="headerlink" title="显示分子中原子的编号"></a>显示分子中原子的编号</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">from</span> rdkit import Chem</span><br><span class="line">for atom in mol<span class="selector-class">.GetAtoms</span>():</span><br><span class="line">    atom.<span class="built_in">SetProp</span>(<span class="string">&#x27;atomLabel&#x27;</span>,<span class="built_in">str</span>(atom.<span class="built_in">GetIdx</span>()))</span><br><span class="line">mol</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://rdkit.chenzhaoqiang.com/_images/atomid2020-02-10_135315.271919.png"></p>
+<h4 id="多个分子按照grid显示"><a href="#多个分子按照grid显示" class="headerlink" title="多个分子按照grid显示"></a>多个分子按照grid显示</h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">from</span> <span class="variable">rdkit</span><span class="operator">.</span><span class="variable">Chem</span> <span class="variable">import</span> <span class="variable">Draw</span></span><br><span class="line"><span class="variable">from</span> <span class="variable">rdkit</span> <span class="variable">import</span> <span class="variable">Chem</span></span><br><span class="line"><span class="variable">smis</span><span class="operator">=</span><span class="punctuation">[</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">COC1</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="operator">=</span><span class="variable">CC</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">NS</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">)</span><span class="variable">C2</span><span class="operator">=</span><span class="variable">CN</span><span class="operator">=</span><span class="variable">CN3C2</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">C3</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">CC2</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">C3</span><span class="operator">=</span><span class="variable">CN</span><span class="operator">=</span><span class="variable">CN4C3</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">C4</span><span class="punctuation">)</span><span class="variable">ON</span><span class="operator">=</span><span class="variable">C2C5</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="operator">=</span><span class="variable">C5</span><span class="punctuation">)</span><span class="variable">F</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">COC</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">CC2</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">CN2C</span><span class="operator">=</span><span class="variable">N1</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">C2C</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">N</span><span class="operator">=</span><span class="variable">CN2C</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">Cl</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">O</span><span class="operator">&#x27;,</span></span><br><span class="line"><span class="punctuation">]</span></span><br><span class="line"><span class="variable">mols</span><span class="operator">=</span><span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line"><span class="variable">for</span> <span class="variable">smi</span> <span class="variable">in</span> <span class="variable">smis</span><span class="operator">:</span></span><br><span class="line">    <span class="variable">mol</span> <span class="operator">=</span> <span class="variable">Chem</span><span class="operator">.</span><span class="variable">MolFromSmiles</span><span class="punctuation">(</span><span class="variable">smi</span><span class="punctuation">)</span></span><br><span class="line">    <span class="variable">mols</span><span class="operator">.</span><span class="variable">append</span><span class="punctuation">(</span><span class="variable">mol</span><span class="punctuation">)</span></span><br><span class="line"><span class="variable">img</span><span class="operator">=</span><span class="variable">Draw</span><span class="operator">.</span><span class="variable">MolsToGridImage</span><span class="punctuation">(</span><span class="variable">mols</span><span class="operator">,</span><span class="variable">molsPerRow</span><span class="operator">=</span><span class="number">4</span><span class="operator">,</span><span class="variable">subImgSize</span><span class="operator">=</span><span class="punctuation">(</span><span class="number">200</span><span class="operator">,</span><span class="number">200</span><span class="punctuation">)</span><span class="operator">,</span><span class="variable">legends</span><span class="operator">=</span><span class="punctuation">[</span><span class="operator">&#x27;&#x27;</span> <span class="variable">for</span> <span class="variable">x</span> <span class="variable">in</span> <span class="variable">mols</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"><span class="variable">img</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://rdkit.chenzhaoqiang.com/_images/NCycle2020-02-10_092304.562537.png"></p>
+<h4 id="多个分子基于公共骨架按照grid显示"><a href="#多个分子基于公共骨架按照grid显示" class="headerlink" title="多个分子基于公共骨架按照grid显示"></a>多个分子基于公共骨架按照grid显示</h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">from</span> <span class="variable">rdkit</span><span class="operator">.</span><span class="variable">Chem</span> <span class="variable">import</span> <span class="variable">Draw</span></span><br><span class="line"><span class="variable">from</span> <span class="variable">rdkit</span> <span class="variable">import</span> <span class="variable">Chem</span></span><br><span class="line"><span class="variable">smis</span><span class="operator">=</span><span class="punctuation">[</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">COC1</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="operator">=</span><span class="variable">CC</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">NS</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">)</span><span class="variable">C2</span><span class="operator">=</span><span class="variable">CN</span><span class="operator">=</span><span class="variable">CN3C2</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">C3</span><span class="operator">&#x27;,</span></span><br><span class="line"><span class="type">#</span>     <span class="operator">&#x27;</span><span class="variable">CCN</span><span class="punctuation">(</span><span class="variable">CC1</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="operator">=</span><span class="variable">CC</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">(</span><span class="variable">F</span><span class="punctuation">)</span><span class="punctuation">(</span><span class="variable">F</span><span class="punctuation">)</span><span class="variable">F</span><span class="punctuation">)</span><span class="variable">C2</span><span class="operator">=</span><span class="variable">CC</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C3N2C</span><span class="operator">=</span><span class="variable">NC</span><span class="operator">=</span><span class="variable">C3</span><span class="punctuation">)</span><span class="variable">CC</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="variable">C4CC4</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">CC2</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">C3</span><span class="operator">=</span><span class="variable">CN</span><span class="operator">=</span><span class="variable">CN4C3</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">C4</span><span class="punctuation">)</span><span class="variable">ON</span><span class="operator">=</span><span class="variable">C2C5</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">C</span><span class="operator">=</span><span class="variable">C5</span><span class="punctuation">)</span><span class="variable">F</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">COC</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">CC2</span><span class="operator">=</span><span class="variable">CC</span><span class="operator">=</span><span class="variable">CN2C</span><span class="operator">=</span><span class="variable">N1</span><span class="operator">&#x27;,</span></span><br><span class="line">    <span class="operator">&#x27;</span><span class="variable">C1</span><span class="operator">=</span><span class="variable">C2C</span><span class="operator">=</span><span class="built_in">C</span><span class="punctuation">(</span><span class="built_in">N</span><span class="operator">=</span><span class="variable">CN2C</span><span class="punctuation">(</span><span class="operator">=</span><span class="variable">C1</span><span class="punctuation">)</span><span class="variable">Cl</span><span class="punctuation">)</span><span class="built_in">C</span><span class="punctuation">(</span><span class="operator">=</span><span class="built_in">O</span><span class="punctuation">)</span><span class="built_in">O</span><span class="operator">&#x27;,</span></span><br><span class="line"><span class="punctuation">]</span></span><br><span class="line"><span class="variable">template</span> <span class="operator">=</span> <span class="variable">Chem</span><span class="operator">.</span><span class="variable">MolFromSmiles</span><span class="punctuation">(</span><span class="operator">&#x27;</span><span class="variable">c1nccc2n1ccc2</span><span class="operator">&#x27;</span><span class="punctuation">)</span></span><br><span class="line"><span class="variable">AllChem</span><span class="operator">.</span><span class="variable">Compute2DCoords</span><span class="punctuation">(</span><span class="variable">template</span><span class="punctuation">)</span></span><br><span class="line"><span class="variable">mols</span><span class="operator">=</span><span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line"><span class="variable">for</span> <span class="variable">smi</span> <span class="variable">in</span> <span class="variable">smis</span><span class="operator">:</span></span><br><span class="line">    <span class="variable">mol</span> <span class="operator">=</span> <span class="variable">Chem</span><span class="operator">.</span><span class="variable">MolFromSmiles</span><span class="punctuation">(</span><span class="variable">smi</span><span class="punctuation">)</span></span><br><span class="line">    <span class="variable">AllChem</span><span class="operator">.</span><span class="variable">GenerateDepictionMatching2DStructure</span><span class="punctuation">(</span><span class="variable">mol</span><span class="operator">,</span><span class="variable">template</span><span class="punctuation">)</span></span><br><span class="line">    <span class="variable">mols</span><span class="operator">.</span><span class="variable">append</span><span class="punctuation">(</span><span class="variable">mol</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">img</span><span class="operator">=</span><span class="variable">Draw</span><span class="operator">.</span><span class="variable">MolsToGridImage</span><span class="punctuation">(</span><span class="variable">mols</span><span class="operator">,</span><span class="variable">molsPerRow</span><span class="operator">=</span><span class="number">4</span><span class="operator">,</span><span class="variable">subImgSize</span><span class="operator">=</span><span class="punctuation">(</span><span class="number">200</span><span class="operator">,</span><span class="number">200</span><span class="punctuation">)</span><span class="operator">,</span><span class="variable">legends</span><span class="operator">=</span><span class="punctuation">[</span><span class="operator">&#x27;&#x27;</span> <span class="variable">for</span> <span class="variable">x</span> <span class="variable">in</span> <span class="variable">mols</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"><span class="variable">img</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://rdkit.chenzhaoqiang.com/_images/grid_ori2020-02-10_101432.018988.png"></p>
+<h3 id="原子对性质的贡献可视化"><a href="#原子对性质的贡献可视化" class="headerlink" title="原子对性质的贡献可视化"></a>原子对性质的贡献可视化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit.Chem.Draw <span class="keyword">import</span> SimilarityMaps</span><br><span class="line">mol = Chem.MolFromSmiles(<span class="string">&#x27;COc1cccc2cc(C(=O)NCCCCN3CCN(c4cccc5nccnc54)CC3)oc21&#x27;</span>)</span><br><span class="line">AllChem.ComputeGasteigerCharges(mol) <span class="comment"># Gasteiger partial 电荷</span></span><br><span class="line">contribs = [<span class="built_in">float</span>(mol.GetAtomWithIdx(i).GetProp(<span class="string">&#x27;_GasteigerCharge&#x27;</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(mol.GetNumAtoms())]</span><br><span class="line">fig = SimilarityMaps.GetSimilarityMapFromWeights(mol, contribs, colorMap=<span class="string">&#x27;jet&#x27;</span>, contourLines=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="编辑分子"><a href="#编辑分子" class="headerlink" title="编辑分子"></a>编辑分子</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m = Chem.MolFromSmiles(<span class="string">&#x27;c1ccccc1&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;修改前的分子：&quot;</span>)</span><br><span class="line">display(m)</span><br><span class="line"></span><br><span class="line">m.GetAtomWithIdx(<span class="number">5</span>).SetAtomicNum(<span class="number">7</span>)</span><br><span class="line">Chem.SanitizeMol(m)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;修改后的分子：&quot;</span>)</span><br><span class="line">display(m)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/210820511249375.png"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a target="_blank" rel="noopener" href="http://rdkit.chenzhaoqiang.com/index.html"> RDKit 中文教程</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/158481225">RDKit介绍及使用</a></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/tags#RDKit" >
+    <span class="tag-code">RDKit</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/08/31/codes/python/pipenv_pyinstaller/">
+        <span class="nav-arrow">← </span>
+        
+          使用虚拟环境打包Python GUI脚本
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36953776&auto=1&height=66"></iframe>
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RDKit%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">RDKit安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E4%B8%8E%E5%86%99%E5%85%A5"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">读取与写入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%86%E5%AD%90%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">分子描述符</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%86%E5%AD%90%E6%8C%87%E7%BA%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">分子指纹</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Topological-Fingerprints"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">Topological Fingerprints</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#MACCS-Keys"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">MACCS Keys</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Atom-Pairs-and-Topological-Torsions"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">Atom Pairs and Topological Torsions</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E5%AD%90"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">可视化分子</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%98%BE%E7%A4%BA%E5%88%86%E5%AD%90%E4%B8%AD%E5%8E%9F%E5%AD%90%E7%9A%84%E7%BC%96%E5%8F%B7"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">显示分子中原子的编号</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%88%86%E5%AD%90%E6%8C%89%E7%85%A7grid%E6%98%BE%E7%A4%BA"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">多个分子按照grid显示</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%88%86%E5%AD%90%E5%9F%BA%E4%BA%8E%E5%85%AC%E5%85%B1%E9%AA%A8%E6%9E%B6%E6%8C%89%E7%85%A7grid%E6%98%BE%E7%A4%BA"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">多个分子基于公共骨架按照grid显示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%9F%E5%AD%90%E5%AF%B9%E6%80%A7%E8%B4%A8%E7%9A%84%E8%B4%A1%E7%8C%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">原子对性质的贡献可视化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BC%96%E8%BE%91%E5%88%86%E5%AD%90"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">编辑分子</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/09/08/codes/python/rdkit_skills_1/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
