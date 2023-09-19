@@ -1790,7 +1790,101 @@
 </li>
 <li><p>it would be of great concern. 这将引起极大的关注。</p>
 </li>
-<li></li>
+<li><p>and so forth </p>
+</li>
+<li><p>a variety of </p>
+</li>
+<li><p>sustainable technologies 可持续性技术</p>
+</li>
+<li><p>shed light on  阐明；使…清楚地显出</p>
+<ul>
+<li>illustrate、clarify</li>
+</ul>
+</li>
+<li><p>This may be due to the fact that there are fewer polar atoms in aromatic hydrocarbons and glial molecules</p>
+</li>
+<li><p>as corroborated by the research of Kang et al. Kang等人的研究也证实了这一点。</p>
+</li>
+</ul>
+<h4 id="tortuosity"><a href="#tortuosity" class="headerlink" title="tortuosity"></a>tortuosity</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_c.md/219525410230960.png"></li>
+</ul>
+<h4 id="Quartet-Structure-Generation-Set-method-QSGSM"><a href="#Quartet-Structure-Generation-Set-method-QSGSM" class="headerlink" title="Quartet Structure Generation Set method (QSGSM)"></a><a href="https://github.com/Jeff-Hugh/GenPorMed">Quartet Structure Generation Set method (QSGSM)</a></h4><ul>
+<li>Generate random porous media with Quartet Structure Generation Set (QSGS) method.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Jeff-Hugh/GenPorMed.git</span><br><span class="line"><span class="built_in">cd</span> GenPorMed</span><br><span class="line"><span class="comment"># install gnuplot</span></span><br><span class="line">sudo apt-get install gnuplot</span><br><span class="line"><span class="comment"># install boost</span></span><br><span class="line">wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_83_0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> boost_1_83_0</span><br><span class="line">./bootstrap.sh</span><br><span class="line">./b2</span><br><span class="line">sudo ./b2 install</span><br><span class="line"><span class="comment"># install GenPorMed</span></span><br><span class="line">vim CMakeCache.txt <span class="comment">#修改Boost_DIR路径</span></span><br><span class="line">cmake ./</span><br><span class="line">make</span><br><span class="line">./run</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="https://github.com/Jeff-Hugh/GenPorMed/raw/master/fig/porous_3D_0.5.png"></li>
+</ul>
+<h4 id="沉积物内水合物三种典型的赋存状态"><a href="#沉积物内水合物三种典型的赋存状态" class="headerlink" title="沉积物内水合物三种典型的赋存状态"></a>沉积物内水合物三种典型的赋存状态</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_c.md/293490822249385.png"></li>
+<li><blockquote>
+<p><em>Fuel 353 (2023) 129032</em></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="pnextract"><a href="#pnextract" class="headerlink" title="pnextract"></a><a href="https://github.com/ImperialCollegeLondon/pnextract">pnextract</a></h4><ul>
+<li><p>多孔介质微ct图像的孔隙网络提取</p>
+</li>
+<li><p>文献：</p>
+</li>
+<li><blockquote>
+<p><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.80.036307">Phys. Rev. E 80, 036307 (2009) - Pore-network extraction from micro-computerized-tomography images (aps.org)</a></p>
+<p><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.96.013312">Phys. Rev. E 96, 013312 (2017) - Generalized network modeling: Network extraction as a coarse-scale discretization of the void space of porous media (aps.org)</a></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Volumetric-Lattice-Boltzmann-Method-VLBM"><a href="#Volumetric-Lattice-Boltzmann-Method-VLBM" class="headerlink" title="Volumetric Lattice Boltzmann Method (VLBM)"></a>Volumetric Lattice Boltzmann Method (VLBM)</h4><ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0920410517305260#sec3">GPU-accelerated volumetric lattice Boltzmann method for porous media flow - ScienceDirect</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0017931017316496">Unified mesoscopic modeling and GPU-accelerated computational method for image-based pore-scale porous media flows - ScienceDirect</a></li>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0309170820304358">A greyscale volumetric lattice Boltzmann method for upscaling pore-scale two-phase flow - ScienceDirect</a></li>
+</ul>
+<h4 id="Thermal-fluidization-index-TFI"><a href="#Thermal-fluidization-index-TFI" class="headerlink" title="Thermal fluidization index (TFI)"></a>Thermal fluidization index (TFI)</h4><ul>
+<li><p>热流化指数(TFI)可以衡量动态过程中弱相互作用的稳定性。</p>
+</li>
+<li><p>$TFI&#x3D;\frac {std(rho)} {avg((rho))}$</p>
+<ul>
+<li><p>$avg(rho)$是整个轨迹的平均密度，$std(rho)$是整个轨迹密度的方差。</p>
+</li>
+<li><blockquote>
+<p><em>J. Am. Chem. Soc., 132 (18) (2010), pp. 6498-6506,</em></p>
+<p><em>Journal of Molecular Liquids, 2023, 370: 121008.</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Mass-Transport-Deposits-MTDs"><a href="#Mass-Transport-Deposits-MTDs" class="headerlink" title="Mass Transport Deposits (MTDs)"></a>Mass Transport Deposits (MTDs)</h4><ul>
+<li>是一种地质术语，用于描述海底沉积物的运移沉积现象。MTDs 是指大规模沉积物在海底坡度较陡的区域发生崩塌或滑动后，向下坡移动并在海底堆积形成的沉积物体。这些沉积物体通常包括岩屑、泥浆、碎屑和水合物等。</li>
+<li>MTDs 可能发生在大陆坡、河口三角洲、海底峡谷和海底扇等地形复杂的区域。这些沉积物体的形成可能是由于地震活动、重力滑坡、海底流体渗透导致沉积物流动等因素引起的。</li>
+<li>MTDs 不仅对地球科学研究有着重要意义，还对海底资源勘探和开发具有重要影响。了解和研究 MTDs 可以帮助我们理解海底地质过程、预测地质灾害风险并评估潜在的油气和矿产资源。</li>
+</ul>
+<h4 id="Bottom-Simulating-Reflector-BSR"><a href="#Bottom-Simulating-Reflector-BSR" class="headerlink" title="Bottom Simulating Reflector (BSR)"></a>Bottom Simulating Reflector (BSR)</h4><ul>
+<li>是指一种地球科学术语，用于描述海底地震勘探中的一种地质特征。</li>
+<li>简单来说，BSR 是一种在海底地形中反射声波的地层。</li>
+<li>它通常指示着在深水海底和沉积物之间存在着天然气水合物的存在。</li>
+<li>当声波遇到天然气水合物的边界时，会发生反射，形成BSR。</li>
+<li>因此，BSR 的存在可以作为检测天然气水合物存在的指标之一。这对于天然气水合物的勘探和开发具有重要意义。</li>
+</ul>
+<h4 id="热力学抑制剂浓度对水合物分解抑制的影响"><a href="#热力学抑制剂浓度对水合物分解抑制的影响" class="headerlink" title="热力学抑制剂浓度对水合物分解抑制的影响"></a>热力学抑制剂浓度对水合物分解抑制的影响</h4><p><img src="/!%5Bimg%5D(https:/ars.els-cdn.com/content/image/1-s2.0-S0009250919300892-gr7_lrg.jpg"></p>
+<ul>
+<li>实验证明低浓度热力学抑制剂，例如乙二醇（EG），会抑制水分合分解，高浓度下促进分解</li>
+</ul>
+<h4 id="水合物井筒模型"><a href="#水合物井筒模型" class="headerlink" title="水合物井筒模型:"></a>水合物井筒模型:</h4><p><img src="https://www.frontiersin.org/files/Articles/997337/feart-10-997337-HTML/image_m/feart-10-997337-g006.jpg"></p>
+<ul>
+<li>(A)单口直井、(B)双口直井、(C)径向水平井、(D)鱼骨井、(E)单口水平井、(F)双口水平井、(G)双鱼骨井、(H)双分支分支分支水平井。</li>
+</ul>
+<h4 id="LSTM-long-short-term-memory"><a href="#LSTM-long-short-term-memory" class="headerlink" title="LSTM (long short-term memory )"></a>LSTM (long short-term memory )</h4><blockquote>
+<p><em>Energy 282 (2023) 128337</em></p>
+</blockquote>
+<ul>
+<li><p>LSTM is a deep learning algorithm that is able to predict future events by learning features from historical data.</p>
+</li>
+<li><p>LSTM has been successful in language modeling, speech-totext transcription and machine translation</p>
+</li>
+<li><p>The LSTM neural network model ML model is a sequential model including head-to-tail, linear stacking model without bifurcation.</p>
+</li>
 </ul>
 <h4 id="为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面"><a href="#为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面" class="headerlink" title="为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面"></a>为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面</h4><blockquote>
 <p><em>Fuel 258 (2019) 116106</em></p>
@@ -1991,7 +2085,7 @@
     <content><![CDATA[<p>[toc]</p>
 <h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="gnuplot安装"><a href="#gnuplot安装" class="headerlink" title="gnuplot安装"></a>gnuplot安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install gnuplot</span><br></pre></td></tr></table></figure>
 
-<h4 id="boost安装"><a href="#boost安装" class="headerlink" title="boost安装"></a>boost安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_83_0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> boost_1_83_0</span><br><span class="line">./bootstrap.sh</span><br><span class="line">./b2</span><br><span class="line">sudo ./b2 install</span><br></pre></td></tr></table></figure>
+<h4 id="boost安装"><a href="#boost安装" class="headerlink" title="boost安装"></a><a href="https://www.boost.org/">boost</a>安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_83_0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> boost_1_83_0</span><br><span class="line">./bootstrap.sh</span><br><span class="line">./b2</span><br><span class="line">sudo ./b2 install</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装QSGSM"><a href="#安装QSGSM" class="headerlink" title="安装QSGSM"></a>安装<a href="https://github.com/Jeff-Hugh/GenPorMed">QSGSM</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Jeff-Hugh/GenPorMed.git</span><br><span class="line"><span class="built_in">cd</span> GenPorMed</span><br><span class="line">vim CMakeCache.txt <span class="comment"># 修改Boost_DIR路径</span></span><br><span class="line">cmake ./</span><br><span class="line">make</span><br><span class="line">./run</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># Grow completed, Porosity: 0.495288</span></span><br><span class="line"><span class="comment"># Output completed</span></span><br><span class="line"><span class="comment"># Totle Time : 8.17858s</span></span><br></pre></td></tr></table></figure>
 

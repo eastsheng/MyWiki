@@ -245,7 +245,101 @@
 </li>
 <li><p>it would be of great concern. 这将引起极大的关注。</p>
 </li>
-<li></li>
+<li><p>and so forth </p>
+</li>
+<li><p>a variety of </p>
+</li>
+<li><p>sustainable technologies 可持续性技术</p>
+</li>
+<li><p>shed light on  阐明；使…清楚地显出</p>
+<ul>
+<li>illustrate、clarify</li>
+</ul>
+</li>
+<li><p>This may be due to the fact that there are fewer polar atoms in aromatic hydrocarbons and glial molecules</p>
+</li>
+<li><p>as corroborated by the research of Kang et al. Kang等人的研究也证实了这一点。</p>
+</li>
+</ul>
+<h4 id="tortuosity"><a href="#tortuosity" class="headerlink" title="tortuosity"></a>tortuosity</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_c.md/219525410230960.png"></li>
+</ul>
+<h4 id="Quartet-Structure-Generation-Set-method-QSGSM"><a href="#Quartet-Structure-Generation-Set-method-QSGSM" class="headerlink" title="Quartet Structure Generation Set method (QSGSM)"></a><a target="_blank" rel="noopener" href="https://github.com/Jeff-Hugh/GenPorMed">Quartet Structure Generation Set method (QSGSM)</a></h4><ul>
+<li>Generate random porous media with Quartet Structure Generation Set (QSGS) method.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Jeff-Hugh/GenPorMed.git</span><br><span class="line"><span class="built_in">cd</span> GenPorMed</span><br><span class="line"><span class="comment"># install gnuplot</span></span><br><span class="line">sudo apt-get install gnuplot</span><br><span class="line"><span class="comment"># install boost</span></span><br><span class="line">wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_83_0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> boost_1_83_0</span><br><span class="line">./bootstrap.sh</span><br><span class="line">./b2</span><br><span class="line">sudo ./b2 install</span><br><span class="line"><span class="comment"># install GenPorMed</span></span><br><span class="line">vim CMakeCache.txt <span class="comment">#修改Boost_DIR路径</span></span><br><span class="line">cmake ./</span><br><span class="line">make</span><br><span class="line">./run</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="https://github.com/Jeff-Hugh/GenPorMed/raw/master/fig/porous_3D_0.5.png"></li>
+</ul>
+<h4 id="沉积物内水合物三种典型的赋存状态"><a href="#沉积物内水合物三种典型的赋存状态" class="headerlink" title="沉积物内水合物三种典型的赋存状态"></a>沉积物内水合物三种典型的赋存状态</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_c.md/293490822249385.png"></li>
+<li><blockquote>
+<p><em>Fuel 353 (2023) 129032</em></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="pnextract"><a href="#pnextract" class="headerlink" title="pnextract"></a><a target="_blank" rel="noopener" href="https://github.com/ImperialCollegeLondon/pnextract">pnextract</a></h4><ul>
+<li><p>多孔介质微ct图像的孔隙网络提取</p>
+</li>
+<li><p>文献：</p>
+</li>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.80.036307">Phys. Rev. E 80, 036307 (2009) - Pore-network extraction from micro-computerized-tomography images (aps.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.96.013312">Phys. Rev. E 96, 013312 (2017) - Generalized network modeling: Network extraction as a coarse-scale discretization of the void space of porous media (aps.org)</a></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="Volumetric-Lattice-Boltzmann-Method-VLBM"><a href="#Volumetric-Lattice-Boltzmann-Method-VLBM" class="headerlink" title="Volumetric Lattice Boltzmann Method (VLBM)"></a>Volumetric Lattice Boltzmann Method (VLBM)</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0920410517305260#sec3">GPU-accelerated volumetric lattice Boltzmann method for porous media flow - ScienceDirect</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0017931017316496">Unified mesoscopic modeling and GPU-accelerated computational method for image-based pore-scale porous media flows - ScienceDirect</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0309170820304358">A greyscale volumetric lattice Boltzmann method for upscaling pore-scale two-phase flow - ScienceDirect</a></li>
+</ul>
+<h4 id="Thermal-fluidization-index-TFI"><a href="#Thermal-fluidization-index-TFI" class="headerlink" title="Thermal fluidization index (TFI)"></a>Thermal fluidization index (TFI)</h4><ul>
+<li><p>热流化指数(TFI)可以衡量动态过程中弱相互作用的稳定性。</p>
+</li>
+<li><p>$TFI&#x3D;\frac {std(rho)} {avg((rho))}$</p>
+<ul>
+<li><p>$avg(rho)$是整个轨迹的平均密度，$std(rho)$是整个轨迹密度的方差。</p>
+</li>
+<li><blockquote>
+<p><em>J. Am. Chem. Soc., 132 (18) (2010), pp. 6498-6506,</em></p>
+<p><em>Journal of Molecular Liquids, 2023, 370: 121008.</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Mass-Transport-Deposits-MTDs"><a href="#Mass-Transport-Deposits-MTDs" class="headerlink" title="Mass Transport Deposits (MTDs)"></a>Mass Transport Deposits (MTDs)</h4><ul>
+<li>是一种地质术语，用于描述海底沉积物的运移沉积现象。MTDs 是指大规模沉积物在海底坡度较陡的区域发生崩塌或滑动后，向下坡移动并在海底堆积形成的沉积物体。这些沉积物体通常包括岩屑、泥浆、碎屑和水合物等。</li>
+<li>MTDs 可能发生在大陆坡、河口三角洲、海底峡谷和海底扇等地形复杂的区域。这些沉积物体的形成可能是由于地震活动、重力滑坡、海底流体渗透导致沉积物流动等因素引起的。</li>
+<li>MTDs 不仅对地球科学研究有着重要意义，还对海底资源勘探和开发具有重要影响。了解和研究 MTDs 可以帮助我们理解海底地质过程、预测地质灾害风险并评估潜在的油气和矿产资源。</li>
+</ul>
+<h4 id="Bottom-Simulating-Reflector-BSR"><a href="#Bottom-Simulating-Reflector-BSR" class="headerlink" title="Bottom Simulating Reflector (BSR)"></a>Bottom Simulating Reflector (BSR)</h4><ul>
+<li>是指一种地球科学术语，用于描述海底地震勘探中的一种地质特征。</li>
+<li>简单来说，BSR 是一种在海底地形中反射声波的地层。</li>
+<li>它通常指示着在深水海底和沉积物之间存在着天然气水合物的存在。</li>
+<li>当声波遇到天然气水合物的边界时，会发生反射，形成BSR。</li>
+<li>因此，BSR 的存在可以作为检测天然气水合物存在的指标之一。这对于天然气水合物的勘探和开发具有重要意义。</li>
+</ul>
+<h4 id="热力学抑制剂浓度对水合物分解抑制的影响"><a href="#热力学抑制剂浓度对水合物分解抑制的影响" class="headerlink" title="热力学抑制剂浓度对水合物分解抑制的影响"></a>热力学抑制剂浓度对水合物分解抑制的影响</h4><p><img src="/!%5Bimg%5D(https:/ars.els-cdn.com/content/image/1-s2.0-S0009250919300892-gr7_lrg.jpg"></p>
+<ul>
+<li>实验证明低浓度热力学抑制剂，例如乙二醇（EG），会抑制水分合分解，高浓度下促进分解</li>
+</ul>
+<h4 id="水合物井筒模型"><a href="#水合物井筒模型" class="headerlink" title="水合物井筒模型:"></a>水合物井筒模型:</h4><p><img src="https://www.frontiersin.org/files/Articles/997337/feart-10-997337-HTML/image_m/feart-10-997337-g006.jpg"></p>
+<ul>
+<li>(A)单口直井、(B)双口直井、(C)径向水平井、(D)鱼骨井、(E)单口水平井、(F)双口水平井、(G)双鱼骨井、(H)双分支分支分支水平井。</li>
+</ul>
+<h4 id="LSTM-long-short-term-memory"><a href="#LSTM-long-short-term-memory" class="headerlink" title="LSTM (long short-term memory )"></a>LSTM (long short-term memory )</h4><blockquote>
+<p><em>Energy 282 (2023) 128337</em></p>
+</blockquote>
+<ul>
+<li><p>LSTM is a deep learning algorithm that is able to predict future events by learning features from historical data.</p>
+</li>
+<li><p>LSTM has been successful in language modeling, speech-totext transcription and machine translation</p>
+</li>
+<li><p>The LSTM neural network model ML model is a sequential model including head-to-tail, linear stacking model without bifurcation.</p>
+</li>
 </ul>
 <h4 id="为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面"><a href="#为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面" class="headerlink" title="为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面"></a>为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面</h4><blockquote>
 <p><em>Fuel 258 (2019) 116106</em></p>
@@ -392,7 +486,7 @@
 	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36953776&auto=1&height=66"></iframe>
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2023</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2023-7%E6%9C%88-8%E6%9C%88-9%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2023-7月@8月@9月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Some-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Some phrases</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E5%90%8E%EF%BC%8C%E5%BE%88%E5%A4%9A%E7%94%B2%E7%83%B7%E5%88%86%E5%AD%90%E5%90%B8%E9%99%84%E5%9C%A8%E4%BA%86%E4%BA%B2%E6%B0%B4%E7%9A%84%E7%9F%B3%E8%8B%B1%E8%A1%A8%E9%9D%A2"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E4%B8%8E%E5%B2%A9%E7%9F%B3%E8%A1%A8%E9%9D%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E7%BC%93%E5%86%B2%E6%B0%B4"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">水合物与岩石表面之间的缓冲水</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">水合物分解的两个步骤</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%92%BB%E4%BA%95%E6%B6%B2%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">钻井液的功能</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%92%BB%E4%BA%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">水合物钻井面临的挑战</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#First-order-or-second-order-phase-transformation"><span class="toc-nav-number">1.1.7.</span> <span class="toc-nav-text">First-order or second-order phase transformation</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2023</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2023-7%E6%9C%88-8%E6%9C%88-9%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2023-7月@8月@9月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Some-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Some phrases</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#tortuosity"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">tortuosity</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Quartet-Structure-Generation-Set-method-QSGSM"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">Quartet Structure Generation Set method (QSGSM)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B2%89%E7%A7%AF%E7%89%A9%E5%86%85%E6%B0%B4%E5%90%88%E7%89%A9%E4%B8%89%E7%A7%8D%E5%85%B8%E5%9E%8B%E7%9A%84%E8%B5%8B%E5%AD%98%E7%8A%B6%E6%80%81"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">沉积物内水合物三种典型的赋存状态</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#pnextract"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">pnextract</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Volumetric-Lattice-Boltzmann-Method-VLBM"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">Volumetric Lattice Boltzmann Method (VLBM)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Thermal-fluidization-index-TFI"><span class="toc-nav-number">1.1.7.</span> <span class="toc-nav-text">Thermal fluidization index (TFI)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Mass-Transport-Deposits-MTDs"><span class="toc-nav-number">1.1.8.</span> <span class="toc-nav-text">Mass Transport Deposits (MTDs)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Bottom-Simulating-Reflector-BSR"><span class="toc-nav-number">1.1.9.</span> <span class="toc-nav-text">Bottom Simulating Reflector (BSR)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%83%AD%E5%8A%9B%E5%AD%A6%E6%8A%91%E5%88%B6%E5%89%82%E6%B5%93%E5%BA%A6%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%8A%91%E5%88%B6%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.1.10.</span> <span class="toc-nav-text">热力学抑制剂浓度对水合物分解抑制的影响</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E4%BA%95%E7%AD%92%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.1.11.</span> <span class="toc-nav-text">水合物井筒模型:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LSTM-long-short-term-memory"><span class="toc-nav-number">1.1.12.</span> <span class="toc-nav-text">LSTM (long short-term memory )</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E5%90%8E%EF%BC%8C%E5%BE%88%E5%A4%9A%E7%94%B2%E7%83%B7%E5%88%86%E5%AD%90%E5%90%B8%E9%99%84%E5%9C%A8%E4%BA%86%E4%BA%B2%E6%B0%B4%E7%9A%84%E7%9F%B3%E8%8B%B1%E8%A1%A8%E9%9D%A2"><span class="toc-nav-number">1.1.13.</span> <span class="toc-nav-text">为什么甲烷水合物分解后，很多甲烷分子吸附在了亲水的石英表面</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E4%B8%8E%E5%B2%A9%E7%9F%B3%E8%A1%A8%E9%9D%A2%E4%B9%8B%E9%97%B4%E7%9A%84%E7%BC%93%E5%86%B2%E6%B0%B4"><span class="toc-nav-number">1.1.14.</span> <span class="toc-nav-text">水合物与岩石表面之间的缓冲水</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.1.15.</span> <span class="toc-nav-text">水合物分解的两个步骤</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%92%BB%E4%BA%95%E6%B6%B2%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.1.16.</span> <span class="toc-nav-text">钻井液的功能</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%92%BB%E4%BA%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-nav-number">1.1.17.</span> <span class="toc-nav-text">水合物钻井面临的挑战</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#First-order-or-second-order-phase-transformation"><span class="toc-nav-number">1.1.18.</span> <span class="toc-nav-text">First-order or second-order phase transformation</span></a></li></ol></li></ol></li></ol>
     
 
   </div>
