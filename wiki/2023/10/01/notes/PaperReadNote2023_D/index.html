@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      论文笔记2023-冬 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文笔记2023-冬</h2>
+  <p class="post-date">2023-10-01 00:00:00</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
+<h2 id="Paper-Notes-2023"><a href="#Paper-Notes-2023" class="headerlink" title="Paper Notes 2023"></a>Paper Notes 2023</h2><h3 id="2023-10月-11月-12月"><a href="#2023-10月-11月-12月" class="headerlink" title="2023-10月@11月@12月"></a>2023-10月@11月@12月</h3><h4 id="Some-phrases"><a href="#Some-phrases" class="headerlink" title="Some phrases"></a>Some phrases</h4><ul>
+<li><p>controversial memory effect 有争议的记忆效应</p>
+</li>
+<li><p>The magnitude of the memory effect varied substantially among the sample cells used</p>
+</li>
+<li><p>There are a few outstanding scientific puzzles in the properties of gas hydrates</p>
+</li>
+<li><p>It is conservatively estimated that 据保守估计</p>
+</li>
+<li><p>Although $CH_4$ and $CO_2$ are the traditional guests found in natural systems, incorporating smaller molecules (e.g., $H_2$) is challenging due to the need to apply higher pressures to stabilize the hydrogen-bonded network</p>
+</li>
+<li><p>giving rise to void spaces or cages</p>
+</li>
+<li><p>Despite their abundance</p>
+</li>
+<li><p>hydrogen molecules can be enclathrated in the cages of hydrogen-bonded water molecules with an sII crystalline structure</p>
+</li>
+<li><p>there were two critical obstacles to be solved for a potential application of the clathrate hydrates in a hydrogenbased economy</p>
+</li>
+<li><p>we take advantage of the percolation paths 我们利用了渗透路径</p>
+</li>
+<li><p>Based on these premises, 基于这些前提，</p>
+</li>
+<li><p>Inspired by nature 受自然启发：指从自然界中汲取灵感，通常用于描述艺术、设计或创意等方面的作品。</p>
+</li>
+<li><p>Taking advantage of the nanoconfinement effects,</p>
+</li>
+<li><p>This development could be the breakthrough that will make hydrogen clathrates a viable hydrogen storage technology.</p>
+<ul>
+<li><blockquote>
+<p>This development could be the breakthrough that will make xxx a viable  xxx technology</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>the textural and morphological characteristics 纹理和形态特征</p>
+</li>
+<li><p>It is essential to highlight that 必须强调这一点</p>
+</li>
+<li><p>The INS differ depending on , INS的不同取决于,</p>
+</li>
+<li><p>above attributed unambiguously to the formation of hydrogen hydrates.</p>
+</li>
+<li><p>This contribution is present in xxx, 该贡献存在于xxx，</p>
+</li>
+<li></li>
+</ul>
+<h3 id="Inelastic-neutron-scattering"><a href="#Inelastic-neutron-scattering" class="headerlink" title="Inelastic neutron scattering"></a>Inelastic neutron scattering</h3><ul>
+<li>非弹性中子散射：一种用于研究物质结构和动力学的实验技术，通过测量中子与物质相互作用后的能量和动量变化来获取信息。<ul>
+<li><img src=https://www.researchgate.net/profile/Shuo_Chen15/publication/286590827/figure/download/fig5/AS:669993389789185@1536750280084/6-Inelastic-neutron-scattering.png width="500"></li>
+</ul>
+</li>
+</ul>
+<h3 id="质量过小会引起量子效应？"><a href="#质量过小会引起量子效应？" class="headerlink" title="质量过小会引起量子效应？"></a>质量过小会引起量子效应？</h3><ul>
+<li><p>当物体的质量足够小时，它可能会表现出量子效应，这是因为量子力学规定了微观领域中的物质行为。量子效应指的是在极小尺度下，物质的特性和行为受到量子力学的显著影响，而不再遵循经典物理学的规律。</p>
+<ul>
+<li><blockquote>
+<p><em><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT September 25 Version</a></em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="促进水合物成核"><a href="#促进水合物成核" class="headerlink" title="促进水合物成核"></a>促进水合物成核</h3><ul>
+<li><p>特别设计的<mark>活性炭</mark>材料可以通过作为纳米反应器促进$H_2$水合物的成核和生长;</p>
+</li>
+<li><p>内腔的约束效应促进了氢水合物在中等温度下的大量生长，使用纯水，具有极快的动力学和比体系统低得多的压力。</p>
+</li>
+<li><p>由于需要通过晶内非键相互作用来稳定3D氢键网络，因此水合物的形成被认为仅限于0.33-0.36nm以上的分子。</p>
+<ul>
+<li><blockquote>
+<p><em>Nature Communications | ( 2022) 13:5953</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="水合物的记忆效应"><a href="#水合物的记忆效应" class="headerlink" title="水合物的记忆效应"></a>水合物的记忆效应</h3><blockquote>
+<p><em>J. Phys. Chem. A 2015, 119, 10784−10790</em></p>
+</blockquote>
+<ul>
+<li>记忆效应指的是气体水合物分解或冰融化所得到的水更容易或更快地形成天然气水合物；</li>
+<li>记忆效应为形成具有较好再现性的天然气水合物提供了一种有效的方法，否则成核现象是高度随机的；</li>
+<li>已知当系统的热力学平衡完全建立时，记忆效应在足够高的过热温度和&#x2F;或足够长的加热时间下消失；</li>
+<li>三种假设：<ol>
+<li>在水相中存在着某种残余的水合物结构；</li>
+<li>在气体水合物分解后形成的水中，客体气体的扩散受到阻碍。这种缓慢的气体扩散导致客体气体分子在水相中过饱和；</li>
+<li>杂质或容器壁在第一次天然气水合物形成后受到某种程度的制约，因此它们成为第二次和随后的水合物形成的更有效的非均相成核位点。</li>
+</ol>
+</li>
+</ul>
+<h3 id="为什么不同的初始速度水合物分解的时间却有不同？"><a href="#为什么不同的初始速度水合物分解的时间却有不同？" class="headerlink" title="为什么不同的初始速度水合物分解的时间却有不同？"></a>为什么不同的初始速度水合物分解的时间却有不同？</h3><h4 id="水合物成核具有随机性"><a href="#水合物成核具有随机性" class="headerlink" title="水合物成核具有随机性"></a>水合物成核具有随机性</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_d.md/499660612249474.png"><ul>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1063/1.4905572">J. Chem. Phys. 142, 044501 (2015)</a>指出，五个不同运行的“正常”增长率是不相等的，正如势能的不同斜率所表明的那样，这一事实必须归因于水合物生长的随机性。</p>
+<ul>
+<li>这一事实的一个直接结果是，对于通过MD模拟计算增长率，应该在足够数量的运行中使用平均值。</li>
+<li>此外，在不同的runs之间，气泡形成的“诱导”时间是不相等的。</li>
+</ul>
+</li>
+<li><p>在实验上<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jngse.2015.03.030">Journal of Natural Gas Science and Engineering 24 (2015) 357e364</a>通过反应条件控制可以消除水合物形成的随机性：粒径较大的多孔介质可以控制诱导时间，减少诱导时间的随机性。</p>
+</li>
+<li><p>水合物的形成不受热力学定律的支配，而是相当随机的<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0016236113009459"> Fuel 117 (2014) 442–449</a></p>
+</li>
+<li><p>水合物成核的随机性随着解离温度的降低而减弱；<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.fuel.2020.120103">Fuel 291 (2021) 120103</a> 定量表征记忆效应的“量”或“强度”是困难和耗时的，因为水合物成核是一个随机过程，成核的随机性意味着需要大量的重复测量来产生统计上可用的数据，以理解记忆效应的机制；</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.fuel.2020.120103">Fuel 291 (2021) 120103</a> 在较短的离解时间间隔内，随着分解时间的延长，水合物成核的随机性降低。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.molliq.2021.117880">Journal of Molecular Liquids 344 (2021) 117880</a>氨基酸能够降低水合物成核诱导时间的随机性</p>
+</li>
+<li><p>由于水合物成核和生长受冷却速率、水史、冰粒、晶核等因素的影响，其随机性和亚稳态相对于水化分解过程更强；虽然在水合物分解过程中加热过快会产生亚稳态或异常的自我保护效应，但亚稳态通常较弱。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.ngib.2022.04.003">Thermophysical properties of natural gas hydrates: A review</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="水合物分解是否也具有随机性？"><a href="#水合物分解是否也具有随机性？" class="headerlink" title="水合物分解是否也具有随机性？"></a>水合物分解是否也具有随机性？</h4><ul>
+<li><p>水合物（Hydrates）分解也可以具有一定的随机性，具体取决于分子模拟的参数设置、初始条件以及系统本身的特性。以下是影响水合物分解随机性的一些因素：</p>
+<ol>
+<li><strong>初始条件的随机性：</strong> 分子模拟通常使用随机生成的初始速度和位置来模拟系统。因此，不同模拟运行的初始条件可以是随机的，这导致了模拟结果的随机性。</li>
+<li><strong>分子动力学噪声：</strong> 分子动力学模拟中引入了一些随机性，称为Brownian运动或热噪声，模拟粒子受到来自周围分子的随机碰撞力。这种噪声对于系统的行为和相变过程具有影响。</li>
+<li><strong>系统大小：</strong> 模拟系统的大小也会影响随机性。在小系统中，由于分子数量有限，随机性更为显著。在大系统中，随机性相对较小，因为有更多的分子相互作用来平均化随机效应。</li>
+<li><strong>温度和压力：</strong> 温度和压力对分子模拟中的随机性也有影响。较高的温度和较低的压力通常会增加分子的热运动，从而增加随机性。</li>
+<li><strong>模拟时间：</strong> 模拟时间的长度也会影响随机性。在较短的时间内，系统可能不会达到平衡状态，因此随机性可能更显著。在较长的时间模拟中，系统可能会趋于平稳，随机性逐渐减小。</li>
+</ol>
+<p>因此，水合物分解的分子模拟通常包括一些随机性元素，这使得不同模拟运行可能会产生略有不同的结果。为了获得可靠的模拟结果，通常需要进行多次独立的模拟，并对结果进行统计分析，以确定平均行为和关键趋势。这有助于减小随机性的影响，使模拟结果更具可信度。</p>
+</li>
+<li><p>水合物在现实中的分解也具有一定的随机性，但它的随机性受到多种因素的影响，包括温度、压力、水合物的化学成分、物理性质以及水合物的微观结构等。以下是影响水合物分解随机性的一些因素：</p>
+<ol>
+<li><strong>温度和压力：</strong> 温度和压力是主要影响水合物分解的因素之一。在不同的温度和压力条件下，水合物的分解速率和行为会有所不同。高温和低压通常促进水合物的分解，但分解速率和程度仍然受到温度和压力梯度的影响，这些梯度在水合物储层中可能会有一定程度的随机性。</li>
+<li><strong>水合物的化学成分：</strong> 不同类型的水合物（如甲烷水合物、二氧化碳水合物等）具有不同的分解特性。它们的分解温度和压力条件也会不同，这增加了水合物分解的随机性。</li>
+<li><strong>微观结构：</strong> 水合物的微观结构可以影响其分解特性。微观结构受到水合物形成条件的影响，而这些条件可能在不同地点或不同时间具有一定的随机性。</li>
+<li><strong>环境因素：</strong> 水合物储层的环境条件，如地下水流动、盐度变化等，也可能影响水合物的分解行为。这些环境因素的变化可以导致水合物分解的随机性。</li>
+<li><strong>地质差异：</strong> 不同地点的水合物储层地质条件各不相同，包括岩石类型、渗透率、孔隙度等。这些差异会影响水合物分解的方式和速率，从而引入了地质随机性。</li>
+</ol>
+<p>总之，水合物的分解在现实中受多种因素的影响，因此具有一定的随机性。在水合物资源勘探和开发中，需要考虑这些随机性因素，并使用数值模拟、实验研究等方法来更好地理解水合物分解的行为，以便有效地开发和利用这一资源。</p>
+</li>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT September 25 Version</a></p>
+<p>文献中，找不到关于水合物分解过程中的随机性，大都是关于水合物成核诱导时间的随机性。</p>
+</blockquote>
+</li>
+<li><p>找到一个<a target="_blank" rel="noopener" href="https://doi.org/10.1002/apj.1919">水合物分解的随机性的文献</a>，但是不是不同系综的随机性，而是水合物&#x2F;水界面处气体分子再次进入不完全笼子的随机性。</p>
+<ul>
+<li><p><img src="https://onlinelibrary.wiley.com/cms/asset/56ec7ba7-e151-47ce-8c00-24fed9928ccb/apj1919-fig-0005-m.jpg"></p>
+</li>
+<li><p><img src="https://onlinelibrary.wiley.com/cms/asset/d8516a4b-8c4b-4fc7-ba91-0df1702ffa65/apj1919-fig-0006-m.jpg"></p>
+</li>
+<li><p>理由是：通过在甲烷-水体系中进行约束分子动力学模拟，<a target="_blank" rel="noopener" href="https://doi.org/10.1039/B913898F">2009年，Guo等</a>首次成功地计算了十二面体水笼（DWC）与溶解甲烷之间的平均力势（PMF）。作为 DWC 与甲烷之间距离的函数，其特征是在∼6.2 Å处有一个深井，在∼10.2 Å处有一个浅井，两井之间在∼8.8 Å处有一个势垒。最重要的发现是，DWC 本身能强烈吸附甲烷，而且吸附作用与客体无关。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/09/18/softwares/QSGS/">
+        <span class="nav-arrow">← </span>
+        
+          QSGSM安装
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36953776&auto=1&height=66"></iframe>
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2023</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2023-10%E6%9C%88-11%E6%9C%88-12%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2023-10月@11月@12月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Some-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Some phrases</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Inelastic-neutron-scattering"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Inelastic neutron scattering</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B4%A8%E9%87%8F%E8%BF%87%E5%B0%8F%E4%BC%9A%E5%BC%95%E8%B5%B7%E9%87%8F%E5%AD%90%E6%95%88%E5%BA%94%EF%BC%9F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">质量过小会引起量子效应？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">促进水合物成核</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E8%AE%B0%E5%BF%86%E6%95%88%E5%BA%94"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">水合物的记忆效应</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%9D%E5%A7%8B%E9%80%9F%E5%BA%A6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E6%97%B6%E9%97%B4%E5%8D%B4%E6%9C%89%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">为什么不同的初始速度水合物分解的时间却有不同？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8%E5%85%B7%E6%9C%89%E9%9A%8F%E6%9C%BA%E6%80%A7"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">水合物成核具有随机性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%98%AF%E5%90%A6%E4%B9%9F%E5%85%B7%E6%9C%89%E9%9A%8F%E6%9C%BA%E6%80%A7%EF%BC%9F"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">水合物分解是否也具有随机性？</span></a></li></ol></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2023/10/01/notes/PaperReadNote2023_D/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+  </body>
+</html>
