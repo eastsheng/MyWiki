@@ -231,7 +231,7 @@
 <h3 id="教程实操"><a href="#教程实操" class="headerlink" title="教程实操"></a><a target="_blank" rel="noopener" href="https://moltwister.readthedocs.io/">教程</a>实操</h3><ul>
 <li>终端输入<code>moltwister</code>打开<code>MolTwister</code>命令行和右侧<code>3D View</code></li>
 </ul>
-<p><img src="/imgs/image-20231021141309155.png" alt="image-20231021141309155"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/209554520231062.png"></p>
 <h4 id="创建一个水分子PDB"><a href="#创建一个水分子PDB" class="headerlink" title="创建一个水分子PDB"></a>创建一个水分子PDB</h4><ul>
 <li><p>在MolTwister命令行执行以下命令：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">add</span> atom H1 at <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="attribute">add</span> atom O from atom <span class="number">0</span> dist <span class="number">0</span>.<span class="number">96</span></span><br><span class="line"><span class="attribute">add</span> atom H2 from bond <span class="number">0</span> <span class="number">1</span> angle <span class="number">104</span>.<span class="number">5</span> <span class="number">0</span>.<span class="number">0</span> dist <span class="number">0</span>.<span class="number">96</span></span><br><span class="line"><span class="attribute">genbonds</span></span><br></pre></td></tr></table></figure>
@@ -239,21 +239,21 @@
 <blockquote>
 <p>这将在(x, y, z)&#x3D;(0,0,0)处创建一个名为H1的氢原子(其中前导H产生一个氢原子)，索引为0。然后加入一个氧原子，称为O，与索引为0的原子保持0.96埃的距离。最后，在索引为0 (H1)和1 (O)的原子之间以104.5度和0.0度的二面角形成键，与O的距离为0.96埃，加入一个氢原子H2</p>
 <p>如下图：</p>
-<p><img src="/imgs/image-20231021141902148.png" alt="image-20231021141902148"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/429024520249488.png"></p>
 </blockquote>
 </li>
 <li><p>测量距离和角度，检查一切是否如我们所料</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">measure bondlength <span class="built_in">id</span> 0 1</span><br><span class="line">measure bondlength <span class="built_in">id</span> 1 </span><br><span class="line">measure angle <span class="built_in">id</span> 0 1 2</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><img src="/imgs/image-20231021142040845.png" alt="image-20231021142040845"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/37854620237355.png"></p>
 </blockquote>
 </li>
 <li><p>measure工具还可以测量没有相连的两个原子之间距离：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">measure bondlength <span class="built_in">id</span> 0 2</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><img src="/imgs/image-20231021142227114.png" alt="image-20231021142227114"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/272344620257521.png"></p>
 </blockquote>
 </li>
 <li><p>要创建PDB文件内容，可以这样写:</p>
@@ -265,7 +265,7 @@
 
 <blockquote>
 <p>这将把PDB文件加载到MolTwister中，选择水分子的所有原子，然后在x, y和z方向上复制该选择10次，每个方向上的距离为3埃。最后，自动缩放用于放大整个系统，然后为每个水分子创建键。</p>
-<p><img src="/imgs/image-20231021142920412.png" alt="image-20231021142920412"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/430244620250190.png"></p>
 </blockquote>
 </li>
 </ul>
@@ -289,7 +289,7 @@
 <figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">load</span> gen_cube.py</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><img src="/imgs/image-20231021143540933.png" alt="image-20231021143540933"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/15574720246745.png"></p>
 </blockquote>
 </li>
 </ul>
@@ -341,7 +341,7 @@
 
 <blockquote>
 <p>运行脚本画出LJ势能图：</p>
-<p><img src="/imgs/Figure_1.png" alt="Figure_1"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/189254720242499.png"></p>
 </blockquote>
 </li>
 </ul>
@@ -366,14 +366,14 @@
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sel <span class="built_in">none</span></span><br><span class="line">sel atomname Ow</span><br><span class="line">measure <span class="built_in">count</span> sel</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><img src="/imgs/image-20231021150523768.png" alt="image-20231021150523768"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/368174720260379.png"></p>
 </blockquote>
 </li>
 <li><p>MD模拟器只接受几何中心位于原点的系统。因此，我们需要通过调用将系统替换到这个位置</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mod</span> atompos <span class="literal">all</span> geomcent <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="attribute">autoscale</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><img src="/imgs/image-20231021150613544.png" alt="image-20231021150613544"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/508434720257983.png"></p>
 </blockquote>
 </li>
 <li><p>现在将系统保存到PDB文件中</p>
@@ -420,7 +420,7 @@
 
 <blockquote>
 <p>我们可以看到优化过程的能量图:</p>
-<p><img src="/imgs/Figure_2.png"></p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/figs.md/80374820255485.png"></p>
 </blockquote>
 </li>
 <li><p>如果对结果感到满意，可以将优化过程的最后一帧导出到PDB文件。首先加载轨迹</p>
