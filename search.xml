@@ -131,7 +131,7 @@
 </ul>
 <h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
 <li><p>查看当前的内存使用情况</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free</span><br><span class="line"><span class="comment">### output</span></span><br><span class="line">              total        used        free      shared  buff/cache   available</span><br><span class="line">Mem:       12567412      129624    12013836          72      423952    12137032</span><br><span class="line">Swap:       4194304           0     4194304</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free</span><br><span class="line">free -m |grep <span class="string">&quot;Mem&quot;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>连续监视内存使用情况</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">watch -d free <span class="comment"># 使用 Ctrl + c 退出</span></span><br></pre></td></tr></table></figure></li>
@@ -232,14 +232,33 @@
 <li>关闭自动开启base:<code>conda config --set auto_activate_base false</code></li>
 </ul>
 <h3 id="Linux查看cpu信息"><a href="#Linux查看cpu信息" class="headerlink" title="Linux查看cpu信息"></a>Linux查看cpu信息</h3><ul>
-<li>Linux查看cpu总数，在top后的界面按1，</li>
+<li>查看内核：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看Ubuntu版本，三种：</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cat <span class="regexp">/etc/i</span>ssue</span><br><span class="line">cat <span class="regexp">/etc/</span>lsb-release</span><br><span class="line">lsb_release -dsc</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>Linux</code>查看<code>cpu</code>总数，在<code>top</code>后的界面按1，</li>
 <li>或者：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cpuinfo | grep processor</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/cpuinfo</span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo | grep processor</span><br></pre></td></tr></table></figure>
 <ul>
 <li>查看进程绝对路径</li>
 </ul>
 <figure class="highlight coq"><table><tr><td class="code"><pre><span class="line"><span class="built_in">top</span> c</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示硬件信息：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo lshw</span><br></pre></td></tr></table></figure>
+
+
 
 <h3 id="在linux启动和终止matlab"><a href="#在linux启动和终止matlab" class="headerlink" title="在linux启动和终止matlab"></a>在linux启动和终止matlab</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">matlab -nodesktop -nosplash -r matlabfile(parameters)</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
 
@@ -281,7 +300,17 @@
 <h3 id="查看文件时间"><a href="#查看文件时间" class="headerlink" title="查看文件时间"></a>查看文件时间</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ll -h</span><br></pre></td></tr></table></figure>
 <h3 id="git-clone分支"><a href="#git-clone分支" class="headerlink" title="git clone分支"></a>git clone分支</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git clone -branch branch name --single-branch repo_url /foldername</span></span><br><span class="line">git <span class="built_in">clone</span> -b gh-pages --single-branch https://github.com/eastsheng</span><br><span class="line">/MyWikiSite.git wwwroot</span><br></pre></td></tr></table></figure>
 
-<h3 id="显示日历"><a href="#显示日历" class="headerlink" title="显示日历"></a>显示日历</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cal <span class="comment"># 显示当月日历</span></span><br><span class="line">cal 11 2022 <span class="comment"># 显示2007年2月的日历</span></span><br></pre></td></tr></table></figure>
+<h3 id="显示日历-x2F-时间"><a href="#显示日历-x2F-时间" class="headerlink" title="显示日历&#x2F;时间"></a>显示日历&#x2F;时间</h3><ul>
+<li>显示日历</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cal <span class="comment"># 显示当月日历</span></span><br><span class="line">cal 11 2022 <span class="comment"># 显示2007年2月的日历</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显示系统运行时间</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">uptime</span></span><br></pre></td></tr></table></figure>
+
+
 
 <h3 id="Ubuntu安装无线网卡驱动"><a href="#Ubuntu安装无线网卡驱动" class="headerlink" title="Ubuntu安装无线网卡驱动"></a>Ubuntu安装无线网卡驱动</h3><ul>
 <li><p>查看Ubuntu网卡型号</p>
@@ -6741,6 +6770,22 @@ style A fill:#ffff</pre>
 
 
 
+<h2 id="Enhanced-Monte-Carlo-EMC-建模"><a href="#Enhanced-Monte-Carlo-EMC-建模" class="headerlink" title="Enhanced Monte Carlo (EMC)建模"></a><a href="https://montecarlo.sourceforge.net/emc/Welcome.html">Enhanced Monte Carlo (EMC)</a>建模</h2><h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a><a href="https://montecarlo.sourceforge.net/emc/Download.html">下载</a>安装</h3><ul>
+<li><p>跨平台、无需安装；</p>
+</li>
+<li><p>下载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Linux x86</span></span><br><span class="line">wget http://sourceforge.net/projects/montecarlo/files/emc_linux_x86_64_v9.4.4_20230801.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加环境变量<code>sudo vim ~/.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/home/xxx/softwares/build_model/emc/v9.4.4:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/home/xxx/softwares/build_model/emc/v9.4.4/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/home/xxx/softwares/build_model/emc/v9.4.4/scripts:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h3><ul>
+<li><p>运行例子：</p>
+<blockquote>
+<p>v9.4.4&#x2F;examples&#x2F;setup&#x2F;chemistry&#x2F;polymer&#x2F;copolymer&#x2F;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">emc_setup.pl polymer.esh <span class="comment"># 生成build.emc和polymer.in</span></span><br><span class="line">emc_linux_x86_64 build.emc <span class="comment"># 生成lammps data</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 <h2 id="Atomsk-晶体构建"><a href="#Atomsk-晶体构建" class="headerlink" title="Atomsk 晶体构建"></a><a href="https://atomsk.univ-lille.fr/index.php">Atomsk</a> 晶体构建</h2><ul>
 <li>构建一个金属界面系统:</li>
 </ul>
