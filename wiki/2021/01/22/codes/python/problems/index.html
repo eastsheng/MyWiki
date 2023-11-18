@@ -365,7 +365,6 @@
   
     <aside class="catalog-container">
   <div class="toc-main">
-	  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=36953776&auto=1&height=66"></iframe>
 	
 	  <strong class="toc-title">Catalog</strong>
       <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%EF%BC%9Asubprocess-exited-with-error"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">报错信息：subprocess-exited-with-error</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows%E4%B8%8B-quot-MINGW64-quot-%E4%B8%AD%E8%BF%90%E8%A1%8Cpython%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Windows下&quot;MINGW64&quot;中运行python没反应</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FileNotFoundError-Could-not-find-module"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">FileNotFoundError: Could not find module</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Centos-7%E5%AE%89%E8%A3%85python3"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Centos 7安装python3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#StopIteration"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">StopIteration</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#overflow-encountered"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">overflow encountered</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#unindent-does-not-match-any-outer-indentation-level"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">unindent does not match any outer indentation level</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85conda%E6%8A%A5%E9%94%99"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">安装conda报错</span></a></li></ol>
@@ -438,11 +437,36 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
     <br>
     Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
     
   </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
 </footer>
 
 <script>
@@ -487,5 +511,7 @@
 <script src="/js/script.js"></script>
 
 
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="1" lr="l" m="1"></script>
   </body>
 </html>

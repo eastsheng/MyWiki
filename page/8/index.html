@@ -224,7 +224,7 @@
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/wiki/2021/06/28/codes/markdown/basics/">Markdown Tutorial</a>
+        <a href="/wiki/2021/06/28/codes/matlab/matlab-1/">Matlab Tutorial-1</a>
       </h2>
       <p class="article-date">2021年6月28日</p>
       
@@ -233,27 +233,23 @@
     <span class="tag-code">Tutorial</span>
   </a>
 
-  <a href="/tags#Markdown" >
-    <span class="tag-code">Markdown</span>
+  <a href="/tags#Matlab" >
+    <span class="tag-code">Matlab</span>
   </a>
 
       
       <div class="article-summary">
         
           [toc]
-流程图graph LR
-A[直接法]==>B(高斯Gauss消元)
-A==>C(矩阵分解)
-B==>D(有限次运算求出精确解)
-C==>D(有限次运算求出精确解)
-style A fill:#ffff
+基本常用代码MATLAB
+fopen &amp; fgetl &amp; fclose
+打开文件 tsunamis.txt 并获取文件标识符。
+1fileID = fopen(&#x27;tsunamis.txt&#x27;);
 
-graph TD
-    A[稠油]-->B[吸附];
-    A-->C[ ...
+将 fileID 传递给 fgetl 函数以从文 ...
         
       </div>
-      <a class="more" href="/wiki/2021/06/28/codes/markdown/basics/">Read more</a>
+      <a class="more" href="/wiki/2021/06/28/codes/matlab/matlab-1/">Read more</a>
     </article>
   
     <article class="article-card">
@@ -548,11 +544,36 @@ pip install 时报错信息：
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2023 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
     <br>
     Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
     
   </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
 </footer>
 
 <script>
@@ -597,5 +618,7 @@ pip install 时报错信息：
 <script src="/js/script.js"></script>
 
 
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="1" lr="l" m="1"></script>
   </body>
 </html>
