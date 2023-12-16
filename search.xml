@@ -7243,6 +7243,22 @@ style A fill:#ffff</pre>
 <li><code>File&gt;&gt;Render...&gt;&gt;Tachyon</code></li>
 <li><code>Figure.bat</code>文件内内容：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;..\VMD\tachyon_WIN32.exe&quot;</span> vmdscene.dat -aasamples 100 -mediumshade -trans_vmd -res 1024 742 -format BMP -o Figure.bmp</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h3 id="输出透明图片"><a href="#输出透明图片" class="headerlink" title="输出透明图片"></a>输出透明图片</h3><ul>
+<li><p>安装<a href="http://www.povray.org/download/">POV-Ray</a></p>
+</li>
+<li><p>linux: <a href="http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Old-Versions/Official-3.62/Linux/povlinux-3.6.tgz">POV-Ray</a></p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312170028602.png" alt="image-20231217002804420"></p>
+</li>
+<li><p>windows:</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">pvengine64 vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>linux:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">povray vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>如果出来背景还不是透明的， 把display里 depth cueing 取消选择。</p>
+</blockquote>
 <h3 id="输出Video"><a href="#输出Video" class="headerlink" title="输出Video"></a>输出Video</h3><ul>
 <li>输出帧图片：<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Extensions&gt;&gt;Visualizations&gt;&gt;Movie </span>Maker</span><br></pre></td></tr></table></figure></li>
 <li>组合图片成视频</li>
