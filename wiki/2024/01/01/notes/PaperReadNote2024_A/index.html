@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      论文笔记2024-A | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文笔记2024-A</h2>
+  <p class="post-date">2024-01-01 00:00:00</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
+<h2 id="Paper-Notes-2024"><a href="#Paper-Notes-2024" class="headerlink" title="Paper Notes 2024"></a>Paper Notes 2024</h2><h3 id="2024-1月-2月-3月"><a href="#2024-1月-2月-3月" class="headerlink" title="2024-1月@2月@3月"></a>2024-1月@2月@3月</h3><h4 id="English-phrases"><a href="#English-phrases" class="headerlink" title="English phrases"></a>English phrases</h4><p>- </p>
+<h3 id="不同抑制剂优缺点"><a href="#不同抑制剂优缺点" class="headerlink" title="不同抑制剂优缺点"></a>不同抑制剂优缺点</h3><blockquote>
+<p>Chemical Engineering Journal 481 (2024) 148387</p>
+</blockquote>
+<ul>
+<li><p>PVCap可以吸附在水合物表面，但是不稳定；</p>
+</li>
+<li><p>聚合物、离子液体不是很环保，生物降解性小于30%，</p>
+</li>
+<li><p>聚合物、离子液体在高度过冷时，它们失去了抑制效果</p>
+<blockquote>
+<p>水合物分解抑制剂应该不会在高过冷环境吧？因为需要分解抑制剂的环境应该是水合物相平衡条件以外了。</p>
+</blockquote>
+</li>
+<li><p>抗凝聚剂：尽管不会抑制水合物形成，但是会包裹水合物颗粒，防止水合物聚集；能够在高过冷条件下发挥作用。</p>
+<ul>
+<li>防止聚集原因：能够吸附在水合物表面；能够改变水合物表面的形态、润湿性以及颗粒间相互作用；</li>
+</ul>
+</li>
+<li><p>有研究表明表面活性能够使水合物表面从水湿变油湿，防止水合物颗粒间黏附</p>
+</li>
+</ul>
+<h3 id="为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？"><a href="#为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？" class="headerlink" title="为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？"></a>为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？</h3><h4 id="RMSD"><a href="#RMSD" class="headerlink" title="RMSD"></a>RMSD</h4><ul>
+<li><p>RMSD（Root Mean Square Deviation）是一种用于比较两个结构（通常是蛋白质、分子等）之间的相似性的指标。它衡量的是两个结构中相应原子之间的平均距离。RMSD 是结构生物学和计算化学中常用的指标之一，通常用于分析模拟过程中的结构变化或比较实验结构与计算结构之间的差异。</p>
+</li>
+<li><p>RMSD 的计算步骤如下：</p>
+<ul>
+<li>对两个结构中的每个原子，计算它们的坐标之差（偏移量）。</li>
+<li>将每个偏移量的平方相加，得到总的平方偏移量。</li>
+<li>将总的平方偏移量除以原子数目，得到均方偏移量。</li>
+<li>取均方偏移量的平方根，即 RMSD。</li>
+</ul>
+</li>
+<li><p>RMSD 的公式表示为：</p>
+<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202401122144065.png" alt="image-20240112214430000"></li>
+</ul>
+</li>
+<li><p>RMSD 的值越小，表示两个结构越相似。在分子动力学模拟等领域，RMSD 被广泛用于评估模拟轨迹中的结构演变，以及比较模拟结果与实验结构之间的一致性。</p>
+</li>
+</ul>
+<h4 id="MSD"><a href="#MSD" class="headerlink" title="MSD"></a>MSD</h4><ul>
+<li><p>MSD，或均方位移（Mean Squared Displacement），是一种用于描述粒子在空间中运动轨迹的统计量。它量化了粒子相对于其初始位置的平均位移的平方随时间的演变。</p>
+</li>
+<li><p>在计算 MSD 时，通常考虑的是粒子在不同时间点的位置。公式如下：</p>
+<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202401122146361.png" alt="image-20240112214654330"></li>
+</ul>
+</li>
+<li><p>MSD 是研究粒子扩散、运动性质和空间漫步的重要工具。通过分析 MSD 随时间的变化，可以得知粒子的扩散性质，例如是否存在受限制的运动、扩散的速率等信息。在生物学、物理学、材料科学和化学等领域，MSD 的分析在理解微观粒子行为和材料性质方面具有广泛的应用。</p>
+</li>
+</ul>
+<h4 id="RMSD和MSD的区别"><a href="#RMSD和MSD的区别" class="headerlink" title="RMSD和MSD的区别"></a>RMSD和MSD的区别</h4><ul>
+<li>RMSD侧重于比较结构的相似性，而MSD侧重于揭示颗粒在空间中的运动特性。它们在不同领域和应用中有各自的意义。</li>
+</ul>
+<h4 id="为什么VMD获得的RMSD是弯曲的？"><a href="#为什么VMD获得的RMSD是弯曲的？" class="headerlink" title="为什么VMD获得的RMSD是弯曲的？"></a>为什么VMD获得的RMSD是弯曲的？</h4><ul>
+<li>因为VMD中的MSD没有进行时间段的平均；</li>
+<li>并且VMD中计算的RMSD平方不等于MSD；</li>
+</ul>
+<h3 id="如何获得线性比较好的MSD"><a href="#如何获得线性比较好的MSD" class="headerlink" title="如何获得线性比较好的MSD"></a>如何获得线性比较好的MSD</h3><ul>
+<li>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45896923/article/details/123018032">5种方法计算均方位移MSD</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/wiki/2023/10/21/softwares/MolTwister/">
+        <span class="nav-arrow">← </span>
+        
+          MolTwister安装与使用
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2024-1%E6%9C%88-2%E6%9C%88-3%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-1月@2月@3月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#English-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">English phrases</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%8A%91%E5%88%B6%E5%89%82%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">不同抑制剂优缺点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F%E5%99%AA%E9%9F%B3%E5%BE%88%E5%A4%A7%EF%BC%8C%E5%85%B6%E5%B9%B3%E5%9D%87%E4%B8%8D%E7%AD%89%E4%BA%8EMSD%EF%BC%9F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">RMSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#MSD"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">MSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD%E5%92%8CMSD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">RMSD和MSD的区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E7%BA%BF%E6%80%A7%E6%AF%94%E8%BE%83%E5%A5%BD%E7%9A%84MSD"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">如何获得线性比较好的MSD</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/wiki/2024/01/01/notes/PaperReadNote2024_A/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
