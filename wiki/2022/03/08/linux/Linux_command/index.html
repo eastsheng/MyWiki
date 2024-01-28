@@ -304,10 +304,12 @@
 <h3 id="解压-x2F-压缩"><a href="#解压-x2F-压缩" class="headerlink" title="解压&#x2F;压缩"></a>解压&#x2F;压缩</h3><ul>
 <li><p>解压&#x2F;压缩<code>filename.tar.gz</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf filename.tar.gz <span class="comment"># 解压</span></span><br><span class="line">tar -zcvf xxx.tar.gz aaa bbb <span class="comment"># 压缩 aaa bbb目录为xxx.tar.gz </span></span><br><span class="line">tar -jcvf xxx.tar.bz2 aaa bbb <span class="comment"># 压缩 aaa bbb目录为xxx.tar.bz2</span></span><br></pre></td></tr></table></figure>
-
 </li>
-<li><p>解压<code>&quot;.zip&quot;</code>：<code>unzip filename.zip</code>;</p>
+<li><p>解压&#x2F;压缩<code>&quot;filename.zip&quot;</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip <span class="comment"># 解压缩</span></span><br><span class="line">unzip filename.zip -d filefolder <span class="comment"># 解压到指定文件夹filefolder</span></span><br><span class="line">zip -r filename.zip /home/xxx/filename <span class="comment"># 将 /home/xxx/filename目录文件夹压缩为filename.zip</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
+<li><p>解压part1.rar、part2.rar、part3.rar等：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rar e filename.part1.rar <span class="comment"># 解压到当前文件夹</span></span><br><span class="line">unrar x  filename.rar  filefolder <span class="comment"># 解压到指定文件夹</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><ul>
 <li>开启root：<code>su</code></li>
