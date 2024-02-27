@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文复现-机器学习预测甲烷水合物平衡条件 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文复现-机器学习预测甲烷水合物平衡条件</h2>
+  <p class="post-date">2024-02-26 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="论文简介"><a href="#论文简介" class="headerlink" title="论文简介"></a>论文简介</h3><blockquote>
+<p><em>Renewable and Sustainable Energy Reviews 173 (2023) 113103</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th align="center"><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.rser.2022.113103">A reliable model to predict the methane-hydrate equilibrium: An updated database and machine learning approach</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://ars.els-cdn.com/content/image/1-s2.0-S1364032122009844-mmc1.xlsx">The database includes 987 data samples for pure water, 15 different single-salt brines, and 6 different multi-salt systems.</a></td>
+</tr>
+<tr>
+<td>模型</td>
+<td align="center">Multilayer Perceptron (MLP) ANN, Decision Tree (DT), and Extremely Randomized Trees (ET)</td>
+</tr>
+<tr>
+<td>实现</td>
+<td align="center">Sickit-Learn library</td>
+</tr>
+<tr>
+<td>预测目标</td>
+<td align="center">平衡温度</td>
+</tr>
+</tbody></table>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li>The gathered database includes <strong>987</strong> data samples for pure water, 15 different single-salt brines, and 6 different multi-salt systems. Covering 15 different salts, it is the largest database gathered on the topic of interest so far.</li>
+</ul>
+<h4 id="数据检查"><a href="#数据检查" class="headerlink" title="数据检查"></a>数据检查</h4><ul>
+<li>errors in the devices or human error in recording：修正</li>
+<li>the database was checked for duplicate samples：保留一个，去除重复</li>
+</ul>
+<h4 id="特征选取"><a href="#特征选取" class="headerlink" title="特征选取"></a>特征选取</h4><ul>
+<li><p>Almost all the experimental works in the literature have reported C in %wt. However, it is opted to use <strong>ion’s mole fraction (x)</strong> for the modeling purpose for several reasons.</p>
+<ul>
+<li>using C, it is not possible to correctly address the multi-salts systems. </li>
+<li>using ions concentration, there would be 12 characteristic features for brines, which is lower than the number of different salts, which is 15. Using a fewer number of features not only decreases the processing load but also lowers the overfitting probability.</li>
+<li>More importantly, using the ions concentration, it is possible to address the salts not present in the reported experimental data samples.</li>
+</ul>
+</li>
+<li><p>In addition to brine characteristics, <strong>P</strong> will also be used as the operational parameter to predict the equilibrium T for the CH4-hydrate.</p>
+</li>
+</ul>
+<h4 id="数据划分"><a href="#数据划分" class="headerlink" title="数据划分"></a>数据划分</h4><ul>
+<li>The gathered database includes <strong>977</strong> data samples after removing the duplicates.</li>
+<li>Data splitting in the ratio of <strong>80&#x2F;20</strong> for training&#x2F;testing was considered. <strong>Before splitting, 40 data samples</strong> belonging to MgBr2 were set aside for additional testing.  Although there is no other reference reporting experimental data for this salt, data samples are available containing both Mg⁺⁺ and Br⁻ ions for other salts.</li>
+<li>As additional testing, if the developed model provides an acceptable prediction for MgBr2, it would be able to be used for any hypothetical salt the ions of which are available in the database. </li>
+<li>The remaining <strong>937</strong> data samples were split into <strong>training and testing subsets</strong> in the <strong>ratio of 80&#x2F;20.</strong> </li>
+<li>A 5-fold Cross-Validation (CV) was used to validate the developed models.</li>
+</ul>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><h4 id="MLP多层感知机"><a href="#MLP多层感知机" class="headerlink" title="MLP多层感知机"></a>MLP多层感知机</h4><ul>
+<li>MLP是一个black-box模型，拟合过程没有明确显示;</li>
+<li>MLP的结构包括一个输入层、一个或多个隐藏层和一个输出层;</li>
+<li>输入和输出层的神经元数量对应于输入和输出特征的数量;</li>
+<li>隐藏层中的神经元数量是任意的。</li>
+</ul>
+<h4 id="DT决策树"><a href="#DT决策树" class="headerlink" title="DT决策树"></a>DT决策树</h4><ul>
+<li>这种预测工具是非参数模型；</li>
+<li>DT通过基于输入变量开发简单的决策规则来工作；</li>
+<li>由于DT可以可视化，因此可以将其视为with-box模型;</li>
+<li>但是，如果DT太深，它就会失去直观理解和解释的简单性;</li>
+</ul>
+<h4 id="ET超随机树"><a href="#ET超随机树" class="headerlink" title="ET超随机树"></a>ET超随机树</h4><ul>
+<li>ET是一种集成方法，它受益于对几个DT进行平均，以提供更好的结果并最小化过拟合概率；</li>
+</ul>
+<h4 id="超参数优化"><a href="#超参数优化" class="headerlink" title="超参数优化"></a>超参数优化</h4><ul>
+<li>超参数表示模型的外部形状，应该在训练步骤之前确定；</li>
+<li>另一方面，在训练阶段确定模型的参数。对于给定的数据集，最佳的超参数集保证了模型的最佳性能。</li>
+<li>不用说，就像所有其他操作一样，超参数优化只是使用训练数据集完成的。</li>
+</ul>
+<h3 id="Model-fitting"><a href="#Model-fitting" class="headerlink" title="Model fitting"></a>Model fitting</h3><ul>
+<li>the 5-fold CV RMSE acquired from 20 trials for MLP, DT, and ET models.</li>
+<li>The closer error values to each other for different random states, the more stable the model. As each trial uses a different random state, the yielded results are not the same.</li>
+</ul>
+<h3 id="Accuracy-assessment"><a href="#Accuracy-assessment" class="headerlink" title="Accuracy assessment"></a>Accuracy assessment</h3><ul>
+<li><p>Residual ($Res_i$), Coefficient of determination ($R^2$), $RMSE$, Absolute Relative Error ($ARD$), and Average Absolute Relative Error ($AARD$).</p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202402261657051.png" alt="image-20240226165732964"></p>
+</li>
+</ul>
+<h3 id="Github-Project"><a href="#Github-Project" class="headerlink" title="Github Project"></a>Github Project</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/eastsheng/ML-MH-Salts">ML-MH-Salts</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#机器学习" >
+    <span class="tag-code">机器学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#论文复现" >
+    <span class="tag-code">论文复现</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/01/22/others/2024/git_push_Connection_timed_out/">
+        <span class="nav-arrow">← </span>
+        
+          connect to host github.com timed out
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%BA%E6%96%87%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">论文简介</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">数据库</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">数据检查</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%89%B9%E5%BE%81%E9%80%89%E5%8F%96"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">特征选取</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%92%E5%88%86"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">数据划分</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#MLP%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">MLP多层感知机</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#DT%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">DT决策树</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ET%E8%B6%85%E9%9A%8F%E6%9C%BA%E6%A0%91"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">ET超随机树</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">超参数优化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Model-fitting"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Model fitting</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Accuracy-assessment"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Accuracy assessment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Github-Project"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Github Project</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/02/26/notes/MachineLearning/PaperReproduction-ML-1/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/about" target="_blank">Eastsheng</a> | <a href="/" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
