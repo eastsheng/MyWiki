@@ -286,7 +286,7 @@ document.querySelector('.year .icon-container').innerText = '今年已过去 ' +
 document.querySelector('.year .progress-done').setAttribute("data-done", parseInt(yy/12*100));
 document.querySelector('.year .percent').innerText = parseInt(yy/12*100) + '%'; 
   
-const d1="2024/02/09 00:00:00";
+const d1="2025/01/29 00:00:00";
 const dateBegin = new Date(d1);
 const dateEnd = new Date();
 const dateDiff = dateEnd.getTime() - dateBegin.getTime();//时间差的毫秒数
@@ -336,7 +336,7 @@ progressDone.forEach(progress => {
 </div>
 <script type="text/javascript">
 function getRTime(){
-var EndTime= new Date('2025/05/01 00:00:00'); //截止时间
+var EndTime= new Date('2025/06/01 00:00:00'); //截止时间
 var NowTime = new Date();
 var t =EndTime.getTime() - NowTime.getTime();
 var d=Math.floor(t/1000/60/60/24);
