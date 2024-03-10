@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let datas;
   let isXml = true;
   // Search DB path
-  let searchPath = "/search.xml"; //CONFIG.search.path
+  let searchPath = "/MyWiki/search.xml"; //CONFIG.search.path
   if (searchPath.length === 0) {
     searchPath = 'search.xml';
   } else if (searchPath.endsWith('json')) {
