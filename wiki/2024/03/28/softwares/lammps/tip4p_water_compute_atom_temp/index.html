@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      LAMMPS计算TIP4P/ICE水温度分布时，低于系统平均温度 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/Links/" class="item-link">Links</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/Links/" class="menu-link">Links</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>LAMMPS计算TIP4P/ICE水温度分布时，低于系统平均温度</h2>
+  <p class="post-date">2024-03-28 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="计算温度分布脚本"><a href="#计算温度分布脚本" class="headerlink" title="计算温度分布脚本"></a>计算温度分布脚本</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">compute   ke  <span class="keyword">all</span> ke/atom</span><br><span class="line"></span><br><span class="line"><span class="keyword">variable</span>    kB <span class="comment">equal 1.3806504e-23    # [J</span>/K] Boltzmann</span><br><span class="line">variable    kcalpermol2J equal <span class="number">4186.0</span>/<span class="comment">6.02214e23</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">variable</span> <span class="comment">temp atom c_ke*$&#123;kcalpermol2J&#125;</span>/(<span class="number">1.5</span>*$&#123;kB&#125;)</span><br><span class="line"></span><br><span class="line">compute tt <span class="keyword">all</span> chunk/<span class="comment">atom bin</span>/<span class="number">1</span>d z lower <span class="number">0.1</span> units reduced</span><br><span class="line">fix out_temp <span class="keyword">all</span> ave/<span class="comment">chunk 10 100 1000 tt v_temp file temp.dat</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="TIP4P-x2F-ICE力场时温度分布低于thermo的平均温度"><a href="#TIP4P-x2F-ICE力场时温度分布低于thermo的平均温度" class="headerlink" title="TIP4P&#x2F;ICE力场时温度分布低于thermo的平均温度"></a>TIP4P&#x2F;ICE力场时温度分布低于thermo的平均温度</h3><ul>
+<li>z方向温度分布~173 K</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Chunk-averaged data for fix T_out_relax and group file</span></span><br><span class="line"><span class="comment"># Timestep Number-of-chunks Total-count</span></span><br><span class="line"><span class="comment"># Chunk Coord1 Ncount v_temp</span></span><br><span class="line"><span class="attribute">200000</span> <span class="number">10</span> <span class="number">1536</span></span><br><span class="line">  <span class="attribute">1</span> <span class="number">0</span>.<span class="number">05</span> <span class="number">154</span>.<span class="number">066</span> <span class="number">172</span>.<span class="number">915</span></span><br><span class="line">  <span class="attribute">2</span> <span class="number">0</span>.<span class="number">15</span> <span class="number">155</span>.<span class="number">458</span> <span class="number">172</span>.<span class="number">365</span></span><br><span class="line">  <span class="attribute">3</span> <span class="number">0</span>.<span class="number">25</span> <span class="number">145</span>.<span class="number">723</span> <span class="number">172</span>.<span class="number">41</span></span><br><span class="line">  <span class="attribute">4</span> <span class="number">0</span>.<span class="number">35</span> <span class="number">155</span>.<span class="number">457</span> <span class="number">172</span>.<span class="number">784</span></span><br><span class="line">  <span class="attribute">5</span> <span class="number">0</span>.<span class="number">45</span> <span class="number">154</span>.<span class="number">917</span> <span class="number">173</span>.<span class="number">494</span></span><br><span class="line">  <span class="attribute">6</span> <span class="number">0</span>.<span class="number">55</span> <span class="number">154</span>.<span class="number">212</span> <span class="number">173</span>.<span class="number">457</span></span><br><span class="line">  <span class="attribute">7</span> <span class="number">0</span>.<span class="number">65</span> <span class="number">156</span>.<span class="number">178</span> <span class="number">173</span>.<span class="number">831</span></span><br><span class="line">  <span class="attribute">8</span> <span class="number">0</span>.<span class="number">75</span> <span class="number">153</span>.<span class="number">307</span> <span class="number">174</span>.<span class="number">22</span></span><br><span class="line">  <span class="attribute">9</span> <span class="number">0</span>.<span class="number">85</span> <span class="number">155</span>.<span class="number">066</span> <span class="number">174</span>.<span class="number">519</span></span><br><span class="line">  <span class="attribute">10</span> <span class="number">0</span>.<span class="number">95</span> <span class="number">151</span>.<span class="number">616</span> <span class="number">173</span>.<span class="number">927</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>thermo温度~260 K</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Step</span> Density Temp Press Pxx Pyy Pzz PotEng KinEng TotEng </span><br><span class="line">       <span class="attribute">0</span>   <span class="number">0</span>.<span class="number">56728221</span>          <span class="number">260</span>   -<span class="number">1857</span>.<span class="number">7524</span>    <span class="number">1720</span>.<span class="number">1132</span>   -<span class="number">2612</span>.<span class="number">0574</span>    -<span class="number">4681</span>.<span class="number">313</span>   -<span class="number">6692</span>.<span class="number">1318</span>    <span class="number">792</span>.<span class="number">83586</span>   -<span class="number">5899</span>.<span class="number">2959</span> </span><br><span class="line">    <span class="attribute">1000</span>    <span class="number">0</span>.<span class="number">7154115</span>    <span class="number">246</span>.<span class="number">54399</span>   -<span class="number">734</span>.<span class="number">00106</span>   -<span class="number">1037</span>.<span class="number">3156</span>   -<span class="number">1329</span>.<span class="number">2594</span>    <span class="number">164</span>.<span class="number">57188</span>   -<span class="number">6160</span>.<span class="number">1241</span>    <span class="number">751</span>.<span class="number">80353</span>   -<span class="number">5408</span>.<span class="number">3206</span> </span><br><span class="line">    <span class="attribute">2000</span>    <span class="number">0</span>.<span class="number">8533722</span>    <span class="number">266</span>.<span class="number">16031</span>   -<span class="number">79</span>.<span class="number">064947</span>   -<span class="number">267</span>.<span class="number">96115</span>    <span class="number">108</span>.<span class="number">42078</span>   -<span class="number">77</span>.<span class="number">654467</span>   -<span class="number">6469</span>.<span class="number">8195</span>     <span class="number">811</span>.<span class="number">6209</span>   -<span class="number">5658</span>.<span class="number">1986</span> </span><br><span class="line">    <span class="attribute">3000</span>   <span class="number">0</span>.<span class="number">96464464</span>    <span class="number">260</span>.<span class="number">20011</span>    <span class="number">1225</span>.<span class="number">1164</span>    <span class="number">296</span>.<span class="number">83731</span>    <span class="number">1470</span>.<span class="number">1031</span>    <span class="number">1908</span>.<span class="number">4087</span>   -<span class="number">6652</span>.<span class="number">5907</span>    <span class="number">793</span>.<span class="number">44607</span>   -<span class="number">5859</span>.<span class="number">1446</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="计算其他体系时温度分布正常"><a href="#计算其他体系时温度分布正常" class="headerlink" title="计算其他体系时温度分布正常"></a>计算其他体系时温度分布正常</h3><ul>
+<li>如300K下甲烷气体</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Chunk-averaged data for fix T_out_relax and group file</span></span><br><span class="line"><span class="comment"># Timestep Number-of-chunks Total-count</span></span><br><span class="line"><span class="comment"># Chunk Coord1 Ncount v_temp</span></span><br><span class="line"><span class="attribute">200000</span> <span class="number">10</span> <span class="number">5000</span></span><br><span class="line">  <span class="attribute">1</span> <span class="number">0</span>.<span class="number">05</span> <span class="number">501</span>.<span class="number">048</span> <span class="number">301</span>.<span class="number">611</span></span><br><span class="line">  <span class="attribute">2</span> <span class="number">0</span>.<span class="number">15</span> <span class="number">507</span>.<span class="number">387</span> <span class="number">298</span>.<span class="number">271</span></span><br><span class="line">  <span class="attribute">3</span> <span class="number">0</span>.<span class="number">25</span> <span class="number">500</span>.<span class="number">772</span> <span class="number">299</span>.<span class="number">352</span></span><br><span class="line">  <span class="attribute">4</span> <span class="number">0</span>.<span class="number">35</span> <span class="number">495</span>.<span class="number">566</span> <span class="number">295</span>.<span class="number">747</span></span><br><span class="line">  <span class="attribute">5</span> <span class="number">0</span>.<span class="number">45</span> <span class="number">499</span>.<span class="number">28</span> <span class="number">298</span>.<span class="number">474</span></span><br><span class="line">  <span class="attribute">6</span> <span class="number">0</span>.<span class="number">55</span> <span class="number">497</span>.<span class="number">176</span> <span class="number">303</span>.<span class="number">487</span></span><br><span class="line">  <span class="attribute">7</span> <span class="number">0</span>.<span class="number">65</span> <span class="number">495</span>.<span class="number">479</span> <span class="number">303</span>.<span class="number">706</span></span><br><span class="line">  <span class="attribute">8</span> <span class="number">0</span>.<span class="number">75</span> <span class="number">497</span>.<span class="number">552</span> <span class="number">300</span>.<span class="number">502</span></span><br><span class="line">  <span class="attribute">9</span> <span class="number">0</span>.<span class="number">85</span> <span class="number">500</span>.<span class="number">8</span> <span class="number">299</span>.<span class="number">323</span></span><br><span class="line">  <span class="attribute">10</span> <span class="number">0</span>.<span class="number">95</span> <span class="number">504</span>.<span class="number">94</span> <span class="number">300</span>.<span class="number">134</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="可能原因排除"><a href="#可能原因排除" class="headerlink" title="可能原因排除"></a>可能原因排除</h3><ul>
+<li><p><del>是TIP4P&#x2F;ICE力场的原因？</del></p>
+</li>
+<li><p>是shake的原因？√</p>
+<ul>
+<li><p>shake导致计算的温度分布低于平均温度</p>
+</li>
+<li><p>取消掉fix shake后：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Chunk-averaged data for fix T_out_relax and group file</span></span><br><span class="line"><span class="comment"># Timestep Number-of-chunks Total-count</span></span><br><span class="line"><span class="comment"># Chunk Coord1 Ncount v_temp</span></span><br><span class="line"><span class="attribute">200000</span> <span class="number">10</span> <span class="number">1536</span></span><br><span class="line">  <span class="attribute">1</span> <span class="number">0</span>.<span class="number">05</span> <span class="number">157</span>.<span class="number">316</span> <span class="number">258</span>.<span class="number">756</span></span><br><span class="line">  <span class="attribute">2</span> <span class="number">0</span>.<span class="number">15</span> <span class="number">155</span>.<span class="number">085</span> <span class="number">259</span>.<span class="number">871</span></span><br><span class="line">  <span class="attribute">3</span> <span class="number">0</span>.<span class="number">25</span> <span class="number">157</span>.<span class="number">547</span> <span class="number">261</span>.<span class="number">236</span></span><br><span class="line">  <span class="attribute">4</span> <span class="number">0</span>.<span class="number">35</span> <span class="number">141</span>.<span class="number">184</span> <span class="number">260</span>.<span class="number">59</span></span><br><span class="line">  <span class="attribute">5</span> <span class="number">0</span>.<span class="number">45</span> <span class="number">162</span>.<span class="number">571</span> <span class="number">260</span>.<span class="number">871</span></span><br><span class="line">  <span class="attribute">6</span> <span class="number">0</span>.<span class="number">55</span> <span class="number">147</span>.<span class="number">449</span> <span class="number">259</span>.<span class="number">799</span></span><br><span class="line">  <span class="attribute">7</span> <span class="number">0</span>.<span class="number">65</span> <span class="number">150</span>.<span class="number">527</span> <span class="number">258</span>.<span class="number">551</span></span><br><span class="line">  <span class="attribute">8</span> <span class="number">0</span>.<span class="number">75</span> <span class="number">160</span>.<span class="number">536</span> <span class="number">259</span>.<span class="number">461</span></span><br><span class="line">  <span class="attribute">9</span> <span class="number">0</span>.<span class="number">85</span> <span class="number">146</span>.<span class="number">207</span> <span class="number">259</span>.<span class="number">575</span></span><br><span class="line">  <span class="attribute">10</span> <span class="number">0</span>.<span class="number">95</span> <span class="number">157</span>.<span class="number">578</span> <span class="number">259</span>.<span class="number">584</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但是，SPC、SPCE、TIP4P、TIP4P&#x2F;ICE等都是刚性模型</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ul>
+<li><p>If spatially binned chunks contain some number of water molecules and <a target="_blank" rel="noopener" href="https://docs.lammps.org/fix_shake.html">fix shake</a> is used to make each molecule rigid, then you could calculate a temperature with six degrees of freedom (DOF) (three translational, three rotational) per molecule by setting <em>adof</em> to 2.0.</p>
+</li>
+<li><p>修改后脚本</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">compute</span> tt <span class="literal">all</span> chunk/atom bin/<span class="number">1</span>d z lower <span class="number">0</span>.<span class="number">05</span> units reduced</span><br><span class="line"><span class="attribute">compute</span> myChunk <span class="literal">all</span> temp/chunk tt temp adof <span class="number">2</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">fix</span> out_temp <span class="literal">all</span> ave/chunk <span class="number">100</span> <span class="number">1</span> <span class="number">100</span> c_myChunk[<span class="number">1</span>] file temp.dat mode vector</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>300K的水温度分布结果：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TimeStep Number-of-rows</span></span><br><span class="line"><span class="comment"># Row c_tts[1]</span></span><br><span class="line"><span class="attribute">10000</span> <span class="number">20</span></span><br><span class="line"><span class="attribute">1</span> <span class="number">299</span>.<span class="number">841</span></span><br><span class="line"><span class="attribute">2</span> <span class="number">299</span>.<span class="number">94</span></span><br><span class="line"><span class="attribute">3</span> <span class="number">297</span>.<span class="number">445</span></span><br><span class="line"><span class="attribute">4</span> <span class="number">297</span>.<span class="number">264</span></span><br><span class="line"><span class="attribute">5</span> <span class="number">299</span>.<span class="number">993</span></span><br><span class="line"><span class="attribute">6</span> <span class="number">295</span>.<span class="number">925</span></span><br><span class="line"><span class="attribute">7</span> <span class="number">294</span>.<span class="number">42</span></span><br><span class="line"><span class="attribute">8</span> <span class="number">300</span>.<span class="number">127</span></span><br><span class="line"><span class="attribute">9</span> <span class="number">294</span>.<span class="number">811</span></span><br><span class="line"><span class="attribute">10</span> <span class="number">296</span>.<span class="number">218</span></span><br><span class="line"><span class="attribute">11</span> <span class="number">289</span>.<span class="number">603</span></span><br><span class="line"><span class="attribute">12</span> <span class="number">297</span>.<span class="number">217</span></span><br><span class="line"><span class="attribute">13</span> <span class="number">295</span>.<span class="number">78</span></span><br><span class="line"><span class="attribute">14</span> <span class="number">294</span>.<span class="number">731</span></span><br><span class="line"><span class="attribute">15</span> <span class="number">305</span>.<span class="number">435</span></span><br><span class="line"><span class="attribute">16</span> <span class="number">302</span>.<span class="number">281</span></span><br><span class="line"><span class="attribute">17</span> <span class="number">300</span>.<span class="number">403</span></span><br><span class="line"><span class="attribute">18</span> <span class="number">303</span>.<span class="number">721</span></span><br><span class="line"><span class="attribute">19</span> <span class="number">305</span>.<span class="number">458</span></span><br><span class="line"><span class="attribute">20</span> <span class="number">306</span>.<span class="number">914</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
+<li>[1] <a target="_blank" rel="noopener" href="https://matsci.org/t/fix-shake-vs-fix-rigid/49193">https://matsci.org/t/fix-shake-vs-fix-rigid/49193</a></li>
+<li>[2] <a target="_blank" rel="noopener" href="https://matsci.org/t/fix-shake-destroy-temperature-gradient/13709">https://matsci.org/t/fix-shake-destroy-temperature-gradient/13709</a></li>
+<li>[3] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370186845">https://zhuanlan.zhihu.com/p/370186845</a></li>
+<li>[4] <a target="_blank" rel="noopener" href="https://matsci.org/t/energy-conservation-problem-with-fix-heat-fix-shake-spc-e-water/19817/17">https://matsci.org/t/energy-conservation-problem-with-fix-heat-fix-shake-spc-e-water/19817/17</a></li>
+<li>[5] <a target="_blank" rel="noopener" href="https://docs.lammps.org/compute_temp_chunk.html">https://docs.lammps.org/compute_temp_chunk.html</a></li>
+<li>[6] <a target="_blank" rel="noopener" href="https://matsci.org/t/lammps-users-how-to-output-temp-chunk-data/35475/3">https://matsci.org/t/lammps-users-how-to-output-temp-chunk-data/35475/3</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#LAMMPS" >
+    <span class="tag-code">LAMMPS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TIP4P" >
+    <span class="tag-code">TIP4P</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#温度分布" >
+    <span class="tag-code">温度分布</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/02/26/notes/MachineLearning/PaperReproduction-ML-1/">
+        <span class="nav-arrow">← </span>
+        
+          论文复现-机器学习预测甲烷水合物平衡条件
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%A1%E7%AE%97%E6%B8%A9%E5%BA%A6%E5%88%86%E5%B8%83%E8%84%9A%E6%9C%AC"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">计算温度分布脚本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TIP4P-x2F-ICE%E5%8A%9B%E5%9C%BA%E6%97%B6%E6%B8%A9%E5%BA%A6%E5%88%86%E5%B8%83%E4%BD%8E%E4%BA%8Ethermo%E7%9A%84%E5%B9%B3%E5%9D%87%E6%B8%A9%E5%BA%A6"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">TIP4P&#x2F;ICE力场时温度分布低于thermo的平均温度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%A1%E7%AE%97%E5%85%B6%E4%BB%96%E4%BD%93%E7%B3%BB%E6%97%B6%E6%B8%A9%E5%BA%A6%E5%88%86%E5%B8%83%E6%AD%A3%E5%B8%B8"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">计算其他体系时温度分布正常</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0%E6%8E%92%E9%99%A4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">可能原因排除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">解决方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">参考：</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/03/28/softwares/lammps/tip4p_water_compute_atom_temp/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
