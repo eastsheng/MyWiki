@@ -275,7 +275,7 @@ if(dd==0){dd=7};
 document.querySelector('.week .icon-container').innerText = '本周已过去 ' + dd + ' 天';
 document.querySelector('.week .progress-done').setAttribute("data-done", parseInt(dd/7*100));
 document.querySelector('.week .percent').innerText = parseInt(dd/7*100) + '%'; 
-  
+
 const md = new Date().getDate(),months = new Date(new Date().getFullYear(), new Date().getMonth()+1, 0).getDate();
 document.querySelector('.month .icon-container').innerText = '本月已过去 ' + md + ' 天';
 document.querySelector('.month .progress-done').setAttribute("data-done", parseInt(md/months*100));
@@ -285,7 +285,7 @@ const yy = new Date().getMonth();
 document.querySelector('.year .icon-container').innerText = '今年已过去 ' + yy + ' 个月 零 ' + md +  ' 天';
 document.querySelector('.year .progress-done').setAttribute("data-done", parseInt(yy/12*100));
 document.querySelector('.year .percent').innerText = parseInt(yy/12*100) + '%'; 
-  
+
 const d1="2025/01/29 00:00:00";
 const dateBegin = new Date(d1);
 const dateEnd = new Date();
@@ -412,7 +412,7 @@ setInterval(getRTime,1000);
 <script>
   (function () {
     var url = 'https://eastsheng.github.io/MyWiki/lifetime/index.html';
-    var banner = 'https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2022/figs.md/167041815230366.314f9ffd18ece6763b89630a6a96533e'
+    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
         'background-image': 'url(' + banner + ')'

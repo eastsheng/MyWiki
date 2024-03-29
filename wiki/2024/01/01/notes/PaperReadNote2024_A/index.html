@@ -245,7 +245,114 @@
 </li>
 <li><p>Most of the time,</p>
 </li>
+<li><p>With these applications in mind, 考虑到这些应用，</p>
+</li>
+<li><p>Density functional theory works best for atomic-level, static properties, while molecular dynamics <strong>lends itself to</strong> more dynamical, larger-scale processes</p>
+</li>
+<li><p>in the hydrate research community 在水合物研究界</p>
+</li>
+<li><p>this work seeks to address that. 这项工作试图解决这个问题。</p>
+</li>
+<li></li>
 </ul>
+<h3 id="collinearity-exclusion"><a href="#collinearity-exclusion" class="headerlink" title="collinearity exclusion"></a>collinearity exclusion</h3><ul>
+<li><p>“collinearity exclusion”通常指的是在数据分析或建模中，通过排除共线性（collinearity）来改善模型的性能和稳定性。共线性是指两个或多个自变量之间存在高度线性相关性的情况，这可能会导致模型的不稳定性和解释性降低</p>
+</li>
+<li><p>在许多统计和机器学习模型中，共线性可能导致以下问题：</p>
+<ol>
+<li><strong>参数估计不准确</strong>：当自变量之间存在共线性时，参数估计可能变得不准确，使得模型的预测能力下降。</li>
+<li><strong>模型解释困难</strong>：共线性使得模型中每个自变量的独立解释能力降低，使得解释模型的整体效果变得困难。</li>
+<li><strong>过拟合</strong>：在存在共线性的情况下，模型可能会过度拟合训练数据，导致在新数据上的泛化能力不佳。</li>
+</ol>
+</li>
+<li><p>为了解决这些问题，可以通过采取以下方法来排除共线性：</p>
+<ol>
+<li><strong>特征选择</strong>：选择对目标变量有较强影响而且彼此之间相关性较低的自变量。</li>
+<li><strong>特征变换</strong>：对自变量进行变换，如PCA（Principal Component Analysis，主成分分析）等方法，降低它们之间的相关性。</li>
+<li><strong>正则化</strong>：通过添加正则化项来惩罚模型中的高系数，从而减少共线性对模型的影响。</li>
+</ol>
+</li>
+<li><p>通过排除共线性，可以改善模型的性能和稳定性，使得模型更适用于实际应用。</p>
+<blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="神经网络种类"><a href="#神经网络种类" class="headerlink" title="神经网络种类"></a>神经网络种类</h3><h4 id="Feedforward-neural-networks-（FNN）前馈神经网络"><a href="#Feedforward-neural-networks-（FNN）前馈神经网络" class="headerlink" title="Feedforward neural networks （FNN）前馈神经网络"></a>Feedforward neural networks （FNN）前馈神经网络</h4><ul>
+<li>前馈神经网络（Feedforward Neural Network ,FNN），简称前馈网络。</li>
+<li>整个网络中的信息是朝着一个方向传播的，即输入到输出方向，没有反向的信息传播（和误差反向传播不是一回事）,可用有向无环图表示</li>
+<li>前馈神经网络包括**全连接前馈神经网络(FC)<strong>和</strong>卷积神经网络(CNN)**。</li>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202403271648643.png" alt="img"></li>
+</ul>
+<h4 id="反馈型神经神经网络"><a href="#反馈型神经神经网络" class="headerlink" title="反馈型神经神经网络"></a>反馈型神经神经网络</h4><ul>
+<li><p>反馈神经网络中神经元不但可以接收其他神经元的信号，而且可以接收自己的反馈信号。</p>
+</li>
+<li><p>和前馈神经网络相比，反馈神经网络中的神经元具有记忆功能，在不同时刻具有不同的状态。反馈神经网络中的信息传播可以是单向也可以是双向传播</p>
+</li>
+<li><p>常见的反馈神经网络包括**循环神经网络(RNN)**、Hopfield网络和玻尔兹曼机</p>
+</li>
+<li></li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202403271650548.png" alt="img"></p>
+</li>
+</ul>
+<h4 id="图网络"><a href="#图网络" class="headerlink" title="图网络"></a>图网络</h4><ul>
+<li><p>前馈神经网络和反馈神经网络的输入都可表示为向量或者向量序列，但实际应用中很多数据都是图结构的数据，比如知识图谱、社交网络和分子网络等。这时就需要用到图网络来进行处理。</p>
+</li>
+<li><p>图网络是定义在图结构数据上的神经网络，图中每个结点都由一个或者一组神经元组成。结点之前的连接可以是有向的，也可以是无向的。每个结点可以收到来自相邻结点或自身的信息。</p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202403271651776.png" alt="img"></p>
+</li>
+</ul>
+<h3 id="PVP-拉曼"><a href="#PVP-拉曼" class="headerlink" title="PVP 拉曼"></a>PVP 拉曼</h3><ul>
+<li><img src="https://publicspectra.com/images/Raman/Polyvinylpyrrolidone.png"></li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40519315/article/details/104514507">https://blog.csdn.net/weixin_40519315/article/details/104514507</a></p>
+</blockquote>
+<h3 id="Viscous-temperature"><a href="#Viscous-temperature" class="headerlink" title="Viscous temperature"></a>Viscous temperature</h3><ul>
+<li><p>“Viscous temperature” 通常是指在流体力学中，特别是液体流体力学中，用来描述粘性行为的一个概念。</p>
+</li>
+<li><p>在液体中，温度的影响会导致流体的粘性发生变化。当温度升高时，液体的粘度通常会降低，使得流体更容易流动。而 “viscous temperature” 是指在某个温度下，流体的粘度等于某个特定的值（通常是初始粘度的一半）。这个温度被称为 “viscous temperature”。</p>
+</li>
+<li><p>在流体力学中，了解 “viscous temperature” 对于预测流体行为和性能是非常重要的。它可以影响到许多液体流体的现象，如流动的稳定性、湍流的形成、热传导等。</p>
+<blockquote>
+<p>ChatGPT可能会犯错误。请考虑核实重要信息。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="电场控制水合物分解的电场范围"><a href="#电场控制水合物分解的电场范围" class="headerlink" title="电场控制水合物分解的电场范围"></a>电场控制水合物分解的电场范围</h3><ul>
+<li><p>0.8, 1.2, 1.6 and 2.0 V&#x2F;nm</p>
+</li>
+<li><p>$m_i\vec{r_i}&#x3D;f_i+q_i\vec{E}(t)$</p>
+<blockquote>
+<p>J. Chem. Thermodynamics 117 (2018) 68–80</p>
+</blockquote>
+</li>
+<li><p>0.9~1.4 V&#x2F;nm</p>
+<blockquote>
+<p>Fuel 307 (2022) 121866</p>
+</blockquote>
+</li>
+<li><p>$E(t)&#x3D;A*\vec{u}*cos(2\pi vt+\varphi)$</p>
+<ul>
+<li>$A$ 电磁强度；</li>
+<li>$v$ 频率</li>
+<li>$\vec{u}、\varphi$ 极化方向（0,1,0）、相位</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1021/acs.nanolett.4c00248">https://doi.org/10.1021/acs.nanolett.4c00248</a></p>
+</blockquote>
+</li>
+<li><p>高频或低频电场对水合物的影响较小：155 or 80000GHz</p>
+<blockquote>
+<p>Fuel 321 (2022) 124014</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="SPC模型低估水合物分解模型约60-K"><a href="#SPC模型低估水合物分解模型约60-K" class="headerlink" title="SPC模型低估水合物分解模型约60 K"></a>SPC模型低估水合物分解模型约60 K</h3><blockquote>
+<p>J. Chem. Thermodynamics 117 (2018) 68–80</p>
+<p>J. Chem. Phys. 138 (2013) 056101.</p>
+</blockquote>
 <h3 id="The-van-der-Waals-and-Platteeuw-vdW-P-model"><a href="#The-van-der-Waals-and-Platteeuw-vdW-P-model" class="headerlink" title="The van der Waals and Platteeuw (vdW-P) model"></a>The van der Waals and Platteeuw (vdW-P) model</h3><blockquote>
 <p><em>Renewable and Sustainable Energy Reviews 173 (2023) 113103</em></p>
 </blockquote>
@@ -474,7 +581,7 @@
   <div class="toc-main">
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2024-1%E6%9C%88-2%E6%9C%88-3%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-1月@2月@3月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Good-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Good phrases</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#The-van-der-Waals-and-Platteeuw-vdW-P-model"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">The van der Waals and Platteeuw (vdW-P) model</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#salts%E5%AF%B9%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%92%8C%E5%8A%A8%E5%8A%9B%E5%AD%A6%E9%83%BD%E6%9C%89%E5%BD%B1%E5%93%8D%EF%BC%9F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">salts对甲烷水合物的热力学和动力学都有影响？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#solidified-natural-gas-SNG-%E4%BC%98%E5%8A%BF"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">solidified natural gas (SNG)优势</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%83%BD%E9%87%8F%E6%9C%80%E5%B0%8F%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9A%E6%9C%80%E9%80%9F%E4%B8%8B%E9%99%8D%E6%B3%95%E5%92%8C%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E6%B3%95"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">能量最小化方法：最速下降法和共轭梯度法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E5%88%86%E5%B8%83"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">麦克斯韦-玻尔兹曼分布</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#MD%E6%B5%8B%E6%8E%A5%E8%A7%A6%E8%A7%92%E6%97%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E5%8D%8A%E5%9C%86%E6%9F%B1%E5%BD%A2%EF%BC%9F"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">MD测接触角时为什么选择半圆柱形？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8A%97%E5%86%BB%E8%9B%8B%E7%99%BD%E4%B9%9F%E5%B1%9E%E4%BA%8E%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%8A%91%E5%88%B6%E5%89%82%EF%BC%9F"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">抗冻蛋白也属于动力学抑制剂？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8%E3%80%81%E7%94%9F%E9%95%BF%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">表面活性剂促进水合物成核、生长机理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFcounterions%EF%BC%9F"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">什么是counterions？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%8A%91%E5%88%B6%E5%89%82%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">不同抑制剂优缺点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F%E5%99%AA%E9%9F%B3%E5%BE%88%E5%A4%A7%EF%BC%8C%E5%85%B6%E5%B9%B3%E5%9D%87%E4%B8%8D%E7%AD%89%E4%BA%8EMSD%EF%BC%9F"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD"><span class="toc-nav-number">1.12.1.</span> <span class="toc-nav-text">RMSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#MSD"><span class="toc-nav-number">1.12.2.</span> <span class="toc-nav-text">MSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD%E5%92%8CMSD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">1.12.3.</span> <span class="toc-nav-text">RMSD和MSD的区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.12.4.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E7%BA%BF%E6%80%A7%E6%AF%94%E8%BE%83%E5%A5%BD%E7%9A%84MSD"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">如何获得线性比较好的MSD</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2024-1%E6%9C%88-2%E6%9C%88-3%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-1月@2月@3月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Good-phrases"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Good phrases</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#collinearity-exclusion"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">collinearity exclusion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%A7%8D%E7%B1%BB"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">神经网络种类</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Feedforward-neural-networks-%EF%BC%88FNN%EF%BC%89%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">Feedforward neural networks （FNN）前馈神经网络</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%8D%E9%A6%88%E5%9E%8B%E7%A5%9E%E7%BB%8F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">反馈型神经神经网络</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9B%BE%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">图网络</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PVP-%E6%8B%89%E6%9B%BC"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">PVP 拉曼</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Viscous-temperature"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Viscous temperature</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%B5%E5%9C%BA%E6%8E%A7%E5%88%B6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E7%94%B5%E5%9C%BA%E8%8C%83%E5%9B%B4"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">电场控制水合物分解的电场范围</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SPC%E6%A8%A1%E5%9E%8B%E4%BD%8E%E4%BC%B0%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E7%BA%A660-K"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">SPC模型低估水合物分解模型约60 K</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#The-van-der-Waals-and-Platteeuw-vdW-P-model"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">The van der Waals and Platteeuw (vdW-P) model</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#salts%E5%AF%B9%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%92%8C%E5%8A%A8%E5%8A%9B%E5%AD%A6%E9%83%BD%E6%9C%89%E5%BD%B1%E5%93%8D%EF%BC%9F"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">salts对甲烷水合物的热力学和动力学都有影响？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#solidified-natural-gas-SNG-%E4%BC%98%E5%8A%BF"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">solidified natural gas (SNG)优势</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%83%BD%E9%87%8F%E6%9C%80%E5%B0%8F%E5%8C%96%E6%96%B9%E6%B3%95%EF%BC%9A%E6%9C%80%E9%80%9F%E4%B8%8B%E9%99%8D%E6%B3%95%E5%92%8C%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E6%B3%95"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">能量最小化方法：最速下降法和共轭梯度法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6-%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E5%88%86%E5%B8%83"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">麦克斯韦-玻尔兹曼分布</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#MD%E6%B5%8B%E6%8E%A5%E8%A7%A6%E8%A7%92%E6%97%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E5%8D%8A%E5%9C%86%E6%9F%B1%E5%BD%A2%EF%BC%9F"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">MD测接触角时为什么选择半圆柱形？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8A%97%E5%86%BB%E8%9B%8B%E7%99%BD%E4%B9%9F%E5%B1%9E%E4%BA%8E%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%8A%91%E5%88%B6%E5%89%82%EF%BC%9F"><span class="toc-nav-number">1.14.</span> <span class="toc-nav-text">抗冻蛋白也属于动力学抑制剂？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8%E3%80%81%E7%94%9F%E9%95%BF%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.15.</span> <span class="toc-nav-text">表面活性剂促进水合物成核、生长机理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFcounterions%EF%BC%9F"><span class="toc-nav-number">1.16.</span> <span class="toc-nav-text">什么是counterions？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%8A%91%E5%88%B6%E5%89%82%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-nav-number">1.17.</span> <span class="toc-nav-text">不同抑制剂优缺点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F%E5%99%AA%E9%9F%B3%E5%BE%88%E5%A4%A7%EF%BC%8C%E5%85%B6%E5%B9%B3%E5%9D%87%E4%B8%8D%E7%AD%89%E4%BA%8EMSD%EF%BC%9F"><span class="toc-nav-number">1.18.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？噪音很大，其平均不等于MSD？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD"><span class="toc-nav-number">1.18.1.</span> <span class="toc-nav-text">RMSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#MSD"><span class="toc-nav-number">1.18.2.</span> <span class="toc-nav-text">MSD</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#RMSD%E5%92%8CMSD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">1.18.3.</span> <span class="toc-nav-text">RMSD和MSD的区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88VMD%E8%8E%B7%E5%BE%97%E7%9A%84RMSD%E6%98%AF%E5%BC%AF%E6%9B%B2%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.18.4.</span> <span class="toc-nav-text">为什么VMD获得的RMSD是弯曲的？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E7%BA%BF%E6%80%A7%E6%AF%94%E8%BE%83%E5%A5%BD%E7%9A%84MSD"><span class="toc-nav-number">1.19.</span> <span class="toc-nav-text">如何获得线性比较好的MSD</span></a></li></ol></li></ol>
     
 
   </div>
