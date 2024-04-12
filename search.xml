@@ -8546,6 +8546,77 @@ style A fill:#ffff</pre>
 </li>
 <li><p>this work seeks to address that. 这项工作试图解决这个问题。</p>
 </li>
+<li><p>The <strong>premise</strong> of their application is that </p>
+</li>
+<li><p>The explanation <strong>set forth</strong> was that  提出的解释是这样的</p>
+</li>
+<li></li>
+</ul>
+<h3 id="PVP对水合物成核生长的影响："><a href="#PVP对水合物成核生长的影响：" class="headerlink" title="PVP对水合物成核生长的影响："></a>PVP对水合物成核生长的影响：</h3><ul>
+<li>Under certain conditions, PVP affects only hydrate growth and not nucleation.<ul>
+<li><a href="https://doi.org/10.1016/j.jngse.2016.06.035">https://doi.org/10.1016/j.jngse.2016.06.035</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="孔隙水合物CT图像"><a href="#孔隙水合物CT图像" class="headerlink" title="孔隙水合物CT图像"></a>孔隙水合物CT图像</h3><ul>
+<li><p><img src="https://agupubs.onlinelibrary.wiley.com/cms/asset/b16875ba-e77b-49fd-8b3b-b09d4c080cc0/ggge20735-fig-0001-m.png"></p>
+<ul>
+<li>(样品1,Ws &#x3D; 20%)气-水界面GH薄膜成核:(a) GH开始形成前的CT图像，(b)反应时间70 s (tR &#x3D; 70 s)后的CT图像。白色为天然气水合物(GH)，灰色为水(W)和氙(Xe)，浅灰色为石英、砂(Qz)。气体和幼年水的对比几乎相同，只能通过半月板将两相分开来区分。</li>
+</ul>
+</li>
+<li><p><img src="https://agupubs.onlinelibrary.wiley.com/cms/asset/9e5ad9ae-69e0-4060-a334-cd5661c85180/ggge20735-fig-0007-m.png"></p>
+<ul>
+<li>(a)层析成像显示沉积物颗粒和GH之间的剩余流体相(很可能是水);蓝色圈圈区域表示靠近粒间接触的水桥，红色圈圈区域表示颗粒表面较大的水袋。(b)在[Priest et al.， 2006]之后修改的喷射流概念模型，其中石英为灰色，水为蓝色，GH为黄色，显示了水桥和水袋，后者可能位于GH晶体之间的晶界。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Peng-Robinson-Equation-of-State-PR-EOS"><a href="#Peng-Robinson-Equation-of-State-PR-EOS" class="headerlink" title="Peng Robinson Equation of State(PR EOS)"></a><a href="https://www.studysmarter.co.uk/explanations/engineering/engineering-thermodynamics/peng-robinson-equation-of-state/">Peng Robinson Equation of State(PR EOS)</a></h3><ul>
+<li><p>Peng Robinson Equation of State是热力学领域的一个重要概念，在各个工程学科中发挥着重要作用。这个方程经常用于化学过程的模拟和优化，特别是那些涉及碳氢化合物的过程。这是理解真实流体行为、相平衡和热力学性质(如焓和熵)的关键方面。</p>
+</li>
+<li><p>本质上是一个数学模型，用于计算和预测纯组分和混合物在气体、液体和超临界流体状态下的行为。</p>
+</li>
+<li><p>这个状态方程是一个三次形式，类似于Van der Waals和Redlich-Kwong早期的方程，只是增加了一个额外的项来更好地描述非理想流体的行为。它的有效性，特别是对于含碳氢化合物的体系，使其在工业和学术界得到了广泛的应用。</p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202404061905522.png" alt="image-20240406190543455"></p>
+</li>
+<li><p>Peng-Robinson状态方程提供了碳氢化合物体系相行为的准确描述，并合理地表示了密度和压缩系数。这使其成为石油工业中烃类系统模拟的理想选择。</p>
+</li>
+<li></li>
+</ul>
+<h3 id="水合物形成速率公式（实验）"><a href="#水合物形成速率公式（实验）" class="headerlink" title="水合物形成速率公式（实验）"></a>水合物形成速率公式（实验）</h3><ul>
+<li><p>$r(t)&#x3D;\frac {(n_{CH_{4,i-1}}-n_{CH_{4,i+1}})} {(t_{i+1}-t_{i-1})n_{wo}}$</p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202404061849236.png" alt="image-20240406184948065"></p>
+</li>
+</ul>
+<h3 id="水合物形成和分解实验步骤"><a href="#水合物形成和分解实验步骤" class="headerlink" title="水合物形成和分解实验步骤"></a>水合物形成和分解实验步骤</h3><blockquote>
+<p><em>Fuel 356 (2024) 129651</em></p>
+</blockquote>
+<h4 id="形成"><a href="#形成" class="headerlink" title="形成"></a>形成</h4><ol>
+<li>清洗反应器，至少三次；</li>
+<li>添加一定量（比例）的去离子水（抑制剂）；</li>
+<li>缓慢通入甲烷气体，排出反应器内空气；</li>
+<li>控制水浴温度，保持温度约2小时；</li>
+<li>然后将反应器迅速加压到水合物形成的实验压力；</li>
+<li>水合物反应在（未）搅拌的罐式反应器中进行；</li>
+<li>当反应器内压力保持恒定值至少5小时时，反应终止。</li>
+</ol>
+<h4 id="分解"><a href="#分解" class="headerlink" title="分解"></a>分解</h4><ol start="8">
+<li>以5.0 K的速度递增温度；</li>
+<li>每个温度保持约10小时，使系统达到平衡状态；</li>
+</ol>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li><p>环戊烷存在的时候，生成的水合物是sII型水合物？</p>
+<blockquote>
+<p>Sloan Jr ED. Koh CA. Koh C. Clathrate hydrates of natural gases: CRC Press; 2007.</p>
+<p><em>Fuel 356 (2024) 129651</em></p>
+</blockquote>
+</li>
+<li><p>结构I(sI)纯CH4水合物在288.15 K下的水合物形成条件为11.85 MPa。</p>
+<blockquote>
+<p>Sloan Jr ED. Koh CA. Koh C. Clathrate hydrates of natural gases: CRC Press; 2007.</p>
+</blockquote>
+</li>
 <li></li>
 </ul>
 <h3 id="collinearity-exclusion"><a href="#collinearity-exclusion" class="headerlink" title="collinearity exclusion"></a>collinearity exclusion</h3><ul>
