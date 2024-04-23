@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      LBM学习：PALABOS介绍与安装 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>LBM学习：PALABOS介绍与安装</h2>
+  <p class="post-date">2024-04-23 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="软件简介"><a href="#软件简介" class="headerlink" title="软件简介"></a>软件简介</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://palabos.unige.ch/">Palabos</a> 库是通用计算流体动力学 (CFD) 的框架，其内核基于格子玻尔兹曼 (LB) 方法。 它既可用作研究工具，也可用作工程工具：其编程界面简单明了，可以相对轻松地设置流体流动模拟，或者，如果您了解格子玻尔兹曼方法，则可以使用自己的方法扩展该库 楷模。 Palabos 代表并行格子玻尔兹曼求解器。</li>
+<li><a target="_blank" rel="noopener" href="https://palabos.unige.ch/files/9515/6509/3036/Palabos_UserGuide.pdf">在线手册</a>、<a target="_blank" rel="noopener" href="https://palabos.unige.ch/files/2515/9196/4302/palabos_tutorial.pdf">在线教程</a></li>
+</ul>
+<h4 id="什么是LBM？"><a href="#什么是LBM？" class="headerlink" title="什么是LBM？"></a>什么是LBM？</h4><h4 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h4><ul>
+<li>晶格玻尔兹曼方法是计算流体力学中的一种现代方法。它通常用于求解不可压缩的、时变的Navier-Stokes方程。</li>
+<li>它的优势在于能够很容易地表示复杂的物理现象，从多相流动到流体与周围环境之间的化学相互作用。</li>
+<li>该方法起源于对流体的分子描述，并且可以直接纳入来自分子间相互作用知识的物理术语。</li>
+<li>因此，它在基础研究中是一个宝贵的工具，因为它使理论的阐述和相应数值模型的制定之间的周期缩短。同时，它已被证明是一种高效和方便的替代传统的解决方案，为各种各样的工业问题。</li>
+</ul>
+<h4 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h4><ul>
+<li><p>晶格玻尔兹曼通常被简单地认为是玻尔兹曼方程的数值解算器。玻尔兹曼方程是分子水平上的纳维-斯托克斯方程的类似物，它描述了一个被称为概率分布函数的统计量的时空动力学，它被定义在6维相空间中。</p>
+</li>
+<li><p>在分子水平的描述上，模型所涵盖的物理现象的数量比在Navier-Stokes方程的水动力水平上要大。这是因为玻尔兹曼方程不受时间尺度分离的影响，能够描述具有大分子平均自由路径的非水动力状态下的流体。</p>
+</li>
+<li><p>此外，该分子模型能够捕捉到摩擦、扩散和温度输运等输运现象，并推导出相应的输运系数。</p>
+</li>
+<li><p>从历史上看，晶格玻尔兹曼模型是从所谓的元胞自动机模型演变而来的，独立于上面展示的理论。元胞自动机（Cellular Automaton）是用整数值描述的离散状态演化的计算机模型(与晶格玻尔兹曼变量的浮点表示相反)。</p>
+</li>
+<li><p>在我们的例子中，这种状态代表了相互作用的伪分子，流体的“介观”粒子的位置和速度。为了更好地理解这种模型的连续介质物理学，可以将元胞自动机的玻尔兹曼方程写下来。这个方程作用于实值量，但它描述了离散相空间中的一些动力学，在下面我们称之为晶格。晶格玻尔兹曼模型是在首次尝试短路元胞自动机过程并直接模拟相应离散玻尔兹曼方程的动力学时诞生的。</p>
+</li>
+<li><p>虽然后来人们了解到晶格玻尔兹曼方程可以直接从连续玻尔兹曼方程推导出来，但记住它的真正起源是很有趣的。事实上，这揭示了其特别优雅的公式的一些原因，使相应的计算机程序能够直接实现。</p>
+</li>
+</ul>
+<h4 id="为什么使用晶格玻尔兹曼"><a href="#为什么使用晶格玻尔兹曼" class="headerlink" title="为什么使用晶格玻尔兹曼?"></a>为什么使用晶格玻尔兹曼?</h4><ul>
+<li><p>每个人都同意晶格玻尔兹曼在理论、代码实现和应用程序的外观和感觉层面上与经典CFD不同。但是为什么你会选择晶格玻尔兹曼而不是其他方法呢?</p>
+</li>
+<li><p>在这一点上意见分歧更大一些。然而，从我们发展Palabos的经验来看，我们认为晶格玻尔兹曼的根本优势是效率。该方法从一开始就设计为在高性能硬件上运行，并且它适应复杂的物理或复杂的算法。</p>
+</li>
+<li><p>当效率允许解决以前无法解决的问题，或者只是不够精确的问题时，就会带来全新的用户体验。</p>
+</li>
+<li><p>像PALABOS这样的晶格玻尔兹曼CODE的典型成就是</p>
+<ul>
+<li>数据预处理和网格生成的时间只占整个模拟的一小部分。</li>
+<li>并行数据分析，后处理和评估。</li>
+<li>完全解决多相流与小液滴和气泡。</li>
+<li>完全解决流动通过复杂的几何形状和多孔介质。</li>
+<li>具有传热和化学反应的复杂、耦合流动。</li>
+</ul>
+</li>
+<li><p>晶格玻尔兹曼在建模方法的层面上也提供了优势。该方法在某种意义上是混合的，因为求解器是基于网格的(如CFD中通常的那样)，但也继承了基于粒子的方法的某些方面，因为它起源于细胞自动机。因此，很容易将其与嵌入粒子方法相结合，用于沉积物输运或其他现象。</p>
+</li>
+</ul>
+<h4 id="晶格玻尔兹曼和高性能计算"><a href="#晶格玻尔兹曼和高性能计算" class="headerlink" title="晶格玻尔兹曼和高性能计算"></a>晶格玻尔兹曼和高性能计算</h4><ul>
+<li><p>与经典CFD相比，晶格玻尔兹曼乍一看似乎相当消耗资源:该模型中使用的离散概率分布函数比Navier-Stokes方程的流体动力变量(每个节点9个实值，而二维不可压缩解算器为3个)需要更多的存储空间。</p>
+</li>
+<li><p>然而，这从来都不是一个真正的问题，特别是在现代计算机上，它被出色的计算效率大大补偿了。由于其明确的公式和精确的平流算子，晶格玻尔兹曼格式只涉及非常有限数量的每个计算节点的浮点运算。</p>
+</li>
+<li><p>此外，晶格玻尔兹曼方法特别适合于并行体系结构上的计算，即使具有缓慢的互连网络。这种优势也扩展到其他类型的高性能硬件，如通用图形处理单元(gpgpu)，这是晶格玻尔兹曼实现的目标。</p>
+</li>
+</ul>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul>
+<li><p>LINUX（windows子系统Ubuntu20.04测试）安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装必要依赖</span></span><br><span class="line">sudo apt install gcc clang clang-format cmake make</span><br><span class="line"><span class="comment"># 安装可选依赖，已有mpi 这里不安装</span></span><br><span class="line">sudo apt install imagemagick libhdf5-dev libhdf5-mpi-dev ccache</span><br><span class="line"><span class="comment"># 从gitlab clone palabos包</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitlab.com/unigespc/palabos.git</span><br><span class="line"><span class="comment"># 或者下载、解压</span></span><br><span class="line">wget https://gitlab.com/unigespc/palabos/-/archive/v2.3.0/palabos-v2.3.0.tar.gz</span><br><span class="line">tar xzvf palabos-v2.3.0.tar.gz</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><ul>
+<li><p>测试cavity2d例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> palabos/examples/showCases/cavity2d/build/</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">./cavity2d</span><br><span class="line"><span class="comment"># 并行计算</span></span><br><span class="line">mpirun -np 4 ./cavity2d</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202404232314844.gif" alt="uNorm128000"></p>
+</li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#PALABOS" >
+    <span class="tag-code">PALABOS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#LBM" >
+    <span class="tag-code">LBM</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/03/28/softwares/lammps/tip4p_water_compute_atom_temp/">
+        <span class="nav-arrow">← </span>
+        
+          LAMMPS计算TIP4P/ICE水温度分布时，低于系统平均温度
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">软件简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFLBM%EF%BC%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">什么是LBM？</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A6%82%E5%86%B5"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">概况</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B5%B7%E6%BA%90"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">起源</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E6%99%B6%E6%A0%BC%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">为什么使用晶格玻尔兹曼?</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%99%B6%E6%A0%BC%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E5%92%8C%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">晶格玻尔兹曼和高性能计算</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">测试</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/04/23/softwares/PALABOS/LBM_PALABOS-1/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
