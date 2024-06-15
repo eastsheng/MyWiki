@@ -11976,4 +11976,94 @@ style A fill:#ffff</pre>
         <tag>Paper Notes</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LBM学习：PALABOS代码风格与开发扩展方法</title>
+    <url>/MyWiki/wiki/2024/04/28/softwares/PALABOS/LBM_PALABOS-2/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+<li><p>采用<code>plint</code>和<code>pluint</code>代替<code>int</code>和<code>unsigned int</code> </p>
+<blockquote>
+<p>为了64位的兼容性；</p>
+</blockquote>
+</li>
+<li><p>采用<code>pcout</code>代替<code>cout</code>；采用<code>pcerr</code>代替<code>cerr</code>；采用<code>pclog</code>代替<code>clog</code>；采用<code>ofstream</code>代替<code>ofstream</code>；</p>
+<blockquote>
+<p>In an MPI-parallel program each thread writes to the terminal through cout. To avoid this and observe a consistent behavior between sequential and parallel programs.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><ul>
+<li><p>所有的Palabos类(或者至少那些使用继承的类)都有一个方法clone:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">A* object1 = <span class="keyword">new</span> A;</span><br><span class="line">A* object2 = object1-&gt;<span class="built_in">clone</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在编写继承了Palabos类型的类时，需要实现这个方法。幸运的是，方法克隆总是具有完全相同的形状:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">A* <span class="title">A::clone</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">A</span>(*<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><ul>
+<li><p>大数据集采用<code>Palabos</code>的<code>BlockLattice</code>类型</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Instantiate a nx*ny*nz D3Q19 lattice with double-precision</span></span><br><span class="line"><span class="comment">// floating point numbers.</span></span><br><span class="line"><span class="function">MultiBlockLattice3D&lt;<span class="type">double</span>,D3Q19descriptor&gt; <span class="title">lattice</span><span class="params">(nx,ny,nz)</span></span>;</span><br><span class="line"><span class="comment">// Instantiate a nx*ny*nz matrix of double-precision floating</span></span><br><span class="line"><span class="comment">// point scalars.</span></span><br><span class="line"><span class="function">MultiScalarField3D&lt;<span class="type">double</span>&gt; <span class="title">field</span><span class="params">(nx,ny,nz)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>小的、非并行化的数组可以使用C++内置的<code>vector</code>类型</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">plint numspecies = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// Instantiate a vector of double-precision floating point</span></span><br><span class="line"><span class="comment">// numbers with 5 elements.</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">double</span>&gt; <span class="title">viscosities</span><span class="params">(numSpecies)</span></span>;</span><br><span class="line">viscosities[<span class="number">3</span>] = <span class="number">0.63</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>对于非常小的，非并行的和固定大小的数组，<code>Palabos</code>定义了<code>Array</code>类型</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Instantiate a fixed-size array of type double and with</span></span><br><span class="line"><span class="comment">// 3 elements. The values can be initialized directly in</span></span><br><span class="line"><span class="comment">// the constructor for arrays of size 2 and 3.</span></span><br><span class="line"><span class="function">Array&lt;<span class="type">double</span>,3&gt; <span class="title">velocity</span><span class="params">(<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.5</span>)</span></span>;</span><br><span class="line">velocity[<span class="number">0</span>] = <span class="number">0.1</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="并行方法"><a href="#并行方法" class="headerlink" title="并行方法"></a>并行方法</h3><ul>
+<li>Palabos采用单程序多数据（SPMD）并行计算，指的是在多个处理器或线程上同时运行相同的程序，但每个处理器或线程处理不同的数据；</li>
+<li>这意味着程序在串行或并行执行时看起来是一样的；</li>
+</ul>
+<h2 id="使用Palabos进行非侵入式程序开发"><a href="#使用Palabos进行非侵入式程序开发" class="headerlink" title="使用Palabos进行非侵入式程序开发"></a>使用Palabos进行非侵入式程序开发</h2><ul>
+<li><p>不建议试图直接修改源码原因：</p>
+<ul>
+<li><p>Palabos源码多于5万多行耗时耗力；</p>
+</li>
+<li><p>修改源码后的Palabos可能无法与后续的新版本兼容；</p>
+</li>
+</ul>
+</li>
+<li><p>基于Palabos官方版本交换两个代码文件相对简单，其中一个为您自己的LB模型实现了一个新的动态类，另一个是一个示例应用程序。</p>
+</li>
+</ul>
+<h3 id="不修改源码的扩展方法"><a href="#不修改源码的扩展方法" class="headerlink" title="不修改源码的扩展方法"></a>不修改源码的扩展方法</h3><ul>
+<li>假设您想要编写一个类似于BGK的LB模型，但差异很小；</li>
+<li>首先要做的是检查“实现的流体模型”部分，并确保它尚未在Palabos中实现；<ul>
+<li>如果存在的话，你可以从文件<code>src/basicDynamics/isothermalDynamics.h and .hh</code>中可以发现<code>BGKdynamics</code>继承自<code>IsoThermalBulkDynamics</code>，实现了<code>clone()</code>、<code>collision()</code>和<code>computeEquilibrium()</code>三个方法。</li>
+<li>不能直接修改<code>BGKdynamics</code>中的<code>collision()</code>,因为(在许多其他原因中)您将失去在应用程序中同时使用原始BGK动态和新模型的能力。</li>
+</ul>
+</li>
+<li>你需要创建两个新文件<code>myNewModel.h</code>和<code>myNewModel.hh</code>，包含一个类<code>MyNewDynamics</code>，它继承自<code>IsoThermalBulkDynamics</code>，并定义了与<code>BGKdynamics</code>相同的三个方法，适合您的情况。<ul>
+<li>这个实现很简洁:它不会与更新的Palabos版本的更新冲突，并且您可以通过交换两个文件与同事共享它;</li>
+<li>新文件可以位于任何本地目录中，独立于Palabos目录树。只要确保在Makefile的关键字includePaths下添加这个目录，这样就可以在编译过程中找到它。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Palabos的哪些部分是可扩展的"><a href="#Palabos的哪些部分是可扩展的" class="headerlink" title="Palabos的哪些部分是可扩展的?"></a>Palabos的哪些部分是可扩展的?</h3><ul>
+<li><p>粗略地说，有三种扩展Palabos的方法;</p>
+<ul>
+<li>写一个新的动力学类;</li>
+<li>写一个新的数据处理器;</li>
+<li>写一个新的晶格描述符。</li>
+</ul>
+<blockquote>
+<p>动力学类用于定义新的局部碰撞步骤，而新的晶格描述符意味着新的晶格拓扑(离散速度，权重等)，而数据处理器用于其他一切。</p>
+</blockquote>
+</li>
+<li><p>好消息是，Palabos的可扩展部分提供了很大的灵活性。以单组分多相非混相多组分流体二维Shan&#x2F;Chen模型实现和三维Shan&#x2F;Chen模型实现为例。这只是通过编写一个新的晶格描述符和一个新的数据处理器来实现的，而不需要修改Palabos的任何结构部分。而且，生成的源代码的大小只占整个项目的1%。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>LBM</category>
+      </categories>
+      <tags>
+        <tag>PALABOS</tag>
+        <tag>LBM</tag>
+      </tags>
+  </entry>
 </search>
