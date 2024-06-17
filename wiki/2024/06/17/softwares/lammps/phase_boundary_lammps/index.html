@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      用LAMMPS计算相界的非平衡自由能 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>用LAMMPS计算相界的非平衡自由能</h2>
+  <p class="post-date">2024-06-17 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="dCCI-method"><a href="#dCCI-method" class="headerlink" title="dCCI method"></a>dCCI method</h2><blockquote>
+<p>dynamic Clausius–Clapeyron integration (dCCI) </p>
+</blockquote>
+<blockquote>
+<p>dCCI方法的优点在于，它使用相对较短的单次非平衡模拟，提供了跨越大范围热力学状态的共存曲线</p>
+</blockquote>
+<h2 id="安装配置环境"><a href="#安装配置环境" class="headerlink" title="安装配置环境"></a>安装配置环境</h2><h3 id="Clone-DCCI库到src文件"><a href="#Clone-DCCI库到src文件" class="headerlink" title="Clone DCCI库到src文件"></a>Clone DCCI库到src文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./lammps-23Jun2022/src/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/samuelcajahuaringa/dCCIforLAMMPS.git DCCI</span><br></pre></td></tr></table></figure>
+
+<h3 id="Copy文件"><a href="#Copy文件" class="headerlink" title="Copy文件"></a>Copy文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./DCCI</span><br><span class="line"><span class="built_in">cp</span> fix.h fix_nh.* fix_adapt_dcci.* dcci.cpp dcci.h ../</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如何理解：the pair style modified to scale the forces such as pair lj. 需要做什么修改？</p>
+<p>不做修改，make mpi未报错。</p>
+</blockquote>
+<h3 id="构建dcci和编译lammps"><a href="#构建dcci和编译lammps" class="headerlink" title="构建dcci和编译lammps"></a>构建dcci和编译lammps</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">cd</span></span> ..</span><br><span class="line">make <span class="keyword">yes</span>-DCCI</span><br><span class="line">make mpi -j8</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>成功编译</p>
+<p>LAMMPS版本：23Jun2022</p>
+<p>测试环境：WSL Ubuntu20.04</p>
+</blockquote>
+<h2 id="Lennard-Jones固-液相边界例子"><a href="#Lennard-Jones固-液相边界例子" class="headerlink" title="Lennard-Jones固-液相边界例子"></a>Lennard-Jones固-液相边界例子</h2><h3 id="运行测试（好像只能2个核运行）"><a href="#运行测试（好像只能2个核运行）" class="headerlink" title="运行测试（好像只能2个核运行）"></a>运行测试（好像只能2个核运行）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd lammps-<span class="number">23</span>Jun2022<span class="regexp">/src/</span>DCCI<span class="regexp">/example/</span>lj</span><br><span class="line">mpirun -np <span class="number">2</span> ~<span class="regexp">/softwares/</span>Lammps<span class="regexp">/lammps-23Jun2022/</span>src/lmp_mpi -partition <span class="number">2</span>x1 -<span class="keyword">in</span> <span class="keyword">in</span>.dcci</span><br></pre></td></tr></table></figure>
+
+<h3 id="报错调试"><a href="#报错调试" class="headerlink" title="报错调试"></a>报错调试</h3><ul>
+<li><p>2个处理器以上报错：<code>ERROR: Processor partitions do not match number of allocated processors (../lammps.cpp:449)</code></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">ERROR: Processor partitions do not match number of allocated processors (../lammps.cpp:449)</span></span><br><span class="line"><span class="section">--------------------------------------------------------------------------</span></span><br><span class="line">Primary job  terminated normally, but 1 process returned</span><br><span class="line"><span class="section">a non-zero exit code. Per user-direction, the job has been aborted.</span></span><br><span class="line"><span class="section">--------------------------------------------------------------------------</span></span><br><span class="line"><span class="code">--------------------------------------------------------------------------</span></span><br><span class="line"><span class="code">mpirun detected that one or more processes exited with non-zero status, thus causing</span></span><br><span class="line"><span class="code">the job to be terminated. The first process to do so was:</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">  Process name: [[25094,1],1]</span></span><br><span class="line"><span class="code">  Exit code:    1</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>默认两个处理器跑也报错：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LAMMPS (23 Jun 2022)</span><br><span class="line"><span class="section">Running on 2 partitions of processors</span></span><br><span class="line"><span class="section">--------------------------------------------------------------------------</span></span><br><span class="line">MPI_ABORT was invoked on rank 1 in communicator MPI_COMM_WORLD</span><br><span class="line">with errorcode 1.</span><br><span class="line"></span><br><span class="line"><span class="symbol">NOTE: </span>invoking MPI_ABORT causes Open MPI to kill all MPI processes.</span><br><span class="line">You may or may not see output from other processes, depending on</span><br><span class="line">exactly when Open MPI kills them.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发现报错处理器数无关</p>
+<ul>
+<li><p><code>-partition 2x1 </code>参数表示采用两个处理器分区，每个处理器分区中都运行一个 MPI 进程</p>
+</li>
+<li><p>如果增加总进程为8，则需要修改为：<code>-partition 2x4</code></p>
+<blockquote>
+<p>采用两个处理器分区，每个处理器分区中都运行4个 MPI 进程</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>查看log文件发现还是报错：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>Thermo fix does not compute scalar (../thermo.cpp:1019)</span><br><span class="line">Last command: thermo_style custom step temp ke pe etotal press vol f_f3</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>f3是一个标量？</p>
+<p>注释 f_f3后不报错了</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><ul>
+<li>结果在<code>log.lammps</code>中；</li>
+<li>对比分析：<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202406171826430.png" alt="test"></li>
+<li><img src="https://raw.githubusercontent.com/samuelcajahuaringa/dCCIforLAMMPS/master/dcci_lj.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Cajahuaringa S, Antonelli A. Non-equilibrium free-energy calculation of phase-boundaries using LAMMPS[J]. Computational Materials Science, 2022, 207: 111275.</p>
+<p>[2] <a target="_blank" rel="noopener" href="https://github.com/samuelcajahuaringa/dCCIforLAMMPS">dCCIforLAMMPS</a>: Examples demonstrating how to reproduce the results in the paper [1].</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#PALABOS" >
+    <span class="tag-code">PALABOS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#LBM" >
+    <span class="tag-code">LBM</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/06/04/others/2024/oray_keyboard_and_mouse_out_of_control/">
+        <span class="nav-arrow">← </span>
+        
+          向日葵远程连接键盘鼠标失灵
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#dCCI-method"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">dCCI method</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装配置环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Clone-DCCI%E5%BA%93%E5%88%B0src%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Clone DCCI库到src文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Copy%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Copy文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9E%84%E5%BB%BAdcci%E5%92%8C%E7%BC%96%E8%AF%91lammps"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">构建dcci和编译lammps</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Lennard-Jones%E5%9B%BA-%E6%B6%B2%E7%9B%B8%E8%BE%B9%E7%95%8C%E4%BE%8B%E5%AD%90"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Lennard-Jones固-液相边界例子</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%EF%BC%88%E5%A5%BD%E5%83%8F%E5%8F%AA%E8%83%BD2%E4%B8%AA%E6%A0%B8%E8%BF%90%E8%A1%8C%EF%BC%89"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">运行测试（好像只能2个核运行）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8A%A5%E9%94%99%E8%B0%83%E8%AF%95"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">报错调试</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">结果分析</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/06/17/softwares/lammps/phase_boundary_lammps/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
