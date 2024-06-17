@@ -7195,82 +7195,6 @@ style A fill:#ffff</pre>
       </tags>
   </entry>
   <entry>
-    <title>VMD 基本操作</title>
-    <url>/MyWiki/wiki/2019/01/22/softwares/lammps/VMD%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h2 id="VMD使用"><a href="#VMD使用" class="headerlink" title="VMD使用"></a>VMD使用</h2><h3 id="VMD-Linux-安装"><a href="#VMD-Linux-安装" class="headerlink" title="VMD Linux 安装"></a>VMD Linux 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz</span><br><span class="line">tar -vxzf vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vmd-1.9.3/</span><br><span class="line">./configure LINUXAMD64</span><br><span class="line">./configure</span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="VMD-TkConsole常用命令"><a href="#VMD-TkConsole常用命令" class="headerlink" title="VMD TkConsole常用命令"></a>VMD TkConsole常用命令</h3><ul>
-<li>设定盒子边界类命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pbc box -style lines <span class="comment"># 显示box</span></span><br><span class="line">pbc box -width 2     <span class="comment"># 改变lines宽</span></span><br><span class="line">pbc box -color white <span class="comment"># 改变lines颜色</span></span><br><span class="line"><span class="built_in">set</span> cell [pbc <span class="built_in">set</span> &#123;10.0 10.0 10.0&#125; -all] <span class="comment"># 设置边界</span></span><br><span class="line">pbc box -center origin -shiftcenter &#123;-1 -1 0&#125; <span class="comment">#移动盒子</span></span><br><span class="line">pbc box -center origin -color black -width 1.0 -center com</span><br><span class="line">pbc box -on</span><br><span class="line">pbc wrap</span><br><span class="line">pbc wrap -shiftcenterrel &#123;0 0 0.95&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>视角切换<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rotate x by 90</span><br><span class="line">rotate y by 90</span><br><span class="line">rotate z by 90</span><br></pre></td></tr></table></figure></li>
-<li>读取lammpsdata<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">topo readlammpsdata lammps.data</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="输出高清图片"><a href="#输出高清图片" class="headerlink" title="输出高清图片"></a>输出高清图片</h3><ul>
-<li><code>File&gt;&gt;Render...&gt;&gt;Tachyon</code></li>
-<li><code>Figure.bat</code>文件内内容：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;..\VMD\tachyon_WIN32.exe&quot;</span> vmdscene.dat -aasamples 100 -mediumshade -trans_vmd -res 1024 742 -format BMP -o Figure.bmp</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="输出透明图片"><a href="#输出透明图片" class="headerlink" title="输出透明图片"></a>输出透明图片</h3><ul>
-<li><p>安装<a href="http://www.povray.org/download/">POV-Ray</a></p>
-</li>
-<li><p>linux: <a href="http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Old-Versions/Official-3.62/Linux/povlinux-3.6.tgz">POV-Ray</a></p>
-</li>
-<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312170028602.png" alt="image-20231217002804420"></p>
-</li>
-<li><p>windows:</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">pvengine64 vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>linux:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">povray vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>如果出来背景还不是透明的， 把display里 depth cueing 取消选择。</p>
-</blockquote>
-<h3 id="输出Video"><a href="#输出Video" class="headerlink" title="输出Video"></a>输出Video</h3><ul>
-<li>输出帧图片：<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Extensions&gt;&gt;Visualizations&gt;&gt;Movie </span>Maker</span><br></pre></td></tr></table></figure></li>
-<li>组合图片成视频</li>
-<li><blockquote>
-<p><a href="http://gromada.com/videomach/">VideoMach</a></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="TCL命令"><a href="#TCL命令" class="headerlink" title="TCL命令"></a>TCL命令</h2><h3 id="计算z方向的氢键Hbonds-cal-z-tcl"><a href="#计算z方向的氢键Hbonds-cal-z-tcl" class="headerlink" title="计算z方向的氢键Hbonds_cal_z.tcl"></a>计算z方向的氢键<code>Hbonds_cal_z.tcl</code></h3><figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#TCL VMD script to calculate Avg No. of HBonds for given Acceptor and Donor groups in the z direction </span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Authour : KAPAKAYALA ANJI BABU</span></span><br><span class="line"><span class="comment">#          IIT KANPUR, INDIA.</span></span><br><span class="line"><span class="comment">#Modified by : Dongsheng Chen</span></span><br><span class="line"><span class="comment">#USAGE   : Open VMD/Extensions - Tk console then execute script as &quot; source hbonds_direction_z.tcl&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#OUTPUT Files ::   hbonds-details_new.dat  ; which contains details of all given Donor &amp; Acceptor atoms.</span></span><br><span class="line"><span class="comment">#				   hbonds-z.dat			   ; which contains z position vs No.of Hbonds.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set outfile [open &quot;hbonds-details-all.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-all-z.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-wat-wat-z.dat&quot; w]</span></span><br><span class="line"><span class="keyword">set</span> hbzfile [<span class="keyword">open</span> <span class="string">&quot;hbonds-wat-sdbs-z.dat&quot;</span> w]</span><br><span class="line"><span class="keyword">set</span> n [ molinfo top get numframes]</span><br><span class="line"><span class="keyword">set</span> sum <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> i <span class="number">901</span>&#125; &#123;<span class="variable">$i</span> &lt;= <span class="variable">$n</span>&#125; &#123;<span class="keyword">incr</span> i&#125; &#123;</span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> j <span class="number">-34</span>&#125; &#123;<span class="variable">$j</span> &lt;=<span class="number">94</span>&#125; &#123;<span class="keyword">incr</span> j&#125; &#123;</span><br><span class="line"><span class="keyword">set</span> k [<span class="keyword">expr</span> <span class="variable">$j</span>]</span><br><span class="line"><span class="comment">#set D [atomselect top &quot;all and z&lt;[expr $k+0.5] and z&gt;=$k&quot; frame $i] </span></span><br><span class="line"><span class="keyword">set</span> D [atomselect top <span class="string">&quot;type 411 to 412 and z&lt;[expr $k+0.5] and z&gt;=$k&quot;</span> frame <span class="variable">$i</span>] </span><br><span class="line"><span class="comment">#set A [atomselect top &quot;all&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;type 411 to 412&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 3108 3109&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 1608 1609 3110 3111 3112 3113&quot; frame $i]</span></span><br><span class="line"><span class="keyword">set</span> A [atomselect top <span class="string">&quot;resid 1606 1607 1608 1609 1610 1611 1612 1613 1614 1615 3116 3117 3118 3119 3120 3121 3122 3123 3124 3125&quot;</span> frame <span class="variable">$i</span>]</span><br><span class="line"><span class="keyword">set</span> D_list [<span class="variable">$D</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> A_list [<span class="variable">$A</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> lists [measure hbonds <span class="number">3.5</span> <span class="number">30</span> <span class="variable">$D</span> <span class="variable">$A</span>]</span><br><span class="line"><span class="keyword">set</span> atoms [<span class="keyword">lindex</span> <span class="variable">$lists</span> <span class="number">0</span>]</span><br><span class="line"><span class="keyword">set</span> Num [<span class="keyword">llength</span> <span class="variable">$atoms</span>]  </span><br><span class="line"></span><br><span class="line"><span class="comment">##---------Writing OUTPUT----------------------#</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;========================================&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Frame :: $i &quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;DONARS_list ::\n$D_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Acceptors_list ::\n$A_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;Hbonds List :: $lists&quot;</span></span><br><span class="line"><span class="comment">##set HBnum [llength $lists ]</span></span><br><span class="line"><span class="comment">#puts &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;No. of Hbonds :: $HBnum&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;HB Atoms:: $atoms&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;No. of Hbonds::  $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="variable">$hbzfile</span> <span class="string">&quot;$i $k [expr $k+0.5] $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span>  <span class="string">&quot;$i $k [expr $k+0.5] :: No. of Hbonds =  $Num&quot;</span></span><br><span class="line"><span class="comment">#------------------Calculating Avg HBonds--------#</span></span><br><span class="line"><span class="keyword">set</span> sum [<span class="keyword">expr</span> <span class="variable">$sum</span> + <span class="variable">$Num</span> ]</span><br><span class="line"><span class="comment">#puts &quot;Sum :: $sum&quot;</span></span><br><span class="line">&#125;&#125;</span><br><span class="line"><span class="keyword">set</span> Hbavg [<span class="keyword">expr</span> <span class="variable">$sum</span>/<span class="variable">$i</span>]</span><br><span class="line"><span class="comment">#puts $hbfile &quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="variable">$D</span> delete</span><br><span class="line"><span class="variable">$A</span> delete</span><br><span class="line"><span class="comment">#close $outfile</span></span><br><span class="line"><span class="keyword">close</span> <span class="variable">$hbzfile</span></span><br><span class="line"><span class="comment">#lsort -unique [$sel get resname]</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br><span class="line"><span class="comment">#       Written By ANJI BABU KAPAKAYALA                    #</span></span><br><span class="line"><span class="comment">#       Modifed By Dongsheng Chen                          #</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>导入轨迹后在<code>VMD TkConsole</code>中使用<code>source Hbonds_cal_z.tcl</code>命令执行该代码</li>
-</ul>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h4><ul>
-<li><code>proc</code>：<code>procedure</code>的简称，类似于<code>python</code>中的函数定义<code>def</code></li>
-</ul>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment"># proc 函数名 &#123;参数x 参数y&#125;&#123;函数过程&#125;</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> add</span>   &#123;x y&#125; &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">expr</span> <span class="variable">$x</span>+<span class="variable">$y</span>] # <span class="keyword">expr</span>将参数做表达式处理 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h4 id="incr"><a href="#incr" class="headerlink" title="incr"></a>incr</h4><figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>  x <span class="number">5</span></span><br><span class="line"><span class="comment"># 5</span></span><br><span class="line"><span class="keyword">incr</span> x <span class="number">10</span> #相当于给x加<span class="number">10</span></span><br><span class="line"><span class="comment"># 15</span></span><br><span class="line"><span class="keyword">incr</span> x #相当于给x加<span class="number">1</span></span><br><span class="line"><span class="comment"># 16</span></span><br></pre></td></tr></table></figure>
-<h4 id="puts"><a href="#puts" class="headerlink" title="puts"></a>puts</h4><ul>
-<li>相当于<code>python</code>的<code>print</code></li>
-</ul>
-<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">puts</span> <span class="string">&quot;welcome to TkConsole!&quot;</span></span><br></pre></td></tr></table></figure>
-<h4 id="llength"><a href="#llength" class="headerlink" title="llength"></a>llength</h4><ul>
-<li>相当于<code>python</code>的<code>len</code>，返回列表的元素个数<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">llength</span> &#123;a b c d e&#125;</span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="lindex"><a href="#lindex" class="headerlink" title="lindex"></a>lindex</h4><ul>
-<li>从列表中获得元素<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125;</span><br><span class="line"><span class="comment"># a b c d</span></span><br><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125; <span class="number">2</span></span><br><span class="line"><span class="comment"># c</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.sciencenet.cn/blog-271338-729738.html">VMD安装</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/38146922">Linux软件安装④|VMD</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/24241276">Atomselect命令介绍</a></li>
-<li><a href="http://sobereva.com/504">VMD里原子选择语句的语法和例子</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>软件学习</category>
-        <category>Lammps</category>
-      </categories>
-      <tags>
-        <tag>Lammps</tag>
-        <tag>VMD 基本操作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lammps VORONOI Package安装</title>
     <url>/MyWiki/wiki/2023/04/29/softwares/lammps/VORONOI_package/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -12180,7 +12104,7 @@ style A fill:#ffff</pre>
 <p>LAMMPS版本：23Jun2022</p>
 <p>测试环境：WSL Ubuntu20.04</p>
 </blockquote>
-<h2 id="Lennard-Jones固-液相边界例子"><a href="#Lennard-Jones固-液相边界例子" class="headerlink" title="Lennard-Jones固-液相边界例子"></a>Lennard-Jones固-液相边界例子</h2><h3 id="运行测试（好像只能2个核运行）"><a href="#运行测试（好像只能2个核运行）" class="headerlink" title="运行测试（好像只能2个核运行）"></a>运行测试（好像只能2个核运行）</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd lammps-<span class="number">23</span>Jun2022<span class="regexp">/src/</span>DCCI<span class="regexp">/example/</span>lj</span><br><span class="line">mpirun -np <span class="number">2</span> ~<span class="regexp">/softwares/</span>Lammps<span class="regexp">/lammps-23Jun2022/</span>src/lmp_mpi -partition <span class="number">2</span>x1 -<span class="keyword">in</span> <span class="keyword">in</span>.dcci</span><br></pre></td></tr></table></figure>
+<h2 id="Lennard-Jones固-液相边界例子"><a href="#Lennard-Jones固-液相边界例子" class="headerlink" title="Lennard-Jones固-液相边界例子"></a>Lennard-Jones固-液相边界例子</h2><h3 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd lammps-<span class="number">23</span>Jun2022<span class="regexp">/src/</span>DCCI<span class="regexp">/example/</span>lj</span><br><span class="line">mpirun -np <span class="number">2</span> ~<span class="regexp">/softwares/</span>Lammps<span class="regexp">/lammps-23Jun2022/</span>src/lmp_mpi -partition <span class="number">2</span>x1 -<span class="keyword">in</span> <span class="keyword">in</span>.dcci</span><br></pre></td></tr></table></figure>
 
 <h3 id="报错调试"><a href="#报错调试" class="headerlink" title="报错调试"></a>报错调试</h3><ul>
 <li><p>2个处理器以上报错：<code>ERROR: Processor partitions do not match number of allocated processors (../lammps.cpp:449)</code></p>
@@ -12229,6 +12153,82 @@ style A fill:#ffff</pre>
       <tags>
         <tag>Lammps</tag>
         <tag>相图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMD 基本操作</title>
+    <url>/MyWiki/wiki/2019/01/22/softwares/lammps/VMD_usages/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="VMD使用"><a href="#VMD使用" class="headerlink" title="VMD使用"></a>VMD使用</h2><h3 id="VMD-Linux-安装"><a href="#VMD-Linux-安装" class="headerlink" title="VMD Linux 安装"></a>VMD Linux 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz</span><br><span class="line">tar -vxzf vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vmd-1.9.3/</span><br><span class="line">./configure LINUXAMD64</span><br><span class="line">./configure</span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="VMD-TkConsole常用命令"><a href="#VMD-TkConsole常用命令" class="headerlink" title="VMD TkConsole常用命令"></a>VMD TkConsole常用命令</h3><ul>
+<li>设定盒子边界类命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pbc box -style lines <span class="comment"># 显示box</span></span><br><span class="line">pbc box -width 2     <span class="comment"># 改变lines宽</span></span><br><span class="line">pbc box -color white <span class="comment"># 改变lines颜色</span></span><br><span class="line"><span class="built_in">set</span> cell [pbc <span class="built_in">set</span> &#123;10.0 10.0 10.0&#125; -all] <span class="comment"># 设置边界</span></span><br><span class="line">pbc box -center origin -shiftcenter &#123;-1 -1 0&#125; <span class="comment">#移动盒子</span></span><br><span class="line">pbc box -center origin -color black -width 1.0 -center com</span><br><span class="line">pbc box -on</span><br><span class="line">pbc wrap</span><br><span class="line">pbc wrap -shiftcenterrel &#123;0 0 0.95&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>视角切换<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rotate x by 90</span><br><span class="line">rotate y by 90</span><br><span class="line">rotate z by 90</span><br></pre></td></tr></table></figure></li>
+<li>读取lammpsdata<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">topo readlammpsdata lammps.data</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="输出高清图片"><a href="#输出高清图片" class="headerlink" title="输出高清图片"></a>输出高清图片</h3><ul>
+<li><code>File&gt;&gt;Render...&gt;&gt;Tachyon</code></li>
+<li><code>Figure.bat</code>文件内内容：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;..\VMD\tachyon_WIN32.exe&quot;</span> vmdscene.dat -aasamples 100 -mediumshade -trans_vmd -res 1024 742 -format BMP -o Figure.bmp</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="输出透明图片"><a href="#输出透明图片" class="headerlink" title="输出透明图片"></a>输出透明图片</h3><ul>
+<li><p>安装<a href="http://www.povray.org/download/">POV-Ray</a></p>
+</li>
+<li><p>linux: <a href="http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Old-Versions/Official-3.62/Linux/povlinux-3.6.tgz">POV-Ray</a></p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312170028602.png" alt="image-20231217002804420"></p>
+</li>
+<li><p>windows:</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">pvengine64 vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>linux:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">povray vmdscene.pov +UA +A +W3000 +H2000</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>如果出来背景还不是透明的， 把display里 depth cueing 取消选择。</p>
+</blockquote>
+<h3 id="输出Video"><a href="#输出Video" class="headerlink" title="输出Video"></a>输出Video</h3><ul>
+<li>输出帧图片：<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Extensions&gt;&gt;Visualizations&gt;&gt;Movie </span>Maker</span><br></pre></td></tr></table></figure></li>
+<li>组合图片成视频</li>
+<li><blockquote>
+<p><a href="http://gromada.com/videomach/">VideoMach</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="TCL命令"><a href="#TCL命令" class="headerlink" title="TCL命令"></a>TCL命令</h2><h3 id="计算z方向的氢键Hbonds-cal-z-tcl"><a href="#计算z方向的氢键Hbonds-cal-z-tcl" class="headerlink" title="计算z方向的氢键Hbonds_cal_z.tcl"></a>计算z方向的氢键<code>Hbonds_cal_z.tcl</code></h3><figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment">#TCL VMD script to calculate Avg No. of HBonds for given Acceptor and Donor groups in the z direction </span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Authour : KAPAKAYALA ANJI BABU</span></span><br><span class="line"><span class="comment">#          IIT KANPUR, INDIA.</span></span><br><span class="line"><span class="comment">#Modified by : Dongsheng Chen</span></span><br><span class="line"><span class="comment">#USAGE   : Open VMD/Extensions - Tk console then execute script as &quot; source hbonds_direction_z.tcl&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#OUTPUT Files ::   hbonds-details_new.dat  ; which contains details of all given Donor &amp; Acceptor atoms.</span></span><br><span class="line"><span class="comment">#				   hbonds-z.dat			   ; which contains z position vs No.of Hbonds.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#set outfile [open &quot;hbonds-details-all.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-all-z.dat&quot; w]</span></span><br><span class="line"><span class="comment">#set hbzfile [open &quot;hbonds-wat-wat-z.dat&quot; w]</span></span><br><span class="line"><span class="keyword">set</span> hbzfile [<span class="keyword">open</span> <span class="string">&quot;hbonds-wat-sdbs-z.dat&quot;</span> w]</span><br><span class="line"><span class="keyword">set</span> n [ molinfo top get numframes]</span><br><span class="line"><span class="keyword">set</span> sum <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> i <span class="number">901</span>&#125; &#123;<span class="variable">$i</span> &lt;= <span class="variable">$n</span>&#125; &#123;<span class="keyword">incr</span> i&#125; &#123;</span><br><span class="line"><span class="keyword">for</span> &#123;<span class="keyword">set</span> j <span class="number">-34</span>&#125; &#123;<span class="variable">$j</span> &lt;=<span class="number">94</span>&#125; &#123;<span class="keyword">incr</span> j&#125; &#123;</span><br><span class="line"><span class="keyword">set</span> k [<span class="keyword">expr</span> <span class="variable">$j</span>]</span><br><span class="line"><span class="comment">#set D [atomselect top &quot;all and z&lt;[expr $k+0.5] and z&gt;=$k&quot; frame $i] </span></span><br><span class="line"><span class="keyword">set</span> D [atomselect top <span class="string">&quot;type 411 to 412 and z&lt;[expr $k+0.5] and z&gt;=$k&quot;</span> frame <span class="variable">$i</span>] </span><br><span class="line"><span class="comment">#set A [atomselect top &quot;all&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;type 411 to 412&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 3108 3109&quot; frame $i]</span></span><br><span class="line"><span class="comment">#set A [atomselect top &quot;resid 1606 1607 1608 1609 3110 3111 3112 3113&quot; frame $i]</span></span><br><span class="line"><span class="keyword">set</span> A [atomselect top <span class="string">&quot;resid 1606 1607 1608 1609 1610 1611 1612 1613 1614 1615 3116 3117 3118 3119 3120 3121 3122 3123 3124 3125&quot;</span> frame <span class="variable">$i</span>]</span><br><span class="line"><span class="keyword">set</span> D_list [<span class="variable">$D</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> A_list [<span class="variable">$A</span> get &#123;resname type serial &#125;]</span><br><span class="line"><span class="keyword">set</span> lists [measure hbonds <span class="number">3.5</span> <span class="number">30</span> <span class="variable">$D</span> <span class="variable">$A</span>]</span><br><span class="line"><span class="keyword">set</span> atoms [<span class="keyword">lindex</span> <span class="variable">$lists</span> <span class="number">0</span>]</span><br><span class="line"><span class="keyword">set</span> Num [<span class="keyword">llength</span> <span class="variable">$atoms</span>]  </span><br><span class="line"></span><br><span class="line"><span class="comment">##---------Writing OUTPUT----------------------#</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;========================================&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Frame :: $i &quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;DONARS_list ::\n$D_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;Acceptors_list ::\n$A_list&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile  &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;Hbonds List :: $lists&quot;</span></span><br><span class="line"><span class="comment">##set HBnum [llength $lists ]</span></span><br><span class="line"><span class="comment">#puts &quot;&quot;</span></span><br><span class="line"><span class="comment">##puts &quot;No. of Hbonds :: $HBnum&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;HB Atoms:: $atoms&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;&quot;</span></span><br><span class="line"><span class="comment">#puts $outfile &quot;No. of Hbonds::  $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="variable">$hbzfile</span> <span class="string">&quot;$i $k [expr $k+0.5] $Num&quot;</span></span><br><span class="line"><span class="keyword">puts</span>  <span class="string">&quot;$i $k [expr $k+0.5] :: No. of Hbonds =  $Num&quot;</span></span><br><span class="line"><span class="comment">#------------------Calculating Avg HBonds--------#</span></span><br><span class="line"><span class="keyword">set</span> sum [<span class="keyword">expr</span> <span class="variable">$sum</span> + <span class="variable">$Num</span> ]</span><br><span class="line"><span class="comment">#puts &quot;Sum :: $sum&quot;</span></span><br><span class="line">&#125;&#125;</span><br><span class="line"><span class="keyword">set</span> Hbavg [<span class="keyword">expr</span> <span class="variable">$sum</span>/<span class="variable">$i</span>]</span><br><span class="line"><span class="comment">#puts $hbfile &quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;Ang Hbonds :: $Hbavg&quot;</span></span><br><span class="line"><span class="keyword">puts</span> <span class="string">&quot;====================================&quot;</span></span><br><span class="line"><span class="variable">$D</span> delete</span><br><span class="line"><span class="variable">$A</span> delete</span><br><span class="line"><span class="comment">#close $outfile</span></span><br><span class="line"><span class="keyword">close</span> <span class="variable">$hbzfile</span></span><br><span class="line"><span class="comment">#lsort -unique [$sel get resname]</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br><span class="line"><span class="comment">#       Written By ANJI BABU KAPAKAYALA                    #</span></span><br><span class="line"><span class="comment">#       Modifed By Dongsheng Chen                          #</span></span><br><span class="line"><span class="comment">#==========================================================#</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>导入轨迹后在<code>VMD TkConsole</code>中使用<code>source Hbonds_cal_z.tcl</code>命令执行该代码</li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h4><ul>
+<li><code>proc</code>：<code>procedure</code>的简称，类似于<code>python</code>中的函数定义<code>def</code></li>
+</ul>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="comment"># proc 函数名 &#123;参数x 参数y&#125;&#123;函数过程&#125;</span></span><br><span class="line"><span class="keyword">proc</span><span class="title"> add</span>   &#123;x y&#125; &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">expr</span> <span class="variable">$x</span>+<span class="variable">$y</span>] # <span class="keyword">expr</span>将参数做表达式处理 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h4 id="incr"><a href="#incr" class="headerlink" title="incr"></a>incr</h4><figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>  x <span class="number">5</span></span><br><span class="line"><span class="comment"># 5</span></span><br><span class="line"><span class="keyword">incr</span> x <span class="number">10</span> #相当于给x加<span class="number">10</span></span><br><span class="line"><span class="comment"># 15</span></span><br><span class="line"><span class="keyword">incr</span> x #相当于给x加<span class="number">1</span></span><br><span class="line"><span class="comment"># 16</span></span><br></pre></td></tr></table></figure>
+<h4 id="puts"><a href="#puts" class="headerlink" title="puts"></a>puts</h4><ul>
+<li>相当于<code>python</code>的<code>print</code></li>
+</ul>
+<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">puts</span> <span class="string">&quot;welcome to TkConsole!&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="llength"><a href="#llength" class="headerlink" title="llength"></a>llength</h4><ul>
+<li>相当于<code>python</code>的<code>len</code>，返回列表的元素个数<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">llength</span> &#123;a b c d e&#125;</span><br><span class="line"><span class="comment"># 5</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="lindex"><a href="#lindex" class="headerlink" title="lindex"></a>lindex</h4><ul>
+<li>从列表中获得元素<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125;</span><br><span class="line"><span class="comment"># a b c d</span></span><br><span class="line"><span class="keyword">lindex</span> &#123;a b c d&#125; <span class="number">2</span></span><br><span class="line"><span class="comment"># c</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.sciencenet.cn/blog-271338-729738.html">VMD安装</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38146922">Linux软件安装④|VMD</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/24241276">Atomselect命令介绍</a></li>
+<li><a href="http://sobereva.com/504">VMD里原子选择语句的语法和例子</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>Lammps</category>
+      </categories>
+      <tags>
+        <tag>Lammps</tag>
+        <tag>VMD 基本操作</tag>
       </tags>
   </entry>
 </search>
