@@ -11906,8 +11906,8 @@ style A fill:#ffff</pre>
 </ul>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>LBM</category>
+        <category>软件学习</category>
+        <category>PALABOS</category>
       </categories>
       <tags>
         <tag>PALABOS</tag>
@@ -11969,8 +11969,8 @@ style A fill:#ffff</pre>
 <p><a href="https://blog.csdn.net/qq_28632981/article/details/106661589">[2] 使用Palabos的自由表面流模型仿复杂多孔介质中的液滴渗透</a></p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>LBM</category>
+        <category>软件学习</category>
+        <category>PALABOS</category>
       </categories>
       <tags>
         <tag>PALABOS</tag>
@@ -12121,7 +12121,7 @@ style A fill:#ffff</pre>
 </ul>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>软件学习</category>
         <category>PALABOS</category>
       </categories>
       <tags>
@@ -12147,8 +12147,8 @@ style A fill:#ffff</pre>
 
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>LBM</category>
+        <category>软件学习</category>
+        <category>PALABOS</category>
       </categories>
       <tags>
         <tag>PALABOS</tag>
@@ -12156,7 +12156,7 @@ style A fill:#ffff</pre>
       </tags>
   </entry>
   <entry>
-    <title>用LAMMPS计算相界的非平衡自由能</title>
+    <title>LAMMPS计算相图</title>
     <url>/MyWiki/wiki/2024/06/17/softwares/lammps/phase_boundary_lammps/</url>
     <content><![CDATA[<p>[toc]</p>
 <h2 id="dCCI-method"><a href="#dCCI-method" class="headerlink" title="dCCI method"></a>dCCI method</h2><blockquote>
@@ -12223,12 +12223,12 @@ style A fill:#ffff</pre>
 <p>[2] <a href="https://github.com/samuelcajahuaringa/dCCIforLAMMPS">dCCIforLAMMPS</a>: Examples demonstrating how to reproduce the results in the paper [1].</p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
-        <category>LBM</category>
+        <category>软件学习</category>
+        <category>Lammps</category>
       </categories>
       <tags>
-        <tag>PALABOS</tag>
-        <tag>LBM</tag>
+        <tag>Lammps</tag>
+        <tag>相图</tag>
       </tags>
   </entry>
 </search>
