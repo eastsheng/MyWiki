@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      LaTex：安装使用 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>LaTex：安装使用</h2>
+  <p class="post-date">2021-11-06 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h3 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h3><ul>
+<li>最流行的两个 TeX 发行：<a target="_blank" rel="noopener" href="https://www.tug.org/texlive/">TeX Live</a> 和 <a target="_blank" rel="noopener" href="https://miktex.org/%EF%BC%89">MiKTeX</a></li>
+</ul>
+<h3 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h3><ul>
+<li><p>自带的TeXworks</p>
+<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202408241302029.png" alt="image-20240824130212938"></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.xm1math.net/texmaker/">TeXmaker</a></p>
+<ul>
+<li><img src="https://www.xm1math.net/texmaker/assets/img/texmaker_top_bg.png"></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.texstudio.org/">TeXstudio</a>、<a target="_blank" rel="noopener" href="https://www.winedt.com/%E3%80%81**[TeXmacs](https://www.texmacs.org/tmweb/download/windows.en.html">WinEdt</a>**等;</p>
+</li>
+<li><p>或者直接使用<a target="_blank" rel="noopener" href="https://www.overleaf.com/">Overleaf</a>在线编辑</p>
+</li>
+</ul>
+<h3 id="排版工具"><a href="#排版工具" class="headerlink" title="排版工具"></a>排版工具</h3><ul>
+<li>TeXworks 预设了若干排版工具：pdfTeX, pdfLaTeX, XeTeX, XeLaTeX 等；</li>
+<li>XeLaTeX ，适用于中文；</li>
+</ul>
+<h3 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a><a target="_blank" rel="noopener" href="https://github.com/eastsheng/CodeYears/tree/main/2024/08/Latex/test">简单例子</a></h3><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[UTF8]&#123;ctexart&#125;</span><br><span class="line"><span class="comment">% 导言区，设置页面大小、页眉页脚样式、章节标题样式等等</span></span><br><span class="line"><span class="keyword">\title</span>&#123;LaTex测试&#125; <span class="comment">% 定义了标题</span></span><br><span class="line"><span class="keyword">\author</span>&#123;CDS&#125; <span class="comment">% 作者</span></span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125; <span class="comment">% 日期</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;fancyhdr&#125; <span class="comment">% 设置页眉页脚</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125; <span class="comment">% AMS-LaTeX 提供的数学功能，为了编写数学公式</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125; <span class="comment">% 插入图片</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;geometry&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;setspace&#125; <span class="comment">% 行距设置</span></span><br><span class="line"><span class="keyword">\onehalfspacing</span> <span class="comment">% 将行距设置为字号的 1.5 倍</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\addtolength</span>&#123;<span class="keyword">\parskip</span>&#125;&#123;.4em&#125; <span class="comment">% 调整段间距</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\geometry</span>&#123;papersize=&#123;15cm,20cm&#125;&#125; <span class="comment">% 纸张的长度设置为 15cm、宽度设置为 20cm</span></span><br><span class="line"><span class="keyword">\geometry</span>&#123;left=1.5cm,right=1.5cm,top=3cm,bottom=2cm&#125; <span class="comment">% 左边距 1.5cm、右边距 1.5cm、上边距 3cm、下边距 2cm</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%\pagestyle&#123;fancy&#125;</span></span><br><span class="line"><span class="comment">%\lhead&#123;\author&#125;</span></span><br><span class="line"><span class="comment">%\chead&#123;\date&#125;</span></span><br><span class="line"><span class="comment">%\lfoot&#123;&#125;</span></span><br><span class="line"><span class="comment">%\cfoot&#123;\thepage&#125;</span></span><br><span class="line"><span class="comment">%\rfoot&#123;&#125;</span></span><br><span class="line"><span class="comment">%\renewcommand&#123;\headrulewidth&#125;&#123;0.4pt&#125;</span></span><br><span class="line"><span class="comment">%\renewcommand&#123;\headwidth&#125;&#123;\textwidth&#125;</span></span><br><span class="line"><span class="comment">%\renewcommand&#123;\footrulewidth&#125;&#123;0pt&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\tableofcontents</span> <span class="comment">% 定义了目录</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% ---------------- 以上是导言区</span></span><br><span class="line"><span class="keyword">\maketitle</span> <span class="comment">% 将在导言区中定义的标题、作者、日期按照预定的格式展现出来</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;第一部分：基础&#125;</span><br><span class="line">第一峰是珠穆朗玛峰。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\subsection</span>&#123;第1.1部分&#125;</span><br><span class="line">第一峰是珠穆朗玛峰。。</span><br><span class="line"><span class="keyword">\subsubsection</span>&#123;第1.1.1部分&#125;</span><br><span class="line">第一峰是珠穆朗玛峰。。</span><br><span class="line"><span class="keyword">\paragraph</span>&#123;青藏高原&#125;</span><br><span class="line"><span class="keyword">\subparagraph</span>&#123;西在藏&#125;</span><br><span class="line">西藏铁路</span><br><span class="line"><span class="keyword">\subsection</span>&#123;西藏大学&#125;</span><br><span class="line"><span class="keyword">\paragraph</span>&#123;新疆大学&#125; 在新疆</span><br><span class="line"></span><br><span class="line">Hello, world!</span><br><span class="line">你好</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;第二部分：公式&#125;</span><br><span class="line"><span class="keyword">\subsection</span>&#123;数学公式&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span>E=mc<span class="built_in">^</span>2.<span class="keyword">\]</span> <span class="comment">% 使用 \[ ... \] 可以插入行间公式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 如果需要对行间公式进行编号，则可以使用 equation 环境</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">E= mc<span class="built_in">^</span>2.</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">z = r<span class="keyword">\cdot</span> e<span class="built_in">^</span>&#123;2<span class="keyword">\pi</span> i&#125;. </span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\sqrt</span>&#123;x&#125;<span class="built_in">$</span>, <span class="built_in">$</span><span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;<span class="built_in">$</span>. <span class="comment">% 使用 $ ... $ 可以插入行内公式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\sqrt</span>&#123;x&#125;, <span class="keyword">\]</span> <span class="comment">% 根式用 \sqrt&#123;·&#125; 来表示</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\frac</span>&#123;1&#125;&#123;2&#125;. <span class="keyword">\]</span> <span class="comment">% 分式用 \frac&#123;·&#125;&#123;·&#125; 来表示</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">$</span> <span class="keyword">\sum</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>n i<span class="keyword">\quad</span> <span class="keyword">\prod</span><span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>n <span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span> <span class="keyword">\sum</span><span class="keyword">\limits</span> <span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>n i<span class="keyword">\quad</span> <span class="keyword">\prod</span><span class="keyword">\limits</span> <span class="built_in">_</span>&#123;i=1&#125;<span class="built_in">^</span>n <span class="built_in">$</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\lim</span><span class="built_in">_</span>&#123;x<span class="keyword">\to</span>0&#125;x<span class="built_in">^</span>2 <span class="keyword">\quad</span> <span class="keyword">\int</span><span class="built_in">_</span>a<span class="built_in">^</span>b x<span class="built_in">^</span>2 dx <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\lim</span><span class="keyword">\nolimits</span> <span class="built_in">_</span>&#123;x<span class="keyword">\to</span>0&#125;x<span class="built_in">^</span>2<span class="keyword">\quad</span> <span class="keyword">\int</span><span class="keyword">\nolimits</span><span class="built_in">_</span>a<span class="built_in">^</span>b x<span class="built_in">^</span>2 dx <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\iint</span><span class="keyword">\quad</span> <span class="keyword">\iiint</span><span class="keyword">\quad</span> <span class="keyword">\iiiint</span><span class="keyword">\quad</span> <span class="keyword">\idotsint</span> <span class="keyword">\]</span> <span class="comment">% 多重积分</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 定界符（括号等）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span>(<span class="keyword">\biggl</span>(<span class="keyword">\Bigl</span>(<span class="keyword">\bigl</span>((x)<span class="keyword">\bigr</span>)<span class="keyword">\Bigr</span>)<span class="keyword">\biggr</span>)<span class="keyword">\Biggr</span>) <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span>[<span class="keyword">\biggl</span>[<span class="keyword">\Bigl</span>[<span class="keyword">\bigl</span>[[x]<span class="keyword">\bigr</span>]<span class="keyword">\Bigr</span>]<span class="keyword">\biggr</span>]<span class="keyword">\Biggr</span>] <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span> <span class="keyword">\&#123;</span><span class="keyword">\biggl</span> <span class="keyword">\&#123;</span><span class="keyword">\Bigl</span> <span class="keyword">\&#123;</span><span class="keyword">\bigl</span> <span class="keyword">\&#123;</span><span class="keyword">\&#123;</span>x<span class="keyword">\&#125;</span><span class="keyword">\bigr</span> <span class="keyword">\&#125;</span><span class="keyword">\Bigr</span> <span class="keyword">\&#125;</span><span class="keyword">\biggr</span> <span class="keyword">\&#125;</span><span class="keyword">\Biggr</span><span class="keyword">\&#125;</span> <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span><span class="keyword">\langle</span><span class="keyword">\biggl</span><span class="keyword">\langle</span><span class="keyword">\Bigl</span><span class="keyword">\langle</span><span class="keyword">\bigl</span><span class="keyword">\langle</span><span class="keyword">\langle</span> x</span><br><span class="line"><span class="keyword">\rangle</span><span class="keyword">\bigr</span><span class="keyword">\rangle</span><span class="keyword">\Bigr</span><span class="keyword">\rangle</span><span class="keyword">\biggr</span><span class="keyword">\rangle</span><span class="keyword">\Biggr</span><span class="keyword">\rangle</span> <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span><span class="keyword">\lvert</span><span class="keyword">\biggl</span><span class="keyword">\lvert</span><span class="keyword">\Bigl</span><span class="keyword">\lvert</span><span class="keyword">\bigl</span><span class="keyword">\lvert</span><span class="keyword">\lvert</span> x</span><br><span class="line"><span class="keyword">\rvert</span><span class="keyword">\bigr</span><span class="keyword">\rvert</span><span class="keyword">\Bigr</span><span class="keyword">\rvert</span><span class="keyword">\biggr</span><span class="keyword">\rvert</span><span class="keyword">\Biggr</span><span class="keyword">\rvert</span> <span class="keyword">\]</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\Biggl</span><span class="keyword">\lVert</span><span class="keyword">\biggl</span><span class="keyword">\lVert</span><span class="keyword">\Bigl</span><span class="keyword">\lVert</span><span class="keyword">\bigl</span><span class="keyword">\lVert</span><span class="keyword">\lVert</span> x</span><br><span class="line"><span class="keyword">\rVert</span><span class="keyword">\bigr</span><span class="keyword">\rVert</span><span class="keyword">\Bigr</span><span class="keyword">\rVert</span><span class="keyword">\biggr</span><span class="keyword">\rVert</span><span class="keyword">\Biggr</span><span class="keyword">\rVert</span> <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 省略号</span></span><br><span class="line"><span class="keyword">\[</span> x<span class="built_in">_</span>1,x<span class="built_in">_</span>2,<span class="keyword">\dots</span> ,x<span class="built_in">_</span>n<span class="keyword">\quad</span> 1,2,<span class="keyword">\cdots</span> ,n<span class="keyword">\quad</span></span><br><span class="line"><span class="keyword">\vdots</span><span class="keyword">\quad</span> <span class="keyword">\ddots</span> <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 矩阵</span></span><br><span class="line"><span class="keyword">\[</span> <span class="keyword">\begin</span>&#123;pmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;pmatrix&#125; <span class="keyword">\quad</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;bmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;bmatrix&#125; <span class="keyword">\quad</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;Bmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;Bmatrix&#125; <span class="keyword">\quad</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;vmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;vmatrix&#125; <span class="keyword">\quad</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;Vmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;Vmatrix&#125; <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 使用 smallmatrix 环境，生成行内公式的小矩阵。</span></span><br><span class="line">Marry has a little matrix <span class="built_in">$</span> ( <span class="keyword">\begin</span>&#123;smallmatrix&#125; a<span class="built_in">&amp;</span>b<span class="keyword">\\</span>c<span class="built_in">&amp;</span>d <span class="keyword">\end</span>&#123;smallmatrix&#125; ) <span class="built_in">$</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment">% 公式组</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;gather&#125;</span><br><span class="line">a = b+c+d <span class="keyword">\\</span></span><br><span class="line">x = y+z</span><br><span class="line"><span class="keyword">\end</span>&#123;gather&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b+c+d <span class="keyword">\\</span></span><br><span class="line">x <span class="built_in">&amp;</span>= y+z</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 分段函数</span></span><br><span class="line"><span class="keyword">\[</span> y= <span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">-x,<span class="keyword">\quad</span> x<span class="keyword">\leq</span> 0 <span class="keyword">\\</span></span><br><span class="line">x,<span class="keyword">\quad</span> x&gt;0</span><br><span class="line"><span class="keyword">\end</span>&#123;cases&#125; <span class="keyword">\]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;第三部分：图片&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>&#123;imgs/12.png&#125; <span class="comment">% 正常插入图片</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[width = .8<span class="keyword">\textwidth</span>]&#123;imgs/12.png&#125; <span class="comment">% 控制图片大小</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp] <span class="comment">% htbp 选项用来指定插图的理想位置，这几个字母分别代表 here, top, bottom, float page，也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）</span></span><br><span class="line"><span class="keyword">\centering</span> <span class="comment">% 插图居中</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width = .8<span class="keyword">\textwidth</span>]&#123;imgs/12.png&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;大分子&#125; <span class="comment">% 命令设置插图标题 LaTeX 会自动给浮动体的标题加上编号</span></span><br><span class="line"><span class="keyword">\label</span>&#123;fig:myphoto&#125;<span class="comment">% 注意 \label 应该放在标题命令之后。</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"><span class="keyword">\vspace</span>&#123;1.25em&#125;</span><br><span class="line"><span class="keyword">\section</span>&#123;第四部分：表格&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\item</span> tabular 环境提供了最简单的表格功能</span><br><span class="line"><span class="comment">%\item 它用 \hline 命令表示横线，在列格式中用 | 表示竖线</span></span><br><span class="line"><span class="comment">%\item 用 &amp; 来分列，用 \\ 来换行</span></span><br><span class="line"><span class="keyword">\item</span> 每列可以采用居左、居中、居右等横向对齐方式，分别用 l、c、r 来表示。</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;itemize&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;|l|c|r|&#125;</span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line">操作系统<span class="built_in">&amp;</span> 发行版<span class="built_in">&amp;</span> 编辑器<span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line">Windows <span class="built_in">&amp;</span> MikTeX <span class="built_in">&amp;</span> TexMakerX <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line">Unix/Linux <span class="built_in">&amp;</span> teTeX <span class="built_in">&amp;</span> Kile <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line">Mac OS <span class="built_in">&amp;</span> MacTeX <span class="built_in">&amp;</span> TeXShop <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line">通用<span class="built_in">&amp;</span> TeX Live <span class="built_in">&amp;</span> TeXworks <span class="keyword">\\</span></span><br><span class="line"> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://liam.page/2014/09/08/latex-introduction/">[1] 一份其实很短的 LaTeX 入门文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://zilutian.github.io/latex-tutorial-chinese/">[2] LATEX 教程</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#LaTex" >
+    <span class="tag-code">LaTex</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2021/11/05/codes/python/pandas_1/">
+        <span class="nav-arrow">← </span>
+        
+          Pandas 基本操作
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2021/11/07/codes/latex/LaTex_study_02/">
+        
+          LaTex：符号
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">编辑器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">排版工具</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">简单例子</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2021/11/06/codes/latex/LaTex_study_01/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
