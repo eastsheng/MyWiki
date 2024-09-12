@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      GBDT 和 GBR 的区别 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>GBDT 和 GBR 的区别</h2>
+  <p class="post-date">2024-09-12 12:18:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<p><strong>GBDT（Gradient Boosting Decision Tree）</strong>和<strong>GBR（Gradient Boosting Regression）</strong> 都属于<strong>梯度提升（Gradient Boosting）</strong>框架，但它们之间的区别主要体现在应用场景和具体模型结构上。以下是详细的对比分析：</p>
+<h2 id="1-GBDT-与-GBR-的相同点"><a href="#1-GBDT-与-GBR-的相同点" class="headerlink" title="1. GBDT 与 GBR 的相同点"></a>1. GBDT 与 GBR 的相同点</h2><h3 id="1-1-集成学习框架"><a href="#1-1-集成学习框架" class="headerlink" title="1.1 集成学习框架"></a>1.1 集成学习框架</h3><p>GBDT 和 GBR 都属于<strong>梯度提升（Gradient Boosting）</strong>方法的一部分，利用了<strong>集成学习</strong>的思想来构建多个弱学习器的组合模型，通过多轮迭代逐步减少误差，从而提高整体预测的准确性。</p>
+<h3 id="1-2-梯度下降的思想"><a href="#1-2-梯度下降的思想" class="headerlink" title="1.2 梯度下降的思想"></a>1.2 梯度下降的思想</h3><p>两者都使用<strong>梯度下降</strong>的思想来优化模型。每一轮的模型都是基于上一轮的残差来训练新模型，逐步逼近真实目标。</p>
+<h3 id="1-3-残差学习"><a href="#1-3-残差学习" class="headerlink" title="1.3 残差学习"></a>1.3 残差学习</h3><p>GBDT 和 GBR 都基于残差学习的思想，在每一轮迭代中，训练一个新的弱学习器来拟合当前模型的残差。</p>
+<h2 id="2-GBDT-与-GBR-的不同点"><a href="#2-GBDT-与-GBR-的不同点" class="headerlink" title="2. GBDT 与 GBR 的不同点"></a>2. GBDT 与 GBR 的不同点</h2><h3 id="2-1-应用场景不同"><a href="#2-1-应用场景不同" class="headerlink" title="2.1 应用场景不同"></a>2.1 应用场景不同</h3><ul>
+<li><strong>GBDT</strong>：用于<strong>分类</strong>和<strong>回归</strong>任务。全称是<strong>Gradient Boosting Decision Trees</strong>，是基于<strong>决策树</strong>的梯度提升方法。适用于分类任务中的对数损失或回归任务中的平方误差损失。</li>
+<li><strong>GBR</strong>：用于<strong>回归</strong>任务，是梯度提升回归框架的实现。常用于最小化平方误差的回归问题。</li>
+</ul>
+<h3 id="2-2-模型选择不同"><a href="#2-2-模型选择不同" class="headerlink" title="2.2 模型选择不同"></a>2.2 模型选择不同</h3><ul>
+<li><strong>GBDT</strong>：弱学习器是<strong>决策树</strong>（通常是 CART 决策树）。</li>
+<li><strong>GBR</strong>：弱学习器可以是多种回归模型，通常也是<strong>决策树</strong>。</li>
+</ul>
+<h3 id="2-3-分类与回归任务的处理"><a href="#2-3-分类与回归任务的处理" class="headerlink" title="2.3 分类与回归任务的处理"></a>2.3 分类与回归任务的处理</h3><ul>
+<li><strong>GBDT</strong>：可以处理<strong>分类任务</strong>，在分类任务中使用对数损失或指数损失作为损失函数。</li>
+<li><strong>GBR</strong>：只处理<strong>回归任务</strong>，使用平方损失或绝对误差损失。</li>
+</ul>
+<h3 id="2-4-预测输出不同"><a href="#2-4-预测输出不同" class="headerlink" title="2.4 预测输出不同"></a>2.4 预测输出不同</h3><ul>
+<li><strong>GBDT</strong>：在分类任务中输出分类标签或概率分布；在回归任务中输出连续值。</li>
+<li><strong>GBR</strong>：输出为<strong>连续值</strong>，用于回归任务的预测。</li>
+</ul>
+<h3 id="2-5-损失函数的选择不同"><a href="#2-5-损失函数的选择不同" class="headerlink" title="2.5 损失函数的选择不同"></a>2.5 损失函数的选择不同</h3><ul>
+<li><strong>GBDT</strong>：在分类任务中使用对数损失或指数损失，在回归任务中使用平方误差损失。</li>
+<li><strong>GBR</strong>：主要使用平方误差、绝对误差等<strong>回归损失函数</strong>。</li>
+</ul>
+<h2 id="3-简要对比"><a href="#3-简要对比" class="headerlink" title="3. 简要对比"></a>3. 简要对比</h2><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>GBDT</strong></th>
+<th><strong>GBR</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>应用场景</strong></td>
+<td>分类和回归</td>
+<td>仅限回归</td>
+</tr>
+<tr>
+<td><strong>弱学习器</strong></td>
+<td>决策树（CART）</td>
+<td>多种回归模型（通常为决策树）</td>
+</tr>
+<tr>
+<td><strong>输出类型</strong></td>
+<td>分类标签或概率（分类）；连续值（回归）</td>
+<td>连续值</td>
+</tr>
+<tr>
+<td><strong>损失函数</strong></td>
+<td>对数损失（分类），平方误差（回归）</td>
+<td>平方误差、绝对误差等回归损失函数</td>
+</tr>
+<tr>
+<td><strong>分类任务处理</strong></td>
+<td>支持分类任务</td>
+<td>不支持分类任务</td>
+</tr>
+<tr>
+<td><strong>主要区别</strong></td>
+<td>处理分类和回归任务，输出类别或回归值</td>
+<td>仅用于回归任务，输出回归值</td>
+</tr>
+</tbody></table>
+<h2 id="4-示例代码"><a href="#4-示例代码" class="headerlink" title="4. 示例代码"></a>4. 示例代码</h2><h3 id="1-GBDT（Gradient-Boosting-Decision-Tree）"><a href="#1-GBDT（Gradient-Boosting-Decision-Tree）" class="headerlink" title="1. GBDT（Gradient Boosting Decision Tree）"></a>1. <strong>GBDT（Gradient Boosting Decision Tree）</strong></h3><p>在 <code>sklearn</code> 中，GBDT 的回归模型可以通过 <code>GradientBoostingRegressor</code> 来调用，而分类模型可以通过 <code>GradientBoostingClassifier</code> 来调用。</p>
+<h4 id="示例代码（回归任务-GBDT）"><a href="#示例代码（回归任务-GBDT）" class="headerlink" title="示例代码（回归任务 - GBDT）"></a>示例代码（回归任务 - GBDT）</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble import GradientBoostingRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection import train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics import mean_squared_error, r2_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设有一个数据集 X, y</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, <span class="attribute">test_size</span>=0.2, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 GBDT 回归模型</span></span><br><span class="line">gbdt = GradientBoostingRegressor(<span class="attribute">n_estimators</span>=100, <span class="attribute">learning_rate</span>=0.1, <span class="attribute">max_depth</span>=3, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">gbdt.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = gbdt.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估模型</span></span><br><span class="line">r2 = r2_score(y_test, y_pred)</span><br><span class="line">rmse = mean_squared_error(y_test, y_pred, <span class="attribute">squared</span>=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(f<span class="string">&#x27;R^2: &#123;r2&#125;, RMSE: &#123;rmse&#125;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="示例代码（分类任务-GBDT）"><a href="#示例代码（分类任务-GBDT）" class="headerlink" title="示例代码（分类任务 - GBDT）"></a>示例代码（分类任务 - GBDT）</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble import GradientBoostingClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection import train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics import accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设有一个分类数据集 X, y</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, <span class="attribute">test_size</span>=0.2, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 GBDT 分类模型</span></span><br><span class="line">gbdt_classifier = GradientBoostingClassifier(<span class="attribute">n_estimators</span>=100, <span class="attribute">learning_rate</span>=0.1, <span class="attribute">max_depth</span>=3, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">gbdt_classifier.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = gbdt_classifier.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估模型</span></span><br><span class="line">accuracy = accuracy_score(y_test, y_pred)</span><br><span class="line"><span class="built_in">print</span>(f<span class="string">&#x27;Accuracy: &#123;accuracy&#125;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-GBR（Gradient-Boosting-Regression）"><a href="#2-GBR（Gradient-Boosting-Regression）" class="headerlink" title="2. GBR（Gradient Boosting Regression）"></a>2. <strong>GBR（Gradient Boosting Regression）</strong></h3><p>在 <code>sklearn</code> 中，GBR 也是通过 <code>GradientBoostingRegressor</code> 来实现的。这种方法通常专注于回归任务。</p>
+<h4 id="示例代码（回归任务-GBR）"><a href="#示例代码（回归任务-GBR）" class="headerlink" title="示例代码（回归任务 - GBR）"></a>示例代码（回归任务 - GBR）</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble import GradientBoostingRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection import train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics import mean_squared_error, r2_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设有一个回归数据集 X, y</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, <span class="attribute">test_size</span>=0.2, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 GBR 模型</span></span><br><span class="line">gbr = GradientBoostingRegressor(<span class="attribute">n_estimators</span>=100, <span class="attribute">learning_rate</span>=0.1, <span class="attribute">max_depth</span>=3, <span class="attribute">random_state</span>=42)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">gbr.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = gbr.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估模型</span></span><br><span class="line">r2 = r2_score(y_test, y_pred)</span><br><span class="line">rmse = mean_squared_error(y_test, y_pred, <span class="attribute">squared</span>=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(f<span class="string">&#x27;R^2: &#123;r2&#125;, RMSE: &#123;rmse&#125;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. <strong>总结</strong></h3><ul>
+<li>对于<strong>回归任务</strong>，无论是 GBDT 还是 GBR，都可以通过 <code>GradientBoostingRegressor</code> 进行调用。</li>
+<li>对于<strong>分类任务</strong>，GBDT 使用 <code>GradientBoostingClassifier</code>。</li>
+</ul>
+<p>这些模型都可以通过调整超参数（如 <code>n_estimators</code>, <code>learning_rate</code>, <code>max_depth</code> 等）进行优化，以获得更好的预测效果。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><ul>
+<li><strong>GBDT</strong> 是一个更加通用的框架，既可以用于分类任务，也可以用于回归任务，主要使用决策树作为基础模型，通过逐步改进分类或回归的误差来提升模型性能。</li>
+<li><strong>GBR</strong> 则主要用于回归问题，虽然通常也采用决策树作为弱学习器，但它更专注于回归任务，损失函数和输出都是围绕回归展开的。</li>
+</ul>
+<p>尽管两者在回归任务中的实现方式非常相似，都是通过梯度提升来优化决策树的组合，但<strong>GBDT 可以处理分类任务</strong>，这是其与 GBR 的主要区别之一。如果仅考虑回归任务，GBR 和 GBDT 基本可以看作是同一种方法。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#机器学习" >
+    <span class="tag-code">机器学习</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/07/01/notes/PaperReadNote2024_B/">
+        <span class="nav-arrow">← </span>
+        
+          论文笔记2024-B
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-GBDT-%E4%B8%8E-GBR-%E7%9A%84%E7%9B%B8%E5%90%8C%E7%82%B9"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. GBDT 与 GBR 的相同点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 集成学习框架</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%9A%84%E6%80%9D%E6%83%B3"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.2 梯度下降的思想</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-3-%E6%AE%8B%E5%B7%AE%E5%AD%A6%E4%B9%A0"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">1.3 残差学习</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-GBDT-%E4%B8%8E-GBR-%E7%9A%84%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. GBDT 与 GBR 的不同点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%8D%E5%90%8C"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 应用场景不同</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 模型选择不同</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-3-%E5%88%86%E7%B1%BB%E4%B8%8E%E5%9B%9E%E5%BD%92%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3 分类与回归任务的处理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-4-%E9%A2%84%E6%B5%8B%E8%BE%93%E5%87%BA%E4%B8%8D%E5%90%8C"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">2.4 预测输出不同</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-5-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9%E4%B8%8D%E5%90%8C"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">2.5 损失函数的选择不同</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%AE%80%E8%A6%81%E5%AF%B9%E6%AF%94"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 简要对比</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 示例代码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-GBDT%EF%BC%88Gradient-Boosting-Decision-Tree%EF%BC%89"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. GBDT（Gradient Boosting Decision Tree）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%88%E5%9B%9E%E5%BD%92%E4%BB%BB%E5%8A%A1-GBDT%EF%BC%89"><span class="toc-nav-number">4.1.1.</span> <span class="toc-nav-text">示例代码（回归任务 - GBDT）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%88%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1-GBDT%EF%BC%89"><span class="toc-nav-number">4.1.2.</span> <span class="toc-nav-text">示例代码（分类任务 - GBDT）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-GBR%EF%BC%88Gradient-Boosting-Regression%EF%BC%89"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. GBR（Gradient Boosting Regression）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%88%E5%9B%9E%E5%BD%92%E4%BB%BB%E5%8A%A1-GBR%EF%BC%89"><span class="toc-nav-number">4.2.1.</span> <span class="toc-nav-text">示例代码（回归任务 - GBR）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 总结</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/09/12/notes/MachineLearning/MLPython-4/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
