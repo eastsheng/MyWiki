@@ -202,7 +202,100 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
-<h1 id="Paper-Notes-2024"><a href="#Paper-Notes-2024" class="headerlink" title="Paper Notes 2024"></a>Paper Notes 2024</h1><h2 id="2024-12月"><a href="#2024-12月" class="headerlink" title="2024-12月"></a>2024-12月</h2><h2 id="2024-11月"><a href="#2024-11月" class="headerlink" title="2024-11月"></a>2024-11月</h2><h2 id="2024-10月"><a href="#2024-10月" class="headerlink" title="2024-10月"></a>2024-10月</h2><h2 id="2024-9月"><a href="#2024-9月" class="headerlink" title="2024-9月"></a>2024-9月</h2><h2 id="2024-8月"><a href="#2024-8月" class="headerlink" title="2024-8月"></a>2024-8月</h2><h3 id="Bernal-Fowler-Rule"><a href="#Bernal-Fowler-Rule" class="headerlink" title="Bernal-Fowler Rule"></a>Bernal-Fowler Rule</h3><blockquote>
+<h1 id="Paper-Notes-2024"><a href="#Paper-Notes-2024" class="headerlink" title="Paper Notes 2024"></a>Paper Notes 2024</h1><h2 id="2024-12月"><a href="#2024-12月" class="headerlink" title="2024-12月"></a>2024-12月</h2><h2 id="2024-11月"><a href="#2024-11月" class="headerlink" title="2024-11月"></a>2024-11月</h2><h2 id="2024-10月"><a href="#2024-10月" class="headerlink" title="2024-10月"></a>2024-10月</h2><h2 id="2024-9月"><a href="#2024-9月" class="headerlink" title="2024-9月"></a>2024-9月</h2><h3 id="PCA一般降维到几维"><a href="#PCA一般降维到几维" class="headerlink" title="PCA一般降维到几维"></a>PCA一般降维到几维</h3><blockquote>
+<p>GPT-4o</p>
+</blockquote>
+<p>降维到几维通常取决于数据的特性、任务的需求以及模型的复杂性。<strong>没有固定的标准答案</strong>，但以下几个原则可以帮助你确定降维的合适维数：</p>
+<ul>
+<li><p>方差解释率（Explained Variance Ratio）</p>
+<ul>
+<li>在使用 <strong>PCA</strong>（主成分分析）时，通常会查看每个主成分解释的方差比例。一般来说，前几个主成分能够解释大部分的数据方差。</li>
+<li>通常的做法是选择那些能够解释 <strong>95% 或 99%</strong> 方差的主成分维度。通过查看累计方差解释率，你可以判断需要多少个主成分来保留足够的信息。例如：<ul>
+<li>如果前 5 个主成分能解释 95% 的方差，那么可以将维度降到 5 维。</li>
+<li>如果需要保留更多信息，则可能选择能解释 99% 方差的主成分，维度可能会更多。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>肘部法则（Elbow Method）</p>
+<ul>
+<li>肘部法则可以用于确定最佳降维数。在绘制主成分的累积方差图时，找到一个“肘点”——即方差解释率开始趋于平缓的位置，作为降维后的维数。</li>
+<li>这个肘点通常是保留信息量和减少维度之间的平衡点。</li>
+</ul>
+</li>
+<li><p>任务需求</p>
+<ul>
+<li>如果你需要将数据降到 2D 或 3D 进行可视化，那么你可以直接将维度降到 2 维或 3 维。</li>
+<li>对于某些任务来说，降到比输入维度略低的维度也可能会提高模型性能，因为减少了冗余信息和噪声。例如，原始数据有 100 个特征，你可能将其降到 20~30 个维度。</li>
+</ul>
+</li>
+<li><p>模型性能</p>
+<ul>
+<li>通过降维后，训练一个模型并评估它的性能。</li>
+<li>通常会实验不同的维度，找到一个能够在性能和效率上取得平衡的维度。</li>
+<li>如果降维过多，可能会损失信息，导致模型表现下降；</li>
+<li>如果降维不够，数据中的噪声和冗余信息可能依然存在。</li>
+</ul>
+</li>
+<li><p>经验法则</p>
+<ul>
+<li>如果没有明确的指导原则或降维目标，经验上可以保留原始维度的 <strong>10%~20%</strong> 作为降维后的目标。</li>
+<li>例如，100 个特征可以降到 10~20 维，然后在此基础上评估模型性能。</li>
+</ul>
+</li>
+<li><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><strong>方差解释率</strong> 和 <strong>任务需求</strong> 是决定降维到几维的关键。</li>
+<li>尝试保留能解释 <strong>95%</strong> 左右数据方差的主成分通常是一个好的起点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="机器学习chatgpt指令"><a href="#机器学习chatgpt指令" class="headerlink" title="机器学习chatgpt指令"></a>机器学习chatgpt指令</h3><ul>
+<li>写一个机器学习代码，主要包括以下流程，数据集是，3列输入，1列输出，80%作为训练集，20%作为测试集，采用k-fold交叉验证，采用SVR模型，并进行超参数优化，建立预测模型，然后评估R^2、残差和RMSE</li>
+</ul>
+<h3 id="Gene-Expression-Programming-GEP"><a href="#Gene-Expression-Programming-GEP" class="headerlink" title="Gene Expression Programming (GEP)"></a>Gene Expression Programming (GEP)</h3><blockquote>
+<p>GPT-4o</p>
+</blockquote>
+<ul>
+<li><p>即基因表达式编程，是一种基于遗传算法的进化计算技术，属于进化算法家族。</p>
+</li>
+<li><p>它是由 <strong>Cândida Ferreira</strong> 于 2001 年提出的，GEP 是遗传编程（Genetic Programming, GP）的扩展和改进。</p>
+</li>
+<li><p>它通过对<strong>表达式树</strong>进行编码和演化，来自动生成计算机程序或模型，以解决特定问题。</p>
+</li>
+<li><p>GEP 通过模仿生物基因表达过程来求解问题，主要思想是将计算机程序编码为<strong>线性染色体</strong>（类似基因），然后通过生物演化机制（选择、变异、交叉等）来演化解决方案。</p>
+<ul>
+<li><p><strong>基因型和表现型的分离</strong>：在 GEP 中，基因型（genotype）指的是线性染色体，这些染色体通过一定的编码规则表达为表现型（phenotype），即程序表达式或树结构。染色体通过进化机制进行变化，而表现型则是用来评估和计算解的结构。</p>
+</li>
+<li><p><strong>线性染色体</strong>：GEP 使用线性字符串表示基因信息，这与遗传编程中的树结构不同。每个染色体由函数符号和操作符号组成，像基因一样进行变异、交叉等遗传操作。</p>
+</li>
+<li><p><strong>表达式树（Expression Tree, ET）</strong>：线性染色体经过解析后形成表达式树，这些树可以表示数学表达式、逻辑规则或程序结构。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Gene Expression Programming (GEP)</strong> 是一种结合了遗传算法和遗传编程优势的进化算法，具有较高的灵活性和效率。通过编码基因型并将其转化为表现型，GEP 能够自动生成复杂的数学表达式或程序模型，广泛应用于数据建模、优化和分类问题。</p>
+</li>
+</ul>
+<h3 id="神经网络（Neural-Networks）类型："><a href="#神经网络（Neural-Networks）类型：" class="headerlink" title="神经网络（Neural Networks）类型："></a><strong>神经网络（Neural Networks）类型</strong>：</h3><blockquote>
+<p>GPT-4o</p>
+</blockquote>
+<ul>
+<li><strong>前馈神经网络（Feedforward Neural Networks, FNN）</strong>：信息只在网络中前向传递，不存在反馈。<ul>
+<li>MLP 是最基础的前馈神经网络，它是全连接层的典型例子，网络中的每个神经元与下一层中的每个神经元相连。</li>
+<li>MLP 是最早的神经网络模型之一，通常用于分类、回归等任务。</li>
+<li>MLP 通常只能用于处理固定维度的结构化数据（如表格数据），而其他类型的神经网络（如 CNN、RNN）则擅长处理图像、时间序列、文本等不同类型的数据。</li>
+<li>MLP 可以是浅层的（只有一个隐藏层），也可以是深层的（多个隐藏层），当隐藏层很多时，MLP 就成为了<strong>深度神经网络（Deep Neural Networks, DNN）</strong>。</li>
+</ul>
+</li>
+<li><strong>循环神经网络（Recurrent Neural Networks, RNN）</strong>：允许网络中的节点与过去的状态进行反馈，用于处理时间序列数据。</li>
+<li><strong>卷积神经网络（Convolutional Neural Networks, CNN）</strong>：专门处理图像数据，通过卷积层和池化层提取特征。</li>
+<li><strong>生成对抗网络（Generative Adversarial Networks, GAN）</strong>：由生成器和判别器组成，主要用于生成数据。</li>
+</ul>
+<blockquote>
+<p><strong>神经网络</strong> 是一个广泛的概念，涵盖了不同类型的网络结构。</p>
+<p><strong>MLP</strong> 是前馈神经网络的具体实现形式之一，属于神经网络的子集。</p>
+<p><strong>MLP</strong> 是一种全连接神经网络模型，擅长处理结构化数据，是机器学习中最常用的基础神经网络模型之一。</p>
+</blockquote>
+<h2 id="2024-8月"><a href="#2024-8月" class="headerlink" title="2024-8月"></a>2024-8月</h2><h3 id="Bernal-Fowler-Rule"><a href="#Bernal-Fowler-Rule" class="headerlink" title="Bernal-Fowler Rule"></a>Bernal-Fowler Rule</h3><blockquote>
 <p>GPT-4o</p>
 </blockquote>
 <ul>
@@ -377,7 +470,7 @@
   <div class="toc-main">
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-12%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-12月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-11%E6%9C%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2024-11月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-10%E6%9C%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">2024-10月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-9%E6%9C%88"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">2024-9月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-8%E6%9C%88"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">2024-8月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Bernal-Fowler-Rule"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">Bernal-Fowler Rule</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BA%E4%BD%93%E8%A1%A8%E9%9D%A2%E8%83%BD%E5%A4%9F%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">固体表面能够促进水合物分解？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%EF%BC%88fugacity-difference%EF%BC%89"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">逸度差（fugacity difference）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.5.3.1.</span> <span class="toc-nav-text">术语解释</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.5.3.2.</span> <span class="toc-nav-text">逸度差的应用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9D%E5%A7%8B%E6%B0%B4%E5%90%AB%E9%87%8F%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E5%8D%B0%E8%B1%A1"><span class="toc-nav-number">1.5.4.</span> <span class="toc-nav-text">初始水含量对水合物分解的印象</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%A5%B1%E5%92%8C%E5%BA%A6%E9%AB%98%E5%92%8C%E4%BD%8E%E8%B0%81%E6%9C%80%E5%AE%B9%E6%98%93%E5%8F%97%E5%88%B0%E6%B0%B4%E4%BE%B5%EF%BC%9F"><span class="toc-nav-number">1.5.5.</span> <span class="toc-nav-text">水合物饱和度高和低谁最容易受到水侵？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A7%E5%AD%94%E4%B8%AD%E6%B0%B4%E5%90%88%E7%89%A9%E6%9B%B4%E6%98%93%E4%BA%8E%E5%88%86%E8%A7%A3%EF%BC%9F%E5%86%99%E9%94%99%E4%BA%86%EF%BC%8C%E8%BF%98%E6%98%AF%E7%9C%9F%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.5.6.</span> <span class="toc-nav-text">大孔中水合物更易于分解？写错了，还是真的？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%94%E9%9A%99%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%9C%89%E5%BE%88%E5%A4%A7%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.5.7.</span> <span class="toc-nav-text">孔隙尺寸对水合物分解有很大影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%94%E6%B3%A1%E5%AF%86%E5%BA%A6%E8%BF%87%E5%A4%A7%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%8A%91%E5%88%B6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.8.</span> <span class="toc-nav-text">气泡密度过大可能会抑制水合物分解？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-7%E6%9C%88"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">2024-7月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%8B%E8%A3%82%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%B0%B4%E5%90%88%E7%89%A9%E5%BC%80%E9%87%87%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">压裂技术在水合物开采过程中的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B2%A9%E7%9F%B3%E5%A4%9A%E5%AD%94%E4%BB%8B%E8%B4%A8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">岩石多孔介质对水合物的作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%9C%A8%E7%A0%82%E5%B2%A9%E4%B8%AD%E6%98%AF%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">水合物在砂岩中是最常见的</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E6%B0%B4%E5%90%88%E7%89%A9%E5%BD%A2%E6%88%90%E4%BF%83%E8%BF%9B%E5%89%82%EF%BC%8C%E4%BD%86%E4%BC%9A%E7%94%9F%E6%88%90%E6%B3%A1%E6%B2%AB"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">表面活性剂是一个好的水合物形成促进剂，但会生成泡沫</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BF%83%E8%BF%9B%E5%89%82%E7%9B%AE%E5%89%8D%E8%BF%98%E6%B2%A1%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%AC%E8%AE%A4%E4%BD%9C%E7%94%A8%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.6.1.4.</span> <span class="toc-nav-text">动力学促进剂目前还没有一个公认作用机理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#self-preservation-effect-of-hydrates"><span class="toc-nav-number">1.6.1.5.</span> <span class="toc-nav-text">self-preservation effect of hydrates</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#random-process-of-hydrate-formation"><span class="toc-nav-number">1.6.1.6.</span> <span class="toc-nav-text">random process of hydrate formation</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-12%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-12月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-11%E6%9C%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2024-11月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-10%E6%9C%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">2024-10月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-9%E6%9C%88"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">2024-9月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PCA%E4%B8%80%E8%88%AC%E9%99%8D%E7%BB%B4%E5%88%B0%E5%87%A0%E7%BB%B4"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">PCA一般降维到几维</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">总结：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0chatgpt%E6%8C%87%E4%BB%A4"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">机器学习chatgpt指令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Gene-Expression-Programming-GEP"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">Gene Expression Programming (GEP)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88Neural-Networks%EF%BC%89%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">神经网络（Neural Networks）类型：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-8%E6%9C%88"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">2024-8月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Bernal-Fowler-Rule"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">Bernal-Fowler Rule</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BA%E4%BD%93%E8%A1%A8%E9%9D%A2%E8%83%BD%E5%A4%9F%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">固体表面能够促进水合物分解？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%EF%BC%88fugacity-difference%EF%BC%89"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">逸度差（fugacity difference）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.5.3.1.</span> <span class="toc-nav-text">术语解释</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.5.3.2.</span> <span class="toc-nav-text">逸度差的应用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9D%E5%A7%8B%E6%B0%B4%E5%90%AB%E9%87%8F%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E5%8D%B0%E8%B1%A1"><span class="toc-nav-number">1.5.4.</span> <span class="toc-nav-text">初始水含量对水合物分解的印象</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%A5%B1%E5%92%8C%E5%BA%A6%E9%AB%98%E5%92%8C%E4%BD%8E%E8%B0%81%E6%9C%80%E5%AE%B9%E6%98%93%E5%8F%97%E5%88%B0%E6%B0%B4%E4%BE%B5%EF%BC%9F"><span class="toc-nav-number">1.5.5.</span> <span class="toc-nav-text">水合物饱和度高和低谁最容易受到水侵？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A7%E5%AD%94%E4%B8%AD%E6%B0%B4%E5%90%88%E7%89%A9%E6%9B%B4%E6%98%93%E4%BA%8E%E5%88%86%E8%A7%A3%EF%BC%9F%E5%86%99%E9%94%99%E4%BA%86%EF%BC%8C%E8%BF%98%E6%98%AF%E7%9C%9F%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.5.6.</span> <span class="toc-nav-text">大孔中水合物更易于分解？写错了，还是真的？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%94%E9%9A%99%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%9C%89%E5%BE%88%E5%A4%A7%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.5.7.</span> <span class="toc-nav-text">孔隙尺寸对水合物分解有很大影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%94%E6%B3%A1%E5%AF%86%E5%BA%A6%E8%BF%87%E5%A4%A7%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%8A%91%E5%88%B6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.8.</span> <span class="toc-nav-text">气泡密度过大可能会抑制水合物分解？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-7%E6%9C%88"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">2024-7月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%8B%E8%A3%82%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%B0%B4%E5%90%88%E7%89%A9%E5%BC%80%E9%87%87%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">压裂技术在水合物开采过程中的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B2%A9%E7%9F%B3%E5%A4%9A%E5%AD%94%E4%BB%8B%E8%B4%A8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">岩石多孔介质对水合物的作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%9C%A8%E7%A0%82%E5%B2%A9%E4%B8%AD%E6%98%AF%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">水合物在砂岩中是最常见的</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E6%B0%B4%E5%90%88%E7%89%A9%E5%BD%A2%E6%88%90%E4%BF%83%E8%BF%9B%E5%89%82%EF%BC%8C%E4%BD%86%E4%BC%9A%E7%94%9F%E6%88%90%E6%B3%A1%E6%B2%AB"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">表面活性剂是一个好的水合物形成促进剂，但会生成泡沫</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BF%83%E8%BF%9B%E5%89%82%E7%9B%AE%E5%89%8D%E8%BF%98%E6%B2%A1%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%AC%E8%AE%A4%E4%BD%9C%E7%94%A8%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.6.1.4.</span> <span class="toc-nav-text">动力学促进剂目前还没有一个公认作用机理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#self-preservation-effect-of-hydrates"><span class="toc-nav-number">1.6.1.5.</span> <span class="toc-nav-text">self-preservation effect of hydrates</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#random-process-of-hydrate-formation"><span class="toc-nav-number">1.6.1.6.</span> <span class="toc-nav-text">random process of hydrate formation</span></a></li></ol></li></ol></li></ol></li></ol>
     
 
   </div>
