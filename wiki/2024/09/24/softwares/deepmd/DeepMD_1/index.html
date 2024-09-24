@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      DeepMD 快速上手 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>DeepMD 快速上手</h2>
+  <p class="post-date">2024-09-24 12:18:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<blockquote>
+<p>将以气态甲烷分子为例，详细介绍Deep Potential (DP)模型的训练和应用。</p>
+</blockquote>
+<h3 id="手动安装cpu版"><a href="#手动安装cpu版" class="headerlink" title="手动安装cpu版"></a>手动安装cpu版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/deepmodeling/deepmd-kit/releases/download/v3.0.0b3/deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">bash deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">conda activate /home/xxx/softwares/deepmd-kit</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装过程中可以自定义路径 &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;deepmd-kit</p>
+<p>激活环境</p>
+</blockquote>
+<h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://bohrium-api.dp.tech/ds-dl/DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line">unzip DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line"><span class="built_in">cd</span> DeePMD-kit_Tutorial</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── 00.data : 存储训练和测试数据<br>├── 01.train：包含使用DeePMD-kit训练模型的示例脚本<br>├── 01.train.finished：包括训练过程的完整结果<br>├── 02.lmp：包含使用LAMMPS进行分子动力学模拟的示例脚本<br>└── 02.lmp.finished</p>
+<p>5 directories, 0 files</p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tree</span> <span class="number">00</span>.data/ -L <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>00.data&#x2F;<br>├── abacus_md：包含通过ABACUS从头分子动力学(AIMD)模拟获得的数据<br>├── training_data<br>└── validation_data</p>
+<p>3 directories, 0 files</p>
+<p>DeePMD-kit的训练数据来源于第一性原理计算数据，包括atomic types, simulation cells, atomic coordinates, atomic forces, system energies, and virials.</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0010465518300882-gr1_lrg.jpg"></p>
+</blockquote>
+<p>采用”dpdata”工具划分数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install dpdata</span><br><span class="line">python split_data.py</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># split_data.py</span></span><br><span class="line"><span class="keyword">import</span> dpdata</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># load data of abacus/md format</span></span><br><span class="line">data = dpdata.LabeledSystem(<span class="string">&quot;../DeePMD-kit_Tutorial/00.data/abacus_md&quot;</span>, fmt=<span class="string">&quot;abacus/md&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;# the data contains %d frames&quot;</span> % <span class="built_in">len</span>(data))</span><br><span class="line"></span><br><span class="line"><span class="comment"># random choose 40 index for validation_data</span></span><br><span class="line">rng = np.random.default_rng()</span><br><span class="line">index_validation = rng.choice(<span class="number">201</span>, size=<span class="number">40</span>, replace=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># other indexes are training_data</span></span><br><span class="line">index_training = <span class="built_in">list</span>(<span class="built_in">set</span>(<span class="built_in">range</span>(<span class="number">201</span>)) - <span class="built_in">set</span>(index_validation))</span><br><span class="line">data_training = data.sub_system(index_training)</span><br><span class="line">data_validation = data.sub_system(index_validation)</span><br><span class="line"></span><br><span class="line"><span class="comment"># all training data put into directory:&quot;training_data&quot;</span></span><br><span class="line">data_training.to_deepmd_npy(<span class="string">&quot;../DeePMD-kit_Tutorial/00.data/training_data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># all validation data put into directory:&quot;validation_data&quot;</span></span><br><span class="line">data_validation.to_deepmd_npy(<span class="string">&quot;../DeePMD-kit_Tutorial/00.data/validation_data&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;# the training data contains %d frames&quot;</span> % <span class="built_in">len</span>(data_training))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;# the validation data contains %d frames&quot;</span> % <span class="built_in">len</span>(data_validation))</span><br><span class="line"></span><br><span class="line"><span class="comment"># the data contains 201 frames</span></span><br><span class="line"><span class="comment"># the training data contains 161 frames</span></span><br><span class="line"><span class="comment"># the validation data contains 40 frames</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>00.data&#x2F;training_data&#x2F;<br>├── set.000：存放压缩格式数据(NumPy压缩数组)的目录<br>├── type_map.raw：它是一个包含原子类型(表示为整数)的文件<br>└── type.raw：它是一个包含原子类型名称的文件</p>
+<p>1 directory, 2 files</p>
+</blockquote>
+<h3 id="输入脚本准备"><a href="#输入脚本准备" class="headerlink" title="输入脚本准备"></a>输入脚本准备</h3><blockquote>
+<p>数据准备完成后，可以开始训练</p>
+<p>现在转到training 目录。DeePMD-kit需要一个json格式的文件来指定训练参数。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show dargs || pip install --upgrade dargs</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input_pre.py</span></span><br><span class="line"><span class="comment"># Show input.json</span></span><br><span class="line"><span class="keyword">from</span> deepmd.utils.argcheck <span class="keyword">import</span> gen_args</span><br><span class="line"><span class="keyword">from</span> dargs.notebook <span class="keyword">import</span> JSON</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;../DeePMD-kit_Tutorial/01.train/input.json&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    JSON(f.read(), gen_args())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;_comment&quot;: &quot; model parameters&quot;,</span><br><span class="line">    &quot;model&quot;: &#123;</span><br><span class="line">	&quot;type_map&quot;:	[&quot;H&quot;, &quot;C&quot;],</span><br><span class="line">	&quot;descriptor&quot; :&#123;</span><br><span class="line">	    &quot;type&quot;:		&quot;se_e2_a&quot;, # 描述符的类型</span><br><span class="line">	    &quot;sel&quot;:		&quot;auto&quot;,</span><br><span class="line">	    &quot;rcut_smth&quot;:	0.50, # 平滑开始的位置</span><br><span class="line">	    &quot;rcut&quot;:		6.00,</span><br><span class="line">	    &quot;neuron&quot;:		[25, 50, 100], # 嵌入 神经 网络 的 大小</span><br><span class="line">	    &quot;resnet_dt&quot;:	false,</span><br><span class="line">	    &quot;axis_neuron&quot;:	16, # G (嵌入 矩阵) 的 子矩阵 的 大小</span><br><span class="line">	    &quot;seed&quot;:		1,</span><br><span class="line">	    &quot;_comment&quot;:		&quot; that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;fitting_net&quot; : &#123;</span><br><span class="line">	    &quot;neuron&quot;:		[240, 240, 240], # 拟合 神经 网络 的 大小</span><br><span class="line">	    &quot;resnet_dt&quot;:	true,</span><br><span class="line">	    &quot;seed&quot;:		1,</span><br><span class="line">	    &quot;_comment&quot;:		&quot; that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;_comment&quot;:	&quot; that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;learning_rate&quot; :&#123;</span><br><span class="line">	&quot;type&quot;:		&quot;exp&quot;,</span><br><span class="line">	&quot;decay_steps&quot;:	50,</span><br><span class="line">	&quot;start_lr&quot;:	0.001,	</span><br><span class="line">	&quot;stop_lr&quot;:	3.51e-8,</span><br><span class="line">	&quot;_comment&quot;:	&quot;that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;loss&quot; :&#123;</span><br><span class="line">	&quot;type&quot;:		&quot;ener&quot;,</span><br><span class="line">	&quot;start_pref_e&quot;:	0.02,</span><br><span class="line">	&quot;limit_pref_e&quot;:	1,</span><br><span class="line">	&quot;start_pref_f&quot;:	1000,</span><br><span class="line">	&quot;limit_pref_f&quot;:	1,</span><br><span class="line">	&quot;start_pref_v&quot;:	0,</span><br><span class="line">	&quot;limit_pref_v&quot;:	0,</span><br><span class="line">	&quot;_comment&quot;:	&quot; that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;training&quot; : &#123; # 训练参数</span><br><span class="line">	&quot;training_data&quot;: &#123;</span><br><span class="line">	    &quot;systems&quot;:     [&quot;../00.data/training_data&quot;],</span><br><span class="line">	    &quot;batch_size&quot;:  &quot;auto&quot;,</span><br><span class="line">	    &quot;_comment&quot;:	   &quot;that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;validation_data&quot;:&#123;</span><br><span class="line">	    &quot;systems&quot;:	   [&quot;../00.data/validation_data&quot;],</span><br><span class="line">	    &quot;batch_size&quot;:  &quot;auto&quot;,</span><br><span class="line">	    &quot;numb_btch&quot;:   1,</span><br><span class="line">	    &quot;_comment&quot;:	   &quot;that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;numb_steps&quot;:	10000,</span><br><span class="line">	&quot;seed&quot;:		10,</span><br><span class="line">	&quot;disp_file&quot;:	&quot;lcurve.out&quot;,</span><br><span class="line">	&quot;disp_freq&quot;:	200,</span><br><span class="line">	&quot;save_freq&quot;:	1000,</span><br><span class="line">	&quot;_comment&quot;:	&quot;that&#x27;s all&quot;</span><br><span class="line">    &#125;,    </span><br><span class="line"></span><br><span class="line">    &quot;_comment&quot;:		&quot;that&#x27;s all&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><blockquote>
+<p>运行 DeePMD-kit 来开始训练</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./01.train</span><br><span class="line">dp train input.json</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># screen输出</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:48:59,897] DEEPMD INFO    batch       0: trn: rmse = 1.86e<span class="string">+01</span>, rmse_e = 1.35e<span class="string">-01</span>, rmse_f = 5.87e<span class="string">-01</span>, lr = 1.00e<span class="string">-03</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:48:59,897] DEEPMD INFO    batch       0: val: rmse = 1.91e<span class="string">+01</span>, rmse_e = 1.34e<span class="string">-01</span>, rmse_f = 6.05e<span class="string">-01</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:11,313] DEEPMD INFO    batch     200: trn: rmse = 4.95e<span class="string">+00</span>, rmse_e = 1.99e<span class="string">+00</span>, rmse_f = 1.59e<span class="string">-01</span>, lr = 8.15e<span class="string">-04</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:11,314] DEEPMD INFO    batch     200: val: rmse = 5.72e<span class="string">+00</span>, rmse_e = 1.99e<span class="string">+00</span>, rmse_f = 1.88e<span class="string">-01</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:11,314] DEEPMD INFO    batch     200: total wall time = 11.68 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:23,078] DEEPMD INFO    batch     400: trn: rmse = 4.44e<span class="string">+00</span>, rmse_e = 5.28e<span class="string">-01</span>, rmse_f = 1.70e<span class="string">-01</span>, lr = 6.63e<span class="string">-04</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:23,078] DEEPMD INFO    batch     400: val: rmse = 2.95e<span class="string">+00</span>, rmse_e = 5.24e<span class="string">-01</span>, rmse_f = 1.11e<span class="string">-01</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:23,078] DEEPMD INFO    batch     400: total wall time = 11.76 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:36,968] DEEPMD INFO    batch     600: trn: rmse = 2.00e<span class="string">+00</span>, rmse_e = 1.01e<span class="string">-01</span>, rmse_f = 8.59e<span class="string">-02</span>, lr = 5.40e<span class="string">-04</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:36,968] DEEPMD INFO    batch     600: val: rmse = 2.70e<span class="string">+00</span>, rmse_e = 1.03e<span class="string">-01</span>, rmse_f = 1.16e<span class="string">-01</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:36,968] DEEPMD INFO    batch     600: total wall time = 13.89 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:48,904] DEEPMD INFO    batch     800: trn: rmse = 1.25e<span class="string">+00</span>, rmse_e = 4.03e<span class="string">-02</span>, rmse_f = 5.93e<span class="string">-02</span>, lr = 4.40e<span class="string">-04</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:48,904] DEEPMD INFO    batch     800: val: rmse = 1.85e<span class="string">+00</span>, rmse_e = 4.16e<span class="string">-02</span>, rmse_f = 8.83e<span class="string">-02</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:49:48,904] DEEPMD INFO    batch     800: total wall time = 11.94 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:50:01,073] DEEPMD INFO    batch    1000: trn: rmse = 1.62e<span class="string">+00</span>, rmse_e = 1.60e<span class="string">-02</span>, rmse_f = 8.56e<span class="string">-02</span>, lr = 3.59e<span class="string">-04</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:50:01,074] DEEPMD INFO    batch    1000: val: rmse = 1.56e<span class="string">+00</span>, rmse_e = 1.57e<span class="string">-02</span>, rmse_f = 8.23e<span class="string">-02</span></span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:50:01,074] DEEPMD INFO    batch    1000: total wall time = 12.17 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:50:01,347] DEEPMD INFO    saved checkpoint model.ckpt</span><br><span class="line">...</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:59:24,280] DEEPMD INFO    batch   10000: total wall time = 15.22 s</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:59:24,565] DEEPMD INFO    saved checkpoint model.ckpt</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:59:24,565] DEEPMD INFO    average training time: 0.0616 s/batch (exclude first 200 batches)</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:59:24,565] DEEPMD INFO    finished training</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 12:59:24,565] DEEPMD INFO    wall time: 625.217 s</span><br><span class="line">WARNING:tensorflow:disable_mixed_precision_graph_rewrite() called when mixed precision is already disabled.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出lcurve.out文件</span></span><br><span class="line"><span class="comment">#  step      rmse_val    rmse_trn    rmse_e_val  rmse_e_trn    rmse_f_val  rmse_f_trn         lr</span></span><br><span class="line"><span class="comment"># If there is no available reference data, rmse_*_&#123;val,trn&#125; will print nan</span></span><br><span class="line">      <span class="attribute">0</span>      <span class="number">1</span>.<span class="number">91</span>e+<span class="number">01</span>    <span class="number">1</span>.<span class="number">86</span>e+<span class="number">01</span>      <span class="number">1</span>.<span class="number">34</span>e-<span class="number">01</span>    <span class="number">1</span>.<span class="number">35</span>e-<span class="number">01</span>      <span class="number">6</span>.<span class="number">05</span>e-<span class="number">01</span>    <span class="number">5</span>.<span class="number">87</span>e-<span class="number">01</span>    <span class="number">1</span>.<span class="number">0</span>e-<span class="number">03</span></span><br><span class="line">    <span class="attribute">200</span>      <span class="number">5</span>.<span class="number">72</span>e+<span class="number">00</span>    <span class="number">4</span>.<span class="number">95</span>e+<span class="number">00</span>      <span class="number">1</span>.<span class="number">99</span>e+<span class="number">00</span>    <span class="number">1</span>.<span class="number">99</span>e+<span class="number">00</span>      <span class="number">1</span>.<span class="number">88</span>e-<span class="number">01</span>    <span class="number">1</span>.<span class="number">59</span>e-<span class="number">01</span>    <span class="number">8</span>.<span class="number">1</span>e-<span class="number">04</span></span><br><span class="line">    <span class="attribute">400</span>      <span class="number">2</span>.<span class="number">95</span>e+<span class="number">00</span>    <span class="number">4</span>.<span class="number">44</span>e+<span class="number">00</span>      <span class="number">5</span>.<span class="number">24</span>e-<span class="number">01</span>    <span class="number">5</span>.<span class="number">28</span>e-<span class="number">01</span>      <span class="number">1</span>.<span class="number">11</span>e-<span class="number">01</span>    <span class="number">1</span>.<span class="number">70</span>e-<span class="number">01</span>    <span class="number">6</span>.<span class="number">6</span>e-<span class="number">04</span></span><br><span class="line">    <span class="attribute">600</span>      <span class="number">2</span>.<span class="number">70</span>e+<span class="number">00</span>    <span class="number">2</span>.<span class="number">00</span>e+<span class="number">00</span>      <span class="number">1</span>.<span class="number">03</span>e-<span class="number">01</span>    <span class="number">1</span>.<span class="number">01</span>e-<span class="number">01</span>      <span class="number">1</span>.<span class="number">16</span>e-<span class="number">01</span>    <span class="number">8</span>.<span class="number">59</span>e-<span class="number">02</span>    <span class="number">5</span>.<span class="number">4</span>e-<span class="number">04</span></span><br><span class="line">    <span class="attribute">800</span>      <span class="number">1</span>.<span class="number">85</span>e+<span class="number">00</span>    <span class="number">1</span>.<span class="number">25</span>e+<span class="number">00</span>      <span class="number">4</span>.<span class="number">16</span>e-<span class="number">02</span>    <span class="number">4</span>.<span class="number">03</span>e-<span class="number">02</span>      <span class="number">8</span>.<span class="number">83</span>e-<span class="number">02</span>    <span class="number">5</span>.<span class="number">93</span>e-<span class="number">02</span>    <span class="number">4</span>.<span class="number">4</span>e-<span class="number">04</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘图</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置Mathtext字体，可以选择合适的字体</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;mathtext.fontset&#x27;</span>] = <span class="string">&#x27;custom&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;mathtext.rm&#x27;</span>] = <span class="string">&#x27;Arial&#x27;</span>  <span class="comment"># 使用Arial字体作为Mathtext字体</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这之后进行绘图</span></span><br><span class="line">path = <span class="string">&quot;./01.train/&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;<span class="subst">&#123;path&#125;</span>lcurve.out&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    headers = f.readline().split()[<span class="number">1</span>:]</span><br><span class="line">lcurve = pd.DataFrame(np.loadtxt(<span class="string">f&quot;<span class="subst">&#123;path&#125;</span>lcurve.out&quot;</span>), columns=headers)</span><br><span class="line">legends = [<span class="string">&quot;rmse_e_val&quot;</span>, <span class="string">&quot;rmse_e_trn&quot;</span>, <span class="string">&quot;rmse_f_val&quot;</span>, <span class="string">&quot;rmse_f_trn&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> legend <span class="keyword">in</span> legends:</span><br><span class="line">    plt.loglog(lcurve[<span class="string">&quot;step&quot;</span>], lcurve[legend], label=legend)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.xlabel(<span class="string">&quot;Training steps&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Loss&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202409241259220.png" alt="Figure_1"></p>
+</blockquote>
+<h3 id="模型冻结"><a href="#模型冻结" class="headerlink" title="模型冻结"></a>模型冻结</h3><blockquote>
+<p>在训练结束时，应该将保存在 TensorFlow 检查点文件中的模型参数冻结为一个通常以扩展名<code>.pb</code>结尾的模型文件。只需执行以下操作：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp freeze -o graph.pb</span><br></pre></td></tr></table></figure>
+
+<h3 id="模型测试"><a href="#模型测试" class="headerlink" title="模型测试"></a>模型测试</h3><blockquote>
+<p>检查训练模型的质量</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp test -m graph.pb -s ..<span class="regexp">/00.data/</span>validation_data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:43,966] DEEPMD INFO    # ---------------output of dp test---------------</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:43,966] DEEPMD INFO    # testing system : ../00.data/validation_data</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,293] DEEPMD INFO    # number of test data : 40</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,293] DEEPMD INFO    Energy MAE         : 2.501408e<span class="string">-03</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,293] DEEPMD INFO    Energy RMSE        : 3.163454e<span class="string">-03</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Energy MAE/Natoms  : 5.002815e<span class="string">-04</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Energy RMSE/Natoms : 6.326908e<span class="string">-04</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Force  MAE         : 2.953246e<span class="string">-02</span> eV/A</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Force  RMSE        : 3.907943e<span class="string">-02</span> eV/A</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Virial MAE         : 3.898108e<span class="string">-02</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Virial RMSE        : 5.222230e<span class="string">-02</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Virial MAE/Natoms  : 7.796217e<span class="string">-03</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    Virial RMSE/Natoms : 1.044446e<span class="string">-02</span> eV</span><br><span class="line">[2024<span class="string">-09</span><span class="string">-24</span> 13:02:44,294] DEEPMD INFO    # -----------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>计算预测数据和原始数据之间的相关性</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dpdata</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"># training_systems = dpdata.LabeledSystem(<span class="string">&quot;./00.data/training_data&quot;</span>, fmt=<span class="string">&quot;deepmd/npy&quot;</span>)</span><br><span class="line"># predict = training_systems.predict(<span class="string">&quot;./01.train/graph.pb&quot;</span>)</span><br><span class="line"></span><br><span class="line"># # print(training_systems[<span class="string">&quot;energies&quot;</span>],predict[<span class="string">&quot;energies&quot;</span>])</span><br><span class="line"># data = np.vstack((training_systems[<span class="string">&quot;energies&quot;</span>],predict[<span class="string">&quot;energies&quot;</span>])).T</span><br><span class="line"># np.savetxt(<span class="string">&quot;./train_pre.dat&quot;</span>,data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = np.loadtxt(<span class="string">&quot;./train_pre.dat&quot;</span>)</span><br><span class="line">y1 = data[:,<span class="number">0</span>]</span><br><span class="line">y2 = data[:,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">print(y1.shape,y2.shape)</span><br><span class="line"></span><br><span class="line">plt.scatter(y1,y2)</span><br><span class="line"></span><br><span class="line">x_range = np.linspace(plt.xlim()[<span class="number">0</span>], plt.xlim()[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.plot(x_range, x_range, <span class="string">&quot;r--&quot;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Energy of DFT&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Energy predicted by deep potential&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202409241323988.png" alt="Figure_1"></p>
+</blockquote>
+<h3 id="在LAMMPS中执行MD模拟"><a href="#在LAMMPS中执行MD模拟" class="headerlink" title="在LAMMPS中执行MD模拟"></a>在LAMMPS中执行MD模拟</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 02.lmp</span><br><span class="line"><span class="built_in">cp</span> ../01.train/graph.pb ./</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── ch4.dump<br>├── conf.lmp：气相甲烷分子动力学模拟的初始构型<br>├── graph.pb<br>├── in.lammps：标准的 MD 模拟 LAMMPS 输入文件，只有pair_style 和pair_style  例外<br>└── log.lammps</p>
+<p>0 directories, 5 files</p>
+</blockquote>
+<p>在具有兼容版本的 LAMMPS 环境中，执行深度势分子动力学：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -<span class="selector-tag">p</span> <span class="number">8</span> lmp_mpi -<span class="selector-tag">i</span> in<span class="selector-class">.lammps</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Summary</span> <span class="string">of</span> <span class="string">lammps</span> <span class="string">deepmd</span> <span class="string">module</span> <span class="string">...</span></span><br><span class="line">  <span class="string">&gt;&gt;&gt;</span> <span class="attr">Info of deepmd-kit:</span></span><br><span class="line">  <span class="attr">installed to:</span>       <span class="string">/home/xxx/softwares/deepmd-kit</span></span><br><span class="line">  <span class="attr">source:</span></span><br><span class="line">  <span class="attr">source branch:</span>      <span class="string">HEAD</span></span><br><span class="line">  <span class="attr">source commit:</span>      <span class="string">cbf2de6</span></span><br><span class="line">  <span class="attr">source commit at:</span>   <span class="number">2024-07-27 05:11:58</span> <span class="string">+0000</span></span><br><span class="line">  <span class="attr">support model ver.:</span> <span class="number">1.1</span></span><br><span class="line">  <span class="attr">build variant:</span>      <span class="string">cpu</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a target="_blank" rel="noopener" href="https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/quick_start.html">https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/quick_start.html</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://hyper.ai/tutorials/26001">https://hyper.ai/tutorials/26001</a></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#DeepMD" >
+    <span class="tag-code">DeepMD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/09/12/notes/MachineLearning/MLPython-4/">
+        <span class="nav-arrow">← </span>
+        
+          GBDT 和 GBR 的区别
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85cpu%E7%89%88"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">手动安装cpu版</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">数据准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E8%84%9A%E6%9C%AC%E5%87%86%E5%A4%87"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">输入脚本准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">模型训练</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%86%BB%E7%BB%93"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">模型冻结</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">模型测试</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8LAMMPS%E4%B8%AD%E6%89%A7%E8%A1%8CMD%E6%A8%A1%E6%8B%9F"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">在LAMMPS中执行MD模拟</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/09/24/softwares/deepmd/DeepMD_1/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
