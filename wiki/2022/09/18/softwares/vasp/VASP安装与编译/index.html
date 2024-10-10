@@ -202,7 +202,7 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
-<h2 id="VASP安装"><a href="#VASP安装" class="headerlink" title="VASP安装"></a>VASP安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
+<h2 id="VASP5-4-4安装"><a href="#VASP5-4-4安装" class="headerlink" title="VASP5.4.4安装"></a>VASP5.4.4安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
 <li><p>在安装之前需要安装一系列依赖包:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-0 libxss1 libnss3 libgtk2.0 libpango-1.0-0 libasound2 </span><br><span class="line">sudo apt-get install xorg openbox</span><br></pre></td></tr></table></figure></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.intel.cn/content/www/cn/zh/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">intel® oneAPI Base Toolkit 安装</a>:</p>
@@ -216,7 +216,7 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/intel/oneapi/setvars.sh intel64</span><br><span class="line">icc -v</span><br><span class="line">ifort -v</span><br><span class="line">mpiicc -v</span><br><span class="line">mpiifort -v</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="二、编译vasp-5-4-4"><a href="#二、编译vasp-5-4-4" class="headerlink" title="二、编译vasp 5.4.4"></a>二、编译vasp 5.4.4</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<h3 id="二、编译"><a href="#二、编译" class="headerlink" title="二、编译"></a>二、编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>添加环境变量</p>
 </li>
@@ -225,7 +225,44 @@
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42487488/article/details/115066980">Intel®安装教程</a></p>
 </li>
 </ul>
-<h3 id="三、水分子的一个运行例子"><a href="#三、水分子的一个运行例子" class="headerlink" title="三、水分子的一个运行例子"></a>三、水分子的一个运行例子</h3><ul>
+<h2 id="VASP6-3-2安装"><a href="#VASP6-3-2安装" class="headerlink" title="VASP6.3.2安装"></a>VASP6.3.2安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代-1"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代-1" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
+<li>在安装之前需要安装一系列依赖包:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-0 libxss1 libnss3 libgtk2.0 libpango-1.0-0 libasound2 </span><br><span class="line">sudo apt-get install xorg openbox</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.intel.cn/content/www/cn/zh/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">intel® oneAPI Base Toolkit 安装</a>:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/e6ff8e9c-ee28-47fb-abd7-5c524c983e1c/l_BaseKit_p_2024.2.1.100_offline.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">Intel® oneAPI HPC 安装</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/d461a695-6481-426f-a22f-b5644cd1fa8b/l_HPCKit_p_2024.2.1.79_offline.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>添加环境变量并查看是否安装好：</p>
+<blockquote>
+<p>最好把<code>source /opt/intel/oneapi/setvars.sh intel64</code>写进~&#x2F;.bashrc中</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/intel/oneapi/setvars.sh intel64</span><br><span class="line">icx -v</span><br><span class="line">icpx -v</span><br><span class="line">ifort -v</span><br><span class="line">mpiicc -v</span><br><span class="line">mpiifort -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、编译-1"><a href="#二、编译-1" class="headerlink" title="二、编译"></a>二、编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">unzip vasp.6.3.2.zip</span><br><span class="line"><span class="built_in">cd</span> vasp.6.3.2</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2024.2/share/mkl/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.intel makefile.include         </span><br><span class="line">vim makefile.include</span><br><span class="line"><span class="comment"># 修改makefile.include,如下</span></span><br><span class="line"><span class="comment"># CC_LIB      = icx</span></span><br><span class="line"><span class="comment"># CXX_PARS    = icpx</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>make[2]: Leaving directory ‘&#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;vasp&#x2F;vasp.6.3.2&#x2F;build&#x2F;ncl’<br>make[1]: Leaving directory ‘&#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;vasp&#x2F;vasp.6.3.2&#x2F;build&#x2F;ncl’</p>
+</blockquote>
+<h3 id="三、环境变量"><a href="#三、环境变量" class="headerlink" title="三、环境变量"></a>三、环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># vasp_gam  vasp_ncl  vasp_std</span></span><br><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment"># export PATH=/home/xxx/softwares/vasp/vasp.6.3.2/bin:$PATH</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="官网H2O例子"><a href="#官网H2O例子" class="headerlink" title="官网H2O例子"></a>官网H2O例子</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.vasp.at/wiki/index.php/H2O">H2O VASP官网例子</a> <blockquote>
 <ul>
 <li>POSCAR</li>
@@ -239,12 +276,14 @@
 </ul>
 </blockquote>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">PREC</span> = Normal    ! standard precision </span><br><span class="line"><span class="attr">ENMAX</span> = <span class="number">400</span>      ! cut<span class="literal">off</span> should be set manually</span><br><span class="line"><span class="attr">ISMEAR</span> = <span class="number">0</span> <span class="comment">; SIGMA = 0.1</span></span><br><span class="line"><span class="attr">IBRION</span> = <span class="number">1</span>       ! use DIIS algorithm to converge</span><br><span class="line"><span class="attr">NFREE</span> = <span class="number">2</span>        ! <span class="number">2</span> independent degrees of freedom</span><br><span class="line"><span class="attr">NSW</span> = <span class="number">10</span>         ! <span class="number">10</span> ionic steps</span><br><span class="line"><span class="attr">EDIFFG</span> = -<span class="number">0.02</span>   ! forces smaller <span class="number">0.02</span> A/eV</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <ul>
 <li>KPOINTS</li>
 </ul>
 </blockquote>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Gamma</span>-point only</span><br><span class="line"> <span class="attribute">0</span></span><br><span class="line"><span class="attribute">Monkhorst</span> Pack</span><br><span class="line"> <span class="attribute">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <ul>
 <li>POTCAR</li>
@@ -255,13 +294,21 @@
 <ul>
 <li>运行命令：<code>mpirun -np 16 vasp_std</code></li>
 </ul>
-<h3 id="四、参考、可视化以及后处理程序："><a href="#四、参考、可视化以及后处理程序：" class="headerlink" title="四、参考、可视化以及后处理程序："></a>四、参考、可视化以及后处理程序：</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CL4y187i3?spm_id_from=333.337.search-card.all.click">DFT计算入门新手必备，VASP赝势库、态密度、能带、键长、声子谱及软件安装</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.nsc.liu.se/~pla/vasptest/">VASPTEST</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.vasp.at/wiki/index.php/The_VASP_Manual">The_VASP_Manual</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.vasp.at/">VASP官网</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/orest-d/p4vasp">p4vasp</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.jp-minerals.org/vesta/en/">VESTA</a></li>
+<h2 id="参考与可视化以及后处理程序资源："><a href="#参考与可视化以及后处理程序资源：" class="headerlink" title="参考与可视化以及后处理程序资源："></a>参考与可视化以及后处理程序资源：</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CL4y187i3?spm_id_from=333.337.search-card.all.click">DFT计算入门新手必备，VASP赝势库、态密度、能带、键长、声子谱及软件安装</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.nsc.liu.se/~pla/vasptest/">VASPTEST</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.vasp.at/wiki/index.php/The_VASP_Manual">The_VASP_Manual</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.vasp.at/">VASP官网</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/orest-d/p4vasp">p4vasp</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.jp-minerals.org/vesta/en/">VESTA</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yqhclytze/article/details/115426680">Linux运行报错：.&#x2F;vasp_std: error while loading shared libraries: libmkl_intel_lp64.so: cannot open</a></p>
+</li>
 </ul>
 </section>
     <!-- Tags and categories START -->
@@ -285,10 +332,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/MyWiki/wiki/2022/09/18/codes/python/argparse_skills/">
+      <a class="nav-left" href="/MyWiki/wiki/2022/09/18/softwares/cp2k/CP2K_Installation/">
         <span class="nav-arrow">← </span>
         
-          Python命令行解析模块：argparse
+          CP2K安装与编译
         
       </a>
     
@@ -328,7 +375,7 @@
   <div class="toc-main">
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VASP%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">VASP安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-Intel%C2%AE-oneAPI-Base-Toolkit-%E5%92%8C-Intel%C2%AE-oneAPI-HPC%E6%9D%A5%E6%9B%BF%E4%BB%A3"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E8%AF%91vasp-5-4-4"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">二、编译vasp 5.4.4</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E6%B0%B4%E5%88%86%E5%AD%90%E7%9A%84%E4%B8%80%E4%B8%AA%E8%BF%90%E8%A1%8C%E4%BE%8B%E5%AD%90"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">三、水分子的一个运行例子</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%82%E8%80%83%E3%80%81%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%A5%E5%8F%8A%E5%90%8E%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%EF%BC%9A"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">四、参考、可视化以及后处理程序：</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VASP5-4-4%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">VASP5.4.4安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-Intel%C2%AE-oneAPI-Base-Toolkit-%E5%92%8C-Intel%C2%AE-oneAPI-HPC%E6%9D%A5%E6%9B%BF%E4%BB%A3"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E8%AF%91"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">二、编译</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VASP6-3-2%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">VASP6.3.2安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-Intel%C2%AE-oneAPI-Base-Toolkit-%E5%92%8C-Intel%C2%AE-oneAPI-HPC%E6%9D%A5%E6%9B%BF%E4%BB%A3-1"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E7%BC%96%E8%AF%91-1"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">二、编译</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">三、环境变量</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%98%E7%BD%91H2O%E4%BE%8B%E5%AD%90"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">官网H2O例子</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BB%A5%E5%8F%8A%E5%90%8E%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E8%B5%84%E6%BA%90%EF%BC%9A"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">参考与可视化以及后处理程序资源：</span></a></li></ol>
     
 
   </div>

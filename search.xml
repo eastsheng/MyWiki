@@ -6781,7 +6781,7 @@ style A fill:#ffff</pre>
     <title>VASP安装与编译</title>
     <url>/MyWiki/wiki/2022/09/18/softwares/vasp/VASP%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<p>[toc]</p>
-<h2 id="VASP安装"><a href="#VASP安装" class="headerlink" title="VASP安装"></a>VASP安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
+<h2 id="VASP5-4-4安装"><a href="#VASP5-4-4安装" class="headerlink" title="VASP5.4.4安装"></a>VASP5.4.4安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
 <li><p>在安装之前需要安装一系列依赖包:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-0 libxss1 libnss3 libgtk2.0 libpango-1.0-0 libasound2 </span><br><span class="line">sudo apt-get install xorg openbox</span><br></pre></td></tr></table></figure></li>
 <li><p><a href="https://www.intel.cn/content/www/cn/zh/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">intel® oneAPI Base Toolkit 安装</a>:</p>
@@ -6795,7 +6795,7 @@ style A fill:#ffff</pre>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/intel/oneapi/setvars.sh intel64</span><br><span class="line">icc -v</span><br><span class="line">ifort -v</span><br><span class="line">mpiicc -v</span><br><span class="line">mpiifort -v</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="二、编译vasp-5-4-4"><a href="#二、编译vasp-5-4-4" class="headerlink" title="二、编译vasp 5.4.4"></a>二、编译vasp 5.4.4</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+<h3 id="二、编译"><a href="#二、编译" class="headerlink" title="二、编译"></a>二、编译</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf vasp.5.4.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> vasp.5.4.4</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2022.1.0/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.linux_intel makefile.include         <span class="comment"># 修改makefile.include，在OFLAG后添加-xAVX，如：OFLAG      = -xAVX -O2</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>添加环境变量</p>
 </li>
@@ -6804,7 +6804,44 @@ style A fill:#ffff</pre>
 <li><p><a href="https://blog.csdn.net/weixin_42487488/article/details/115066980">Intel®安装教程</a></p>
 </li>
 </ul>
-<h3 id="三、水分子的一个运行例子"><a href="#三、水分子的一个运行例子" class="headerlink" title="三、水分子的一个运行例子"></a>三、水分子的一个运行例子</h3><ul>
+<h2 id="VASP6-3-2安装"><a href="#VASP6-3-2安装" class="headerlink" title="VASP6.3.2安装"></a>VASP6.3.2安装</h2><h3 id="一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代-1"><a href="#一、安装-Intel®-oneAPI-Base-Toolkit-和-Intel®-oneAPI-HPC来替代-1" class="headerlink" title="一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代"></a>一、安装 Intel® oneAPI Base Toolkit 和 Intel® oneAPI HPC来替代</h3><ul>
+<li>在安装之前需要安装一系列依赖包:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgtk-3-0 libxss1 libnss3 libgtk2.0 libpango-1.0-0 libasound2 </span><br><span class="line">sudo apt-get install xorg openbox</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://www.intel.cn/content/www/cn/zh/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">intel® oneAPI Base Toolkit 安装</a>:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/e6ff8e9c-ee28-47fb-abd7-5c524c983e1c/l_BaseKit_p_2024.2.1.100_offline.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html?operatingsystem=linux&distributions=webdownload&options=offline">Intel® oneAPI HPC 安装</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/d461a695-6481-426f-a22f-b5644cd1fa8b/l_HPCKit_p_2024.2.1.79_offline.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>添加环境变量并查看是否安装好：</p>
+<blockquote>
+<p>最好把<code>source /opt/intel/oneapi/setvars.sh intel64</code>写进~&#x2F;.bashrc中</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/intel/oneapi/setvars.sh intel64</span><br><span class="line">icx -v</span><br><span class="line">icpx -v</span><br><span class="line">ifort -v</span><br><span class="line">mpiicc -v</span><br><span class="line">mpiifort -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、编译-1"><a href="#二、编译-1" class="headerlink" title="二、编译"></a>二、编译</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unzip vasp.6.3.2.zip</span><br><span class="line"><span class="built_in">cd</span> vasp.6.3.2</span><br><span class="line"><span class="built_in">cp</span> -r /opt/intel/oneapi/mkl/2024.2/share/mkl/interfaces/fftw3xf .     <span class="comment"># cp MKL中的fftw库到vasp文件夹中</span></span><br><span class="line"><span class="built_in">cd</span> fftw3xf/</span><br><span class="line">make libintel64</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">arch</span>/makefile.include.intel makefile.include         </span><br><span class="line">vim makefile.include</span><br><span class="line"><span class="comment"># 修改makefile.include,如下</span></span><br><span class="line"><span class="comment"># CC_LIB      = icx</span></span><br><span class="line"><span class="comment"># CXX_PARS    = icpx</span></span><br><span class="line">make all</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>make[2]: Leaving directory ‘&#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;vasp&#x2F;vasp.6.3.2&#x2F;build&#x2F;ncl’<br>make[1]: Leaving directory ‘&#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;vasp&#x2F;vasp.6.3.2&#x2F;build&#x2F;ncl’</p>
+</blockquote>
+<h3 id="三、环境变量"><a href="#三、环境变量" class="headerlink" title="三、环境变量"></a>三、环境变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># vasp_gam  vasp_ncl  vasp_std</span></span><br><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="comment"># export PATH=/home/xxx/softwares/vasp/vasp.6.3.2/bin:$PATH</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="官网H2O例子"><a href="#官网H2O例子" class="headerlink" title="官网H2O例子"></a>官网H2O例子</h2><ul>
 <li><a href="https://www.vasp.at/wiki/index.php/H2O">H2O VASP官网例子</a> <blockquote>
 <ul>
 <li>POSCAR</li>
@@ -6818,12 +6855,14 @@ style A fill:#ffff</pre>
 </ul>
 </blockquote>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">PREC</span> = Normal    ! standard precision </span><br><span class="line"><span class="attr">ENMAX</span> = <span class="number">400</span>      ! cut<span class="literal">off</span> should be set manually</span><br><span class="line"><span class="attr">ISMEAR</span> = <span class="number">0</span> <span class="comment">; SIGMA = 0.1</span></span><br><span class="line"><span class="attr">IBRION</span> = <span class="number">1</span>       ! use DIIS algorithm to converge</span><br><span class="line"><span class="attr">NFREE</span> = <span class="number">2</span>        ! <span class="number">2</span> independent degrees of freedom</span><br><span class="line"><span class="attr">NSW</span> = <span class="number">10</span>         ! <span class="number">10</span> ionic steps</span><br><span class="line"><span class="attr">EDIFFG</span> = -<span class="number">0.02</span>   ! forces smaller <span class="number">0.02</span> A/eV</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <ul>
 <li>KPOINTS</li>
 </ul>
 </blockquote>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Gamma</span>-point only</span><br><span class="line"> <span class="attribute">0</span></span><br><span class="line"><span class="attribute">Monkhorst</span> Pack</span><br><span class="line"> <span class="attribute">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"> <span class="attribute">0</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <ul>
 <li>POTCAR</li>
@@ -6834,13 +6873,21 @@ style A fill:#ffff</pre>
 <ul>
 <li>运行命令：<code>mpirun -np 16 vasp_std</code></li>
 </ul>
-<h3 id="四、参考、可视化以及后处理程序："><a href="#四、参考、可视化以及后处理程序：" class="headerlink" title="四、参考、可视化以及后处理程序："></a>四、参考、可视化以及后处理程序：</h3><ul>
-<li><a href="https://www.bilibili.com/video/BV1CL4y187i3?spm_id_from=333.337.search-card.all.click">DFT计算入门新手必备，VASP赝势库、态密度、能带、键长、声子谱及软件安装</a></li>
-<li><a href="https://www.nsc.liu.se/~pla/vasptest/">VASPTEST</a></li>
-<li><a href="https://www.vasp.at/wiki/index.php/The_VASP_Manual">The_VASP_Manual</a></li>
-<li><a href="https://www.vasp.at/">VASP官网</a></li>
-<li><a href="https://github.com/orest-d/p4vasp">p4vasp</a></li>
-<li><a href="http://www.jp-minerals.org/vesta/en/">VESTA</a></li>
+<h2 id="参考与可视化以及后处理程序资源："><a href="#参考与可视化以及后处理程序资源：" class="headerlink" title="参考与可视化以及后处理程序资源："></a>参考与可视化以及后处理程序资源：</h2><ul>
+<li><p><a href="https://www.bilibili.com/video/BV1CL4y187i3?spm_id_from=333.337.search-card.all.click">DFT计算入门新手必备，VASP赝势库、态密度、能带、键长、声子谱及软件安装</a></p>
+</li>
+<li><p><a href="https://www.nsc.liu.se/~pla/vasptest/">VASPTEST</a></p>
+</li>
+<li><p><a href="https://www.vasp.at/wiki/index.php/The_VASP_Manual">The_VASP_Manual</a></p>
+</li>
+<li><p><a href="https://www.vasp.at/">VASP官网</a></p>
+</li>
+<li><p><a href="https://github.com/orest-d/p4vasp">p4vasp</a></p>
+</li>
+<li><p><a href="http://www.jp-minerals.org/vesta/en/">VESTA</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/yqhclytze/article/details/115426680">Linux运行报错：.&#x2F;vasp_std: error while loading shared libraries: libmkl_intel_lp64.so: cannot open</a></p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -12788,6 +12835,168 @@ style A fill:#ffff</pre>
 
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] <a href="https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/quick_start.html">https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/quick_start.html</a></p>
 <p>[2] <a href="https://hyper.ai/tutorials/26001">https://hyper.ai/tutorials/26001</a></p>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>DeepMD</category>
+      </categories>
+      <tags>
+        <tag>DeepMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CP2K安装与编译</title>
+    <url>/MyWiki/wiki/2022/09/18/softwares/cp2k/CP2K_Installation/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h3 id="CP2K下载与安装"><a href="#CP2K下载与安装" class="headerlink" title="CP2K下载与安装"></a>CP2K下载与安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt install libopenblas-dev</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> cp2k</span><br><span class="line"><span class="built_in">cd</span> cp2k</span><br><span class="line">wget https://github.com/cp2k/cp2k/archive/refs/tags/v2024.3.tar.gz</span><br><span class="line">tar -zxvf v2024.3.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ./cp2k-2024.3/tools/toolchain</span><br><span class="line">./install_cp2k_toolchain.sh --with-sirius=no --with-plumed=install --with-cmake=system --with-openblas=system --with-fftw=system</span><br></pre></td></tr></table></figure>
+<p>- </p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
+<li><a href="https://www.cp2k.org/">https://www.cp2k.org/</a></li>
+<li><a href="http://bbs.keinsci.com/thread-33640-1-1.html">http://bbs.keinsci.com/thread-33640-1-1.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>CP2K</category>
+      </categories>
+      <tags>
+        <tag>CP2K</tag>
+        <tag>CP2K安装与编译</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个DeepMD完整例子：water</title>
+    <url>/MyWiki/wiki/2024/10/10/softwares/deepmd/DeepMD_2/</url>
+    <content><![CDATA[<p>[toc]</p>
+<blockquote>
+<p>小白，按教程写的，不一定对，但是，是一个完成的流程</p>
+</blockquote>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><h3 id="执行VASP计算获取OUTCAR"><a href="#执行VASP计算获取OUTCAR" class="headerlink" title="执行VASP计算获取OUTCAR"></a>执行VASP计算获取OUTCAR</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> 00.data</span><br><span class="line"><span class="built_in">cd</span> 00.data</span><br><span class="line"><span class="built_in">mkdir</span> VASP</span><br><span class="line"><span class="built_in">cd</span> VASP</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建VASP模拟输入数据</p>
+</blockquote>
+<ul>
+<li><p>INCAR</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SYSTEM = Water</span><br><span class="line"></span><br><span class="line">! ab initio</span><br><span class="line">PREC = Normal	    ! Precision level, standard precision</span><br><span class="line">ENMAX = 400      	! cutoff should be set manually</span><br><span class="line">ISMEAR =  0			! Gaussian smearing; metals:1</span><br><span class="line">SIGMA = 0.1			! Smearing value in eV; metals:0.2</span><br><span class="line"></span><br><span class="line">! MD</span><br><span class="line">IBRION =  1			! Activate MD</span><br><span class="line">NFREE = 2			! 2 independent degrees of freedom</span><br><span class="line">NSW    =  1000		! Max electronic SCF steps</span><br><span class="line">EDIFFG = -0.02   	! forces smaller 0.02 A/eV</span><br><span class="line">POTIM  =  2			! Timestep in fs</span><br><span class="line"></span><br><span class="line">MDALGO =  2			! Nosé-Hoover thermostat</span><br><span class="line">SMASS  =  0			! MD Algorithm: -3-microcanonical ensemble; 0-canonical ensemble</span><br><span class="line"></span><br><span class="line">TEBEG  =  40		! Start temperature K</span><br><span class="line">TEEND  =  400		! End temperature K</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>KPOINTS</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Gamma-point only</span><br><span class="line"> 0</span><br><span class="line">Monkhorst Pack</span><br><span class="line"> 1 1 1</span><br><span class="line"> 0 0 0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>Gamma-point only</strong>：表示只使用伽玛点（k &#x3D; 0），即在布里渊区的中心。这通常用于小系统或简单计算，因为只考虑伽玛点可以简化计算。</p>
+<p><strong>0</strong>：这是指定的 k 点数，”0” 表示只使用伽玛点，不进行额外的 k 点采样。</p>
+<p><strong>Monkhorst Pack</strong>：这是定义 k 点网格的方式，Monkhorst-Pack 方法通过在布里渊区中均匀地分布 k 点来生成网格，适合周期性系统。</p>
+<p><strong>1 1 1</strong>：这三位数字表示在三个方向上的 k 点数。在此例中，表示在每个方向上只使用一个 k 点（即只有伽玛点）。</p>
+<p><strong>0 0 0</strong>：这是对 k 点的偏移量，通常与 Monkhorst-Pack 网格一起使用。这里的 “0 0 0” 表示不进行任何偏移，直接在伽玛点。</p>
+</blockquote>
+</li>
+<li><p>POSCAR</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">H2O_2</span><br><span class="line">0.52918   ! scaling parameter</span><br><span class="line"> 15 0 0</span><br><span class="line"> 0 15 0</span><br><span class="line"> 0 0 15</span><br><span class="line">1 2</span><br><span class="line">select</span><br><span class="line">cart</span><br><span class="line">     0.00     0.00     0.00 F F F</span><br><span class="line">     1.10    -1.43     0.00 T T F</span><br><span class="line">     1.10     1.43     0.00 T T F</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>POTCAR</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/softwares/VASP/PAW_PBE/O/POTCAR ~/softwares/VASP/PAW_PBE/H/POTCAR &gt;POTCAR</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tree</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>├── INCAR<br>├── KPOINTS<br>├── POSCAR<br>└── POTCAR</p>
+</blockquote>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line">mpirun -np 16 vasp_std</span><br><span class="line"><span class="meta prompt_">...</span></span><br><span class="line">tree</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── CHG<br>├── CHGCAR<br>├── CONTCAR<br>├── DOSCAR<br>├── EIGENVAL<br>├── HILLSPOT<br>├── IBZKPT<br>├── ICONST<br>├── INCAR<br>├── KPOINTS<br>├── OSZICAR<br>├── OUTCAR<br>├── PCDAT<br>├── POSCAR<br>├── POTCAR<br>├── REPORT<br>├── vasprun.xml<br>├── WAVECAR<br>└── XDATCAR</p>
+</blockquote>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">cp</span></span> OUTCAR ../</span><br><span class="line"><span class="function"><span class="title">cd</span></span> ..</span><br><span class="line">tree -L <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── OUTCAR<br>└── VASP</p>
+</blockquote>
+<h3 id="数据转换与划分"><a href="#数据转换与划分" class="headerlink" title="数据转换与划分"></a>数据转换与划分</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># split_data.py</span></span><br><span class="line"><span class="keyword">import</span> dpdata</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data = dpdata.LabeledSystem(<span class="string">&quot;OUTCAR&quot;</span>)</span><br><span class="line">data.to(<span class="string">&quot;deepmd/npy&quot;</span>, <span class="string">&quot;data&quot;</span>, set_size=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># set_size = 3 这里数字小由于帧数不够，仅用于演示</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> data</span><br><span class="line"><span class="built_in">tree</span> -L <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── set.000<br>├── set.001<br>├── set.002<br>├── set.003<br>├── type_map.raw<br>└── type.raw</p>
+</blockquote>
+<blockquote>
+<p>这里划分出四组数据，前三组作为训练集，最后一组作为测试集</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> train_data &amp;&amp; <span class="built_in">mkdir</span> val_data</span><br><span class="line"><span class="built_in">mkdir</span> train_data/data_0 &amp;&amp; <span class="built_in">mkdir</span> train_data/data_1 &amp;&amp; <span class="built_in">mkdir</span> train_data/data_2</span><br><span class="line"><span class="built_in">mkdir</span> val_data/data_3</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> set.000 ./train_data/data_0/</span><br><span class="line"><span class="built_in">mv</span> set.001 ./train_data/data_1/</span><br><span class="line"><span class="built_in">mv</span> set.002 ./train_data/data_2/</span><br><span class="line"><span class="built_in">mv</span> set.003 ./val_data/data_3/</span><br><span class="line"><span class="built_in">cp</span> type_map.raw  type.raw ./train_data/data_0/</span><br><span class="line"><span class="built_in">cp</span> type_map.raw  type.raw ./train_data/data_1/</span><br><span class="line"><span class="built_in">cp</span> type_map.raw  type.raw ./train_data/data_2/</span><br><span class="line"><span class="built_in">mv</span> type_map.raw  type.raw ./val_data/data_3/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里是需要手动把训练集和测试集分配好</p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tree</span> -L <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── train_data<br>│   ├── set.000<br>│   ├── set.001<br>│   ├── set.002<br>│   ├── type_map.raw<br>│   └── type.raw<br>└── val_data<br>    ├── set.003<br>    ├── type_map.raw<br>    └── type.raw</p>
+</blockquote>
+<h3 id="准备input-json"><a href="#准备input-json" class="headerlink" title="准备input.json"></a>准备input.json</h3><blockquote>
+<p>指定训练参数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../../</span><br><span class="line"><span class="built_in">mkdir</span> 01.data</span><br><span class="line"><span class="built_in">cd</span> 01.data/</span><br><span class="line"><span class="built_in">touch</span> input.json</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输入下面内容，注意修改type_map，和training_data和validation_data数据集</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;_comment&quot;: &quot; model parameters&quot;,</span><br><span class="line">    &quot;model&quot;: &#123;</span><br><span class="line">	&quot;type_map&quot;:	[&quot;O&quot;,&quot;H&quot;],</span><br><span class="line">	&quot;descriptor&quot; :&#123;</span><br><span class="line">	    &quot;type&quot;:		&quot;se_e2_a&quot;,</span><br><span class="line">	    &quot;sel&quot;:		&quot;auto&quot;,</span><br><span class="line">	    &quot;rcut_smth&quot;:	0.50,</span><br><span class="line">	    &quot;rcut&quot;:		6.00,</span><br><span class="line">	    &quot;neuron&quot;:		[25, 50, 100],</span><br><span class="line">	    &quot;resnet_dt&quot;:	false,</span><br><span class="line">	    &quot;axis_neuron&quot;:	16,</span><br><span class="line">	    &quot;seed&quot;:		1,</span><br><span class="line">	    &quot;_comment&quot;:		&quot; that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;fitting_net&quot; : &#123;</span><br><span class="line">	    &quot;neuron&quot;:		[240, 240, 240],</span><br><span class="line">	    &quot;resnet_dt&quot;:	true,</span><br><span class="line">	    &quot;seed&quot;:		1,</span><br><span class="line">	    &quot;_comment&quot;:		&quot; that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;_comment&quot;:	&quot; that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;learning_rate&quot; :&#123;</span><br><span class="line">	&quot;type&quot;:		&quot;exp&quot;,</span><br><span class="line">	&quot;decay_steps&quot;:	50,</span><br><span class="line">	&quot;start_lr&quot;:	0.001,	</span><br><span class="line">	&quot;stop_lr&quot;:	3.51e-8,</span><br><span class="line">	&quot;_comment&quot;:	&quot;that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;loss&quot; :&#123;</span><br><span class="line">	&quot;type&quot;:		&quot;ener&quot;,</span><br><span class="line">	&quot;start_pref_e&quot;:	0.02,</span><br><span class="line">	&quot;limit_pref_e&quot;:	1,</span><br><span class="line">	&quot;start_pref_f&quot;:	1000,</span><br><span class="line">	&quot;limit_pref_f&quot;:	1,</span><br><span class="line">	&quot;start_pref_v&quot;:	0,</span><br><span class="line">	&quot;limit_pref_v&quot;:	0,</span><br><span class="line">	&quot;_comment&quot;:	&quot; that&#x27;s all&quot;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;training&quot; : &#123;</span><br><span class="line">	&quot;training_data&quot;: &#123;</span><br><span class="line">	    &quot;systems&quot;:     [&quot;../00.data/data/train_data/data_0/&quot;, &quot;../00.data/data/train_data/data_1/&quot;, &quot;../00.data/data/train_data/data_2/&quot;],</span><br><span class="line">	    &quot;batch_size&quot;:  &quot;auto&quot;,</span><br><span class="line">	    &quot;_comment&quot;:	   &quot;that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;validation_data&quot;:&#123;</span><br><span class="line">	    &quot;systems&quot;:	   [&quot;../00.data/data/val_data/data_3/&quot;],</span><br><span class="line">	    &quot;batch_size&quot;:  &quot;auto&quot;,</span><br><span class="line">	    &quot;numb_btch&quot;:   1,</span><br><span class="line">	    &quot;_comment&quot;:	   &quot;that&#x27;s all&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;numb_steps&quot;:	10000,</span><br><span class="line">	&quot;seed&quot;:		10,</span><br><span class="line">	&quot;disp_file&quot;:	&quot;lcurve.out&quot;,</span><br><span class="line">	&quot;disp_freq&quot;:	200,</span><br><span class="line">	&quot;save_freq&quot;:	1000,</span><br><span class="line">	&quot;_comment&quot;:	&quot;that&#x27;s all&quot;</span><br><span class="line">    &#125;,    </span><br><span class="line"></span><br><span class="line">    &quot;_comment&quot;:		&quot;that&#x27;s all&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="训练与测试"><a href="#训练与测试" class="headerlink" title="训练与测试"></a>训练与测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dp train input.json</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[2024-10-10 12:30:17,515] DEEPMD INFO    batch   10000: val: rmse &#x3D; 8.50e-03, rmse_e &#x3D; 3.00e-03, rmse_f &#x3D; 6.62e-03<br>[2024-10-10 12:30:17,515] DEEPMD INFO    batch   10000: total wall time &#x3D; 12.63 s<br>[2024-10-10 12:30:17,774] DEEPMD INFO    saved checkpoint model.ckpt<br>[2024-10-10 12:30:17,774] DEEPMD INFO    average training time: 0.0600 s&#x2F;batch (exclude first 200 batches)<br>[2024-10-10 12:30:17,774] DEEPMD INFO    finished training<br>[2024-10-10 12:30:17,774] DEEPMD INFO    wall time: 610.835 s<br>WARNING:tensorflow:disable_mixed_precision_graph_rewrite() called when mixed precision is already disabled.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置Mathtext字体，可以选择合适的字体</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;mathtext.fontset&#x27;</span>] = <span class="string">&#x27;custom&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;mathtext.rm&#x27;</span>] = <span class="string">&#x27;Arial&#x27;</span>  <span class="comment"># 使用Arial字体作为Mathtext字体</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这之后进行绘图</span></span><br><span class="line">path = <span class="string">&quot;./01.train/&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;<span class="subst">&#123;path&#125;</span>lcurve.out&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    headers = f.readline().split()[<span class="number">1</span>:]</span><br><span class="line">lcurve = pd.DataFrame(np.loadtxt(<span class="string">f&quot;<span class="subst">&#123;path&#125;</span>lcurve.out&quot;</span>), columns=headers)</span><br><span class="line">legends = [<span class="string">&quot;rmse_e_val&quot;</span>, <span class="string">&quot;rmse_e_trn&quot;</span>, <span class="string">&quot;rmse_f_val&quot;</span>, <span class="string">&quot;rmse_f_trn&quot;</span>]</span><br><span class="line"><span class="keyword">for</span> legend <span class="keyword">in</span> legends:</span><br><span class="line">    plt.loglog(lcurve[<span class="string">&quot;step&quot;</span>], lcurve[legend], label=legend)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.xlabel(<span class="string">&quot;Training steps&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Loss&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202410101253458.png" alt="Figure_1"></p>
+</blockquote>
+<ul>
+<li>预测：数据集小，仅供演示</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> dpdata</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># training_systems = dpdata.LabeledSystem(</span></span><br><span class="line"><span class="comment"># 	&quot;./00.data/data/train_data/data_0/&quot;,</span></span><br><span class="line"><span class="comment"># 	fmt=&quot;deepmd/npy&quot;)</span></span><br><span class="line"></span><br><span class="line">training_systems = dpdata.LabeledSystem(<span class="string">&quot;./00.data/OUTCAR&quot;</span>)</span><br><span class="line"></span><br><span class="line">predict = training_systems.predict(<span class="string">&quot;./01.train/graph.pb&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(training_systems[&quot;energies&quot;],predict[&quot;energies&quot;])</span></span><br><span class="line">data = np.vstack((training_systems[<span class="string">&quot;energies&quot;</span>],predict[<span class="string">&quot;energies&quot;</span>])).T</span><br><span class="line">np.savetxt(<span class="string">&quot;./01.train/train_pre.dat&quot;</span>,data)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> fastdataing <span class="keyword">as</span> fd</span><br><span class="line">data = np.loadtxt(<span class="string">&quot;./01.train/train_pre.dat&quot;</span>)</span><br><span class="line">y1 = data[:,<span class="number">0</span>]</span><br><span class="line">y2 = data[:,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(y1.shape,y2.shape)</span><br><span class="line">ax = fd.add_ax(fd.add_fig(figsize=(<span class="number">8</span>,<span class="number">6</span>)))</span><br><span class="line">plt.subplots_adjust(left=<span class="number">0.2</span>)</span><br><span class="line">ax.scatter(y1,y2)</span><br><span class="line"></span><br><span class="line">x_range = np.linspace(plt.xlim()[<span class="number">0</span>], plt.xlim()[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">ax.plot(x_range, x_range, <span class="string">&quot;r--&quot;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&quot;Energy of DFT&quot;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&quot;Energy predicted by deep potential&quot;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202410101310023.png" alt="Figure_1"></p>
+</blockquote>
+<h2 id="冻结与压缩"><a href="#冻结与压缩" class="headerlink" title="冻结与压缩"></a>冻结与压缩</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dp freeze -o graph.pb</span><br><span class="line">dp compress -i graph.pb -o graph-compress.pb</span><br><span class="line"><span class="built_in">ls</span> graph*</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>graph-compress.pb  graph.pb</p>
+</blockquote>
+<h2 id="执行DeepMD模拟"><a href="#执行DeepMD模拟" class="headerlink" title="执行DeepMD模拟"></a>执行DeepMD模拟</h2><h3 id="LAMMPS输入文件准备"><a href="#LAMMPS输入文件准备" class="headerlink" title="LAMMPS输入文件准备"></a>LAMMPS输入文件准备</h3><ul>
+<li>deepmd势：<code>graph.pb</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">mkdir</span> 02.lmp &amp;&amp; <span class="built_in">cd</span> 02.lmp</span><br><span class="line"><span class="built_in">cp</span> ../01.data/graph.pb .</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>input文件：<code>in.lammps</code></li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># liquid water</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">units</span>           metal</span><br><span class="line"><span class="attribute">boundary</span>        p p p</span><br><span class="line"><span class="attribute">atom_style</span>      full</span><br><span class="line"></span><br><span class="line"><span class="attribute">neighbor</span>        <span class="number">1</span>.<span class="number">0</span> bin</span><br><span class="line"><span class="attribute">neigh_modify</span>    every <span class="number">10</span> delay <span class="number">0</span> check no</span><br><span class="line"></span><br><span class="line"><span class="attribute">read_data</span>	system.data</span><br><span class="line"></span><br><span class="line"><span class="attribute">pair_style</span>	deepmd graph.pb</span><br><span class="line"><span class="attribute">pair_coeff</span>	* *</span><br><span class="line"></span><br><span class="line"><span class="attribute">velocity</span>        <span class="literal">all</span> create <span class="number">300</span>.<span class="number">0</span> <span class="number">23456789</span></span><br><span class="line"><span class="attribute">fix</span>             <span class="number">1</span> <span class="literal">all</span> npt temp <span class="number">300</span>.<span class="number">0</span> <span class="number">300</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">1</span> iso <span class="number">1</span>.<span class="number">0</span> <span class="number">1</span>.<span class="number">0</span> <span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">timestep</span>        <span class="number">0</span>.<span class="number">001</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">thermo_style</span>    custom step pe ke etotal temp press vol</span><br><span class="line"><span class="attribute">thermo</span>          <span class="number">100</span></span><br><span class="line"><span class="attribute">dump</span> 		<span class="number">1</span> <span class="literal">all</span> custom <span class="number">100</span> traj_relax.lammpstrj id type element x y z </span><br><span class="line"><span class="attribute">dump_modify</span> <span class="number">1</span> element O H</span><br><span class="line"><span class="attribute">run</span>             <span class="number">5000</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>water的lammpsdata：<code>system.data</code></p>
+<blockquote>
+<p>不需要键角信息</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">LAMMPS Description</span><br><span class="line"></span><br><span class="line">     <span class="number">1536</span>  atoms</span><br><span class="line"></span><br><span class="line">     <span class="number">2</span>  atom types</span><br><span class="line"></span><br><span class="line">  <span class="number">0</span>.<span class="number">0</span> <span class="number">30</span> xlo xhi</span><br><span class="line">  <span class="number">0</span>.<span class="number">0</span> <span class="number">30</span> ylo yhi</span><br><span class="line">  <span class="number">0</span>.<span class="number">0</span> <span class="number">30</span> zlo zhi</span><br><span class="line"></span><br><span class="line">Masses</span><br><span class="line"></span><br><span class="line"><span class="number">1 15.9994</span>  # O</span><br><span class="line"><span class="number">2 1.008</span>  # H</span><br><span class="line"></span><br><span class="line">Atoms  # full</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> -<span class="number">1.1794 0</span>.<span class="number">0 0.0 0</span>.<span class="number">0</span></span><br><span class="line"><span class="number">2 1 2 0</span>.<span class="number">5897</span> <span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">0.577359</span></span><br><span class="line"><span class="number">3 1 2 0</span>.<span class="number">5897</span> -<span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">0.577359</span></span><br><span class="line"><span class="number">4</span> <span class="number">2</span> <span class="number">1</span> -<span class="number">1.1794 0</span>.<span class="number">0 0.0 3</span>.<span class="number">5</span></span><br><span class="line"><span class="number">5 2 2 0</span>.<span class="number">5897</span> <span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">4</span>.<span class="number">0773589999999995</span></span><br><span class="line"><span class="number">6 2 2 0</span>.<span class="number">5897</span> -<span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">4</span>.<span class="number">0773589999999995</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">1</span> -<span class="number">1.1794 0</span>.<span class="number">0 0.0 7</span>.<span class="number">0</span></span><br><span class="line"><span class="number">8 3 2 0</span>.<span class="number">5897</span> <span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">7</span>.<span class="number">5773589999999995</span></span><br><span class="line"><span class="number">9 3 2 0</span>.<span class="number">5897</span> -<span class="number">0.8164904</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">7</span>.<span class="number">5773589999999995</span></span><br><span class="line"><span class="number">10</span> <span class="number">4</span> <span class="number">1</span> -<span class="number">1.1794 0</span>.<span class="number">0 0.0 10</span>.<span class="number">5</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="在具有兼容版本的-LAMMPS-环境中，执行深度势分子动力学："><a href="#在具有兼容版本的-LAMMPS-环境中，执行深度势分子动力学：" class="headerlink" title="在具有兼容版本的 LAMMPS 环境中，执行深度势分子动力学："></a>在具有兼容版本的 LAMMPS 环境中，执行深度势分子动力学：</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">8</span> lmp_mpi -i in.lammps</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>LAMMPS (2 Aug 2023)<br>OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src&#x2F;comm.cpp:98)<br>  using 1 OpenMP thread(s) per MPI task<br>Loaded 1 plugins from &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;deepmd-kit&#x2F;lib&#x2F;deepmd_lmp<br>Reading data file …</p>
+<blockquote>
+<p>为什么感觉跑的很慢呢？</p>
+</blockquote>
+</blockquote>
+<h2 id="所有文件保存在water-deepmd"><a href="#所有文件保存在water-deepmd" class="headerlink" title="所有文件保存在water_deepmd"></a>所有文件保存在<a href="https://github.com/eastsheng/water_deepmd">water_deepmd</a></h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/index.html">https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/index.html</a></p>
 ]]></content>
       <categories>
         <category>软件学习</category>
