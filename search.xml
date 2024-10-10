@@ -12927,10 +12927,10 @@ style A fill:#ffff</pre>
 <blockquote>
 <p>这里是需要手动把训练集和测试集分配好</p>
 </blockquote>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tree</span> -L <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">tree</span> -L <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>.<br>├── train_data<br>│   ├── set.000<br>│   ├── set.001<br>│   ├── set.002<br>│   ├── type_map.raw<br>│   └── type.raw<br>└── val_data<br>    ├── set.003<br>    ├── type_map.raw<br>    └── type.raw</p>
+<p>.<br>├── train_data<br>│   ├── data_0<br>│   │   ├── set.000<br>│   │   ├── type_map.raw<br>│   │   └── type.raw<br>│   ├── data_1<br>│   │   ├── set.001<br>│   │   ├── type_map.raw<br>│   │   └── type.raw<br>│   └── data_2<br>│       ├── set.002<br>│       ├── type_map.raw<br>│       └── type.raw<br>└── val_data<br>    └── data_3<br>        ├── set.003<br>        ├── type_map.raw<br>        └── type.raw</p>
 </blockquote>
 <h3 id="准备input-json"><a href="#准备input-json" class="headerlink" title="准备input.json"></a>准备input.json</h3><blockquote>
 <p>指定训练参数</p>
