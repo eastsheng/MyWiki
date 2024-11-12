@@ -208,7 +208,7 @@
 <h3 id="手动安装cpu版"><a href="#手动安装cpu版" class="headerlink" title="手动安装cpu版"></a>手动安装cpu版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/deepmodeling/deepmd-kit/releases/download/v3.0.0b3/deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">bash deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">conda activate /home/xxx/softwares/deepmd-kit</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>安装过程中可以自定义路径 &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;deepmd-kit</p>
+<p>安装过程中可以自定义路径 &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;miniconda&#x2F;miniconda3&#x2F;envs&#x2F;deepmd-kit</p>
 <p>激活环境</p>
 </blockquote>
 <h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://bohrium-api.dp.tech/ds-dl/DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line">unzip DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line"><span class="built_in">cd</span> DeePMD-kit_Tutorial</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
@@ -287,7 +287,7 @@
 <p>0 directories, 5 files</p>
 </blockquote>
 <p>在具有兼容版本的 LAMMPS 环境中，执行深度势分子动力学：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -<span class="selector-tag">p</span> <span class="number">8</span> lmp_mpi -<span class="selector-tag">i</span> in<span class="selector-class">.lammps</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">8</span> lmp_mpi -i in.lammps</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Summary</span> <span class="string">of</span> <span class="string">lammps</span> <span class="string">deepmd</span> <span class="string">module</span> <span class="string">...</span></span><br><span class="line">  <span class="string">&gt;&gt;&gt;</span> <span class="attr">Info of deepmd-kit:</span></span><br><span class="line">  <span class="attr">installed to:</span>       <span class="string">/home/xxx/softwares/deepmd-kit</span></span><br><span class="line">  <span class="attr">source:</span></span><br><span class="line">  <span class="attr">source branch:</span>      <span class="string">HEAD</span></span><br><span class="line">  <span class="attr">source commit:</span>      <span class="string">cbf2de6</span></span><br><span class="line">  <span class="attr">source commit at:</span>   <span class="number">2024-07-27 05:11:58</span> <span class="string">+0000</span></span><br><span class="line">  <span class="attr">support model ver.:</span> <span class="number">1.1</span></span><br><span class="line">  <span class="attr">build variant:</span>      <span class="string">cpu</span></span><br></pre></td></tr></table></figure>
 
@@ -303,6 +303,10 @@
         
   <a href="/MyWiki/MyWiki/tags#DeepMD" >
     <span class="tag-code">DeepMD</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#DPTI" >
+    <span class="tag-code">DPTI</span>
   </a>
 
       </div>

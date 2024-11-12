@@ -12748,7 +12748,7 @@ style A fill:#ffff</pre>
 <h3 id="手动安装cpu版"><a href="#手动安装cpu版" class="headerlink" title="手动安装cpu版"></a>手动安装cpu版</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/deepmodeling/deepmd-kit/releases/download/v3.0.0b3/deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">bash deepmd-kit-3.0.0b3-cpu-Linux-x86_64.sh</span><br><span class="line">conda activate /home/xxx/softwares/deepmd-kit</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>安装过程中可以自定义路径 &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;deepmd-kit</p>
+<p>安装过程中可以自定义路径 &#x2F;home&#x2F;xxx&#x2F;softwares&#x2F;miniconda&#x2F;miniconda3&#x2F;envs&#x2F;deepmd-kit</p>
 <p>激活环境</p>
 </blockquote>
 <h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://bohrium-api.dp.tech/ds-dl/DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line">unzip DeePMD-kit-Tutorial-a8z5-v1.zip</span><br><span class="line"><span class="built_in">cd</span> DeePMD-kit_Tutorial</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
@@ -12827,7 +12827,7 @@ style A fill:#ffff</pre>
 <p>0 directories, 5 files</p>
 </blockquote>
 <p>在具有兼容版本的 LAMMPS 环境中，执行深度势分子动力学：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">mpirun -<span class="selector-tag">p</span> <span class="number">8</span> lmp_mpi -<span class="selector-tag">i</span> in<span class="selector-class">.lammps</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">8</span> lmp_mpi -i in.lammps</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">Summary</span> <span class="string">of</span> <span class="string">lammps</span> <span class="string">deepmd</span> <span class="string">module</span> <span class="string">...</span></span><br><span class="line">  <span class="string">&gt;&gt;&gt;</span> <span class="attr">Info of deepmd-kit:</span></span><br><span class="line">  <span class="attr">installed to:</span>       <span class="string">/home/xxx/softwares/deepmd-kit</span></span><br><span class="line">  <span class="attr">source:</span></span><br><span class="line">  <span class="attr">source branch:</span>      <span class="string">HEAD</span></span><br><span class="line">  <span class="attr">source commit:</span>      <span class="string">cbf2de6</span></span><br><span class="line">  <span class="attr">source commit at:</span>   <span class="number">2024-07-27 05:11:58</span> <span class="string">+0000</span></span><br><span class="line">  <span class="attr">support model ver.:</span> <span class="number">1.1</span></span><br><span class="line">  <span class="attr">build variant:</span>      <span class="string">cpu</span></span><br></pre></td></tr></table></figure>
 
@@ -12842,6 +12842,7 @@ style A fill:#ffff</pre>
       </categories>
       <tags>
         <tag>DeepMD</tag>
+        <tag>DPTI</tag>
       </tags>
   </entry>
   <entry>
@@ -13004,6 +13005,125 @@ style A fill:#ffff</pre>
 </blockquote>
 </blockquote>
 <h2 id="所有文件保存在water-deepmd"><a href="#所有文件保存在water-deepmd" class="headerlink" title="所有文件保存在water_deepmd"></a>所有文件保存在<a href="https://github.com/eastsheng/water_deepmd">water_deepmd</a></h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/index.html">https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/index.html</a></p>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>DeepMD</category>
+      </categories>
+      <tags>
+        <tag>DeepMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DP-GEN生成深度学习模型：methane</title>
+    <url>/MyWiki/wiki/2024/10/21/softwares/deepmd/DeepMD_3/</url>
+    <content><![CDATA[<p>[toc]</p>
+<blockquote>
+<p>DP-GEN （Deep Generator）是一个用Python编写的软件，精心设计用于生成基于原子间势能和力场的深度学习模型，依赖于DeepMD-kit。</p>
+</blockquote>
+<h2 id="下载并安装"><a href="#下载并安装" class="headerlink" title="下载并安装"></a>下载并安装</h2><blockquote>
+<p>Python &gt;&#x3D; 3.9</p>
+</blockquote>
+<ul>
+<li><p>pip install</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda activate base</span><br><span class="line">pip install dpgen</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>conda install</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install -c conda-forge dpgen</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git clone</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/deepmodeling/</span>dpgen &amp;&amp; pip install ./dpgen</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="快速上手：以甲烷力场构建为例"><a href="#快速上手：以甲烷力场构建为例" class="headerlink" title="快速上手：以甲烷力场构建为例"></a>快速上手：以甲烷力场构建为例</h2><blockquote>
+<p>在本地WSL-Ubuntu 20.04运行</p>
+</blockquote>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">dpgen -h</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> DP-GEN功能多样，包括init_bulk、init_surf、run和test</p>
+</blockquote>
+<ul>
+<li><p>DP-GEN的run工作流是由以下三步组成的循环：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-14982c7435a9f716663f7825ed1041c0_720w.webp"></p>
+<ul>
+<li><p>训练：<strong>DeePMD-kit</strong>同时训练 多条（一般是4条）参数初始化不同的势函数；</p>
+</li>
+<li><p>采样和筛选：基于训练得到的势函数和指定的初始结构利用<strong>LAMMPS</strong>进行classical MD，扩展构型空间。然后对MD中得到的构型依照特定指标（对某个构型用不同的势函数预测所得的原子力的标准差）进行筛选；</p>
+</li>
+<li><p>标记：将筛选所得的构型进行DFT-MD单点能计算（VASP&#x2F;CP2K），得到力和能量，加入训练集进行新一轮的训练。</p>
+</li>
+</ul>
+</li>
+<li><p>DP-GEN所需输入文件：</p>
+<ul>
+<li><p>参数设置文件<code>param.json</code>：</p>
+<blockquote>
+<p>三步计算中所用的参数，具体指神经网络训练的参数，lammps中MD的参数和DFT-MD计算单点能的参数。</p>
+</blockquote>
+</li>
+<li><p>机器配置文件<code>machine.json</code></p>
+<blockquote>
+<p>制定上述三个步骤分别采用什么软件、CPU&#x2F;GPU、运行核数、服务器等配置。</p>
+</blockquote>
+</li>
+<li><p>初始训练集数据（init）</p>
+<blockquote>
+<p>放在提交dpgen所在的服务器上，用于训练势函数，可以自己准备也可以参照<a href="https://wiki.cheng-group.net/wiki/software_usage/DeePMD-kit/">DeePMD-kit</a>中方法生成。</p>
+</blockquote>
+</li>
+<li><p>MD采样的初始结构</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="输入文件例子"><a href="#输入文件例子" class="headerlink" title="输入文件例子"></a>输入文件例子</h3><blockquote>
+<p>param.json</p>
+</blockquote>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     <span class="string">&quot;type_map&quot;</span>: [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;C&quot;</span>],</span><br><span class="line">     <span class="string">&quot;mass_map&quot;</span>: [<span class="number">1</span>,<span class="number">12</span>],</span><br><span class="line">     <span class="string">&quot;init_data_prefix&quot;</span>: <span class="string">&quot;../&quot;</span>,</span><br><span class="line">     <span class="string">&quot;init_data_sys&quot;</span>: [<span class="string">&quot;init/CH4.POSCAR.01x01x01/02.md/sys-0004-0001/deepmd&quot;</span>],</span><br><span class="line">     <span class="string">&quot;sys_configs_prefix&quot;</span>: <span class="string">&quot;../&quot;</span>,</span><br><span class="line">     <span class="string">&quot;sys_configs&quot;</span>: [</span><br><span class="line">         [<span class="string">&quot;init/CH4.POSCAR.01x01x01/01.scale_pert/sys-0004-0001/scale-1.000/00000*/POSCAR&quot;</span>],</span><br><span class="line">         [<span class="string">&quot;init/CH4.POSCAR.01x01x01/01.scale_pert/sys-0004-0001/scale-1.000/00001*/POSCAR&quot;</span>]</span><br><span class="line">     ],</span><br><span class="line">     <span class="string">&quot;_comment&quot;</span>: <span class="string">&quot; that&#x27;s all &quot;</span>,</span><br><span class="line">     <span class="string">&quot;numb_models&quot;</span>: <span class="number">4</span>,</span><br><span class="line">     <span class="string">&quot;default_training_param&quot;</span>: &#123;</span><br><span class="line">         <span class="string">&quot;model&quot;</span>: &#123;</span><br><span class="line">             <span class="string">&quot;type_map&quot;</span>: [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;C&quot;</span>],</span><br><span class="line">             <span class="string">&quot;descriptor&quot;</span>: &#123;</span><br><span class="line">                 <span class="string">&quot;type&quot;</span>: <span class="string">&quot;se_a&quot;</span>,</span><br><span class="line">                 <span class="string">&quot;sel&quot;</span>: [<span class="number">16</span>,<span class="number">4</span>],</span><br><span class="line">                 <span class="string">&quot;rcut_smth&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">                 <span class="string">&quot;rcut&quot;</span>: <span class="number">5.0</span>,</span><br><span class="line">                 <span class="string">&quot;neuron&quot;</span>: [<span class="number">120</span>,<span class="number">120</span>,<span class="number">120</span>],</span><br><span class="line">                 <span class="string">&quot;resnet_dt&quot;</span>: true,</span><br><span class="line">                 <span class="string">&quot;axis_neuron&quot;</span>: <span class="number">12</span>,</span><br><span class="line">                 <span class="string">&quot;seed&quot;</span>: <span class="number">1</span></span><br><span class="line">             &#125;,</span><br><span class="line">             <span class="string">&quot;fitting_net&quot;</span>: &#123;</span><br><span class="line">                 <span class="string">&quot;neuron&quot;</span>: [<span class="number">25</span>,<span class="number">50</span>,<span class="number">100</span>],</span><br><span class="line">                 <span class="string">&quot;resnet_dt&quot;</span>: false,</span><br><span class="line">                 <span class="string">&quot;seed&quot;</span>: <span class="number">1</span></span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="string">&quot;learning_rate&quot;</span>: &#123;</span><br><span class="line">             <span class="string">&quot;type&quot;</span>: <span class="string">&quot;exp&quot;</span>,</span><br><span class="line">             <span class="string">&quot;start_lr&quot;</span>: <span class="number">0.001</span>,</span><br><span class="line">             <span class="string">&quot;decay_steps&quot;</span>: <span class="number">5000</span></span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="string">&quot;loss&quot;</span>: &#123;</span><br><span class="line">             <span class="string">&quot;start_pref_e&quot;</span>: <span class="number">0.02</span>,</span><br><span class="line">             <span class="string">&quot;limit_pref_e&quot;</span>: <span class="number">2</span>,</span><br><span class="line">             <span class="string">&quot;start_pref_f&quot;</span>: <span class="number">1000</span>,</span><br><span class="line">             <span class="string">&quot;limit_pref_f&quot;</span>: <span class="number">1</span>,</span><br><span class="line">             <span class="string">&quot;start_pref_v&quot;</span>: <span class="number">0.0</span>,</span><br><span class="line">             <span class="string">&quot;limit_pref_v&quot;</span>: <span class="number">0.0</span></span><br><span class="line">         &#125;,</span><br><span class="line">         <span class="string">&quot;training&quot;</span>: &#123;</span><br><span class="line">             <span class="string">&quot;stop_batch&quot;</span>: <span class="number">2000</span>,</span><br><span class="line">             <span class="string">&quot;disp_file&quot;</span>: <span class="string">&quot;lcurve.out&quot;</span>,</span><br><span class="line">             <span class="string">&quot;disp_freq&quot;</span>: <span class="number">1000</span>,</span><br><span class="line">             <span class="string">&quot;numb_test&quot;</span>: <span class="number">4</span>,</span><br><span class="line">             <span class="string">&quot;save_freq&quot;</span>: <span class="number">1000</span>,</span><br><span class="line">             <span class="string">&quot;save_ckpt&quot;</span>: <span class="string">&quot;model.ckpt&quot;</span>,</span><br><span class="line">             <span class="string">&quot;disp_training&quot;</span>: true,</span><br><span class="line">             <span class="string">&quot;time_training&quot;</span>: true,</span><br><span class="line">             <span class="string">&quot;profiling&quot;</span>: false,</span><br><span class="line">             <span class="string">&quot;profiling_file&quot;</span>: <span class="string">&quot;timeline.json&quot;</span>,</span><br><span class="line">             <span class="string">&quot;_comment&quot;</span>: <span class="string">&quot;that&#x27;s all&quot;</span></span><br><span class="line">         &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="string">&quot;model_devi_dt&quot;</span>: <span class="number">0.002</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_skip&quot;</span>: <span class="number">0</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_f_trust_lo&quot;</span>: <span class="number">0.05</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_f_trust_hi&quot;</span>: <span class="number">0.15</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_e_trust_lo&quot;</span>: <span class="number">10000000000.0</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_e_trust_hi&quot;</span>: <span class="number">10000000000.0</span>,</span><br><span class="line">     <span class="string">&quot;model_devi_clean_traj&quot;</span>: true,</span><br><span class="line">     <span class="string">&quot;model_devi_jobs&quot;</span>: [</span><br><span class="line">         &#123;<span class="string">&quot;sys_idx&quot;</span>: [<span class="number">0</span>],<span class="string">&quot;temps&quot;</span>: [<span class="number">100</span>],<span class="string">&quot;press&quot;</span>: [<span class="number">1.0</span>],<span class="string">&quot;trj_freq&quot;</span>: <span class="number">10</span>,<span class="string">&quot;nsteps&quot;</span>: <span class="number">300</span>,<span class="string">&quot;ensemble&quot;</span>: <span class="string">&quot;nvt&quot;</span>,<span class="string">&quot;_idx&quot;</span>: <span class="string">&quot;00&quot;</span>&#125;,</span><br><span class="line">         &#123;<span class="string">&quot;sys_idx&quot;</span>: [<span class="number">1</span>],<span class="string">&quot;temps&quot;</span>: [<span class="number">100</span>],<span class="string">&quot;press&quot;</span>: [<span class="number">1.0</span>],<span class="string">&quot;trj_freq&quot;</span>: <span class="number">10</span>,<span class="string">&quot;nsteps&quot;</span>: <span class="number">3000</span>,<span class="string">&quot;ensemble&quot;</span>: <span class="string">&quot;nvt&quot;</span>,<span class="string">&quot;_idx&quot;</span>: <span class="string">&quot;01&quot;</span>&#125;</span><br><span class="line">     ],</span><br><span class="line">     <span class="string">&quot;fp_style&quot;</span>: <span class="string">&quot;vasp&quot;</span>,</span><br><span class="line">     <span class="string">&quot;shuffle_poscar&quot;</span>: false,</span><br><span class="line">     <span class="string">&quot;fp_task_max&quot;</span>: <span class="number">20</span>,</span><br><span class="line">     <span class="string">&quot;fp_task_min&quot;</span>: <span class="number">5</span>,</span><br><span class="line">     <span class="string">&quot;fp_pp_path&quot;</span>: <span class="string">&quot;./&quot;</span>,</span><br><span class="line">     <span class="string">&quot;fp_pp_files&quot;</span>: [<span class="string">&quot;POTCAR_H&quot;</span>,<span class="string">&quot;POTCAR_C&quot;</span>],</span><br><span class="line">     <span class="string">&quot;fp_incar&quot;</span>: <span class="string">&quot;./INCAR_methane&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>machine.json</p>
+</blockquote>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;api_version&quot;</span>: <span class="string">&quot;1.0&quot;</span>,</span><br><span class="line">	<span class="string">&quot;train&quot;</span> :[</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;command&quot;</span>: <span class="string">&quot;dp&quot;</span>,</span><br><span class="line">			<span class="string">&quot;machine&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;batch_type&quot;</span>: <span class="string">&quot;Shell&quot;</span>,</span><br><span class="line">				<span class="string">&quot;context_type&quot;</span>: <span class="string">&quot;local&quot;</span>,</span><br><span class="line">				<span class="string">&quot;local_root&quot;</span> : <span class="string">&quot;./&quot;</span>,</span><br><span class="line">				<span class="string">&quot;remote_root&quot;</span>: <span class="string">&quot;/home/cup/workspace/deepmd/methane/dpgen_example/run/temp&quot;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="string">&quot;resources&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;number_node&quot;</span>: <span class="number">1</span>,</span><br><span class="line">				<span class="string">&quot;cpu_per_node&quot;</span>: <span class="number">8</span>,</span><br><span class="line">				<span class="string">&quot;gpu_per_node&quot;</span>: <span class="number">0</span>,</span><br><span class="line">				<span class="string">&quot;group_size&quot;</span>: <span class="number">4</span>,</span><br><span class="line">				<span class="string">&quot;source_list&quot;</span>: [<span class="string">&quot;/home/cup/softwares/deepmd-kit/bin/activate&quot;</span>]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="string">&quot;model_devi&quot;</span>:[</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;command&quot;</span>: <span class="string">&quot;mpirun -np 8 lmp_mpi -i input.lammps&quot;</span>,</span><br><span class="line">			<span class="string">&quot;machine&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;batch_type&quot;</span>: <span class="string">&quot;Shell&quot;</span>,</span><br><span class="line">				<span class="string">&quot;context_type&quot;</span>: <span class="string">&quot;local&quot;</span>,</span><br><span class="line">				<span class="string">&quot;local_root&quot;</span> : <span class="string">&quot;./&quot;</span>,</span><br><span class="line">				<span class="string">&quot;remote_root&quot;</span>: <span class="string">&quot;/home/cup/workspace/deepmd/methane/dpgen_example/run/temp&quot;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="string">&quot;resources&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;number_node&quot;</span>: <span class="number">1</span>,</span><br><span class="line">				<span class="string">&quot;cpu_per_node&quot;</span>: <span class="number">8</span>,</span><br><span class="line">				<span class="string">&quot;gpu_per_node&quot;</span>: <span class="number">0</span>,</span><br><span class="line">				<span class="string">&quot;group_size&quot;</span>: <span class="number">5</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="string">&quot;fp&quot;</span>:[</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;command&quot;</span>: <span class="string">&quot;ulimit -s unlimited &amp;&amp; mpirun -np 8 vasp_std&quot;</span>,</span><br><span class="line">			<span class="string">&quot;machine&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;batch_type&quot;</span>: <span class="string">&quot;Shell&quot;</span>,</span><br><span class="line">				<span class="string">&quot;context_type&quot;</span>: <span class="string">&quot;local&quot;</span>,</span><br><span class="line">				<span class="string">&quot;local_root&quot;</span> : <span class="string">&quot;./&quot;</span>,</span><br><span class="line">				<span class="string">&quot;remote_root&quot;</span>: <span class="string">&quot;/home/cup/workspace/deepmd/methane/dpgen_example/run/temp&quot;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="string">&quot;resources&quot;</span>: &#123;</span><br><span class="line">				<span class="string">&quot;number_node&quot;</span>: <span class="number">1</span>,</span><br><span class="line">				<span class="string">&quot;cpu_per_node&quot;</span>: <span class="number">8</span>,</span><br><span class="line">				<span class="string">&quot;gpu_per_node&quot;</span>: <span class="number">0</span>,</span><br><span class="line">				<span class="string">&quot;group_size&quot;</span>: <span class="number">4</span>,</span><br><span class="line">				<span class="string">&quot;source_list&quot;</span>: [<span class="string">&quot;/home/cup/softwares/vasp/env.sh&quot;</span>]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>初始训练集数据</p>
+</blockquote>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">dpgen run param.json machine.json</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+</blockquote>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><ul>
+<li><p><code>tree ./ -L 2</code></p>
+<blockquote>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">├── dpdispatcher<span class="selector-class">.log</span></span><br><span class="line">├── dpgen<span class="selector-class">.log</span></span><br><span class="line">├── INCAR_methane</span><br><span class="line">├── iter.<span class="number">000000</span></span><br><span class="line">│   ├── <span class="number">00</span><span class="selector-class">.train</span></span><br><span class="line">│   ├── <span class="number">01</span><span class="selector-class">.model_devi</span></span><br><span class="line">│   └── <span class="number">02</span><span class="selector-class">.fp</span></span><br><span class="line">├── iter.<span class="number">000001</span></span><br><span class="line">│   ├── <span class="number">00</span><span class="selector-class">.train</span></span><br><span class="line">│   ├── <span class="number">01</span><span class="selector-class">.model_devi</span></span><br><span class="line">│   └── <span class="number">02</span><span class="selector-class">.fp</span></span><br><span class="line">├── iter.<span class="number">000002</span></span><br><span class="line">│   └── <span class="number">00</span><span class="selector-class">.train</span></span><br><span class="line">├── machine<span class="selector-class">.json</span></span><br><span class="line">├── machine_new<span class="selector-class">.json</span></span><br><span class="line">├── param<span class="selector-class">.json</span></span><br><span class="line">├── POTCAR_C</span><br><span class="line">├── POTCAR_H</span><br><span class="line">├── record<span class="selector-class">.dpgen</span></span><br><span class="line">└── temp</span><br><span class="line"></span><br><span class="line"><span class="number">11</span> directories, <span class="number">9</span> files</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><code>head record.dpgen</code>：记录运行进程的当前阶段。</p>
+<blockquote>
+<p>0 0<br>0 1<br>0 2<br>0 3<br>0 4<br>0 5<br>0 6<br>0 7<br>0 8<br>1 0</p>
+</blockquote>
+</li>
+<li><p><code>tail dpgen.log</code>：包括时间和迭代信息。</p>
+<blockquote>
+<p>2024-10-21 23:37:08,570 - INFO : ————————-iter.000001 task 07————————–<br>2024-10-22 00:09:21,283 - INFO : ————————-iter.000001 task 08————————–<br>2024-10-22 00:09:21,312 - INFO : failed frame:      0 in     20    0.00 %<br>2024-10-22 00:09:21,313 - INFO : failed tasks:      0 in     20    0.00 %<br>2024-10-22 00:09:21,357 - INFO : &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;iter.000002&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<br>2024-10-22 00:09:21,357 - INFO : ————————-iter.000002 task 00————————–<br>2024-10-22 00:09:21,364 - INFO : ————————-iter.000002 task 01————————–<br>2024-10-22 00:17:52,940 - INFO : ————————-iter.000002 task 02————————–<br>2024-10-22 00:17:52,941 - INFO : ————————-iter.000002 task 03————————–<br>2024-10-22 00:17:52,941 - INFO : finished</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="执行LAMMPS"><a href="#执行LAMMPS" class="headerlink" title="执行LAMMPS"></a>执行LAMMPS</h3><ul>
+<li>生成的四个模型文件到底用哪个？全部都用？</li>
+<li>与DeepMD一致</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a href="https://tutorials.deepmodeling.com/en/latest/Tutorials/DP-GEN/learnDoc/DP-GEN_handson.html">https://tutorials.deepmodeling.com/en/latest/Tutorials/DP-GEN/learnDoc/DP-GEN_handson.html</a></p>
+<p>[2] <a href="https://zhuanlan.zhihu.com/p/348076838">https://zhuanlan.zhihu.com/p/348076838</a></p>
+<p>[3] <a href="https://zhuanlan.zhihu.com/p/349760551">https://zhuanlan.zhihu.com/p/349760551</a></p>
+<p>[4] <a href="https://wiki.cheng-group.net/wiki/software_usage/DP-GEN/">https://wiki.cheng-group.net/wiki/software_usage/DP-GEN/</a></p>
+<p>[5] <a href="https://www.bilibili.com/video/BV1ZZ4y1k7d2/?spm_id_from=333.999.0.0&vd_source=2185efff299da2ddae224af51ba53bcd">https://www.bilibili.com/video/BV1ZZ4y1k7d2/?spm_id_from=333.999.0.0&amp;vd_source=2185efff299da2ddae224af51ba53bcd</a></p>
+<p>[6] <a href="https://www.bilibili.com/video/BV1h94y1o72C/?spm_id_from=333.999.0.0&vd_source=2185efff299da2ddae224af51ba53bcd">https://www.bilibili.com/video/BV1h94y1o72C/?spm_id_from=333.999.0.0&amp;vd_source=2185efff299da2ddae224af51ba53bcd</a></p>
+<p>[7] <a href="https://www.bilibili.com/video/BV1JZ4y1E7hp/?spm_id_from=333.999.0.0&vd_source=2185efff299da2ddae224af51ba53bcd">https://www.bilibili.com/video/BV1JZ4y1E7hp/?spm_id_from=333.999.0.0&amp;vd_source=2185efff299da2ddae224af51ba53bcd</a></p>
+<p>[8] <a href="https://www.bilibili.com/video/BV1Tv4y1M72Y?spm_id_from=333.788.videopod.episodes&vd_source=2185efff299da2ddae224af51ba53bcd&p=5">https://www.bilibili.com/video/BV1Tv4y1M72Y?spm_id_from=333.788.videopod.episodes&amp;vd_source=2185efff299da2ddae224af51ba53bcd&amp;p=5</a></p>
+<p>[9] <a href="https://www.bilibili.com/video/BV1Ba4y1j7He?spm_id_from=333.788.recommend_more_video.10&vd_source=2185efff299da2ddae224af51ba53bcd">https://www.bilibili.com/video/BV1Ba4y1j7He?spm_id_from=333.788.recommend_more_video.10&amp;vd_source=2185efff299da2ddae224af51ba53bcd</a></p>
+<p>[10] <a href="https://licl-dp.readthedocs.io/en/latest/index.html">基于深度势模型的LiCl熔体分子动力学研究</a></p>
 ]]></content>
       <categories>
         <category>软件学习</category>
