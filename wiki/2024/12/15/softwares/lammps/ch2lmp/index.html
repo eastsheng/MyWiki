@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      ch2lmp tool | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>ch2lmp tool</h2>
+  <p class="post-date">2024-12-15 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<blockquote>
+<p>由chatGPT生成</p>
+</blockquote>
+<h3 id="教程：使用-CHARMM-工具生成-LAMMPS-输入文件"><a href="#教程：使用-CHARMM-工具生成-LAMMPS-输入文件" class="headerlink" title="教程：使用 CHARMM 工具生成 LAMMPS 输入文件"></a>教程：使用 CHARMM 工具生成 LAMMPS 输入文件</h3><h4 id="工具背景"><a href="#工具背景" class="headerlink" title="工具背景"></a>工具背景</h4><p><code>charmm2lammps.pl</code> 和 <code>lammps2pdb.pl</code> 是由 Pieter J. in ‘t Veld 和 Paul Crozier 创建的工具，用于将 CHARMM 力场参数转化为适用于 LAMMPS 的输入文件，或者将 LAMMPS 的输出文件转化为 PDB 文件。</p>
+<h4 id="所需文件"><a href="#所需文件" class="headerlink" title="所需文件"></a>所需文件</h4><ol>
+<li><strong>CHARMM 参数文件</strong> (<code>par_&lt;forcefield&gt;.prm</code>)</li>
+<li><strong>CHARMM 拓扑文件</strong> (<code>top_&lt;forcefield&gt;.rtf</code>)</li>
+<li><strong>CHARMM 坐标文件</strong>或 <strong>PDB 文件</strong> (<code>&lt;project&gt;.crd</code> 或 <code>&lt;project&gt;.pdb</code>)</li>
+<li><strong>CHARMM PSF 文件</strong> (<code>&lt;project&gt;.psf</code>)</li>
+</ol>
+<h4 id="工具说明"><a href="#工具说明" class="headerlink" title="工具说明"></a>工具说明</h4><ul>
+<li><strong><code>charmm2lammps.pl</code></strong>: 将 CHARMM 文件转换为 LAMMPS 数据文件。</li>
+<li><strong><code>lammps2pdb.pl</code></strong>: 将 LAMMPS 输出文件转化为 PDB 格式。</li>
+</ul>
+<h4 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h4><p>该工具目录下包含以下内容：</p>
+<ol>
+<li>Perl 脚本 <code>charmm2lammps.pl</code></li>
+<li>Perl 脚本 <code>lammps2pdb.pl</code></li>
+<li>两个示例文件夹，展示工具的使用方法。</li>
+<li>一个 “other” 文件夹，包含其他有用的工具。</li>
+</ol>
+<hr>
+<h3 id="使用-charmm2lammps-pl"><a href="#使用-charmm2lammps-pl" class="headerlink" title="使用 charmm2lammps.pl"></a>使用 <code>charmm2lammps.pl</code></h3><h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl charmm2lammps.pl &lt;forcefield&gt; &lt;project&gt; [-option=value ...]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;forcefield&gt;</code>: CHARMM 力场名称（如 <code>all22_prot</code>）。</li>
+<li><code>&lt;project&gt;</code>: PSF 和 CRD 文件的通用前缀。</li>
+<li>可选参数：<ul>
+<li><code>-help</code>：显示可用选项。</li>
+<li><code>-nohints</code>：不添加 CHARMM 类型的注释到 LAMMPS 数据文件。</li>
+<li><code>-water</code>：在晶格中加入 TIP3P 水分子（默认密度为 1 g&#x2F;cm³）。</li>
+<li><code>-ions</code>：添加 Na+&#x2F;Cl- 离子以中和分子电荷（默认无）。</li>
+<li><code>-border</code>：添加模拟盒边界的宽度（单位 Å，默认 0）。</li>
+<li><code>-cmap</code>：添加 CMAP 部分用于处理蛋白质的二面角修正。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例命令"><a href="#示例命令" class="headerlink" title="示例命令"></a>示例命令</h4><p>假设需要将 CHARMM 文件转化为 LAMMPS 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl charmm2lammps.pl all27_na 1ac7 -border=2.0 -water -ions</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里的 <code>all27_na</code> 是 CHARMM 力场文件，<code>1ac7</code> 是项目名称。</li>
+</ul>
+<hr>
+<h3 id="使用-lammps2pdb-pl"><a href="#使用-lammps2pdb-pl" class="headerlink" title="使用 lammps2pdb.pl"></a>使用 <code>lammps2pdb.pl</code></h3><h4 id="基本命令-1"><a href="#基本命令-1" class="headerlink" title="基本命令"></a>基本命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl lammps2pdb.pl &lt;project&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;project&gt;</code>: LAMMPS 输出文件前缀。</li>
+</ul>
+<h4 id="示例命令-1"><a href="#示例命令-1" class="headerlink" title="示例命令"></a>示例命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl lammps2pdb.pl 1ac7</span><br></pre></td></tr></table></figure>
+<p>此命令将 <code>1ac7</code> 的 LAMMPS 输出文件转化为 PDB 文件。</p>
+<hr>
+<h3 id="示例流程：从-CHARMM-文件到-LAMMPS-输入"><a href="#示例流程：从-CHARMM-文件到-LAMMPS-输入" class="headerlink" title="示例流程：从 CHARMM 文件到 LAMMPS 输入"></a>示例流程：从 CHARMM 文件到 LAMMPS 输入</h3><ol>
+<li><p><strong>获取 PDB 文件</strong></p>
+<ul>
+<li>访问 <a target="_blank" rel="noopener" href="http://www.rcsb.org/pdb/">RCSB PDB 数据库</a> 下载目标分子的 PDB 文件。</li>
+<li>示例：下载 <code>1ac7.pdb</code>。</li>
+</ul>
+</li>
+<li><p><strong>清理 PDB 文件</strong></p>
+<ul>
+<li>如果 PDB 文件包含多个模型，保留所需模型，删除其他部分。</li>
+<li>保存为 <code>1ac7_pared.pdb</code>。</li>
+</ul>
+</li>
+<li><p><strong>准备 CHARMM 力场文件</strong></p>
+<ul>
+<li>下载 CHARMM 力场文件，例如 <a target="_blank" rel="noopener" href="http://mackerell.umaryland.edu/charmm_ff.shtml">CHARMM 官方网站</a>。</li>
+<li>示例：使用 <code>all27_na</code> 力场。</li>
+</ul>
+</li>
+<li><p><strong>生成 PSF 文件</strong></p>
+<ul>
+<li>使用 VMD 的 <code>psfgen</code> 工具生成 PSF 文件。</li>
+<li>创建 <code>1ac7.pgn</code> 文件，内容如下：<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package require psfgen</span><br><span class="line">topology top_all27_na.rtf</span><br><span class="line">pdbalias residue A ADE</span><br><span class="line">pdbalias residue T THY</span><br><span class="line">pdbalias residue G GUA</span><br><span class="line">pdbalias residue C CYT</span><br><span class="line">segment A &#123;pdb <span class="number">1</span>ac7_pared.pdb&#125;</span><br><span class="line">coordpdb <span class="number">1</span>ac7_pared.pdb A</span><br><span class="line">guesscoord</span><br><span class="line">writepdb <span class="number">1</span>ac7.pdb</span><br><span class="line">writepsf charmm <span class="number">1</span>ac7.psf</span><br><span class="line"><span class="keyword">exit</span></span><br></pre></td></tr></table></figure></li>
+<li>运行命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmd -dispdev none -e 1ac7.pgn</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>运行 <code>charmm2lammps.pl</code> 转换文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl charmm2lammps.pl all27_na 1ac7 -border=2.0 -water -ions</span><br></pre></td></tr></table></figure>
+<ul>
+<li>该命令会生成 LAMMPS 所需的 <code>.data</code> 文件和输入脚本。</li>
+</ul>
+</li>
+<li><p><strong>运行 LAMMPS 模拟</strong></p>
+<ul>
+<li>使用生成的 LAMMPS 数据文件和输入脚本：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lmp_mpi -<span class="keyword">in</span> 1ac7.<span class="keyword">in</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>将 LAMMPS 输出转换为 PDB 文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl lammps2pdb.pl 1ac7</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出 <code>.pdb</code> 文件，可用于可视化。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="进阶说明"><a href="#进阶说明" class="headerlink" title="进阶说明"></a>进阶说明</h3><h4 id="处理蛋白质时的-CMAP-修正"><a href="#处理蛋白质时的-CMAP-修正" class="headerlink" title="处理蛋白质时的 CMAP 修正"></a>处理蛋白质时的 CMAP 修正</h4><ul>
+<li>蛋白质模拟中，需添加 CMAP 修正以处理二面角。</li>
+<li>示例命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl charmm2lammps.pl all36_prot 1gb1 -border=2.0 -cmap=36 -water -ions</span><br></pre></td></tr></table></figure></li>
+<li>确保下载并使用与力场版本匹配的 CMAP 文件（如 <code>charmm36.cmap</code>）。</li>
+</ul>
+<h4 id="控制离子浓度"><a href="#控制离子浓度" class="headerlink" title="控制离子浓度"></a>控制离子浓度</h4><ul>
+<li>使用 <code>-ions</code> 参数设置离子浓度。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl charmm2lammps.pl all27_na 1ac7 -ions=0.5</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>0.5</code> 表示 0.5 mol&#x2F;L 的 Na+ 和 Cl-。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="“Other”-文件夹内容"><a href="#“Other”-文件夹内容" class="headerlink" title="“Other” 文件夹内容"></a>“Other” 文件夹内容</h3><ol>
+<li><strong><code>mkpdb.f</code></strong>: 使用 Fortran 将 LAMMPS dump 文件转换为 PDB 格式。</li>
+<li><strong><code>mkdcd.f</code></strong>: 将 LAMMPS dump 文件转换为 CHARMM 格式的 DCD 轨迹文件。</li>
+<li><strong><code>crd2pdb.pl</code></strong>: 将 CRD 文件转换为 PDB 文件。</li>
+<li><strong><code>pdb_to_crd.f</code></strong>: 将 PDB 文件转换为 CRD 文件。</li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>使用 <code>charmm2lammps.pl</code> 和 <code>lammps2pdb.pl</code> 工具可以方便地在 CHARMM 和 LAMMPS 之间进行文件格式转换。这些工具支持多种选项，可满足不同的模拟需求。通过示例流程可以快速掌握从 PDB 文件到 LAMMPS 输入文件的构建方法。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#LAMMPS" >
+    <span class="tag-code">LAMMPS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#ch2lmp" >
+    <span class="tag-code">ch2lmp</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/10/21/softwares/deepmd/DeepMD_3/">
+        <span class="nav-arrow">← </span>
+        
+          DP-GEN生成深度学习模型：methane
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%99%E7%A8%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-CHARMM-%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90-LAMMPS-%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">教程：使用 CHARMM 工具生成 LAMMPS 输入文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B7%A5%E5%85%B7%E8%83%8C%E6%99%AF"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">工具背景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%80%E9%9C%80%E6%96%87%E4%BB%B6"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">所需文件</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B7%A5%E5%85%B7%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">工具说明</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">文件结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8-charmm2lammps-pl"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">使用 charmm2lammps.pl</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">基本命令</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">示例命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8-lammps2pdb-pl"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">使用 lammps2pdb.pl</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4-1"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">基本命令</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E5%91%BD%E4%BB%A4-1"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">示例命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E6%B5%81%E7%A8%8B%EF%BC%9A%E4%BB%8E-CHARMM-%E6%96%87%E4%BB%B6%E5%88%B0-LAMMPS-%E8%BE%93%E5%85%A5"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">示例流程：从 CHARMM 文件到 LAMMPS 输入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%9B%E9%98%B6%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">进阶说明</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A4%84%E7%90%86%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%97%B6%E7%9A%84-CMAP-%E4%BF%AE%E6%AD%A3"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">处理蛋白质时的 CMAP 修正</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%8E%A7%E5%88%B6%E7%A6%BB%E5%AD%90%E6%B5%93%E5%BA%A6"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">控制离子浓度</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%9COther%E2%80%9D-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%AE%B9"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">“Other” 文件夹内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">总结</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2024/12/15/softwares/lammps/ch2lmp/';
+    var banner = 'https://img.zcool.cn/community/01598e5db26aa4a801209e1f4c7784.gif'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2025 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

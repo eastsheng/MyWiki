@@ -12,7 +12,7 @@
   
   <title>
     
-      论文笔记2024-B | Eastsheng&#39;s Wiki
+      学习笔记2024-B | Eastsheng&#39;s Wiki
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -187,7 +187,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>论文笔记2024-B</h2>
+  <h2>学习笔记2024-B</h2>
   <p class="post-date">2024-07-01 00:00:00</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -202,7 +202,657 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
-<h1 id="Paper-Notes-2024"><a href="#Paper-Notes-2024" class="headerlink" title="Paper Notes 2024"></a>Paper Notes 2024</h1><h2 id="2024-12月"><a href="#2024-12月" class="headerlink" title="2024-12月"></a>2024-12月</h2><h2 id="2024-11月"><a href="#2024-11月" class="headerlink" title="2024-11月"></a>2024-11月</h2><h2 id="2024-10月"><a href="#2024-10月" class="headerlink" title="2024-10月"></a>2024-10月</h2><h2 id="2024-9月"><a href="#2024-9月" class="headerlink" title="2024-9月"></a>2024-9月</h2><h3 id="PCA一般降维到几维"><a href="#PCA一般降维到几维" class="headerlink" title="PCA一般降维到几维"></a>PCA一般降维到几维</h3><blockquote>
+<h1 id="Paper-Notes-2024"><a href="#Paper-Notes-2024" class="headerlink" title="Paper Notes 2024"></a>Paper Notes 2024</h1><h2 id="2024-12月"><a href="#2024-12月" class="headerlink" title="2024-12月"></a>2024-12月</h2><h3 id="Light-Gradient-Boosting-Machine-LightGBM-是什么模型"><a href="#Light-Gradient-Boosting-Machine-LightGBM-是什么模型" class="headerlink" title="Light Gradient Boosting Machine (LightGBM) 是什么模型"></a>Light Gradient Boosting Machine (LightGBM) 是什么模型</h3><p><strong>Light Gradient Boosting Machine (LightGBM)</strong> 是一种高效的梯度提升树（Gradient Boosting Decision Tree, GBDT）模型。它是由微软 DMTK（Distributed Machine Learning Toolkit）团队开发的，旨在提高传统梯度提升模型的速度和效率。LightGBM 通常用于处理大规模数据集，并且能够在机器学习竞赛中取得优秀的成绩，尤其是在 Kaggle 等平台上。</p>
+<h4 id="LightGBM-的基本概念"><a href="#LightGBM-的基本概念" class="headerlink" title="LightGBM 的基本概念"></a>LightGBM 的基本概念</h4><p>LightGBM 是一个基于树的算法，属于 <strong>提升树（Boosting Trees）</strong> 类的一种，它通过将多个弱学习器（通常是决策树）组合成一个强学习器来进行预测。在每一轮迭代中，LightGBM 都会根据当前的模型对数据的误差进行加权，训练一个新的树来修正前一个模型的误差。</p>
+<p>与传统的梯度提升模型相比，LightGBM 采用了一些创新的技术，使得训练过程更高效，并能够处理更大规模的数据集。</p>
+<h4 id="LightGBM-的特点"><a href="#LightGBM-的特点" class="headerlink" title="LightGBM 的特点"></a>LightGBM 的特点</h4><ol>
+<li><strong>高效的训练速度</strong>：<ul>
+<li>LightGBM 使用了基于 <strong>Histogram-based</strong> 的决策树算法，与传统的决策树不同，它通过将特征值离散化为直方图来加速训练。这样可以减少内存使用并加快计算速度，尤其在大规模数据上表现显著。</li>
+</ul>
+</li>
+<li><strong>支持类别特征</strong>：<ul>
+<li>LightGBM 原生支持 <strong>类别特征</strong>，这意味着你可以直接传入类别数据而无需进行独热编码（One-Hot Encoding），从而节省了内存和计算时间。</li>
+</ul>
+</li>
+<li><strong>优化的叶子生长策略</strong>：<ul>
+<li>LightGBM 使用了 <strong>叶子优先（Leaf-wise）</strong> 的树生长策略，而传统的 GBDT 通常使用 <strong>层级优先（Level-wise）</strong> 策略。叶子优先的策略通常能够更好地拟合训练数据，但有时也可能会导致过拟合，因此需要对深度和其他参数进行调节。</li>
+</ul>
+</li>
+<li><strong>支持并行和分布式计算</strong>：<ul>
+<li>LightGBM 提供了多种并行化策略，包括特征并行和数据并行，使得它能够在大规模数据集上训练模型。此外，它还支持分布式训练，适合于处理大规模数据。</li>
+</ul>
+</li>
+<li><strong>内存使用更高效</strong>：<ul>
+<li>LightGBM 在内存使用方面也进行了优化，通过采用高效的数据存储结构，减少了内存占用。</li>
+</ul>
+</li>
+<li><strong>高准确性</strong>：<ul>
+<li>由于采用了 <strong>叶子生长</strong> 和其他优化策略，LightGBM 在许多任务中都能提供非常高的预测准确性。</li>
+</ul>
+</li>
+</ol>
+<h4 id="LightGBM-工作原理"><a href="#LightGBM-工作原理" class="headerlink" title="LightGBM 工作原理"></a>LightGBM 工作原理</h4><p>LightGBM 通过构建多颗决策树，每一颗树都在前一颗树的基础上进行优化。具体步骤如下：</p>
+<ol>
+<li><strong>初始化模型</strong>：<ul>
+<li>首先，初始化一个基础模型（通常是训练集的均值）。</li>
+</ul>
+</li>
+<li><strong>计算残差</strong>：<ul>
+<li>计算当前模型对训练数据的预测结果与实际结果之间的误差（残差）。</li>
+</ul>
+</li>
+<li><strong>训练新树</strong>：<ul>
+<li>训练一颗新的决策树来拟合当前的残差。</li>
+</ul>
+</li>
+<li><strong>更新模型</strong>：<ul>
+<li>将新训练的树加到当前模型中，并更新模型参数。</li>
+</ul>
+</li>
+<li><strong>重复</strong>：<ul>
+<li>重复上述过程，直到达到预定的树数或其他停止准则。</li>
+</ul>
+</li>
+</ol>
+<h4 id="核心参数"><a href="#核心参数" class="headerlink" title="核心参数"></a>核心参数</h4><ul>
+<li><strong>num_leaves</strong>：控制每棵树的最大叶子节点数，较大的值会增加模型的复杂度，可能导致过拟合。</li>
+<li><strong>max_depth</strong>：树的最大深度，限制树的深度可以防止过拟合。</li>
+<li><strong>learning_rate</strong>：每次迭代时更新的步长，控制模型的学习速度。</li>
+<li><strong>n_estimators</strong>：树的数量，即迭代次数。</li>
+<li><strong>subsample</strong>：用于训练每棵树的样本比例，通常用来避免过拟合。</li>
+<li><strong>colsample_bytree</strong>：每棵树使用的特征比例，用于随机特征选择，避免过拟合。</li>
+<li><strong>min_child_samples</strong>：一个叶子节点所需的最小样本数，减少过拟合。</li>
+<li><strong>feature_fraction</strong>：在训练每棵树时，特征的随机子集比例，用来增强模型的泛化能力。</li>
+<li><strong>boosting_type</strong>：指定梯度提升的类型，通常选择 <code>gbdt</code>（传统的梯度提升），<code>dart</code>（Dropouts meet Multiple Additive Regression Trees），<code>goss</code>（Gradient-based One-Side Sampling）等。</li>
+</ul>
+<h4 id="LightGBM-适用场景"><a href="#LightGBM-适用场景" class="headerlink" title="LightGBM 适用场景"></a>LightGBM 适用场景</h4><ol>
+<li><strong>大规模数据集</strong>：由于 LightGBM 的高效性，它能够处理比传统方法更大的数据集，适用于大规模机器学习任务。</li>
+<li><strong>分类和回归问题</strong>：LightGBM 支持分类（包括二分类和多分类）和回归任务。</li>
+<li><strong>排名任务</strong>：LightGBM 还提供了排名（Ranking）功能，适用于推荐系统等问题。</li>
+<li><strong>处理类别特征</strong>：如果数据中包含类别特征，LightGBM 是一个特别合适的选择。</li>
+<li><strong>性能优化</strong>：当你需要快速训练并且对准确性有较高要求时，LightGBM 是一个非常好的选择。</li>
+</ol>
+<h4 id="Python-示例代码"><a href="#Python-示例代码" class="headerlink" title="Python 示例代码"></a>Python 示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lightgbm <span class="keyword">as</span> lgb</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载示例数据</span></span><br><span class="line">boston = load_boston()</span><br><span class="line">X = pd.DataFrame(boston.data, columns=boston.feature_names)</span><br><span class="line">y = pd.Series(boston.target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分数据集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 LightGBM 数据集</span></span><br><span class="line">train_data = lgb.Dataset(X_train, label=y_train)</span><br><span class="line">test_data = lgb.Dataset(X_test, label=y_test, reference=train_data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置参数</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;objective&#x27;</span>: <span class="string">&#x27;regression&#x27;</span>,  <span class="comment"># 目标是回归</span></span><br><span class="line">    <span class="string">&#x27;metric&#x27;</span>: <span class="string">&#x27;l2&#x27;</span>,             <span class="comment"># 评估指标是均方误差</span></span><br><span class="line">    <span class="string">&#x27;num_leaves&#x27;</span>: <span class="number">31</span>,           <span class="comment"># 树的叶子节点数</span></span><br><span class="line">    <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.05</span>,      <span class="comment"># 学习率</span></span><br><span class="line">    <span class="string">&#x27;feature_fraction&#x27;</span>: <span class="number">0.9</span>     <span class="comment"># 特征采样比例</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">gbm = lgb.train(params, train_data, num_boost_round=<span class="number">100</span>, valid_sets=[test_data], early_stopping_rounds=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印预测结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Predicted values: <span class="subst">&#123;y_pred[:<span class="number">10</span>]&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>LightGBM 是一个高效且强大的梯度提升树模型，在大规模数据集上具有出色的性能。通过优化训练算法、引入创新的特征处理方式，它能在许多机器学习任务中取得优秀的效果，特别是在需要处理大数据、高维特征和类别特征时，LightGBM 是一个非常合适的选择。</p>
+<h3 id="从RDKit中提取物理化学性质"><a href="#从RDKit中提取物理化学性质" class="headerlink" title="从RDKit中提取物理化学性质"></a>从RDKit中提取物理化学性质</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rdkit <span class="keyword">import</span> Chem</span><br><span class="line"><span class="keyword">from</span> rdkit.Chem <span class="keyword">import</span> Descriptors</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建分子对象</span></span><br><span class="line">mol = Chem.MolFromSmiles(<span class="string">&#x27;CCO&#x27;</span>)  <span class="comment"># 乙醇</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取物理化学性质</span></span><br><span class="line">mol_weight = Descriptors.MolWt(mol)  <span class="comment"># 分子量</span></span><br><span class="line">logp = Descriptors.MolLogP(mol)  <span class="comment"># LogP值</span></span><br><span class="line">h_acceptors = Descriptors.NumHAcceptors(mol)  <span class="comment"># 氢键受体数</span></span><br><span class="line">h_donors = Descriptors.NumHDonors(mol)  <span class="comment"># 氢键供体数</span></span><br><span class="line">psa = Descriptors.TPSA(mol)  <span class="comment"># 极性表面积</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;分子量: <span class="subst">&#123;mol_weight&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;LogP值: <span class="subst">&#123;logp&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;氢键受体数: <span class="subst">&#123;h_acceptors&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;氢键供体数: <span class="subst">&#123;h_donors&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;极性表面积: <span class="subst">&#123;psa&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="LogP值能够表征什么性质"><a href="#LogP值能够表征什么性质" class="headerlink" title="LogP值能够表征什么性质"></a>LogP值能够表征什么性质</h3><p><strong>LogP 值</strong>（也称为<strong>分配系数</strong>）是一个重要的物理化学性质，用于表征化合物在两种溶剂中的分配特性，尤其是其亲水性和疏水性的平衡。LogP 是 <strong>油&#x2F;水分配系数</strong> 的对数值，表示分子在<strong>油相</strong>和<strong>水相</strong>之间的分配程度。具体来说，LogP值越大，分子越倾向于在油相（或有机溶剂）中溶解；而LogP值越小（甚至为负值），分子则更倾向于在水相中溶解。</p>
+<h4 id="LogP-值的定义"><a href="#LogP-值的定义" class="headerlink" title="LogP 值的定义"></a>LogP 值的定义</h4><p>LogP 是分子在<strong>正辛醇</strong>和<strong>水</strong>之间的分配系数的对数值，即：</p>
+<p>LogP&#x3D;log⁡([化合物在正辛醇中的浓度][化合物在水中的浓度])\text{LogP} &#x3D; \log \left( \frac{[\text{化合物在正辛醇中的浓度}]}{[\text{化合物在水中的浓度}]} \right)</p>
+<p>其中：</p>
+<ul>
+<li><strong>P</strong> 表示分配系数，是化合物在油相（通常是正辛醇）和水相中的浓度比值。</li>
+<li><strong>LogP</strong> 取其对数，通常表示为<strong>十进制对数</strong>。</li>
+</ul>
+<h4 id="LogP-值的意义"><a href="#LogP-值的意义" class="headerlink" title="LogP 值的意义"></a>LogP 值的意义</h4><ol>
+<li><strong>亲水性与疏水性</strong>：<ul>
+<li><strong>LogP &gt; 0</strong>：表示化合物有较强的<strong>疏水性</strong>，更容易溶解在油相或有机溶剂中。</li>
+<li><strong>LogP &lt; 0</strong>：表示化合物有较强的<strong>亲水性</strong>，更容易溶解在水相中。</li>
+<li><strong>LogP ≈ 0</strong>：化合物的亲水性和疏水性大致平衡，能够在水和油中都较好地溶解。</li>
+</ul>
+</li>
+<li><strong>溶解度</strong>：<ul>
+<li>化合物的溶解度与其LogP值密切相关。通常，LogP值越大，化合物的疏水性越强，它的水溶性越差；反之，LogP值越小，化合物的亲水性越强，溶解度也可能较高。</li>
+</ul>
+</li>
+<li><strong>渗透性和吸收性</strong>：<ul>
+<li>LogP值对<strong>生物体内药物的吸收和渗透性</strong>有重要影响。通常，药物分子需要在亲水和疏水性之间找到一个平衡点，以便能够穿越细胞膜（细胞膜的磷脂双层是疏水性的）而不至于在体内溶解度过低。</li>
+<li><strong>较高的LogP值</strong>（疏水性）通常表示分子更易于通过细胞膜，适合用于<strong>药物设计</strong>，但过高的LogP值可能导致<strong>毒性</strong>和<strong>代谢问题</strong>。</li>
+<li><strong>较低的LogP值</strong>（亲水性）通常意味着药物更易溶于水，但可能难以穿透细胞膜。</li>
+</ul>
+</li>
+<li><strong>环境中的持久性和迁移性</strong>：<ul>
+<li>LogP值还可以用来预测化学物质在<strong>环境中的迁移性</strong>和<strong>持久性</strong>。疏水性化合物（高LogP值）可能在水生生态系统中积累，而亲水性化合物则可能较容易被水体带走。</li>
+</ul>
+</li>
+</ol>
+<h4 id="LogP在药物化学中的应用"><a href="#LogP在药物化学中的应用" class="headerlink" title="LogP在药物化学中的应用"></a>LogP在药物化学中的应用</h4><p>在药物化学和药理学中，LogP是<strong>ADMET（吸收、分布、代谢、排泄和毒性）性质</strong>的一个重要参数，尤其在<strong>药物设计</strong>过程中被广泛应用。</p>
+<ul>
+<li><strong>药物的生物利用度</strong>：药物的LogP值能够影响它的生物利用度（bioavailability）。如果LogP值太高，药物可能难以在体内的水相中分布；如果LogP值太低，药物可能无法有效通过细胞膜。</li>
+<li><strong>血脑屏障渗透性</strong>：LogP值对药物能否穿透血脑屏障也有影响，LogP值适中的药物更容易进入大脑组织。</li>
+</ul>
+<h4 id="LogP的应用场景总结"><a href="#LogP的应用场景总结" class="headerlink" title="LogP的应用场景总结"></a>LogP的应用场景总结</h4><ul>
+<li><strong>药物研发</strong>：药物的亲水性和疏水性是药效、吸收、分布和代谢的关键因素。LogP值在药物设计中帮助预测药物的生物学行为。</li>
+<li><strong>环境化学</strong>：LogP用来预测化学物质在环境中的持久性、毒性和生态风险。</li>
+<li><strong>分子筛选</strong>：通过计算化合物的LogP值，可以筛选出符合特定要求（如渗透性、溶解度等）的分子。</li>
+</ul>
+<h4 id="计算LogP"><a href="#计算LogP" class="headerlink" title="计算LogP"></a>计算LogP</h4><p>在实际应用中，可以通过实验测量或者<strong>QSAR模型</strong>（定量结构-活性关系模型）来预测LogP值。常见的计算工具包括：</p>
+<ul>
+<li><strong>计算化学方法</strong>（如模拟溶剂分配系数）。</li>
+<li><strong>分子指纹和机器学习方法</strong>，利用已有的化学结构数据来预测LogP值。</li>
+</ul>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p><strong>LogP值</strong>是一个多用途的参数，能够帮助表征化合物的亲水性和疏水性平衡，对于药物化学、环境科学等领域的研究和应用具有重要意义。对于药物分子，适中的LogP值是穿越生物膜的关键，同时也关系到药物的溶解度和生物利用度。</p>
+<h3 id="画图：每条线只显示一个点和误差棒"><a href="#画图：每条线只显示一个点和误差棒" class="headerlink" title="画图：每条线只显示一个点和误差棒"></a>画图：每条线只显示一个点和误差棒</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_data</span>():</span><br><span class="line">    x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>)  <span class="comment"># x 轴数据</span></span><br><span class="line">    y1 = np.sin(x)             <span class="comment"># 第一条曲线</span></span><br><span class="line">    y2 = np.cos(x)             <span class="comment"># 第二条曲线</span></span><br><span class="line">    y3 = np.tan(x) * <span class="number">0.1</span>       <span class="comment"># 第三条曲线</span></span><br><span class="line">    yerr1 = <span class="number">0.1</span></span><br><span class="line">    yerr2 = <span class="number">0.2</span></span><br><span class="line">    yerr3 = <span class="number">0.15</span></span><br><span class="line">    <span class="keyword">return</span> x, [y1, y2, y3], [yerr1, yerr2, yerr3]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取数据</span></span><br><span class="line">x, y_list, yerr_list = generate_data()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定每条曲线显示 marker 和误差棒的位置（索引）</span></span><br><span class="line">marker_positions = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>]  <span class="comment"># 对应曲线在 x[5], x[10], x[15]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式列表（每条曲线样式）</span></span><br><span class="line">fmt_list = [<span class="string">&#x27;o-&#x27;</span>, <span class="string">&#x27;s-&#x27;</span>, <span class="string">&#x27;^-&#x27;</span>]  <span class="comment"># 圆圈、方块、三角形</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建图形</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制三条曲线</span></span><br><span class="line"><span class="keyword">for</span> i, (y, yerr, pos, fmt) <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="built_in">zip</span>(y_list, yerr_list, marker_positions, fmt_list)):</span><br><span class="line">    <span class="comment"># 绘制完整曲线</span></span><br><span class="line">    ax.plot(x, y, fmt[<span class="number">1</span>] + <span class="string">&#x27;-&#x27;</span>, label=<span class="string">f&quot;Curve <span class="subst">&#123;i+<span class="number">1</span>&#125;</span>&quot;</span>)  <span class="comment"># fmt[1] 取曲线样式</span></span><br><span class="line">    <span class="comment"># 在指定位置添加 marker 和误差棒</span></span><br><span class="line">    ax.errorbar(x[pos], y[pos], yerr=yerr, fmt=fmt, capsize=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加图例和显示</span></span><br><span class="line">ax.legend()</span><br><span class="line">plt.xlabel(<span class="string">&quot;X-axis&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Y-axis&quot;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Three Curves with Single Marker and Errorbar&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="机器学习寻找最优配比一般流程"><a href="#机器学习寻找最优配比一般流程" class="headerlink" title="机器学习寻找最优配比一般流程"></a>机器学习寻找最优配比一般流程</h3><p>使用 <strong>机器学习</strong> 来实现分子配比优化是一个非常常见的策略，尤其当我们没有精确的公式来描述分子之间的关系时，机器学习可以帮助我们学习出一个模型，用来预测在给定配比下的目标值。然后，基于这个模型，我们可以使用优化算法来找到最优的配比。</p>
+<h4 id="步骤概述"><a href="#步骤概述" class="headerlink" title="步骤概述"></a>步骤概述</h4><ol>
+<li><strong>数据准备</strong>：首先，我们需要有足够的历史数据，这些数据应该包含不同的分子配比和对应的目标值。</li>
+<li><strong>机器学习建模</strong>：我们可以使用回归模型来拟合分子配比和目标值之间的关系。常用的回归模型包括线性回归、决策树回归、随机森林回归、XGBoost 等。</li>
+<li><strong>优化</strong>：使用训练好的机器学习模型来预测目标值，然后使用优化算法（如贝叶斯优化、粒子群优化等）来找到能够最大化或最小化目标值的最佳配比。</li>
+</ol>
+<h4 id="具体实现步骤"><a href="#具体实现步骤" class="headerlink" title="具体实现步骤"></a>具体实现步骤</h4><h5 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1. 数据准备"></a>1. 数据准备</h5><p>假设我们有一个数据集，包含了分子配比和对应的目标值。下面是一个示例数据集：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设数据集包含4种分子的配比和一个目标值</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;Molecule1&#x27;</span>: [<span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">0.2</span>, <span class="number">0.4</span>, <span class="number">0.3</span>],</span><br><span class="line">    <span class="string">&#x27;Molecule2&#x27;</span>: [<span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">0.3</span>, <span class="number">0.2</span>, <span class="number">0.4</span>],</span><br><span class="line">    <span class="string">&#x27;Molecule3&#x27;</span>: [<span class="number">0.3</span>, <span class="number">0.4</span>, <span class="number">0.2</span>, <span class="number">0.1</span>, <span class="number">0.2</span>],</span><br><span class="line">    <span class="string">&#x27;Molecule4&#x27;</span>: [<span class="number">0.4</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.3</span>, <span class="number">0.1</span>],</span><br><span class="line">    <span class="string">&#x27;Target&#x27;</span>: [<span class="number">0.5</span>, <span class="number">0.8</span>, <span class="number">0.9</span>, <span class="number">0.6</span>, <span class="number">0.7</span>]  <span class="comment"># 目标值，假设是反应效率或性能等</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-机器学习建模"><a href="#2-机器学习建模" class="headerlink" title="2. 机器学习建模"></a>2. 机器学习建模</h5><p>选择一种回归算法来拟合模型。比如，我们可以使用 <strong>随机森林回归</strong> 来建立一个预测模型，预测给定配比下的目标值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"></span><br><span class="line"><span class="comment"># 特征和目标值</span></span><br><span class="line">X = df[[<span class="string">&#x27;Molecule1&#x27;</span>, <span class="string">&#x27;Molecule2&#x27;</span>, <span class="string">&#x27;Molecule3&#x27;</span>, <span class="string">&#x27;Molecule4&#x27;</span>]]  <span class="comment"># 配比</span></span><br><span class="line">y = df[<span class="string">&#x27;Target&#x27;</span>]  <span class="comment"># 目标值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分数据集，80%训练，20%测试</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立随机森林回归模型</span></span><br><span class="line">model = RandomForestRegressor(n_estimators=<span class="number">100</span>, random_state=<span class="number">42</span>)</span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = model.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估模型性能</span></span><br><span class="line">mse = mean_squared_error(y_test, y_pred)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Mean Squared Error: <span class="subst">&#123;mse&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们使用 <strong>随机森林回归模型</strong> 来拟合分子配比与目标值之间的关系，训练数据集包含了 80% 的数据，测试数据集包含了 20% 的数据。模型拟合后，我们可以通过 <code>model.predict</code> 来预测目标值。</p>
+<h5 id="3-优化模型"><a href="#3-优化模型" class="headerlink" title="3. 优化模型"></a>3. 优化模型</h5><p>一旦我们有了训练好的模型，我们就可以使用 <strong>优化算法</strong> 来找到最优的分子配比。这一过程可以通过 <strong>贝叶斯优化</strong>、<strong>粒子群优化（PSO）</strong> 或其他优化方法来实现。</p>
+<p>我们使用 <code>skopt</code> 库的 <strong>贝叶斯优化</strong> 来寻找最佳配比。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> skopt <span class="keyword">import</span> gp_minimize</span><br><span class="line"><span class="keyword">from</span> skopt.space <span class="keyword">import</span> Real</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义优化目标函数：根据配比预测目标值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">objective_function</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="comment"># x 是一个包含四种分子配比的列表</span></span><br><span class="line">    mole1, mole2, mole3, mole4 = x</span><br><span class="line">    <span class="comment"># 使用训练好的模型来预测目标值</span></span><br><span class="line">    <span class="keyword">return</span> -model.predict([[mole1, mole2, mole3, mole4]])[<span class="number">0</span>]  <span class="comment"># 负号表示最大化目标值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义搜索空间：假设每种分子配比的范围是 [0, 1]，并且它们的和为 1</span></span><br><span class="line">space = [</span><br><span class="line">    Real(<span class="number">0.0</span>, <span class="number">1.0</span>, name=<span class="string">&#x27;Molecule1&#x27;</span>),</span><br><span class="line">    Real(<span class="number">0.0</span>, <span class="number">1.0</span>, name=<span class="string">&#x27;Molecule2&#x27;</span>),</span><br><span class="line">    Real(<span class="number">0.0</span>, <span class="number">1.0</span>, name=<span class="string">&#x27;Molecule3&#x27;</span>),</span><br><span class="line">    Real(<span class="number">0.0</span>, <span class="number">1.0</span>, name=<span class="string">&#x27;Molecule4&#x27;</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行贝叶斯优化，寻找最优配比</span></span><br><span class="line">result = gp_minimize(objective_function, space, n_calls=<span class="number">50</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出优化结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Optimal Molecule Ratios:&quot;</span>, result.x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Maximum Target Value:&quot;</span>, -result.fun)  <span class="comment"># 由于我们最大化目标，所以需要取负值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-可视化优化结果"><a href="#4-可视化优化结果" class="headerlink" title="4. 可视化优化结果"></a>4. 可视化优化结果</h5><p>可以通过 <code>matplotlib</code> 可视化优化过程以及最优配比的分布。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化贝叶斯优化的过程</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">plt.plot(result.func_vals, label=<span class="string">&quot;Objective Function Value&quot;</span>, color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Number of Evaluations&quot;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Objective Value&quot;</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Bayesian Optimization Progress&quot;</span>, fontsize=<span class="number">16</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><ol>
+<li><strong>数据建模</strong>：我们首先使用机器学习回归模型（如随机森林回归）来拟合分子配比与目标值之间的关系。我们使用了分子配比作为输入特征，目标值作为标签。</li>
+<li><strong>优化</strong>：在训练好回归模型后，使用贝叶斯优化等优化算法来寻找最佳的分子配比。优化目标可以是最大化或最小化目标值，这取决于你的需求。</li>
+<li><strong>结果</strong>：通过优化过程，我们找到了最优的分子配比。通过模型的预测，我们可以进一步探索不同配比下的目标值</li>
+</ol>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><ul>
+<li><strong>更复杂的模型</strong>：如果你认为目标函数与配比之间的关系较复杂，可以尝试更复杂的回归模型，如 <strong>梯度提升树（XGBoost、LightGBM）</strong>，或者使用神经网络来进行建模。</li>
+<li><strong>多目标优化</strong>：如果你有多个目标需要同时优化（比如最大化某个性能指标并最小化成本），可以使用 <strong>多目标贝叶斯优化</strong> 或者 <strong>Pareto 前沿优化</strong>。</li>
+<li><strong>优化约束</strong>：如果有配比的约束条件（如配比的和必须为 1），可以在优化算法中添加这些约束条件。</li>
+</ul>
+<h3 id="什么是collinearity？"><a href="#什么是collinearity？" class="headerlink" title="什么是collinearity？"></a>什么是collinearity？</h3><p><strong>Collinearity</strong>（共线性）是统计学和回归分析中常见的概念，指的是在多个自变量（解释变量）之间存在高度的线性关系。当两个或多个自变量彼此之间呈现高度相关性时，就会发生共线性现象。</p>
+<h4 id="共线性的含义"><a href="#共线性的含义" class="headerlink" title="共线性的含义"></a>共线性的含义</h4><ul>
+<li><strong>完全共线性</strong>：如果自变量之间存在完全的线性关系（例如，<code>X2 = 2 * X1</code>），那么就存在完全共线性。此时，某些自变量是可以用其他自变量的线性组合来精确预测的。</li>
+<li><strong>近似共线性</strong>：在实际数据中，自变量之间往往不会有完全的线性关系，但如果它们的相关性非常高（例如，相关系数接近 1 或 -1），这也会导致共线性问题。</li>
+</ul>
+<h4 id="共线性的影响"><a href="#共线性的影响" class="headerlink" title="共线性的影响"></a>共线性的影响</h4><p>在回归分析中，尤其是多元线性回归中，共线性问题会对模型产生不利影响，主要体现在以下几个方面：</p>
+<ol>
+<li><strong>系数估计的不稳定性</strong>：<ul>
+<li>当自变量高度相关时，回归模型中的系数估计变得不稳定，意味着模型参数对数据的微小变化非常敏感。即使数据有小的扰动，也可能导致回归系数发生大的变化。</li>
+</ul>
+</li>
+<li><strong>标准误差增大</strong>：<ul>
+<li>高度相关的自变量会使回归系数的标准误差增大，这意味着模型的预测能力下降，并且可能导致对某些自变量影响的估计不准确。</li>
+</ul>
+</li>
+<li><strong>多重共线性与显著性测试</strong>：<ul>
+<li>共线性会导致部分自变量的p值增大，可能会错误地认为某些重要的自变量不显著，而实际上它们可能是有影响的。</li>
+</ul>
+</li>
+</ol>
+<h4 id="如何检测共线性"><a href="#如何检测共线性" class="headerlink" title="如何检测共线性"></a>如何检测共线性</h4><ol>
+<li><strong>相关矩阵</strong>：<ul>
+<li>计算自变量之间的相关系数矩阵。如果自变量之间的相关系数非常高（接近 1 或 -1），可能存在共线性问题。</li>
+</ul>
+</li>
+<li><strong>方差膨胀因子（VIF, Variance Inflation Factor）</strong>：<ul>
+<li>VIF 是用来量化共线性的常用工具。VIF 值表示一个自变量的方差是由于其他自变量的影响而膨胀了多少。如果某个自变量的 VIF 值大于 10，通常认为该自变量存在较强的共线性。</li>
+<li>计算 VIF 的公式是： $VIF&#x3D;\frac{1}{1 - R^2}$ 其中，$R^2$ 是将某一自变量对其他自变量进行回归时的决定系数。</li>
+</ul>
+</li>
+<li><strong>条件数（Condition Number）</strong>：<ul>
+<li>通过计算设计矩阵的条件数来检查共线性问题。较大的条件数（通常大于 30）表明共线性问题可能较严重。</li>
+</ul>
+</li>
+</ol>
+<h4 id="如何处理共线性"><a href="#如何处理共线性" class="headerlink" title="如何处理共线性"></a>如何处理共线性</h4><ol>
+<li><strong>删除相关性高的自变量</strong>：<ul>
+<li>如果某些自变量之间高度相关，可以选择删除其中一个或几个相关性高的自变量，保留最具代表性的变量。</li>
+</ul>
+</li>
+<li><strong>合并相关自变量</strong>：<ul>
+<li>可以通过主成分分析（PCA）等降维技术，将高度相关的自变量合并成一个新的变量。</li>
+</ul>
+</li>
+<li><strong>增加样本量</strong>：<ul>
+<li>有时增加样本量有助于减少共线性带来的影响，特别是在数据本身存在噪声时。</li>
+</ul>
+</li>
+<li><strong>正则化方法</strong>：<ul>
+<li>使用正则化方法（如岭回归、Lasso回归）来减少模型对共线性敏感的程度。正则化方法通过对回归系数施加惩罚，使得模型更加稳定。</li>
+</ul>
+</li>
+</ol>
+<h4 id="示例：如何检查共线性"><a href="#示例：如何检查共线性" class="headerlink" title="示例：如何检查共线性"></a>示例：如何检查共线性</h4><p>假设你有一个数据集，其中包含三个自变量 <code>X1</code>, <code>X2</code>, <code>X3</code>。你可以使用 Python 的 <code>statsmodels</code> 或 <code>scikit-learn</code> 来计算 VIF 或相关系数矩阵，来检测共线性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> statsmodels.stats.outliers_influence <span class="keyword">import</span> variance_inflation_factor</span><br><span class="line"><span class="keyword">from</span> statsmodels.tools.tools <span class="keyword">import</span> add_constant</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设 df 是包含自变量的数据框</span></span><br><span class="line">X = df[[<span class="string">&#x27;X1&#x27;</span>, <span class="string">&#x27;X2&#x27;</span>, <span class="string">&#x27;X3&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加常数列（截距项）</span></span><br><span class="line">X_const = add_constant(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 VIF</span></span><br><span class="line">vif_data = pd.DataFrame()</span><br><span class="line">vif_data[<span class="string">&#x27;Variable&#x27;</span>] = X_const.columns</span><br><span class="line">vif_data[<span class="string">&#x27;VIF&#x27;</span>] = [variance_inflation_factor(X_const.values, i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(X_const.shape[<span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(vif_data)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p><strong>共线性</strong> 是指多个自变量之间存在高度的线性关系，这可能导致回归分析中的模型不稳定、预测不准确。通过计算相关矩阵、VIF 或条件数，可以检测共线性。如果共线性问题较严重，通常需要通过删除变量、合并变量、增加样本量或使用正则化方法来解决。</p>
+<h3 id="超参数优化"><a href="#超参数优化" class="headerlink" title="超参数优化"></a>超参数优化</h3><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/optuna/optuna">optuna</a></strong></li>
+<li>A hyperparameter optimization framework</li>
+</ul>
+<h4 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h4><ol>
+<li><strong>5-fold 交叉验证</strong>：在每个超参数组合下进行 5 次交叉验证，计算每次验证的误差（如 MAE）。</li>
+<li><strong>500 次试验</strong>：使用 Optuna 进行 500 次超参数优化。</li>
+<li><strong>存储最佳超参数和预测值</strong>：优化结束后，存储每次试验的最佳超参数以及对应的预测值。</li>
+</ol>
+<ul>
+<li><p>代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> optuna</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split, KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor  <span class="comment"># 例子中使用随机森林回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据集</span></span><br><span class="line"><span class="comment"># 假设你的数据集已经加载，X 是特征，y 是目标变量（温度）</span></span><br><span class="line"><span class="comment"># X, y = load_your_dataset()  # 替换为你的数据集</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：使用合成数据集</span></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_regression</span><br><span class="line">X, y = make_regression(n_samples=<span class="number">100</span>, n_features=<span class="number">10</span>, noise=<span class="number">0.1</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义 Optuna 的目标函数（包括 5-fold 交叉验证）</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">objective</span>(<span class="params">trial</span>):</span><br><span class="line">    <span class="comment"># 定义需要优化的超参数</span></span><br><span class="line">    n_estimators = trial.suggest_int(<span class="string">&#x27;n_estimators&#x27;</span>, <span class="number">50</span>, <span class="number">200</span>)  <span class="comment"># 树的数量</span></span><br><span class="line">    max_depth = trial.suggest_int(<span class="string">&#x27;max_depth&#x27;</span>, <span class="number">3</span>, <span class="number">10</span>)  <span class="comment"># 树的最大深度</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 创建模型并使用超参数</span></span><br><span class="line">    model = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth, random_state=<span class="number">42</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 使用 5-fold 交叉验证</span></span><br><span class="line">    kf = KFold(n_splits=<span class="number">5</span>, shuffle=<span class="literal">True</span>, random_state=<span class="number">42</span>)</span><br><span class="line">    mae_scores = []</span><br><span class="line">    predictions = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 进行 5-fold 交叉验证</span></span><br><span class="line">    <span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> kf.split(X):</span><br><span class="line">        X_train, X_test = X[train_index], X[test_index]</span><br><span class="line">        y_train, y_test = y[train_index], y[test_index]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 在训练集上训练模型</span></span><br><span class="line">        model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 在测试集上进行预测</span></span><br><span class="line">        y_pred = model.predict(X_test)</span><br><span class="line">        predictions.append(y_pred)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 计算当前 fold 的 MAE</span></span><br><span class="line">        mae = mean_absolute_error(y_test, y_pred)</span><br><span class="line">        mae_scores.append(mae)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算 5 个折叠的平均 MAE</span></span><br><span class="line">    mean_mae = np.mean(mae_scores)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回 MAE，作为目标函数值（优化时会最小化它）</span></span><br><span class="line">    <span class="keyword">return</span> mean_mae</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个研究对象（study）并指定目标是最小化 MAE</span></span><br><span class="line">study = optuna.create_study(direction=<span class="string">&#x27;minimize&#x27;</span>)  <span class="comment"># 目标是最小化 MAE</span></span><br><span class="line">study.optimize(objective, n_trials=<span class="number">500</span>)  <span class="comment"># 执行 500 次试验</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出最佳试验的超参数和对应的 MAE</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最佳试验: <span class="subst">&#123;study.best_trial&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最佳超参数: <span class="subst">&#123;study.best_trial.params&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;最佳 MAE: <span class="subst">&#123;study.best_value&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储最佳的超参数</span></span><br><span class="line">best_n_estimators = study.best_trial.params[<span class="string">&#x27;n_estimators&#x27;</span>]</span><br><span class="line">best_max_depth = study.best_trial.params[<span class="string">&#x27;max_depth&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用最佳超参数创建模型</span></span><br><span class="line">best_model = RandomForestRegressor(n_estimators=best_n_estimators, max_depth=best_max_depth, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用整个数据集重新训练最佳模型</span></span><br><span class="line">best_model.fit(X, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储每次试验的预测值</span></span><br><span class="line">all_predictions = np.array(predictions).flatten()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将结果存入 DataFrame 以便后续分析</span></span><br><span class="line">results_df = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;trial&#x27;</span>: <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">501</span>),</span><br><span class="line">    <span class="string">&#x27;predicted_temperatures&#x27;</span>: all_predictions</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存结果到 CSV 文件（可以根据需要选择不同的存储方式）</span></span><br><span class="line">results_df.to_csv(<span class="string">&#x27;optuna_trial_predictions.csv&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：保存最佳模型</span></span><br><span class="line"><span class="keyword">import</span> joblib</span><br><span class="line">joblib.dump(best_model, <span class="string">&#x27;best_model.pkl&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="代码说明："><a href="#代码说明：" class="headerlink" title="代码说明："></a>代码说明：</h4><ol>
+<li><strong>加载数据集</strong>：<ul>
+<li>我们使用了 <code>make_regression</code> 来生成一个简单的回归数据集（假设 <code>X</code> 是特征，<code>y</code> 是目标变量——温度）。</li>
+<li>你可以替换成你自己的数据集（通过 <code>load_your_dataset()</code> 来加载实际数据）。</li>
+</ul>
+</li>
+<li>**目标函数 (<code>objective</code>)**：<ul>
+<li>我们使用了 <code>RandomForestRegressor</code> 作为示例模型，优化的超参数包括 <code>n_estimators</code>（树的数量）和 <code>max_depth</code>（树的最大深度）。</li>
+<li>在每个超参数组合下，通过 <strong>5-fold 交叉验证</strong> 进行训练和评估。</li>
+<li>每次折叠计算 <strong>MAE</strong>（Mean Absolute Error，平均绝对误差），然后返回所有折叠的平均 MAE 作为目标函数值，Optuna 会最小化这个值。</li>
+</ul>
+</li>
+<li><strong>创建和优化 Study</strong>：<ul>
+<li>使用 <code>optuna.create_study(direction=&#39;minimize&#39;)</code> 创建优化研究对象，设置目标是最小化 MAE。</li>
+<li><code>study.optimize(objective, n_trials=500)</code> 进行 500 次超参数优化试验。</li>
+</ul>
+</li>
+<li><strong>存储最佳超参数和预测值</strong>：<ul>
+<li>优化结束后，输出最优超参数和对应的 MAE。</li>
+<li>将每次试验的预测结果存入 <code>DataFrame</code>，并保存为 CSV 文件。</li>
+</ul>
+</li>
+<li><strong>保存最佳模型</strong>：<ul>
+<li>使用 <code>joblib.dump()</code> 保存训练好的最佳模型，以便后续加载和使用。</li>
+</ul>
+</li>
+</ol>
+<h4 id="结果输出："><a href="#结果输出：" class="headerlink" title="结果输出："></a>结果输出：</h4><ul>
+<li><strong>最佳超参数</strong>：<code>study.best_trial.params</code> 存储了找到的最佳超参数配置（例如 <code>n_estimators=150</code>, <code>max_depth=6</code>）。</li>
+<li><strong>最佳 MAE</strong>：<code>study.best_value</code> 显示了最小的 MAE，即优化过程中的最佳性能。</li>
+<li><strong>预测结果</strong>：每个试验的预测温度值都存储在 <code>optuna_trial_predictions.csv</code> 中，方便后续分析。</li>
+</ul>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>通过 <strong>Optuna</strong> 和 <strong>5-fold 交叉验证</strong>，你可以高效地优化模型的超参数，减少过拟合，提升模型的泛化能力。优化后的模型可以用于实际预测，并且你可以保存和分析每次试验的预测结果。</p>
+<h3 id="常见ML方法特点"><a href="#常见ML方法特点" class="headerlink" title="常见ML方法特点"></a>常见ML方法特点</h3><ul>
+<li><p>SVR是一种广泛使用的算法，它采用核方法在特征空间中识别最优超平面，使每个数据点到该超平面的12范数最小化。</p>
+</li>
+<li><p>KNN是一个简单的“懒惰模型”，它根据新数据与训练数据点的接近程度生成预测。它不需要预训练，因此可以进行快速、实时的预测。</p>
+</li>
+<li><p>MLP是一种人工神经网络，它由多个相互连接的层组成，可以处理非线性估计；它的学习过程包括前向传播、成本计算和反向传播以调整权重，并利用适当的损失函数和优化算法。</p>
+</li>
+<li><p>DT提供了一个树形模型，通过应用一系列决策规则来进行预测。虽然简单易懂，但它缺乏神经网络等模型的复杂性。</p>
+</li>
+<li><p>RF是决策树的集合，利用套袋技术来平均单个树的预测，从而在保持偏差的同时减少模型方差。该模型采用随机特征选择来降低单个树之间的相关性。</p>
+</li>
+<li><p>ET在决策树形成过程中增加了一层随机性。虽然它可能产生次优的单个树，但通过减少预测偏差和更广泛地探索数据集，集成往往表现良好。</p>
+</li>
+<li><p>AdaBoost结合了多个弱分类器来生成一个强的、自适应的模型；它为训练实例分配权重，允许后续模型将专注于具有挑战性的案例并提高整体性能。</p>
+</li>
+<li><p>由Yandex开发的CatBoost特别适合分类特征，与其他梯度增强算法相比具有明显的优势</p>
+</li>
+<li><p>GBM采用决策树集合并迭代提高性能，使其成为各种ML应用程序的热门选择</p>
+</li>
+<li><p>LGBM通过集成降低计算负担而不显著影响性能的技术来改进传统的梯度增强，从而实现更快的模型训练和更有效的预测</p>
+</li>
+<li><p>HistGB是一般梯度增强框架的速度优化扩展。通过只考虑箱子的端点，它加速了训练过程。</p>
+</li>
+<li><p>XGBoost提供了并行处理和过拟合调节等优点。它采用复杂的技术来处理学习错误，使其成为预测建模的合适选择。</p>
+</li>
+</ul>
+<h3 id="什么是kernel-method？"><a href="#什么是kernel-method？" class="headerlink" title="什么是kernel method？"></a>什么是kernel method？</h3><p><strong>核方法（Kernel Method）</strong> 是一种在机器学习和统计学中广泛使用的技术，它通过将输入数据映射到一个高维空间，从而能够在高维空间中进行线性分离和建模，即使在原始输入空间中数据可能是非线性可分的。</p>
+<p>核方法的核心思想是使用一个称为“<strong>核函数</strong>”的数学函数来计算输入数据在高维空间中的内积，而无需显式地将数据映射到高维空间。这使得计算变得高效且不需要处理高维空间中的复杂计算。</p>
+<h4 id="核方法的基本概念"><a href="#核方法的基本概念" class="headerlink" title="核方法的基本概念"></a>核方法的基本概念</h4><ol>
+<li><strong>映射到高维空间</strong>：<ul>
+<li>在很多机器学习任务中，数据可能在低维空间中是非线性可分的（比如在二维平面中两个类别的数据点可能不能被一条直线分开）。核方法通过将数据映射到一个更高维的空间，使得数据在高维空间中变得线性可分。</li>
+<li>这种映射不一定需要显式地进行。通过核函数的技巧，计算数据在高维空间中的内积（而不是显式地计算映射后的数据）可以非常高效。</li>
+</ul>
+</li>
+<li><strong>核函数</strong>：<ul>
+<li>核函数是用来计算数据在高维空间中内积的函数。常见的核函数包括：<ul>
+<li><strong>线性核</strong>：<code>K(x, y) = x^T y</code>，对应于没有进行任何映射，直接计算输入数据的内积。</li>
+<li><strong>多项式核</strong>：<code>K(x, y) = (x^T y + c)^d</code>，可以用于捕捉数据的多项式关系。</li>
+<li><strong>高斯径向基核（RBF 核）</strong>：<code>K(x, y) = exp(- ||x - y||^2 / (2 * sigma^2))</code>，适用于很多非线性问题，尤其是在高维数据中非常有效。</li>
+<li><strong>Sigmoid 核</strong>：<code>K(x, y) = tanh( x^T y + c )</code>，与神经网络中的激活函数类似。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>优势</strong>：<ul>
+<li><strong>无显式映射</strong>：通过核函数，核方法能够有效地避免显式地进行高维空间的映射，从而减少计算复杂度。</li>
+<li><strong>非线性模型</strong>：核方法能够处理非线性问题，而不需要手动选择非线性特征转换。</li>
+<li><strong>灵活性</strong>：不同的核函数可以适应不同类型的数据和问题。</li>
+</ul>
+</li>
+</ol>
+<h4 id="核方法的常见应用"><a href="#核方法的常见应用" class="headerlink" title="核方法的常见应用"></a>核方法的常见应用</h4><ol>
+<li><strong>支持向量机（SVM）</strong>：<ul>
+<li>核方法最著名的应用之一是在支持向量机（SVM）中。SVM 是一种强大的分类方法，特别是在高维空间中非常有效。通过使用核函数，SVM 可以处理非线性分类问题。</li>
+<li>例如，使用高斯径向基核（RBF）函数，SVM 可以将原本非线性可分的数据映射到高维空间，在高维空间中使用超平面进行线性分类。</li>
+</ul>
+</li>
+<li><strong>主成分分析（PCA）</strong>：<ul>
+<li>核PCA（Kernel PCA）是一种通过使用核函数来进行非线性主成分分析的方法。传统的PCA是线性的，通过核方法，PCA也可以用于处理非线性数据。</li>
+</ul>
+</li>
+<li><strong>回归问题</strong>：<ul>
+<li>在回归问题中，核方法可以帮助建立非线性回归模型。通过核函数，支持向量回归（SVR）等方法可以对非线性数据进行建模。</li>
+</ul>
+</li>
+<li><strong>聚类</strong>：<ul>
+<li>核方法也可用于聚类，尤其是在支持向量聚类（SVC）中。通过映射到高维空间，核聚类方法能够在非线性空间中寻找聚类结构。</li>
+</ul>
+</li>
+</ol>
+<h4 id="核方法的数学背景"><a href="#核方法的数学背景" class="headerlink" title="核方法的数学背景"></a>核方法的数学背景</h4><ol>
+<li><strong>再定义内积</strong>：<ul>
+<li>核方法的关键是“核函数”本质上是计算数据在某一高维空间中的内积（也称为特征空间中的内积）。假设有一个映射函数 <code>Φ(x)</code>，将数据 <code>x</code> 映射到高维空间。核方法通过核函数 <code>K(x, y) = ⟨Φ(x), Φ(y)⟩</code> 来计算数据在高维空间中的内积。</li>
+</ul>
+</li>
+<li><strong>核技巧（Kernel Trick）</strong>：<ul>
+<li>核技巧允许我们直接计算数据在高维空间中的内积，而无需显式地计算映射后的数据。这极大地提高了计算效率，尤其是在高维数据处理中。</li>
+<li>例如，通过 RBF 核函数，我们不需要计算映射后的数据点，而是通过直接计算它们的核函数值来实现相同的效果。</li>
+</ul>
+</li>
+</ol>
+<h4 id="核方法的局限性"><a href="#核方法的局限性" class="headerlink" title="核方法的局限性"></a>核方法的局限性</h4><ol>
+<li><p>计算复杂度</p>
+<p>：</p>
+<ul>
+<li>核方法的计算量可能会随着数据集的增大而显著增加，特别是当数据集包含大量样本时。尽管核技巧能够避免显式的高维映射，但在大规模数据集上计算核矩阵仍然是一个挑战。</li>
+</ul>
+</li>
+<li><p>选择合适的核函数</p>
+<p>：</p>
+<ul>
+<li>选择合适的核函数对模型的性能非常重要。不合适的核函数可能导致模型效果不佳。</li>
+</ul>
+</li>
+</ol>
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><p>核方法是一种非常强大的技术，它通过核函数将数据映射到高维空间，使得在高维空间中进行的计算和学习变得更加简单，尤其是在处理非线性问题时。在支持向量机、主成分分析和回归等多种机器学习方法中，核方法都得到了广泛的应用。它的核心优势是通过核技巧避免了显式映射数据，提高了计算效率。</p>
+<h3 id="贝叶斯优化优化的是什么？"><a href="#贝叶斯优化优化的是什么？" class="headerlink" title="贝叶斯优化优化的是什么？"></a>贝叶斯优化优化的是什么？</h3><blockquote>
+<p>GPT-4o</p>
+</blockquote>
+<p>贝叶斯优化（Bayesian Optimization）是一种用于优化 <strong>黑箱函数</strong>（即那些我们不知道其显式形式、计算代价高、或者在某些情况下不可微的函数）的优化方法。与传统的优化方法（如梯度下降）不同，贝叶斯优化不需要目标函数的显式表达式或计算梯度，它通过构建目标函数的概率模型，并利用该模型来决定如何选择下一步进行评估。</p>
+<p>贝叶斯优化主要用于 <strong>超参数优化</strong>，即优化机器学习模型的超参数。通常，超参数的选择会极大地影响模型的性能，而贝叶斯优化能够有效地在较少的实验次数下找到合适的超参数。</p>
+<h4 id="具体优化的内容："><a href="#具体优化的内容：" class="headerlink" title="具体优化的内容："></a>具体优化的内容：</h4><ol>
+<li><strong>超参数优化</strong>：<ul>
+<li>在机器学习中，超参数是影响模型训练过程和性能的重要参数，例如：<ul>
+<li>神经网络的学习率、隐藏层的神经元数量</li>
+<li>支持向量机（SVM）的核函数参数、C参数</li>
+<li>随机森林中的树的数量、最大深度</li>
+</ul>
+</li>
+<li>贝叶斯优化通过选择超参数空间内的合适点来逐步提高模型的性能，而不需要暴力遍历所有的超参数组合。</li>
+</ul>
+</li>
+<li><strong>目标函数的最小化或最大化</strong>：<ul>
+<li>贝叶斯优化的核心是通过概率模型（通常是高斯过程模型）来逼近目标函数（即通过评估超参数配置得到的模型性能，如准确率、均方误差等）。然后，基于当前模型，选择最有可能提供最优解的超参数配置进行评估。</li>
+</ul>
+</li>
+<li><strong>减少评估次数</strong>：<ul>
+<li>与网格搜索或随机搜索不同，贝叶斯优化通常能够在更少的实验次数下找到合适的超参数组合。它通过逐步更新目标函数的概率模型来提高优化效率。</li>
+</ul>
+</li>
+</ol>
+<h4 id="贝叶斯优化的工作原理："><a href="#贝叶斯优化的工作原理：" class="headerlink" title="贝叶斯优化的工作原理："></a>贝叶斯优化的工作原理：</h4><ol>
+<li><strong>构建代理模型</strong>：<ul>
+<li>在贝叶斯优化中，代理模型通常是一个统计模型（例如高斯过程），它用于近似目标函数的真实形式。这个模型基于已有的超参数评估结果进行训练。</li>
+</ul>
+</li>
+<li><strong>选择下一个试验点</strong>：<ul>
+<li>通过一个 <strong>采集函数</strong>（Acquisition Function）来决定下一个评估点的位置。采集函数的目标是平衡 <strong>探索</strong>（选择尚未尝试的超参数区间）和 <strong>开发</strong>（选择当前模型预测最优的超参数）。</li>
+</ul>
+</li>
+<li><strong>评估目标函数</strong>：<ul>
+<li>在选定的点上评估目标函数（即训练模型并计算其性能）。</li>
+</ul>
+</li>
+<li><strong>更新代理模型</strong>：<ul>
+<li>根据新评估的结果更新代理模型，并重复上述过程，直到满足停止准则（如达到最大评估次数，或者性能已达到预期）。</li>
+</ul>
+</li>
+</ol>
+<h4 id="贝叶斯优化的优点："><a href="#贝叶斯优化的优点：" class="headerlink" title="贝叶斯优化的优点："></a>贝叶斯优化的优点：</h4><ul>
+<li><strong>高效性</strong>：相比于网格搜索和随机搜索，贝叶斯优化通过代理模型和采集函数，通常能够在较少的尝试次数下找到优质的超参数配置。</li>
+<li><strong>适用于昂贵的黑箱函数</strong>：对于训练时间长、计算代价高的模型（如深度学习模型），贝叶斯优化特别有效，因为它能够减少模型评估次数。</li>
+<li><strong>平衡探索与利用</strong>：贝叶斯优化在搜索过程中能够自然地平衡探索（选择未探索的区域）和利用（选择当前认为最优的区域）。</li>
+</ul>
+<h4 id="贝叶斯优化的应用场景："><a href="#贝叶斯优化的应用场景：" class="headerlink" title="贝叶斯优化的应用场景："></a>贝叶斯优化的应用场景：</h4><ul>
+<li><strong>超参数优化</strong>：如机器学习模型的训练过程中的超参数调整（例如学习率、正则化参数等）。</li>
+<li><strong>实验设计</strong>：在科学实验中，选择最合适的实验条件来最大化某个输出。</li>
+<li><strong>结构优化</strong>：如工程领域中优化设计参数。</li>
+<li><strong>自动化调优</strong>：在生产环境中自动调整系统的运行参数。</li>
+</ul>
+<h4 id="Python中的贝叶斯优化"><a href="#Python中的贝叶斯优化" class="headerlink" title="Python中的贝叶斯优化"></a>Python中的贝叶斯优化</h4><p>贝叶斯优化在 Python 中可以通过多个库实现，最常用的库是 <code>scikit-optimize</code> 和 <code>Spearmint</code>。其中，<code>scikit-optimize</code> 提供了一个易于使用的接口，帮助我们进行超参数优化。</p>
+<h4 id="示例代码（使用scikit-optimize库进行贝叶斯优化）"><a href="#示例代码（使用scikit-optimize库进行贝叶斯优化）" class="headerlink" title="示例代码（使用scikit-optimize库进行贝叶斯优化）"></a>示例代码（使用<code>scikit-optimize</code>库进行贝叶斯优化）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> skopt <span class="keyword">import</span> BayesSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据集</span></span><br><span class="line">data = load_iris()</span><br><span class="line">X = data.data</span><br><span class="line">y = data.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 划分数据集</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line">model = RandomForestClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义贝叶斯优化的超参数空间</span></span><br><span class="line">param_space = &#123;</span><br><span class="line">    <span class="string">&#x27;n_estimators&#x27;</span>: (<span class="number">10</span>, <span class="number">1000</span>),  <span class="comment"># 随机森林的树数</span></span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span>: (<span class="number">1</span>, <span class="number">30</span>),         <span class="comment"># 树的最大深度</span></span><br><span class="line">    <span class="string">&#x27;min_samples_split&#x27;</span>: (<span class="number">2</span>, <span class="number">20</span>), <span class="comment"># 每个内部节点分裂所需的最小样本数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 贝叶斯优化</span></span><br><span class="line">opt = BayesSearchCV(model, param_space, n_iter=<span class="number">50</span>, cv=<span class="number">5</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line">opt.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出最佳超参数和模型评估</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Best Parameters: <span class="subst">&#123;opt.best_params_&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Best Score: <span class="subst">&#123;opt.best_score_&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Test Score: <span class="subst">&#123;opt.score(X_test, y_test)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><ol>
+<li><strong>模型选择</strong>：我们使用 <code>RandomForestClassifier</code> 作为要优化的机器学习模型。</li>
+<li><strong>超参数空间定义</strong>：在 <code>param_space</code> 中，我们为 <code>n_estimators</code>、<code>max_depth</code> 和 <code>min_samples_split</code> 设置了超参数范围，这些超参数将通过贝叶斯优化进行调整。</li>
+<li><strong>贝叶斯优化</strong>：<code>BayesSearchCV</code> 是 <code>scikit-optimize</code> 提供的贝叶斯优化的封装，它将自动执行超参数优化，并通过交叉验证评估每个超参数组合的表现。</li>
+<li><strong>结果输出</strong>：输出最佳的超参数组合及其对应的性能。</li>
+</ol>
+<h4 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h4><p>贝叶斯优化是一种有效的优化技术，尤其适用于超参数调优和需要大量计算资源的任务。它通过代理模型和采集函数来智能选择优化方向，从而减少评估次数，提高优化效率。</p>
+<h3 id="盐水作为水合物抑制剂"><a href="#盐水作为水合物抑制剂" class="headerlink" title="盐水作为水合物抑制剂"></a>盐水作为水合物抑制剂</h3><ul>
+<li><p>Subsea wells extracting oil and gas often contain saline water, acting as a natural inhibitor due to the presence of electrolytes such as NaCl, KCl, and CaCl2 within the brine. The strong bonds between water and salt ions play a crucial role in inhibiting hydrate formation, as water is more attracted to ions than the hydrate structure</p>
+</li>
+<li><p>水和盐离子之间的强键在抑制水合物形成中起着至关重要的作用，因为水更容易被离子吸引，而不是水合物结构</p>
+<blockquote>
+<p>E.D. Sloan Jr., C.A. Koh, Clathrate hydrates of natural gases, CRC Press, 2007.</p>
+<p>Chemical Engineering Journal 498 (2024) 155664</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2024-11月"><a href="#2024-11月" class="headerlink" title="2024-11月"></a>2024-11月</h2><h3 id="什么是Customized-Federated-kernel-Regression"><a href="#什么是Customized-Federated-kernel-Regression" class="headerlink" title="什么是Customized Federated kernel Regression"></a>什么是Customized Federated kernel Regression</h3><blockquote>
+<p><em>Chemical Engineering Journal 498 (2024) 155664</em></p>
+<p>ChatGPT-4o</p>
+</blockquote>
+<ul>
+<li><p><strong>Customized Federated Kernel Regression (定制化联邦核回归)</strong> 是一种结合了 <strong>联邦学习</strong>（Federated Learning）和 <strong>核回归</strong>（Kernel Regression）的方法，用于在多个分散的数据源上进行机器学习建模，同时保护数据隐私和安全性。</p>
+</li>
+<li><p>联邦学习（Federated Learning）概述</p>
+<ul>
+<li>联邦学习是一种分布式机器学习方法，它允许多个设备或数据源在保持数据本地化的同时，共同训练一个机器学习模型。在联邦学习中，数据不会被集中存储和处理，而是通过一种协作的方式，将本地计算的更新（例如梯度或模型参数）发送到中央服务器，后者合并这些更新来改善全局模型。<ul>
+<li><strong>优点：</strong> 保证数据隐私，因为数据不会离开本地设备或服务器。</li>
+<li><strong>缺点：</strong> 在跨多个设备上进行计算时，面临通信开销和数据异质性等挑战。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>核回归（Kernel Regression）</p>
+<ul>
+<li>核回归是一种非参数的回归方法，通常用于处理复杂的非线性数据。它利用 <strong>核技巧</strong>（Kernel Trick）将输入数据映射到高维特征空间，从而能够通过线性方法处理非线性问题。核回归常用于场景中，数据集可能是高维的，或者存在明显的非线性关系。<ul>
+<li><strong>优点：</strong> 不需要明确假设数据的分布形式，能够灵活处理复杂数据。</li>
+<li><strong>缺点：</strong> 计算开销较大，尤其是当数据量较大时。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>定制化（Customized）</p>
+<ul>
+<li>在“定制化联邦核回归”中，“定制化”通常意味着根据特定的应用场景或需求对方法进行调整或优化。这可以包括：<ul>
+<li><strong>自定义的核函数</strong>：根据数据的性质选择合适的核函数（例如高斯核、多项式核等）。</li>
+<li><strong>优化的联邦学习框架</strong>：根据设备的通信能力、计算能力和数据分布，定制不同的学习策略（例如调整联邦学习中的聚合算法）。</li>
+<li><strong>特定的回归模型</strong>：设计特定的回归策略，以便处理不同的数据或业务需求。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>联邦核回归的组合</strong></p>
+</li>
+<li><p>“定制化联邦核回归”的核心思想是将<strong>核回归的优势</strong>与<strong>联邦学习的隐私保护</strong>相结合。这种方法能够处理分散在多个设备或客户端上的非线性回归问题，并且在保证隐私的前提下，进行高效的建模。</p>
+<p>在联邦核回归中，每个数据源（例如设备或客户端）执行以下操作：</p>
+<ol>
+<li><strong>局部训练</strong>：在本地数据上执行核回归训练。由于数据是分散的，训练通常是非全局的。</li>
+<li><strong>本地模型更新</strong>：每个设备计算本地模型的更新（如模型参数或核函数相关的统计量）。</li>
+<li><strong>聚合更新</strong>：设备将本地更新通过联邦学习的方式传输到中央服务器，服务器对这些更新进行合并，从而更新全局模型。</li>
+</ol>
+<p>通过使用<strong>核回归</strong>，即使数据之间存在非线性关系，模型仍然能够捕捉到这些复杂的模式。同时，通过<strong>联邦学习</strong>，多个设备能够共同训练模型，而无需暴露各自的私有数据。</p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li><strong>智能医疗</strong>：不同医院或医疗机构拥有患者数据，但由于隐私原因，不能共享数据。通过定制化联邦核回归，每个医院可以训练一个本地模型，并将更新汇总到中央服务器，保护患者隐私的同时获得更好的预测性能。</li>
+<li><strong>金融领域</strong>：多个金融机构可以联合训练一个信用评分模型，尽管每个机构的数据是私密的，但仍然可以利用联邦学习和核回归来提高评分模型的准确性。</li>
+<li><strong>物联网</strong>：多个物联网设备（如传感器）可以在本地进行回归分析，利用定制化核回归对非线性数据建模，同时通过联邦学习汇聚信息来改善整体预测。</li>
+</ul>
+</li>
+<li><p>挑战和前景</p>
+<ul>
+<li><strong>通信开销</strong>：由于每个设备都需要与中央服务器交换模型更新，可能导致通信负担过重，特别是当数据量较大时。</li>
+<li><strong>数据异质性</strong>：不同客户端的本地数据可能具有不同的分布，如何在此条件下高效地聚合模型更新仍然是一个研究问题。</li>
+<li><strong>核函数选择</strong>：如何选择适当的核函数来适应不同的数据类型和任务是核回归中需要解决的问题。</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ul>
+<li>定制化联邦核回归结合了联邦学习和核回归的优势，既能够处理非线性回归问题，又能保证数据隐私，是一个非常有前景的方法。随着隐私保护需求的增加和分布式计算能力的提高，这种方法将在智能医疗、金融服务、物联网等领域发挥重要作用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="现有微观测试手段尚不能真正连续观测水合物的生长和分解过程"><a href="#现有微观测试手段尚不能真正连续观测水合物的生长和分解过程" class="headerlink" title="现有微观测试手段尚不能真正连续观测水合物的生长和分解过程"></a>现有微观测试手段尚不能真正连续观测水合物的生长和分解过程</h3><blockquote>
+<p>[1]刘昌岭,张永超,纪云开,等.天然气水合物微观测试技术与应用进展[J].海洋地质与第四纪地质,2024,44(03):136-148.DOI:10.16562&#x2F;j.cnki.0256-1492.2023102301.</p>
+</blockquote>
+<h3 id="ChatGPT问答"><a href="#ChatGPT问答" class="headerlink" title="ChatGPT问答"></a>ChatGPT问答</h3><blockquote>
+<p>如果我有三个特征，三列中，第一列为1 1 1 1 1 1 0 0 0 0 0 0 0，第二列为 0 0 0 0 0 0 1 1 1 1 0 0 0, 第三列为 0 0 0 0 0 0 0 0 0 0 1 1 1，怎么来处理这三个特征呢，使其正态分布</p>
+</blockquote>
+<ul>
+<li><p>你提到的三个特征列中，第一列、第二列和第三列看起来像是二分类特征。由于这些特征本身已经是离散的（0 和 1），通常这些特征不符合正态分布的假设，因此我们不建议直接通过标准化或正态化处理它们。</p>
+<p>但是，如果你的目标是使这些特征更加符合机器学习模型对数据的假设（例如，要求特征符合正态分布），你可以尝试以下几种方法来处理这些特征：</p>
+<ol>
+<li><p><strong>标准化（Standardization）</strong>：虽然这些特征本身是二值的（0 或 1），你仍然可以应用标准化方法。标准化将每个特征的均值调整为 0，标准差调整为 1。对于这些二值特征，这个操作会将数据的中心化和方差调整为 0 和 1，从而在一定程度上使其适应某些算法（如支持向量机、线性回归等）的需求。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy as np</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"></span><br><span class="line"># 假设你的数据在一个numpy数组中，名为 data</span><br><span class="line">data = np.<span class="built_in">array</span>([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line"><span class="string">                 [1, 0, 0]</span>,</span><br><span class="line"><span class="string">                 [1, 0, 0]</span>,</span><br><span class="line"><span class="string">                 [1, 0, 0]</span>,</span><br><span class="line"><span class="string">                 [1, 0, 0]</span>,</span><br><span class="line"><span class="string">                 [1, 0, 0]</span>,</span><br><span class="line"><span class="string">                 [0, 1, 0]</span>,</span><br><span class="line"><span class="string">                 [0, 1, 0]</span>,</span><br><span class="line"><span class="string">                 [0, 1, 0]</span>,</span><br><span class="line"><span class="string">                 [0, 1, 0]</span>,</span><br><span class="line"><span class="string">                 [0, 0, 1]</span>,</span><br><span class="line"><span class="string">                 [0, 0, 1]</span>,</span><br><span class="line"><span class="string">                 [0, 0, 1]</span>])</span><br><span class="line"></span><br><span class="line"># 使用 StandardScaler 进行标准化</span><br><span class="line">scaler = StandardScaler()</span><br><span class="line">data_standardized = scaler.fit_transform(data)</span><br><span class="line"></span><br><span class="line">print(data_standardized)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>归一化（Min-Max Scaling）</strong>：归一化方法将数据缩放到一个固定的范围（通常是 [0, 1]）。对于二值特征，这种方法的效果较好，因为它将所有特征值映射到统一的范围内。</p>
+</li>
+<li><p>对于已经是二进制的特征（0 或 1），<code>log</code> 转换或 <code>Box-Cox</code> 转换不是有效的方法。这些方法通常适用于具有连续数值且大于零的特征。如果你想将特征转换为接近正态分布的形式，通常会要求特征是连续的或者至少是有较大变化范围的。</p>
+<p>对于这种二分类特征，可以考虑其他的编码方式，或者直接使用这些特征进行建模，而不强行让其符合正态分布。</p>
+</li>
+<li><p><strong>One-Hot 编码：</strong>对于具有二值特征的类别数据，如果这些特征代表不同的类别，最好使用 <strong>One-Hot 编码</strong>。这会创建多个新的特征列，并为每个类别值分配一个二进制指示符（0 或 1）。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设你的数据是 DataFrame 格式</span></span><br><span class="line">df = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;Feature1&#x27;</span>: [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],</span><br><span class="line">    <span class="string">&#x27;Feature2&#x27;</span>: [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0],</span><br><span class="line">    <span class="string">&#x27;Feature3&#x27;</span>: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 pd.get_dummies() 进行 One-Hot 编码</span></span><br><span class="line">df_encoded = pd.get_dummies(df, columns=[<span class="string">&#x27;Feature1&#x27;</span>, <span class="string">&#x27;Feature2&#x27;</span>, <span class="string">&#x27;Feature3&#x27;</span>], <span class="attribute">drop_first</span>=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df_encoded)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果你正在使用基于树的模型（例如，随机森林、梯度提升树等），你可以直接使用这些二值特征，因为这些模型对于数据的分布不那么敏感。树模型通常不要求特征符合正态分布，因此即使数据是二值的，也能取得较好的效果。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2024-10月"><a href="#2024-10月" class="headerlink" title="2024-10月"></a>2024-10月</h2><h3 id="如果箱线图的异常值很多可以作为训练集吗？"><a href="#如果箱线图的异常值很多可以作为训练集吗？" class="headerlink" title="如果箱线图的异常值很多可以作为训练集吗？"></a>如果箱线图的异常值很多可以作为训练集吗？</h3><blockquote>
+<p>gpt-4o</p>
+</blockquote>
+<p>箱线图中识别出的异常值可以作为训练集的一部分，但要考虑以下几个方面：</p>
+<ol>
+<li>异常值的来源<br>自然现象：如果异常值是数据的真实反映，且在实际应用中可能出现，那么保留这些值对模型训练是有意义的。<br>测量误差：如果异常值是由于测量错误或数据录入错误导致的，可能需要考虑删除或纠正这些值，以防它们对模型产生负面影响。</li>
+<li>模型的鲁棒性<br>一些机器学习模型对异常值不敏感（如决策树、随机森林），在这些模型中，保留异常值可能不会显著影响性能。<br>其他模型（如线性回归）可能会受到异常值的影响，导致性能下降。在这种情况下，可能需要进行处理或删除。</li>
+<li>数据集的整体性<br>如果数据集的大小足够大，异常值的存在可能不会显著影响模型的学习。相反，如果数据集较小，异常值可能会对结果产生较大影响。</li>
+<li>特征工程<br>可以考虑对异常值进行处理，例如分箱、变换或创建额外的特征来标识异常值，从而让模型了解这些值的特性。<br>总结<br>异常值可以作为训练集的一部分，但在使用之前，需要仔细分析这些值的性质和对模型的潜在影响。适当的处理方法能够帮助提升模型的性能和可靠性。</li>
+</ol>
+<h3 id="mW水力场甲烷水合物相图预测"><a href="#mW水力场甲烷水合物相图预测" class="headerlink" title="mW水力场甲烷水合物相图预测"></a>mW水力场甲烷水合物相图预测</h3><blockquote>
+<p>Reparameterization of the mW model to accurately predict the experimental phase diagram of methane hydrate </p>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1063/5.0228522">https://doi.org/10.1063/5.0228522</a></p>
+</blockquote>
+<h3 id="水在多少度的时候密度最大"><a href="#水在多少度的时候密度最大" class="headerlink" title="水在多少度的时候密度最大?"></a>水在多少度的时候密度最大?</h3><blockquote>
+<p>水的密度在 <strong>4°C</strong>（摄氏度）时达到最大值。这是由于水的独特分子结构和氢键作用，导致其在这个温度下的排列方式使得分子之间的距离最小，从而密度最大。</p>
+<p>当温度高于或低于 4°C 时，水的密度会逐渐减小。这也是为什么冰会浮在水面上的原因，因为冰的密度比液态水小。</p>
+<p><img src="https://pqnoss.kepuchina.cn/kepuyun/2023/03/29/10/1679968462589.png" alt="图源：CRC Handbook of Chemistry and Physics"></p>
+<p>ChatGPT-4o 也可能会犯错。请核查重要信息。</p>
+</blockquote>
+<h3 id="大孔水合物相平衡和体块基本一致"><a href="#大孔水合物相平衡和体块基本一致" class="headerlink" title="大孔水合物相平衡和体块基本一致"></a>大孔水合物相平衡和体块基本一致</h3><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202410182047635.png" alt="image-20241018204711551"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.cej.2018.05.150">https://doi.org/10.1016/j.cej.2018.05.150</a></p>
+</blockquote>
+<h3 id="Experimental-observation-of-formation-and-dissociation-of-methane-hydrate-in-a-micromodel"><a href="#Experimental-observation-of-formation-and-dissociation-of-methane-hydrate-in-a-micromodel" class="headerlink" title="Experimental observation of formation and dissociation of methane hydrate in a micromodel"></a>Experimental observation of formation and dissociation of methane hydrate in a micromodel</h3><blockquote>
+<p>Chemical Engineering Science 248 (2022) 117227</p>
+</blockquote>
+<ul>
+<li><p>Different hydrate formation behaviors cause various hydrate dissociation phenomena.</p>
+</li>
+<li><p>一个微流体图片采集系统需要什么：</p>
+<ul>
+<li>显微镜（Changrong S-T）</li>
+<li>CCD （Aptina-6.0）</li>
+<li>电脑+图片处理软件（Image-Pro Plus6.0）</li>
+</ul>
+</li>
+<li><p>微观孔道甲烷水合物形成分解实验流程：</p>
+<ul>
+<li>首先将甲烷和水&#x2F;盐水共注入微模型。（由于微模型的多孔结构，注入的气相可以分散并以甲烷气泡的形式被困在微模型的微通道中）</li>
+<li>操作压力维持在4mpa左右。</li>
+<li>采用冰-水合物生成方法，缩短水合物生成的诱导时间</li>
+<li>冷却水浴提供了冰形成所需的零度以下的温度。</li>
+<li>当微观模型中形成冰相时，升高温度使冰融化并诱导水合物形成。水合物在超过解离温度后开始解离。</li>
+</ul>
+</li>
+</ul>
+<h3 id="怎么进行特征工程？"><a href="#怎么进行特征工程？" class="headerlink" title="怎么进行特征工程？"></a>怎么进行特征工程？</h3><blockquote>
+<p>特征工程是提升机器学习模型性能的关键步骤之一，它包括从原始数据中提取有用的特征、转换特征、选择合适的特征等。以下是一些常用的特征工程方法，以及如何在实际项目中应用这些方法。</p>
+</blockquote>
+<ul>
+<li><p><strong>特征提取：</strong>从原始数据中提取新的、有意义的特征，能够更好地帮助模型进行学习。例如：</p>
+<ul>
+<li><strong>时间序列数据</strong>：从日期中提取年、月、日、周数、季度等。</li>
+<li><strong>文本数据</strong>：使用 <code>TF-IDF</code>、<code>Word2Vec</code> 等方法将文本数据转化为数值特征。</li>
+<li><strong>图像数据</strong>：提取图像的边缘特征、颜色直方图等。</li>
+</ul>
+</li>
+<li><p><strong>特征转换：</strong>将特征进行数学转换或重新构造，以增强数据对模型的表达能力。</p>
+<ul>
+<li><p><strong>对数变换</strong>：对偏态分布的数据取对数，可以让数据更接近正态分布。</p>
+</li>
+<li><p><strong>标准化与归一化</strong>：</p>
+<ul>
+<li><strong>标准化（Standardization）</strong>：将特征的均值调整为0，标准差调整为1。</li>
+<li><strong>归一化（Normalization）</strong>：将数据缩放到 [0, 1] 或 [-1, 1] 的区间内。</li>
+</ul>
+</li>
+<li><p><strong>Box-Cox 变换</strong>：适用于偏态分布数据的变换，使数据更接近正态分布。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>特征组合：</strong>创建新的特征或组合多个特征，以便更好地捕捉特征之间的关系。</p>
+<ul>
+<li><p><strong>交互特征</strong>：创建两个特征的乘积或比值，例如 <code>feature1 * feature2</code>。</p>
+</li>
+<li><p><strong>多项式特征</strong>：使用多项式扩展特征，例如 <code>feature1^2</code>，可以捕捉到非线性关系。</p>
+</li>
+<li><p>示例代码（交互特征和多项式特征）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line">poly = PolynomialFeatures(degree=<span class="number">2</span>, interaction_only=<span class="literal">True</span>)</span><br><span class="line">X_poly = poly.fit_transform(X)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>特征选择：</strong>选择对模型有较大影响的特征，可以提高模型的性能并减少过拟合。</p>
+<ul>
+<li><strong>方差阈值</strong>：移除低方差特征，假设这些特征对目标变量的区分度较低。</li>
+<li><strong>相关性分析</strong>：通过皮尔森相关系数移除高度相关的特征。</li>
+<li><strong>基于模型的特征选择</strong>：使用 <code>Lasso</code> 回归、树模型（例如 <code>RandomForest</code>）等选择特征。</li>
+</ul>
+</li>
+<li><p><strong>特征编码：</strong>将分类变量（类别特征）转化为模型可以理解的数值形式。</p>
+<ul>
+<li><p><strong>Label Encoding</strong>：将每个类别映射为一个整数，用于有顺序关系的类别。</p>
+</li>
+<li><p><strong>One-Hot Encoding</strong>：为每个类别创建一个独立的二进制特征，用于无顺序关系的类别。</p>
+</li>
+<li><p>示例代码（Label Encoding 和 One-Hot Encoding）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder, OneHotEncoder</span><br><span class="line"></span><br><span class="line"><span class="comment"># Label Encoding</span></span><br><span class="line">label_encoder = LabelEncoder()</span><br><span class="line">y_encoded = label_encoder.fit_transform(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># One-Hot Encoding</span></span><br><span class="line">one_hot_encoder = OneHotEncoder(sparse=<span class="literal">False</span>)</span><br><span class="line">X_one_hot_encoded = one_hot_encoder.fit_transform(X_categorical)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>缺失值处理：</strong>处理数据中的缺失值，以避免对模型造成影响。</p>
+<ul>
+<li><p><strong>均值填充</strong>：用特征的均值填充缺失值。</p>
+</li>
+<li><p><strong>中位数填充</strong>：用特征的中位数填充缺失值，适用于有异常值的数据。</p>
+</li>
+<li><p><strong>插值法</strong>：对于时间序列数据，可以使用插值来填补缺失值。</p>
+</li>
+<li><p>示例代码（均值填充）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.impute <span class="keyword">import</span> SimpleImputer</span><br><span class="line">imputer = SimpleImputer(strategy=<span class="string">&#x27;mean&#x27;</span>)</span><br><span class="line">X_imputed = imputer.fit_transform(X)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>特征降维：</strong>将高维数据降维，保留重要信息，减少噪声，提升模型性能。</p>
+<ul>
+<li><p><strong>PCA（主成分分析）</strong>：将高维数据投影到较低维空间。</p>
+</li>
+<li><p><strong>t-SNE&#x2F;UMAP</strong>：非线性降维方法，适用于数据可视化。</p>
+</li>
+<li><p>示例代码（PCA）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>)</span><br><span class="line">X_reduced = pca.fit_transform(X)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="2024-9月"><a href="#2024-9月" class="headerlink" title="2024-9月"></a>2024-9月</h2><h3 id="PCA一般降维到几维"><a href="#PCA一般降维到几维" class="headerlink" title="PCA一般降维到几维"></a>PCA一般降维到几维</h3><blockquote>
 <p>GPT-4o</p>
 </blockquote>
 <p>降维到几维通常取决于数据的特性、任务的需求以及模型的复杂性。<strong>没有固定的标准答案</strong>，但以下几个原则可以帮助你确定降维的合适维数：</p>
@@ -243,7 +893,7 @@
 <li>例如，100 个特征可以降到 10~20 维，然后在此基础上评估模型性能。</li>
 </ul>
 </li>
-<li><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><h3 id="总结：-2"><a href="#总结：-2" class="headerlink" title="总结："></a>总结：</h3><ul>
 <li><strong>方差解释率</strong> 和 <strong>任务需求</strong> 是决定降维到几维的关键。</li>
 <li>尝试保留能解释 <strong>95%</strong> 左右数据方差的主成分通常是一个好的起点。</li>
 </ul>
@@ -470,7 +1120,7 @@
   <div class="toc-main">
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-12%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-12月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-11%E6%9C%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2024-11月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-10%E6%9C%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">2024-10月</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-9%E6%9C%88"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">2024-9月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PCA%E4%B8%80%E8%88%AC%E9%99%8D%E7%BB%B4%E5%88%B0%E5%87%A0%E7%BB%B4"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">PCA一般降维到几维</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">总结：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0chatgpt%E6%8C%87%E4%BB%A4"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">机器学习chatgpt指令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Gene-Expression-Programming-GEP"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">Gene Expression Programming (GEP)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88Neural-Networks%EF%BC%89%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">神经网络（Neural Networks）类型：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-8%E6%9C%88"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">2024-8月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Bernal-Fowler-Rule"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">Bernal-Fowler Rule</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BA%E4%BD%93%E8%A1%A8%E9%9D%A2%E8%83%BD%E5%A4%9F%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">固体表面能够促进水合物分解？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%EF%BC%88fugacity-difference%EF%BC%89"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">逸度差（fugacity difference）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.5.3.1.</span> <span class="toc-nav-text">术语解释</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.5.3.2.</span> <span class="toc-nav-text">逸度差的应用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9D%E5%A7%8B%E6%B0%B4%E5%90%AB%E9%87%8F%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E5%8D%B0%E8%B1%A1"><span class="toc-nav-number">1.5.4.</span> <span class="toc-nav-text">初始水含量对水合物分解的印象</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%A5%B1%E5%92%8C%E5%BA%A6%E9%AB%98%E5%92%8C%E4%BD%8E%E8%B0%81%E6%9C%80%E5%AE%B9%E6%98%93%E5%8F%97%E5%88%B0%E6%B0%B4%E4%BE%B5%EF%BC%9F"><span class="toc-nav-number">1.5.5.</span> <span class="toc-nav-text">水合物饱和度高和低谁最容易受到水侵？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A7%E5%AD%94%E4%B8%AD%E6%B0%B4%E5%90%88%E7%89%A9%E6%9B%B4%E6%98%93%E4%BA%8E%E5%88%86%E8%A7%A3%EF%BC%9F%E5%86%99%E9%94%99%E4%BA%86%EF%BC%8C%E8%BF%98%E6%98%AF%E7%9C%9F%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.5.6.</span> <span class="toc-nav-text">大孔中水合物更易于分解？写错了，还是真的？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%94%E9%9A%99%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%9C%89%E5%BE%88%E5%A4%A7%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.5.7.</span> <span class="toc-nav-text">孔隙尺寸对水合物分解有很大影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%94%E6%B3%A1%E5%AF%86%E5%BA%A6%E8%BF%87%E5%A4%A7%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%8A%91%E5%88%B6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.8.</span> <span class="toc-nav-text">气泡密度过大可能会抑制水合物分解？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-7%E6%9C%88"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">2024-7月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%8B%E8%A3%82%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%B0%B4%E5%90%88%E7%89%A9%E5%BC%80%E9%87%87%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">压裂技术在水合物开采过程中的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B2%A9%E7%9F%B3%E5%A4%9A%E5%AD%94%E4%BB%8B%E8%B4%A8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">岩石多孔介质对水合物的作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%9C%A8%E7%A0%82%E5%B2%A9%E4%B8%AD%E6%98%AF%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">水合物在砂岩中是最常见的</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E6%B0%B4%E5%90%88%E7%89%A9%E5%BD%A2%E6%88%90%E4%BF%83%E8%BF%9B%E5%89%82%EF%BC%8C%E4%BD%86%E4%BC%9A%E7%94%9F%E6%88%90%E6%B3%A1%E6%B2%AB"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">表面活性剂是一个好的水合物形成促进剂，但会生成泡沫</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BF%83%E8%BF%9B%E5%89%82%E7%9B%AE%E5%89%8D%E8%BF%98%E6%B2%A1%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%AC%E8%AE%A4%E4%BD%9C%E7%94%A8%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.6.1.4.</span> <span class="toc-nav-text">动力学促进剂目前还没有一个公认作用机理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#self-preservation-effect-of-hydrates"><span class="toc-nav-number">1.6.1.5.</span> <span class="toc-nav-text">self-preservation effect of hydrates</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#random-process-of-hydrate-formation"><span class="toc-nav-number">1.6.1.6.</span> <span class="toc-nav-text">random process of hydrate formation</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Paper-Notes-2024"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2024</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-12%E6%9C%88"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">2024-12月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Light-Gradient-Boosting-Machine-LightGBM-%E6%98%AF%E4%BB%80%E4%B9%88%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Light Gradient Boosting Machine (LightGBM) 是什么模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LightGBM-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">LightGBM 的基本概念</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LightGBM-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">LightGBM 的特点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LightGBM-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-nav-number">1.1.1.3.</span> <span class="toc-nav-text">LightGBM 工作原理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0"><span class="toc-nav-number">1.1.1.4.</span> <span class="toc-nav-text">核心参数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LightGBM-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.1.1.5.</span> <span class="toc-nav-text">LightGBM 适用场景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Python-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.1.1.6.</span> <span class="toc-nav-text">Python 示例代码</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-nav-number">1.1.1.7.</span> <span class="toc-nav-text">总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%8ERDKit%E4%B8%AD%E6%8F%90%E5%8F%96%E7%89%A9%E7%90%86%E5%8C%96%E5%AD%A6%E6%80%A7%E8%B4%A8"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">从RDKit中提取物理化学性质</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#LogP%E5%80%BC%E8%83%BD%E5%A4%9F%E8%A1%A8%E5%BE%81%E4%BB%80%E4%B9%88%E6%80%A7%E8%B4%A8"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">LogP值能够表征什么性质</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LogP-%E5%80%BC%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-nav-number">1.1.3.1.</span> <span class="toc-nav-text">LogP 值的定义</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LogP-%E5%80%BC%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-nav-number">1.1.3.2.</span> <span class="toc-nav-text">LogP 值的意义</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LogP%E5%9C%A8%E8%8D%AF%E7%89%A9%E5%8C%96%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.1.3.3.</span> <span class="toc-nav-text">LogP在药物化学中的应用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LogP%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%80%BB%E7%BB%93"><span class="toc-nav-number">1.1.3.4.</span> <span class="toc-nav-text">LogP的应用场景总结</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%A1%E7%AE%97LogP"><span class="toc-nav-number">1.1.3.5.</span> <span class="toc-nav-text">计算LogP</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-nav-number">1.1.3.6.</span> <span class="toc-nav-text">结论</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%BB%E5%9B%BE%EF%BC%9A%E6%AF%8F%E6%9D%A1%E7%BA%BF%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%82%B9%E5%92%8C%E8%AF%AF%E5%B7%AE%E6%A3%92"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">画图：每条线只显示一个点和误差棒</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E9%85%8D%E6%AF%94%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">机器学习寻找最优配比一般流程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.1.5.1.</span> <span class="toc-nav-text">步骤概述</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.1.5.2.</span> <span class="toc-nav-text">具体实现步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-nav-number">1.1.5.2.1.</span> <span class="toc-nav-text">1. 数据准备</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BB%BA%E6%A8%A1"><span class="toc-nav-number">1.1.5.2.2.</span> <span class="toc-nav-text">2. 机器学习建模</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#3-%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.1.5.2.3.</span> <span class="toc-nav-text">3. 优化模型</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#4-%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BC%98%E5%8C%96%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">1.1.5.2.4.</span> <span class="toc-nav-text">4. 可视化优化结果</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-nav-number">1.1.5.3.</span> <span class="toc-nav-text">总结</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-nav-number">1.1.5.4.</span> <span class="toc-nav-text">扩展</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFcollinearity%EF%BC%9F"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">什么是collinearity？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B1%E7%BA%BF%E6%80%A7%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-nav-number">1.1.6.1.</span> <span class="toc-nav-text">共线性的含义</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B1%E7%BA%BF%E6%80%A7%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.1.6.2.</span> <span class="toc-nav-text">共线性的影响</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%85%B1%E7%BA%BF%E6%80%A7"><span class="toc-nav-number">1.1.6.3.</span> <span class="toc-nav-text">如何检测共线性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%85%B1%E7%BA%BF%E6%80%A7"><span class="toc-nav-number">1.1.6.4.</span> <span class="toc-nav-text">如何处理共线性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%A3%80%E6%9F%A5%E5%85%B1%E7%BA%BF%E6%80%A7"><span class="toc-nav-number">1.1.6.5.</span> <span class="toc-nav-text">示例：如何检查共线性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-nav-number">1.1.6.6.</span> <span class="toc-nav-text">总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-nav-number">1.1.7.</span> <span class="toc-nav-text">超参数优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%9B%AE%E6%A0%87%EF%BC%9A"><span class="toc-nav-number">1.1.7.1.</span> <span class="toc-nav-text">目标：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-nav-number">1.1.7.2.</span> <span class="toc-nav-text">代码说明：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%BB%93%E6%9E%9C%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="toc-nav-number">1.1.7.3.</span> <span class="toc-nav-text">结果输出：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-nav-number">1.1.7.4.</span> <span class="toc-nav-text">总结：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81ML%E6%96%B9%E6%B3%95%E7%89%B9%E7%82%B9"><span class="toc-nav-number">1.1.8.</span> <span class="toc-nav-text">常见ML方法特点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFkernel-method%EF%BC%9F"><span class="toc-nav-number">1.1.9.</span> <span class="toc-nav-text">什么是kernel method？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-nav-number">1.1.9.1.</span> <span class="toc-nav-text">核方法的基本概念</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.1.9.2.</span> <span class="toc-nav-text">核方法的常见应用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E6%95%B0%E5%AD%A6%E8%83%8C%E6%99%AF"><span class="toc-nav-number">1.1.9.3.</span> <span class="toc-nav-text">核方法的数学背景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-nav-number">1.1.9.4.</span> <span class="toc-nav-text">核方法的局限性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-nav-number">1.1.9.5.</span> <span class="toc-nav-text">总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96%E4%BC%98%E5%8C%96%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">1.1.10.</span> <span class="toc-nav-text">贝叶斯优化优化的是什么？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B7%E4%BD%93%E4%BC%98%E5%8C%96%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9A"><span class="toc-nav-number">1.1.10.1.</span> <span class="toc-nav-text">具体优化的内容：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-nav-number">1.1.10.2.</span> <span class="toc-nav-text">贝叶斯优化的工作原理：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-nav-number">1.1.10.3.</span> <span class="toc-nav-text">贝叶斯优化的优点：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="toc-nav-number">1.1.10.4.</span> <span class="toc-nav-text">贝叶斯优化的应用场景：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Python%E4%B8%AD%E7%9A%84%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96"><span class="toc-nav-number">1.1.10.5.</span> <span class="toc-nav-text">Python中的贝叶斯优化</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%88%E4%BD%BF%E7%94%A8scikit-optimize%E5%BA%93%E8%BF%9B%E8%A1%8C%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-nav-number">1.1.10.6.</span> <span class="toc-nav-text">示例代码（使用scikit-optimize库进行贝叶斯优化）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-nav-number">1.1.10.7.</span> <span class="toc-nav-text">解释：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A-1"><span class="toc-nav-number">1.1.10.8.</span> <span class="toc-nav-text">总结：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%90%E6%B0%B4%E4%BD%9C%E4%B8%BA%E6%B0%B4%E5%90%88%E7%89%A9%E6%8A%91%E5%88%B6%E5%89%82"><span class="toc-nav-number">1.1.11.</span> <span class="toc-nav-text">盐水作为水合物抑制剂</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-11%E6%9C%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2024-11月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCustomized-Federated-kernel-Regression"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">什么是Customized Federated kernel Regression</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%8E%B0%E6%9C%89%E5%BE%AE%E8%A7%82%E6%B5%8B%E8%AF%95%E6%89%8B%E6%AE%B5%E5%B0%9A%E4%B8%8D%E8%83%BD%E7%9C%9F%E6%AD%A3%E8%BF%9E%E7%BB%AD%E8%A7%82%E6%B5%8B%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E7%94%9F%E9%95%BF%E5%92%8C%E5%88%86%E8%A7%A3%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">现有微观测试手段尚不能真正连续观测水合物的生长和分解过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ChatGPT%E9%97%AE%E7%AD%94"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">ChatGPT问答</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-10%E6%9C%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">2024-10月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E6%9E%9C%E7%AE%B1%E7%BA%BF%E5%9B%BE%E7%9A%84%E5%BC%82%E5%B8%B8%E5%80%BC%E5%BE%88%E5%A4%9A%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E8%AE%AD%E7%BB%83%E9%9B%86%E5%90%97%EF%BC%9F"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">如果箱线图的异常值很多可以作为训练集吗？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mW%E6%B0%B4%E5%8A%9B%E5%9C%BA%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E7%9B%B8%E5%9B%BE%E9%A2%84%E6%B5%8B"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">mW水力场甲烷水合物相图预测</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%9C%A8%E5%A4%9A%E5%B0%91%E5%BA%A6%E7%9A%84%E6%97%B6%E5%80%99%E5%AF%86%E5%BA%A6%E6%9C%80%E5%A4%A7"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">水在多少度的时候密度最大?</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A7%E5%AD%94%E6%B0%B4%E5%90%88%E7%89%A9%E7%9B%B8%E5%B9%B3%E8%A1%A1%E5%92%8C%E4%BD%93%E5%9D%97%E5%9F%BA%E6%9C%AC%E4%B8%80%E8%87%B4"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">大孔水合物相平衡和体块基本一致</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Experimental-observation-of-formation-and-dissociation-of-methane-hydrate-in-a-micromodel"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">Experimental observation of formation and dissociation of methane hydrate in a micromodel</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%EF%BC%9F"><span class="toc-nav-number">1.3.6.</span> <span class="toc-nav-text">怎么进行特征工程？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-9%E6%9C%88"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">2024-9月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PCA%E4%B8%80%E8%88%AC%E9%99%8D%E7%BB%B4%E5%88%B0%E5%87%A0%E7%BB%B4"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">PCA一般降维到几维</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A-2"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">总结：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0chatgpt%E6%8C%87%E4%BB%A4"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">机器学习chatgpt指令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Gene-Expression-Programming-GEP"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">Gene Expression Programming (GEP)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88Neural-Networks%EF%BC%89%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">神经网络（Neural Networks）类型：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-8%E6%9C%88"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">2024-8月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Bernal-Fowler-Rule"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">Bernal-Fowler Rule</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BA%E4%BD%93%E8%A1%A8%E9%9D%A2%E8%83%BD%E5%A4%9F%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">固体表面能够促进水合物分解？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%EF%BC%88fugacity-difference%EF%BC%89"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">逸度差（fugacity difference）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.5.3.1.</span> <span class="toc-nav-text">术语解释</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%80%B8%E5%BA%A6%E5%B7%AE%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.5.3.2.</span> <span class="toc-nav-text">逸度差的应用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9D%E5%A7%8B%E6%B0%B4%E5%90%AB%E9%87%8F%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E5%8D%B0%E8%B1%A1"><span class="toc-nav-number">1.5.4.</span> <span class="toc-nav-text">初始水含量对水合物分解的印象</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E9%A5%B1%E5%92%8C%E5%BA%A6%E9%AB%98%E5%92%8C%E4%BD%8E%E8%B0%81%E6%9C%80%E5%AE%B9%E6%98%93%E5%8F%97%E5%88%B0%E6%B0%B4%E4%BE%B5%EF%BC%9F"><span class="toc-nav-number">1.5.5.</span> <span class="toc-nav-text">水合物饱和度高和低谁最容易受到水侵？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A7%E5%AD%94%E4%B8%AD%E6%B0%B4%E5%90%88%E7%89%A9%E6%9B%B4%E6%98%93%E4%BA%8E%E5%88%86%E8%A7%A3%EF%BC%9F%E5%86%99%E9%94%99%E4%BA%86%EF%BC%8C%E8%BF%98%E6%98%AF%E7%9C%9F%E7%9A%84%EF%BC%9F"><span class="toc-nav-number">1.5.6.</span> <span class="toc-nav-text">大孔中水合物更易于分解？写错了，还是真的？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%94%E9%9A%99%E5%B0%BA%E5%AF%B8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%9C%89%E5%BE%88%E5%A4%A7%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.5.7.</span> <span class="toc-nav-text">孔隙尺寸对水合物分解有很大影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%94%E6%B3%A1%E5%AF%86%E5%BA%A6%E8%BF%87%E5%A4%A7%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%8A%91%E5%88%B6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%EF%BC%9F"><span class="toc-nav-number">1.5.8.</span> <span class="toc-nav-text">气泡密度过大可能会抑制水合物分解？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2024-7%E6%9C%88"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">2024-7月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8E%8B%E8%A3%82%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%B0%B4%E5%90%88%E7%89%A9%E5%BC%80%E9%87%87%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">压裂技术在水合物开采过程中的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B2%A9%E7%9F%B3%E5%A4%9A%E5%AD%94%E4%BB%8B%E8%B4%A8%E5%AF%B9%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">岩石多孔介质对水合物的作用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%9C%A8%E7%A0%82%E5%B2%A9%E4%B8%AD%E6%98%AF%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">水合物在砂岩中是最常见的</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E6%B0%B4%E5%90%88%E7%89%A9%E5%BD%A2%E6%88%90%E4%BF%83%E8%BF%9B%E5%89%82%EF%BC%8C%E4%BD%86%E4%BC%9A%E7%94%9F%E6%88%90%E6%B3%A1%E6%B2%AB"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">表面活性剂是一个好的水合物形成促进剂，但会生成泡沫</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BF%83%E8%BF%9B%E5%89%82%E7%9B%AE%E5%89%8D%E8%BF%98%E6%B2%A1%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%AC%E8%AE%A4%E4%BD%9C%E7%94%A8%E6%9C%BA%E7%90%86"><span class="toc-nav-number">1.6.1.4.</span> <span class="toc-nav-text">动力学促进剂目前还没有一个公认作用机理</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#self-preservation-effect-of-hydrates"><span class="toc-nav-number">1.6.1.5.</span> <span class="toc-nav-text">self-preservation effect of hydrates</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#random-process-of-hydrate-formation"><span class="toc-nav-number">1.6.1.6.</span> <span class="toc-nav-text">random process of hydrate formation</span></a></li></ol></li></ol></li></ol></li></ol>
     
 
   </div>
@@ -543,7 +1193,7 @@
   </span>
             <span class="nav-item">
              <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
-   Copyright &copy; 2019-2024 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+   Copyright &copy; 2019-2025 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
     <br>
     Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
     
