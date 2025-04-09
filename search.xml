@@ -6058,12 +6058,25 @@ style A fill:#ffff</pre>
     <title>Python奇淫巧计-3</title>
     <url>/MyWiki/wiki/2024/06/22/codes/python/python_skills_3/</url>
     <content><![CDATA[<p>[toc]</p>
-<h3 id="单独画色棒"><a href="#单独画色棒" class="headerlink" title="单独画色棒"></a>单独画色棒</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> fastdataing <span class="keyword">as</span> fd</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">colorbar</span>(<span class="params">orientation=<span class="string">&quot;vertical&quot;</span></span>):</span><br><span class="line">	<span class="keyword">if</span> orientation==<span class="string">&quot;vertical&quot;</span>:</span><br><span class="line">		fig = fd.add_fig(figsize=(<span class="number">1.5</span>, <span class="number">6</span>))</span><br><span class="line">		ax = fig.add_axes([<span class="number">0.45</span>, <span class="number">0.2</span>, <span class="number">0.10</span>, <span class="number">0.6</span>])</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		fig = fd.add_fig(figsize=(<span class="number">6</span>, <span class="number">1.5</span>))</span><br><span class="line">		ax = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.45</span>, <span class="number">0.6</span>, <span class="number">0.20</span>])</span><br><span class="line">	</span><br><span class="line">	cmap = plt.get_cmap(<span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">	norm = plt.Normalize(vmin=<span class="number">0</span>, vmax=<span class="number">1</span>)</span><br><span class="line">	cb = plt.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), cax=ax, orientation=orientation)</span><br><span class="line">	cb.set_ticks([<span class="number">0</span>, <span class="number">0.2</span>, <span class="number">0.4</span>, <span class="number">0.6</span>, <span class="number">0.8</span>, <span class="number">1.0</span>])</span><br><span class="line">	plt.savefig(<span class="string">&quot;./colorbar.png&quot;</span>,dpi=<span class="number">600</span>,transparent=<span class="literal">True</span>)</span><br><span class="line">	<span class="comment"># 显示图像</span></span><br><span class="line">	plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">colorbar_T</span>(<span class="params">orientation=<span class="string">&quot;vertical&quot;</span></span>):</span><br><span class="line">	<span class="keyword">if</span> orientation==<span class="string">&quot;vertical&quot;</span>:</span><br><span class="line">		fig = fd.add_fig(figsize=(<span class="number">1.5</span>, <span class="number">6</span>))</span><br><span class="line">		ax = fig.add_axes([<span class="number">0.45</span>, <span class="number">0.2</span>, <span class="number">0.10</span>, <span class="number">0.6</span>])</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		fig = fd.add_fig(figsize=(<span class="number">6</span>, <span class="number">1.5</span>))</span><br><span class="line">		ax = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.45</span>, <span class="number">0.6</span>, <span class="number">0.20</span>])</span><br><span class="line">	</span><br><span class="line">	cmap = plt.get_cmap(<span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">	norm = plt.Normalize(vmin=<span class="number">257</span>, vmax=<span class="number">317</span>)</span><br><span class="line">	cb = plt.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), cax=ax, orientation=orientation)</span><br><span class="line">	cb.set_ticks([<span class="number">257</span>, <span class="number">272</span> , <span class="number">287</span>, <span class="number">302</span>, <span class="number">317</span>])</span><br><span class="line">	plt.savefig(<span class="string">&quot;./colorbar_temp.png&quot;</span>,dpi=<span class="number">600</span>,transparent=<span class="literal">True</span>)</span><br><span class="line">	<span class="comment"># 显示图像</span></span><br><span class="line">	plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="comment"># 调用函数以显示色棒</span></span><br><span class="line">	orientation = <span class="string">&quot;horizontal&quot;</span> <span class="comment"># vertical horizontal</span></span><br><span class="line">	<span class="comment"># colorbar(orientation=orientation)</span></span><br><span class="line">	colorbar_T(orientation=orientation)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="给字体添加红色框ax-text"><a href="#给字体添加红色框ax-text" class="headerlink" title="给字体添加红色框ax.text()"></a>给字体添加红色框<code>ax.text()</code></h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个简单的图</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot([1, 2, 3], [4, 5, 6])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加带有红色边框的文本</span></span><br><span class="line">ax.text(2, 5, <span class="string">&#x27;Hello, World!&#x27;</span>, <span class="attribute">fontsize</span>=12, <span class="attribute">color</span>=<span class="string">&#x27;black&#x27;</span>,</span><br><span class="line">        <span class="attribute">bbox</span>=dict(facecolor=&#x27;none&#x27;, <span class="attribute">edgecolor</span>=<span class="string">&#x27;red&#x27;</span>, <span class="attribute">boxstyle</span>=<span class="string">&#x27;round,pad=0.5&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图形</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<blockquote>
+<p>代码解释：</p>
+<ul>
+<li><p><code>ax.text(x, y, text, ...)</code>：在图中的 <code>(x, y)</code> 位置添加文本 <code>text</code>。</p>
+</li>
+<li><p><code>fontsize=12</code>：设置字体大小为 12。</p>
+</li>
+<li><p><code>color=&#39;black&#39;</code>：设置字体颜色为黑色。</p>
+</li>
+<li><pre><code>bbox
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">：用于设置文本的边框。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+bbox
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   是一个字典，用于定义边框的属性。</span><br><span class="line"></span><br><span class="line">  - `<span class="attribute">facecolor</span>=<span class="string">&#x27;none&#x27;</span>`：边框的背景颜色设置为透明。</span><br><span class="line">  - `<span class="attribute">edgecolor</span>=<span class="string">&#x27;red&#x27;</span>`：边框线的颜色设置为红色。</span><br><span class="line">  - `<span class="attribute">boxstyle</span>=<span class="string">&#x27;round,pad=0.5&#x27;</span>`：边框样式为圆角矩形，并设置了一些内边距 `pad`。</span><br><span class="line"></span><br><span class="line">其他可调整的 `bbox` 参数：</span><br><span class="line"></span><br><span class="line">- `linewidth`：边框线的宽度。</span><br><span class="line">- `alpha`：边框的透明度。</span><br><span class="line">- `boxstyle`：边框样式，可以选择 `round`、`square` 等。</span><br><span class="line"></span><br><span class="line">这个代码会在图表中添加一个带有红色边框的文本“Hello, World!”，你可以根据需要调整这些参数来实现不同的效果。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 单独画色棒</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">import fastdataing as fd</span><br><span class="line"></span><br><span class="line">def colorbar(<span class="attribute">orientation</span>=<span class="string">&quot;vertical&quot;</span>):</span><br><span class="line"><span class="keyword">if</span> <span class="attribute">orientation</span>==&quot;vertical&quot;:</span><br><span class="line">	fig = fd.add_fig(figsize=(1.5, 6))</span><br><span class="line">	ax = fig.add_axes([0.45, 0.2, 0.10, 0.6])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	fig = fd.add_fig(figsize=(6, 1.5))</span><br><span class="line">	ax = fig.add_axes([0.2, 0.45, 0.6, 0.20])</span><br><span class="line"></span><br><span class="line">cmap = plt.get_cmap(<span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">norm = plt.Normalize(<span class="attribute">vmin</span>=0, <span class="attribute">vmax</span>=1)</span><br><span class="line">cb = plt.colorbar(plt.cm.ScalarMappable(<span class="attribute">norm</span>=norm, <span class="attribute">cmap</span>=cmap), <span class="attribute">cax</span>=ax, <span class="attribute">orientation</span>=orientation)</span><br><span class="line">cb.set_ticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])</span><br><span class="line">plt.savefig(<span class="string">&quot;./colorbar.png&quot;</span>,<span class="attribute">dpi</span>=600,transparent=True)</span><br><span class="line"><span class="comment"># 显示图像</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def colorbar_T(<span class="attribute">orientation</span>=<span class="string">&quot;vertical&quot;</span>):</span><br><span class="line"><span class="keyword">if</span> <span class="attribute">orientation</span>==&quot;vertical&quot;:</span><br><span class="line">	fig = fd.add_fig(figsize=(1.5, 6))</span><br><span class="line">	ax = fig.add_axes([0.45, 0.2, 0.10, 0.6])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	fig = fd.add_fig(figsize=(6, 1.5))</span><br><span class="line">	ax = fig.add_axes([0.2, 0.45, 0.6, 0.20])</span><br><span class="line"></span><br><span class="line">cmap = plt.get_cmap(<span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">norm = plt.Normalize(<span class="attribute">vmin</span>=257, <span class="attribute">vmax</span>=317)</span><br><span class="line">cb = plt.colorbar(plt.cm.ScalarMappable(<span class="attribute">norm</span>=norm, <span class="attribute">cmap</span>=cmap), <span class="attribute">cax</span>=ax, <span class="attribute">orientation</span>=orientation)</span><br><span class="line">cb.set_ticks([257, 272 , 287, 302, 317])</span><br><span class="line">plt.savefig(<span class="string">&quot;./colorbar_temp.png&quot;</span>,<span class="attribute">dpi</span>=600,transparent=True)</span><br><span class="line"><span class="comment"># 显示图像</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"><span class="comment"># 调用函数以显示色棒</span></span><br><span class="line">orientation = <span class="string">&quot;horizontal&quot;</span> # vertical horizontal</span><br><span class="line"><span class="comment"># colorbar(orientation=orientation)</span></span><br><span class="line">colorbar_T(<span class="attribute">orientation</span>=orientation)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</blockquote>
 <h3 id="修改legend顺序"><a href="#修改legend顺序" class="headerlink" title="修改legend顺序"></a>修改legend顺序</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建示例数据</span></span><br><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">y1 = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>]</span><br><span class="line">y2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">y3 = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建绘图对象</span></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制数据曲线</span></span><br><span class="line">line1, = ax.plot(x, y1, label=<span class="string">&#x27;y = x^2&#x27;</span>)</span><br><span class="line">line2, = ax.plot(x, y2, label=<span class="string">&#x27;y = x&#x27;</span>)</span><br><span class="line">line3, = ax.plot(x, y3, label=<span class="string">&#x27;y = prime&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取图例句柄和标签</span></span><br><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新排列图例顺序</span></span><br><span class="line">order = [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>]  <span class="comment"># 按照你想要的顺序排列</span></span><br><span class="line">ax.legend([handles[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> order], [labels[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> order])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图形</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 
@@ -13910,6 +13923,455 @@ style A fill:#ffff</pre>
       <tags>
         <tag>LAMMPS</tag>
         <tag>ch2lmp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</title>
+    <url>/MyWiki/wiki/2025/04/09/codes/python/python_nuitka/</url>
+    <content><![CDATA[<p>[toc]</p>
+<p>ChatGPT写一个 nuitika 教程:</p>
+<p>当然可以！下面是一个面向初学者的 <strong>Nuitka 编译 Python 脚本为可执行文件（.exe 或 ELF）</strong> 的完整教程，适用于 Windows &#x2F; Linux &#x2F; macOS，帮助你从安装到打包走通全流程。</p>
+<hr>
+<h2 id="🧊-Nuitka-教程：将-Python-脚本编译为可执行文件（exe）"><a href="#🧊-Nuitka-教程：将-Python-脚本编译为可执行文件（exe）" class="headerlink" title="🧊 Nuitka 教程：将 Python 脚本编译为可执行文件（exe）"></a>🧊 Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</h2><h3 id="✅-Nuitka-是什么？"><a href="#✅-Nuitka-是什么？" class="headerlink" title="✅ Nuitka 是什么？"></a>✅ Nuitka 是什么？</h3><p><a href="https://nuitka.net/">Nuitka</a> 是一个将 Python 代码编译为原生机器代码的编译器，不是简单的打包工具（如 PyInstaller），而是将 Python 转换为高效的 C&#x2F;C++ 代码，然后编译成原生程序（更快、更安全、更难反编译）。</p>
+<hr>
+<h2 id="📦-一、安装-Nuitka"><a href="#📦-一、安装-Nuitka" class="headerlink" title="📦 一、安装 Nuitka"></a>📦 一、安装 Nuitka</h2><p>确保你已安装 Python（推荐 Python 3.8–3.11）。</p>
+<h3 id="🧱-安装-Nuitka（适用于所有系统）："><a href="#🧱-安装-Nuitka（适用于所有系统）：" class="headerlink" title="🧱 安装 Nuitka（适用于所有系统）："></a>🧱 安装 Nuitka（适用于所有系统）：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install -U nuitka</span><br></pre></td></tr></table></figure>
+
+<h3 id="💡-Windows-用户还需安装-C-编译器："><a href="#💡-Windows-用户还需安装-C-编译器：" class="headerlink" title="💡 Windows 用户还需安装 C 编译器："></a>💡 Windows 用户还需安装 C 编译器：</h3><p>推荐安装 <strong>Visual Studio Build Tools</strong>（含 C++ 编译工具）</p>
+<ul>
+<li>下载地址：<a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">https://visualstudio.microsoft.com/visual-cpp-build-tools/</a></li>
+</ul>
+<h3 id="💡-Linux-用户安装-g-："><a href="#💡-Linux-用户安装-g-：" class="headerlink" title="💡 Linux 用户安装 g++："></a>💡 Linux 用户安装 g++：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install g++ python3-dev</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧪-二、准备一个简单的-Python-脚本"><a href="#🧪-二、准备一个简单的-Python-脚本" class="headerlink" title="🧪 二、准备一个简单的 Python 脚本"></a>🧪 二、准备一个简单的 Python 脚本</h2><p>创建一个文件 <code>hello.py</code>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    greet(<span class="string">&quot;World&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="⚙️-三、使用-Nuitka-编译"><a href="#⚙️-三、使用-Nuitka-编译" class="headerlink" title="⚙️ 三、使用 Nuitka 编译"></a>⚙️ 三、使用 Nuitka 编译</h2><h3 id="🚀-基本编译命令（跨平台）："><a href="#🚀-基本编译命令（跨平台）：" class="headerlink" title="🚀 基本编译命令（跨平台）："></a>🚀 基本编译命令（跨平台）：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nuitka hello.py</span><br></pre></td></tr></table></figure>
+
+<p>生成的可执行文件：</p>
+<ul>
+<li>Windows: <code>hello.exe</code></li>
+<li>Linux&#x2F;macOS: <code>hello.bin</code> 或无扩展名的可执行文件</li>
+</ul>
+<hr>
+<h2 id="🎯-四、常用选项说明（推荐）"><a href="#🎯-四、常用选项说明（推荐）" class="headerlink" title="🎯 四、常用选项说明（推荐）"></a>🎯 四、常用选项说明（推荐）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nuitka hello.py \</span><br><span class="line">  --standalone \</span><br><span class="line">  --enable-plugin=tk-inter \</span><br><span class="line">  --onefile \</span><br><span class="line">  --follow-imports \</span><br><span class="line">  --output-dir=dist \</span><br><span class="line">  --windows-disable-console  <span class="comment"># 可选：GUI程序时隐藏黑框窗口</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="🔍-参数解析："><a href="#🔍-参数解析：" class="headerlink" title="🔍 参数解析："></a>🔍 参数解析：</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--standalone</code></td>
+<td>打包所有依赖到独立目录</td>
+</tr>
+<tr>
+<td><code>--onefile</code></td>
+<td>生成一个独立 <code>.exe</code> 文件（注意启动较慢）</td>
+</tr>
+<tr>
+<td><code>--follow-imports</code></td>
+<td>包含所有导入模块（推荐）</td>
+</tr>
+<tr>
+<td><code>--enable-plugin=xxx</code></td>
+<td>启用对应插件（如 tkinter, numpy, etc）</td>
+</tr>
+<tr>
+<td><code>--windows-disable-console</code></td>
+<td>对于 GUI 程序不显示命令行窗口</td>
+</tr>
+<tr>
+<td><code>--output-dir=dist</code></td>
+<td>指定输出目录</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📁-五、编译输出说明"><a href="#📁-五、编译输出说明" class="headerlink" title="📁 五、编译输出说明"></a>📁 五、编译输出说明</h2><p>使用 <code>--standalone</code> 后，输出目录结构：</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">dist/</span></span><br><span class="line"><span class="keyword"></span>  hello.exe  ← 可执行文件</span><br><span class="line">  hello.<span class="keyword">dist/ </span>← 所有依赖（Python 解释器、模块等）</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>--onefile</code> 后，仅输出一个 <code>.exe</code> 文件，但首次运行时会解压到临时目录。</p>
+<hr>
+<h2 id="🔐-六、优点与注意事项"><a href="#🔐-六、优点与注意事项" class="headerlink" title="🔐 六、优点与注意事项"></a>🔐 六、优点与注意事项</h2><p>✅ <strong>优点</strong>：</p>
+<ul>
+<li>编译为原生代码（不是打包 pyc）</li>
+<li>更高运行性能（尤其对逻辑密集型）</li>
+<li>不易反编译</li>
+<li>支持 numpy、tkinter、PyQt 等常见库</li>
+</ul>
+<p>⚠️ <strong>注意事项</strong>：</p>
+<ul>
+<li>首次使用 onefile 比较慢（因为解压）</li>
+<li>编译时间比 PyInstaller 稍久</li>
+<li>有些库可能需要额外插件或参数（如 matplotlib）</li>
+</ul>
+<hr>
+<h2 id="🔚-七、示例命令汇总"><a href="#🔚-七、示例命令汇总" class="headerlink" title="🔚 七、示例命令汇总"></a>🔚 七、示例命令汇总</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nuitka hello.py --standalone --follow-imports --onefile --output-dir=dist</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔧-八、编译包含依赖的项目（如-Flask、PyQt）"><a href="#🔧-八、编译包含依赖的项目（如-Flask、PyQt）" class="headerlink" title="🔧 八、编译包含依赖的项目（如 Flask、PyQt）"></a>🔧 八、编译包含依赖的项目（如 Flask、PyQt）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nuitka app.py \</span><br><span class="line">  --standalone \</span><br><span class="line">  --enable-plugin=pyqt5 \</span><br><span class="line">  --include-package=yourmodule \</span><br><span class="line">  --follow-imports \</span><br><span class="line">  --onefile</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Tutorials</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Tutorials</tag>
+        <tag>Nuitka</tag>
+        <tag>Python程序打包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习笔记2025</title>
+    <url>/MyWiki/wiki/2024/07/01/notes/PaperReadNote2025/</url>
+    <content><![CDATA[<p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
+<h1 id="Paper-Notes-2025"><a href="#Paper-Notes-2025" class="headerlink" title="Paper Notes 2025"></a>Paper Notes 2025</h1><h1 id="2025-03月"><a href="#2025-03月" class="headerlink" title="2025-03月"></a>2025-03月</h1><h1 id="2025-02月"><a href="#2025-02月" class="headerlink" title="2025-02月"></a>2025-02月</h1><h2 id="前反馈（Feedforward）和后反馈（Feedback）"><a href="#前反馈（Feedforward）和后反馈（Feedback）" class="headerlink" title="前反馈（Feedforward）和后反馈（Feedback）"></a><strong>前反馈（Feedforward）</strong>和<strong>后反馈（Feedback）</strong></h2><p>控制系统、神经科学、以及机器学习中常用的术语。它们描述了信息或信号的流动方向和处理方式。下面是对这两个概念的详细解释：</p>
+<h3 id="1-前反馈（Feedforward）"><a href="#1-前反馈（Feedforward）" class="headerlink" title="1. 前反馈（Feedforward）"></a>1. <strong>前反馈（Feedforward）</strong></h3><p>前反馈通常指的是一种预先的、基于输入的信息处理方式，在此过程中，系统的输出是直接由输入决定的，而没有考虑到当前输出对系统的影响。换句话说，前反馈是从输入到输出的单向流动，没有循环或调整。</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
+<li><strong>单向流动</strong>：输入直接影响输出，信息流动没有回路。</li>
+<li><strong>无需依赖过去的输出</strong>：决策过程不会受到历史输出的影响，通常用来对当前输入做出即时响应。</li>
+<li><strong>无自我调整</strong>：系统不会根据输出的反馈进行调整，适合环境较为稳定、变化不频繁的任务。</li>
+</ul>
+<h4 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h4><ul>
+<li><strong>前馈神经网络（Feedforward Neural Network）</strong>：在神经网络中，信息从输入层传到隐藏层，再到输出层，输出层的结果仅仅是输入的直接响应，没有后续反馈或调整。</li>
+<li><strong>自动驾驶中的前馈控制</strong>：前馈控制在自动驾驶中通过预测未来环境的变化来做出决策，而不是依赖过去的反馈信号。例如，前馈控制可能会根据道路的坡度提前调整车速，而无需依赖速度的反馈。</li>
+</ul>
+<h3 id="2-后反馈（Feedback）"><a href="#2-后反馈（Feedback）" class="headerlink" title="2. 后反馈（Feedback）"></a>2. <strong>后反馈（Feedback）</strong></h3><p>后反馈则是一种基于系统输出的调整机制，它表示系统输出会影响到输入，并进而改变系统的行为。后反馈可以分为正反馈和负反馈。</p>
+<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ul>
+<li><p><strong>循环流动</strong>：信息在系统内部循环流动，输出反馈到输入，从而影响后续的决策。</p>
+</li>
+<li><p><strong>自我调整</strong>：系统可以根据输出的反馈来调整自身的行为，使得系统更适应环境的变化，常用于动态调整和优化。</p>
+</li>
+<li><p>正反馈 vs. 负反馈</p>
+<p>：</p>
+<ul>
+<li><strong>正反馈</strong>：输出增强输入信号，推动系统朝某个方向发展（例如，加速过程）。</li>
+<li><strong>负反馈</strong>：输出反向调整输入，抑制或减少某种行为（例如，稳定系统，维持平衡）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="举例：-1"><a href="#举例：-1" class="headerlink" title="举例："></a>举例：</h4><ul>
+<li><strong>控制系统中的反馈</strong>：在温控系统中，温度传感器检测到温度变化后，将信息反馈到控制系统，系统根据当前温度输出调整加热器的功率，这就是负反馈控制。</li>
+<li><strong>神经网络中的反馈（如循环神经网络RNN）</strong>：RNN是有反馈的神经网络结构，它能够将前一时刻的输出作为下一时刻的输入，从而处理序列数据。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><strong>前反馈（Feedforward）</strong>：输入到输出的单向流动，系统不依赖历史输出进行调整，通常用于较为稳定的系统或环境。</li>
+<li><strong>后反馈（Feedback）</strong>：系统输出会反过来影响输入，从而调整系统的行为，具有自我调整和优化能力，适用于动态变化的系统。</li>
+</ul>
+<h4 id="应用对比："><a href="#应用对比：" class="headerlink" title="应用对比："></a>应用对比：</h4><ul>
+<li><strong>前反馈</strong>适用于那些可以预见输入与输出之间关系，且不需要自我调整的系统。例如，某些机器学习模型（如前馈神经网络）和一些工程控制系统。</li>
+<li><strong>后反馈</strong>则更适用于需要动态调整和响应的系统，例如大多数生物神经系统、智能控制系统和复杂的机器学习模型（如递归神经网络）。</li>
+</ul>
+<h2 id="黑盒模型和白盒模型"><a href="#黑盒模型和白盒模型" class="headerlink" title="黑盒模型和白盒模型"></a><strong>黑盒模型</strong>和<strong>白盒模型</strong></h2><p>在机器学习中，不同的模型根据其可解释性可以分为<strong>黑盒模型</strong>和<strong>白盒模型</strong>。下面是一些常见的模型及其分类：</p>
+<h3 id="黑盒模型（Black-box-Models）"><a href="#黑盒模型（Black-box-Models）" class="headerlink" title="黑盒模型（Black-box Models）"></a><strong>黑盒模型</strong>（Black-box Models）</h3><p>黑盒模型通常具有较高的复杂性，内部工作原理较为难以理解，模型的决策过程不透明。虽然这些模型在准确性上通常表现较好，但其解释性差，难以追溯决策过程。</p>
+<h4 id="常见的黑盒模型："><a href="#常见的黑盒模型：" class="headerlink" title="常见的黑盒模型："></a>常见的黑盒模型：</h4><ol>
+<li><strong>深度神经网络（DNNs）</strong><ul>
+<li>由多个层组成的神经网络，每一层的神经元之间通过非线性函数连接。虽然网络能够非常准确地做出预测，但由于层数较多且每个节点的计算复杂，通常很难解释模型是如何从输入到达输出的。</li>
+</ul>
+</li>
+<li><strong>卷积神经网络（CNNs）</strong><ul>
+<li>专门用于图像和视觉任务的神经网络，具有多个卷积层和池化层，决策过程难以解释，尤其是在处理复杂的图像数据时。</li>
+</ul>
+</li>
+<li><strong>循环神经网络（RNNs）及其变种（如LSTM，GRU）</strong><ul>
+<li>这些网络用于处理时序数据，如语言模型、语音识别等。虽然它们在处理时序数据时非常有效，但由于内部的循环结构，模型的决策过程不透明。</li>
+</ul>
+</li>
+<li><strong>随机森林（Random Forest）</strong><ul>
+<li>随机森林是多个决策树的集合，每棵树的构建过程复杂且具有高度随机性，且最终的输出是所有树的集成，很难清晰地解释每棵树的贡献。</li>
+</ul>
+</li>
+<li><strong>梯度提升树（Gradient Boosting Machines, GBM）</strong><ul>
+<li>例如 <strong>XGBoost</strong>, <strong>LightGBM</strong>, <strong>CatBoost</strong> 等，这些模型是通过多轮迭代学习而来的，每一轮训练都在修正前一轮的错误。由于多个弱模型的集成，最终结果难以直观地解释。</li>
+</ul>
+</li>
+<li><strong>支持向量机（SVM）</strong><ul>
+<li>尽管支持向量机的决策过程相对较为清晰，但对于高维度数据的复杂非线性决策边界来说，模型的训练过程和决策边界仍然是“黑盒”，尤其是对于非线性核函数的使用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="白盒模型（White-box-Models）"><a href="#白盒模型（White-box-Models）" class="headerlink" title="白盒模型（White-box Models）"></a><strong>白盒模型</strong>（White-box Models）</h3><p>白盒模型则具有较高的可解释性。用户能够理解模型的内部结构和每个决策步骤。这些模型通常在透明度和可解释性方面表现良好，适用于需要模型解释的场合。</p>
+<h4 id="常见的白盒模型："><a href="#常见的白盒模型：" class="headerlink" title="常见的白盒模型："></a>常见的白盒模型：</h4><ol>
+<li><strong>线性回归（Linear Regression）</strong><ul>
+<li>线性回归模型通过一个线性方程来描述输入特征和目标变量之间的关系。由于其简单明了，系数可以直接解释为每个特征对输出的影响。</li>
+</ul>
+</li>
+<li><strong>逻辑回归（Logistic Regression）</strong><ul>
+<li>逻辑回归是分类问题中的常用模型，其输出是一个概率，易于理解每个特征对预测结果的贡献。</li>
+</ul>
+</li>
+<li><strong>决策树（Decision Trees）</strong><ul>
+<li>决策树通过一系列的条件分支（节点）进行决策，能够清晰地展示每个特征对分类或回归的影响。每个节点和分裂条件都能直观显示，便于理解和解释。</li>
+</ul>
+</li>
+<li><strong>线性支持向量机（Linear SVM）</strong><ul>
+<li>对于线性支持向量机，决策边界是线性的，通常可以清晰地理解支持向量对模型的贡献，尤其在低维空间下非常直观。</li>
+</ul>
+</li>
+<li><strong>K-近邻（K-Nearest Neighbors, KNN）</strong><ul>
+<li>KNN是一个基于距离的简单模型，通过测量数据点之间的距离来进行分类或回归。虽然它的预测过程简单，且基于已知邻居，但当样本数很大时，KNN可能变得效率较低。</li>
+</ul>
+</li>
+<li><strong>朴素贝叶斯（Naive Bayes）</strong><ul>
+<li>朴素贝叶斯是一种基于贝叶斯定理的简单分类器，通过计算每个特征条件下的概率来进行决策。由于其条件独立性假设，模型结构简单且易于理解。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><strong>黑盒模型</strong>：这些模型通常复杂且高效，尤其在处理高维数据时表现优异，但由于决策过程的复杂性，用户很难理解模型的工作原理。常见的黑盒模型包括深度神经网络、卷积神经网络、循环神经网络、随机森林、梯度提升树等。</li>
+<li><strong>白盒模型</strong>：这些模型可解释性强，决策过程透明，适用于需要解释性和可审计性的场景。常见的白盒模型包括线性回归、逻辑回归、决策树、线性SVM、KNN和朴素贝叶斯。</li>
+</ul>
+<p>选择白盒或黑盒模型通常取决于具体的应用场景：如果需要高精度的预测，可能会选择黑盒模型；而如果需要对模型进行详细的解释和审计，白盒模型会是更好的选择。</p>
+<h2 id="随机数相同，为什么每次训练的结果不一样"><a href="#随机数相同，为什么每次训练的结果不一样" class="headerlink" title="随机数相同，为什么每次训练的结果不一样"></a>随机数相同，为什么每次训练的结果不一样</h2><p><strong>并行计算&#x2F;多线程</strong>：</p>
+<ul>
+<li><p><del>如果训练过程使用了并行计算或多线程，有时由于计算机的并行处理特性，模型的训练顺序可能会有所不同，导致不同的训练结果。尽管使用相同的随机种子，但由于计算顺序或线程调度不同，训练过程的细节也可能不同。</del></p>
+</li>
+<li><p><del>直接删除，或者将n_jobs &#x3D; False</del></p>
+</li>
+</ul>
+<p><strong>跟并不并行没关系，就是有的模型里没有设置随机数，导致随机数随机了</strong></p>
+<h2 id="怎么在原有数据的基础上，分别给训练数据和测试数据添加新的数据，并在原有的模型上训练"><a href="#怎么在原有数据的基础上，分别给训练数据和测试数据添加新的数据，并在原有的模型上训练" class="headerlink" title="怎么在原有数据的基础上，分别给训练数据和测试数据添加新的数据，并在原有的模型上训练"></a>怎么在原有数据的基础上，分别给训练数据和测试数据添加新的数据，并在原有的模型上训练</h2><p>在机器学习中，随着新数据的不断到来，及时更新模型以保持其性能至关重要。您可以通过以下步骤，在原有数据的基础上，分别为训练集和测试集添加新数据，并在原有模型上进行训练：</p>
+<p><strong>1. 数据整合：</strong></p>
+<ul>
+<li><strong>训练集：</strong> 将新数据添加到现有的训练集中，确保新数据与原有数据具有相同的特征和标签格式。</li>
+<li><strong>测试集：</strong> 通常，测试集用于评估模型的泛化能力，不应包含用于训练的数据。因此，建议将新数据添加到训练集中，而不是测试集中。</li>
+</ul>
+<p><strong>2. 数据预处理：</strong></p>
+<p>对新增数据进行与原始数据相同的预处理步骤，如归一化、标准化、缺失值处理等，以确保数据的一致性。</p>
+<p><strong>3. 模型训练：</strong></p>
+<ul>
+<li><strong>增量训练：</strong> 在原有模型的基础上，使用新增的训练数据进行训练。这可以通过继续训练原模型来实现，无需从头开始训练。例如，在PyTorch中，您可以加载原有模型的权重，然后使用新的训练数据继续训练模型。 </li>
+<li><strong>迁移学习：</strong> 如果新增数据与原始数据差异较大，可能需要对模型进行微调。这涉及到修改模型的部分层，或在原有模型的基础上添加新的层，以适应新的数据特征。</li>
+</ul>
+<p><strong>4. 模型评估：</strong></p>
+<p>在更新模型后，使用原有的测试集对模型进行评估，以确保模型的泛化能力未受到影响。</p>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li><strong>避免数据泄漏：</strong> 确保测试集仅用于评估模型性能，不参与训练过程，以防止数据泄漏。</li>
+<li><strong>增量学习：</strong> 对于大规模数据，增量学习是一种有效的方法。这意味着模型可以在新数据到来时，逐步更新，而无需重新训练整个模型。 </li>
+<li><strong>模型保存与加载：</strong> 在训练过程中，定期保存模型的权重，以防止意外中断导致的训练进度丢失。在需要时，可以加载保存的模型权重继续训练。</li>
+</ul>
+<p>通过上述步骤，您可以在原有数据的基础上，添加新数据，并在原有模型上进行训练，以保持模型的最新性和性能。</p>
+<h2 id="怎么证明分子动力学模拟的结果是对的呢"><a href="#怎么证明分子动力学模拟的结果是对的呢" class="headerlink" title="怎么证明分子动力学模拟的结果是对的呢"></a>怎么证明分子动力学模拟的结果是对的呢</h2><p>证明分子动力学模拟（MD模拟）结果的正确性是一项挑战，主要是因为分子动力学模拟是基于经典力场和近似模型的，它的结果依赖于多个假设和近似。为了确保模拟结果的可靠性，需要通过多种方法进行验证和比较：</p>
+<h3 id="1-与实验数据对比"><a href="#1-与实验数据对比" class="headerlink" title="1. 与实验数据对比"></a>1. <strong>与实验数据对比</strong></h3><ul>
+<li><strong>实验验证</strong>：最直接的方法是将模拟结果与实验数据进行比较，特别是当实验数据可用时。例如，比较模拟中得到的水合物的形成温度、压强、结构等特性，是否与实际实验测量的结果一致。如果模拟的结果与实验结果相吻合，说明模拟是可靠的。<ul>
+<li>对于水合物的研究，实验数据如水合物形成温度、气体吸附等都可以作为验证的参考。</li>
+<li>如果存在多个实验条件（例如不同温度、压力或抑制剂浓度），可以通过对比不同条件下的模拟结果与实验数据，验证模型的通用性和准确性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-与高精度理论计算结果对比"><a href="#2-与高精度理论计算结果对比" class="headerlink" title="2. 与高精度理论计算结果对比"></a>2. <strong>与高精度理论计算结果对比</strong></h3><ul>
+<li><strong>量子力学计算（DFT）</strong>：分子动力学模拟使用经典力场，而量子力学计算（如密度泛函理论，DFT）能提供更精确的分子间相互作用能量。可以将MD模拟中的某些关键结果（如能量、相互作用力、体系稳定性等）与DFT计算的结果进行比较。<ul>
+<li>如果MD模拟结果与DFT计算结果一致，说明模拟结果的可靠性较高。</li>
+<li>注意，DFT计算通常只能用于小系统或某些局部区域，因此可以在有限的样本或模型中进行对比。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-参数敏感性分析"><a href="#3-参数敏感性分析" class="headerlink" title="3. 参数敏感性分析"></a>3. <strong>参数敏感性分析</strong></h3><ul>
+<li><p><strong>力场验证</strong>：MD模拟依赖于所选的力场，力场的选择会直接影响模拟结果。因此，需要验证所使用力场的准确性和适用性。可以通过测试不同力场（例如AMBER、CHARMM、OPLS等）对同一系统的模拟结果是否一致来验证力场的可靠性。</p>
+<ul>
+<li>可以做不同力场下的敏感性分析，比较不同力场得到的水合物结构、稳定性等差异，以确保力场对结果的影响是合理的。</li>
+</ul>
+</li>
+<li><p><strong>模拟条件的敏感性</strong>：还可以通过改变模拟的初始条件（如温度、压力、模拟时长等）来评估结果的稳定性。例如，进行不同时间尺度的模拟，观察系统是否已达到平衡状态，结果是否趋于稳定。如果结果对模拟参数变化不敏感，则表明模拟结果较为可靠。</p>
+</li>
+</ul>
+<h3 id="4-多次独立模拟"><a href="#4-多次独立模拟" class="headerlink" title="4. 多次独立模拟"></a>4. <strong>多次独立模拟</strong></h3><ul>
+<li><strong>独立模拟和平均化结果</strong>：为了排除偶然性和局部误差，可以进行多次独立的模拟，并对结果进行统计分析。不同起始配置或不同的随机数种子会导致略微不同的轨迹，但最终的均值和趋势应该是一致的。如果多次模拟得到了相似的结果，说明模拟结果具有一定的可靠性。</li>
+</ul>
+<h3 id="5-时间尺度分析"><a href="#5-时间尺度分析" class="headerlink" title="5. 时间尺度分析"></a>5. <strong>时间尺度分析</strong></h3><ul>
+<li><strong>模拟时间和尺度效应</strong>：分子动力学模拟通常只能模拟几纳秒到几百纳秒的时间尺度，而实际过程可能需要更长的时间才能达到平衡状态。为了验证模拟的准确性，可以通过延长模拟时间，检查是否已达到稳态或平衡。<ul>
+<li>另外，可以与实验中测得的动态特征（如扩散系数、反应速率等）进行对比，以验证是否能捕捉到实际过程中的物理行为。</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-局部结构和全局结构的验证"><a href="#6-局部结构和全局结构的验证" class="headerlink" title="6. 局部结构和全局结构的验证"></a>6. <strong>局部结构和全局结构的验证</strong></h3><ul>
+<li><strong>局部结构对比</strong>：分子动力学模拟可以通过X射线衍射（XRD）或中子散射实验获得水合物的局部结构特征。模拟的水合物结构可以与实验测得的局部结构（如原子配位数、密度等）进行比较。</li>
+<li><strong>全局结构验证</strong>：例如，水合物的整体晶体结构可以与实验中使用其他技术（如透射电子显微镜或扫描电子显微镜）得到的宏观结构对比。</li>
+</ul>
+<h3 id="7-对比其他计算方法"><a href="#7-对比其他计算方法" class="headerlink" title="7. 对比其他计算方法"></a>7. <strong>对比其他计算方法</strong></h3><ul>
+<li><strong>与其他计算方法的对比</strong>：可以通过其他计算方法（如Monte Carlo模拟、粗粒化模拟等）来验证分子动力学模拟的结果。如果不同的计算方法得出类似的结论，说明模拟结果更具可信度。</li>
+</ul>
+<h3 id="8-不确定性分析"><a href="#8-不确定性分析" class="headerlink" title="8. 不确定性分析"></a>8. <strong>不确定性分析</strong></h3><ul>
+<li><strong>误差估计</strong>：对模拟结果进行误差分析，可以帮助确定结果的可靠性。例如，计算模拟结果的标准误差或置信区间，判断结果的精确度。</li>
+</ul>
+<h3 id="9-经验规则与文献验证"><a href="#9-经验规则与文献验证" class="headerlink" title="9. 经验规则与文献验证"></a>9. <strong>经验规则与文献验证</strong></h3><ul>
+<li><strong>对照文献结果</strong>：在没有实验数据的情况下，可以与相关领域已有的模拟结果进行对比。大量的文献中可能有类似体系的模拟结果，若结果在相同条件下是合理的，并且与已有文献一致，模拟的结果更具可信性。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>验证分子动力学模拟的正确性需要多方面的验证方法，尤其是与实验数据、量子力学计算、不同力场、不同模拟条件的对比。如果模拟结果与实验或高精度计算结果一致，且不受模拟参数的显著影响，那么模拟结果可以被认为是可靠的。逐步增加模拟的精度和验证方法，可以提高对结果的信任度。</p>
+<p>你目前有没有做过类似的验证？如果需要的话，我可以帮助你进一步探讨如何具体实施某些验证方法。</p>
+<h2 id="怎么采用分子动力学模拟以及机器学习对纳米颗粒水合物抑制剂进行预测和优化呢？"><a href="#怎么采用分子动力学模拟以及机器学习对纳米颗粒水合物抑制剂进行预测和优化呢？" class="headerlink" title="怎么采用分子动力学模拟以及机器学习对纳米颗粒水合物抑制剂进行预测和优化呢？"></a>怎么采用分子动力学模拟以及机器学习对纳米颗粒水合物抑制剂进行预测和优化呢？</h2><p>要采用分子动力学（MD）模拟和机器学习（ML）对纳米颗粒水合物抑制剂进行预测和优化，通常可以通过以下几个步骤进行：</p>
+<h3 id="1-分子动力学模拟（MD模拟）"><a href="#1-分子动力学模拟（MD模拟）" class="headerlink" title="1. 分子动力学模拟（MD模拟）"></a>1. <strong>分子动力学模拟（MD模拟）</strong></h3><ul>
+<li><p><strong>系统设计</strong>：首先，根据研究目标，设计纳米颗粒水合物抑制剂的分子模型。通常，分子动力学模拟需要考虑水合物的形成、稳定性以及抑制剂的作用机制。</p>
+<ul>
+<li>选择合适的力场（如TIP4P-Ew力场用于水分子，或者对纳米颗粒的力场可以根据文献进行选择）。</li>
+<li>设置模拟的初始条件（温度、压力、浓度等）以及分子尺寸，选择适当的边界条件（如周期性边界条件）以减少边界效应。</li>
+</ul>
+</li>
+<li><p><strong>模拟抑制剂作用机制</strong>：通过分子动力学模拟，研究抑制剂分子在水合物形成过程中的影响。可以探索以下方面：</p>
+<ul>
+<li>抑制剂对水合物晶体生长的影响；</li>
+<li>纳米颗粒在水合物结构中的嵌入与分布情况；</li>
+<li>抑制剂与水合物分子间的相互作用（如氢键、范德华力等）。</li>
+</ul>
+</li>
+<li><p><strong>数据收集与分析</strong>：通过模拟过程获得系统的结构、能量、密度等信息。重点分析抑制剂的加入是否降低了水合物的形成速率或改变了水合物的稳定性。</p>
+</li>
+</ul>
+<h3 id="2-机器学习模型建立与优化"><a href="#2-机器学习模型建立与优化" class="headerlink" title="2. 机器学习模型建立与优化"></a>2. <strong>机器学习模型建立与优化</strong></h3><ul>
+<li><p><strong>数据采集</strong>：通过分子动力学模拟，收集大量关于不同抑制剂分子、浓度、温度、压力等因素下的水合物稳定性（如水合物的形成温度、压强等）数据。这些数据将作为机器学习模型的训练数据。</p>
+</li>
+<li><p><strong>特征工程</strong>：选择合适的输入特征（如抑制剂浓度、分子类型、环境条件等），以及目标变量（如水合物的形成温度或压力等）。可以根据MD模拟数据提取的分子描述符（如分子尺寸、极性、氢键等）作为输入特征。</p>
+</li>
+<li><p><strong>选择模型与训练</strong>：可以使用不同的机器学习算法来预测抑制剂的效果，常见的算法包括：</p>
+<ul>
+<li><strong>回归模型</strong>：如线性回归、支持向量回归（SVR）、随机森林回归、XGBoost等，预测水合物的稳定性或其他关键特性。</li>
+<li><strong>深度学习</strong>：例如深度神经网络（DNN）或卷积神经网络（CNN），尤其当数据量较大时，深度学习方法可能更有效。</li>
+<li><strong>集成学习</strong>：通过多个模型的组合提升预测精度。</li>
+</ul>
+</li>
+<li><p><strong>模型优化</strong>：通过交叉验证、超参数调优等方法对模型进行优化，以提高预测准确性。可以使用网格搜索或贝叶斯优化来选择最合适的模型超参数。</p>
+</li>
+<li><p><strong>预测与优化</strong>：训练好的机器学习模型可以用来预测在不同抑制剂条件下水合物的稳定性，进一步优化抑制剂的选择和设计。例如，预测某一特定浓度的抑制剂能否有效降低水合物形成温度，并找到最佳的抑制剂配比。</p>
+</li>
+</ul>
+<h3 id="3-反馈与迭代"><a href="#3-反馈与迭代" class="headerlink" title="3. 反馈与迭代"></a>3. <strong>反馈与迭代</strong></h3><ul>
+<li><strong>模型验证与反馈</strong>：通过实验数据或更高级的模拟（例如，长时间尺度的分子动力学模拟）验证机器学习模型的预测结果。如果预测与实验结果不符，可以通过调整模型、特征或模拟设置进一步改进。</li>
+<li><strong>迭代优化</strong>：通过不断优化模拟策略、更新训练数据、调整机器学习模型参数，可以逐步提高预测精度。</li>
+</ul>
+<p>通过结合分子动力学模拟和机器学习，你可以在探索抑制剂的分子机制的同时，利用机器学习的高效性对抑制剂进行高通量预测与优化。这种方法能够大大提高研究效率，并为实际应用提供理论支持。</p>
+<p>你在研究中是否已经有了某些具体的抑制剂或模拟条件，或者有特别感兴趣的研究方向？</p>
+<h1 id="2025-01月"><a href="#2025-01月" class="headerlink" title="2025-01月"></a>2025-01月</h1><h2 id="目前最新的机器学习算法"><a href="#目前最新的机器学习算法" class="headerlink" title="目前最新的机器学习算法"></a>目前最新的机器学习算法</h2><p>截至2023年，机器学习领域持续发展，出现了多种新算法和技术，这些方法在不同领域（如自然语言处理、计算机视觉、推荐系统等）取得了显著进展。以下是一些较新的机器学习算法和技术：</p>
+<h4 id="1-Transformer架构及其变种"><a href="#1-Transformer架构及其变种" class="headerlink" title="1. Transformer架构及其变种"></a>1. <strong>Transformer架构及其变种</strong></h4><ul>
+<li><p><strong>Transformer</strong>最初用于自然语言处理（NLP），通过自注意力机制显著提升了语言建模能力。自从<strong>BERT</strong>（Bidirectional Encoder Representations from Transformers）和<strong>GPT</strong>（Generative Pre-trained Transformer）模型的发布，Transformer架构成为各种任务的核心，尤其是在NLP领域。</p>
+</li>
+<li><p>新变种</p>
+<p>：</p>
+<ul>
+<li><strong>DeiT</strong>（Data-efficient Image Transformer）：改进了Transformer模型，使其能够在计算资源有限的情况下处理图像分类任务。</li>
+<li><strong>Longformer</strong>：处理长序列的Transformer变种，通过局部和全局注意力机制提高了计算效率。</li>
+<li>**Vision Transformer (ViT)**：将Transformer应用于计算机视觉，表现出优于传统卷积神经网络（CNN）的效果。</li>
+</ul>
+</li>
+</ul>
+<p><strong>应用领域</strong>：自然语言处理、计算机视觉、生成模型等。</p>
+<h4 id="2-图神经网络（GNN）"><a href="#2-图神经网络（GNN）" class="headerlink" title="2. 图神经网络（GNN）"></a>2. <strong>图神经网络（GNN）</strong></h4><p>图神经网络（GNN）是处理图数据结构（如社交网络、推荐系统、分子结构分析等）的新型深度学习模型。近年来，GNN的研究重点已经从基础的图卷积网络（GCN）扩展到更复杂的网络。</p>
+<ul>
+<li><strong>GraphSAGE</strong>：通过样本邻居节点进行学习，解决了传统GNN算法无法处理大规模图数据的问题。</li>
+<li><strong>Graph Transformer Networks</strong>：结合Transformer和GNN的优点，通过自注意力机制提高图数据的学习能力。</li>
+</ul>
+<p><strong>应用领域</strong>：社交网络分析、推荐系统、药物发现、知识图谱等。</p>
+<h4 id="3-自监督学习（Self-supervised-Learning）"><a href="#3-自监督学习（Self-supervised-Learning）" class="headerlink" title="3. 自监督学习（Self-supervised Learning）"></a>3. <strong>自监督学习（Self-supervised Learning）</strong></h4><p>自监督学习是一种无需标注数据即可进行训练的学习方式。通过构造预测任务（如填补图像中的空白、预测序列的下一部分等），自监督学习能够在大规模无标签数据上训练出有用的特征表示。</p>
+<ul>
+<li><strong>SimCLR</strong>、<strong>MoCo</strong>：这些算法通过构造对比学习任务来优化图像表示学习。</li>
+<li><strong>BERT</strong>、<strong>GPT</strong>：通过语言模型的自监督学习进行预训练，然后用于多种下游任务。</li>
+</ul>
+<p><strong>应用领域</strong>：自然语言处理、计算机视觉、语音识别等。</p>
+<h4 id="4-强化学习（Reinforcement-Learning-RL）"><a href="#4-强化学习（Reinforcement-Learning-RL）" class="headerlink" title="4. 强化学习（Reinforcement Learning, RL）"></a>4. <strong>强化学习（Reinforcement Learning, RL）</strong></h4><p>强化学习已被广泛应用于自动驾驶、机器人控制等领域。近年来，深度强化学习（Deep RL）取得了显著进展，尤其是在策略优化和奖励设计方面。</p>
+<ul>
+<li><strong>AlphaFold</strong>：使用强化学习和深度学习技术解决了蛋白质折叠问题，是生命科学中的一次重大突破。</li>
+<li>**Proximal Policy Optimization (PPO)<strong>、</strong>Soft Actor-Critic (SAC)**：这些算法在高维控制任务中表现出了优越的样本效率和稳定性。</li>
+</ul>
+<p><strong>应用领域</strong>：机器人控制、游戏AI、自动驾驶、能源调度等。</p>
+<h4 id="5-生成对抗网络（GAN）及其变种"><a href="#5-生成对抗网络（GAN）及其变种" class="headerlink" title="5. 生成对抗网络（GAN）及其变种"></a>5. <strong>生成对抗网络（GAN）及其变种</strong></h4><p>生成对抗网络（GAN）已经发展出多种变种，解决了图像生成、数据增强、数据模拟等任务。</p>
+<ul>
+<li><strong>StyleGAN</strong>：用于生成高质量的人脸图像，已被广泛应用于艺术创作、虚拟现实等领域。</li>
+<li><strong>CycleGAN</strong>：用于不同域之间的图像转换（如照片到画作转换）。</li>
+<li><strong>BigGAN</strong>：增强了生成图像的质量和多样性，适用于大规模高分辨率图像生成。</li>
+</ul>
+<p><strong>应用领域</strong>：图像生成、风格转换、数据增强、艺术创作等。</p>
+<h4 id="6-元学习（Meta-Learning）"><a href="#6-元学习（Meta-Learning）" class="headerlink" title="6. 元学习（Meta-Learning）"></a>6. <strong>元学习（Meta-Learning）</strong></h4><p>元学习旨在让机器学习算法学习如何“学习”，特别是在数据有限的情况下，能够快速适应新任务。</p>
+<ul>
+<li><strong>MAML</strong>（Model-Agnostic Meta-Learning）：通过优化模型参数，使得模型能在少量样本下进行快速适应。</li>
+<li><strong>Reptile</strong>：一种高效的元学习算法，适用于深度神经网络。</li>
+</ul>
+<p><strong>应用领域</strong>：机器人学习、个性化推荐系统、医学诊断等。</p>
+<h4 id="7-联邦学习（Federated-Learning）"><a href="#7-联邦学习（Federated-Learning）" class="headerlink" title="7. 联邦学习（Federated Learning）"></a>7. <strong>联邦学习（Federated Learning）</strong></h4><p>联邦学习是一种分布式机器学习方法，允许多个设备或服务器在本地训练模型，而无需共享数据。这种方法有助于保护数据隐私，尤其适用于移动设备和敏感数据领域。</p>
+<ul>
+<li><strong>Google Federated Learning</strong>：在多个移动设备上进行模型训练，而无需将数据集中化。</li>
+</ul>
+<p><strong>应用领域</strong>：移动设备、金融、医疗健康等。</p>
+<h4 id="8-量子机器学习（Quantum-Machine-Learning）"><a href="#8-量子机器学习（Quantum-Machine-Learning）" class="headerlink" title="8. 量子机器学习（Quantum Machine Learning）"></a>8. <strong>量子机器学习（Quantum Machine Learning）</strong></h4><p>量子计算结合了量子力学的原理与机器学习，提供了新的计算能力，能够在处理大规模数据时展现出传统计算无法比拟的优势。</p>
+<ul>
+<li>**Quantum Neural Networks (QNN)**：将量子位（qubits）用于训练和推理过程。</li>
+<li>**Quantum Support Vector Machines (QSVM)**：量子版本的支持向量机算法，能够在某些任务中显著提升效率。</li>
+</ul>
+<p><strong>应用领域</strong>：优化问题、量子计算、化学模拟等。</p>
+<h4 id="9-神经架构搜索（NAS）"><a href="#9-神经架构搜索（NAS）" class="headerlink" title="9. 神经架构搜索（NAS）"></a>9. <strong>神经架构搜索（NAS）</strong></h4><p>神经架构搜索（NAS）是一种自动化设计神经网络架构的方法，通过搜索最优的网络结构来提高模型性能。</p>
+<ul>
+<li><strong>AutoML</strong>：通过神经架构搜索自动生成最适合特定任务的网络结构。</li>
+</ul>
+<p><strong>应用领域</strong>：自动机器学习、计算机视觉、自然语言处理等。</p>
+<h4 id="10-神经符号学习（Neuro-symbolic-Learning）"><a href="#10-神经符号学习（Neuro-symbolic-Learning）" class="headerlink" title="10. 神经符号学习（Neuro-symbolic Learning）"></a>10. <strong>神经符号学习（Neuro-symbolic Learning）</strong></h4><p>神经符号学习结合了神经网络的学习能力和符号推理的精确性，旨在弥补当前深度学习模型缺乏可解释性和推理能力的不足。</p>
+<ul>
+<li>**Logic Tensor Networks (LTN)**：结合逻辑和神经网络进行符号推理。</li>
+</ul>
+<p><strong>应用领域</strong>：人工智能推理、知识图谱、自动定理证明等。</p>
+<h4 id="总结：-2"><a href="#总结：-2" class="headerlink" title="总结："></a>总结：</h4><p>这些新兴的机器学习算法和技术大多依赖于深度学习、图模型、生成模型、强化学习等不同的思想，它们在解决各种实际问题时展现了显著的优势。未来，随着计算能力的进一步提升和算法的不断改进，机器学习技术的应用前景将更加广阔。</p>
+<h2 id="如何采用过采样或欠采样方法（如-SMOTE）来平衡数据"><a href="#如何采用过采样或欠采样方法（如-SMOTE）来平衡数据" class="headerlink" title="如何采用过采样或欠采样方法（如 SMOTE）来平衡数据"></a>如何采用过采样或欠采样方法（如 SMOTE）来平衡数据</h2><p>过采样和欠采样是常见的处理数据不平衡的方法，尤其适用于分类问题。然而，回归问题也可以应用类似的方法来改善模型性能。对于回归问题，<code>SMOTE</code>（合成少数过采样技术）可以通过生成合成样本来进行过采样，而欠采样则是减少多数类别的样本。</p>
+<h4 id="1-SMOTE-方法-合成少数过采样"><a href="#1-SMOTE-方法-合成少数过采样" class="headerlink" title="1. SMOTE 方法 (合成少数过采样)"></a>1. <strong>SMOTE 方法 (合成少数过采样)</strong></h4><p><code>SMOTE</code> 是一种过采样技术，它通过在特征空间中合成新的样本来平衡类分布。对于回归问题，SMOTE 的概念同样适用，尤其是当数据不平衡时，可以通过合成少数类别的样本来增强模型的泛化能力。</p>
+<h4 id="安装-imbalanced-learn-库"><a href="#安装-imbalanced-learn-库" class="headerlink" title="安装 imbalanced-learn 库"></a>安装 <code>imbalanced-learn</code> 库</h4><p><code>SMOTE</code> 是由 <code>imbalanced-learn</code> 库提供的工具，首先需要安装该库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install imbalanced-learn</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-SMOTE-用于回归问题："><a href="#2-SMOTE-用于回归问题：" class="headerlink" title="2. SMOTE 用于回归问题："></a>2. <strong>SMOTE 用于回归问题</strong>：</h4><p>对于回归问题，<code>SMOTE</code> 可以通过生成新样本来平衡数据。<code>imbalanced-learn</code> 库的 <code>SMOTE</code> 类默认用于分类问题，但它也可以应用于回归任务。需要注意，<code>SMOTE</code> 会生成新的样本，因此它通常适用于样本不平衡、数据量较小的场景。</p>
+<h4 id="示例代码：如何使用-SMOTE-平衡回归问题的数据"><a href="#示例代码：如何使用-SMOTE-平衡回归问题的数据" class="headerlink" title="示例代码：如何使用 SMOTE 平衡回归问题的数据"></a>示例代码：如何使用 SMOTE 平衡回归问题的数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error, r2_score</span><br><span class="line"><span class="keyword">from</span> imblearn.over_sampling <span class="keyword">import</span> SMOTE</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_regression</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成模拟数据（你可以替换为实际数据集）</span></span><br><span class="line">X, y = make_regression(n_samples=<span class="number">200</span>, n_features=<span class="number">10</span>, noise=<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印数据分布，假设目标变量 y 的分布不均衡</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Original distribution of y:&quot;</span>, np.unique(y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据划分</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标准化数据</span></span><br><span class="line">scaler = StandardScaler()</span><br><span class="line">X_train_scaled = scaler.fit_transform(X_train)</span><br><span class="line">X_test_scaled = scaler.transform(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用SMOTE进行过采样，平衡训练集</span></span><br><span class="line">smote = SMOTE(random_state=<span class="number">42</span>)</span><br><span class="line">X_train_resampled, y_train_resampled = smote.fit_resample(X_train_scaled, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看过采样后的数据分布</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Resampled distribution of y:&quot;</span>, np.unique(y_train_resampled))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用SVR模型进行训练</span></span><br><span class="line">model = SVR(C=<span class="number">1.0</span>, epsilon=<span class="number">0.1</span>, kernel=<span class="string">&#x27;rbf&#x27;</span>)</span><br><span class="line">model.fit(X_train_resampled, y_train_resampled)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在测试集上进行预测</span></span><br><span class="line">y_pred = model.predict(X_test_scaled)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评估模型性能</span></span><br><span class="line">mse = mean_squared_error(y_test, y_pred)</span><br><span class="line">r2 = r2_score(y_test, y_pred)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Mean Squared Error: <span class="subst">&#123;mse&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;R2 Score: <span class="subst">&#123;r2&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码解释："><a href="#代码解释：" class="headerlink" title="代码解释："></a>代码解释：</h4><ol>
+<li><p><strong>生成数据</strong>：使用 <code>make_regression</code> 生成一个模拟的回归数据集。</p>
+</li>
+<li><p><strong>标准化数据</strong>：通过 <code>StandardScaler</code> 将数据标准化，使每个特征的均值为 0，方差为 1。SVR 对数据的尺度非常敏感，因此标准化是必需的。</p>
+</li>
+<li><p><strong>数据划分</strong>：将数据集分成训练集和测试集。</p>
+</li>
+<li><p>SMOTE 过采样</p>
+<p>：使用 </p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">SMOTE</span></span><br></pre></td></tr></table></figure>
+
+<p> 对训练集进行过采样，以平衡数据。</p>
+<ul>
+<li><code>smote.fit_resample()</code>：从原始的训练集数据中生成合成的样本，从而增加少数类别的样本。</li>
+</ul>
+</li>
+<li><p><strong>SVR 模型训练</strong>：使用 <code>SVR</code>（支持向量回归）模型进行训练。</p>
+</li>
+<li><p><strong>评估模型</strong>：计算模型的 MSE 和 R² 等评估指标，查看过采样后的性能提升。</p>
+</li>
+</ol>
+<h4 id="3-欠采样方法："><a href="#3-欠采样方法：" class="headerlink" title="3. 欠采样方法："></a>3. <strong>欠采样方法</strong>：</h4><p>欠采样（Undersampling）通常适用于分类问题，但它也可以用于回归问题。它的主要思路是从多数类别中随机选择样本，从而平衡各类别的样本数量。</p>
+<p>如果你想在回归任务中采用欠采样方法，可以通过减少多数类别的样本数来平衡数据。常见的欠采样方法是随机欠采样或使用更先进的欠采样技术。</p>
+<h4 id="4-其他常用方法："><a href="#4-其他常用方法：" class="headerlink" title="4. 其他常用方法："></a>4. <strong>其他常用方法</strong>：</h4><p>除了 SMOTE 之外，还有一些其他常用的技术可以用来处理数据不平衡：</p>
+<ul>
+<li><strong>Tomek Links</strong>：用于去除类别之间的噪声样本。</li>
+<li><strong>NearMiss</strong>：一种欠采样方法，用于选择与少数类别样本最接近的多数类别样本。</li>
+<li><strong>ADASYN</strong>：通过生成少数类的合成样本来平衡类别分布。</li>
+</ul>
+<h4 id="5-注意事项："><a href="#5-注意事项：" class="headerlink" title="5. 注意事项："></a>5. <strong>注意事项</strong>：</h4><ul>
+<li><strong>SMOTE 对回归的影响</strong>：SMOTE 在回归任务中并不一定总是有效，因为它通过生成新的样本点来扩展数据集，而这些合成样本并不一定有助于提高回归模型的泛化能力。在使用 SMOTE 时需要对生成的样本进行合理评估。</li>
+<li><strong>过采样或欠采样的选择</strong>：通常情况下，过采样方法（如 SMOTE）对于回归任务效果较好，但如果训练集样本过多，欠采样方法也可以是一个选择。</li>
+</ul>
+<p>通过应用 SMOTE 或其他平衡方法，可以帮助提升模型在数据不平衡情况下的表现，尤其是对于回归问题中出现的样本不平衡问题。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>论文笔记</category>
+        <category>2025</category>
+      </categories>
+      <tags>
+        <tag>Paper Notes</tag>
       </tags>
   </entry>
 </search>

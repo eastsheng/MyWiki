@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Nuitka 教程：将 Python 脚本编译为可执行文件（exe） | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</h2>
+  <p class="post-date">2025-04-09 18:37:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<p>ChatGPT写一个 nuitika 教程:</p>
+<p>当然可以！下面是一个面向初学者的 <strong>Nuitka 编译 Python 脚本为可执行文件（.exe 或 ELF）</strong> 的完整教程，适用于 Windows &#x2F; Linux &#x2F; macOS，帮助你从安装到打包走通全流程。</p>
+<hr>
+<h2 id="🧊-Nuitka-教程：将-Python-脚本编译为可执行文件（exe）"><a href="#🧊-Nuitka-教程：将-Python-脚本编译为可执行文件（exe）" class="headerlink" title="🧊 Nuitka 教程：将 Python 脚本编译为可执行文件（exe）"></a>🧊 Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</h2><h3 id="✅-Nuitka-是什么？"><a href="#✅-Nuitka-是什么？" class="headerlink" title="✅ Nuitka 是什么？"></a>✅ Nuitka 是什么？</h3><p><a target="_blank" rel="noopener" href="https://nuitka.net/">Nuitka</a> 是一个将 Python 代码编译为原生机器代码的编译器，不是简单的打包工具（如 PyInstaller），而是将 Python 转换为高效的 C&#x2F;C++ 代码，然后编译成原生程序（更快、更安全、更难反编译）。</p>
+<hr>
+<h2 id="📦-一、安装-Nuitka"><a href="#📦-一、安装-Nuitka" class="headerlink" title="📦 一、安装 Nuitka"></a>📦 一、安装 Nuitka</h2><p>确保你已安装 Python（推荐 Python 3.8–3.11）。</p>
+<h3 id="🧱-安装-Nuitka（适用于所有系统）："><a href="#🧱-安装-Nuitka（适用于所有系统）：" class="headerlink" title="🧱 安装 Nuitka（适用于所有系统）："></a>🧱 安装 Nuitka（适用于所有系统）：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U nuitka</span><br></pre></td></tr></table></figure>
+
+<h3 id="💡-Windows-用户还需安装-C-编译器："><a href="#💡-Windows-用户还需安装-C-编译器：" class="headerlink" title="💡 Windows 用户还需安装 C 编译器："></a>💡 Windows 用户还需安装 C 编译器：</h3><p>推荐安装 <strong>Visual Studio Build Tools</strong>（含 C++ 编译工具）</p>
+<ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">https://visualstudio.microsoft.com/visual-cpp-build-tools/</a></li>
+</ul>
+<h3 id="💡-Linux-用户安装-g-："><a href="#💡-Linux-用户安装-g-：" class="headerlink" title="💡 Linux 用户安装 g++："></a>💡 Linux 用户安装 g++：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install g++ python3-dev</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧪-二、准备一个简单的-Python-脚本"><a href="#🧪-二、准备一个简单的-Python-脚本" class="headerlink" title="🧪 二、准备一个简单的 Python 脚本"></a>🧪 二、准备一个简单的 Python 脚本</h2><p>创建一个文件 <code>hello.py</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    greet(<span class="string">&quot;World&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="⚙️-三、使用-Nuitka-编译"><a href="#⚙️-三、使用-Nuitka-编译" class="headerlink" title="⚙️ 三、使用 Nuitka 编译"></a>⚙️ 三、使用 Nuitka 编译</h2><h3 id="🚀-基本编译命令（跨平台）："><a href="#🚀-基本编译命令（跨平台）：" class="headerlink" title="🚀 基本编译命令（跨平台）："></a>🚀 基本编译命令（跨平台）：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuitka hello.py</span><br></pre></td></tr></table></figure>
+
+<p>生成的可执行文件：</p>
+<ul>
+<li>Windows: <code>hello.exe</code></li>
+<li>Linux&#x2F;macOS: <code>hello.bin</code> 或无扩展名的可执行文件</li>
+</ul>
+<hr>
+<h2 id="🎯-四、常用选项说明（推荐）"><a href="#🎯-四、常用选项说明（推荐）" class="headerlink" title="🎯 四、常用选项说明（推荐）"></a>🎯 四、常用选项说明（推荐）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nuitka hello.py \</span><br><span class="line">  --standalone \</span><br><span class="line">  --enable-plugin=tk-inter \</span><br><span class="line">  --onefile \</span><br><span class="line">  --follow-imports \</span><br><span class="line">  --output-dir=dist \</span><br><span class="line">  --windows-disable-console  <span class="comment"># 可选：GUI程序时隐藏黑框窗口</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="🔍-参数解析："><a href="#🔍-参数解析：" class="headerlink" title="🔍 参数解析："></a>🔍 参数解析：</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--standalone</code></td>
+<td>打包所有依赖到独立目录</td>
+</tr>
+<tr>
+<td><code>--onefile</code></td>
+<td>生成一个独立 <code>.exe</code> 文件（注意启动较慢）</td>
+</tr>
+<tr>
+<td><code>--follow-imports</code></td>
+<td>包含所有导入模块（推荐）</td>
+</tr>
+<tr>
+<td><code>--enable-plugin=xxx</code></td>
+<td>启用对应插件（如 tkinter, numpy, etc）</td>
+</tr>
+<tr>
+<td><code>--windows-disable-console</code></td>
+<td>对于 GUI 程序不显示命令行窗口</td>
+</tr>
+<tr>
+<td><code>--output-dir=dist</code></td>
+<td>指定输出目录</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📁-五、编译输出说明"><a href="#📁-五、编译输出说明" class="headerlink" title="📁 五、编译输出说明"></a>📁 五、编译输出说明</h2><p>使用 <code>--standalone</code> 后，输出目录结构：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dist/</span></span><br><span class="line"><span class="keyword"></span>  hello.exe  ← 可执行文件</span><br><span class="line">  hello.<span class="keyword">dist/ </span>← 所有依赖（Python 解释器、模块等）</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>--onefile</code> 后，仅输出一个 <code>.exe</code> 文件，但首次运行时会解压到临时目录。</p>
+<hr>
+<h2 id="🔐-六、优点与注意事项"><a href="#🔐-六、优点与注意事项" class="headerlink" title="🔐 六、优点与注意事项"></a>🔐 六、优点与注意事项</h2><p>✅ <strong>优点</strong>：</p>
+<ul>
+<li>编译为原生代码（不是打包 pyc）</li>
+<li>更高运行性能（尤其对逻辑密集型）</li>
+<li>不易反编译</li>
+<li>支持 numpy、tkinter、PyQt 等常见库</li>
+</ul>
+<p>⚠️ <strong>注意事项</strong>：</p>
+<ul>
+<li>首次使用 onefile 比较慢（因为解压）</li>
+<li>编译时间比 PyInstaller 稍久</li>
+<li>有些库可能需要额外插件或参数（如 matplotlib）</li>
+</ul>
+<hr>
+<h2 id="🔚-七、示例命令汇总"><a href="#🔚-七、示例命令汇总" class="headerlink" title="🔚 七、示例命令汇总"></a>🔚 七、示例命令汇总</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuitka hello.py --standalone --follow-imports --onefile --output-dir=dist</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔧-八、编译包含依赖的项目（如-Flask、PyQt）"><a href="#🔧-八、编译包含依赖的项目（如-Flask、PyQt）" class="headerlink" title="🔧 八、编译包含依赖的项目（如 Flask、PyQt）"></a>🔧 八、编译包含依赖的项目（如 Flask、PyQt）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nuitka app.py \</span><br><span class="line">  --standalone \</span><br><span class="line">  --enable-plugin=pyqt5 \</span><br><span class="line">  --include-package=yourmodule \</span><br><span class="line">  --follow-imports \</span><br><span class="line">  --onefile</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Tutorials" >
+    <span class="tag-code">Tutorials</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Nuitka" >
+    <span class="tag-code">Nuitka</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Python程序打包" >
+    <span class="tag-code">Python程序打包</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2024/12/15/softwares/lammps/ch2lmp/">
+        <span class="nav-arrow">← </span>
+        
+          ch2lmp tool
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%A7%8A-Nuitka-%E6%95%99%E7%A8%8B%EF%BC%9A%E5%B0%86-Python-%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E4%B8%BA%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%EF%BC%88exe%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">🧊 Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%9C%85-Nuitka-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">✅ Nuitka 是什么？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%93%A6-%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85-Nuitka"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">📦 一、安装 Nuitka</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%A7%B1-%E5%AE%89%E8%A3%85-Nuitka%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E6%89%80%E6%9C%89%E7%B3%BB%E7%BB%9F%EF%BC%89%EF%BC%9A"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">🧱 安装 Nuitka（适用于所有系统）：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%92%A1-Windows-%E7%94%A8%E6%88%B7%E8%BF%98%E9%9C%80%E5%AE%89%E8%A3%85-C-%E7%BC%96%E8%AF%91%E5%99%A8%EF%BC%9A"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">💡 Windows 用户还需安装 C 编译器：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%92%A1-Linux-%E7%94%A8%E6%88%B7%E5%AE%89%E8%A3%85-g-%EF%BC%9A"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">💡 Linux 用户安装 g++：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%A7%AA-%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-Python-%E8%84%9A%E6%9C%AC"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">🧪 二、准备一个简单的 Python 脚本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E2%9A%99%EF%B8%8F-%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8-Nuitka-%E7%BC%96%E8%AF%91"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">⚙️ 三、使用 Nuitka 编译</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%9A%80-%E5%9F%BA%E6%9C%AC%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4%EF%BC%88%E8%B7%A8%E5%B9%B3%E5%8F%B0%EF%BC%89%EF%BC%9A"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">🚀 基本编译命令（跨平台）：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%8E%AF-%E5%9B%9B%E3%80%81%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">🎯 四、常用选项说明（推荐）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%94%8D-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90%EF%BC%9A"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">🔍 参数解析：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%93%81-%E4%BA%94%E3%80%81%E7%BC%96%E8%AF%91%E8%BE%93%E5%87%BA%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">📁 五、编译输出说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%94%90-%E5%85%AD%E3%80%81%E4%BC%98%E7%82%B9%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">🔐 六、优点与注意事项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%94%9A-%E4%B8%83%E3%80%81%E7%A4%BA%E4%BE%8B%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">🔚 七、示例命令汇总</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%94%A7-%E5%85%AB%E3%80%81%E7%BC%96%E8%AF%91%E5%8C%85%E5%90%AB%E4%BE%9D%E8%B5%96%E7%9A%84%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%A6%82-Flask%E3%80%81PyQt%EF%BC%89"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">🔧 八、编译包含依赖的项目（如 Flask、PyQt）</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/04/09/codes/python/python_nuitka/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2025 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
