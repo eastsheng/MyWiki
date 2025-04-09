@@ -14374,4 +14374,93 @@ style A fill:#ffff</pre>
         <tag>Paper Notes</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LAMMPS 中 fix wall/lj126 的使用示例</title>
+    <url>/MyWiki/wiki/2025/03/12/softwares/lammps/LAMMPS_wall_lj/</url>
+    <content><![CDATA[<p>[toc]</p>
+<blockquote>
+<p> ChatGPT生成</p>
+</blockquote>
+<p>LAMMPS 中 <code>fix wall/lj126</code> ，用于在模拟系统中引入 <strong>Lennard-Jones 12-6 型势能的硬壁（壁面势）</strong>。下面是对该命令的详细解释：</p>
+<hr>
+<h2 id="🧱-命令结构："><a href="#🧱-命令结构：" class="headerlink" title="🧱 命令结构："></a>🧱 命令结构：</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo EDGE 0.001 1.0 2.5 xhi EDGE 0.001 1.0 2.5</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔍-各部分参数含义："><a href="#🔍-各部分参数含义：" class="headerlink" title="🔍 各部分参数含义："></a>🔍 各部分参数含义：</h2><table>
+<thead>
+<tr>
+<th>部分</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fix wall</code></td>
+<td>fix ID，名称为 wall</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>fix group-ID，表示对所有原子施加此 fix</td>
+</tr>
+<tr>
+<td><code>wall/lj126</code></td>
+<td>使用 12-6 Lennard-Jones 壁面势模型</td>
+</tr>
+<tr>
+<td><code>xlo EDGE ...</code></td>
+<td>在 x 方向的“最左边”设置一个 LJ 壁面</td>
+</tr>
+<tr>
+<td><code>xhi EDGE ...</code></td>
+<td>在 x 方向的“最右边”设置另一个 LJ 壁面</td>
+</tr>
+</tbody></table>
+<p>每个方向的参数格式如下：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="section">&lt;side&gt;</span> <span class="attribute">EDGE</span> ε σ cutoff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧮-参数解释（以-xlo-EDGE-0-001-1-0-2-5-为例）："><a href="#🧮-参数解释（以-xlo-EDGE-0-001-1-0-2-5-为例）：" class="headerlink" title="🧮 参数解释（以 xlo EDGE 0.001 1.0 2.5 为例）："></a>🧮 参数解释（以 <code>xlo EDGE 0.001 1.0 2.5</code> 为例）：</h2><ul>
+<li><code>xlo</code>：表示在 x 方向的 <strong>低端边界</strong>（负方向）施加墙壁</li>
+<li><code>EDGE</code>：表示墙壁位置就是 box 边界</li>
+<li><code>0.001</code>：ε（epsilon），LJ 势的能量深度（越大排斥力越强）</li>
+<li><code>1.0</code>：σ（sigma），LJ 势的“粒子直径”或最小势距</li>
+<li><code>2.5</code>：截断半径（cutoff），超过这个距离后势能为零</li>
+</ul>
+<p><code>xhi EDGE 0.001 1.0 2.5</code> 是在 <strong>x 方向高端边界</strong> 放置了对称的另一面 LJ 壁。</p>
+<hr>
+<h2 id="🎯-总结作用："><a href="#🎯-总结作用：" class="headerlink" title="🎯 总结作用："></a>🎯 总结作用：</h2><p>这条命令会在 <strong>模拟盒子的 x 方向两端设置两个隐形墙壁</strong>，墙壁不会显示为原子，但它们会根据 Lennard-Jones 12-6 势给接近它们的粒子施加排斥力，从而防止粒子穿出边界。</p>
+<hr>
+<h2 id="📌-应用场景举例："><a href="#📌-应用场景举例：" class="headerlink" title="📌 应用场景举例："></a>📌 应用场景举例：</h2><ul>
+<li>模拟液体或气体在纳米孔道中流动时用来模拟“固壁”</li>
+<li>限定粒子只能在某一方向上移动（如 x 方向在两墙之间）</li>
+</ul>
+<hr>
+<p>如你还想加上 y 或 z 方向的墙壁，可以在命令中继续添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo EDGE ε σ rcut xhi EDGE ε σ rcut ylo EDGE ε σ rcut ...</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="⚠️-补充说明："><a href="#⚠️-补充说明：" class="headerlink" title="⚠️ 补充说明："></a>⚠️ 补充说明：</h2><h3 id="🔹-EDGE-含义："><a href="#🔹-EDGE-含义：" class="headerlink" title="🔹 EDGE 含义："></a>🔹 <code>EDGE</code> 含义：</h3><ul>
+<li>代表墙的位置就是模拟盒子边界位置（即 <code>xlo</code> 是 box 中的 <code>xlo</code>，<code>xhi</code> 是 box 中的 <code>xhi</code>）</li>
+</ul>
+<h3 id="🔹-其他方向默认行为："><a href="#🔹-其他方向默认行为：" class="headerlink" title="🔹 其他方向默认行为："></a>🔹 其他方向默认行为：</h3><ul>
+<li>如果不指定 <code>ylo/yhi</code> 或 <code>zlo/zhi</code>，就 <strong>不会有墙</strong></li>
+<li>不影响其他方向的边界条件（如 periodic、shrink-wrapped）</li>
+</ul>
+<hr>
+<h2 id="🧱-如果你想指定墙的位置而不是边界："><a href="#🧱-如果你想指定墙的位置而不是边界：" class="headerlink" title="🧱 如果你想指定墙的位置而不是边界："></a>🧱 如果你想指定墙的位置而不是边界：</h2><p>可以用 <code>POSITION</code> 代替 <code>EDGE</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo 10.0 0.001 1.0 2.5 xhi 40.0 0.001 1.0 2.5</span><br></pre></td></tr></table></figure>
+
+<p>这表示在 x &#x3D; 10 和 x &#x3D; 40 设置墙，而不是 box 的边缘。</p>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>LAMMPS</category>
+      </categories>
+      <tags>
+        <tag>LAMMPS</tag>
+        <tag>wall/lj</tag>
+        <tag>ChatGPT生成</tag>
+      </tags>
+  </entry>
 </search>
