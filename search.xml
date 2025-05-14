@@ -14826,4 +14826,59 @@ style A fill:#ffff</pre>
         <tag>Paper Notes</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Lammps error汇总</title>
+    <url>/MyWiki/wiki/2025/04/27/softwares/lammps/error_lmp_from_ligpargen/</url>
+    <content><![CDATA[<p>[toc]</p>
+<blockquote>
+<p>LigParGen获得的分子的lammpsdata，在最小化后，分子中原子发生重叠</p>
+</blockquote>
+<h2 id="可能导致氧原子与氮原子重叠的几个常见原因"><a href="#可能导致氧原子与氮原子重叠的几个常见原因" class="headerlink" title="可能导致氧原子与氮原子重叠的几个常见原因"></a>可能导致氧原子与氮原子重叠的几个常见原因</h2><ol>
+<li><p><strong>缺少或错误的LJ参数</strong><br>如果 LigParGen 生成的 LAMMPS 数据文件中 “Pair Coeffs” 部分缺失，或者在读取时没有正确应用 <code>pair_coeff</code>，那么对应的原子类型会默认没有排斥势，从而无法产生足够的范德华斥力，氧、氮原子在最小化时就可能重叠。  (<a href="https://docs.lammps.org/Errors_messages.html?utm_source=chatgpt.com">11.6. Error messages - LAMMPS documentation</a>)</p>
+</li>
+<li><p><strong>零ε、零σ 对氢原子的示例说明</strong><br>在 CVFF 力场中，将羟基和胺基的氢原子 LJ 参数都设为零时，库仑引力无法被斥力抵消，就会出现氢原子与氧氮原子重叠的现象；这说明缺失斥力项会直接导致原子“穿透”重叠。  (<a href="https://matsci.org/t/atoms-overlapping-due-to-coulomb-forces-using-cvff-forcefield/32343">Atoms overlapping due to coulomb forces using CVFF forcefield - LAMMPS Mailing List Mirror - Materials Science Community Discourse</a>)</p>
+</li>
+<li><p><strong>1–4 相互作用缩放不正确</strong><br>OPLS-AA 力场规定对 1–4 位点的范德华和库仑相互作用都要按 0.5 缩放，而 LAMMPS 默认不做此缩放，导致 1–4 位点的氧氮之间库仑吸引过强，将它们拉到一块。  (<a href="https://matsci.org/t/special-bonds-parameters-for-opls/23657?utm_source=chatgpt.com">Special Bonds parameters for OPLS - LAMMPS Mailing List Mirror</a>)</p>
+</li>
+<li><p><strong>未设置 special_bonds</strong><br>若在输入脚本中忘记加入  </p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">special_bonds</span> lj/coul <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>就无法实现 OPLS-AA 的 1–4 相互作用缩放，容易让重排后的氧氮原子相互“黏”到一起。  (<a href="https://matsci.org/t/special-bonds-parameters-for-opls/23657?utm_source=chatgpt.com">Special Bonds parameters for OPLS - LAMMPS Mailing List Mirror</a>)</p>
+</li>
+<li><p><strong>初始近距离接触与邻居列表保护不足</strong><br>当体系初始构型中存在非常近的接触，若没有先用“软势”或先在极低温（如1 K）下缓慢升温并配合充足的邻居列表保护，就可能在最小化中出现原子“穿透”重叠。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)</p>
+</li>
+<li><p><strong>缺失 Improper 导致平面中心坍缩</strong><br>对于 sp² 中心（如酰胺、芳香环等），若数据文件中未正确包括对应的 improper 项，最小化时会报  </p>
+<blockquote>
+<p><em>Improper problem: conformation extreme</em><br>并导致平面中心原子塌陷，使连带的氧、氮原子挤到一起。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)</p>
+</blockquote>
+</li>
+<li><p><strong>不匹配的 improper_style 与 improper_coeff</strong><br>如果使用了 <code>improper_style cvff</code> 或 <code>improper_style harmonic</code>，但未按照 LigParGen 输出指定正确的 <code>improper_coeff</code> 数量和格式，也会导致参数解析失败或不收敛，原子在同一平面上重叠。  (<a href="https://www.researchgate.net/post/How_to_amend_improper_style_coefficient_error_in_LAMMPS">How to amend improper style&#x2F;coefficient error in LAMMPS? | ResearchGate</a>)</p>
+</li>
+<li><p><strong>长程库仑截断畸变构象</strong><br>没有配合 <code>kspace_style pppm</code> 或 <code>ewald</code> 等长程求和算法，仅用 <code>pair_style lj/cut/coul/long</code> 并截断过短，会让电荷间相互作用畸变，迫使部分氧氮原子挤到一起。  (<a href="https://docs.lammps.org/pair_hybrid.html?utm_source=chatgpt.com">pair_style hybrid&#x2F;overlay command - LAMMPS documentation</a>)</p>
+</li>
+<li><p><strong>邻居列表参数设置不当</strong><br>若 <code>neighbor</code>、<code>neigh_modify</code> 中的 <code>skin</code> 值设得过小，最小化过程中原子移动步幅稍大就会在构建邻居列表时“丢失”配对，引发局部结构崩溃和重叠。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)</p>
+</li>
+<li><p><strong>单位制不一致</strong><br>使用的 <code>units real/metal/etc.</code> 必须与 LigParGen 输出的参数单位保持一致，否则参数尺度不匹配，也可能导致最小化时位置严重偏离，出现重叠。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)</p>
+</li>
+</ol>
+<hr>
+<h2 id="建议的检查与修正步骤"><a href="#建议的检查与修正步骤" class="headerlink" title="建议的检查与修正步骤"></a>建议的检查与修正步骤</h2><ul>
+<li><strong>核对 Pair Coeffs</strong>：在数据文件或输入脚本中确认所有 OPLS-AA 原子类型都有正确的 <code>pair_coeff</code> 定义。  (<a href="https://docs.lammps.org/Errors_messages.html?utm_source=chatgpt.com">11.6. Error messages - LAMMPS documentation</a>)  </li>
+<li><strong>加入 Special Bonds</strong>：在主脚本最开始部分添加  <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">special_bonds</span> lj/coul <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">0</span> <span class="number">0</span>.<span class="number">5</span>  </span><br></pre></td></tr></table></figure>
+以匹配 OPLS-AA 1–4 缩放规则。  (<a href="https://matsci.org/t/special-bonds-parameters-for-opls/23657?utm_source=chatgpt.com">Special Bonds parameters for OPLS - LAMMPS Mailing List Mirror</a>)  </li>
+<li><strong>补全 Improper 定义</strong>：根据 LigParGen 输出，选择 <code>improper_style harmonic</code> 或 <code>improper_style cvff</code>，并在输入脚本中为每一种 improper 类型添加对应的 <code>improper_coeff</code>。  (<a href="https://www.researchgate.net/post/How_to_amend_improper_style_coefficient_error_in_LAMMPS">How to amend improper style&#x2F;coefficient error in LAMMPS? | ResearchGate</a>)  </li>
+<li><strong>验证 K-space</strong>：若有电荷，请使用  <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">kspace_style</span> pppm <span class="number">1</span>e-<span class="number">4</span></span><br></pre></td></tr></table></figure>
+或等效方法，避免长程相互作用误差。  (<a href="https://docs.lammps.org/pair_hybrid.html?utm_source=chatgpt.com">pair_style hybrid&#x2F;overlay command - LAMMPS documentation</a>)  </li>
+<li><strong>调整邻居列表</strong>：适当增大 <code>neigh_modify delay 0 every 1 check yes skin 2.0</code> 中的 <code>skin</code> 参数，保证在最小化过程中不会丢失邻居对。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)  </li>
+<li><strong>逐级松弛</strong>：建议先在很低温下（如 1 K）做 10 000 步 NVT 热浴升温至目标温度，再进行能量最小化，帮助移除重叠接触。  (<a href="https://docs.lammps.org/Errors_details.html">11.2. Errors and warnings details — LAMMPS documentation</a>)</li>
+</ul>
+<p>通过以上检查与调整，通常可以消除 LigParGen 输出的 LAMMPS 数据中因参数或设置问题导致的氧–氮原子重叠现象。</p>
+]]></content>
+      <categories>
+        <category>软件学习</category>
+        <category>Lammps</category>
+      </categories>
+      <tags>
+        <tag>Lammps error</tag>
+      </tags>
+  </entry>
 </search>
