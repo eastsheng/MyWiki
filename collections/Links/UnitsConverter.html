@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Unit Converter | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Unit Converter</h2>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><script>
+  //长度单位
+  function lengthconvert() {
+    var from_unit = document.getElementById("from_unit").value;
+    var to_unit = document.getElementById("to_unit").value;
+    var from_value = parseFloat(document.getElementById("from_value").value);
+    var to_value;
+
+    // 转换为米
+    if (from_unit == "cm") {
+      to_value = from_value / 1e2;
+    } else if (from_unit == "mm") {
+      to_value = from_value / 1e3;
+    } else if (from_unit == "μm") {
+      to_value = from_value / 1e6;
+    } else if (from_unit == "nm") {
+      to_value = from_value / 1e9;
+    } else if (from_unit == "Å") {
+      to_value = from_value / 1e10;
+    } else if (from_unit == "pm") {
+      to_value = from_value / 1e12;
+    } else if (from_unit == "in") {
+      to_value = from_value * 0.0254;
+    } else if (from_unit == "ft") {
+      to_value = from_value * 0.3048;
+    } else {
+      to_value = from_value;
+    }
+    
+    // 转换为目标长度单位
+    if (to_unit == "cm") {
+      to_value *= 1e2;
+    } else if (to_unit == "mm") {
+      to_value *= 1e3;
+    } else if (to_unit == "μm") {
+      to_value *= 1e6;
+    } else if (to_unit == "nm") {
+      to_value *= 1e9;
+    } else if (to_unit == "Å") {
+      to_value *= 1e10;
+    } else if (to_unit == "pm") {
+      to_value *= 1e12;
+    } else if (to_unit == "in") {
+      to_value /= 0.0254;
+    } else if (to_unit == "ft") {
+      to_value /= 0.3048;
+    }
+    if ((to_value>0.001 && to_value<10000) || (to_value>-10000 && to_value<-1e-3)){
+     document.getElementById("to_value").value = to_value.toFixed(12);
+    }else{
+    document.getElementById("to_value").value = to_value.toExponential(12);
+    }
+  }
+
+
+  //长度单位
+  function timeconvert() {
+    var from_tunit = document.getElementById("from_tunit").value;
+    var to_tunit = document.getElementById("to_tunit").value;
+    var from_tvalue = parseFloat(document.getElementById("from_tvalue").value);
+    var to_tvalue;
+
+    // 转换为s
+    if (from_tunit == "ms") {
+      to_tvalue = from_tvalue / 1e3;
+    } else if (from_tunit == "μs") {
+      to_tvalue = from_tvalue / 1e6;
+    } else if (from_tunit == "ns") {
+      to_tvalue = from_tvalue / 1e9;
+    } else if (from_tunit == "ps") {
+      to_tvalue = from_tvalue / 1e12;
+    } else if (from_tunit == "fs") {
+      to_tvalue = from_tvalue / 1e15;
+    } else if (from_tunit == "min") {
+      to_tvalue = from_tvalue * 60;
+    } else if (from_tunit == "hour") {
+      to_tvalue = from_tvalue * 3600;
+    } else if (from_tunit == "day") {
+      to_tvalue = from_tvalue * 3600 * 24;
+    } else {
+      to_tvalue = from_tvalue;
+    }
+    
+    // 转换为目标时间单位
+    if (to_tunit == "ms") {
+      to_tvalue *= 1e3;
+    } else if (to_tunit == "μs") {
+      to_tvalue *= 1e6;
+    } else if (to_tunit == "ns") {
+      to_tvalue *= 1e9;
+    } else if (to_tunit == "ps") {
+      to_tvalue *= 1e12;
+    } else if (to_tunit == "fs") {
+      to_tvalue *= 1e15;
+    } else if (to_tunit == "min") {
+      to_tvalue /= 60;
+    } else if (to_tunit == "hour") {
+      to_tvalue /= 3600;
+    } else if (to_tunit == "day") {
+      to_tvalue /= 3600*24;
+    }
+    
+    if ((to_tvalue>0.001 && to_tvalue<10000) || (to_tvalue>-10000 && to_tvalue<-1e-3)){
+     document.getElementById("to_tvalue").value = to_tvalue.toFixed(12);
+    }else{
+    document.getElementById("to_tvalue").value = to_tvalue.toExponential(12);
+    }
+  }
+
+
+
+  //温度单位
+  function tempconvert() {
+    var from_teunit = document.getElementById("from_teunit").value;
+    var to_teunit = document.getElementById("to_teunit").value;
+    var from_tevalue = parseFloat(document.getElementById("from_tevalue").value);
+    var to_tevalue;
+
+    // 转换为K
+    if (from_teunit == "°C") {
+      to_tevalue = from_tevalue + 273.15;
+    } else if (from_teunit == "°F") {
+      to_tevalue = (from_tevalue + 459.66999999999996)*5/9;
+    } else if (from_teunit == "°R") {
+      to_tevalue = from_tevalue *5/9;
+    } else if (from_teunit == "°Re") {
+      to_tevalue = from_tevalue/0.8+273.15;
+    } else {
+      to_tevalue = from_tevalue;
+    }
+    
+    // 转换为目标温度单位
+    if (to_teunit == "°C") {
+      to_tevalue -= 273.15;
+    } else if (to_teunit == "°F") {
+      to_tevalue = (to_tevalue * 9 / 5) - 459.66999999999996;
+    } else if (to_teunit == "°R") {
+      to_tevalue = to_tevalue * 9 / 5;
+    } else if (to_teunit == "°Re") {
+      to_tevalue = (to_tevalue - 273.15) * 0.8;
+    }
+    
+    if ((to_tevalue>0.001 && to_tevalue<10000) || (to_tevalue>-10000 && to_tevalue<-1e-3)){
+     document.getElementById("to_tevalue").value = to_tevalue.toFixed(12);
+    }else{
+    document.getElementById("to_tevalue").value = to_tevalue.toExponential(12);
+    }
+  }
+
+
+  //压力单位
+  function pressconvert() {
+    var from_punit = document.getElementById("from_punit").value;
+    var to_punit = document.getElementById("to_punit").value;
+    var from_pvalue = parseFloat(document.getElementById("from_pvalue").value);
+    var to_pvalue;
+
+    // 转换为Pa
+    if (from_punit == "kPa") {
+      to_pvalue = from_pvalue * 1e3;
+    } else if (from_punit == "MPa") {
+      to_pvalue = from_pvalue * 1e6;
+    } else if (from_punit == "GPa") {
+      to_pvalue = from_pvalue * 1e9;
+    } else if (from_punit == "bar") {
+      to_pvalue = from_pvalue * 1e5;
+    } else if (from_punit == "atm") {
+      to_pvalue = from_pvalue * 101325;
+    } else {
+      to_pvalue = from_pvalue;
+    }
+    
+    // 转换为目标压力单位
+    if (to_punit == "kPa") {
+      to_pvalue /= 1e3;
+    } else if (to_punit == "MPa") {
+      to_pvalue /= 1e6;
+    } else if (to_punit == "GPa") {
+      to_pvalue /= 1e9;
+    } else if (to_punit == "bar") {
+      to_pvalue /= 1e5;
+    } else if (to_punit == "atm") {
+      to_pvalue /= 101325;
+    }
+    
+    if ((to_pvalue>0.001 && to_pvalue<10000) || (to_pvalue>-10000 && to_pvalue<-1e-3)){
+     document.getElementById("to_pvalue").value = to_pvalue.toFixed(12);
+    }else{
+    document.getElementById("to_pvalue").value = to_pvalue.toExponential(12);
+    }
+  }  
+
+
+  //能量单位
+  function energyconvert() {
+    var from_eunit = document.getElementById("from_eunit").value;
+    var to_eunit = document.getElementById("to_eunit").value;
+    var from_evalue = parseFloat(document.getElementById("from_evalue").value);
+    var to_evalue;
+
+    // 转换为J
+    if (from_eunit == "kJ") {
+      to_evalue = from_evalue * 1e3;
+    } else if (from_eunit == "MJ") {
+      to_evalue = from_evalue * 1e6;
+    } else if (from_eunit == "GJ") {
+      to_evalue = from_evalue * 1e9;
+    } else if (from_eunit == "eV") {
+      to_evalue = from_evalue * 1.6021774232052327e-19;
+    } else if (from_eunit == "cal") {
+      to_evalue = from_evalue * 4.184;
+    } else if (from_eunit == "kcal") {
+      to_evalue = from_evalue * 4184;
+    } else if (from_eunit == "N.m") {
+      to_evalue = from_evalue * 1.0;
+    } else if (from_eunit == "kJ/mol") {
+      to_evalue = from_evalue * 1000 / 6.022e23;
+    } else if (from_eunit == "kcal/mol") {
+      to_evalue = from_evalue * 4184 / 6.022e23;
+    } else {
+      to_evalue = from_evalue;
+    }
+    
+    // 转换为目标能量单位
+    if (to_eunit == "kJ") {
+      to_evalue /= 1e3;
+    } else if (to_eunit == "MJ") {
+      to_evalue /= 1e6;
+    } else if (to_eunit == "GJ") {
+      to_evalue /= 1e9;
+    } else if (to_eunit == "eV") {
+      to_evalue /= 1.6021774232052327e-19;
+    } else if (to_eunit == "cal") {
+      to_evalue /= 4.184;
+    } else if (to_eunit == "kcal") {
+      to_evalue /= 4184;
+    } else if (to_eunit == "N.m") {
+      to_evalue /= 1.0;
+    } else if (to_eunit == "kJ/mol") {
+      to_evalue *= 6.022e23/1000;
+    } else if (to_eunit == "kcal/mol") {
+      to_evalue *= 6.022e23/4184;
+    }
+    
+    if ((to_evalue>0.001 && to_evalue<10000) || (to_evalue>-10000 && to_evalue<-1e-3)){
+     document.getElementById("to_evalue").value = to_evalue.toFixed(12);
+    }else{
+    document.getElementById("to_evalue").value = to_evalue.toExponential(12);
+    }
+  }    
+
+
+  //质量单位
+  function massconvert() {
+    var from_munit = document.getElementById("from_munit").value;
+    var to_munit = document.getElementById("to_munit").value;
+    var from_mvalue = parseFloat(document.getElementById("from_mvalue").value);
+    var to_mvalue;
+
+    // 转换为g
+    if (from_munit == "mg") {
+      to_mvalue = from_mvalue * 1e-3;
+    } else if (from_munit == "g") {
+      to_mvalue = from_mvalue * 1;
+    } else if (from_munit == "kg") {
+      to_mvalue = from_mvalue * 1e3;
+    } else if (from_munit == "t") {
+      to_mvalue = from_mvalue * 1e6;
+    } else if (from_munit == "oz") {
+      to_mvalue = from_mvalue * 28.349523125;
+    } else if (from_munit == "lb") {
+      to_mvalue = from_mvalue * 453.59237;
+    } else if (from_munit == "jin") {
+      to_mvalue = from_mvalue * 500;
+    } else if (from_munit == "liang") {
+      to_mvalue = from_mvalue * 50;
+    } else if (from_munit == "qian") {
+      to_mvalue = from_mvalue * 5;
+    } else {
+      to_mvalue = from_mvalue;
+    }
+    
+    // 转换为目标质量单位
+    if (to_munit == "mg") {
+      to_mvalue /= 1e-3;
+    } else if (to_munit == "g") {
+      to_mvalue /= 1;
+    } else if (to_munit == "kg") {
+      to_mvalue /= 1e3;
+    } else if (to_munit == "t") {
+      to_mvalue /= 1e6;
+    } else if (to_munit == "oz") {
+      to_mvalue /= 28.349523125;
+    } else if (to_munit == "lb") {
+      to_mvalue /= 453.59237;
+    } else if (to_munit == "jin") {
+      to_mvalue /= 500;
+    } else if (to_munit == "liang") {
+      to_mvalue /= 50;
+    } else if (to_munit == "qian") {
+      to_mvalue /= 5;
+    }
+    
+    if ((to_mvalue>0.001 && to_mvalue<10000) || (to_mvalue>-10000 && to_mvalue<-1e-3)){
+     document.getElementById("to_mvalue").value = to_mvalue.toFixed(12);
+    }else{
+    document.getElementById("to_mvalue").value = to_mvalue.toExponential(12);
+    }
+  }  
+
+
+</script>
+
+
+
+
+<body>
+<h2>📏Length</h2>
+<label for="from_value">From:</label><input type="number"  id="from_value" value="0" onchange="lengthconvert()">
+<select id="from_unit" onchange="lengthconvert()" style="width: 100px;">
+  <option value="m">米 m</option>
+  <option value="cm">厘米 cm</option>
+  <option value="mm">毫米 mm</option>
+  <option value="μm">微米 μm</option>
+  <option value="nm">纳米 nm</option>
+  <option value="Å">埃米 Å</option>
+  <option value="pm">皮米 pm</option>
+  <option value="in">英寸 inches</option>
+  <option value="ft">英尺 feet</option>
+</select>
+<label for="to_value">  To:</label><input type="number" id="to_value" value="0" disabled>
+<select id="to_unit" onchange="lengthconvert()" style="width: 100px;">
+  <option value="m">米 m</option>
+  <option value="cm">厘米 cm</option>
+  <option value="mm">毫米 mm</option>
+  <option value="μm">微米 μm</option>
+  <option value="nm" selected>纳米 nm</option>
+  <option value="Å">埃米 Å</option>
+  <option value="pm">皮米 pm</option>
+  <option value="in">英寸 inches</option>
+  <option value="ft">英尺 feet</option>
+</select>
+
+<h2>⌚Time</h2>
+<label for="from_tvalue">From:</label><input type="number" id="from_tvalue" value="0" onchange="timeconvert()">
+<select id="from_tunit" onchange="timeconvert()" style="width: 100px;">
+  <option value="s">秒 s   </option>
+  <option value="ms">毫秒 ms</option>
+  <option value="μs">微秒 μs</option>
+  <option value="ns">纳秒 ns</option>
+  <option value="ps">皮秒 ps</option>
+  <option value="fs">飞秒 fs</option>
+  <option value="min">分钟 min</option>
+  <option value="hour">小时 hour</option>
+  <option value="day">天 day</option>
+</select>
+<label for="to_tvalue">  To:</label><input type="number" id="to_tvalue" value="0" disabled>
+<select id="to_tunit" onchange="timeconvert()" style="width: 100px;">
+  <option value="s">秒 s</option>
+  <option value="ms">毫秒 ms</option>
+  <option value="μs">微秒 μs</option>
+  <option value="ns selected">纳秒 ns</option>
+  <option value="ps">皮秒 ps</option>
+  <option value="fs">飞秒 fs</option>
+  <option value="min">分钟 min</option>
+  <option value="hour">小时 hour</option>
+  <option value="day">天 day</option>
+</select>
+
+
+
+<h2>🌡Temperature</h2>
+<label for="from_tevalue">From:</label><input type="number" id="from_tevalue" value="0" onchange="tempconvert()">
+<select id="from_teunit" onchange="tempconvert()" style="width: 100px;">
+  <option value="K">开氏度 K</option> 
+  <option value="°C">摄氏度 °C</option>
+  <option value="°F">华氏度 °F</option>
+  <option value="°R">兰氏度 °R</option>
+  <option value="°Re">列氏度 °Re</option>
+</select>
+<label for="to_tevalue">  To:</label><input type="number" id="to_tevalue" value="0" disabled>
+<select id="to_teunit" onchange="tempconvert()" style="width: 100px;">
+  <option value="K" selected>开氏度 K</option> 
+  <option value="°C">摄氏度 °C</option>
+  <option value="°F">华氏度 °F</option>
+  <option value="°R">兰氏度 °R</option>
+  <option value="°Re">列氏度 °Re</option>
+
+</select>
+
+
+
+<h2>🔳Pressure</h2>
+<label for="from_pvalue">From:</label><input type="number" id="from_pvalue" value="0" onchange="pressconvert()">
+<select id="from_punit" onchange="pressconvert()" style="width: 100px;">
+  <option value="Pa">帕斯卡 Pa</option> 
+  <option value="kPa">千帕 kPa</option>
+  <option value="MPa">兆帕 MPa</option>
+  <option value="GPa">吉帕 GPa</option>
+  <option value="bar">巴 bar</option>
+  <option value="atm">大气压 atm</option>
+</select>
+<label for="to_pvalue">  To:</label><input type="number" id="to_pvalue" value="0" disabled>
+<select id="to_punit" onchange="pressconvert()"  style="width: 100px;">
+  <option value="Pa selected">帕斯卡 Pa</option> 
+  <option value="kPa">千帕 kPa</option>
+  <option value="MPa">兆帕 MPa</option>
+  <option value="GPa">吉帕 GPa</option>
+  <option value="bar">巴 bar</option>
+  <option value="atm">大气压 atm</option>
+</select>
+
+
+<h2>🔥Energy</h2> 
+<label for="from_evalue">From:</label><input type="number" id="from_evalue" value="0" onchange="energyconvert()">
+<select id="from_eunit" onchange="energyconvert()"  style="width: 100px;">
+  <option value="J">焦耳 J</option> 
+  <option value="kJ">千焦 kJ</option>
+  <option value="MJ">兆焦 MJ</option>
+  <option value="GJ">吉焦 GJ</option>
+  <option value="eV">电子伏 eV</option>
+  <option value="cal">卡路里 cal</option>
+  <option value="kcal">千卡 kcal</option>
+  <option value="kJ/mol">kJ/mol</option>
+  <option value="kcal/mol">kcal/mol</option>
+  <option value="N.m">N.m</option>
+</select>
+<label for="to_evalue">  To:</label><input type="number" id="to_evalue" value="0" disabled>
+<select id="to_eunit" onchange="energyconvert()" style="width: 100px;">
+  <option value="J selected">焦耳 J</option> 
+  <option value="kJ">千焦 kJ</option>
+  <option value="MJ">兆焦 MJ</option>
+  <option value="GJ">吉焦 GJ</option>
+  <option value="eV">电子伏 eV</option>
+  <option value="cal">卡路里 cal</option>
+  <option value="kcal">千卡 kcal</option>
+  <option value="kJ/mol">kJ/mol</option>
+  <option value="kcal/mol">kcal/mol</option>
+  <option value="N.m">N.m</option>
+</select>
+
+
+
+
+<h2>➗Mass</h2>
+<label for="from_mvalue">From:</label><input type="number" id="from_mvalue" value="0" onchange="massconvert()">
+<select id="from_munit" onchange="massconvert()"  style="width: 100px;">
+  <option value="mg">毫克 mg</option> 
+  <option value="g">克 g</option>
+  <option value="kg">千克 kg</option>
+  <option value="t">吨 t</option>
+  <option value="jin">斤 jin</option>
+  <option value="liang">两 liang</option>
+  <option value="qian">钱 qian</option>
+  <option value="oz">盎司 oz</option>
+  <option value="lb">磅 lb</option>
+
+</select>
+<label for="to_mvalue">  To:</label><input type="number" id="to_mvalue" value="0" disabled>
+<select id="to_munit" onchange="massconvert()" style="width: 100px;">
+  <option value="mg">毫克 mg</option> 
+  <option value="g selected">克 g</option>
+  <option value="kg">千克 kg</option>
+  <option value="t">吨 t</option>
+  <option value="jin">斤 jin</option>
+  <option value="liang">两 liang</option>
+  <option value="qian">钱 qian</option>
+  <option value="oz">盎司 oz</option>
+  <option value="lb">磅 lb</option>
+
+</select>
+
+<p><a href="./energyConverter">More energy</a></p>
+</body>
+</section>
+    <!-- Tags and categories START -->
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">📏Length</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">⌚Time</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">🌡Temperature</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">🔳Pressure</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">🔥Energy</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">➗Mass</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/collections/Links/UnitsConverter.html';
+    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

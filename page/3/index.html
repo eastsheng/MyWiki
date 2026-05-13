@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/09/03/linux/Linux_error_redhat/">给red hat 6加了root密码后，也给普通用户加了sudo权限后，sudo yum update 输入root密码,显示Sorry, try again</a>
+      </h2>
+      <p class="article-date">2025年9月3日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Linux error" >
+    <span class="tag-code">Linux error</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+问题描述：
+ 给red hat 6加了root密码后，也给普通用户加了sudo权限后，sudo yum update 输入root密码,显示Sorry, try again
+
+解决方法：您好，遇到这个问题很常见，请不要担心。这个错误提示“Sorry, try again”几乎总是 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/09/03/linux/Linux_error_redhat/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/09/01/notes/Notes2025_B/">Notes-2025-B</a>
+      </h2>
+      <p class="article-date">2025年9月1日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          Notes 2025-B2025-11月为什么衬底的厚度不给出来？是不重要吗？衬底厚度在器件设计中有时不会明确给出，原因主要有以下几点：
+
+1️⃣ 对器件电气特性影响有限（在某些情况下）
+对于 HEMT、GaN LED 或 GaN HEMT 这类功率&#x2F;高速器件，主要关注的是：
+
+活 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/09/01/notes/Notes2025_B/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/05/02/softwares/comsol/COMSOL_sun_temperature/">太阳辐射下温度变化</a>
+      </h2>
+      <p class="article-date">2025年5月2日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#COMSOL" >
+    <span class="tag-code">COMSOL</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+模拟流程
+
+
+
+
+
+
+
+
+
+
+模拟结果
+
+
+参考[1] 有限元模拟太阳辐射下温度变化，COMSOL多物理场仿真，传热辐射制冷，表面热辐射
+
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/05/02/softwares/comsol/COMSOL_sun_temperature/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/04/27/softwares/lammps/error_lmp_from_ligpargen/">Lammps error汇总</a>
+      </h2>
+      <p class="article-date">2025年4月27日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Lammps error" >
+    <span class="tag-code">Lammps error</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+LigParGen获得的分子的lammpsdata，在最小化后，分子中原子发生重叠
+
+可能导致氧原子与氮原子重叠的几个常见原因
+缺少或错误的LJ参数如果 LigParGen 生成的 LAMMPS 数据文件中 “Pair Coeffs” 部分缺失，或者在读取时没有正确应用 pai ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/04/27/softwares/lammps/error_lmp_from_ligpargen/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/04/10/notes/MD_forcefield_tools/">盘点目前所有的MD模拟力场分配程序或者软件</a>
+      </h2>
+      <p class="article-date">2025年4月10日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#MD" >
+    <span class="tag-code">MD</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#力场分配" >
+    <span class="tag-code">力场分配</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#ChatGPT生成" >
+    <span class="tag-code">ChatGPT生成</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+ChatGPT:
+下面整理了一份较为全面的清单，介绍当前常用的分子动力学（MD）模拟中用于力场分配、拓扑构建和参数转换的程序或软件，包括它们的优缺点以及基本的使用方法。这些工具大致可以分为两大类：
+
+一类是集成在 MD 模拟软件中的前处理工具或图形用户界面
+另一类是专门用于拓扑构 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/04/10/notes/MD_forcefield_tools/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/04/09/codes/python/python_nuitka/">Nuitka 教程：将 Python 脚本编译为可执行文件（exe）</a>
+      </h2>
+      <p class="article-date">2025年4月9日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Tutorials" >
+    <span class="tag-code">Tutorials</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Nuitka" >
+    <span class="tag-code">Nuitka</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Python程序打包" >
+    <span class="tag-code">Python程序打包</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+ChatGPT写一个 nuitika 教程:
+当然可以！下面是一个面向初学者的 Nuitka 编译 Python 脚本为可执行文件（.exe 或 ELF） 的完整教程，适用于 Windows &#x2F; Linux &#x2F; macOS，帮助你从安装到打包走通全流程。
+
+� ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/04/09/codes/python/python_nuitka/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/03/12/softwares/lammps/LAMMPS_wall_lj/">LAMMPS 中 fix wall/lj126 的使用示例</a>
+      </h2>
+      <p class="article-date">2025年3月12日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#ChatGPT生成" >
+    <span class="tag-code">ChatGPT生成</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#LAMMPS" >
+    <span class="tag-code">LAMMPS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#wall/lj" >
+    <span class="tag-code">wall/lj</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+ ChatGPT生成
+
+LAMMPS 中 fix wall/lj126 ，用于在模拟系统中引入 Lennard-Jones 12-6 型势能的硬壁（壁面势）。下面是对该命令的详细解释：
+
+🧱 命令结构：1fix wall all wall/lj126 xlo EDGE 0.0 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/03/12/softwares/lammps/LAMMPS_wall_lj/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/01/05/softwares/alamode/alamode-3/">Alamode 计算Si导热</a>
+      </h2>
+      <p class="article-date">2025年1月5日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Alamode" >
+    <span class="tag-code">Alamode</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+测试环境：WSL2: Ubuntu 22.04
+
+
+在此之前已获得：DFSET_harmonic
+
+
+cp si_alm.in to si_alm2.in，修改如下内容：
+
+1234567891011121314&amp;general  PREFIX = si222_cubic  MOD ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/01/05/softwares/alamode/alamode-3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2025/01/01/notes/Notes2025_A/">Notes-2025-A</a>
+      </h2>
+      <p class="article-date">2025年1月1日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          Notes 2025-A2025-09月Reduced order model是什么？Reduced Order Model（ROM，降阶模型）是一种数学建模和计算方法，主要用于在保持系统主要动力学或物理特性的前提下，简化复杂系统的计算过程。
+换句话说：
+
+全阶模型（Full Order M ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2025/01/01/notes/Notes2025_A/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/12/15/softwares/lammps/ch2lmp/">ch2lmp tool</a>
+      </h2>
+      <p class="article-date">2024年12月15日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#LAMMPS" >
+    <span class="tag-code">LAMMPS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#ch2lmp" >
+    <span class="tag-code">ch2lmp</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+由chatGPT生成
+
+教程：使用 CHARMM 工具生成 LAMMPS 输入文件工具背景charmm2lammps.pl 和 lammps2pdb.pl 是由 Pieter J. in ‘t Veld 和 Paul Crozier 创建的工具，用于将 CHARMM 力场参数转 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/12/15/softwares/lammps/ch2lmp/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/MyWiki/page/2/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/MyWiki/page/4/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

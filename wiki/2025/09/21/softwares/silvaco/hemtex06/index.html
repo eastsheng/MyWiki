@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      栅压偏置下的交流参数 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>栅压偏置下的交流参数</h2>
+  <p class="post-date">2025-09-21 21:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="栅压偏置下的交流参数"><a href="#栅压偏置下的交流参数" class="headerlink" title="栅压偏置下的交流参数"></a>栅压偏置下的交流参数</h2><ul>
+<li>当结构加载到 <strong>BLAZE</strong> 后，在 1 MHz 的频率下施加一个小信号交流扰动，以计算交流参数（电导和电容）随 <strong>Vgs</strong> 的变化。这还允许用户利用低频近似，通过 <strong>TonyPlot</strong> 或 <strong>DeckBuild 的提取功能</strong>获得截止频率。电流、电压和交流参数被保存到日志文件中，而内部结构信息则保存在解文件中，对应的偏置条件为 <strong>Vgs&#x3D;0 V，Vds&#x3D;2 V</strong></li>
+<li>下一步是完整的频域交流仿真，此时 Y 参数矩阵（电导和电容）作为频率的函数被计算，频率范围从 <strong>10 Hz 到 50 GHz</strong>。这些结果会被存储到日志文件中。此外，如果在日志语句中指定了 <strong>s.param</strong>，则 S 参数也会被保存到文件中</li>
+<li>在仿真结束时，会通过 DeckBuild 的提取功能抽取以下参数：<ul>
+<li>最大栅源电容</li>
+<li>Vgs&#x3D;0 时的栅源电容</li>
+<li>最大截止频率</li>
+<li>Vgs&#x3D;0 时的截止频率</li>
+<li>最大交流电流增益（f&#x3D;1 MHz）</li>
+<li>Vgs&#x3D;0，f&#x3D;1 MHz 时的交流电流增益</li>
+</ul>
+</li>
+<li>使用 TonyPlot 显示的结果：<ul>
+<li>跨导随栅压的变化特性</li>
+<li>S 参数：S12 与 S21 的极坐标图</li>
+<li>S 参数：S11 与 S22 的 Smith 圆图</li>
+</ul>
+</li>
+</ul>
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (c) Silvaco Inc., 2019</span></span><br><span class="line">go devedit</span><br><span class="line">DevEdit <span class="attr">version</span>=<span class="string">&quot;2.1&quot;</span> library=<span class="string">&quot;1.15&quot;</span></span><br><span class="line"></span><br><span class="line">work.area <span class="attr">left</span>=<span class="number">0</span> top=-<span class="number">0.01</span> right=<span class="number">4.5</span> bottom=<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SILVACO Library V1.15</span></span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">1</span> mat=GaAs color=<span class="number">0</span>xffb2 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0 1,0 1.1,0 1.5,0.05 0,0.05 0,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">1</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">2</span>e+<span class="number">18</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">2</span> mat=GaAs color=<span class="number">0</span>xffb2 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;2.9,0 3.5,0 4.5,0 4.5,0.05 2.5,0.05 2.9,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">2</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">2</span>e+<span class="number">18</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">3</span> mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;4.5,0.05 4.5,0.08 0,0.08 0,0.05 1.5,0.05 1.75,0.05 2.25,0.05 2.5,0.05 4.5,0.05&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">3</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">3</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">5</span>e+<span class="number">15</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">4</span> name=delta mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;4.5,0.08 4.5,0.081 0,0.081 0,0.08 4.5,0.08&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">4</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">4</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">8</span>e+<span class="number">18</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">5</span> name=spacer mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.081 4.5,0.081 4.5,0.084 0,0.084 0,0.081&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">5</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">5</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">5</span>e+<span class="number">15</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">5</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">6</span> mat=InGaAs color=<span class="number">0</span>xffc8c8 pattern=<span class="number">0</span>xa \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.084 4.5,0.084 4.5,0.098 0,0.098 0,0.084&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">6</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.78</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">6</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">5</span>e+<span class="number">15</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">6</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">7</span> mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.098 4.5,0.098 4.5,0.101 0,0.101 0,0.098&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">7</span> imp=Acceptors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">150000000000000</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">7</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">7</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">8</span> mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.101 4.5,0.101 4.5,0.102 0,0.102 0,0.101&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">8</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">8</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">2</span>e+<span class="number">18</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">8</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">9</span> mat=AlGaAs color=<span class="number">0</span>xffff96 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.102 4.5,0.102 4.5,0.14 0,0.14 0,0.102&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">9</span> imp=Acceptors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">100000000000000</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> region.id=<span class="number">9</span> imp=<span class="string">&quot;Composition Fraction X&quot;</span> color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">0.22</span> ref.value=<span class="number">0</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">9</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">10</span> name=GaAs mat=AlGaAs color=<span class="number">0</span>xffb2 pattern=<span class="number">0</span>x9 \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0.14 4.5,0.14 4.5,0.5 0,0.5 0,0.14&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> region.id=<span class="number">10</span> imp=Acceptors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">0</span> y1=<span class="number">0</span> y2=<span class="number">0</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">100000000000000</span> ref.value=<span class="number">1000000000000</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=Constant \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=Constant</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">10</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">11</span> name=source mat=Gold elec.id=<span class="number">1</span> work.func=<span class="number">0</span> color=<span class="number">0</span>xe5ff pattern=<span class="number">0</span>xb \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0 0,-0.01 1,-0.01 1,0 0,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">11</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">12</span> name=drain mat=Gold elec.id=<span class="number">2</span> work.func=<span class="number">0</span> color=<span class="number">0</span>xe5ff pattern=<span class="number">0</span>xb \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;3.5,0 3.5,-0.01 4.5,-0.01 4.5,0 3.5,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">12</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">13</span> name=gate mat=Gold elec.id=<span class="number">3</span> work.func=<span class="number">0</span> color=<span class="number">0</span>xe5ff pattern=<span class="number">0</span>xb \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;1.75,0.05 1.75,0 2.25,0 2.25,0.05 1.75,0.05&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">13</span> default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">1</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">0</span> x2=<span class="number">1</span> y1=<span class="number">0</span> y2=<span class="number">0.08</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">5</span>e+<span class="number">21</span> ref.value=<span class="number">1</span>e+<span class="number">20</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=<span class="string">&quot;Gaussian (Dist)&quot;</span> conc.param.y=<span class="number">0.048</span> \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=<span class="string">&quot;Error Function&quot;</span> conc.param.x=<span class="number">0.02</span></span><br><span class="line">impurity <span class="attr">id</span>=<span class="number">2</span> imp=Donors color=<span class="number">0</span>x906000 \</span><br><span class="line">	<span class="attr">x1</span>=<span class="number">3.5</span> x2=<span class="number">4.5</span> y1=<span class="number">0</span> y2=<span class="number">0.08</span> \</span><br><span class="line">	<span class="attr">peak.value</span>=<span class="number">5</span>e+<span class="number">21</span> ref.value=<span class="number">1</span>e+<span class="number">20</span> comb.func=Multiply \</span><br><span class="line">	<span class="attr">rolloff.y</span>=both conc.func.y=<span class="string">&quot;Gaussian (Dist)&quot;</span> conc.param.y=<span class="number">0.048</span> \</span><br><span class="line">	<span class="attr">rolloff.x</span>=both conc.func.x=<span class="string">&quot;Error Function&quot;</span> conc.param.x=<span class="number">0.02</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set Meshing Parameters</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">0.1</span> width=<span class="number">0.25</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">5</span>e-<span class="number">05</span> line.straightening=<span class="number">1</span> align.points when=automatic</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">3000</span> max.height=<span class="number">1</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">1</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">5</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">6</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">7</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">8</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">9</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">10</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">11</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">12</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">13</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Perform mesh operations</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">Mesh <span class="attr">Mode</span>=MeshBuild</span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.068</span> y1=<span class="number">0.0123</span> x2=<span class="number">1.48</span> y2=<span class="number">0.038</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">2.492</span> y1=<span class="number">0.0106</span> x2=<span class="number">4.402</span> y2=<span class="number">0.044</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.106</span> y1=<span class="number">0.0089</span> x2=<span class="number">1.511</span> y2=<span class="number">0.0414</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">2.515</span> y1=<span class="number">0.0046</span> x2=<span class="number">4.357</span> y2=<span class="number">0.0405</span></span><br><span class="line">refine <span class="attr">mode</span>=x x1=<span class="number">1.571</span> y1=<span class="number">0.0568</span> x2=<span class="number">2.417</span> y2=<span class="number">0.334</span></span><br><span class="line">refine <span class="attr">mode</span>=x x1=<span class="number">0.084</span> y1=<span class="number">0.0063</span> x2=<span class="number">0.891</span> y2=<span class="number">0.3477</span></span><br><span class="line">refine <span class="attr">mode</span>=x x1=<span class="number">3.602</span> y1=<span class="number">0.0055</span> x2=<span class="number">4.41</span> y2=<span class="number">0.3383</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.038</span> y1=<span class="number">0.0414</span> x2=<span class="number">1.563</span> y2=<span class="number">0.0457</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">2.454</span> y1=<span class="number">0.0397</span> x2=<span class="number">4.448</span> y2=<span class="number">0.044</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.076</span> y1=<span class="number">0.0551</span> x2=<span class="number">4.455</span> y2=<span class="number">0.2887</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.031</span> y1=<span class="number">0.0524</span> x2=<span class="number">4.425</span> y2=<span class="number">0.074</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.068</span> y1=<span class="number">0.0516</span> x2=<span class="number">4.44</span> y2=<span class="number">0.0761</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.023</span> y1=<span class="number">0.0768</span> x2=<span class="number">4.463</span> y2=<span class="number">0.0787</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.084</span> y1=<span class="number">0.106</span> x2=<span class="number">4.47</span> y2=<span class="number">0.1829</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.061</span> y1=<span class="number">0.1044</span> x2=<span class="number">4.47</span> y2=<span class="number">0.1344</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.046</span> y1=<span class="number">0.1036</span> x2=<span class="number">4.433</span> y2=<span class="number">0.1053</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.061</span> y1=<span class="number">0.0862</span> x2=<span class="number">4.433</span> y2=<span class="number">0.0966</span></span><br><span class="line">refine <span class="attr">mode</span>=y x1=<span class="number">0.038</span> y1=<span class="number">0.0856</span> x2=<span class="number">4.433</span> y2=<span class="number">0.0961</span></span><br><span class="line">refine <span class="attr">mode</span>=x x1=<span class="number">1.556</span> y1=<span class="number">0.0499</span> x2=<span class="number">2.462</span> y2=<span class="number">0.2322</span></span><br><span class="line"></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span></span><br><span class="line"></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">3000</span> max.height=<span class="number">1</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">1</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">0.1</span> width=<span class="number">0.25</span></span><br><span class="line"></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">5</span>e-<span class="number">05</span> line.straightening=<span class="number">1</span> align.Points when=automatic</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">structure <span class="attr">outf</span>=hemtex06_A.str</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">go atlas</span><br><span class="line"></span><br><span class="line">title  GaAs-AlGaAs-InGaAs Pseudomorphic HEMT simulation</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the structure generated in DEVEDIT...</span></span><br><span class="line"><span class="comment"># While running in the deckbuild after DEVEDIT input deck the structure is</span></span><br><span class="line"><span class="comment"># transfered automatically: no mesh statement is needed, comment it out</span></span><br><span class="line"></span><br><span class="line">mesh <span class="attr">infile</span>=hemtex06_A.str master.in</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the workfunction for the gate contact</span></span><br><span class="line"></span><br><span class="line">contact     <span class="attr">name</span>=gate   workfunction=<span class="number">4.55</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define material parameters on material-by-material basis </span></span><br><span class="line"></span><br><span class="line">material <span class="attr">material</span>=GaAs   align=<span class="number">0.6</span></span><br><span class="line">material <span class="attr">material</span>=AlGaAs align=<span class="number">0.6</span> </span><br><span class="line">material <span class="attr">material</span>=InGaAs align=<span class="number">0.6</span> mun0=<span class="number">12000</span> mup0=<span class="number">2000</span> vsat=<span class="number">2</span>.e7 \</span><br><span class="line">                         <span class="attr">taun0</span>=<span class="number">1</span>.e-<span class="number">8</span> taup0=<span class="number">1</span>.e-<span class="number">8</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># Define physical models on material-by material basis</span></span><br><span class="line"><span class="comment"># consrh 浓度相关的srh</span></span><br><span class="line">models <span class="attr">material</span>=GaAs   consrh conmob fldmob print </span><br><span class="line">models <span class="attr">material</span>=AlGaAs consrh conmob fldmob print </span><br><span class="line">models <span class="attr">material</span>=InGaAs srh           fldmob print </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Include bands potential, and current flowlines into output </span></span><br><span class="line"><span class="comment"># flowlines：输出 电流流线 (current flow lines)，方便可视化电子/空穴的流动路径。</span></span><br><span class="line">output con.band val.band flowlines </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Initial solution</span></span><br><span class="line"></span><br><span class="line">solve    init </span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">06_1</span>.str</span><br><span class="line">tonyplot  hemtex06_1.str</span><br><span class="line"></span><br><span class="line"><span class="comment"># Apply a set of biases at the gate and drain</span></span><br><span class="line"></span><br><span class="line">solve <span class="attr">vgate</span> = <span class="number">0</span>    </span><br><span class="line">solve <span class="attr">vdrain</span> = <span class="number">0.1</span></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.25</span> vfinal=<span class="number">2.0</span> vstep=<span class="number">0.25</span> name=drain</span><br><span class="line"></span><br><span class="line"><span class="comment"># Frequency domain AC simulation. </span></span><br><span class="line"></span><br><span class="line">log <span class="attr">outf</span>=hemtex06_ac.log master gains s.params inport=gate outport=drain width=<span class="number">50</span></span><br><span class="line"><span class="comment"># 交流小信号分析</span></span><br><span class="line"><span class="comment"># 	 初始频率, 频率步长为 10, 频率按倍数（乘法）递增, 一共取 7 个频率点</span></span><br><span class="line">solve ac <span class="attr">freq</span>=<span class="number">10</span> fstep=<span class="number">10</span> mult.f nfstep=<span class="number">7</span></span><br><span class="line">solve ac <span class="attr">freq</span>=<span class="number">1</span>e9</span><br><span class="line">solve ac <span class="attr">freq</span>=<span class="number">2</span>e9 fstep=<span class="number">2</span>e9 nfstep=<span class="number">3</span></span><br><span class="line">solve ac <span class="attr">freq</span>=<span class="number">1</span>e10 fstep=<span class="number">5</span>e9 nfstep=<span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Displaying the results</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot S-parameters: S12 &amp; S21 in polar coordinates</span></span><br><span class="line">tonyplot hemtex06_ac.log -set hemtex06_2.set</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot S-parameters: S11 &amp; S22 in the form of the Smith Chart</span></span><br><span class="line"></span><br><span class="line">tonyplot  hemtex06_ac.log -set hemtex06_3.set</span><br><span class="line"></span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="理解输入代码"><a href="#理解输入代码" class="headerlink" title="理解输入代码"></a>理解输入代码</h3><ul>
+<li><pre><code>solve ac freq=10 fstep=10 mult.f nfstep=7
+</code></pre>
+<ul>
+<li><p>这条语句是 <strong>半导体器件模拟软件（例如 Silvaco Atlas）</strong> 里的求解命令，用于执行 <strong>交流小信号分析 (AC analysis)</strong></p>
+</li>
+<li><p>🔹 参数解析</p>
+<ul>
+<li><p><strong>solve ac</strong><br>表示进行交流小信号仿真（AC analysis），即在偏置点上加上一个小的交流扰动，计算器件的交流响应（如电导、电容、阻抗、s-参数等）。</p>
+</li>
+<li><p><strong>freq&#x3D;10</strong><br>初始频率设为 <strong>10 Hz</strong>。</p>
+</li>
+<li><p><strong>fstep&#x3D;10</strong><br>频率步长为 <strong>10</strong>。<br>这里要结合 <code>mult.f</code> 一起看，因为步长可能是线性增加，也可能是按倍数增加。</p>
+</li>
+<li><p><strong>mult.f</strong><br>表示 <strong>频率按倍数（乘法）递增</strong>。<br>也就是说，频率不是线性增加，而是指数式增长。</p>
+</li>
+<li><p><strong>nfstep&#x3D;7</strong><br>表示一共取 <strong>7 个频率点</strong>。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模拟结果"><a href="#模拟结果" class="headerlink" title="模拟结果"></a>模拟结果</h3><table>
+<thead>
+<tr>
+<th align="center">模型</th>
+<th align="center">S 参数：S12 与 S21 的极坐标图</th>
+<th align="center">S 参数：S11 与 S22 的 Smith 圆图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509212101922.png" alt="hemtex06"></td>
+<td align="center"><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509212102076.png" alt="hemtex06_1"></td>
+<td align="center"><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509212102514.png" alt="hemtex06_2"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/09/21/softwares/qe/QE_installation/">
+        <span class="nav-arrow">← </span>
+        
+          WSL2 Ubuntu 安装 QE
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/09/22/softwares/silvaco/thermalex01/">
+        
+          简单双晶体管热仿真
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%85%E5%8E%8B%E5%81%8F%E7%BD%AE%E4%B8%8B%E7%9A%84%E4%BA%A4%E6%B5%81%E5%8F%82%E6%95%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">栅压偏置下的交流参数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">理解输入代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">模拟结果</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/09/21/softwares/silvaco/hemtex06/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

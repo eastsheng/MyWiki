@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      GaAs 集成电路结构（GaAs IC Structure）热模拟 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>GaAs 集成电路结构（GaAs IC Structure）热模拟</h2>
+  <p class="post-date">2025-10-24 18:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="GaAs-集成电路结构（GaAs-IC-Structure）"><a href="#GaAs-集成电路结构（GaAs-IC-Structure）" class="headerlink" title="GaAs 集成电路结构（GaAs IC Structure）"></a><strong>GaAs 集成电路结构（GaAs IC Structure）</strong></h2><p><strong>要求：</strong> DevEdit 3D &#x2F; Thermal 3D<br><strong>最低版本：</strong> Atlas 5.28.1.R<br><strong>示例文件：</strong> thermalex04_plot0</p>
+<hr>
+<p>本示例对一个包含三个产热器件的 <strong>GaAs 集成电路结构</strong> 进行热模拟。</p>
+<p>该器件由三个定义为热源的 GaAs 区域组成，这些热源嵌入在 GaAs 衬底中。<br>在衬底底部施加了一个 <strong>热接触面（thermal contact）</strong>。<br>该结构通过 <strong>DevEdit 3D</strong> 构建，方法与本节前面的示例类似。</p>
+<p>在 <strong>Atlas</strong> 中，<code>material</code> 语句用于定义三个 GaAs 区域中两个区域的功率输出。<br>衬底的热导率被定义为 <strong>温度依赖型</strong>，根据参数 <code>tcon.power</code> 进行设置。</p>
+<p><strong>本示例旨在展示：</strong><br>邻近发热器件产生的热量如何影响一个<strong>不发热的晶体管</strong>。<br>第三个 GaAs 区域（定义为 <strong>region #4</strong>）本身没有热功率输出，<br>但解算结果文件将显示该器件<strong>通过热传导</strong>受到了来自邻近器件的加热。</p>
+<p>要加载并运行此示例：<br>在 <strong>DeckBuild</strong> 中选择 <strong>Load</strong> 按钮，将输入文件及支持文件复制到当前工作目录；<br>然后选择 <strong>Run</strong> 按钮运行该示例。</p>
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (c) Silvaco Inc., 2019</span></span><br><span class="line">go devedit</span><br><span class="line"></span><br><span class="line">DevEdit <span class="attr">version</span>=<span class="string">&quot;2.1&quot;</span> library=<span class="string">&quot;1.15&quot;</span></span><br><span class="line"></span><br><span class="line">work.area <span class="attr">left</span>=<span class="number">0</span> top=<span class="number">0</span> right=<span class="number">50</span> bottom=<span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  DevEdit V2.1 L1.15</span></span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">1</span> mat=GaAs color=<span class="number">0</span>xffcb pattern=<span class="number">0</span>x9 Z1=<span class="number">0</span> Z2=<span class="number">75</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,50 0,0 50,0 50,50 0,50&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">2</span> mat=GaAs color=<span class="number">0</span>xffcb pattern=<span class="number">0</span>x9 Z1=<span class="number">0</span> Z2=<span class="number">0.3</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;10,15 15,15 15,30 10,30 10,15&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">3</span> mat=GaAs color=<span class="number">0</span>xffcb pattern=<span class="number">0</span>x9 Z1=<span class="number">0</span> Z2=<span class="number">0.3</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;22.5,15 27.5,15 27.5,30 22.5,30 22.5,15&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">4</span> name=GaAs mat=GaAs color=<span class="number">0</span>xffcb pattern=<span class="number">0</span>x9 Z1=<span class="number">0</span> Z2=<span class="number">0.3</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;40,15 40,30 35,30 35,15 40,15&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"><span class="comment"># 该区域（region 5，即银基底）被指定为一个电极区域（electrode region），并且它的电极编号（electrode ID）为 1</span></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">5</span> name=substrate mat=Silver elec.id=<span class="number">1</span> work.func=<span class="number">0</span> color=<span class="number">0</span>x7fff pattern=<span class="number">0</span>xc Z1=<span class="number">75</span> Z2=<span class="number">76</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0 50,0 50,50 0,50 0,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">5</span> default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set Meshing Parameters</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">1000000</span> width=<span class="number">1000000</span></span><br><span class="line"><span class="comment"># 在生成边界网格时，保持边界线平滑（最大斜率变化 28°），相邻单元尺寸变化不超过 300 倍，允许 0.001 的微扰动来优化节点分布，并在自动模式下自动对齐点</span></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">0.001</span> line.straightening=<span class="number">1</span> align.points when=automatic</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span> z=<span class="number">0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">300</span> max.height=<span class="number">6</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">6</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">5</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Perform mesh operations</span></span><br><span class="line"><span class="comment"># 指定网格（Mesh）的生成模式， 采用张量积（Tensor Product）方式生成，也称为规则正交网格（Structured Orthogonal Mesh）。也即每个方向（x、y、z）单独划分网格点，程序自动把它们组合成规则的方格或立方体</span></span><br><span class="line">Mesh <span class="attr">Mode</span>=TensorProduct</span><br><span class="line"><span class="comment"># 对网格在 x 和 y 方向 上都进行局部加密，在物理变化剧烈的区域（例如结区、界面、金属接触处、PN 结、电流集中区）提高计算精度</span></span><br><span class="line">refine <span class="attr">mode</span>=both x1=<span class="number">6.3</span> y1=<span class="number">12.66</span> x2=<span class="number">43.13</span> y2=<span class="number">32.93</span></span><br><span class="line"><span class="comment"># 针对掺杂分布（impurity profile） 进行自动加密</span></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span> z=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">300</span> max.height=<span class="number">6</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">6</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"><span class="comment"># 在 z=0.3 平面 上生成平行于 XY 面的网格切片，网格间距为 0.15 μm。</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">0.3</span> spacing=<span class="number">0.15</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">15</span> spacing=<span class="number">5</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">75</span> spacing=<span class="number">10</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">max.spacing</span>=<span class="number">1000000</span> max.ratio=<span class="number">100</span></span><br><span class="line"></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">1000000</span> width=<span class="number">1000000</span></span><br><span class="line"><span class="comment"># 再次应用，为了在不同的网格生成和 refine 阶段都对边界条件和网格控制生效，保证整个三维模型的边界和网格质量。</span></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">0.001</span> line.straightening=<span class="number">1</span> align.Points when=automatic</span><br><span class="line"><span class="comment">#生成或构建网格的命令，把之前定义的网格参数实际生成网格结构，供模拟使用</span></span><br><span class="line">mesh meshbuild</span><br><span class="line"></span><br><span class="line">struct <span class="attr">outfile</span>=thermalex04.str</span><br><span class="line"></span><br><span class="line">go atlas</span><br><span class="line"></span><br><span class="line">mesh <span class="attr">infile</span>=thermalex04.str</span><br><span class="line"><span class="comment">#激活 热传导模型，需要考虑自加热或电-热耦合，可以结合 models 加上 srh, mobility, lattice 等其他物理模型</span></span><br><span class="line">models thermal</span><br><span class="line"></span><br><span class="line">material <span class="attr">reg</span>=<span class="number">1</span> tcon.power</span><br><span class="line">material <span class="attr">reg</span>=<span class="number">2</span> power=<span class="number">0.02</span></span><br><span class="line">material <span class="attr">reg</span>=<span class="number">3</span> power=<span class="number">0.03</span></span><br><span class="line"><span class="comment">#指定求解方法为 Newton 法（非线性求解器），用于求解热传导方程。</span></span><br><span class="line">method newton</span><br><span class="line"></span><br><span class="line">solve <span class="attr">t1</span>=<span class="number">300</span> outf=thermalex<span class="number">04_0</span>.str</span><br><span class="line">tonyplot3d thermalex04_0.str -set thermalex04_0.set</span><br><span class="line"></span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="理解代码"><a href="#理解代码" class="headerlink" title="理解代码"></a>理解代码</h3><blockquote>
+<p>见in文件</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">0.001</span> line.straightening=<span class="number">1</span> align.points when=automatic</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们来逐项解释其含义👇：</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>🧩 整体作用：</p>
+</blockquote>
+<blockquote>
+<p><code>bound.cond</code> 表示 <strong>边界条件与网格生成的约束设置（Boundary Conditions for Meshing）</strong>。<br>这些参数并不是物理边界条件（如电势或温度），而是 <strong>用于控制网格划分质量和平滑度的几何约束条件</strong>。</p>
+</blockquote>
+<blockquote>
+<p>这条语句主要是告诉 DevEdit 在<strong>自动生成网格时如何优化边界线和节点分布</strong>。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>🔍 各参数详解：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>!apply</code></td>
+<td>表示在调用 <code>bound.cond</code> 时不立即应用（可在后续命令或界面操作中启用）</td>
+<td>临时设定，用于后续自动网格生成</td>
+</tr>
+<tr>
+<td><code>max.slope=28</code></td>
+<td>最大允许边界斜率变化（单位：度）</td>
+<td>控制边界的“弯曲度”，防止网格线过度弯曲导致质量差</td>
+</tr>
+<tr>
+<td><code>max.ratio=300</code></td>
+<td>相邻网格单元的<strong>最大尺寸比</strong></td>
+<td>限制网格尺寸变化的剧烈程度，防止网格“跳变”太大</td>
+</tr>
+<tr>
+<td><code>rnd.unit=0.001</code></td>
+<td>随机扰动单位（mesh 随机化步长）</td>
+<td>用于避免节点重合或数值奇异性，保证网格稳定性</td>
+</tr>
+<tr>
+<td><code>line.straightening=1</code></td>
+<td>启用边界线平滑功能</td>
+<td>对弯曲边界进行线性化或优化，使边界更平滑</td>
+</tr>
+<tr>
+<td><code>align.points when=automatic</code></td>
+<td>当自动模式下对齐边界点</td>
+<td>自动对齐边界点以避免交叉、错位等问题</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>
+<p>💡 直观理解：</p>
+</blockquote>
+<blockquote>
+<p> 这条命令可以理解为：</p>
+</blockquote>
+<blockquote>
+<p>“在生成边界网格时，保持边界线平滑（最大斜率变化 28°），相邻单元尺寸变化不超过 300 倍，<br>允许 0.001 的微扰动来优化节点分布，并在自动模式下自动对齐点。”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> ✅ 一般用途：</p>
+</blockquote>
+<ul>
+<li>出现在 <code>DevEdit</code> 的几何或网格定义文件（<code>.de</code> 或 <code>.str</code>) 中；</li>
+<li>用于控制复杂结构（如多层材料、弯曲边界、微结构）的网格质量；</li>
+<li>尤其常见于 <strong>3D 热仿真（Thermal 3D）</strong> 或 <strong>功率器件结构</strong> 中，以避免网格扭曲。</li>
+</ul>
+<hr>
+<h3 id="模拟结果"><a href="#模拟结果" class="headerlink" title="模拟结果"></a>模拟结果</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202510241749195.png" alt="image-20251024174946337"></td>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202510241750963.png" alt="image-20251024175023405"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/10/24/softwares/silvaco/thermalex03/">
+        <span class="nav-arrow">← </span>
+        
+          温度依赖热导率的多层结构
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/10/24/softwares/silvaco/thermalex05/">
+        
+          温度步进的简单热仿真
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GaAs-%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E7%BB%93%E6%9E%84%EF%BC%88GaAs-IC-Structure%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">GaAs 集成电路结构（GaAs IC Structure）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">理解代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">模拟结果</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/10/24/softwares/silvaco/thermalex04/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

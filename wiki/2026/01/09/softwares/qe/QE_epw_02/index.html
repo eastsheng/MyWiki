@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      QE/epw学习——02 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>QE/epw学习——02</h2>
+  <p class="post-date">2026-01-09 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="碳化硅自洽计算"><a href="#碳化硅自洽计算" class="headerlink" title="碳化硅自洽计算"></a>碳化硅自洽计算</h2><h3 id="SCF-in-参数解释"><a href="#SCF-in-参数解释" class="headerlink" title="SCF.in 参数解释"></a>SCF.in 参数解释</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> &amp;control <span class="comment"># 控制参数</span></span><br><span class="line">    calculation     = <span class="string">&#x27;scf&#x27;</span> <span class="comment"># 自洽计算</span></span><br><span class="line">    prefix          = <span class="string">&#x27;sic&#x27;</span> <span class="comment"># 所有生成输出文件的前缀</span></span><br><span class="line">    restart_mode    = <span class="string">&#x27;from_scratch&#x27;</span> <span class="comment"># 每次都从头开始计算，不读取之前的中间结果</span></span><br><span class="line">    wf_collect      = .<span class="literal">false</span>. <span class="comment"># 不将所有k点的波函数收集到单个文件中</span></span><br><span class="line">    pseudo_dir      = <span class="string">&#x27;../pp&#x27;</span> <span class="comment"># 赝势文件的存放目录</span></span><br><span class="line">    outdir          = <span class="string">&#x27;./&#x27;</span> <span class="comment"># 临时文件和最终输出数据</span></span><br><span class="line">    tprnfor         = .<span class="literal">true</span>. <span class="comment"># 计算并输出原子受力</span></span><br><span class="line">    tstress         = .<span class="literal">true</span>. <span class="comment"># 计算并输出体系的应力张量</span></span><br><span class="line"> /</span><br><span class="line"> &amp;system <span class="comment"># 定义了所研究物理系统的基本性质</span></span><br><span class="line">    ibrav           = 2 <span class="comment"># 定义布拉维（brav）格子类型，2 代表面心立方晶格</span></span><br><span class="line">    celldm(1)       = 8.237 <span class="comment"># 以玻尔半径 (Bohr) 为单位的晶格常数 a</span></span><br><span class="line">    nat             = 2 <span class="comment"># 元胞内的原子总数为 2</span></span><br><span class="line">    ntyp            = 2 <span class="comment"># 原子种类数为 2（Si 和 C）</span></span><br><span class="line">    ecutwfc         = 60 <span class="comment"># 平面波基组的动能截断能，单位是Ry (Rydberg，约13.6 eV)。</span></span><br><span class="line">    occupations     = <span class="string">&#x27;smearing&#x27;</span> <span class="comment"># 采用展宽技术来处理电子占据</span></span><br><span class="line">    smearing        = <span class="string">&#x27;mp&#x27;</span> <span class="comment"># 具体使用 Methfessel-Paxton 一阶展宽方法</span></span><br><span class="line">    degauss         = 0.02 <span class="comment"># 展宽宽度 (单位：Ry)</span></span><br><span class="line">    nbnd            = 4 <span class="comment"># 计算能带的数量。</span></span><br><span class="line"> /</span><br><span class="line"> &amp;electrons <span class="comment"># 控制电子自洽迭代过程</span></span><br><span class="line">    diagonalization = <span class="string">&#x27;david&#x27;</span> <span class="comment"># 使用 Davidson 迭代方法对角化哈密顿量矩阵，是默认且高效的方法。</span></span><br><span class="line">    mixing_beta     = 0.7 <span class="comment"># 电荷密度混合参数，用于加速自洽收敛。0.7是一个常用值。</span></span><br><span class="line">    conv_thr        = 1.0d-10 <span class="comment"># 自洽迭代的能量收敛阈值。</span></span><br><span class="line"> /</span><br><span class="line">ATOMIC_SPECIES <span class="comment"># 原子信息：符号、原子质量 (amu)、对应的赝势文件名</span></span><br><span class="line">  Si  28.0855     Si.pz-vbc.UPF</span><br><span class="line">  C   12.01078    C.UPF</span><br><span class="line">ATOMIC_POSITIONS alat <span class="comment"># 以晶格常数 alat (即 celldm(1)) 为单位定义原子分数坐标。</span></span><br><span class="line">  Si  0.00  0.00  0.00</span><br><span class="line">  C   0.25  0.25  0.25</span><br><span class="line">K_POINTS automatic <span class="comment"># 采用自动生成的 k点网格 进行布里渊区积分</span></span><br><span class="line">8 8 8 1 1 1 <span class="comment"># 在倒易空间三个基矢方向上分别均匀取8个k点，即总共 8x8x8=512 个k点</span></span><br><span class="line"><span class="comment"># 网格的偏移量，1 1 1 表示无偏移</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="运行与输出"><a href="#运行与输出" class="headerlink" title="运行与输出"></a>运行与输出</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 pw.x -npool 4 &lt; scf.in &gt; scf.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>scf.out、sic.xml、.&#x2F;sci.save&#x2F;</p>
+</blockquote>
+<h2 id="声子计算"><a href="#声子计算" class="headerlink" title="声子计算"></a>声子计算</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">--</span><br><span class="line">&amp;inputph</span><br><span class="line">  prefix   = <span class="string">&#x27;sic&#x27;</span></span><br><span class="line">  fildvscf = <span class="string">&#x27;dvscf&#x27;</span> <span class="comment"># 指定输出文件，用于保存电子-声子耦合的微扰势,这个文件是后续进行 epw.x 计算（电子-声子耦合）所必需的直接输入文件之一</span></span><br><span class="line">  ldisp    = .<span class="literal">true</span> <span class="comment"># 计算一系列q点的声子，用于绘制声子色散关系或进行后续插值;如果设为 .false.，则只计算 nq1, nq2, nq3 确定的单个q点（通常是Γ点）</span></span><br><span class="line">  fildyn   = <span class="string">&#x27;sic.dyn&#x27;</span> <span class="comment"># 指定输出的动力学矩阵文件。该文件包含了所有计算q点的声子频率和模式信息，可用于绘制声子谱或作为其他后处理程序的输入。</span></span><br><span class="line">  nq1=6, <span class="comment"># 定义在倒易空间三个方向上均匀采样的q点网格密度,直接影响后续EPW计算中插值的精度</span></span><br><span class="line">  nq2=6,</span><br><span class="line">  nq3=6,</span><br><span class="line">  tr2_ph   =  1.0d-12 <span class="comment"># 声子自洽循环的收敛阈值</span></span><br><span class="line"> /</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 ph.x -npool 4 &lt; ph.in &gt; ph.out</span><br><span class="line">python pp.py</span><br><span class="line">diam <span class="comment"># prefix </span></span><br><span class="line">16 <span class="comment">#  number of irreducible q-points</span></span><br><span class="line"><span class="built_in">mv</span> sic.save ../epw</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="采用EPW计算声子线宽"><a href="#采用EPW计算声子线宽" class="headerlink" title="采用EPW计算声子线宽"></a>采用EPW计算声子线宽</h2><h3 id="自洽计算"><a href="#自洽计算" class="headerlink" title="自洽计算"></a>自洽计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../epw</span><br><span class="line">mpirun -np 4 pw.x -npool 4 &lt; scf.in &gt;&amp; scf.out</span><br></pre></td></tr></table></figure>
+
+<h3 id="非自洽计算"><a href="#非自洽计算" class="headerlink" title="非自洽计算"></a>非自洽计算</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> &amp;control</span><br><span class="line">    calculation     = &#x27;nscf&#x27; # 指明计算类型为非自洽</span><br><span class="line">    prefix          = &#x27;sic&#x27;</span><br><span class="line">    wf_collect      = .false.</span><br><span class="line">    pseudo_dir      = &#x27;../pp/&#x27;</span><br><span class="line">    outdir          = &#x27;./&#x27;</span><br><span class="line">    # 移除了 restart_mode, tprnfor, tstress：因为这些参数与结构优化/受力相关，在nscf中不需要。</span><br><span class="line"> /</span><br><span class="line"> &amp;system</span><br><span class="line">    ibrav           = <span class="number">2</span></span><br><span class="line">    celldm(<span class="number">1</span>)       = <span class="number">8</span>.<span class="number">237</span></span><br><span class="line">    nat             = <span class="number">2</span></span><br><span class="line">    ntyp            = <span class="number">2</span></span><br><span class="line">    ecutwfc         = <span class="number">60</span></span><br><span class="line">    occupations     = &#x27;smearing&#x27;</span><br><span class="line">    smearing        = &#x27;mp&#x27;</span><br><span class="line">    degauss         = <span class="number">0</span>.<span class="number">02</span></span><br><span class="line">    nbnd            = <span class="number">4</span></span><br><span class="line"> /</span><br><span class="line"> &amp;electrons</span><br><span class="line">    diagonalization = &#x27;david&#x27;</span><br><span class="line">    mixing_beta     = <span class="number">0</span>.<span class="number">7</span></span><br><span class="line">    conv_thr        = <span class="number">1</span>.<span class="number">0d</span>-<span class="number">10</span></span><br><span class="line"> /</span><br><span class="line">ATOMIC_SPECIES</span><br><span class="line">  Si  <span class="number">28</span>.<span class="number">0855</span>     Si.pz-vbc.UPF</span><br><span class="line">  C   <span class="number">12.01078</span>    C.UPF</span><br><span class="line">ATOMIC_POSITIONS alat</span><br><span class="line">  Si  <span class="number">0</span>.<span class="number">00</span>  <span class="number">0</span>.<span class="number">00</span>  <span class="number">0</span>.<span class="number">00</span></span><br><span class="line">  C   <span class="number">0</span>.<span class="number">25</span>  <span class="number">0</span>.<span class="number">25</span>  <span class="number">0</span>.<span class="number">25</span></span><br><span class="line">K_POINTS crystal # 从SCF的 automatic 网格变成了手动指定的、密集的 “crystal”坐标 网格列表。这是nscf计算的核心。</span><br><span class="line"><span class="number">216</span></span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.16666667</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.33333333</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.50000000</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.66666667</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.00000000</span>  <span class="number">0.83333333</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.00000000</span>  <span class="number">0.16666667</span>  <span class="number">0.00000000</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.66666667</span>  <span class="number">0.83333333</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.00000000</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.16666667</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.33333333</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.50000000</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.66666667</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line">  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">0.83333333</span>  <span class="number">4</span>.<span class="number">629630</span>e-<span class="number">03</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">4</span> pw.x -npool <span class="number">4</span> &lt; nscf.in &gt;&amp; nscf.out</span><br></pre></td></tr></table></figure>
+
+<h3 id="计算声子线宽"><a href="#计算声子线宽" class="headerlink" title="计算声子线宽"></a>计算声子线宽</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">4</span> epw.x -npool <span class="number">4</span> &lt; epw.in &gt; epw.out</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">--</span><br><span class="line">&amp;inputepw</span><br><span class="line">  <span class="attr">prefix</span>      = &#x27;sic&#x27;</span><br><span class="line">  amass(<span class="number">1</span>)    = <span class="number">28.0855</span></span><br><span class="line">  amass(<span class="number">2</span>)    = <span class="number">12.0107</span></span><br><span class="line">  <span class="attr">outdir</span>      = &#x27;./&#x27;</span><br><span class="line"></span><br><span class="line">  <span class="attr">elph</span>        = .<span class="literal">true</span>. <span class="comment"># 开启电子-声子耦合计算</span></span><br><span class="line">  <span class="attr">epbwrite</span>    = .<span class="literal">true</span>. <span class="comment"># 表示写入耦合矩阵元</span></span><br><span class="line">  <span class="attr">epbread</span>     = .<span class="literal">false</span>. <span class="comment"># 不读取（从头计算）</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">epwwrite</span>    = .<span class="literal">true</span>.</span><br><span class="line">  <span class="attr">epwread</span>     = .<span class="literal">false</span>.</span><br><span class="line"></span><br><span class="line">  <span class="attr">nbndsub</span>     =  <span class="number">4</span> <span class="comment"># 参与Wannier化的能带数</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wannierize</span>  = .<span class="literal">true</span>. <span class="comment"># 启用Wannier函数构造</span></span><br><span class="line">  <span class="attr">num_iter</span>    = <span class="number">300</span> <span class="comment"># 极大局域化算法的迭代步数</span></span><br><span class="line">  <span class="attr">iprint</span>      = <span class="number">2</span> <span class="comment"># </span></span><br><span class="line">  <span class="attr">dis_win_max</span> = <span class="number">12</span> <span class="comment"># disentanglement 能量窗口的上限（单位：eV）</span></span><br><span class="line">  <span class="attr">dis_froz_max=</span> <span class="number">7</span> <span class="comment">#  frozen 能量窗口的上限（单位：eV）</span></span><br><span class="line">  proj(<span class="number">1</span>)     = &#x27;Si:sp3&#x27; <span class="comment"># 初始投影猜测。这里指定用Si原子的sp³杂化轨道作为Wannier函数的初始猜测。</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">iverbosity</span>  = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">elecselfen</span>  = .<span class="literal">false</span>. <span class="comment"># 不计算电子自能（涉及电子的线宽和寿命重整化）</span></span><br><span class="line">  <span class="attr">phonselfen</span>  = .<span class="literal">true</span>. <span class="comment"># 计算声子自能（由于电子-声子耦合导致的声子线宽或寿命）。这是分析声子热导率被电子散射影响的关键。</span></span><br><span class="line">  <span class="attr">a2f</span>         = .<span class="literal">true</span>. <span class="comment"># 计算Eliashberg谱函数 α²F(ω) 和电子-声子耦合强度 λ。这是分析超导转变温度、载流子迁移率等问题的核心量。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="attr">fsthick</span>     = <span class="number">2.80284905</span> ! eV <span class="comment"># 费米面附近能量窗口的厚度。</span></span><br><span class="line">  <span class="attr">temps</span>       = <span class="number">200</span> ! K <span class="comment"># 计算时所采用的温度。会影响费米-狄拉克分布函数。</span></span><br><span class="line">  <span class="attr">degaussw</span>    = <span class="number">0.1</span> ! eV <span class="comment"># 高斯展宽，用于处理狄拉克δ函数，数值技巧。</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">dvscf_dir</span>   = &#x27;../phonons/save&#x27;</span><br><span class="line">  <span class="attr">filukk</span>      = &#x27;./SiC.ukk&#x27;</span><br><span class="line">  </span><br><span class="line">  <span class="attr">nk1</span>         = <span class="number">6</span></span><br><span class="line">  <span class="attr">nk2</span>         = <span class="number">6</span></span><br><span class="line">  <span class="attr">nk3</span>         = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nq1</span>         = <span class="number">6</span></span><br><span class="line">  <span class="attr">nq2</span>         = <span class="number">6</span></span><br><span class="line">  <span class="attr">nq3</span>         = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nqf1</span>         = <span class="number">20</span></span><br><span class="line">  <span class="attr">nqf2</span>         = <span class="number">20</span></span><br><span class="line">  <span class="attr">nqf3</span>         = <span class="number">20</span></span><br><span class="line">  <span class="attr">nkf1</span>         = <span class="number">10</span></span><br><span class="line">  <span class="attr">nkf2</span>         = <span class="number">10</span></span><br><span class="line">  <span class="attr">nkf3</span>         = <span class="number">10</span></span><br><span class="line"> /</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#QE" >
+    <span class="tag-code">QE</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#epw" >
+    <span class="tag-code">epw</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/01/09/softwares/qe/QE_epw_01/">
+        <span class="nav-arrow">← </span>
+        
+          QE/epw学习——01
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/01/11/softwares/silvaco/powerex03/">
+        
+          具有晶格加热的 IGBT 瞬态闩锁效应模拟
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%A2%B3%E5%8C%96%E7%A1%85%E8%87%AA%E6%B4%BD%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">碳化硅自洽计算</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SCF-in-%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">SCF.in 参数解释</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%90%E8%A1%8C%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">运行与输出</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A3%B0%E5%AD%90%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">声子计算</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%87%87%E7%94%A8EPW%E8%AE%A1%E7%AE%97%E5%A3%B0%E5%AD%90%E7%BA%BF%E5%AE%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">采用EPW计算声子线宽</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%87%AA%E6%B4%BD%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">自洽计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9D%9E%E8%87%AA%E6%B4%BD%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">非自洽计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%A1%E7%AE%97%E5%A3%B0%E5%AD%90%E7%BA%BF%E5%AE%BD"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">计算声子线宽</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/01/09/softwares/qe/QE_epw_02/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

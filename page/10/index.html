@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/04/02/notes/DailyNotes2022/">日常笔记2022</a>
+      </h2>
+      <p class="article-date">2022年4月2日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Daily Notes" >
+    <span class="tag-code">Daily Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+Office路径
+Office默认安装在C盘；安装前把C盘Office的安装路径指向D盘，然后再安装Office就可以了12mklink /J &quot;C:\Program Files\Microsoft Office&quot; &quot;D:\Program Files ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/04/02/notes/DailyNotes2022/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/04/02/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-01/">C&C++笔记-01</a>
+      </h2>
+      <p class="article-date">2022年4月2日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#C&amp;C++" >
+    <span class="tag-code">C&amp;C++</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#C&amp;C++初级" >
+    <span class="tag-code">C&amp;C++初级</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+推荐书籍Visual Studio 2021运行C++，返回值被忽略:“scanf”
+方法1：把scanf改成scanf_s,如果又报其他错误的话，使用方法2；
+方法2：右键项目文件 —— 属性 —— 配置属性 ——C/C++——常规——SDL检查改为否即可
+参考https:// ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/04/02/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-01/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/04/02/softwares/fluent/Fluent_%E7%AC%94%E8%AE%B0/">FLUENT 笔记-01</a>
+      </h2>
+      <p class="article-date">2022年4月2日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#FLUENT" >
+    <span class="tag-code">FLUENT</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+FLUENT 入门
+ 学习Fluent
+
+几何建模（Design Modeler、SolidWorks、）
+前处理：绘制网格（Gamit、ICEM、ANSYS MESH）
+仿真计算：仿真计算（Fluent）
+后处理：处理结果（Fluent、Tecplot、CFDpost）
+
+
+
+ ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/04/02/softwares/fluent/Fluent_%E7%AC%94%E8%AE%B0/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/20/softwares/lammps/someSkills/">LAMMPS 小技巧</a>
+      </h2>
+      <p class="article-date">2022年3月20日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Lammps" >
+    <span class="tag-code">Lammps</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#LAMMPS 小技巧" >
+    <span class="tag-code">LAMMPS 小技巧</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          PyLAT用法
+PyLAT
+
+1python /home/chends/softwares/PyLAT/PyLAT.py -g -d --mol Saturate --mol Aromatic --mol Resin --mol Asphaltene --mol water --nummol ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/20/softwares/lammps/someSkills/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/14/codes/python/Anaconda/">Python Anaconda</a>
+      </h2>
+      <p class="article-date">2022年3月14日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Anaconda" >
+    <span class="tag-code">Anaconda</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+CondaLinux Anconda安装
+Anaconda官网下载或使用wget下显
+
+1234mkdir /Anaconda;cd /Anaconda;wget https://repo.continuum.io/archive/Anaconda3-5.3.1-Linux-x8 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/14/codes/python/Anaconda/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/09/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-00/">C&C++初级</a>
+      </h2>
+      <p class="article-date">2022年3月9日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#C&amp;C++" >
+    <span class="tag-code">C&amp;C++</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#C&amp;C++初级" >
+    <span class="tag-code">C&amp;C++初级</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+推荐书籍C
+《C程序设计语言（第二版.新版）》
+《明解C语言》柴田望洋编著
+《C程序设计》（第三版）谭浩强
+
+C++
+《C++语言程序设计教程习题解答与实验指导》杨进才
+《Accelerated C++中文版》Andrew Koenig ,中国电力出版社
+《C++Primer ( ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/09/codes/C&C++/C&C++%E7%AC%94%E8%AE%B0-00/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/08/git/Git_command/">Git—Command</a>
+      </h2>
+      <p class="article-date">2022年3月8日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Git—Command" >
+    <span class="tag-code">Git—Command</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+Git Command提交123456git add filepath #添加某个文件到暂存区git add . #添加所有文件到暂存区git checkout -- filename #撤销工作区改动git reset HEAD filename #清空暂存区git commi ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/08/git/Git_command/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/08/linux/Linux_command/">Linux—Command</a>
+      </h2>
+      <p class="article-date">2022年3月8日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Linux—Command" >
+    <span class="tag-code">Linux—Command</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+空间
+查看空间大小：df -h；
+查看该目录下文件大小：du -sh *
+查看该目录大小：du -hs 目录名
+查看内存使用情况：free -m
+删除残余的配置文件:
+
+12sudo apt-get remove &lt;package-name&gt; #删除软件包sudo a ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/08/linux/Linux_command/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/08/linux/Linux_error/">Linux—error</a>
+      </h2>
+      <p class="article-date">2022年3月8日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Linux error" >
+    <span class="tag-code">Linux error</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+1. CUDA driver version is insufficient for CUDA runtime version
+NVIDIA GPU的驱动程序版本查看命令：nvidia-smi
+CUDA runtime version（运行时版本）是在python中安装的cuda ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/08/linux/Linux_error/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2022/03/08/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Windows10—Linux—子系统</a>
+      </h2>
+      <p class="article-date">2022年3月8日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Windows10 Linux 子系统" >
+    <span class="tag-code">Windows10 Linux 子系统</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+Windows10子系统–Linux步骤 1 - 启用适用于 Linux 的 Windows 子系统
+需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在 Windows 上安装 Linux 分发。
+
+以管理员身份打开 PowerShell（“开始”菜 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2022/03/08/linux/Linux_%E5%AD%90%E7%B3%BB%E7%BB%9F/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/MyWiki/page/9/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/MyWiki/page/11/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

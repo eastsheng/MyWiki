@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/07/03/codes/python/Tutorials/">Python Tutorials收藏</a>
+      </h2>
+      <p class="article-date">2021年7月3日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Tutorials" >
+    <span class="tag-code">Tutorials</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+教程
+
+
+名称
+链接
+
+
+
+Real Python Tutorials
+https://realpython.com/
+
+
+Python进阶
+https://eastlakeside.gitbook.io/interpy-zh/#yuan-shu-zuo-zhe
+
+
+PyQt E ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/07/03/codes/python/Tutorials/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/06/28/codes/fortran/tutorial/">Fortran Tutorial</a>
+      </h2>
+      <p class="article-date">2021年6月28日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Fortran" >
+    <span class="tag-code">Fortran</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Tutorial" >
+    <span class="tag-code">Tutorial</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+Fortran教程
+Fortran教程
+Fortran资源
+科学计算的语言Fortran
+Fortran论坛
+Fortran实例——并行程序
+GNU Fortran 4
+
+call Fortran from C:参考：https://sites.google.com/site/k ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/06/28/codes/fortran/tutorial/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/06/28/codes/markdown/basics/">Markdown Tutorial</a>
+      </h2>
+      <p class="article-date">2021年6月28日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Tutorial" >
+    <span class="tag-code">Tutorial</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Markdown" >
+    <span class="tag-code">Markdown</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+流程图graph LR
+A[直接法]==>B(高斯Gauss消元)
+A==>C(矩阵分解)
+B==>D(有限次运算求出精确解)
+C==>D(有限次运算求出精确解)
+style A fill:#ffff
+
+graph TD
+    A[稠油]-->B[吸附];
+    A-->C[ ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/06/28/codes/markdown/basics/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/06/28/codes/matlab/matlab-1/">Matlab Tutorial-1</a>
+      </h2>
+      <p class="article-date">2021年6月28日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Tutorial" >
+    <span class="tag-code">Tutorial</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Matlab" >
+    <span class="tag-code">Matlab</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+基本常用代码MATLAB
+fopen &amp; fgetl &amp; fclose
+打开文件 tsunamis.txt 并获取文件标识符。
+1fileID = fopen(&#x27;tsunamis.txt&#x27;);
+
+将 fileID 传递给 fgetl 函数以从文 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/06/28/codes/matlab/matlab-1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/06/13/codes/python/vscode_extemsions_mklink/">给VScode extensions添加软链</a>
+      </h2>
+      <p class="article-date">2021年6月13日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#mklink" >
+    <span class="tag-code">mklink</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#extensions" >
+    <span class="tag-code">extensions</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+[toc]
+1. 目的
+目的是要把C盘的一个文件夹链接到E盘，
+这里我是为了要把VScode安装的插件位置从C盘link到E盘，在PowerShell（因为使用cmd的话没有权限）使用命令如下：
+
+1mklink /d &quot;C:\Users\yourcomputername\.vs ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/06/13/codes/python/vscode_extemsions_mklink/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/04/28/notes/PaperReadNote202104/">论文笔记2021-04</a>
+      </h2>
+      <p class="article-date">2021年4月28日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#2021-04" >
+    <span class="tag-code">2021-04</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+黏度（viscosity）：黏度也可以称为粘度，是指流体对流动所表现的阻力。
+
+当流体 (气体或液体) 流动时， 一部分在另一部分上面流动时， 就受到阻力， 这是流体的内摩擦力。
+要使流体流动就需在流体流动方向上加一切线力以对抗阻力作用。
+黏度系数(简称黏度)η的物理意义是：  ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/04/28/notes/PaperReadNote202104/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/04/11/codes/python/python_code_study/">Python 常用基本命令</a>
+      </h2>
+      <p class="article-date">2021年4月11日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Code" >
+    <span class="tag-code">Code</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+1. 操作文件（夹）等
+
+例如：获得当前文件所在目录
+
+
+123import ospath=os.getcwd()print(path)
+
+
+在当前文件夹生成文件夹，以时间命名
+
+
+123folder=time.strftime(r&quot;%Y-%m-%d_%H-%M-%S& ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/04/11/codes/python/python_code_study/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/03/04/notes/EnglishNote2021/">Learning English Notes 2021</a>
+      </h2>
+      <p class="article-date">2021年3月4日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+Phrase&#x2F;sentence notes
+2021-122021-11
+preliminary adj. 初步的，预备的 n. 初步行动，准备工作；预赛，预试
+
+prelimi 预备考试
+Although we have a preliminary understan ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/03/04/notes/EnglishNote2021/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/02/28/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">虚拟机扩容</a>
+      </h2>
+      <p class="article-date">2021年2月28日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Linux学习" >
+    <span class="tag-code">Linux学习</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#虚拟机扩容" >
+    <span class="tag-code">虚拟机扩容</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Ubuntu" >
+    <span class="tag-code">Ubuntu</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          1. VMware虚拟机虚拟硬盘扩展
+
+虚拟机关机情况下，打开虚拟机&gt;设置&gt;硬盘；
+点击右侧磁盘实用工具下方扩展，输入磁盘大小，点击扩展;
+注意，谨慎操作，貌似虚拟盘只能增大，往小了改的话好像很困难，我是实现不了;
+耐心等……
+
+2. 在Ubuntu虚拟机中分配内存
+
+
+目前只是 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/02/28/linux/linux_%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%89%A9%E5%AE%B9/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2021/01/22/notes/DailyNotes2021/">日常笔记2021</a>
+      </h2>
+      <p class="article-date">2021年1月22日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Daily Notes" >
+    <span class="tag-code">Daily Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+1. 只要使用键盘Materials Studio就卡住
+解决方法：在微软拼音输入法的“中”(或“英”)字上右击鼠标，然后点“设置”，在弹出界面中点“常规”，在新界面中向下滚动动底部，有个兼容性，打开兼容性，然后就OK了。
+参考链接:[1] http://muchong.com/ ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2021/01/22/notes/DailyNotes2021/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/MyWiki/page/12/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/MyWiki/page/14/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

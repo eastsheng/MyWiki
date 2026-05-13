@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/10/21/softwares/deepmd/DeepMD_3/">DP-GEN生成深度学习模型：methane</a>
+      </h2>
+      <p class="article-date">2024年10月21日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#DeepMD" >
+    <span class="tag-code">DeepMD</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#DP-GEN" >
+    <span class="tag-code">DP-GEN</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+DP-GEN （Deep Generator）是一个用Python编写的软件，精心设计用于生成基于原子间势能和力场的深度学习模型，依赖于DeepMD-kit。
+
+下载并安装
+Python &gt;&#x3D; 3.9
+
+
+pip install
+12conda activate ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/10/21/softwares/deepmd/DeepMD_3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/10/10/softwares/deepmd/DeepMD_2/">一个DeepMD完整例子：water</a>
+      </h2>
+      <p class="article-date">2024年10月10日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#DeepMD" >
+    <span class="tag-code">DeepMD</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+小白，按教程写的，不一定对，但是，是一个完成的流程
+
+数据准备执行VASP计算获取OUTCAR1234mkdir 00.datacd 00.datamkdir VASPcd VASP
+
+
+创建VASP模拟输入数据
+
+
+INCAR
+123456789101112131415161 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/10/10/softwares/deepmd/DeepMD_2/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/09/24/softwares/deepmd/DeepMD_1/">DeepMD 快速上手</a>
+      </h2>
+      <p class="article-date">2024年9月24日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#DeepMD" >
+    <span class="tag-code">DeepMD</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#DPTI" >
+    <span class="tag-code">DPTI</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+将以气态甲烷分子为例，详细介绍Deep Potential (DP)模型的训练和应用。
+
+手动安装cpu版123wget https://github.com/deepmodeling/deepmd-kit/releases/download/v3.0.0b3/deepmd-k ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/09/24/softwares/deepmd/DeepMD_1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/09/24/softwares/gpumd/gpumd_1/">GPUMD安装与测试</a>
+      </h2>
+      <p class="article-date">2024年9月24日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#GPUMD" >
+    <span class="tag-code">GPUMD</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+
+WSL2 Ubuntu 22.04测试
+
+安装123456789101112131415161718192021222324# 测试显卡nvidia-smi# 需要 CUDA Toolkit（nvcc）which nvccnvcc --version# 若没有，则安装sudo  ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/09/24/softwares/gpumd/gpumd_1/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/09/24/softwares/gpumd/gpumd_2/">GPUMD NEP训练例子</a>
+      </h2>
+      <p class="article-date">2024年9月24日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#GPUMD" >
+    <span class="tag-code">GPUMD</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#NEP" >
+    <span class="tag-code">NEP</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+输入文件准备
+nep.in，指定用于训练NEP的超参数
+
+12345678910111213type          2 Te Pb # number of atom types and list of chemical speciesversion       4       ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/09/24/softwares/gpumd/gpumd_2/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/09/12/notes/MachineLearning/MLPython-4/">GBDT 和 GBR 的区别</a>
+      </h2>
+      <p class="article-date">2024年9月12日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#机器学习" >
+    <span class="tag-code">机器学习</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+GBDT（Gradient Boosting Decision Tree）和GBR（Gradient Boosting Regression） 都属于梯度提升（Gradient Boosting）框架，但它们之间的区别主要体现在应用场景和具体模型结构上。以下是详细的对比分析：
+1 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/09/12/notes/MachineLearning/MLPython-4/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/07/01/notes/PaperReadNote2024_B/">学习笔记2024-B</a>
+      </h2>
+      <p class="article-date">2024年7月1日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+Paper Notes 20242024-12月Light Gradient Boosting Machine (LightGBM) 是什么模型Light Gradient Boosting Machine (LightGBM) 是一种高效的梯度提升树（Gradient Boosting  ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/07/01/notes/PaperReadNote2024_B/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/07/01/notes/PaperReadNote2025/">学习笔记2025</a>
+      </h2>
+      <p class="article-date">2024年7月1日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+Paper Notes 20252025-07月COMSOL的参数化模拟是什么意思，怎么实施?在 COMSOL 中，“参数化模拟”指的是：
+
+将模型中的关键物理量（几何尺寸、材料参数、边界条件、源项等）设置为变量（参数），然后对这些参数进行系统性扫描或优化仿真，以观察其对结果的影响。
+
+
+ ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/07/01/notes/PaperReadNote2025/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/06/22/codes/python/python_skills_3/">Python奇淫巧计-3</a>
+      </h2>
+      <p class="article-date">2024年6月22日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Python" >
+    <span class="tag-code">Python</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#Tutorials" >
+    <span class="tag-code">Tutorials</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+给字体添加红色框ax.text()12345678910111213import matplotlib.pyplot as plt# 创建一个简单的图fig, ax = plt.subplots()ax.plot([1, 2, 3], [4, 5, 6])# 添加带有红色边框的文 ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/06/22/codes/python/python_skills_3/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/MyWiki/wiki/2024/06/17/softwares/lammps/phase_boundary_lammps/">LAMMPS计算相图</a>
+      </h2>
+      <p class="article-date">2024年6月17日</p>
+      
+        
+  <a href="/MyWiki/MyWiki/tags#Lammps" >
+    <span class="tag-code">Lammps</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#相图" >
+    <span class="tag-code">相图</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          [toc]
+dCCI method
+dynamic Clausius–Clapeyron integration (dCCI) 
+
+
+dCCI方法的优点在于，它使用相对较短的单次非平衡模拟，提供了跨越大范围热力学状态的共存曲线
+
+安装配置环境Clone DCCI库到src文件12cd ./l ...
+        
+      </div>
+      <a class="more" href="/MyWiki/wiki/2024/06/17/softwares/lammps/phase_boundary_lammps/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/MyWiki/page/3/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/MyWiki/page/5/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

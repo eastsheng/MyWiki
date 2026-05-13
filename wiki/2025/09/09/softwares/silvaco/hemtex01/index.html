@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      AlGaAs/GaAs HEMT TCAD 模拟：使用 C-Interpreter 开发用户模型 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>AlGaAs/GaAs HEMT TCAD 模拟：使用 C-Interpreter 开发用户模型</h2>
+  <p class="post-date">2025-09-09 21:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="AlGaAs-x2F-GaAs-HEMT-TCAD-模拟：使用-C-Interpreter-开发用户模型"><a href="#AlGaAs-x2F-GaAs-HEMT-TCAD-模拟：使用-C-Interpreter-开发用户模型" class="headerlink" title="AlGaAs&#x2F;GaAs HEMT TCAD 模拟：使用 C-Interpreter 开发用户模型"></a>AlGaAs&#x2F;GaAs HEMT TCAD 模拟：使用 C-Interpreter 开发用户模型</h2><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509092111317.png" alt="TCAD器件模拟流程"></p>
+<h3 id="模拟示例简介"><a href="#模拟示例简介" class="headerlink" title="模拟示例简介"></a>模拟示例简介</h3><ul>
+<li>本示例演示了如何使用 <code>C-Interpreter</code> 来开发用户自定义的材料参数和模型，用于 <code>AlGaAs/GaAs HEMT</code>（高电子迁移率晶体管）的模拟。</li>
+<li>在这里，解释器被用来原型化一个与组分相关的 AlGaAs 电子迁移率模型。</li>
+<li>该解释函数与 AlGaAs 的内置模型对应，两者可进行对比。</li>
+<li>示例由以下部分组成：<ol>
+<li>使用 Atlas 语法构建设备和网格</li>
+<li>指定材料区域，包括一个渐变的 AlGaAs 异质结</li>
+<li>定义电极、掺杂、材料和模型参数</li>
+<li>使用 C-Interpreter 函数描述与组分和掺杂相关的电子迁移率</li>
+<li>模拟 Id-Vds 特性</li>
+<li>使用 TonyPlot 显示结果</li>
+</ol>
+</li>
+</ul>
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (c) Silvaco Inc., 2019</span></span><br><span class="line">go atlas</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 1: 网格</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">mesh</span><br><span class="line"></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.0</span> spac=<span class="number">0.2</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.4</span> spac=<span class="number">0.2</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.9</span> spac=<span class="number">0.07</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">1.6</span> spac=<span class="number">0.07</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">2.1</span> spac=<span class="number">0.2</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">2.5</span> spac=<span class="number">0.2</span></span><br><span class="line"></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.0</span>   spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.055</span> spac=<span class="number">0.001</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.058</span> spac=<span class="number">0.001</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.3</span>   spac=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 2: 定义了 AlGaAs 和 GaAs 区域</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">1</span>   material=GaAs y.min=<span class="number">0.055</span></span><br><span class="line"><span class="comment"># 定义了 Al 组分比例（x.composition=0.3）和渐变距离</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">2</span>  material=AlGaAs y.max=<span class="number">0.055</span> x.composition=<span class="number">0.3</span> grad.<span class="number">3</span>=<span class="number">0.002</span></span><br><span class="line"><span class="comment"># 定义源漏栅极</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">1</span>  name=source x.min=<span class="number">0.0</span> x.max=<span class="number">0.4</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">2</span>  name=gate   x.min=<span class="number">0.9</span> x.max=<span class="number">1.6</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">3</span>  name=drain  x.min=<span class="number">2.1</span> x.max=<span class="number">2.5</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line"><span class="comment"># 掺杂定义</span></span><br><span class="line">doping     uniform <span class="attr">y.max</span>=<span class="number">0.0530</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping     uniform <span class="attr">y.min</span>=<span class="number">0.0530</span> n.type conc=<span class="number">1</span>.e14</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 3: 指定一些不同于默认值的材料参数</span></span><br><span class="line"><span class="comment"># 电子和空穴的 SRH 寿命（俘获时间）,低场电子迁移率作为组分和掺杂的函数，将通过 C-Interpreter 进行计算</span></span><br><span class="line">material <span class="attr">taun0</span>=<span class="number">1</span>.e-<span class="number">9</span> taup0=<span class="number">1</span>.e-<span class="number">9</span> f.conmun=hemtex01_interp.lib</span><br><span class="line">material <span class="attr">align</span>=<span class="number">0.6</span> <span class="comment"># 指定了能带对齐参数,取值 0.6 表示 60% 的能级台阶分配到导带</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定以下模型：带隙收缩、场依赖迁移率和 Shockley-Read-Hall 复合。# 在这里通过参数 carriers=2 指定了双载流子输运模型</span></span><br><span class="line">model    bgn fldmob srh</span><br><span class="line"><span class="comment"># 设定肖特基栅电极的功函数</span></span><br><span class="line">contact <span class="attr">name</span>=gate workfun=<span class="number">4.87</span> </span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 4: 求解过程从零偏压或热力学平衡下的初始解开始,通过 TonyPlot 显示</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">solve init</span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">01_0</span>.str</span><br><span class="line">tonyplot  hemtex01_0.str -set hemtex01_0.set</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 5: Bias gate</span></span><br><span class="line"><span class="comment"># 指定了联合 Gummel-Newton 迭代法</span></span><br><span class="line">method gummel  newton trap <span class="attr">itlimit</span>=<span class="number">20</span> maxtrap=<span class="number">6</span>  </span><br><span class="line"><span class="comment"># 在输出结构文件中包含更多参数：导带和价带电势，以及电子和空穴迁移率。</span></span><br><span class="line">output con.band val.band e.mobility h.mobility</span><br><span class="line"><span class="comment"># 将栅压升高到 -0.6 V</span></span><br><span class="line">solve <span class="attr">vgate</span>=-<span class="number">0.0</span> vstep=-<span class="number">0.2</span> name=gate vfinal=-<span class="number">0.6</span> </span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SECTION 6: Drain ramp</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">log <span class="attr">outf</span>=hemtex01.log master </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.05</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.10</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.125</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.15</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.20</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.30</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">method  newton trap <span class="attr">itlim</span>=<span class="number">20</span> maxtrap=<span class="number">6</span> </span><br><span class="line"><span class="comment"># 通过扫描漏极电压至 5 V 来计算 Id-Vd 特性</span></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.50</span>  vstep=<span class="number">0.25</span> name=drain vfinal=<span class="number">5.0</span></span><br><span class="line">tonyplot hemtex01.log -set hemtex01.set</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">quit</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="理解输入代码"><a href="#理解输入代码" class="headerlink" title="理解输入代码"></a>理解输入代码</h3><ul>
+<li><p><code>go atlas</code>：<strong>调用&#x2F;启动 <code>ATLAS </code>器件模拟器</strong>，并让输入文件中的命令交由 <code>ATLAS </code>来执行。</p>
+<blockquote>
+<p>用于构建器件结构、指定物理模型、设定边界条件和执行仿真，如果是别的模块，比如 <code>go victorydevice</code>、<code>go mixedmode</code>，就会进入对应的模拟器环境。</p>
+</blockquote>
+</li>
+<li><p><code>mesh</code>：声明开始定义网格。<code>ATLAS </code>使用矩形网格（2D 时是 x-y 网格，3D 时还会有 z）。</p>
+</li>
+<li><p><code>x.mesh loc=0.0 spac=0.2</code>：表示在 <strong>x 方向</strong>上定义网格分布， <code>loc</code>为<strong>坐标位置</strong>，<code>spac=...</code> 是该位置附近的 <strong>网格间距（步长）</strong>，用于控制网格的密度。</p>
+</li>
+<li><p><code>region     num=1   material=GaAs y.min=0.055</code>：是 <strong>ATLAS 中定义器件区域 (region)</strong> 的语句，定义了 <strong>区域 1</strong>，材料为 <strong>GaAs</strong>，其在 y 方向上的下边界位于 <strong>y &#x3D; 0.055 μm</strong> 处</p>
+<ul>
+<li><strong>region</strong>表示定义一个新的区域（通常是一个矩形区域，除非指定更多边界参数）。每个器件都由一个或多个 <strong>region</strong> 组成，不同 region 可以有不同的材料和掺杂。</li>
+<li><strong>num&#x3D;1</strong>，给这个区域编号为 1，编号在后续的 <code>doping</code>、<code>electrode</code>、<code>material</code> 等语句中会用到，用来指明作用在哪个区域。</li>
+<li><strong>material&#x3D;GaAs</strong>，定义该区域的材料为 **砷化镓 (Gallium Arsenide)**。这会告诉 ATLAS：在这个区域里用 GaAs 的材料参数（禁带宽度、介电常数、迁移率等），当然用户也可以再用 <code>material</code> 语句修改默认参数。</li>
+<li><strong>y.min&#x3D;0.055</strong>，定义了该区域的 <strong>下边界 y 坐标 &#x3D; 0.055</strong>。其他边界（如 <code>y.max</code>, <code>x.min</code>, <code>x.max</code>）如果没有在同一行给出，会在别的 <code>region</code> 语句或默认值中定义。</li>
+</ul>
+</li>
+<li><p><code>region num=2 material=AlGaAs y.max=0.055 x.composition=0.3 grad.3=0.002</code>：定义了 ATLAS 中的 **第二个区域 (region)**，区域材料设为 **AlGaAs (砷化铝镓)**，是一种常见的 III-V 族化合物半导体。</p>
+<ul>
+<li><strong>x.composition&#x3D;0.3</strong><ul>
+<li>表示在这个区域里，Al 组分 &#x3D; 0.3 → 即 <strong>Al₀.₃Ga₀.₇As</strong>。ATLAS 会根据组分比例自动插值材料参数（如带隙、电子迁移率等）。</li>
+</ul>
+</li>
+<li><strong>grad.3&#x3D;0.002</strong><ul>
+<li><code>grad.n</code> 表示沿某个方向的 **成分渐变 (grading)**。</li>
+<li>这里的 <code>grad.3</code> 一般指 <strong>y 方向 (第 3 个坐标)</strong> 的组分渐变速率。</li>
+<li>值为 <code>0.002</code>，意味着 Al 组分在 y 方向上按 0.002&#x2F;μm 的速率逐渐变化。</li>
+<li>换句话说：不是一个 abrupt（突变）的异质结，而是一个 <strong>graded heterojunction</strong>，更接近真实外延工艺（减少界面缺陷，缓解应变）。</li>
+<li>在 <strong>Silvaco ATLAS</strong> 里，<code>grad.n</code> 中的数字对应坐标轴方向：<ul>
+<li><strong>grad.1</strong> → 沿 <strong>x 方向</strong> 的成分渐变（composition grading in x-axis）</li>
+<li><strong>grad.2</strong> → 沿 <strong>z 方向</strong> 的成分渐变（composition grading in z-axis，主要用于 3D 模拟）</li>
+<li><strong>grad.3</strong> → 沿 <strong>y 方向</strong> 的成分渐变（composition grading in y-axis）</li>
+<li>在 <strong>2D 模式</strong> 下，它默认平面是 <strong>x-y</strong>，而把 y 定义为 <strong>第 3 个坐标</strong>。在 <strong>3D 模式</strong> 下，它的坐标顺序是 **(x, z, y)**，也就是：<ul>
+<li>x：横向</li>
+<li>z：纵向（等效于 2D 的宽度方向）</li>
+<li>y：垂直方向（通常是厚度&#x2F;外延生长方向）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>elec num=1 name=source x.min=0.0 x.max=0.4 y.min=0.0 y.max=0.0</code>：在 <strong>ATLAS 中定义器件电极</strong></p>
+<ul>
+<li><p><strong>elec</strong></p>
+<ul>
+<li>表示定义一个电极（electrode），用于施加偏压或作为边界条件。</li>
+</ul>
+</li>
+<li><p><strong>num&#x3D;1</strong></p>
+<ul>
+<li>电极编号为 1，方便在后续设置偏压、功函数或接触模型时引用。</li>
+</ul>
+</li>
+<li><p><strong>name&#x3D;source</strong>( &#x2F; gate &#x2F; drain)</p>
+<ul>
+<li>电极名称为 <code>source</code>，表示 HEMT 或 MOSFET 的 <strong>源极</strong>。</li>
+</ul>
+</li>
+<li><p><strong>x.min&#x3D;0.0 x.max&#x3D;0.4</strong></p>
+<ul>
+<li>电极在 <strong>x 方向</strong>的范围从 0.0 μm 到 0.4 μm。</li>
+</ul>
+</li>
+<li><p><strong>y.min&#x3D;0.0 y.max&#x3D;0.0</strong></p>
+<ul>
+<li><p>电极在 <strong>y 方向</strong>的位置，通常 y&#x3D;0 表示底部接触（或者是二维截面下的线性电极）。</p>
+</li>
+<li><p><code>y.min=y.max</code> 表示电极厚度在模拟中被视为零厚度线（2D 平面模拟常用）。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>doping uniform y.max=0.0530 n.type conc=1.e18</code>：定义掺杂 (doping)</p>
+<ul>
+<li><strong>doping</strong><ul>
+<li>定义一个掺杂区域，指定类型、浓度以及空间范围。</li>
+</ul>
+</li>
+<li><strong>uniform</strong><ul>
+<li>表示该区域内掺杂浓度 <strong>均匀</strong>，不是梯度掺杂。</li>
+</ul>
+</li>
+<li><strong>y.max&#x3D;0.0530</strong><ul>
+<li>掺杂区域的 <strong>上边界</strong>为 y &#x3D; 0.053 μm。</li>
+<li>如果没有指定 y.min，ATLAS 会默认从区域的下边界（通常为 y&#x3D;0 或器件最底部）开始。</li>
+</ul>
+</li>
+<li><strong>n.type</strong><ul>
+<li>表示这是 <strong>n 型掺杂</strong>（电子为主要载流子）。</li>
+</ul>
+</li>
+<li><strong>conc&#x3D;1.e18</strong><ul>
+<li>掺杂浓度为 1 × 10¹⁸ cm⁻³。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>material taun0=1.e-9 taup0=1.e-9 f.conmun=hemtex01_interp.lib</code>： <strong>材料定义 (material)</strong> 语句</p>
+<ul>
+<li><p>进入 <strong>材料参数定义语句</strong>。在 ATLAS 中，每个 <code>region</code> 都有一个材料（如 Si, GaAs, AlGaAs），这里可以通过 <code>material</code> 修改默认参数，或调用用户自定义模型。</p>
+</li>
+<li><p><strong>taun0&#x3D;1.e-9</strong></p>
+<ul>
+<li><strong>电子 SRH 寿命（Shockley-Read-Hall electron lifetime）</strong>。</li>
+<li><code>taun0</code> 定义电子在陷阱复合过程中的平均寿命。</li>
+<li>这里是 <strong>1×10⁻⁹ 秒 (1 ns)</strong> → 表明材料中缺陷比较多，电子复合很快。</li>
+</ul>
+</li>
+<li><p><strong>taup0&#x3D;1.e-9</strong></p>
+<ul>
+<li><strong>空穴 SRH 寿命</strong>，与 <code>taun0</code> 对应。</li>
+<li>同样设为 <strong>1 ns</strong>，说明电子和空穴在该材料里复合速率对称。</li>
+</ul>
+<p>👉 这两个参数会直接影响载流子寿命、复合速率，以及电流-电压特性。</p>
+</li>
+<li><p><strong>f.conmun&#x3D;hemtex01_interp.lib</strong></p>
+<ul>
+<li><code>f.conmun</code> 表示调用一个 <strong>C-Interpreter 用户自定义函数</strong> 来计算 **低场电子迁移率 (mobility)**。</li>
+<li><code>hemtex01_interp.lib</code> 是外部库文件名，里面写了用户定义的函数（通常是 <code>.c</code> 文件编译成的 <code>.lib</code> 或者 ATLAS 内部可解释的 C 脚本）。</li>
+<li>用途：替代内置迁移率模型，让迁移率依赖于 <strong>合金成分 (composition)</strong> 和 **掺杂浓度 (doping)**。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>material align=0.6 </code> ： 设置 <strong>能带对齐 (band alignment)</strong> 参数</p>
+<ul>
+<li><code>align</code> 用来指定 <strong>导带&#x2F;价带对齐的方式</strong>，主要影响 <strong>异质结 (heterojunction)</strong> 的能带偏移。</li>
+<li>当两个不同材料（如 GaAs &#x2F; AlGaAs）相接时，导带和价带的能带差异需要人工指定，否则模拟器只会用默认值。</li>
+<li><code>align=&lt;value&gt;</code> 定义了能带对齐系数：<ul>
+<li><code>0.0</code> → 全部能带偏移分配到 **价带 (valence band offset)**。</li>
+<li><code>1.0</code> → 全部能带偏移分配到 **导带 (conduction band offset)**。</li>
+<li><code>0.6</code> → 表示 <strong>60% 的能带偏移给导带，40% 给价带</strong>。</li>
+</ul>
+</li>
+<li>不同的异质结器件（HBT、HEMT、量子阱）对导带&#x2F;价带偏移比例非常敏感。</li>
+<li>比如 HEMT 更关心 <strong>二维电子气 (2DEG)</strong> 的导带深度，align 值直接决定电子气的密度。</li>
+</ul>
+</li>
+<li><p><code>model    bgn fldmob srh</code>：定义 **物理模型 (physical models)**，告诉模拟器在计算载流子输运时需要考虑哪些物理效应。在模拟器件时，考虑 **带隙收缩 (bgn)<strong>、</strong>电场依赖迁移率 (fldmob)**、以及 <strong>缺陷复合 (srh)</strong> 三个物理效应</p>
+<ul>
+<li><strong><code>bgn</code></strong><ul>
+<li>表示启用 <strong>带隙收缩 (Band Gap Narrowing)</strong> 模型。</li>
+<li>在高掺杂半导体里，杂质能级与载流子相互作用会导致带隙变窄，影响载流子浓度与器件电流。</li>
+<li>常见于重掺杂的 GaAs、Si、Ge 等器件模拟。</li>
+</ul>
+</li>
+<li><strong><code>fldmob</code></strong><ul>
+<li>表示启用 **电场依赖迁移率模型 (Field-dependent Mobility)**。</li>
+<li>在高电场区域，载流子迁移率会下降（速度饱和效应）。</li>
+<li>这个模型对 MOSFET、HEMT 等高场器件尤为重要。</li>
+</ul>
+</li>
+<li><strong><code>srh</code></strong><ul>
+<li>表示启用 <strong>Shockley–Read–Hall (SRH) 复合模型</strong>。</li>
+<li>描述缺陷（陷阱态）引起的复合过程。</li>
+<li>对亚阈值电流、载流子寿命、暗电流分析非常重要。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>contact name=gate workfun=4.87 </code>：是 <strong>Silvaco ATLAS</strong> 里对 <strong>电极 (contact)</strong> 的定义。</p>
+<ul>
+<li><strong><code>contact</code></strong><ul>
+<li>定义一个接触电极。</li>
+</ul>
+</li>
+<li><strong><code>name=gate</code></strong><ul>
+<li>说明这是 <strong>栅极 (gate)</strong> 电极。</li>
+<li>名字要和你之前在 <code>elec</code> 语句里定义的 <code>name=gate</code> 保持一致。</li>
+</ul>
+</li>
+<li><strong><code>workfun=4.87</code></strong><ul>
+<li>指定这个接触的 <strong>功函数 (Work Function)</strong> 值，单位是 **电子伏特 (eV)**。</li>
+<li>功函数是金属栅电极决定器件势垒高度的重要参数。</li>
+<li>这里设为 <strong>4.87 eV</strong>，相当于一个典型金属（如 Pt、Au 或特定栅材料）的功函数。</li>
+<li><strong>源极 (source)、漏极 (drain)</strong> 一般用欧姆接触（低电阻接触），不需要指定功函数。</li>
+<li><strong>栅极 (gate)</strong> 往往是 <strong>肖特基接触</strong>，需要定义功函数来决定栅控特性（阈值电压、势垒高度）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>solve init</code>：</p>
+<ul>
+<li><p><strong>求解器在零偏（热力学平衡）下的初始稳态解</strong>。</p>
+<blockquote>
+<p>换言之：计算器件在没有外加偏压时的电势、能带、载流子分布、费米能级等场量。这通常作为后续偏压扫描（如栅压、漏压）或瞬态仿真的初始解。</p>
+</blockquote>
+</li>
+<li><p>提供<strong>收敛且物理合理的初始条件</strong>，避免直接在非平衡下求解时发散或收敛困难。</p>
+</li>
+<li><p>用于检查器件结构、掺杂和边界条件是否正确（可用 TonyPlot 查看初始分布）。</p>
+</li>
+</ul>
+</li>
+<li><p><code>save outf=hemtex01_0.str</code>：</p>
+<ul>
+<li>告诉 ATLAS 把当前计算得到的器件解（电势分布、载流子浓度、能带等所有场量）保存下来</li>
+<li>保存的结构文件（后缀通常用 <code>.str</code>，表示 <em>structure</em>）。这个文件包含了<strong>网格信息 + 区域定义 + 掺杂分布 + 当前求解得到的物理量</strong>。</li>
+<li>用途：<ol>
+<li><strong>断点续算</strong><ul>
+<li>后续可以用 <code>load inf=hemtex01_0.str</code> 把这一步的解作为新的起点，继续加偏压或跑瞬态仿真。</li>
+<li>避免从头 <code>solve init</code> 再迭代，提高效率。</li>
+</ul>
+</li>
+<li><strong>结果可视化</strong><ul>
+<li>可以用 <strong>TonyPlot</strong> 打开 <code>.str</code> 文件，查看能带、电势、载流子分布等。</li>
+</ul>
+</li>
+<li><strong>流程衔接</strong><ul>
+<li>大型仿真常常分步执行，每个关键步骤保存一次结构文件，方便在不同偏压点之间切换。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><code>tonyplot  hemtex01_0.str -set hemtex01_0.set</code>：</p>
+<ul>
+<li><p><strong><code>tonyplot</code></strong><br> Silvaco 提供的图形化后处理工具，用于查看 <code>.str</code>、<code>.log</code>、<code>.plt</code> 等文件里的仿真结果。</p>
+</li>
+<li><p><strong><code>hemtex01_0.str</code></strong></p>
+<blockquote>
+<p>之前用 <code>save outf=hemtex01_0.str</code> 保存的器件结构文件，里面包含网格、材料区域、掺杂分布以及当时的解（电势、能带、载流子浓度等）。</p>
+</blockquote>
+</li>
+<li><p><strong><code>-set hemtex01_0.set</code></strong></p>
+<blockquote>
+<p>指定 TonyPlot 的<strong>显示设置文件</strong>，后缀 <code>.set</code>，里面保存了绘图习惯（例如：要显示的物理量、电势还是能带、配色方案、坐标范围等）。</p>
+</blockquote>
+<ul>
+<li>如果不加 <code>-set</code>，TonyPlot 默认用系统设置显示。</li>
+<li>用 <code>.set</code> 文件可以快速复现之前的图像风格。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>method gummel  newton trap itlimit=20 maxtrap=6  </code></p>
+<ul>
+<li><strong>Silvaco ATLAS</strong> 中指定数值求解方法的设置命令</li>
+<li><strong><code>method</code></strong><br> 声明接下来的参数是选择仿真中使用的数值求解算法。</li>
+<li><strong><code>gummel</code></strong><br> 表示采用 <strong>Gummel 迭代法</strong>：逐方程（如泊松方程、电子、空穴连续性方程）分步求解，通常在初始条件或低偏压时更稳定。</li>
+<li><strong><code>newton</code></strong><br> 表示采用 <strong>牛顿迭代法</strong>（Newton-Raphson）：一次性联立所有方程，收敛速度快，但对初值敏感。<ul>
+<li><code>gummel</code> 和 <code>newton</code> 同时指定时，ATLAS 会先用 Gummel 迭代获得一个稳定初解，再切换到 Newton 提高收敛速度。</li>
+</ul>
+</li>
+<li><strong><code>trap</code></strong><br> 表示启用 <strong>陷阱态相关方程</strong>（如深能级陷阱或缺陷的占据方程），在存在 SRH 复合中心或缺陷态时必须打开。</li>
+<li><strong><code>itlimit=20</code></strong><br> 每个偏置点的最大迭代次数上限，超过 20 次仍未收敛就报错&#x2F;停止。</li>
+<li><strong><code>maxtrap=6</code></strong><br> 陷阱态方程最大允许的耦合数（即最多考虑 6 个陷阱能级）。</li>
+</ul>
+</li>
+<li><p><code>output con.band val.band e.mobility h.mobility</code></p>
+<ul>
+<li>是 <strong>Silvaco ATLAS</strong> 中的输出设置，指定在仿真结果文件（<code>.str</code> 结构文件或日志文件）里要保存和显示哪些物理量</li>
+<li><strong><code>output</code></strong><br> 声明接下来列出的物理量需要被保存，以便后续在 <strong>TonyPlot</strong> 或其他工具中可视化</li>
+<li><strong><code>con.band</code></strong><br> 输出 <strong>导带能量分布</strong> (Conduction band edge)。<br> 可以用于观察能带弯曲、势垒高度、量子阱深度等。</li>
+<li><strong><code>val.band</code></strong><br> 输出 <strong>价带能量分布</strong> (Valence band edge)。<br> 与 <code>con.band</code> 一起可以显示带隙、带偏移、能带对齐等情况。</li>
+<li><strong><code>e.mobility</code></strong><br> 输出 <strong>电子迁移率分布</strong> (Electron mobility)。<br> 能看到不同区域因掺杂、应力或材料组成导致的迁移率变化。</li>
+<li><strong><code>h.mobility</code></strong><br> 输出 <strong>空穴迁移率分布</strong> (Hole mobility)。<br> 与 <code>e.mobility</code> 对应，用于分析空穴在器件中的传输特性</li>
+</ul>
+</li>
+<li><p><code>solve vgate=-0.0 vstep=-0.2 name=gate vfinal=-0.6 </code></p>
+<ul>
+<li><p><strong>Silvaco ATLAS</strong> 中的电偏压扫描设置，用来控制在 <strong>gate 电极</strong> 上逐步施加电压，并求解对应的器件特性。</p>
+</li>
+<li><p><strong><code>solve</code></strong><br> 指令关键字，告诉 ATLAS 要进行一次或一系列偏置求解。</p>
+</li>
+<li><p><strong><code>vgate=-0.0</code></strong><br> 设置 <strong>初始的栅极电压</strong>为 -0.0 V（也就是 0 V）。</p>
+<blockquote>
+<p>注意：这里写成 <code>-0.0</code> 和 <code>0.0</code> 在数值上没有区别。</p>
+</blockquote>
+</li>
+<li><p><strong><code>vstep=-0.2</code></strong><br> 电压扫描步长，每次在 gate 上递减 0.2 V。</p>
+</li>
+<li><p><strong><code>name=gate</code></strong><br> 指定要施加电压的电极名称是 <strong>gate</strong>，对应前面 <code>elec name=gate</code> 定义的接触。</p>
+</li>
+<li><p><strong><code>vfinal=-0.6</code></strong><br> 扫描的终止电压为 -0.6 V。</p>
+</li>
+<li><p>这条命令会让 ATLAS 在 gate 上执行：</p>
+<ul>
+<li>从 <strong>0 V</strong> 开始，</li>
+<li>每次减 <strong>0.2 V</strong>，</li>
+<li>直到 <strong>-0.6 V</strong>，</li>
+<li>在每个电压点进行一次器件数值求解。</li>
+</ul>
+<p>也就是说，求解点依次是：<br> <code>0.0 V → -0.2 V → -0.4 V → -0.6 V</code></p>
+</li>
+<li><p>这种扫描通常用于：</p>
+<ul>
+<li>提取 <strong>Id–Vg 曲线</strong>（栅压控制特性）；</li>
+<li>观察 <strong>沟道开启&#x2F;关断行为</strong>；</li>
+<li>研究 <strong>阈值电压 Vth</strong> 和迁移率变化。</li>
+</ul>
+</li>
+<li><p><strong>优点</strong></p>
+<ul>
+<li>简洁，只需一行即可实现等步长扫描。</li>
+<li>程序自动生成电压点：0.0, 0.05, 0.10, …, 0.30。</li>
+<li>特别适合 <strong>大范围、规则步长</strong> 的扫描。</li>
+</ul>
+</li>
+<li><p><strong>缺点</strong></p>
+<ul>
+<li>只能用等步长；</li>
+<li>遇到收敛困难时，可能在某些点跳不过去，而人工逐点控制更灵活（可插入小步长过渡）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>log outf=hemtex01.log master </code></p>
+<ul>
+<li><strong>Silvaco ATLAS</strong> 中的日志输出控制，用来指定仿真过程中要记录的结果文件。</li>
+<li><strong><code>log</code></strong><br> 启动日志输出功能，ATLAS 会把仿真过程中的计算结果（电流、电压、收敛情况等）记录到一个 <code>.log</code> 文件。</li>
+<li><strong><code>outf=hemtex01.log</code></strong><br> 指定日志文件的输出文件名，这里是 **<code>hemtex01.log</code>**。<ul>
+<li>里面会保存偏置点、电流值、功率、收敛信息等。</li>
+<li>后续可以用 <strong>TonyPlot</strong> 打开 <code>.log</code> 文件绘制 I–V 曲线。</li>
+</ul>
+</li>
+<li><strong><code>master</code></strong><br> 表示把所有电极的电流&#x2F;电压信息同时输出到这个日志文件（而不是只输出一个电极的结果）。<ul>
+<li>如果不加 <code>master</code>，默认只输出主要的电极信息。</li>
+<li>加了 <code>master</code> 后，可以直接用它来画完整的 I–V 特性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><pre><code>solve vdrain=0.05 
+solve vdrain=0.10 
+solve vdrain=0.125 
+solve vdrain=0.15 
+solve vdrain=0.20 
+solve vdrain=0.30
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 这几行命令是 **Silvaco ATLAS** 中对 **drain 电极** 逐步加电压的求解过程，用来提取 **Id–Vd 特性曲线**</span><br><span class="line"></span><br><span class="line">  - **`solve`**</span><br><span class="line">     表示在给定偏置条件下对器件进行数值求解</span><br><span class="line"></span><br><span class="line">  - **`vdrain=...`**</span><br><span class="line">     给 **drain 电极** 施加对应的电压值。</span><br><span class="line"></span><br><span class="line">  - ATLAS 会在这些电压下分别求解电子分布、电流等物理量。</span><br><span class="line"></span><br><span class="line">  - **优点**</span><br><span class="line"></span><br><span class="line">    - 可以灵活选择不等步长（比如 <span class="number">0.10</span> → <span class="number">0.125</span> → <span class="number">0.15</span>），适合在某些电压范围需要更细分时使用。</span><br><span class="line">    - 每个电压点完全可控，方便插入特殊电压点进行测试。</span><br><span class="line"></span><br><span class="line">  - 麻烦、冗长，不适合大范围电压扫描。</span><br><span class="line"></span><br><span class="line">    不易复用，稍微换一个范围就要手工修改</span><br><span class="line"></span><br><span class="line">  - </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### C-Interpreter内容</span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;template.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * -----------------------------------------------------------------</span></span><br><span class="line"><span class="comment"> * ATLAS Parser Function Template</span></span><br><span class="line"><span class="comment"> * ATLAS Version 5.2.0.R</span></span><br><span class="line"><span class="comment"> * c 1993 - 2000 SILVACO International. </span></span><br><span class="line"><span class="comment"> * All rights reserved.</span></span><br><span class="line"><span class="comment"> * -----------------------------------------------------------------</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Composition, temperature and doping dependent electron mobility</span></span><br><span class="line"><span class="comment"> * Statement: MATERIAL</span></span><br><span class="line"><span class="comment"> * Parameter: F.CONMUN</span></span><br><span class="line"><span class="comment"> * Arguments:</span></span><br><span class="line"><span class="comment"> * xcomp      composition fraction x</span></span><br><span class="line"><span class="comment"> * ycomp      composition fraction y</span></span><br><span class="line"><span class="comment"> * temp       temperature (K)</span></span><br><span class="line"><span class="comment"> * nd         net concentration of donors</span></span><br><span class="line"><span class="comment"> * na         net concentration of acceptors</span></span><br><span class="line"><span class="comment"> * *mun       electron mobility</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">conmun</span>(<span class="type">double</span> xcomp,<span class="type">double</span> ycomp,<span class="type">double</span> temp,<span class="type">double</span> nd,<span class="type">double</span> na,<span class="type">double</span> x,<span class="type">double</span> y,<span class="type">double</span> taun,<span class="type">double</span> *mun)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> mu0, ntot;</span><br><span class="line">	ntot = nd+na;</span><br><span class="line">	<span class="keyword">if</span>(xcomp &lt; <span class="number">0.429</span>)</span><br><span class="line">		mu0 = (<span class="number">8000.0</span><span class="number">-1.818e4</span>*xcomp);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(xcomp &lt; <span class="number">0.46</span>)</span><br><span class="line">		mu0 = (<span class="number">90.0</span> + <span class="number">1.145e5</span>*(xcomp<span class="number">-0.46</span>)*(xcomp<span class="number">-0.46</span>));</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(xcomp &lt; <span class="number">0.5</span>)</span><br><span class="line">		mu0 = (<span class="number">90.0</span> + <span class="number">3.75e4</span>*(xcomp<span class="number">-0.46</span>)*(xcomp<span class="number">-0.46</span>));</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		mu0 = (<span class="number">200.0</span><span class="number">-2.0</span>/(xcomp<span class="number">-0.46</span>));</span><br><span class="line">		</span><br><span class="line">	*mun = (mu0*(<span class="number">0.34</span>+<span class="number">0.66</span>/(<span class="number">1.0</span>+<span class="built_in">pow</span>(ntot/<span class="number">9.85e16</span>,<span class="number">0.553</span>))));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);                <span class="comment">/* 0 - ok */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>这个函数主要用于 <strong>根据材料组成、温度和掺杂浓度计算电子迁移率（electron mobility）</strong></p>
+<hr>
+<h3 id="1-头文件部分"><a href="#1-头文件部分" class="headerlink" title="1. 头文件部分"></a>1. <strong>头文件部分</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;template.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>标准 C 库的头文件：</p>
+<ul>
+<li><code>&lt;stdio.h&gt;</code>：输入输出</li>
+<li><code>&lt;stdlib.h&gt;</code>：标准库函数</li>
+<li><code>&lt;math.h&gt;</code>：数学函数（例如 <code>pow</code>）</li>
+<li><code>&lt;ctype.h&gt;</code>：字符处理</li>
+<li><code>&lt;malloc.h&gt;</code>：动态内存分配</li>
+<li><code>&lt;string.h&gt;</code>：字符串操作</li>
+</ul>
+</li>
+<li><p><code>&lt;template.h&gt;</code>：这是 SILVACO 提供的 ATLAS 函数模板库，里面定义了各种求解器相关函数接口。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-函数声明和注释"><a href="#2-函数声明和注释" class="headerlink" title="2. 函数声明和注释"></a>2. <strong>函数声明和注释</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Composition, temperature and doping dependent electron mobility</span></span><br><span class="line"><span class="comment"> * Statement: MATERIAL</span></span><br><span class="line"><span class="comment"> * Parameter: F.CONMUN</span></span><br><span class="line"><span class="comment"> * Arguments:</span></span><br><span class="line"><span class="comment"> * xcomp      composition fraction x</span></span><br><span class="line"><span class="comment"> * ycomp      composition fraction y</span></span><br><span class="line"><span class="comment"> * temp       temperature (K)</span></span><br><span class="line"><span class="comment"> * nd         net concentration of donors</span></span><br><span class="line"><span class="comment"> * na         net concentration of acceptors</span></span><br><span class="line"><span class="comment"> * *mun       electron mobility</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这是 ATLAS 用于自定义材料函数的标准注释格式。</p>
+</li>
+<li><p>说明该函数是 <strong>材料属性函数</strong>，用于计算电子迁移率 <code>mun</code>。</p>
+</li>
+<li><p>输入参数：</p>
+<ul>
+<li><code>xcomp</code>, <code>ycomp</code>：半导体的化学成分（如 AlxGa1-xAs 的 Al 组分）</li>
+<li><code>temp</code>：温度，单位 K</li>
+<li><code>nd</code>：施主浓度（donor）</li>
+<li><code>na</code>：受主浓度（acceptor）</li>
+</ul>
+</li>
+<li><p>输出参数：</p>
+<ul>
+<li><code>*mun</code>：电子迁移率</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-函数定义"><a href="#3-函数定义" class="headerlink" title="3. 函数定义"></a>3. <strong>函数定义</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">conmun</span><span class="params">(<span class="type">double</span> xcomp,<span class="type">double</span> ycomp,<span class="type">double</span> temp,<span class="type">double</span> nd,<span class="type">double</span> na,<span class="type">double</span> x,<span class="type">double</span> y,<span class="type">double</span> taun,<span class="type">double</span> *mun)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> mu0, ntot;</span><br><span class="line">	ntot = nd+na;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定义函数 <code>conmun</code>，返回 <code>int</code>（一般返回 0 表示正常）。</li>
+<li><code>ntot = nd + na;</code> 计算总掺杂浓度。</li>
+</ul>
+<hr>
+<h3 id="4-根据组成-xcomp-计算零掺杂迁移率-mu0"><a href="#4-根据组成-xcomp-计算零掺杂迁移率-mu0" class="headerlink" title="4. 根据组成 xcomp 计算零掺杂迁移率 mu0"></a>4. <strong>根据组成 <code>xcomp</code> 计算零掺杂迁移率 <code>mu0</code></strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(xcomp &lt; <span class="number">0.429</span>)</span><br><span class="line">	mu0 = (<span class="number">8000.0</span><span class="number">-1.818e4</span>*xcomp);</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(xcomp &lt; <span class="number">0.46</span>)</span><br><span class="line">	mu0 = (<span class="number">90.0</span> + <span class="number">1.145e5</span>*(xcomp<span class="number">-0.46</span>)*(xcomp<span class="number">-0.46</span>));</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(xcomp &lt; <span class="number">0.5</span>)</span><br><span class="line">	mu0 = (<span class="number">90.0</span> + <span class="number">3.75e4</span>*(xcomp<span class="number">-0.46</span>)*(xcomp<span class="number">-0.46</span>));</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	mu0 = (<span class="number">200.0</span><span class="number">-2.0</span>/(xcomp<span class="number">-0.46</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>根据 <code>xcomp</code> 的不同区间，选择不同的经验公式计算 **材料本征迁移率 <code>mu0</code>**。</p>
+</li>
+<li><p>这是典型的 <strong>分段经验公式</strong>：</p>
+<ul>
+<li><code>xcomp &lt; 0.429</code>：线性衰减</li>
+<li><code>0.429 ≤ xcomp &lt; 0.46</code>：二次函数</li>
+<li><code>0.46 ≤ xcomp &lt; 0.5</code>：另一条二次函数</li>
+<li><code>xcomp ≥ 0.5</code>：非线性反比函数</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这些公式通常来源于实验数据拟合，针对特定半导体材料（可能是 GaAs 或 AlGaAs）。</p>
+</blockquote>
+<hr>
+<h3 id="5-考虑掺杂浓度对迁移率的影响"><a href="#5-考虑掺杂浓度对迁移率的影响" class="headerlink" title="5. 考虑掺杂浓度对迁移率的影响"></a>5. <strong>考虑掺杂浓度对迁移率的影响</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*mun = (mu0*(<span class="number">0.34</span>+<span class="number">0.66</span>/(<span class="number">1.0</span>+<span class="built_in">pow</span>(ntot/<span class="number">9.85e16</span>,<span class="number">0.553</span>))));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>这是典型的 <strong>掺杂依赖迁移率公式</strong>：</p>
+<ul>
+<li><p><code>ntot</code> 是掺杂浓度</p>
+</li>
+<li><p><code>pow(ntot/9.85e16,0.553)</code> 是掺杂抑制因子</p>
+</li>
+<li><p>整体公式表示迁移率随掺杂增加而下降：</p>
+<ul>
+<li>当 <code>ntot</code> 很小，<code>mun ≈ mu0</code></li>
+<li>当 <code>ntot</code> 增大，<code>mun</code> 显著下降</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="6-返回值"><a href="#6-返回值" class="headerlink" title="6. 返回值"></a>6. <strong>返回值</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">return</span>(<span class="number">0</span>);                <span class="comment">/* 0 - ok */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回 0 表示函数成功执行，没有错误。</li>
+</ul>
+<hr>
+<h3 id="✅-总结"><a href="#✅-总结" class="headerlink" title="✅ 总结"></a>✅ 总结</h3><ol>
+<li><p>这是一个 <strong>半导体电子迁移率计算函数</strong>，考虑了：</p>
+<ul>
+<li>化学成分（composition）</li>
+<li>掺杂浓度（donor&#x2F;acceptor）</li>
+</ul>
+</li>
+<li><p><strong>温度 <code>temp</code> 在这个函数里没有被使用</strong>，如果想加入温度依赖，需要在公式中加入温度因子。</p>
+</li>
+<li><p>使用 <strong>经验分段公式</strong>处理不同 <code>xcomp</code> 区间。</p>
+</li>
+<li><p><strong>掺杂浓度影响</strong>通过 <code>ntot</code> 和幂函数来模拟迁移率下降。</p>
+</li>
+<li><p>输出是 <code>*mun</code>，用于 TCAD 仿真材料模型。</p>
+</li>
+</ol>
+<hr>
+</blockquote>
+<h3 id="模拟结果"><a href="#模拟结果" class="headerlink" title="模拟结果"></a>模拟结果</h3><table>
+<thead>
+<tr>
+<th>器件结构</th>
+<th>漏极电压&#x2F;电流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509092020903.png" alt="hemtex01"></td>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509092020773.png" alt="hemtex01_result"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/09/03/linux/Linux_error_redhat/">
+        <span class="nav-arrow">← </span>
+        
+          给red hat 6加了root密码后，也给普通用户加了sudo权限后，sudo yum update 输入root密码,显示Sorry, try again
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/09/10/softwares/silvaco/hemtex02/">
+        
+          晶格匹配 HEMT 击穿模拟：单量子阱晶格匹配 AlGaAs/GaAs HEMT 的雪崩击穿模拟
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AlGaAs-x2F-GaAs-HEMT-TCAD-%E6%A8%A1%E6%8B%9F%EF%BC%9A%E4%BD%BF%E7%94%A8-C-Interpreter-%E5%BC%80%E5%8F%91%E7%94%A8%E6%88%B7%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">AlGaAs&#x2F;GaAs HEMT TCAD 模拟：使用 C-Interpreter 开发用户模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%A4%BA%E4%BE%8B%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">模拟示例简介</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">理解输入代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%A4%B4%E6%96%87%E4%BB%B6%E9%83%A8%E5%88%86"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">1. 头文件部分</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E5%92%8C%E6%B3%A8%E9%87%8A"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">2. 函数声明和注释</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">3. 函数定义</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%A0%B9%E6%8D%AE%E7%BB%84%E6%88%90-xcomp-%E8%AE%A1%E7%AE%97%E9%9B%B6%E6%8E%BA%E6%9D%82%E8%BF%81%E7%A7%BB%E7%8E%87-mu0"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">4. 根据组成 xcomp 计算零掺杂迁移率 mu0</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E8%80%83%E8%99%91%E6%8E%BA%E6%9D%82%E6%B5%93%E5%BA%A6%E5%AF%B9%E8%BF%81%E7%A7%BB%E7%8E%87%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">5. 考虑掺杂浓度对迁移率的影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">6. 返回值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%9C%85-%E6%80%BB%E7%BB%93"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">✅ 总结</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">模拟结果</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/09/09/softwares/silvaco/hemtex01/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

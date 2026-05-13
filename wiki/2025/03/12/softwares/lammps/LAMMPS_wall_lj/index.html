@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      LAMMPS 中 fix wall/lj126 的使用示例 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>LAMMPS 中 fix wall/lj126 的使用示例</h2>
+  <p class="post-date">2025-03-12 12:18:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<blockquote>
+<p> ChatGPT生成</p>
+</blockquote>
+<p>LAMMPS 中 <code>fix wall/lj126</code> ，用于在模拟系统中引入 <strong>Lennard-Jones 12-6 型势能的硬壁（壁面势）</strong>。下面是对该命令的详细解释：</p>
+<hr>
+<h2 id="🧱-命令结构："><a href="#🧱-命令结构：" class="headerlink" title="🧱 命令结构："></a>🧱 命令结构：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo EDGE 0.001 1.0 2.5 xhi EDGE 0.001 1.0 2.5</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔍-各部分参数含义："><a href="#🔍-各部分参数含义：" class="headerlink" title="🔍 各部分参数含义："></a>🔍 各部分参数含义：</h2><table>
+<thead>
+<tr>
+<th>部分</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fix wall</code></td>
+<td>fix ID，名称为 wall</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>fix group-ID，表示对所有原子施加此 fix</td>
+</tr>
+<tr>
+<td><code>wall/lj126</code></td>
+<td>使用 12-6 Lennard-Jones 壁面势模型</td>
+</tr>
+<tr>
+<td><code>xlo EDGE ...</code></td>
+<td>在 x 方向的“最左边”设置一个 LJ 壁面</td>
+</tr>
+<tr>
+<td><code>xhi EDGE ...</code></td>
+<td>在 x 方向的“最右边”设置另一个 LJ 壁面</td>
+</tr>
+</tbody></table>
+<p>每个方向的参数格式如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;side&gt;</span> <span class="attribute">EDGE</span> ε σ cutoff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧮-参数解释（以-xlo-EDGE-0-001-1-0-2-5-为例）："><a href="#🧮-参数解释（以-xlo-EDGE-0-001-1-0-2-5-为例）：" class="headerlink" title="🧮 参数解释（以 xlo EDGE 0.001 1.0 2.5 为例）："></a>🧮 参数解释（以 <code>xlo EDGE 0.001 1.0 2.5</code> 为例）：</h2><ul>
+<li><code>xlo</code>：表示在 x 方向的 <strong>低端边界</strong>（负方向）施加墙壁</li>
+<li><code>EDGE</code>：表示墙壁位置就是 box 边界</li>
+<li><code>0.001</code>：ε（epsilon），LJ 势的能量深度（越大排斥力越强）</li>
+<li><code>1.0</code>：σ（sigma），LJ 势的“粒子直径”或最小势距</li>
+<li><code>2.5</code>：截断半径（cutoff），超过这个距离后势能为零</li>
+</ul>
+<p><code>xhi EDGE 0.001 1.0 2.5</code> 是在 <strong>x 方向高端边界</strong> 放置了对称的另一面 LJ 壁。</p>
+<hr>
+<h2 id="🎯-总结作用："><a href="#🎯-总结作用：" class="headerlink" title="🎯 总结作用："></a>🎯 总结作用：</h2><p>这条命令会在 <strong>模拟盒子的 x 方向两端设置两个隐形墙壁</strong>，墙壁不会显示为原子，但它们会根据 Lennard-Jones 12-6 势给接近它们的粒子施加排斥力，从而防止粒子穿出边界。</p>
+<hr>
+<h2 id="📌-应用场景举例："><a href="#📌-应用场景举例：" class="headerlink" title="📌 应用场景举例："></a>📌 应用场景举例：</h2><ul>
+<li>模拟液体或气体在纳米孔道中流动时用来模拟“固壁”</li>
+<li>限定粒子只能在某一方向上移动（如 x 方向在两墙之间）</li>
+</ul>
+<hr>
+<p>如你还想加上 y 或 z 方向的墙壁，可以在命令中继续添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo EDGE ε σ rcut xhi EDGE ε σ rcut ylo EDGE ε σ rcut ...</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="⚠️-补充说明："><a href="#⚠️-补充说明：" class="headerlink" title="⚠️ 补充说明："></a>⚠️ 补充说明：</h2><h3 id="🔹-EDGE-含义："><a href="#🔹-EDGE-含义：" class="headerlink" title="🔹 EDGE 含义："></a>🔹 <code>EDGE</code> 含义：</h3><ul>
+<li>代表墙的位置就是模拟盒子边界位置（即 <code>xlo</code> 是 box 中的 <code>xlo</code>，<code>xhi</code> 是 box 中的 <code>xhi</code>）</li>
+</ul>
+<h3 id="🔹-其他方向默认行为："><a href="#🔹-其他方向默认行为：" class="headerlink" title="🔹 其他方向默认行为："></a>🔹 其他方向默认行为：</h3><ul>
+<li>如果不指定 <code>ylo/yhi</code> 或 <code>zlo/zhi</code>，就 <strong>不会有墙</strong></li>
+<li>不影响其他方向的边界条件（如 periodic、shrink-wrapped）</li>
+</ul>
+<hr>
+<h2 id="🧱-如果你想指定墙的位置而不是边界："><a href="#🧱-如果你想指定墙的位置而不是边界：" class="headerlink" title="🧱 如果你想指定墙的位置而不是边界："></a>🧱 如果你想指定墙的位置而不是边界：</h2><p>可以用 <code>POSITION</code> 代替 <code>EDGE</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix wall all wall/lj126 xlo 10.0 0.001 1.0 2.5 xhi 40.0 0.001 1.0 2.5</span><br></pre></td></tr></table></figure>
+
+<p>这表示在 x &#x3D; 10 和 x &#x3D; 40 设置墙，而不是 box 的边缘。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#ChatGPT生成" >
+    <span class="tag-code">ChatGPT生成</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#LAMMPS" >
+    <span class="tag-code">LAMMPS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#wall/lj" >
+    <span class="tag-code">wall/lj</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/01/05/softwares/alamode/alamode-3/">
+        <span class="nav-arrow">← </span>
+        
+          Alamode 计算Si导热
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/04/09/codes/python/python_nuitka/">
+        
+          Nuitka 教程：将 Python 脚本编译为可执行文件（exe）
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%A7%B1-%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">🧱 命令结构：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%94%8D-%E5%90%84%E9%83%A8%E5%88%86%E5%8F%82%E6%95%B0%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">🔍 各部分参数含义：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%A7%AE-%E5%8F%82%E6%95%B0%E8%A7%A3%E9%87%8A%EF%BC%88%E4%BB%A5-xlo-EDGE-0-001-1-0-2-5-%E4%B8%BA%E4%BE%8B%EF%BC%89%EF%BC%9A"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">🧮 参数解释（以 xlo EDGE 0.001 1.0 2.5 为例）：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%8E%AF-%E6%80%BB%E7%BB%93%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">🎯 总结作用：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%93%8C-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%BE%E4%BE%8B%EF%BC%9A"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">📌 应用场景举例：</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E2%9A%A0%EF%B8%8F-%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">⚠️ 补充说明：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%94%B9-EDGE-%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">🔹 EDGE 含义：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E5%85%B6%E4%BB%96%E6%96%B9%E5%90%91%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA%EF%BC%9A"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">🔹 其他方向默认行为：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%F0%9F%A7%B1-%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E6%8C%87%E5%AE%9A%E5%A2%99%E7%9A%84%E4%BD%8D%E7%BD%AE%E8%80%8C%E4%B8%8D%E6%98%AF%E8%BE%B9%E7%95%8C%EF%BC%9A"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">🧱 如果你想指定墙的位置而不是边界：</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/03/12/softwares/lammps/LAMMPS_wall_lj/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

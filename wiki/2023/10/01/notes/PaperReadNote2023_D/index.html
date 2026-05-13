@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文笔记2023-冬 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文笔记2023-冬</h2>
+  <p class="post-date">2023-10-01 00:00:00</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg"></p>
+<h2 id="Paper-Notes-2023"><a href="#Paper-Notes-2023" class="headerlink" title="Paper Notes 2023"></a>Paper Notes 2023</h2><h2 id="2023-10月-11月-12月"><a href="#2023-10月-11月-12月" class="headerlink" title="2023-10月@11月@12月"></a>2023-10月@11月@12月</h2><h3 id="Some-phrases"><a href="#Some-phrases" class="headerlink" title="Some phrases"></a>Some phrases</h3><ul>
+<li><p>Inspired by nature, where methane hydrates are grown in pores and voids of natural sediments, we propose</p>
+</li>
+<li><p>Based on these premises, we propose a novel strategy for efficient synthesis of H2 clathrate hydrates avoiding traditional technological obstacles.</p>
+</li>
+<li><p>With the continuous maturity of technology， 随着技术的不断成熟，</p>
+</li>
+<li><p>controversial memory effect 有争议的记忆效应</p>
+</li>
+<li><p>The magnitude of the memory effect varied substantially among the sample cells used</p>
+</li>
+<li><p>There are a few outstanding scientific puzzles in the properties of gas hydrates</p>
+</li>
+<li><p>It is conservatively estimated that 据保守估计</p>
+</li>
+<li><p>Although $CH_4$ and $CO_2$ are the traditional guests found in natural systems, incorporating smaller molecules (e.g., $H_2$) is challenging due to the need to apply higher pressures to stabilize the hydrogen-bonded network</p>
+</li>
+<li><p>giving rise to void spaces or cages</p>
+</li>
+<li><p>Despite their abundance</p>
+</li>
+<li><p>hydrogen molecules can be enclathrated in the cages of hydrogen-bonded water molecules with an sII crystalline structure</p>
+</li>
+<li><p>there were two critical obstacles to be solved for a potential application of the clathrate hydrates in a hydrogenbased economy</p>
+</li>
+<li><p>we take advantage of the percolation paths 我们利用了渗透路径</p>
+</li>
+<li><p>Based on these premises, 基于这些前提，</p>
+</li>
+<li><p>Inspired by nature 受自然启发：指从自然界中汲取灵感，通常用于描述艺术、设计或创意等方面的作品。</p>
+</li>
+<li><p>Taking advantage of the nanoconfinement effects,</p>
+</li>
+<li><p>This development could be the breakthrough that will make hydrogen clathrates a viable hydrogen storage technology.</p>
+<ul>
+<li><blockquote>
+<p>This development could be the breakthrough that will make xxx a viable  xxx technology</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>the textural and morphological characteristics 纹理和形态特征</p>
+</li>
+<li><p>It is essential to highlight that 必须强调这一点</p>
+</li>
+<li><p>The INS differ depending on , INS的不同取决于,</p>
+</li>
+<li><p>above attributed unambiguously to the formation of hydrogen hydrates.</p>
+</li>
+<li><p>This contribution is present in xxx, 该贡献存在于xxx，</p>
+</li>
+<li><p>coalescence n. 合并；联合；接合</p>
+</li>
+<li><p>inclusion  包含，包括；包含物，包括的人；认同感，归属感</p>
+</li>
+<li><p>In all instances, </p>
+</li>
+<li><p>(i.e. hydrate inhibitors and promoters)</p>
+</li>
+<li><p>such <strong>nominal</strong> classification is not always true </p>
+<ul>
+<li>adj. 名义上的，有名无实的；（金额）微不足道的，象征性的；名词的，名词性的；</li>
+</ul>
+</li>
+<li><p>Outside those ranges, hydrate additives may display extraordinary behaviors opposing to their typical effects.</p>
+</li>
+<li><p>Such <strong>astounding</strong> dual nature of hydrate additives</p>
+</li>
+<li><p>adj. 令人震惊的；令人惊骇的</p>
+</li>
+<li><p>a trace amount of methanol 微量的甲醇</p>
+</li>
+<li><p>in light of water availability 考虑到水的可用性，</p>
+<ul>
+<li>in light of 基于某种情况或信息，考虑到某事或在某种情况下</li>
+</ul>
+</li>
+<li><p>In an early study, 在一项早期研究中</p>
+</li>
+<li><p>beneath the premafrost region 永久冻土下面</p>
+<ul>
+<li>beneath：prep. 在……下方；在……表面之下，隐藏在……之下；</li>
+</ul>
+</li>
+<li><p>This unstable adsorption mechanism may <strong>shed light on</strong> the development of novel efficient KHIs.</p>
+</li>
+<li><p>One of the foremost reasons is that the understanding of KHIs (PVP, PVCap and other traditional vinyl lactam KHIs) is still far from satisfactory,</p>
+</li>
+<li><p>According to conservative estimates 据保守估计，</p>
+</li>
+</ul>
+<h3 id="欧拉多面体定律"><a href="#欧拉多面体定律" class="headerlink" title="欧拉多面体定律"></a>欧拉多面体定律</h3><ul>
+<li><p>欧拉多面体定律（Euler’s polyhedron formula）是数学中描述立体图（多面体）的一个基本关系式，由瑞士数学家欧拉（Leonhard Euler）于18世纪首次提出。</p>
+</li>
+<li><p>欧拉多面体定律的表述如下：$V-E+F&#x3D;2$</p>
+<p>其中：</p>
+<ul>
+<li><em>V</em> 表示多面体的顶点数（vertices），</li>
+<li><em>E</em> 表示多面体的边数（edges），</li>
+<li><em>F</em> 表示多面体的面数（faces）。</li>
+</ul>
+<blockquote>
+<p>这个公式表达了立体图中顶点、边和面的数量之间的关系。对于任何一个凸多面体，满足欧拉多面体定律。</p>
+<p>注意，这个定律仅适用于凸多面体。对于非凸多面体，例如某些星形多面体，可能需要考虑其他条件。欧拉多面体定律在数学和计算几何中有着广泛的应用，它揭示了几何结构的基本性质。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="加速水合物形成促进剂"><a href="#加速水合物形成促进剂" class="headerlink" title="加速水合物形成促进剂"></a>加速水合物形成促进剂</h3><blockquote>
+<p>Nature Communications | (2023) 14:8068</p>
+</blockquote>
+<ul>
+<li>像表面活性剂这样的动力学促进剂，例如十二烷基硫酸钠（SDS），是目前已知的加速水合物形成最有效的方法之一。</li>
+<li>最近备受关注的另一类动力学促进剂是氨基酸。</li>
+<li>到目前为止，报道的在动力学促进剂存在下的最快水合物形成可以在11分钟内完成，水转化率超过80%。</li>
+<li>尽管动力学促进剂加速水合物形成的性能显著，但通过使用动力学促进剂扩大水合物生产可能会遇到三个主要挑战：<ul>
+<li>加速的水合物形成来自于由动力学促进剂诱导的气体水合物向上和附壁生长模式，这被称为壁爬效应。这种效应通过将水溶液吸附到反应器壁上并为水合物形成提供更大的接触面积来加速水合物形成。由于这种水合物生长模式，水合物形成速率与反应器中的溶液负荷密切相关；在相同的反应器配置和类似的热力学条件下，总体水合物形成速率随着溶液负荷的增加而减少，这对于工艺的扩大是不利的。</li>
+<li>第二个阻碍扩大规模的挑战是由于形成过程的放热特性而导致的温度升高；由于水合物形成过程中释放出大量热量（例如，水合物形成水或水溶液时释放出约9.07千焦耳&#x2F;摩尔的热量，甲烷水合物释放出54.44千焦耳&#x2F;摩尔21），液体的温度在形成过程中的0.5<del>2.7小时内可能会升高4</del>8开尔文。工业水合物生产所需的更快水合物形成过程将进一步提高温度，从而阻碍水合物的形成。</li>
+<li>第三个挑战是反应器空间利用不足；为了避免气体进出口堵塞，需要足够的气体空间来支撑上升生长；因此，存在表面活性剂的气体水合物形成通常在反应器中使用65% ~ 90%的气体体积。</li>
+</ul>
+</li>
+<li>除了三个主要挑战外，具有壁爬效应形成的水合物22的中空外观可能降低明显的气体储存密度；与此同时，水合物解离过程中严重的气泡和泡沫生成也对工业气体水合物生产有害。</li>
+<li>使用一种通过分解SDS溶液形成的初级气体水合物产生的活性冰来形成甲烷水合物，水合物形成通常在5分钟内完成，在272.65K时气体吸收量超过170Vg Vw-1。</li>
+<li>除了快速形成的速率外，活性冰表现出多重优势，例如良好的可重复性、可回收性、可压缩性、简单的存储条件和低热量生成。</li>
+<li>表征结果显示，活性冰是多孔的，并含有未冰冻的SDS溶液层。在温度略低于冰点的这个溶液层中形成天然气水合物，产生了一种冰融化-水合物形成-冰融化的良性循环，从而显著加快了天然气水合物的形成。</li>
+<li>具有未冰冻表面活性剂溶液层的冰似乎被激活用于天然气水合物，因此它是一种活性冰。</li>
+<li>受此启发，他们改进了活性冰的制备过程，而不损害其在天然气水合物形成中的性能。</li>
+<li>凭借多重优势，活性冰方法能够克服工业目的的天然气水合物形成过程的障碍。</li>
+</ul>
+<h3 id="需要更大的压力才能让小分子例如H2形成水合物"><a href="#需要更大的压力才能让小分子例如H2形成水合物" class="headerlink" title="需要更大的压力才能让小分子例如H2形成水合物"></a>需要更大的压力才能让小分子例如H2形成水合物</h3><blockquote>
+<p>Nature Communications | (2022) 13:5953</p>
+</blockquote>
+<ul>
+<li>Although CH4 and CO2 are the traditional guests found in natural systems, incorporating smaller molecules (e.g., H2) is challenging due to the need to apply higher pressures to stabilize the hydrogen-bonded network. Another critical limitation ofhydrates is the slow nucleation and growth kinetics.</li>
+</ul>
+<h3 id="为什么有向无环图（DAG）能确保只找凸环而忽略凹环"><a href="#为什么有向无环图（DAG）能确保只找凸环而忽略凹环" class="headerlink" title="为什么有向无环图（DAG）能确保只找凸环而忽略凹环"></a>为什么有向无环图（DAG）能确保只找凸环而忽略凹环</h3><ul>
+<li><p>在有向无环图（DAG）中，每条边都有一个方向，且图中不存在环。</p>
+</li>
+<li><p>这个性质决定了在有向图中，每个顶点都有一个唯一的拓扑排序。</p>
+<blockquote>
+<p>拓扑排序是一种将图的节点排列成线性序列的方式，使得每条有向边都从序列的前部指向后部。</p>
+</blockquote>
+</li>
+<li><p>在一个DAG中，由于不存在环，任何节点的拓扑排序都是唯一的。</p>
+</li>
+<li><p>这个特性使得在DAG中，我们可以按照节点的拓扑排序顺序进行处理，从而确保在找环的时候只找到凸环而忽略凹环。</p>
+</li>
+<li><p>具体来说，从DAG中选择一个没有入边的节点开始，将它从图中移除，并重复这个过程，每次选择没有入边的节点，直到所有节点都被移除。这样的节点序列就是拓扑排序。在这个过程中，任何时刻都不可能选择已经在当前处理中的节点的后继节点，因为这样会形成一个环。</p>
+</li>
+<li><p>如果DAG中存在环，那么一定存在至少一个节点在处理的过程中无法被选择，因此无法得到完整的拓扑排序。</p>
+</li>
+<li><p>因此，DAG的拓扑排序序列的存在性与图中是否存在环是等价的。  因此，通过利用DAG的拓扑排序特性，我们可以保证在找环的过程中只找到凸环而忽略凹环。</p>
+</li>
+</ul>
+<h3 id="什么是无环图，什么是有向无环图"><a href="#什么是无环图，什么是有向无环图" class="headerlink" title="什么是无环图，什么是有向无环图"></a>什么是无环图，什么是有向无环图</h3><ul>
+<li><p>一个<strong>无环图</strong>（Undirected Acyclic Graph，简称UAG）是一个没有任何环（回路）的图。在无环图中，不存在一条路径可以从一个顶点出发，经过若干条边，最后回到起始顶点。在无环图中，边没有方向。</p>
+</li>
+<li><p>一个<strong>有向无环图</strong>（Directed Acyclic Graph，简称DAG）也是一个没有任何环的图，但与无环图不同的是，有向无环图中每条边都有一个方向。具体来说，不存在一条路径可以从一个顶点出发，经过若干条有向边，最后回到起始顶点。有向无环图在计算机科学和数学中经常被用于建模依赖关系、任务调度等问题。</p>
+</li>
+<li><p>主要区别在于边的方向性：</p>
+<ol>
+<li><strong>无向图（无环图）</strong>：图中的边没有方向，即边 <code>(A, B)</code> 与 <code>(B, A)</code> 视为相同，代表点 A 和点 B 之间的连接关系。</li>
+<li><strong>有向图（有向无环图）</strong>：图中的边有方向，即 <code>(A, B)</code> 与 <code>(B, A)</code> 视为不同，代表从点 A 到点 B 的有向边。</li>
+</ol>
+<blockquote>
+<p>有向无环图的应用包括任务调度、依赖关系图、推荐系统、流程图等。在这些应用中，有向无环图通常用来表示一个事件或任务的先后顺序，保证不会形成循环依赖，从而避免死锁等问题。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="HTR（hierarchical-topology-ring-）算法细节"><a href="#HTR（hierarchical-topology-ring-）算法细节" class="headerlink" title="HTR（hierarchical topology ring ）算法细节"></a>HTR（hierarchical topology ring ）算法细节</h3><ul>
+<li><p>HTR retains all deformed rings when calculating cages to ensure the accuracy of identifying unconventional cages；</p>
+</li>
+<li><p>According to the current general judgment conditions for hydrogen bond formation, HTR uses a cutoff of 3.5 Å ($R_{OO}$) and ∠HOO at 45° ($\phi$) as the hydrogen bond formation conditions. </p>
+<ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312111412236.png"></li>
+</ul>
+</li>
+<li><p>The cage identification is based on the MD simulations with coarse-grained model of water, where the bond length is determined only by the distance.</p>
+</li>
+<li><p>the hydrate cage studied mainly contains two characteristics, one of which is that the cage only contains four-, five-,and six-membered rings, and the other is that the cage is surface saturated.</p>
+</li>
+<li><p>The process of HTR recognition of cages can be mainly divided into two parts:</p>
+<ul>
+<li>(i) the recognition of the cupshaped half-cage structure;</li>
+<li>(ii) the topology of rings.</li>
+</ul>
+<blockquote>
+<p>defined a cup as a half-cage composed of five-membered and six-membered rings sharing some hydrogen bonds. Since the HTR algorithm needs to identify all types of cages, the four-membered ring is also included in the definition of the cup.</p>
+</blockquote>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312111411918.jpeg"></p>
+</li>
+<li><p>HTR divides the system into mul-tiple blocks, identifies the cage structures separately, and hence greatly improves the recognition efficiency.  However, it should be noticed that the segmentation will destroy the completeness of the cages at the cut surface, which will cause the cages at the incision to not be accurately identified.</p>
+</li>
+</ul>
+<h3 id="水合物笼子识别算法"><a href="#水合物笼子识别算法" class="headerlink" title="水合物笼子识别算法"></a>水合物笼子识别算法</h3><ul>
+<li><p>Jacobson et al. connected particles by identifying rings by treating water as vertices in an undirected graph. After determining the relationship between rings, the algorithm searches a five-element ring, which connects five other pentagonal rings at each edge. This structure is a half dodecahedral cage, which is called a “cup.” Acomplete dodecahedral cage was obtained by merging these cups.</p>
+<blockquote>
+<p>J Phys Chem B. 2009;113:10298–307</p>
+</blockquote>
+</li>
+<li><p>Guo et al.  designed an algorithm called face-saturated incomplete cage analysis (FSICA) and identified 1,258 complete cages and 7,015 face-saturated incomplete cages (FSICs). The recognition accuracy of FSICA is quite high, and FSICA can recognize the surface-unsaturated cage, which cannot be achieved by other algorithms.</p>
+<blockquote>
+<p>J Chem Phys. 2008;128:194504.</p>
+<p>Phys Chem Chem Phys. 2011;13:12048–57.</p>
+</blockquote>
+</li>
+<li><p>Nguyen and Molinero designed the CHILL + algorithm that uses staggered and overlapping water bond numbers to identify water molecules in ice and clathrate hydrates.</p>
+<blockquote>
+<p>J Phys Chem B. 2015;119:9369–76.</p>
+</blockquote>
+</li>
+<li><p>Mahmoudinobar and Dias presented the <a target="_blank" rel="noopener" href="https://github.com/farbod-nobar/GRADE">GRADE</a> algorithm to identify the hydrates of the $5^{12}$ and $5^{12}6^{2}$ cage structures through the combination of the upper and lower cup-shaped half cages or the combination of four cupshaped cages to identify the $5^{12}6^4$ structure.</p>
+<blockquote>
+<p>Comput Phys Commun. 2019;244:385–91.</p>
+</blockquote>
+</li>
+<li><p>Hao et al. proposed the iterative cup overlap (ICO) algorithm, which can identify hydrate cages by combining multiple semicage structures. However, it still remains deficiencies for these algorithms yet, such as fewer types of recognizable cages, low recognition efficiency, and inability to accurately recognize deformed cages.</p>
+<blockquote>
+<p>J Phys Chem B. 2021;125:1282–92.</p>
+</blockquote>
+</li>
+<li><p>an efficient, accurate, and multifunctional hierarchical topology ring (HTR) algorithm is introduced for the recognition of clathrate cages in a hydrate-based system. HTR is based on ring topology to identify cage structures, and the efficiency of cage recognition by HTR is innovatively improved via the splitting method, leading to the recognition time–the system size relationship changing from exponential to linear one. As a result, HTR can be effectively used for cage recognition of large-scale systems. HTR avoids overidentification of clathrate cages, and the accuracy and efficiency of cage identification by HTR were verified with other popular algorithms. Uniquely, HTR is able to identify multiple guests@cages and topological isomer structures of clathratecages,aswellasclathrate cagessubjected to mechanical loads. The presented HTR algorithm is accessible for extracting helpful insights into the information of clathrate cages in a large-scale system of MD simulations.</p>
+<blockquote>
+<p>Nanotechnology Reviews 2022; 11: 699–711</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="水合物自发成核"><a href="#水合物自发成核" class="headerlink" title="水合物自发成核"></a>水合物自发成核</h3><ul>
+<li><p>Debenedetti and Sarupria realized the spontaneous nucleation of hydrates by MD</p>
+<ul>
+<li><blockquote>
+<p>Debenedetti PG, Sarupria S. Chemistry. Hydrate molecular ballet. Science. 2009;326:1070–1.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Z方向AOP，不同水的区分以及水合物界面的确定"><a href="#Z方向AOP，不同水的区分以及水合物界面的确定" class="headerlink" title="Z方向AOP，不同水的区分以及水合物界面的确定"></a>Z方向AOP，不同水的区分以及水合物界面的确定</h3><blockquote>
+<p>Phys. Chem. Chem. Phys., 2018, 20, 8326–8332</p>
+</blockquote>
+<ul>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312062104461.png" alt="image-20231206210426376"></p>
+</li>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202312062103328.png" alt="image-20231206210306218"></p>
+</li>
+</ul>
+<h3 id="动力学抑制剂KHIs抑制机理"><a href="#动力学抑制剂KHIs抑制机理" class="headerlink" title="动力学抑制剂KHIs抑制机理"></a>动力学抑制剂KHIs抑制机理</h3><blockquote>
+<p>Phys. Chem. Chem. Phys., 2018, 20, 8326–8332 </p>
+</blockquote>
+<ul>
+<li><p>早期的模拟研究只关注KHIs在水合物界面的吸附行为；</p>
+</li>
+<li><p>高效KHIs是含有疏水烃链和酰胺基团的聚合物；</p>
+</li>
+<li><p>关于KHIs的吸附，传统观点认为KHIs的吸附亲和力取决于水合物表面酰胺基团与水分子之间氢键的形成；</p>
+</li>
+<li><p>有研究表明：酰胺氢键对吸附亲和没有贡献，疏水部分(如pvcap的碳环)被填充在水合物表面开放的大空腔中以实现熵稳定；</p>
+<blockquote>
+<p>J. Am. Chem. Soc., 2015, 137, 12079.</p>
+</blockquote>
+</li>
+<li><p>发现pvcap向水合物界面移动，说明pvcap在水合物界面处的扩散具有较低的能垒;</p>
+</li>
+<li><p>pvcap与水合物形成氢键的能力较弱，容易与液态水结合。</p>
+</li>
+<li><p>对于乙烯基官能团来说，它们比杂环离水合物界面远得多，因此对pvcap的吸附影响很小。</p>
+</li>
+<li><p>pvcap的杂环倾向于填充水合物笼；</p>
+</li>
+<li><p>通过对水合物表面和甲烷分布的观察，我们发现笼形物笼的形成和解离是由pvcap的旋转运动引起的</p>
+</li>
+</ul>
+<h3 id="处理周期性密度"><a href="#处理周期性密度" class="headerlink" title="处理周期性密度"></a>处理周期性密度</h3><ol>
+<li><p><strong>生成周期性高斯核：</strong> 你可以生成一个周期性的高斯核，使得核在边界处无缝连接。</p>
+</li>
+<li><p><strong>使用周期性高斯核进行卷积：</strong> 将这个周期性高斯核应用于你的密度图，以实现周期性边界的高斯滤波。</p>
+</li>
+<li><p>以下是一个示例代码，演示如何实现这一过程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.signal <span class="keyword">import</span> convolve2d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成示例数据，假设是一个二维密度图</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">y = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假设二维密度函数，这里用正弦和余弦的组合表示</span></span><br><span class="line">density = np.sin(X) + np.cos(Y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示原始密度图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">plt.imshow(density, cmap=<span class="string">&#x27;viridis&#x27;</span>, extent=(x.<span class="built_in">min</span>(), x.<span class="built_in">max</span>(), y.<span class="built_in">min</span>(), y.<span class="built_in">max</span>()), origin=<span class="string">&#x27;lower&#x27;</span>, aspect=<span class="string">&#x27;auto&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;原始二维密度图&#x27;</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成周期性高斯核</span></span><br><span class="line">sigma = <span class="number">2.0</span></span><br><span class="line">kernel_size = <span class="built_in">int</span>(<span class="number">6</span> * sigma)</span><br><span class="line"></span><br><span class="line">x_kernel = np.linspace(-<span class="number">3</span> * sigma, <span class="number">3</span> * sigma, kernel_size)</span><br><span class="line">y_kernel = np.linspace(-<span class="number">3</span> * sigma, <span class="number">3</span> * sigma, kernel_size)</span><br><span class="line">X_kernel, Y_kernel = np.meshgrid(x_kernel, y_kernel)</span><br><span class="line"></span><br><span class="line">gaussian_kernel = np.exp(-(X_kernel**<span class="number">2</span> + Y_kernel**<span class="number">2</span>) / (<span class="number">2</span> * sigma**<span class="number">2</span>))</span><br><span class="line">gaussian_kernel /= np.<span class="built_in">sum</span>(gaussian_kernel)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用周期性高斯核进行卷积</span></span><br><span class="line">filtered_density = convolve2d(density, gaussian_kernel, mode=<span class="string">&#x27;same&#x27;</span>, boundary=<span class="string">&#x27;wrap&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示高斯滤波后的密度图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">plt.imshow(filtered_density, cmap=<span class="string">&#x27;viridis&#x27;</span>, extent=(x.<span class="built_in">min</span>(), x.<span class="built_in">max</span>(), y.<span class="built_in">min</span>(), y.<span class="built_in">max</span>()), origin=<span class="string">&#x27;lower&#x27;</span>, aspect=<span class="string">&#x27;auto&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;高斯滤波后的二维密度图（周期性边界处理）&#x27;</span>)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，<code>boundary=&#39;wrap&#39;</code> 参数使卷积在边界处实现周期性，从而避免了在边界处出现不连续的情况。请根据你的实际需求调整高斯核的大小和标准差。</p>
+</li>
+</ol>
+<h3 id="batch-size"><a href="#batch-size" class="headerlink" title="batch_size"></a>batch_size</h3><ul>
+<li><p>选择合适的 <code>batch_size</code> 可以影响模型的训练效果和训练速度。<code>batch_size</code> 是指每次训练时，模型从训练集中选择的样本数目。以下是一些关于选择合适 <code>batch_size</code> 的一些建议：</p>
+</li>
+<li><p><strong>小 <code>batch_size</code>：</strong></p>
+<ul>
+<li>优点：<ul>
+<li>更多次的参数更新，有助于模型更快地收敛。</li>
+<li>可以更好地利用 GPU 的并行计算能力。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>较小的 <code>batch_size</code> 可能引入更多的随机性，使训练过程中的收敛曲线更不稳定。</li>
+<li>对于某些硬件和框架，小 <code>batch_size</code> 的性能可能不如大 <code>batch_size</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>大 <code>batch_size</code>：</strong></p>
+<ul>
+<li>优点：<ul>
+<li>训练过程相对稳定，收敛曲线更平滑。</li>
+<li>大 <code>batch_size</code> 可能更适合在某些硬件上实现高效的并行计算。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>更新参数的频率较低，可能导致训练过程收敛较慢。</li>
+<li>对于内存要求较高，可能需要更大的 GPU 内存。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>中等大小的 <code>batch_size</code>：</strong></p>
+<ul>
+<li>综合了小和大 <code>batch_size</code> 的优点，通常是一个不错的折中选择。</li>
+</ul>
+</li>
+<li><p>选择 <code>batch_size</code> 时，可以考虑以下几点：</p>
+<ul>
+<li><p><strong>硬件资源：</strong> 如果你的 GPU 内存较小，可能需要选择较小的 <code>batch_size</code> 以适应内存要求。如果 GPU 内存足够大，可以考虑使用更大的 <code>batch_size</code>。</p>
+</li>
+<li><p><strong>数据集大小：</strong> 如果数据集较小，可以尝试使用较大的 <code>batch_size</code>。对于大型数据集，可以选择适中大小的 <code>batch_size</code>。</p>
+</li>
+<li><p><strong>模型架构：</strong> 某些模型对 <code>batch_size</code> 的敏感性较高。在实际应用中，可以通过尝试不同的 <code>batch_size</code> 并监测训练效果来找到最佳值。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><ul>
+<li>在深度学习中，训练神经网络时通常会使用一个损失函数（loss function）来<strong>度量模型预测与实际标签之间的差异</strong>。</li>
+<li>在训练期间，<strong>损失函数的值被最小化，以使模型能够更好地适应训练数据</strong>。同时，为了评估模型的性能，<strong>还会使用验证集（validation set）进行验证，计算验证损失（validation loss）</strong>。</li>
+<li>在训练过程中，模型的训练历史（training history）通常被记录下来，包括每个训练步骤（epoch）的训练损失和验证损失。这些历史数据有助于分析模型的训练进展和性能。</li>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311292022049.png" alt="image-20231129202217764"></li>
+<li>两个变量：<ul>
+<li><strong>Model.history[‘loss’]：</strong><ul>
+<li>这是模型在每个训练步骤（epoch）结束时记录的训练损失。训练损失表示模型在训练数据上的性能，它是模型对训练集中的样本进行预测的误差。</li>
+</ul>
+</li>
+<li><strong>Model.history[‘val_loss’]：</strong><ul>
+<li>这是模型在每个训练步骤结束时记录的验证损失。验证损失表示模型在验证集上的性能，即模型对于没有在训练中见过的数据的预测误差。验证损失的监测有助于评估模型的泛化能力。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在训练过程中，你可以通过观察这两个损失值的变化来了解模型的训练情况。理想情况下，随着训练的进行，训练损失应该逐渐减小，而验证损失在一定程度上也应该减小，表示模型不仅在训练集上学习了，而且能够泛化到未见过的数据。</li>
+</ul>
+<h3 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h3><ul>
+<li><p>链式法则（Chain Rule）是微积分中的一条基本规则，它描述了复合函数的导数如何计算。在深度学习中，链式法则被广泛应用于计算复杂函数的梯度。</p>
+</li>
+<li><p>通过链式法则，可以逐层计算梯度，从而在反向传播过程中更新模型参数。这使得深度学习模型可以通过梯度下降等优化算法学习并适应复杂的数据模式。</p>
+</li>
+</ul>
+<h3 id="学习率（learning-rate）"><a href="#学习率（learning-rate）" class="headerlink" title="学习率（learning rate）"></a>学习率（learning rate）</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li>学习率（learning rate）是深度学习模型中的一个重要超参数，它决定了模型在每一次参数更新中沿着梯度方向移动的步长大小。学习率的选择对于模型的性能和训练的收敛速度都具有重要影响。<ul>
+<li><strong>学习率的选择：</strong> 学习率的选择通常是一项挑战，过大或过小的学习率都可能导致训练不稳定或难以收敛。一般而言，可以从一个较小的学习率开始，然后根据模型的表现逐渐进行调整。</li>
+<li><strong>学习率过大：</strong> 如果学习率设置得过大，模型可能会在梯度下降的过程中跳过最优点，导致训练不稳定，甚至发散。</li>
+<li><strong>学习率过小：</strong> 如果学习率设置得过小，模型的更新步长较小，可能导致训练收敛速度很慢，甚至在训练初期就陷入局部最小值。</li>
+<li><strong>学习率调度：</strong> 一种常见的做法是使用学习率调度（learning rate schedule），即在训练的不同阶段动态调整学习率。例如，可以在每个 epoch 结束时或当验证误差不再减小时减小学习率。</li>
+<li><strong>自适应学习率算法：</strong> 一些自适应学习率算法，如 AdaGrad、RMSprop 和 Adam，能够根据参数的梯度自动调整学习率。这些算法通常在实践中表现得比固定学习率更好。</li>
+</ul>
+</li>
+<li>在实际应用中，对学习率进行调试是很常见的步骤。通过观察模型的训练和验证性能，可以根据问题的特性选择最佳的学习率。</li>
+</ul>
+<h3 id="正向传播"><a href="#正向传播" class="headerlink" title="正向传播"></a>正向传播</h3><ul>
+<li><p>正向传播（Forward Propagation）是神经网络中的一种过程，通过该过程，输入数据从输入层传递到输出层，最终产生网络的预测值。以下是正向传播的基本步骤：</p>
+<ul>
+<li><strong>输入层（Input Layer）：</strong> 将输入数据传递到网络的第一层，即输入层。每个输入节点对应输入数据的一个特征。</li>
+<li><strong>权重传递（Weighted Sum）：</strong> 在每个神经元中，输入与对应的权重相乘，并将这些加权的输入求和。这个步骤产生了一个加权和，称为带权输入（weighted input）。</li>
+<li><strong>激活函数（Activation Function）：</strong> 将带权输入传递给激活函数，以产生神经元的输出。激活函数引入了非线性性质，允许网络学习非线性映射。</li>
+<li><strong>传递到下一层：</strong> 将激活函数的输出传递到下一层，成为下一层的输入。这个过程重复进行，直到达到输出层。</li>
+<li><strong>输出层（Output Layer）：</strong> 在输出层中，经过一系列的加权求和和激活函数处理后，产生最终的网络输出。</li>
+</ul>
+</li>
+<li><p>整个正向传播过程实际上是<strong>将输入数据通过网络的各层，最终生成网络的预测结果</strong>。正向传播只是前向推断的一部分，用于产生预测结果而不涉及梯度计算。在训练中，正向传播通常会与反向传播结合，通过计算损失函数，反向传播梯度，最终调整网络参数以提高模型的性能。</p>
+</li>
+</ul>
+<h3 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h3><ul>
+<li><p>反向传播（Backpropagation，缩写为Backprop）是深度学习中用于训练神经网络的一种优化算法。它基于梯度下降方法，通过计算损失函数对网络参数的梯度，并沿着梯度的反方向更新参数，从而最小化损失函数。</p>
+</li>
+<li><p>以下是反向传播的基本步骤：</p>
+<ul>
+<li><strong>前向传播（Forward Propagation）：</strong> 首先，通过输入数据在神经网络中进行前向传播，计算模型的输出值。这包括将输入通过每一层的权重和激活函数传递，最终得到网络的预测输出。</li>
+<li><strong>计算损失函数（Compute Loss）：</strong> 将网络的预测输出与实际标签进行比较，计算损失函数。损失函数是衡量模型预测与实际情况之间差异的指标。</li>
+<li><strong>反向传播梯度（Backward Pass）：</strong> <strong>从损失函数开始，通过使用链式法则计算每个参数对损失的梯度。</strong>这是反向传播的核心步骤。梯度表示损失函数对于每个参数的变化率，即参数更新的方向。</li>
+<li><strong>参数更新（Update Parameters）：</strong> 使用梯度下降或其他优化算法，沿着梯度的反方向更新网络中的参数。这使得损失函数逐渐减小，模型逐渐收敛到最优解。</li>
+<li><strong>重复过程：</strong> 重复执行前向传播、计算损失、反向传播和参数更新的过程，直到达到停止条件（如固定次数的迭代或损失函数收敛到一个阈值）。</li>
+</ul>
+</li>
+<li><p>反向传播通过<strong>有效地利用链式法则，将损失在整个网络中传播回去，使每个参数都得到了合适的更新</strong>。这使得神经网络能够学习从输入到输出的复杂映射关系，以适应给定任务的要求。</p>
+</li>
+</ul>
+<h3 id="正向传播和反向传播比较"><a href="#正向传播和反向传播比较" class="headerlink" title="正向传播和反向传播比较"></a>正向传播和反向传播比较</h3><ul>
+<li>正向传播和反向传播是深度学习中训练神经网络时的两个关键步骤，它们分别执行前向推断和梯度计算。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>正&#x2F;反</th>
+<th>正向传播</th>
+<th>反向传播</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>任务</strong></td>
+<td>用于生成模型的预测结果。</td>
+<td>用于计算损失函数对于模型参数的梯度，以便进行参数更新。</td>
+</tr>
+<tr>
+<td><strong>过程</strong></td>
+<td>输入数据从输入层传递到输出层，通过一系列加权和激活函数的计算，最终产生模型的输出。</td>
+<td>根据损失函数计算的误差，通过链式法则，沿着网络的逆序计算梯度。这使得可以知道每个参数对于损失的贡献有多大。</td>
+</tr>
+<tr>
+<td><strong>特点</strong></td>
+<td>正向传播是用来进行前向推断的过程，它没有涉及模型参数的调整。在训练和测试阶段都会执行正向传播。</td>
+<td>反向传播是用来进行梯度计算和参数更新的过程。通过计算梯度，可以使用梯度下降等优化算法来更新网络参数，以减小损失函数。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>总体而言，正向传播是用于生成预测结果的过程，而反向传播是用于根据模型的误差来更新模型参数的过程。在训练期间，这两个步骤交替执行，通过反复迭代，使得模型能够逐渐学习并提高性能。</li>
+</ul>
+<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li><p>循环神经网络（Recurrent Neural Network，RNN）是一类深度学习模型，主要用于处理序列数据。与传统神经网络不同，RNN 具有循环结构，允许信息在网络中进行传递并保持记忆。</p>
+</li>
+<li><p>RNN 的主要特点是可以接受任意长度的序列作为输入，因此非常适用于处理时间序列数据、自然语言处理（NLP）以及其他具有序列结构的任务。然而，传统的 RNN 存在梯度消失和梯度爆炸等问题，导致难以捕捉长期依赖关系。</p>
+</li>
+<li><p>为了克服这些问题，出现了一些改进型的循环神经网络，包括长短时记忆网络（LSTM，Long Short-Term Memory）和门控循环单元（GRU，Gated Recurrent Unit）。这些模型通过引入门控机制，有效地处理了长期依赖问题，并在实际应用中取得了显著的成功。</p>
+</li>
+<li><p>RNN 的基本结构如下：</p>
+<ul>
+<li><strong>输入层（Input Layer）：</strong> 接收序列数据的输入。</li>
+<li><strong>隐藏层（Hidden Layer）：</strong> 包含循环结构，使网络能够保持记忆并处理序列信息。</li>
+<li><strong>输出层（Output Layer）：</strong> 生成网络的输出。</li>
+</ul>
+</li>
+<li><p>RNN 的训练过程通常涉及到时刻的展开，将序列展开成一个时间步一步的结构，然后通过<strong>反向传播算</strong>法进行优化。</p>
+</li>
+<li><p>总体而言，RNN 是一种强大的工具，但在处理长序列时存在一些挑战。在某些情况下，更先进的模型如 Transformer 已经开始替代 RNN 在自然语言处理等领域的应用。</p>
+</li>
+</ul>
+<h3 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li><p>CNN，即卷积神经网络（Convolutional Neural Network），是一类专门用于处理具有网格状结构数据，如图像和视频的深度学习模型。CNN 在计算机视觉领域取得了巨大成功，广泛应用于图像识别、物体检测、图像生成等任务。</p>
+</li>
+<li><p>以下是 CNN 的一些基本概念和组成部分：</p>
+<ul>
+<li><p><strong>卷积层（Convolutional Layer）：</strong> 卷积是 CNN 的核心操作。卷积层通过使用卷积核（或滤波器）在输入图像上进行滑动操作，提取图像的局部特征。这有助于网络捕捉到输入数据中的空间层次结构。</p>
+</li>
+<li><p><strong>池化层（Pooling Layer）：</strong> 池化层用于降采样，减小数据量和计算负担。常见的池化操作是最大池化，取邻域中的最大值。</p>
+<blockquote>
+<ul>
+<li><p>通俗地理解，可以将池化层比喻为图像的缩小镜。假设你正在查看一张大海报，但你只关心其中的一些主要特征，比如颜色和形状。你不需要仔细观察每个像素，而是通过观察一小块区域的平均颜色和形状来获取大致印象。这样的缩小镜就可以看作是一种对图像进行池化的操作。</p>
+</li>
+<li><p>在 CNN 中，池化操作通常是在每个卷积层之后进行的。最常见的池化操作是最大池化（Max Pooling），它取每个区域的最大值作为代表性特征。还有平均池化（Average Pooling），它取每个区域的平均值。这些池化操作通过将每个小区域内的信息合并，减少了特征图的尺寸，同时保留了主要的特征。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>激活函数（Activation Function）：</strong> 用于引入非线性性，使网络能够学习更复杂的映射关系。常见的激活函数包括 ReLU（Rectified Linear Unit）、Sigmoid 和 Tanh。</p>
+</li>
+<li><p><strong>全连接层（Fully Connected Layer）：</strong> 在卷积层和全连接层之间，通常会添加一个或多个全连接层，用于整合卷积层的输出并生成最终的分类结果。</p>
+</li>
+<li><p><strong>损失函数（Loss Function）：</strong> 用于衡量网络输出与真实标签之间的差异。在分类任务中，常用的损失函数包括交叉熵损失。</p>
+</li>
+<li><p><strong>优化器（Optimizer）：</strong> 用于调整网络权重以最小化损失函数。常见的优化算法包括梯度下降、Adam 等。</p>
+</li>
+</ul>
+</li>
+<li><p>CNN 的训练过程包括前向传播和反向传播。前向传播是通过网络计算输出，反向传播是根据损失函数计算梯度，然后使用优化器来更新网络参数。</p>
+</li>
+<li><p>CNN 的设计灵感来自生物学中视觉皮层的工作方式，通过层级的卷积和池化操作来提取图像的抽象特征。这种结构使得 CNN 对于图像数据的处理能力非常强大。</p>
+</li>
+</ul>
+<h3 id="哈希值"><a href="#哈希值" class="headerlink" title="哈希值"></a>哈希值</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li><p>哈希值是通过哈希函数计算得到的输出结果，通常是一串固定长度的数字和字母的组合。这个值也被称为哈希码、散列值或摘要。哈希值具有以下特点：</p>
+<ul>
+<li><strong>唯一性：</strong> 理论上，不同的输入数据应该映射为不同的哈希值。然而，由于哈希函数输出空间的有限性，可能存在两个不同的输入产生相同的哈希值，这种情况被称为哈希碰撞（collision）。好的哈希函数应该具有很高的抗碰撞性。</li>
+<li><strong>固定长度：</strong> 哈希值的长度是固定的，与输入数据的长度无关。这使得哈希值在表示和存储时更加方便。</li>
+<li><strong>不可逆性：</strong> 理论上，哈希值不能被逆向还原为原始的输入数据。这是因为哈希函数是一个单向函数，且具有信息丢失的性质。</li>
+<li><strong>散列性：</strong> 好的哈希函数应该表现出良好的散列性，即使输入数据的微小变化也会导致输出哈希值的较大变化。</li>
+</ul>
+</li>
+<li><p>哈希值在计算机科学和密码学中有广泛的应用。它常用于数据完整性检查、数字签名、密码哈希存储、数据索引等场景。例如，通过比较两个文件的哈希值，可以检查文件的完整性；在密码存储中，存储哈希值而不是明文密码可以提高安全性，因为哈希函数是不可逆的。</p>
+</li>
+</ul>
+<h3 id="Morgan-fingerprint"><a href="#Morgan-fingerprint" class="headerlink" title="Morgan fingerprint"></a>Morgan fingerprint</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li>Morgan 指纹是一种分子指纹（molecular fingerprint）的类型，用于表示分子的结构信息。分子指纹是一种将分子结构映射为二进制或整数向量的方法，以便在计算机上进行比较和分析。</li>
+<li>Morgan 指纹主要用于化学信息学和分子描述。它是基于 ECFP（Extended-Connectivity Fingerprints）的改进版本，由 Andrew Dalke 和 Marc Svensen 在2008年提出。Morgan 指纹通过考虑化合物的分子结构，特别是原子之间的相对排列，来生成一个表示该分子的二进制或整数数组。</li>
+<li>Morgan 指纹的生成过程包括以下步骤：<ul>
+<li><strong>选择参考原子：</strong> 选择一个中心原子作为起点。</li>
+<li><strong>确定半径：</strong> 定义一个半径，表示从参考原子出发，考虑到多少层原子。这个半径是生成指纹的一个关键参数。</li>
+<li><strong>获取邻居原子：</strong> 在给定的半径内找到所有与参考原子相连的原子。</li>
+<li><strong>排序邻居原子：</strong> 按照一定的规则对邻居原子进行排序，通常按照它们的连接顺序。</li>
+<li><strong>生成哈希值：</strong> 使用<strong>哈希函数</strong>将排序后的邻居原子表示为一个独特的哈希值。</li>
+<li><strong>重复：</strong> 对每个原子都重复上述步骤，直到所有原子都被考虑到。</li>
+<li><strong>组合哈希值：</strong> 将所有原子的哈希值组合成一个向量，形成最终的 Morgan 指纹。</li>
+</ul>
+</li>
+<li>Morgan 指纹的生成考虑了分子的全局和局部结构，使得相似的分子在 Morgan 指纹中有较高的相似性。这种指纹在化学信息学中常用于虚拟筛选、药物设计以及分子相似性比较等应用。</li>
+</ul>
+<h3 id="PVCap存在下水合物分解过程中"><a href="#PVCap存在下水合物分解过程中" class="headerlink" title="PVCap存在下水合物分解过程中"></a>PVCap存在下水合物分解过程中</h3><ul>
+<li><p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311282143725.png" alt="image-20231128214122124"></p>
+</li>
+<li><p>气体甲烷拉曼峰很少观察到；</p>
+</li>
+<li><p>可以归因于缓慢的水合物分解和由此导致的PVCap溶液中CH4气泡形成的可能性降低，这使得局部CH4浓度不太可能超过饱和水平。</p>
+<blockquote>
+<p>Energy 283 (2023) 128522</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Gibbs-Thomson-effect"><a href="#Gibbs-Thomson-effect" class="headerlink" title="Gibbs-Thomson effect"></a>Gibbs-Thomson effect</h3><blockquote>
+<p>ChatGPT can make mistakes. Consider checking important information.</p>
+</blockquote>
+<ul>
+<li><p>Gibbs-Thomson effect，也称为Gibbs-Thomson 管理效应（或Gibbs-Thomson 粒径效应），是一个描述在小尺度下物质性质发生变化的现象。</p>
+</li>
+<li><p>在纳米尺度下，粒子的表面能（表面自由能）与其体积成反比。这就是Gibbs-Thomson效应的基本思想。具体而言，如果你考虑一个尺寸非常小的粒子，表面能占据了相对较大的比例。对于小粒子而言，表面效应比体积效应更为显著。</p>
+</li>
+<li><p>Gibbs-Thomson效应的一个具体应用是在纳米颗粒的熔点上。根据这个效应，小尺寸的颗粒相对于大尺寸的颗粒，其熔点会更低。这是因为颗粒的表面原子相对于内部原子数目更多，导致表面能对颗粒整体的热力学性质有更显著的影响。</p>
+</li>
+<li><p>在材料科学和纳米技术领域，理解Gibbs-Thomson效应对于设计和控制纳米颗粒的性质是非常重要的。这个效应对纳米颗粒的相变、熔点降低、溶解行为等方面都有重要的影响。</p>
+</li>
+</ul>
+<h3 id="水合物分解过程中的纳米气泡"><a href="#水合物分解过程中的纳米气泡" class="headerlink" title="水合物分解过程中的纳米气泡"></a>水合物分解过程中的纳米气泡</h3><blockquote>
+<p>Fuel 341 (2023) 127650</p>
+</blockquote>
+<ul>
+<li><p>长时间存在：</p>
+<ul>
+<li>Nanobubbles have an unusually long lifetime and can exist for several days.</li>
+<li>Because of their long lifetime, nanobubbles can exist during the overall hydrate dissociation process, which conventional theories cannot explain, and thus research interest in nanobubbles continues to grow</li>
+</ul>
+</li>
+<li><p>实验证明了存在三种纳米气泡：</p>
+<ul>
+<li>bulk nanobubble, </li>
+<li>surface nanobubble,</li>
+<li>micro-pancakes</li>
+</ul>
+</li>
+<li><p>然而，通过实验方法捕捉纳米气泡形成的瞬间仍然很困难</p>
+</li>
+<li><p><strong>Bulk nanobubbles are the main species formed during hydrate dissociatio</strong>n, and their long-term existence may be one of the causes of the “memory effect.”</p>
+</li>
+<li><p>溶液中的NaCl 离子使溶解甲烷分子分布高度不均匀，从而增强了甲烷分子间的疏水相互作用。</p>
+</li>
+<li><p>另一方面，甲醇由于其两亲性，有助于纳米气泡的形成。</p>
+</li>
+<li><p>研究发现，随着时间的推移，解离率逐渐降低，直至形成纳米气泡，之后解离率逐渐升高</p>
+</li>
+<li><p>研究还表明，在没有纳米气泡的情况下，甲烷水合物可以以亚稳态过热固体的形式存在</p>
+</li>
+<li><p>甲烷分子不断地释放到液态水中。然而，液态水不能无限制地容纳甲烷分子。当水中甲烷分子浓度达到过饱和状态时，水合物分解过程达到一个阶段极限，停止。</p>
+</li>
+<li><p>The supersaturation condition of methane in water results in low diffusion capacity from hydrate to liquid water, which stabilizes the hydrate structure.</p>
+</li>
+<li><p>释放的甲烷首先聚集在水合物&#x2F;水界面附近，然后均匀分布在液态水中</p>
+</li>
+<li></li>
+</ul>
+<h3 id="甲烷水合物热性质重要性"><a href="#甲烷水合物热性质重要性" class="headerlink" title="甲烷水合物热性质重要性"></a>甲烷水合物热性质重要性</h3><ul>
+<li><p>在14.4℃下，压力依赖性在31.5 ~ 102 MPa之间，仅观察到弱温度和压力依赖性。甲烷水合物的热导率与水的热导率相差不到10%，太小，无法提供水饱和系统中水合物含量的敏感测量。</p>
+</li>
+<li><p>甲烷水合物的热扩散系数是水的两倍多，比热约为水的一半。因此，当钻井进入或穿过富含水合物的沉积物时，来自井眼的热量可以比地层孔隙空间仅含水时提高20%以上的地层温度。在含水合物沉积物的安全性和经济性评价中，应考虑甲烷水合物的热性质。</p>
+<blockquote>
+<p>Simultaneous determination of thermal conductivity, thermal diffusivity and specific heat in sI methane hydrate, <em>2007</em> <em>Geophysical Journal International</em></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="盐析效应"><a href="#盐析效应" class="headerlink" title="盐析效应"></a>盐析效应</h3><ul>
+<li>一般来说，盐析（salting-out）是指非电解质化合物在水中的溶解度随着盐浓度的增加而降低的现象。</li>
+</ul>
+<h3 id="水合物抑制剂的反常双重性：抑制-vs-促进"><a href="#水合物抑制剂的反常双重性：抑制-vs-促进" class="headerlink" title="水合物抑制剂的反常双重性：抑制 vs 促进"></a>水合物抑制剂的反常双重性：抑制 vs 促进</h3><blockquote>
+<p><em>Chemical Engineering Journal 475 (2023) 146362</em></p>
+</blockquote>
+<ul>
+<li>水合物添加剂的抑制剂和促进剂分类一直是水合物研究和应用的基础。</li>
+<li>然而，最近的研究越来越多地表明，这种名义分类并不总是正确的。</li>
+<li>水合物添加剂的实际作用相当复杂，并取决于其浓度。</li>
+<li>对水合物促进剂和抑制剂的传统认识只适用于一定的浓度范围。</li>
+<li>在这些范围之外，水合物添加剂可能会表现出与其典型效果相反的特殊行为。</li>
+</ul>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311032003030.jpeg" alt="img"></p>
+<ul>
+<li>最近的研究表明，<strong>当浓度改变，最著名的水合物促进剂可以作为水合物抑制剂，反之亦然</strong>。</li>
+<li>水合物添加剂的这种惊人的双重性具有重要的科学意义和应用价值；</li>
+<li>这些令人费解的观察结果表明，水合物添加剂具有<strong>反常的双重性质</strong>。可以利用离子特异性、软离子疏水性、疏水性效应和主客体相互作用等概念理解。</li>
+<li>通常，添加剂分为两大类，即水合物促进剂和水合物抑制剂；<ul>
+<li>水合物促进剂包括任何能够加速天然气水合物形成的实体，水合物抑制剂亦然；</li>
+<li>根据水合物促进剂的作用机理：<ul>
+<li>水合物促进剂又分为热力学水合物促进剂(THPs)和动力学水合物促进剂(KHPs)；</li>
+<li>水合物抑制剂也分为热力学水合物抑制剂(THIs)和动力学水合物抑制剂(KHIs)。</li>
+</ul>
+</li>
+<li>这些分类广泛应用于科学研究和工业实践。</li>
+<li>然而，最近的研究越来越多地表明，这种分类并不总是正确的，因为水合物添加剂的实际行为更加复杂，并且依赖于它们的浓度：<ul>
+<li>在典型的浓度范围之外，水合物添加剂可能改变其性质并逆转其对天然气水合物形成的影响。</li>
+<li>当浓度改变时，名义上的水合物抑制剂可能变成水合物促进剂，反之亦然。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="无机盐"><a href="#无机盐" class="headerlink" title="无机盐"></a>无机盐</h4><ul>
+<li><p>无机盐(也称为盐离子或离子)被广泛认为是天然气水合物形成的热力学抑制剂。然而，最近的研究表明，许多离子在低浓度状态下表现出水合促进能力</p>
+<ul>
+<li><p>Sowa等人使用高压自动滞后时间仪(HP-ALTA)研究了各种单价盐对混合丙烷&#x2F;甲烷水合物形成的影响。他们发现一些盐起到了动力水合物促进剂的作用。此外，在盐溶液中水合物成核的随机性比在纯水中更小。</p>
+<blockquote>
+<p><em>Energy Fuels</em> 2014, 28, 11, 6877–6888</p>
+</blockquote>
+</li>
+<li><p>Nguyen等人报道了卤化物钠对甲烷水合物形成的双重性质的定量证据，表明当卤化物盐在50 mM的低浓度下使用时，卤化物盐可以作为有效的水合物促进剂。卤化钠作为水合物促进剂的能力依次为NaF &lt; NaCl &lt; NaBr &lt; NaI。</p>
+<blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311032044186.jpeg" alt="img"></p>
+</blockquote>
+<blockquote>
+<p>Fuel 156 (2015) 87–95</p>
+</blockquote>
+</li>
+<li><p>Kumar等人报道，海水有助于THF&#x2F;甲烷混合水合物的成核和形成 (conventional reactor vessels)</p>
+<blockquote>
+<p><em>J. Phys. Chem. C</em> 2021, 125, 30, 16435–16443</p>
+</blockquote>
+</li>
+<li><p>这种双重性质与设备配置、盐的纯度无关</p>
+</li>
+<li><p>Farhang et al.发现卤化钠对CO2水合物的形成具有双重作用。最强的促进作用观察到75mM。</p>
+<blockquote>
+<p>Energy Fuels, 28 (2) (2014), pp. 1220-1229</p>
+</blockquote>
+</li>
+<li><p>Asadi et al. 发现NaI和SDS在促进甲烷水合物形成中的协同作用。在稀释的SDS溶液中加入NaI显著缩短了水合物成核的诱导时间(即促进了水合物成核)，但降低了水合物的生长速度。</p>
+<blockquote>
+<p>Energy Fuels, 34 (8) (2020), pp. 9971-9977</p>
+</blockquote>
+</li>
+<li><p>Ren et al. 发现低浓度NaCl (50 mM)和阴离子表面活性剂显著提高了水-水合物转化率和水合物成核率。</p>
+<blockquote>
+<p>J. Nat. Gas Sci. Eng., 83 (2020), Article 103622</p>
+</blockquote>
+</li>
+<li><p>Zhang et al.发现卤化钠和活性炭对天然气水合物的形成具有协同作用。在ion-AC体系中观察到促进和抑制作用，0.05 wt% KI诱导时间极短。0.1 wt% NaCl提高了甲烷的储存能力。</p>
+<blockquote>
+<p>Chem. Eng. J., 467 (2023), Article 143471</p>
+</blockquote>
+</li>
+<li><p>Kumar et al.在海水环境温度下观察到不寻常的快速水合物形成。</p>
+<blockquote>
+<p>J. Phys. Chem. C, 125 (30) (2021), pp. 16435-16443</p>
+</blockquote>
+</li>
+<li><p>Wu et al.发现1 wt% 的氯化钠可缩短甲烷水合物形成的诱导时间；超过 1 wt%，NaCl 会导致甲烷水合物成核延迟，高浓度氯化钠通过扰动四面体水结构延迟甲烷水合物成核</p>
+<blockquote>
+<p>Chem. Phys., 551 (2021), Article 111323</p>
+</blockquote>
+</li>
+<li><p>Wu et al.发现盐离子对散装水和孔隙中水合物形成的影响相反。这些离子可能促进孔隙中受限水合物的形成，但会阻碍开放水域中大块水合物的形成。作者指出了盐析作用对水合物形成的重要性</p>
+<blockquote>
+<p>Energy Fuels, 32 (12) (2018), pp. 12486-12494</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>这些基于实验和理论研究的观察结果为某些盐作为水合物促进剂在低浓度状态下的异常行为提供了确凿的证据。然而，某些盐类异常促进天然气水合物形成的机理尚不清楚。</p>
+</li>
+</ul>
+<h4 id="醇类"><a href="#醇类" class="headerlink" title="醇类"></a>醇类</h4><ul>
+<li><p>醇是众所周知的气体水合物形成的热力学抑制剂；特别是甲醇(MeOH)和乙二醇(EG)是石油和天然气工业中作为水合物抑制剂使用最多的醇类。然而，即使是这些最著名的抑制剂，在低浓度条件下也表现出强烈的促进天然气水合物形成的能力。</p>
+</li>
+<li><p>在现场实验中观察到，在甲醇和乙二醇剂量不足的情况下，天然气水合物堵塞的形成比在没有抑制剂的系统中更稳定；(<a target="_blank" rel="noopener" href="https://www.osti.gov/biblio/347863)%E3%80%82">https://www.osti.gov/biblio/347863)。</a></p>
+</li>
+<li><p>这一意想不到的现场观察结果之后，进行了实验室研究，以检查低浓度醇对天然气水合物形成的影响。</p>
+</li>
+<li><p>Yousif等人进行了一项早期研究，他们报告说，剂量不足的甲醇和乙二醇(剂量在1%至5%之间)是天然气水合物形成的有效促进剂。低浓度甲醇和乙二醇均能显著提高天然气水合物的生成速率，缩短诱导时间;</p>
+<ul>
+<li>特别是，乙二醇在2 wt%时，气体吸收量急剧增加，同时反应器温度急剧上升，这表明反应器内形成了密集的天然气水合物</li>
+</ul>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311032248085.jpeg" alt="img"></p>
+<blockquote>
+<p>SPE Prod. Facil., 13 (1998), pp. 184-189</p>
+</blockquote>
+</li>
+<li><p>Abay等人研究了超低浓度甲醇对甲烷水合物形成的影响，包括气体吸收、成核速率和成核事件的概率分布; 他们发现，水溶液中超低浓度甲醇(1.5 - 20ppm重量)的存在对甲烷水合物的形成产生了双重影响(促进和抑制)</p>
+<blockquote>
+<p>Energy Fuels, 24 (2) (2010), pp. 752-757</p>
+</blockquote>
+</li>
+<li><p>同样，Dubey等人得出结论，与基线相比，浓度在0.1%至10%之间的低剂量乙二醇造成水合物堵塞的风险更高</p>
+<blockquote>
+<p>Energy Fuels, 37 (9) (2023), pp. 6533-6544</p>
+</blockquote>
+</li>
+<li><p>不仅在液相中，在醇掺杂冰相中也观察到类似的促进作用。Bobev等人研究了在200至250 K的温度和高达7 MPa的压力下氘化冰形成甲烷和二氧化碳水合物的过程; 与不含氘化甲醇的基准体系相比，在含有掺有氘化甲醇的冰的体系中(高达20 wt%)观察到的水合物形成速率要高几个数量级</p>
+<blockquote>
+<p>Am. Mineral., 89 (8–9) (2004), pp. 1208-1214</p>
+</blockquote>
+</li>
+<li><p>同样，mclurin等人也表明，在12.5 MPa的压力和253 K的温度下，将掺甲醇的冰(甲醇的比例在0.6 - 10 wt%之间)暴露在甲烷气体中，甲烷水合物以高产量快速形成; 作者指出，冰到水合物的转化是完全的，转化率比在没有甲醇的基线实验中观察到的转化率高两个数量级</p>
+<blockquote>
+<p>Angew. Chem. Int. Ed., 53 (39) (2014), pp. 10429-10433</p>
+</blockquote>
+</li>
+<li><p>除了对醇在冷凝(液体或冰)相中的研究外，Chen等人最近发现，乙醇掺杂气相对冰粉形成甲烷水合物也有类似的促进作用</p>
+<blockquote>
+<p>Sci. Rep., 9 (1) (2019), p. 12345</p>
+</blockquote>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311041826276.jpeg" alt="img"></p>
+</li>
+</ul>
+<h4 id="表面活性剂和有机离子"><a href="#表面活性剂和有机离子" class="headerlink" title="表面活性剂和有机离子"></a>表面活性剂和有机离子</h4><ul>
+<li><p>表面活性剂是众所周知的天然气水合物形成的动力学促进剂</p>
+</li>
+<li><p>十二烷基硫酸钠(SDS)是作为水合物促进剂研究最多的表面活性剂之一</p>
+</li>
+<li><p>在早期的研究中，Zhong等人报道了溶液中284 ppm的SDS导致甲烷水合物形成速率增加了700倍</p>
+<blockquote>
+<p>Chem. Eng. Sci., 55 (19) (2000), pp. 4175-4187</p>
+</blockquote>
+</li>
+<li><p>有趣的是，最近的研究表明，表面活性剂在低浓度使用时，通常在每升几毫摩尔或更低的剂量下，对天然气水合物的形成表现出异常的抑制作用</p>
+</li>
+<li><p>Sowa等人进行了一项早期研究，报告了表面活性剂的双重功能，他们使用HP-ALTA设备检查了SDS溶液中模型天然气水合物的成核，其浓度范围从1 mM到100 mM，覆盖了临界胶束浓度(CMC)以下和之上的两个区域。他们发现SDS在低浓度下使用时，会阻碍天然气水合物的形成，而在使用最高浓度时，只会促进天然气水合物的形成</p>
+<blockquote>
+<p>Energy Fuels, 29 (9) (2015), pp. 5692-5700</p>
+</blockquote>
+</li>
+<li><p>Nguyen等人进一步证实了表面活性剂的双重功能，他们报道了0.3 mM浓度的SDS对甲烷水合物形成的强烈抑制作用。在0.3 mM下，SDS的诱导时间比纯水中的水合物形成时间增加了三倍。当溶液浓度达到5 mM以上时，SDS转变为强大的水合物促进剂</p>
+<p><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/202311041902726.jpeg" alt="img"></p>
+<blockquote>
+<p>Fuel, 197 (2017), pp. 488-496</p>
+</blockquote>
+</li>
+<li><p>同样，TBAB在&#x3D; 3.6 mM处显示出意想不到的强烈抑制CO2水合物形成，尽管这种添加剂是一种众所周知的热力学水合物促进剂</p>
+<blockquote>
+<p>Fuel, 185 (2016), pp. 517-523</p>
+</blockquote>
+</li>
+<li><p>近年来的研究日益证实了表面活性剂在影响天然气水合物形成方面的双重作用，</p>
+<blockquote>
+<p>Can. J. Chem. Eng., 96 (7) (2018), pp. 1620-1626;  Energy Fuels, 32 (9) (2018), pp. 9683-9691</p>
+</blockquote>
+</li>
+<li><p>有趣的是，在添加固体的情况下，表面活性剂仍然表现出双重作用</p>
+<blockquote>
+<p>J. Mol. Liq., 333 (2021), Article 116020</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="聚合物"><a href="#聚合物" class="headerlink" title="聚合物"></a>聚合物</h4><ul>
+<li><p>聚合物以低剂量水合物抑制剂(LDHIs)的形式用于天然气水合物研究和工程。</p>
+</li>
+<li><p>与传统的THIs相比，LDHIs的竞争优势在于，LDHIs需要较低的操作剂量，通常小于1wt %，以提供令人满意的性能</p>
+</li>
+<li><p>根据作用机理，LDHIs可分为动力学水合物抑制剂(KHIs)和抗团聚剂(AAs)。KHIs作为反成核剂的作用是延缓天然气水合物的成核，而AAs的主要作用是阻碍水合物核的聚集而不是抑制水合物核的发生</p>
+</li>
+</ul>
+<blockquote>
+<p>许多水合物添加剂表现出双重性质，在低浓度下表现出反常的行为，而在高浓度下则表现出典型的效果。当浓度改变时，最著名的水合物促进剂可以作为水合物抑制剂，反之亦然。</p>
+<p>深入了解水合物添加剂的反常双重性质不仅对科学理解而且对应用都至关重要。</p>
+<p>科学地说，水合物添加剂所观察到的双重性质确定了需要重新考虑促进和抑制天然气水合物形成的起源。</p>
+<p>由此推断，添加剂与水结构之间的相互作用比添加剂的化学性质更具有决定性。这意味着具有不同化学性质但对水结构产生相似影响的添加剂对天然气水合物形成的影响相似。相反，化学性质相似但对水结构影响不同的添加剂(如氟化物和碘化物)对天然气水合物形成的影响不同。</p>
+<p>因此，对水合物添加剂的双重性质的新认识有助于了解控制添加剂对天然气水合物形成影响的实际因素。</p>
+<p>在应用方面，了解水合物添加剂的双重功能有助于改善对天然气水合物形成和解离的控制。</p>
+<p>首先，值得注意的是，由于水的固有杂质和相关过程中使用的化学品，自然和工业系统通常含有少量的各种化学成分。这些杂质作为低浓度水合物添加剂，影响天然气水合物解离的形成。因此，在预测水合物的形成和解离时，需要对它们的影响进行量化和考虑。</p>
+<p>原油就是一个特别的例子。在地质构造中，原油与岩石、生物质和地质水等各种自然物质接触。因此，原油中不仅含有碳氢化合物，还含有各种其他物质，如水和溶解离子、天然表面活性剂、硫化物化合物等。溶解的离子和其他杂质中的天然表面活性剂作为低剂量的添加剂，改变了天然气水合物形成的动力学。</p>
+<p>另一个例子是海洋环境中各种有机化合物的存在，它们影响自然界中天然气水合物的形成和解离。</p>
+<p>一般来说，在天然和应用天然气水合物体系中不可避免地存在天然存在的低剂量添加剂，这确定了对其作用的透彻理解的必要性，因为这需要准确预测与流动保证和天然气水合物矿床稳定性相关的天然气水合物形成条件。</p>
+<p>否则，对低浓度添加剂影响的普遍忽视可能会导致低估天然气水合物在自然和工业系统中的相关风险，进而导致操作失败、事故和环境灾难。</p>
+<p>最重要的是，对水合物添加剂的双重性质的洞察可以确定添加剂提供可靠性能的最佳浓度范围。这对于动力学水合物添加剂(如LDHIs)至关重要，LDHIs对天然气水合物形成的影响已被证明对其剂量敏感。最后但并非最不重要的一点是，更好地了解低浓度下水合物添加剂的功能，可以在不可能使用典型水合物添加剂的系统中使用低剂量添加剂作为掺杂剂来改变气体水合物形成和解离的动力学。例如，在CO2气流中掺入汽化的甲醇或乙醇可能会对天然气水合物晶格中CO2&#x2F;CH4交换动力学产生强烈影响，从而使天然气水合物沉积物中的CH4迅速被CO2取代，从而达到提取甲烷和封存CO2的双重目的。</p>
+</blockquote>
+<h3 id="水合物生成过程中诱导时间和气体消耗率模拟"><a href="#水合物生成过程中诱导时间和气体消耗率模拟" class="headerlink" title="水合物生成过程中诱导时间和气体消耗率模拟"></a>水合物生成过程中诱导时间和气体消耗率模拟</h3><blockquote>
+<p><em>Petroleum Science (2021) 18:495–508</em></p>
+</blockquote>
+<ul>
+<li>气体消耗率可通过以下步骤确定：<br>  <img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_d.md/292773710231067.png"></li>
+</ul>
+<h3 id="浓度单位"><a href="#浓度单位" class="headerlink" title="浓度单位"></a>浓度单位</h3><h4 id="Parts-Per-Million-PPM-to-Weight-Percent-Converter"><a href="#Parts-Per-Million-PPM-to-Weight-Percent-Converter" class="headerlink" title="Parts Per Million (PPM) to Weight Percent (%) Converter"></a>Parts Per Million (PPM) to Weight Percent (%) Converter</h4><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">WP</span> <span class="operator">=</span> PPM ÷ <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="M"><a href="#M" class="headerlink" title="M"></a>M</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E9%AB%94%E7%A9%8D%E8%8E%AB%E8%80%B3%E6%BF%83%E5%BA%A6">体积摩尔浓度</a>：（英语：molarity，通常以大写M表示）是化学的一种通用浓度单位。</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b2008328a614f219ec2b9227b34dc36952eaafd5"></p>
+<blockquote>
+<p>构成溶液的某组分$i$的物质的量$n_i$除以溶液的体积$V$</p>
+</blockquote>
+</li>
+<li><p>国际单位制中，单位是mol&#x2F;m3。但是mol&#x2F;L是更为常用的单位。1mol&#x2F;L的体积摩尔浓度也能写作1 molar或1M。</p>
+<ul>
+<li>$1 mol&#x2F;L &#x3D; 1 mol&#x2F;dm^3 &#x3D; 1 mol dm^{−3} &#x3D; 1 M &#x3D; 1000 mol&#x2F;m^{3}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="PPM-to-Molarity-Formula"><a href="#PPM-to-Molarity-Formula" class="headerlink" title="PPM to Molarity Formula"></a>PPM to Molarity Formula</h4><ul>
+<li>To calculate molarity from ppm, <strong>divide the PPM by the molar mas (g&#x2F;mol), then divide the result by 1000</strong>.</li>
+</ul>
+<h3 id="诱导时间Induction-time"><a href="#诱导时间Induction-time" class="headerlink" title="诱导时间Induction time"></a>诱导时间Induction time</h3><ul>
+<li><p>我们可以把诱导时间定义为达到水合物形成条件和发生水合物形成之间的一段时间</p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs12182-020-00515-0/MediaObjects/12182_2020_515_Fig2_HTML.png?as=webp"></p>
+<blockquote>
+<p><em><em>Pet. Sci.</em> <strong>18</strong>, 495–508 (2021).</em></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="热力学THIs与动力学抑制剂KHIs"><a href="#热力学THIs与动力学抑制剂KHIs" class="headerlink" title="热力学THIs与动力学抑制剂KHIs"></a>热力学THIs与动力学抑制剂KHIs</h3><blockquote>
+<p><em><em>Pet. Sci.</em> <strong>18</strong>, 495–508 (2021).</em></p>
+</blockquote>
+<ul>
+<li><p>天然气水合物在管道中形成会造成堵塞和突然压降，造成巨大的经济损失</p>
+</li>
+<li><p>加热、减压、除水和向管道注入某些抑制剂是避免天然气水合物形成的一些推荐方法</p>
+</li>
+<li><p>在上述方法中，注入水合物抑制剂是一种更可行、更容易使用的方法</p>
+</li>
+<li><p>在传统形式下，两种类型的水合物抑制剂用于工业应用:</p>
+<ul>
+<li><p>热力学水合物抑制剂(THIs)倾向于降低水活度，使水合物相平衡曲线向低温高压偏移。这类抑制剂有甲醇、乙醇、单乙二醇(MEG)、氯化钠(NaCl)等。</p>
+<blockquote>
+<p>通常大量使用，甚至高达50wt%，但在某些特定情况下，大量注入THIs对天然气水合物形成的影响不足，因为条件非常有利于天然气水合物的形成。如前所述，在这些情况下，KHIs 可以用来延迟天然气水合物的形成</p>
+</blockquote>
+</li>
+<li><p>另一方面，动力学水合物抑制剂(KHIs)的作用不同。它们增加了水合物形成诱导时间，降低了水合物成核速率和晶体生长速率。众所周知的KHIs是聚乙烯吡咯烷酮(PVP)和聚乙烯己内酰胺(PVCap)。</p>
+</li>
+</ul>
+</li>
+<li><p>在过去的十年中，科学研究的重点是一类新的抑制剂，如某些离子液体(ILs)，它们不仅使水合物相平衡曲线向低温高压区域移动，而且增加了水合物形成的诱导时间。这些化合物称为双重功能抑制剂(DFIs)</p>
+<ul>
+<li>他们的结论是，由于强大的静电荷和氢键，所使用的ILs不仅使水合物平衡曲线&#x2F;水合物解离条件向更低的温度和更高的压力移动，而且还减慢了水合物的成核和生长速度</li>
+</ul>
+</li>
+</ul>
+<h3 id="水合物成核时，PVP浓度"><a href="#水合物成核时，PVP浓度" class="headerlink" title="水合物成核时，PVP浓度"></a>水合物成核时，PVP浓度</h3><ul>
+<li><p>PVP使用的最高浓度为0.07 wt%，因为超过这个浓度，由于生长和热释放极其有限，成核点变得难以区分。</p>
+<ul>
+<li><blockquote>
+<p><em>Chemical Engineering Science, 2015, 126: 91-98.</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="demulsification：解乳化"><a href="#demulsification：解乳化" class="headerlink" title="demulsification：解乳化"></a>demulsification：解乳化</h3><ul>
+<li><p>油水混合物中的分离是指将油和水分开的过程。<strong>解乳是指从乳状液中分离油的过程</strong>，<strong>乳状液是指微小的油滴悬浮在水中形成的稳定混合物</strong>。<strong>因此，解乳就是把油滴从乳状液中分离出来，使其与水彻底分离。</strong></p>
+</li>
+<li><p>在工业和环境领域，解乳是一个重要的过程，用于处理油水混合物，例如废水处理、石油开采废水处理、燃油分离等。解乳的方法包括物理方法和化学方法。</p>
+</li>
+<li><p>物理解乳方法包括离心分离、重力沉降、过滤、膜分离等，这些方法利用油水混合物中的密度差、大小差异、流动性质等来实现油的分离。</p>
+</li>
+<li><p><strong>化学解乳方法则是添加一些化学剂或表面活性剂，这些物质可以使乳状液中的油滴凝结聚集，形成较大的油滴，从而便于物理分离。</strong></p>
+</li>
+<li><p>解乳的目的是减少油水混合物中的油含量，以满足环境排放标准或回收油和水资源。</p>
+<blockquote>
+<p>ChatGPT-3.5学术版</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Inelastic-neutron-scattering"><a href="#Inelastic-neutron-scattering" class="headerlink" title="Inelastic neutron scattering"></a>Inelastic neutron scattering</h3><ul>
+<li>非弹性中子散射：一种用于研究物质结构和动力学的实验技术，通过测量中子与物质相互作用后的能量和动量变化来获取信息。<ul>
+<li><img src=https://www.researchgate.net/profile/Shuo_Chen15/publication/286590827/figure/download/fig5/AS:669993389789185@1536750280084/6-Inelastic-neutron-scattering.png width="500"></li>
+</ul>
+</li>
+</ul>
+<h3 id="质量过小会引起量子效应？"><a href="#质量过小会引起量子效应？" class="headerlink" title="质量过小会引起量子效应？"></a>质量过小会引起量子效应？</h3><ul>
+<li><p>当物体的质量足够小时，它可能会表现出量子效应，这是因为量子力学规定了微观领域中的物质行为。量子效应指的是在极小尺度下，物质的特性和行为受到量子力学的显著影响，而不再遵循经典物理学的规律。</p>
+<ul>
+<li><blockquote>
+<p><em><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT September 25 Version</a></em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="促进水合物成核"><a href="#促进水合物成核" class="headerlink" title="促进水合物成核"></a>促进水合物成核</h3><ul>
+<li><p>特别设计的<mark>活性炭</mark>材料可以通过作为纳米反应器促进$H_2$水合物的成核和生长;</p>
+</li>
+<li><p>内腔的约束效应促进了氢水合物在中等温度下的大量生长，使用纯水，具有极快的动力学和比体系统低得多的压力。</p>
+</li>
+<li><p>由于需要通过晶内非键相互作用来稳定3D氢键网络，因此水合物的形成被认为仅限于0.33-0.36nm以上的分子。</p>
+<ul>
+<li><blockquote>
+<p><em>Nature Communications | ( 2022) 13:5953</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="水合物的记忆效应"><a href="#水合物的记忆效应" class="headerlink" title="水合物的记忆效应"></a>水合物的记忆效应</h3><blockquote>
+<p><em>J. Phys. Chem. A 2015, 119, 10784−10790</em></p>
+</blockquote>
+<ul>
+<li>记忆效应指的是气体水合物分解或冰融化所得到的水更容易或更快地形成天然气水合物；</li>
+<li>记忆效应为形成具有较好再现性的天然气水合物提供了一种有效的方法，否则成核现象是高度随机的；</li>
+<li>已知当系统的热力学平衡完全建立时，记忆效应在足够高的过热温度和&#x2F;或足够长的加热时间下消失；</li>
+<li>三种假设：<ol>
+<li>在水相中存在着某种残余的水合物结构；</li>
+<li>在气体水合物分解后形成的水中，客体气体的扩散受到阻碍。这种缓慢的气体扩散导致客体气体分子在水相中过饱和；</li>
+<li>杂质或容器壁在第一次天然气水合物形成后受到某种程度的制约，因此它们成为第二次和随后的水合物形成的更有效的非均相成核位点。</li>
+</ol>
+</li>
+</ul>
+<h3 id="为什么不同的初始速度水合物分解的时间却有不同？"><a href="#为什么不同的初始速度水合物分解的时间却有不同？" class="headerlink" title="为什么不同的初始速度水合物分解的时间却有不同？"></a>为什么不同的初始速度水合物分解的时间却有不同？</h3><h4 id="水合物成核具有随机性"><a href="#水合物成核具有随机性" class="headerlink" title="水合物成核具有随机性"></a>水合物成核具有随机性</h4><ul>
+<li><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2023/paperreadnote2023_d.md/499660612249474.png"><ul>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1063/1.4905572">J. Chem. Phys. 142, 044501 (2015)</a>指出，五个不同运行的“正常”增长率是不相等的，正如势能的不同斜率所表明的那样，这一事实必须归因于水合物生长的随机性。</p>
+<ul>
+<li>这一事实的一个直接结果是，对于通过MD模拟计算增长率，应该在足够数量的运行中使用平均值。</li>
+<li>此外，在不同的runs之间，气泡形成的“诱导”时间是不相等的。</li>
+</ul>
+</li>
+<li><p>在实验上<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.jngse.2015.03.030">Journal of Natural Gas Science and Engineering 24 (2015) 357e364</a>通过反应条件控制可以消除水合物形成的随机性：粒径较大的多孔介质可以控制诱导时间，减少诱导时间的随机性。</p>
+</li>
+<li><p>水合物的形成不受热力学定律的支配，而是相当随机的<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0016236113009459"> Fuel 117 (2014) 442–449</a></p>
+</li>
+<li><p>水合物成核的随机性随着解离温度的降低而减弱；<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.fuel.2020.120103">Fuel 291 (2021) 120103</a> 定量表征记忆效应的“量”或“强度”是困难和耗时的，因为水合物成核是一个随机过程，成核的随机性意味着需要大量的重复测量来产生统计上可用的数据，以理解记忆效应的机制；</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.fuel.2020.120103">Fuel 291 (2021) 120103</a> 在较短的离解时间间隔内，随着分解时间的延长，水合物成核的随机性降低。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.molliq.2021.117880">Journal of Molecular Liquids 344 (2021) 117880</a>氨基酸能够降低水合物成核诱导时间的随机性</p>
+</li>
+<li><p>由于水合物成核和生长受冷却速率、水史、冰粒、晶核等因素的影响，其随机性和亚稳态相对于水化分解过程更强；虽然在水合物分解过程中加热过快会产生亚稳态或异常的自我保护效应，但亚稳态通常较弱。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.ngib.2022.04.003">Thermophysical properties of natural gas hydrates: A review</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="水合物分解是否也具有随机性？"><a href="#水合物分解是否也具有随机性？" class="headerlink" title="水合物分解是否也具有随机性？"></a>水合物分解是否也具有随机性？</h4><ul>
+<li><p>水合物（Hydrates）分解也可以具有一定的随机性，具体取决于分子模拟的参数设置、初始条件以及系统本身的特性。以下是影响水合物分解随机性的一些因素：</p>
+<ol>
+<li><strong>初始条件的随机性：</strong> 分子模拟通常使用随机生成的初始速度和位置来模拟系统。因此，不同模拟运行的初始条件可以是随机的，这导致了模拟结果的随机性。</li>
+<li><strong>分子动力学噪声：</strong> 分子动力学模拟中引入了一些随机性，称为Brownian运动或热噪声，模拟粒子受到来自周围分子的随机碰撞力。这种噪声对于系统的行为和相变过程具有影响。</li>
+<li><strong>系统大小：</strong> 模拟系统的大小也会影响随机性。在小系统中，由于分子数量有限，随机性更为显著。在大系统中，随机性相对较小，因为有更多的分子相互作用来平均化随机效应。</li>
+<li><strong>温度和压力：</strong> 温度和压力对分子模拟中的随机性也有影响。较高的温度和较低的压力通常会增加分子的热运动，从而增加随机性。</li>
+<li><strong>模拟时间：</strong> 模拟时间的长度也会影响随机性。在较短的时间内，系统可能不会达到平衡状态，因此随机性可能更显著。在较长的时间模拟中，系统可能会趋于平稳，随机性逐渐减小。</li>
+</ol>
+<p>因此，水合物分解的分子模拟通常包括一些随机性元素，这使得不同模拟运行可能会产生略有不同的结果。为了获得可靠的模拟结果，通常需要进行多次独立的模拟，并对结果进行统计分析，以确定平均行为和关键趋势。这有助于减小随机性的影响，使模拟结果更具可信度。</p>
+</li>
+<li><p>水合物在现实中的分解也具有一定的随机性，但它的随机性受到多种因素的影响，包括温度、压力、水合物的化学成分、物理性质以及水合物的微观结构等。以下是影响水合物分解随机性的一些因素：</p>
+<ol>
+<li><strong>温度和压力：</strong> 温度和压力是主要影响水合物分解的因素之一。在不同的温度和压力条件下，水合物的分解速率和行为会有所不同。高温和低压通常促进水合物的分解，但分解速率和程度仍然受到温度和压力梯度的影响，这些梯度在水合物储层中可能会有一定程度的随机性。</li>
+<li><strong>水合物的化学成分：</strong> 不同类型的水合物（如甲烷水合物、二氧化碳水合物等）具有不同的分解特性。它们的分解温度和压力条件也会不同，这增加了水合物分解的随机性。</li>
+<li><strong>微观结构：</strong> 水合物的微观结构可以影响其分解特性。微观结构受到水合物形成条件的影响，而这些条件可能在不同地点或不同时间具有一定的随机性。</li>
+<li><strong>环境因素：</strong> 水合物储层的环境条件，如地下水流动、盐度变化等，也可能影响水合物的分解行为。这些环境因素的变化可以导致水合物分解的随机性。</li>
+<li><strong>地质差异：</strong> 不同地点的水合物储层地质条件各不相同，包括岩石类型、渗透率、孔隙度等。这些差异会影响水合物分解的方式和速率，从而引入了地质随机性。</li>
+</ol>
+<p>总之，水合物的分解在现实中受多种因素的影响，因此具有一定的随机性。在水合物资源勘探和开发中，需要考虑这些随机性因素，并使用数值模拟、实验研究等方法来更好地理解水合物分解的行为，以便有效地开发和利用这一资源。</p>
+</li>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT September 25 Version</a></p>
+<p>文献中，找不到关于水合物分解过程中的随机性，大都是关于水合物成核诱导时间的随机性。</p>
+</blockquote>
+</li>
+<li><p>找到一个<a target="_blank" rel="noopener" href="https://doi.org/10.1002/apj.1919">水合物分解的随机性的文献</a>，但是不是不同系综的随机性，而是水合物&#x2F;水界面处气体分子再次进入不完全笼子的随机性。</p>
+<ul>
+<li><p><img src="https://onlinelibrary.wiley.com/cms/asset/56ec7ba7-e151-47ce-8c00-24fed9928ccb/apj1919-fig-0005-m.jpg"></p>
+</li>
+<li><p><img src="https://onlinelibrary.wiley.com/cms/asset/d8516a4b-8c4b-4fc7-ba91-0df1702ffa65/apj1919-fig-0006-m.jpg"></p>
+</li>
+<li><p>理由是：通过在甲烷-水体系中进行约束分子动力学模拟，<a target="_blank" rel="noopener" href="https://doi.org/10.1039/B913898F">2009年，Guo等</a>首次成功地计算了十二面体水笼（DWC）与溶解甲烷之间的平均力势（PMF）。作为 DWC 与甲烷之间距离的函数，其特征是在∼6.2 Å处有一个深井，在∼10.2 Å处有一个浅井，两井之间在∼8.8 Å处有一个势垒。最重要的发现是，DWC 本身能强烈吸附甲烷，而且吸附作用与客体无关。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper Notes" >
+    <span class="tag-code">Paper Notes</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2023/09/18/softwares/QSGS/">
+        <span class="nav-arrow">← </span>
+        
+          QSGSM安装
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2023/10/21/softwares/MolTwister/">
+        
+          MolTwister安装与使用
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Paper-Notes-2023"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Paper Notes 2023</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2023-10%E6%9C%88-11%E6%9C%88-12%E6%9C%88"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2023-10月@11月@12月</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Some-phrases"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Some phrases</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AC%A7%E6%8B%89%E5%A4%9A%E9%9D%A2%E4%BD%93%E5%AE%9A%E5%BE%8B"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">欧拉多面体定律</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A0%E9%80%9F%E6%B0%B4%E5%90%88%E7%89%A9%E5%BD%A2%E6%88%90%E4%BF%83%E8%BF%9B%E5%89%82"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">加速水合物形成促进剂</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9C%80%E8%A6%81%E6%9B%B4%E5%A4%A7%E7%9A%84%E5%8E%8B%E5%8A%9B%E6%89%8D%E8%83%BD%E8%AE%A9%E5%B0%8F%E5%88%86%E5%AD%90%E4%BE%8B%E5%A6%82H2%E5%BD%A2%E6%88%90%E6%B0%B4%E5%90%88%E7%89%A9"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">需要更大的压力才能让小分子例如H2形成水合物</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE%EF%BC%88DAG%EF%BC%89%E8%83%BD%E7%A1%AE%E4%BF%9D%E5%8F%AA%E6%89%BE%E5%87%B8%E7%8E%AF%E8%80%8C%E5%BF%BD%E7%95%A5%E5%87%B9%E7%8E%AF"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">为什么有向无环图（DAG）能确保只找凸环而忽略凹环</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%A0%E7%8E%AF%E5%9B%BE%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">什么是无环图，什么是有向无环图</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTR%EF%BC%88hierarchical-topology-ring-%EF%BC%89%E7%AE%97%E6%B3%95%E7%BB%86%E8%8A%82"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">HTR（hierarchical topology ring ）算法细节</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E7%AC%BC%E5%AD%90%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">水合物笼子识别算法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E8%87%AA%E5%8F%91%E6%88%90%E6%A0%B8"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">水合物自发成核</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Z%E6%96%B9%E5%90%91AOP%EF%BC%8C%E4%B8%8D%E5%90%8C%E6%B0%B4%E7%9A%84%E5%8C%BA%E5%88%86%E4%BB%A5%E5%8F%8A%E6%B0%B4%E5%90%88%E7%89%A9%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="toc-nav-number">2.10.</span> <span class="toc-nav-text">Z方向AOP，不同水的区分以及水合物界面的确定</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%8A%91%E5%88%B6%E5%89%82KHIs%E6%8A%91%E5%88%B6%E6%9C%BA%E7%90%86"><span class="toc-nav-number">2.11.</span> <span class="toc-nav-text">动力学抑制剂KHIs抑制机理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%84%E7%90%86%E5%91%A8%E6%9C%9F%E6%80%A7%E5%AF%86%E5%BA%A6"><span class="toc-nav-number">2.12.</span> <span class="toc-nav-text">处理周期性密度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#batch-size"><span class="toc-nav-number">2.13.</span> <span class="toc-nav-text">batch_size</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-nav-number">2.14.</span> <span class="toc-nav-text">损失函数</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%93%BE%E5%BC%8F%E6%B3%95%E5%88%99"><span class="toc-nav-number">2.15.</span> <span class="toc-nav-text">链式法则</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%EF%BC%88learning-rate%EF%BC%89"><span class="toc-nav-number">2.16.</span> <span class="toc-nav-text">学习率（learning rate）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-nav-number">2.17.</span> <span class="toc-nav-text">正向传播</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-nav-number">2.18.</span> <span class="toc-nav-text">反向传播</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E6%AF%94%E8%BE%83"><span class="toc-nav-number">2.19.</span> <span class="toc-nav-text">正向传播和反向传播比较</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RNN"><span class="toc-nav-number">2.20.</span> <span class="toc-nav-text">RNN</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CNN"><span class="toc-nav-number">2.21.</span> <span class="toc-nav-text">CNN</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%93%88%E5%B8%8C%E5%80%BC"><span class="toc-nav-number">2.22.</span> <span class="toc-nav-text">哈希值</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Morgan-fingerprint"><span class="toc-nav-number">2.23.</span> <span class="toc-nav-text">Morgan fingerprint</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PVCap%E5%AD%98%E5%9C%A8%E4%B8%8B%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E8%BF%87%E7%A8%8B%E4%B8%AD"><span class="toc-nav-number">2.24.</span> <span class="toc-nav-text">PVCap存在下水合物分解过程中</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Gibbs-Thomson-effect"><span class="toc-nav-number">2.25.</span> <span class="toc-nav-text">Gibbs-Thomson effect</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BA%B3%E7%B1%B3%E6%B0%94%E6%B3%A1"><span class="toc-nav-number">2.26.</span> <span class="toc-nav-text">水合物分解过程中的纳米气泡</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%B2%E7%83%B7%E6%B0%B4%E5%90%88%E7%89%A9%E7%83%AD%E6%80%A7%E8%B4%A8%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-nav-number">2.27.</span> <span class="toc-nav-text">甲烷水合物热性质重要性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%90%E6%9E%90%E6%95%88%E5%BA%94"><span class="toc-nav-number">2.28.</span> <span class="toc-nav-text">盐析效应</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E6%8A%91%E5%88%B6%E5%89%82%E7%9A%84%E5%8F%8D%E5%B8%B8%E5%8F%8C%E9%87%8D%E6%80%A7%EF%BC%9A%E6%8A%91%E5%88%B6-vs-%E4%BF%83%E8%BF%9B"><span class="toc-nav-number">2.29.</span> <span class="toc-nav-text">水合物抑制剂的反常双重性：抑制 vs 促进</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%97%A0%E6%9C%BA%E7%9B%90"><span class="toc-nav-number">2.29.1.</span> <span class="toc-nav-text">无机盐</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%86%87%E7%B1%BB"><span class="toc-nav-number">2.29.2.</span> <span class="toc-nav-text">醇类</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A1%A8%E9%9D%A2%E6%B4%BB%E6%80%A7%E5%89%82%E5%92%8C%E6%9C%89%E6%9C%BA%E7%A6%BB%E5%AD%90"><span class="toc-nav-number">2.29.3.</span> <span class="toc-nav-text">表面活性剂和有机离子</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%81%9A%E5%90%88%E7%89%A9"><span class="toc-nav-number">2.29.4.</span> <span class="toc-nav-text">聚合物</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E7%94%9F%E6%88%90%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%AF%B1%E5%AF%BC%E6%97%B6%E9%97%B4%E5%92%8C%E6%B0%94%E4%BD%93%E6%B6%88%E8%80%97%E7%8E%87%E6%A8%A1%E6%8B%9F"><span class="toc-nav-number">2.30.</span> <span class="toc-nav-text">水合物生成过程中诱导时间和气体消耗率模拟</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%93%E5%BA%A6%E5%8D%95%E4%BD%8D"><span class="toc-nav-number">2.31.</span> <span class="toc-nav-text">浓度单位</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Parts-Per-Million-PPM-to-Weight-Percent-Converter"><span class="toc-nav-number">2.31.1.</span> <span class="toc-nav-text">Parts Per Million (PPM) to Weight Percent (%) Converter</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#M"><span class="toc-nav-number">2.31.2.</span> <span class="toc-nav-text">M</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#PPM-to-Molarity-Formula"><span class="toc-nav-number">2.31.3.</span> <span class="toc-nav-text">PPM to Molarity Formula</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AF%B1%E5%AF%BC%E6%97%B6%E9%97%B4Induction-time"><span class="toc-nav-number">2.32.</span> <span class="toc-nav-text">诱导时间Induction time</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%83%AD%E5%8A%9B%E5%AD%A6THIs%E4%B8%8E%E5%8A%A8%E5%8A%9B%E5%AD%A6%E6%8A%91%E5%88%B6%E5%89%82KHIs"><span class="toc-nav-number">2.33.</span> <span class="toc-nav-text">热力学THIs与动力学抑制剂KHIs</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8%E6%97%B6%EF%BC%8CPVP%E6%B5%93%E5%BA%A6"><span class="toc-nav-number">2.34.</span> <span class="toc-nav-text">水合物成核时，PVP浓度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#demulsification%EF%BC%9A%E8%A7%A3%E4%B9%B3%E5%8C%96"><span class="toc-nav-number">2.35.</span> <span class="toc-nav-text">demulsification：解乳化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Inelastic-neutron-scattering"><span class="toc-nav-number">2.36.</span> <span class="toc-nav-text">Inelastic neutron scattering</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B4%A8%E9%87%8F%E8%BF%87%E5%B0%8F%E4%BC%9A%E5%BC%95%E8%B5%B7%E9%87%8F%E5%AD%90%E6%95%88%E5%BA%94%EF%BC%9F"><span class="toc-nav-number">2.37.</span> <span class="toc-nav-text">质量过小会引起量子效应？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%83%E8%BF%9B%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8"><span class="toc-nav-number">2.38.</span> <span class="toc-nav-text">促进水合物成核</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E7%9A%84%E8%AE%B0%E5%BF%86%E6%95%88%E5%BA%94"><span class="toc-nav-number">2.39.</span> <span class="toc-nav-text">水合物的记忆效应</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%9D%E5%A7%8B%E9%80%9F%E5%BA%A6%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E7%9A%84%E6%97%B6%E9%97%B4%E5%8D%B4%E6%9C%89%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-nav-number">2.40.</span> <span class="toc-nav-text">为什么不同的初始速度水合物分解的时间却有不同？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E6%88%90%E6%A0%B8%E5%85%B7%E6%9C%89%E9%9A%8F%E6%9C%BA%E6%80%A7"><span class="toc-nav-number">2.40.1.</span> <span class="toc-nav-text">水合物成核具有随机性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B0%B4%E5%90%88%E7%89%A9%E5%88%86%E8%A7%A3%E6%98%AF%E5%90%A6%E4%B9%9F%E5%85%B7%E6%9C%89%E9%9A%8F%E6%9C%BA%E6%80%A7%EF%BC%9F"><span class="toc-nav-number">2.40.2.</span> <span class="toc-nav-text">水合物分解是否也具有随机性？</span></a></li></ol></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2023/10/01/notes/PaperReadNote2023_D/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

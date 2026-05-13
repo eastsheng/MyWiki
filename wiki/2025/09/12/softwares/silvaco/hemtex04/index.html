@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      单量子阱 AlGaAs/GaAs HEMT 中采用能量平衡（EB）模型和漂移扩散（DD）模型计算 Id–Vds 特性 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>单量子阱 AlGaAs/GaAs HEMT 中采用能量平衡（EB）模型和漂移扩散（DD）模型计算 Id–Vds 特性</h2>
+  <p class="post-date">2025-09-12 21:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="能量平衡与漂移扩散比较，主要包括："><a href="#能量平衡与漂移扩散比较，主要包括：" class="headerlink" title="能量平衡与漂移扩散比较，主要包括："></a>能量平衡与漂移扩散比较，主要包括：</h2><ul>
+<li>使用 Atlas 语法构建异质结结构</li>
+<li>材料参数的定义</li>
+<li>物理模型的指定，包括能量平衡模型</li>
+<li>在$ V_{gs} &#x3D; 0.0 V $下模拟 $I_d–V_{ds}$ 特性</li>
+<li>使用漂移扩散模型重复仿真以进行比较</li>
+<li>在 TonyPlot 中显示合并结果</li>
+</ul>
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (c) Silvaco Inc., 2019</span></span><br><span class="line">go atlas</span><br><span class="line"><span class="comment"># EB simulation</span></span><br><span class="line"><span class="comment"># SECTION 1: Mesh input</span></span><br><span class="line"></span><br><span class="line">mesh</span><br><span class="line"></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.0</span>  spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.1</span>  spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.35</span> spac=<span class="number">0.01</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.45</span> spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.5</span>  spac=<span class="number">0.025</span></span><br><span class="line"></span><br><span class="line">y.mesh <span class="attr">loc</span>=-<span class="number">0.02</span>  spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.0</span>    spac=<span class="number">0.005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.03</span>   spac=<span class="number">0.0005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.0425</span> spac=<span class="number">0.005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.055</span>  spac=<span class="number">0.0005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.2</span>    spac=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 2: Structure Specification</span></span><br><span class="line"></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">1</span>   material=GaAs y.min=<span class="number">0.03</span> y.max=<span class="number">0.055</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">2</span>  material=AlGaAs y.max=<span class="number">0.03</span> x.composition=<span class="number">0.3</span> </span><br><span class="line">region     <span class="attr">num</span>=<span class="number">3</span>  material=AlGaAs y.min=<span class="number">0.055</span> x.composition=<span class="number">0.3</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">4</span>  oxide y.min=-<span class="number">0.02</span> y.max=<span class="number">0</span> </span><br><span class="line">  </span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">1</span>  name=source x.min=<span class="number">0.0</span> x.max=<span class="number">0.0</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">2</span>  name=gate   x.min=<span class="number">0.1</span> x.max=<span class="number">0.35</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">3</span>  name=drain  x.min=<span class="number">0.5</span> x.max=<span class="number">0.5</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">doping     uniform <span class="attr">y.min</span>=<span class="number">0</span> y.max=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping     uniform <span class="attr">y.min</span>=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e15</span><br><span class="line">doping     uniform <span class="attr">x.min</span>=<span class="number">0.0</span> x.max=<span class="number">0.05</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping     uniform <span class="attr">x.min</span>=<span class="number">0.45</span> x.max=<span class="number">0.5</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line"></span><br><span class="line">interface <span class="attr">x.min</span>=<span class="number">0</span> x.max=<span class="number">0.5</span> y.min=-<span class="number">0.01</span> y.max=<span class="number">0.005</span> qf=-<span class="number">1</span>.e12</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 3: Material Models</span></span><br><span class="line"></span><br><span class="line">material <span class="attr">material</span>=GaAs mun=<span class="number">6500</span> taurel.el=<span class="number">1</span>.e-<span class="number">12</span> taumob.el=<span class="number">1</span>.e-<span class="number">12</span> vsat=<span class="number">1</span>.e7</span><br><span class="line">material <span class="attr">material</span>=AlGaAs mun=<span class="number">2000</span> taurel.el=<span class="number">1</span>.e-<span class="number">12</span> taumob.el=<span class="number">1</span>.e-<span class="number">12</span> align=<span class="number">0.6</span></span><br><span class="line"></span><br><span class="line">model     fldmob    print hcte.el </span><br><span class="line">model    <span class="attr">material</span>=GaAs  print  evsatmod=<span class="number">1</span> </span><br><span class="line"></span><br><span class="line">contact  <span class="attr">number</span>=<span class="number">2</span> workfun=<span class="number">4.64</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 4: Initial solution</span></span><br><span class="line"></span><br><span class="line">solve init</span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">04_0</span>.str</span><br><span class="line">tonyplot  hemtex04_0.str -set hemtex04_0.set</span><br><span class="line"> </span><br><span class="line">method gummel block newton  <span class="attr">maxtrap</span>=<span class="number">6</span> \</span><br><span class="line">  <span class="attr">ir.tol</span>=<span class="number">1</span>.e-<span class="number">20</span> ix.tol=<span class="number">1</span>.e-<span class="number">20</span> vsatmod.inc=<span class="number">0.05</span> carriers=<span class="number">1</span> electron</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 5: Bias gate</span></span><br><span class="line">output con.band val.band e.velocity</span><br><span class="line"></span><br><span class="line">solve <span class="attr">vgate</span>=<span class="number">0</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 6: Drain ramp</span></span><br><span class="line"></span><br><span class="line">log <span class="attr">outf</span>=hemtex04_eb.log master</span><br><span class="line"></span><br><span class="line">method newton  <span class="attr">maxtrap</span>=<span class="number">6</span>  \</span><br><span class="line">  <span class="attr">ir.tol</span>=<span class="number">1</span>.e-<span class="number">20</span> ix.tol=<span class="number">1</span>.e-<span class="number">20</span> vsatmod.inc=<span class="number">0.05</span> carriers=<span class="number">1</span> electron</span><br><span class="line"></span><br><span class="line">solve </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.01</span>  </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.025</span> vstep=<span class="number">0.025</span> vfinal=<span class="number">0.2</span> name=drain</span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.25</span>  vstep=<span class="number">0.05</span>  vfinal=<span class="number">0.9</span> name=drain </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">1</span>  vstep=<span class="number">0.2</span>  electr=<span class="number">3</span> vfinal=<span class="number">1.6</span> </span><br><span class="line">save <span class="attr">outf</span>=hemtex04_eb.str</span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">1.8</span>  vstep=<span class="number">0.2</span>  electr=<span class="number">3</span> vfinal=<span class="number">3.0</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用漂移扩散模型重复仿真以进行比较</span></span><br><span class="line">go atlas</span><br><span class="line"><span class="comment"># DD Simulation</span></span><br><span class="line"><span class="comment"># SECTION 1: Mesh input</span></span><br><span class="line"></span><br><span class="line">mesh</span><br><span class="line"></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.0</span>  spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.1</span>  spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.35</span> spac=<span class="number">0.01</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.45</span> spac=<span class="number">0.025</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.5</span>  spac=<span class="number">0.025</span></span><br><span class="line"></span><br><span class="line">y.mesh <span class="attr">loc</span>=-<span class="number">0.02</span>  spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.0</span>    spac=<span class="number">0.005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.03</span>   spac=<span class="number">0.0005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.0425</span> spac=<span class="number">0.005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.055</span>  spac=<span class="number">0.0005</span></span><br><span class="line">y.mesh <span class="attr">loc</span>=<span class="number">0.2</span>    spac=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 2: Structure Specification</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">1</span>   material=GaAs y.min=<span class="number">0.03</span> y.max=<span class="number">0.055</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">2</span>  material=AlGaAs y.max=<span class="number">0.03</span> x.composition=<span class="number">0.3</span> </span><br><span class="line">region     <span class="attr">num</span>=<span class="number">3</span>  material=AlGaAs y.min=<span class="number">0.055</span> x.composition=<span class="number">0.3</span></span><br><span class="line">region     <span class="attr">num</span>=<span class="number">4</span>  oxide y.min=-<span class="number">0.02</span> y.max=<span class="number">0</span> </span><br><span class="line">  </span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">1</span>  name=source x.min=<span class="number">0.0</span> x.max=<span class="number">0.0</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">2</span>  name=gate   x.min=<span class="number">0.1</span> x.max=<span class="number">0.35</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line">elec       <span class="attr">num</span>=<span class="number">3</span>  name=drain  x.min=<span class="number">0.5</span> x.max=<span class="number">0.5</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">doping     uniform <span class="attr">y.min</span>=<span class="number">0</span> y.max=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping     uniform <span class="attr">y.min</span>=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e15</span><br><span class="line">doping     uniform <span class="attr">x.min</span>=<span class="number">0.0</span> x.max=<span class="number">0.05</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping     uniform <span class="attr">x.min</span>=<span class="number">0.45</span> x.max=<span class="number">0.5</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line"></span><br><span class="line">interface <span class="attr">x.min</span>=<span class="number">0</span> x.max=<span class="number">0.5</span> y.min=-<span class="number">0.01</span> y.max=<span class="number">0.005</span> qf=-<span class="number">1</span>.e12</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 3: Material Models</span></span><br><span class="line"></span><br><span class="line">material <span class="attr">material</span>=GaAs mun=<span class="number">6500</span> taurel.el=<span class="number">1</span>.e-<span class="number">12</span> taumob.el=<span class="number">1</span>.e-<span class="number">12</span> vsat=<span class="number">1</span>.e7</span><br><span class="line">material <span class="attr">material</span>=AlGaAs mun=<span class="number">2000</span> taurel.el=<span class="number">1</span>.e-<span class="number">12</span> taumob.el=<span class="number">1</span>.e-<span class="number">12</span> align=<span class="number">0.6</span></span><br><span class="line"></span><br><span class="line">model     fldmob    print  </span><br><span class="line">model    <span class="attr">material</span>=GaAs  print  evsatmod=<span class="number">1</span> </span><br><span class="line"></span><br><span class="line">contact  <span class="attr">number</span>=<span class="number">2</span> workfun=<span class="number">4.64</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 4: Initial solution</span></span><br><span class="line"></span><br><span class="line">solve init</span><br><span class="line"> </span><br><span class="line">method gummel  newton  <span class="attr">maxtrap</span>=<span class="number">6</span> \</span><br><span class="line">  <span class="attr">ir.tol</span>=<span class="number">1</span>.e-<span class="number">20</span> ix.tol=<span class="number">1</span>.e-<span class="number">20</span> vsatmod.inc=<span class="number">0.05</span> electron carr=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 5: Bias gate</span></span><br><span class="line">output con.band val.band e.velocity</span><br><span class="line"></span><br><span class="line">solve <span class="attr">vgate</span>=<span class="number">0</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment"># SECTION 6: Drain ramp</span></span><br><span class="line"></span><br><span class="line">log <span class="attr">outf</span>=hemtex04_dd.log master</span><br><span class="line"></span><br><span class="line">method newton  <span class="attr">maxtrap</span>=<span class="number">6</span>  \</span><br><span class="line">  <span class="attr">ir.tol</span>=<span class="number">1</span>.e-<span class="number">20</span> ix.tol=<span class="number">1</span>.e-<span class="number">20</span> vsatmod.inc=<span class="number">0.05</span> electron carr=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">solve</span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.01</span></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.025</span> vstep=<span class="number">0.025</span> vfinal=<span class="number">0.2</span> name=drain</span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.25</span> vstep=<span class="number">0.05</span> vfinal=<span class="number">0.9</span> name=drain </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">1</span>  vstep=<span class="number">0.2</span>  electr=<span class="number">3</span> vfinal=<span class="number">1.6</span> </span><br><span class="line">save <span class="attr">outf</span>=hemtex04_dd.str</span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">1.8</span>  vstep=<span class="number">0.2</span>  electr=<span class="number">3</span> vfinal=<span class="number">3.0</span> </span><br><span class="line"></span><br><span class="line">tonyplot -overlay hemtex04_dd.log hemtex04_eb.log -set hemtex04_log.set</span><br><span class="line"></span><br><span class="line">quit</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="理解输入代码"><a href="#理解输入代码" class="headerlink" title="理解输入代码"></a>理解输入代码</h3><ul>
+<li><pre><code>material material=GaAs mun=6500 taurel.el=1.e-12 taumob.el=1.e-12 vsat=1.e7
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">  - **`<span class="attribute">material</span>=GaAs`**</span><br><span class="line">     指定材料是砷化镓 (Gallium Arsenide)。</span><br><span class="line">  - **`<span class="attribute">mun</span>=6500`**</span><br><span class="line">     电子迁移率 (mobility of electrons, μn) = 6500 cm²/V·s。</span><br><span class="line">     → GaAs 的电子迁移率很高，这个数值符合物理特性。</span><br><span class="line">  - **`taurel.<span class="attribute">el</span>=1.e-12`**</span><br><span class="line">     电子弛豫时间 (momentum relaxation time) = <span class="variable">$10</span>^&#123;-12&#125;$ 秒。</span><br><span class="line">     这影响载流子散射过程的模拟</span><br><span class="line">  - **`taumob.<span class="attribute">el</span>=1.e-12`**</span><br><span class="line">     与迁移率相关的弛豫时间，通常与上一个参数配合使用，影响输运建模</span><br><span class="line">  - **`<span class="attribute">vsat</span>=1.e7`**</span><br><span class="line">     电子饱和漂移速度 (saturation velocity) = <span class="variable">$10</span>^7$ cm/s。</span><br><span class="line">     表征在高电场下电子速度的上限。</span><br><span class="line">  </span><br><span class="line">- ```</span><br><span class="line">  model     fldmob    <span class="built_in">print</span> hcte.el </span><br></pre></td></tr></table></figure>
+
+- **`print`**
+   输出相关信息到日志文件，方便检查模型是否启用
+- **`hcte.el`**
+   开启 **电子的热载流子传输能量模型** (Hot Carrier Thermal Energy, for electrons)。
+  - 用来模拟高场条件下电子加热效应。
+  - 在 HEMT、MOSFET 高频/高功率条件下很重要。
+</code></pre>
+</li>
+<li><pre><code>model    material=GaAs  print  evsatmod=1
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **`material=GaAs`**</span><br><span class="line">     表示这一行的模型是针对 GaAs 材料定义的</span><br><span class="line">  - 指定 **电子速度饱和模型**的类型。</span><br><span class="line">    - `evsatmod` 控制漂移速度随电场达到饱和的数学形式。</span><br><span class="line">    - `=<span class="number">1</span>` 表示采用某个特定的经验公式（在 ATLAS 文档里对应的是“Caughey-Thomas 模型”）。</span><br><span class="line">    - 对 GaAs 来说，这个模型比较合理，因为 GaAs 高场下电子速度饱和特性比较显著。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  contact  number=<span class="number">2</span> workfun=<span class="number">4.64</span> </span><br></pre></td></tr></table></figure>
+
+- **`number=2`**
+   表示这是编号为 **2** 的接触，也即gate。
+  - 在 ATLAS 网格定义（mesh + electrodes）里，每个接触面会有一个编号（1,2,3…）。
+  - 这里就是对 **第 2 号电极** 进行参数设置
+</code></pre>
+</li>
+<li><pre><code>method gummel block newton  maxtrap=6 ir.tol=1.e-20 ix.tol=1.e-20 vsatmod.inc=0.05 carriers=1 electron
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  -</span> <span class="code">`block newton`</span></span><br><span class="line"><span class="bullet">    -</span> 在 Gummel 迭代的基础上，使用 <span class="strong">**块 Newton 法**</span>（block Newton）提高收敛速度。</span><br><span class="line"><span class="bullet">    -</span> 相当于在 Gummel 迭代中加了局部 Newton 修正。</span><br><span class="line"><span class="bullet">  -</span> <span class="code">`ir.tol=1.e-20`</span></span><br><span class="line"><span class="bullet">    -</span> Poisson 方程（电势方程）收敛容限（residual tolerance）。</span><br><span class="line"><span class="bullet">    -</span> 数值上要求非常严格，误差小于 $10^&#123;-20&#125;$ 时认为收敛。</span><br><span class="line"><span class="bullet">  -</span> <span class="code">`ix.tol=1.e-20`</span></span><br><span class="line"><span class="bullet">    -</span> 载流子连续方程（电子/空穴电流方程）收敛容限。</span><br><span class="line"><span class="bullet">    -</span> 同样非常严格，确保载流子密度求解精度高。</span><br><span class="line"><span class="bullet">  -</span> <span class="code">`vsatmod.inc=0.05`</span></span><br><span class="line"><span class="bullet">    -</span> 饱和速度修正步长（increment for vsatmod）。</span><br><span class="line"><span class="bullet">    -</span> 控制数值迭代中，电子速度饱和模型（vsatmod）每次更新的步长。</span><br><span class="line"><span class="bullet">    -</span> 防止在高场下迭代发散</span><br><span class="line"><span class="bullet">  -</span> <span class="code">`carriers=1 electron`</span></span><br><span class="line"><span class="bullet">    -</span> 指定<span class="strong">**只考虑电子**</span>作为载流子。</span><br><span class="line"><span class="bullet">    -</span> 如果是 <span class="code">`carriers=2 electron hole`</span>，则同时考虑电子和空穴</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="code">```</span></span><br><span class="line"><span class="code">  solve vdrain=1  vstep=0.2  electr=3 vfinal=1.6 </span></span><br></pre></td></tr></table></figure>
+
+- `electr=3`
+  - 指定迭代器使用的 **电学求解器** 或 **迭代策略**。
+  - 在 ATLAS 文档里，`electr` 参数通常表示不同的电场控制方法或者迭代层数。
+  - 具体数值 `3` 一般表示使用增强型迭代策略，提高收敛性。
+</code></pre>
+</li>
+<li><pre><code>tonyplot -overlay hemtex04_dd.log hemtex04_eb.log -set hemtex04_log.set
+</code></pre>
+<ul>
+<li><code>-overlay</code><ul>
+<li>表示将多个文件的曲线<strong>叠加绘制在同一张图上</strong>。</li>
+<li>用于对比不同模型、不同条件下的仿真结果。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模拟结果Id-Vds-和-Id-Vgs"><a href="#模拟结果Id-Vds-和-Id-Vgs" class="headerlink" title="模拟结果Id-Vds 和 Id-Vgs"></a>模拟结果Id-Vds 和 Id-Vgs</h3><table>
+<thead>
+<tr>
+<th>净掺杂浓度</th>
+<th>漏极电压&#x2F;电流:模型对比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509150948568.png" alt="hemtex04_1"></td>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509150946336.png" alt="hemtex04_2"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/09/11/softwares/silvaco/hemtex03/">
+        <span class="nav-arrow">← </span>
+        
+          AlGaAs/GaAs HEMT Id-Vgs 和 Id-Vds 特性
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/09/15/softwares/silvaco/hemtex05/">
+        
+          凹槽栅拟势垒 HEMT 的直流特性分析
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%BD%E9%87%8F%E5%B9%B3%E8%A1%A1%E4%B8%8E%E6%BC%82%E7%A7%BB%E6%89%A9%E6%95%A3%E6%AF%94%E8%BE%83%EF%BC%8C%E4%B8%BB%E8%A6%81%E5%8C%85%E6%8B%AC%EF%BC%9A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">能量平衡与漂移扩散比较，主要包括：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">理解输入代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9CId-Vds-%E5%92%8C-Id-Vgs"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">模拟结果Id-Vds 和 Id-Vgs</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/09/12/softwares/silvaco/hemtex04/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      GROMACS 入门 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>GROMACS 入门</h2>
+  <p class="post-date">2019-01-22 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="GROMACS-入门"><a href="#GROMACS-入门" class="headerlink" title="GROMACS 入门"></a>GROMACS 入门</h1><h2 id="GROMACS-安装"><a href="#GROMACS-安装" class="headerlink" title="GROMACS 安装"></a>GROMACS 安装</h2><ul>
+<li><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://ftp.gromacs.org/gromacs/gromacs-2023.tar.gz</span><br><span class="line">tar -zxvf gromacs-2023.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gromacs-2023</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line"><span class="built_in">export</span> CMAKE_PREFIX_PATH=~/fftw <span class="comment"># fftw 路径</span></span><br><span class="line">cmake .. -DCMAKE_INSTALL_PREFIX=~/softwares/gromacs <span class="comment"># gromacs安装路径</span></span><br><span class="line">make install -j8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最新<a target="_blank" rel="noopener" href="https://manual.gromacs.org/documentation/current/install-guide/index.html">快速安装</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tar xfz gromacs-2023.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> gromacs-2023.2</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line"><span class="comment"># 这里自动build一个fftw</span></span><br><span class="line">cmake .. -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_C_COMPILER=mpicc -DCMAKE_CXX_COMPILER=mpicxx -DGMX_MPI=on -DCMAKE_INSTALL_PREFIX=~/softwares/GROMACS/gromacs2023</span><br><span class="line">make</span><br><span class="line">make check</span><br><span class="line">make install -j8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果使用的是 Ubuntu 操作系统，只需在终端执行以下命令即可（版本可能较低）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gromacs</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>环境变量设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/softwares/gromacs/bin</span><br><span class="line"><span class="built_in">pwd</span> <span class="comment"># 查看路径，并复制</span></span><br><span class="line">sudo vim ~/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;~/softwares/gromacs/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="comment"># esc</span></span><br><span class="line"><span class="comment"># :</span></span><br><span class="line"><span class="comment"># wq</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">gmx -version</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># Executable:   ~/softwares/gromacs/bin/gmx</span></span><br><span class="line"><span class="comment"># Data prefix:  ~/softwares/gromacs</span></span><br><span class="line"><span class="comment"># Working dir:  ~/softwares/gromacs</span></span><br><span class="line"><span class="comment"># Command line:</span></span><br><span class="line"><span class="comment">#   gmx -version</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># GROMACS version:    2023-dev</span></span><br><span class="line"><span class="comment"># Precision:          mixed</span></span><br><span class="line"><span class="comment"># Memory model:       64 bit</span></span><br><span class="line"><span class="comment"># MPI library:        thread_mpi</span></span><br><span class="line"><span class="comment"># OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 128)</span></span><br><span class="line"><span class="comment"># GPU support:        disabled</span></span><br><span class="line"><span class="comment"># SIMD instructions:  AVX2_256</span></span><br><span class="line"><span class="comment"># CPU FFT library:    fftw-3.3.10</span></span><br><span class="line"><span class="comment"># GPU FFT library:    none</span></span><br><span class="line"><span class="comment"># Multi-GPU FFT:      none</span></span><br><span class="line"><span class="comment"># RDTSCP usage:       enabled</span></span><br><span class="line"><span class="comment"># TNG support:        enabled</span></span><br><span class="line"><span class="comment"># Hwloc support:      disabled</span></span><br><span class="line"><span class="comment"># Tracing support:    disabled</span></span><br><span class="line"><span class="comment"># C compiler:         /usr/bin/cc GNU 9.4.0</span></span><br><span class="line"><span class="comment"># C compiler flags:   -Wno-array-bounds -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Werror=stringop-truncation -Wno-missing-field-initializers -O3 -DNDEBUG</span></span><br><span class="line"><span class="comment"># C++ compiler:       /usr/bin/c++ GNU 9.4.0</span></span><br><span class="line"><span class="comment"># C++ compiler flags: -Wno-array-bounds -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wstringop-truncation -Wno-missing-field-initializers -Wno-cast-function-type-strict -fopenmp -O3 -DNDEBUG</span></span><br><span class="line"><span class="comment"># BLAS library:       External - detected on the system</span></span><br><span class="line"><span class="comment"># LAPACK library:     External - detected on the system</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://www.gromacs.org/">[1]  Gromacs</a>官网</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://sobereva.com/457">[2] GROMACS的安装方法</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="运行GROMACS"><a href="#运行GROMACS" class="headerlink" title="运行GROMACS"></a>运行GROMACS</h2><h3 id="运行GROMACS-所需文件"><a href="#运行GROMACS-所需文件" class="headerlink" title="运行GROMACS 所需文件"></a>运行GROMACS 所需文件</h3><ul>
+<li>初始构型文件：<code>x.gro x.pdb</code></li>
+<li>参数控制文件：<code>x.mdp</code></li>
+<li>力场文件：<code>x.top x.itp</code></li>
+<li>索引文件：<code>x.ndx</code></li>
+</ul>
+<h3 id="相关力场："><a href="#相关力场：" class="headerlink" title="相关力场："></a>相关力场：</h3><ul>
+<li><blockquote>
+<p><a target="_blank" rel="noopener" href="http://md.chem.rug.nl/">Martini</a>粗粒化力场</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>AMBER、CHARMM、OPLS-AA、GROMOS</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="力场文件相关工具："><a href="#力场文件相关工具：" class="headerlink" title="力场文件相关工具："></a>力场文件相关工具：</h3><ul>
+<li>pdb2gmx、AMBER Tool、tppmktop、x2top、martini.py、ATB&#x2F;PRODRG……</li>
+</ul>
+<h3 id="后处理工具："><a href="#后处理工具：" class="headerlink" title="后处理工具："></a>后处理工具：</h3><ul>
+<li>gmx msd</li>
+<li>gmx rdf</li>
+<li>gmx totcf (旋转自相关函数)</li>
+<li>gmx potential (静电势)</li>
+<li>gmx helix ($\alpha$螺旋结构的基本性质)</li>
+<li>MD_Analysis、VMD</li>
+<li>自编程</li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#GROMACS" >
+    <span class="tag-code">GROMACS</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#GROMACS入门" >
+    <span class="tag-code">GROMACS入门</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2019/01/22/softwares/lammps/LammpsInstall/">
+        <span class="nav-arrow">← </span>
+        
+          Lammps安装
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2019/01/22/softwares/GULP/">
+        
+          GULP 汇总
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#GROMACS-%E5%85%A5%E9%97%A8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">GROMACS 入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GROMACS-%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">GROMACS 安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%90%E8%A1%8CGROMACS"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">运行GROMACS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%90%E8%A1%8CGROMACS-%E6%89%80%E9%9C%80%E6%96%87%E4%BB%B6"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">运行GROMACS 所需文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%B8%E5%85%B3%E5%8A%9B%E5%9C%BA%EF%BC%9A"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">相关力场：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%9B%E5%9C%BA%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%9A"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">力场文件相关工具：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%90%8E%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%9A"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">后处理工具：</span></a></li></ol></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2019/01/22/softwares/gromacs/GROMACS_入门/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

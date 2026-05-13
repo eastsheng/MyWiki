@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      QE/epw学习——01 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>QE/epw学习——01</h2>
+  <p class="post-date">2026-01-09 12:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<hr>
+<h2 id="EPW计算B掺杂金刚石的电子和声子线宽及谱函数"><a href="#EPW计算B掺杂金刚石的电子和声子线宽及谱函数" class="headerlink" title="EPW计算B掺杂金刚石的电子和声子线宽及谱函数"></a>EPW计算B掺杂金刚石的电子和声子线宽及谱函数</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><blockquote>
+<p>该例子在EPW&#x2F;examples&#x2F;diamond&#x2F;文件夹中</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> EPW/examples/diamond/</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── epw：包含运行epw.x的输入文件<br>├── phonons：包含计算声子的输入文件<br>└── pp：包含赝势文件</p>
+<p>3 directories, 0 files</p>
+</blockquote>
+<ol>
+<li>第一步是计算不可约楔中的声子。对于这个例子，我们使用一个6x6x6的声子波矢量粗网格。首先进入phonon目录：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> phonons</span><br><span class="line">mpirun -np 4 pw.x -npool 4 &lt; scf.in &gt; scf.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>自洽计算</p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tree</span> -L <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── Ref<br>├── diam.save<br>├── diam.xml<br>├── ph.in<br>├── pp.py<br>├── scf.in<br>└── scf.out</p>
+<p>2 directories, 5 files</p>
+</blockquote>
+<ol start="2">
+<li>使用QE的ph.x代码计算动态矩阵、声子频率和自洽势的变化</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">4</span> ph.x -npool <span class="number">4</span> &lt; ph.in &gt; ph.out</span><br><span class="line"><span class="attribute">tree</span> -L <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── Ref<br>├── _ph0<br>├── diam.dyn0<br>├── diam.dyn1<br>├── diam.dyn10<br>├── diam.dyn11<br>├── diam.dyn12<br>├── diam.dyn13<br>├── diam.dyn14<br>├── diam.dyn15<br>├── diam.dyn16<br>├── diam.dyn2<br>├── diam.dyn3<br>├── diam.dyn4<br>├── diam.dyn5<br>├── diam.dyn6<br>├── diam.dyn7<br>├── diam.dyn8<br>├── diam.dyn9<br>├── diam.save<br>├── diam.wfc1<br>├── diam.wfc2<br>├── diam.wfc3<br>├── diam.wfc4<br>├── diam.wfc5<br>├── diam.wfc6<br>├── diam.wfc7<br>├── diam.wfc8<br>├── diam.xml<br>├── input_tmp.in<br>├── ph.in<br>├── ph.out<br>├── pp.py<br>├── scf.in<br>└── scf.out</p>
+<p>3 directories, 32 files</p>
+</blockquote>
+<ol start="3">
+<li>通过pp.py复制.dyn, .dvscf, .phsave文件到save文件夹</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python pp.py</span><br><span class="line">diam <span class="comment"># prefix </span></span><br><span class="line">16 <span class="comment">#  number of irreducible q-points</span></span><br><span class="line"><span class="built_in">mv</span> diam.save ../epw</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>计算粗布里渊区网格上的Kohn-Sham波函数和特征值。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../epw</span><br><span class="line">mpirun -np 4 pw.x  -npool 4 &lt; nscf.in &gt; nscf.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在我们有了运行EPW所需的所有信息。</p>
+</blockquote>
+<h3 id="用EPW计算电子和声子线宽"><a href="#用EPW计算电子和声子线宽" class="headerlink" title="用EPW计算电子和声子线宽"></a>用EPW计算电子和声子线宽</h3><blockquote>
+<p>我们从计算声子线宽开始，这是声子自能的虚部。</p>
+</blockquote>
+<blockquote>
+<p>通过在<code>epw.in</code>中设置 <code>phonselfen = .true.</code> 实现</p>
+</blockquote>
+<blockquote>
+<p>The phonon linewidths are calculated for ‘’’q’’’-points included in the filed specified by the key <code>filqf = &#39;meshes/path.dat&#39;</code> inside <code>epw.in </code></p>
+</blockquote>
+<ol>
+<li>在这个例子中，由meshs&#x2F;path.dat文件指定的波向量沿着金刚石布里渊区域的LΓX线。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 epw.x -npool 4 &lt; epw.in &gt; epw.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在我们转到“电子线宽”。在这种情况下，我们必须对声子q点积分。因此，我们必须更改精细网格nqf1，并指定包含我们想要计算线宽的k个点的文件filkf。此外，由于我们现在只考虑布里渊区k点的一个子集，我们不能自动确定费米能级，但我们需要在输入中给出这个参数。在这个例子中，我们使用在输出文件epw中获得的费米能级。我们在计算声子线宽时得到了上述结果。在实际操作中，我们在epw2.in文件中设置了以下输入参数：</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">efermi_read</span> = .<span class="literal">true</span>.</span><br><span class="line"><span class="attr">fermi_energy</span> = <span class="number">13.209862</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>然后运行：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -np 4 epw.x -npool 4 &lt; epw2.in &gt; epw2.out</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>为了计算谱函数，运行：</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mpirun</span> -np <span class="number">4</span> epw.x -npool <span class="number">4</span> &lt; epw3.in &gt; epw3.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>技术说明：自能的实部还需要计算所谓的Debye-Waller项，例如参见 <a target="_blank" rel="noopener" href="http://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.214304">Poncé et al, Phys. Rev. B 90, 214304 (2014)</a>.当前版本的EPW只计算Fan-Migdal自能。</p>
+<p>在金属和掺杂半导体的情况下，Debye-Waller项可以，在很好的近似，被认为是一个状态相关常数，因为它是真实的和频率无关的</p>
+</blockquote>
+<h2 id="计算电声耦合的不同软件"><a href="#计算电声耦合的不同软件" class="headerlink" title="计算电声耦合的不同软件"></a>计算电声耦合的不同软件</h2><p>[1] <a target="_blank" rel="noopener" href="https://wiki.yambo-code.eu/wiki/index.php/Electron_Phonon_Coupling">https://wiki.yambo-code.eu/wiki/index.php/Electron_Phonon_Coupling</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://indico.ictp.it/event/8301/session/96/contribution/534/material/0/0.pdf">https://indico.ictp.it/event/8301/session/96/contribution/534/material/0/0.pdf</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://gpaw.readthedocs.io/algorithms.html">https://gpaw.readthedocs.io/algorithms.html</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://docs.abinit.org/tutorial/eph_legacy/">https://docs.abinit.org/tutorial/eph_legacy/</a></p>
+<p>[5] <a target="_blank" rel="noopener" href="https://docs.epw-code.org/doc/Tutorials.html">https://docs.epw-code.org/doc/Tutorials.html</a></p>
+<p>[6] <a target="_blank" rel="noopener" href="https://docs.epw-code.org/doc/B-doped-diamond.html">https://docs.epw-code.org/doc/B-doped-diamond.html</a></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#QE" >
+    <span class="tag-code">QE</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#epw" >
+    <span class="tag-code">epw</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/12/30/softwares/alamode/alamode-2/">
+        <span class="nav-arrow">← </span>
+        
+          Alamode 安装与测试
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/01/09/softwares/qe/QE_epw_02/">
+        
+          QE/epw学习——02
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#EPW%E8%AE%A1%E7%AE%97B%E6%8E%BA%E6%9D%82%E9%87%91%E5%88%9A%E7%9F%B3%E7%9A%84%E7%94%B5%E5%AD%90%E5%92%8C%E5%A3%B0%E5%AD%90%E7%BA%BF%E5%AE%BD%E5%8F%8A%E8%B0%B1%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">EPW计算B掺杂金刚石的电子和声子线宽及谱函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">准备工作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%A8EPW%E8%AE%A1%E7%AE%97%E7%94%B5%E5%AD%90%E5%92%8C%E5%A3%B0%E5%AD%90%E7%BA%BF%E5%AE%BD"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">用EPW计算电子和声子线宽</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AE%A1%E7%AE%97%E7%94%B5%E5%A3%B0%E8%80%A6%E5%90%88%E7%9A%84%E4%B8%8D%E5%90%8C%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">计算电声耦合的不同软件</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/01/09/softwares/qe/QE_epw_01/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

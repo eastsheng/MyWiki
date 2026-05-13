@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      简单双晶体管热仿真 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>简单双晶体管热仿真</h2>
+  <p class="post-date">2025-09-22 21:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="简单双晶体管热仿真"><a href="#简单双晶体管热仿真" class="headerlink" title="简单双晶体管热仿真"></a>简单双晶体管热仿真</h2><ul>
+<li>简单的双晶体管热模拟<br> <strong>所需模块：</strong> DevEdit 3D &#x2F; Thermal 3D<br> <strong>最低版本要求：</strong> Atlas 5.28.1.R<br> <strong>示例文件：</strong> thermalex01_plot0</li>
+</ul>
+<hr>
+<p>  本示例演示了两个晶体管的热学仿真。主要的顺序任务包括：</p>
+<ol>
+<li>在 <strong>DevEdit 3D</strong> 中定义两个相邻的晶体管区域；</li>
+<li>在 <strong>DevEdit 3D</strong> 中指定散热器（heat sinks）；</li>
+<li>与 <strong>Atlas</strong> 建立接口；</li>
+<li>选择热模型与材料参数；</li>
+<li>求解温度分布。</li>
+</ol>
+<p>  在本示例中，结构是通过 <strong>DevEdit 3D</strong> 定义的。最初在 DevEdit 3D 的图形界面模式下建立结构并生成网格，随后保存命令文件，以便在 <strong>DeckBuild</strong> 中重新创建该结构。</p>
+<p>  该结构包含两个相邻的晶体管，嵌入在基底材料中。对于热模拟而言，晶体管仅被视为<strong>热源</strong>，不考虑其内部细节。在基底材料底部定义了一个铝（Al）区域作为电极。在 <strong>Atlas</strong> 中，这个区域将作为<strong>热边界条件</strong>而非电学边界条件。</p>
+<p>  <code>go atlas</code> 语句会自动将 DevEdit 3D 与 Atlas 连接。在读取三维网格文件后，Atlas 会自动进入三维模式。</p>
+<p>  <code>material</code> 语句用于通过参数 <code>tc.const</code> 定义各区域的热导率。该参数为热导率赋予一个常数值。后续的示例将展示温度依赖型热导率的情况。<code>power</code> 参数用于设定区域的热输出，即定义这些区域为热源。</p>
+<p>  只需使用命令 <code>models thermal</code> 即可启用三维热计算。最后阶段通过命令 <code>solve t1=300</code> 设定散热器（或电极）1 的温度为 300 K。最终的三维温度分布结果会保存到由 <code>outfile</code> 参数指定的文件中，可通过 <strong>TonyPlot 3D</strong> 查看。</p>
+<p>  若要加载并运行本示例，请在 <strong>DeckBuild &gt; Examples</strong> 中点击 <strong>Load</strong> 按钮，这将把输入文件及所有支持文件复制到当前工作目录。然后点击 <strong>Run</strong> 按钮即可执行示例。</p>
+<h3 id="画图格式文件内容"><a href="#画图格式文件内容" class="headerlink" title="画图格式文件内容"></a>画图格式文件内容</h3><blockquote>
+<p>thermalex01_0.set，可视化格式文件</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件头（header）声明，用于标识文件的格式和版本信息，不会执行任何命令或对仿真产生影响</span></span><br><span class="line">silvaco.file ASCII <span class="attr">version</span>=<span class="number">1.14</span>.<span class="number">16</span> format=<span class="number">1</span></span><br><span class="line">&quot;&quot;</span><br><span class="line"><span class="comment">#non-visible objects 元数据行（metadata line），用于描述文件中对象（objects）的可视化状态。0表示文件中没有不可见对象。不影响仿真计算，只是文件结构的可视化属性记录</span></span><br><span class="line">number-of-non-visible-objects 0</span><br><span class="line"></span><br><span class="line"><span class="comment">#non-enable-contour objects 所有对象都允许被用于绘制等值线</span></span><br><span class="line">number-of-non-enable-contour-objects 0</span><br><span class="line"></span><br><span class="line"><span class="comment">#Cut Plane Settings 记录三维可视化时的观察角度、方向和缩放状态，它们不会影响仿真结果，只影响可视化展示。</span></span><br><span class="line"><span class="comment"># 这三个点共同定义了三维可视化中的坐标系方向。</span></span><br><span class="line">point_1 0 0 0 <span class="comment"># 表示第一个参考点的坐标，通常是三维视图的原点</span></span><br><span class="line">point_2 1 0 0 <span class="comment"># 表示第二个参考点的坐标，用于定义视图的 X 方向基准向量</span></span><br><span class="line">point_3 0 0 1 <span class="comment"># 表示第三个参考点的坐标，用于定义Z 方向（上方向或法线方向）</span></span><br><span class="line"></span><br><span class="line">three_points 0 <span class="comment"># 这个参数指示是否使用上述三个点来定义视角。0不启用（使用默认视图方向）</span></span><br><span class="line">PAN 0 <span class="comment"># 平移（pan）参数，用于控制视图在屏幕上的左右或上下移动。0 表示当前视图没有平移偏移</span></span><br><span class="line">PITCH 90 <span class="comment"># 表示俯仰角（pitch angle），即相机绕 X 轴的旋转角度。90 度通常意味着视角从正上方（Z 轴方向）俯视结构。</span></span><br><span class="line">ELEV 1 <span class="comment"># 表示相机高度（elevation）或视角仰角，控制观察点相对于模型的高度。1 可能表示从单位高度（或默认距离）观察模型。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Cut Plane Axes Settings</span></span><br><span class="line"><span class="comment"># 坐标轴方向的显示方式——即在 2D/3D 绘图时，X/Y 轴是否反转、是否互换。0 不反转</span></span><br><span class="line">X_REVERSE 0 <span class="comment"># X 轴方向不反转</span></span><br><span class="line">Y_REVERSE 0 <span class="comment"># Y 轴方向不反转</span></span><br><span class="line">XY_SWAP 0 <span class="comment"># X 与 Y 轴不交换</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Electrode Properties #定义一个电极（electrode）的位置和编号信息</span></span><br><span class="line">electrode &quot;Electrode <span class="comment">#1&quot; 0 0 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Electrode Labels 定义一个名为 &quot;Electrode #1&quot; 的电极标签，显示名也为 &quot;Electrode #1&quot;，标签位置坐标在 (0, 0, 0)，当前状态为“不可见”。</span></span><br><span class="line">electrode_label &quot;Electrode <span class="comment">#1&quot; &quot;Electrode #1&quot; 0 0 0 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Region Properties</span></span><br><span class="line"><span class="comment">#这三行定义了三块不同的几何区域（Region #1~#3），</span></span><br><span class="line"><span class="comment">#它们对应不同的材料（由 material ID 指定），</span></span><br><span class="line"><span class="comment">#并将用于后续热、电仿真中设置边界条件与材料属性。</span></span><br><span class="line">region &quot;Region <span class="comment">#1&quot; 0 1 4</span></span><br><span class="line">region &quot;Region <span class="comment">#2&quot; 0 0 4</span></span><br><span class="line">region &quot;Region <span class="comment">#3&quot; 0 0 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Region Labels 为三个不同的区域设置可见标签（Region #1、Region #2、Region #3），并将它们显示(1)在默认位置(0 0 0)</span></span><br><span class="line">region_label &quot;Region <span class="comment">#1&quot; &quot;Region #1&quot; 1 0 0 0</span></span><br><span class="line">region_label &quot;Region <span class="comment">#2&quot; &quot;Region #2&quot; 1 0 0 0</span></span><br><span class="line">region_label &quot;Region <span class="comment">#3&quot; &quot;Region #3&quot; 1 0 0 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Isosurfaces 等值面（iso-surface）绘图设置 控制三维热或电物理量的可视化显示</span></span><br><span class="line">iso_surf_draw_mode_id 0</span><br><span class="line">iso_surf &quot;Lattice Temperature&quot; 308</span><br><span class="line"></span><br><span class="line"><span class="comment">#Overlay Properties 控制 叠加模式（overlay mode） 的状态</span></span><br><span class="line"><span class="comment">#参数0：表示 叠加模式未启用（OFF）。</span></span><br><span class="line"><span class="comment">#参数1：表示启用叠加模式（ON），在可视化时可以将多个物理量或多个绘图对象叠加显示，例如同时显示温度分布和电势分布。</span></span><br><span class="line">overlay_mode_active 0</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the scene matrix 定义 三维场景矩阵,控制 3D 可视化视角、旋转、缩放和平移</span></span><br><span class="line"><span class="comment"># 一个 4×4 仿射变换矩阵</span></span><br><span class="line">sm_00 -0.74098267362682446</span><br><span class="line">sm_01 0.6514888833293403</span><br><span class="line">sm_02 0.16280943548555929</span><br><span class="line">sm_03 12.964862421565487</span><br><span class="line"></span><br><span class="line">sm_10 0.33860615810181838</span><br><span class="line">sm_11 0.5718517760587577</span><br><span class="line">sm_12 -0.74721577600714795</span><br><span class="line">sm_13 -51.913604071154673</span><br><span class="line"></span><br><span class="line">sm_20 -0.579905636358506</span><br><span class="line">sm_21 -0.49854566602942968</span><br><span class="line">sm_22 -0.64433040577245815</span><br><span class="line">sm_23 291.79837201919833</span><br><span class="line"></span><br><span class="line">sm_30 0</span><br><span class="line">sm_31 0</span><br><span class="line">sm_32 0</span><br><span class="line">sm_33 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the camera matrix 控制 3D 可视化时摄像机的位置和方向</span></span><br><span class="line">cm_00 1</span><br><span class="line">cm_01 0</span><br><span class="line">cm_02 0</span><br><span class="line">cm_03 0</span><br><span class="line"></span><br><span class="line">cm_10 0</span><br><span class="line">cm_11 1</span><br><span class="line">cm_12 0</span><br><span class="line">cm_13 0</span><br><span class="line"></span><br><span class="line">cm_20 0</span><br><span class="line">cm_21 0</span><br><span class="line">cm_22 1</span><br><span class="line">cm_23 -845.03625523005746</span><br><span class="line"></span><br><span class="line">cm_30 0</span><br><span class="line">cm_31 0</span><br><span class="line">cm_32 0</span><br><span class="line">cm_33 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the scene scaling factors </span></span><br><span class="line"><span class="comment">#定义 三维场景（scene）或模型的缩放比例</span></span><br><span class="line">ss_xyz 1 1 1 <span class="comment"># 1 1 1：表示 X、Y、Z 方向的缩放因子均为 1，即 保持原始比例。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Define 3D projection</span></span><br><span class="line">proj_3d_aspect 1.1004901960784315 <span class="comment"># 3D 投影的长宽比（aspect ratio）数值 &gt;1 表示 宽度略大于高度，用于控制显示画面不变形。</span></span><br><span class="line">proj_3d_z_near 499.19702602787191 <span class="comment"># 近裁剪平面（near clipping plane）位置 , 模型距离摄像机小于此值的部分不会显示。用于避免摄像机过近导致图形裁剪或显示异常。</span></span><br><span class="line">proj_3d_z_far 899.05056665876384 <span class="comment"># 远裁剪平面（far clipping plane）位置。模型距离摄像机大于此值的部分不会显示。与 z_near 一起定义可视深度范围（depth range）。</span></span><br><span class="line">proj_3d_height 320.55221448924584 <span class="comment"># 3D 投影窗口或场景高度（像素或单位长度）。控制模型在显示窗口中的垂直尺寸，结合 aspect 决定宽度</span></span><br><span class="line">proj_3d_fovy 25 <span class="comment"># 垂直视野角（field of view in Y，单位：度）。数值越大，视角越开（鱼眼效果），越小视角越窄（远距离透视）。当前 25°，属于较窄的透视视角。</span></span><br><span class="line">proj_3d_type 0 <span class="comment"># 投影类型。0 → 透视投影（Perspective projection）,1 → 正交投影（Orthographic projection）</span></span><br><span class="line"></span><br><span class="line">proj_3d_depth_cue 2 <span class="comment"># 深度提示（depth cue）模式，用于增强远近感。</span></span><br><span class="line"><span class="comment">#0 → 关闭深度提示</span></span><br><span class="line"><span class="comment">#1 → 开启线性深度提示（远处颜色更淡）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#2 → 开启指数深度提示（更明显的透视远近感）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#当前 2 → 远近效果较强，让远处的模型颜色更淡，看起来有透视感。</span></span><br><span class="line"></span><br><span class="line">coord_selection 0 <span class="comment"># 选择使用哪种坐标系显示数据。0 → 默认世界坐标系（World / Global coordinates）,1 → 局部坐标系（Local / Relative coordinates）</span></span><br><span class="line">coord_type 0 <span class="comment"># 选择坐标类型或显示方式。</span></span><br><span class="line"><span class="comment">#0 → 笛卡尔坐标（Cartesian）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#1 → 圆柱坐标（Cylindrical）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#2 → 球坐标（Spherical）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#控制 3D 可视化时模型各轴的显示比例，全部保持原比例，不影响仿真</span></span><br><span class="line">modelview_x_scale 1</span><br><span class="line">modelview_y_scale 1</span><br><span class="line">modelview_z_scale 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Global BBox Settings 定义 整个模型的全局边界框（bounding box）</span></span><br><span class="line">global_bbox_min -12.026903175797166 -12.026903175797166 -12.026903175797166</span><br><span class="line">global_bbox_max 218.04035476369577 218.04035476369577 120.04035476369577</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define x-y-z Axis Visibility 控制 三维坐标轴的显示状态，当前设置 1 1 1 → 三个坐标轴都可见</span></span><br><span class="line">x_axis_visibility 1</span><br><span class="line">y_axis_visibility 1</span><br><span class="line">z_axis_visibility 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define Legend Visibility</span></span><br><span class="line">contour_legend 1 <span class="comment"># 控制 等值线/等值面图例（contour legend） 是否显示。</span></span><br><span class="line">region_legend 1 <span class="comment"># 控制 区域图例（region legend） 是否显示。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the DisplayMode</span></span><br><span class="line">display_mode_id 11 <span class="comment"># 指定 3D 模型的显示方式或渲染模式，当前设置 11 → 模型会以 半透明材料 + 等值面显示，同时保留区域和物理量可视化效果。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Define Show Cut Plane</span></span><br><span class="line">show_cut_plane 0 <span class="comment"># 控制 可视化时是否显示截面，不影响仿真计算或数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Define Show Cut Plane X Y Axes</span></span><br><span class="line">show_cut_plane_x_axis 1</span><br><span class="line">show_cut_plane_y_axis 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the DrawMode</span></span><br><span class="line">draw_mode_id 0 <span class="comment"># 控制 3D 模型以线框方式显示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the Region_Color_Type</span></span><br><span class="line">region_color_type 0 <span class="comment"># 每个区域使用预设的单色或软件默认颜色</span></span><br><span class="line"></span><br><span class="line">mat_info &quot;Copper 8 1&quot;</span><br><span class="line">mat_info &quot;Electrodes 2 1&quot;</span><br><span class="line">mat_info &quot;Molybdenum 2 1&quot;</span><br><span class="line">mat_info &quot;NPB 70 1&quot;</span><br><span class="line">mat_info &quot;Titanium 67 1&quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define light0 and light1 information 控制 3D 场景光照</span></span><br><span class="line">light0_enabled 1</span><br><span class="line">light0_color 255 255 255</span><br><span class="line">light0_intensity 0.52999997138977051</span><br><span class="line">light0_latitude 30</span><br><span class="line">light0_longitude 0</span><br><span class="line"></span><br><span class="line">light1_enabled 1</span><br><span class="line">light1_color 255 255 255</span><br><span class="line">light1_intensity 0.52999997138977051</span><br><span class="line">light1_latitude 0</span><br><span class="line">light1_longitude 270</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define contours information 等值面/色彩图的显示与图例配置</span></span><br><span class="line">imp_menu_index 2 <span class="comment"># 当前显示的数据类型索引第 2 个物理量，本例中指代 “Lattice Temperature”（晶格温度）</span></span><br><span class="line">name-of-doping &quot;Lattice Temperature&quot; <span class="comment"># 对应物理量的名称，这里显示晶格温度。</span></span><br><span class="line">limit_select_type 0 <span class="comment"># 最大最小值限制类型：0 → 默认使用自动计算范围，1 → 用户自定义范围</span></span><br><span class="line">auto_max_limit 1 <span class="comment"># 是否自动确定最大值/最小值：1 → 自动，0 → 使用手动设置</span></span><br><span class="line">auto_min_limit 1</span><br><span class="line">contour_max_imp_value 327.511573 <span class="comment"># 等值面或色图显示的最大值（如果未使用自动）。单位通常与物理量一致（这里是温度 K）。</span></span><br><span class="line">contour_min_imp_value 0 <span class="comment"># 等值面或色图显示的最小值</span></span><br><span class="line">legend_type 0 <span class="comment"># 图例类型：0 → 简单连续色条，1 → 带数值标注等其他风格</span></span><br><span class="line">legend_auto_mapping 1 <span class="comment"># 是否自动映射物理值到颜色：1 → 自动，0 → 使用自定义映射</span></span><br><span class="line">legend_mapping 0 <span class="comment"># 自定义映射索引</span></span><br><span class="line">legend_palette 0 <span class="comment"># 颜色调色板索引</span></span><br><span class="line">legend_nbr_of_colors 5 <span class="comment"># 图例分段颜色数量（5 段），对应等值面或色彩图的颜色阶梯。</span></span><br><span class="line"></span><br><span class="line">EOF 1283132480 <span class="comment"># 表示 End Of File（文件结束），告诉 TonyPlot / DevEdit 文件解析器 已到文件末尾。</span></span><br><span class="line"><span class="comment">#数字 1283132480,这是一个 时间戳或校验码，用于文件版本管理或防止文件损坏。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># (c) Silvaco Inc., 2019</span></span><br><span class="line">go devedit</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ATLAS 3D Thermal simulation</span></span><br><span class="line"><span class="comment"># Two power transistor simulation</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">DevEdit <span class="attr">version</span>=<span class="string">&quot;2.0&quot;</span> library=<span class="string">&quot;1.14&quot;</span></span><br><span class="line"></span><br><span class="line">work.area <span class="attr">left</span>=<span class="number">0</span> top=<span class="number">0</span> right=<span class="number">200</span> bottom=<span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># SILVACO Library V1.14</span></span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">1</span> mat=Silicon color=<span class="number">0</span>xffc000 pattern=<span class="number">0</span>x4 Z1=<span class="number">0</span> Z2=<span class="number">100</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0 200,0 200,200 0,200 0,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">2</span> mat=Silicon color=<span class="number">0</span>xffc000 pattern=<span class="number">0</span>x4 Z1=<span class="number">0</span> Z2=<span class="number">2</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;20,30 85,30 85,90 20,90 20,30&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">3</span> mat=Silicon color=<span class="number">0</span>xffc000 pattern=<span class="number">0</span>x4 Z1=<span class="number">0</span> Z2=<span class="number">2</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;130,30 165,30 165,140 140,140 140,55 130,55 130,30&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"></span><br><span class="line">region <span class="attr">reg</span>=<span class="number">4</span> mat=Aluminum elec.id=<span class="number">1</span> color=<span class="number">0</span>xffc0c0 pattern=<span class="number">0</span>x7 Z1=<span class="number">100</span> Z2=<span class="number">102</span> \</span><br><span class="line">	<span class="attr">points</span>=<span class="string">&quot;0,0 200,0 200,200 0,200 0,0&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set Meshing Parameters</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">1000000</span> width=<span class="number">1000000</span></span><br><span class="line"><span class="comment">#设置边界条件</span></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">0.001</span> line.straightening=<span class="number">1</span> align.points when=automatic</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span> z=<span class="number">0</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">300</span> max.height=<span class="number">20</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">20</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">1</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">2</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">3</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">region</span>=<span class="number">4</span> default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Perform mesh operations</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">Mesh <span class="attr">Mode</span>=MeshBuild</span><br><span class="line">refine <span class="attr">mode</span>=both x1=<span class="number">8.04953560371517</span> y1=<span class="number">22.9102167182663</span> x2=<span class="number">91.0216718266254</span> y2=<span class="number">96.594427244582</span></span><br><span class="line">refine <span class="attr">mode</span>=both x1=<span class="number">123.529411764706</span> y1=<span class="number">22.6006191950464</span> x2=<span class="number">174.922600619195</span> y2=<span class="number">145.510835913313</span></span><br><span class="line">refine <span class="attr">mode</span>=both x1=<span class="number">99.6904024767802</span> y1=<span class="number">21.671826625387</span> x2=<span class="number">113.931888544892</span> y2=<span class="number">107.430340557276</span></span><br><span class="line"></span><br><span class="line">imp.refine <span class="attr">min.spacing</span>=<span class="number">0.02</span> z=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">constr.mesh <span class="attr">max.angle</span>=<span class="number">90</span> max.ratio=<span class="number">300</span> max.height=<span class="number">20</span> \</span><br><span class="line">	<span class="attr">max.width</span>=<span class="number">20</span> min.height=<span class="number">0.0001</span> min.width=<span class="number">0.0001</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Semiconductor default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Insulator default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Metal default</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">constr.mesh <span class="attr">type</span>=Other default</span><br><span class="line"></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">0</span> spacing=<span class="number">0.5</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">2</span> spacing=<span class="number">0.5</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">50</span> spacing=<span class="number">10</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">z</span>=<span class="number">100</span> spacing=<span class="number">20</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">z.plane <span class="attr">max.spacing</span>=<span class="number">1000000</span> max.ratio=<span class="number">10</span></span><br><span class="line"></span><br><span class="line">base.mesh <span class="attr">height</span>=<span class="number">1000000</span> width=<span class="number">1000000</span></span><br><span class="line"></span><br><span class="line">bound.cond !apply <span class="attr">max.slope</span>=<span class="number">28</span> max.ratio=<span class="number">300</span> rnd.unit=<span class="number">0.001</span> line.straightening=<span class="number">1</span> align.Points when=automatic</span><br><span class="line"></span><br><span class="line">mesh meshbuild</span><br><span class="line"></span><br><span class="line">struct <span class="attr">outfile</span>=thermalex01.str</span><br><span class="line"></span><br><span class="line"><span class="comment">##########################</span></span><br><span class="line"></span><br><span class="line">go atlas</span><br><span class="line"></span><br><span class="line">mesh <span class="attr">infile</span>=thermalex01.str</span><br><span class="line"><span class="comment">#物理属性设置，热导率（tc.const）设置常数</span></span><br><span class="line">material <span class="attr">region</span>=<span class="number">1</span> tc.const=<span class="number">1.2</span></span><br><span class="line">material <span class="attr">region</span>=<span class="number">2</span> tc.const=<span class="number">1</span>. power=<span class="number">0.35</span></span><br><span class="line">material <span class="attr">region</span>=<span class="number">3</span> tc.const=<span class="number">1.1</span> power =<span class="number">0.4</span></span><br><span class="line"><span class="comment">#热仿真模型设置，启用热模型，用于计算热传导和温度分布</span></span><br><span class="line">models thermal</span><br><span class="line">method</span><br><span class="line"><span class="comment">#设置仿真初始温度为 300 K</span></span><br><span class="line">solve <span class="attr">t1</span>=<span class="number">300</span> outf=thermalex<span class="number">01_0</span>.str</span><br><span class="line">tonyplot3d thermalex01_0.str -set thermalex01_0.set</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="理解格式文件代码"><a href="#理解格式文件代码" class="headerlink" title="理解格式文件代码"></a>理解格式文件代码</h3><ul>
+<li><pre><code class="in">electrode &quot;&lt;电极名称&gt;&quot; &lt;编号&gt; &lt;区域号&gt; &lt;表面编号&gt;
+electrode &quot;Electrode #1&quot; 0 0 4
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  -</span> 这行代码定义了一个名为 <span class="strong">**“Electrode #1”**</span> 的电极，它：</span><br><span class="line"><span class="bullet">      -</span> 是第 <span class="strong">**0 号电极**</span>（内部编号）；</span><br><span class="line"><span class="bullet">      -</span> 附着在第 <span class="strong">**0 号区域（region 0）**</span> 上；</span><br><span class="line"><span class="bullet">      -</span> 接触到该区域的 <span class="strong">**第 4 号表面（surface 4）**</span>。</span><br><span class="line"><span class="bullet">  -</span> 在 <span class="strong">**DevEdit 3D / Atlas**</span> 中，电极并不是一个“独立几何体”，</span><br><span class="line"><span class="code">       而是附着在某个区域（region）的一个表面上，用于：</span></span><br><span class="line"><span class="code">      - 指定电势（电边界条件）；</span></span><br><span class="line"><span class="code">      - 或在热仿真中定义热边界（例如恒温散热器）。</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="code">```</span></span><br><span class="line"><span class="code">  electrode_label &quot;Electrode #1&quot; &quot;Electrode #1&quot; 0 0 0 0</span></span><br><span class="line"><span class="code">  electrode_label &quot;&lt;电极内部名称&gt;&quot; &quot;&lt;显示名称&gt;&quot; x y z visible_flag</span></span><br></pre></td></tr></table></figure>
+
+- 
+
+- | 参数             | 含义                                                         |
+  | ---------------- | ------------------------------------------------------------ |
+  | `&quot;Electrode #1&quot;` | 电极的内部名称（必须与 `electrode` 语句中定义的名称一致）。  |
+  | `&quot;Electrode #1&quot;` | 电极的显示名称（TonyPlot 或 DevEdit 中显示的文字，可与上面不同）。 |
+  | `0 0 0`          | 电极标签在三维空间中的坐标（x, y, z），通常用于在可视化界面中放置标签位置。 |
+  | `0`              | 可见性标志（visibility flag）： - `0` → 标签不可见或默认隐藏； - `1` → 标签在可视化中显示。 |
+
+- 定义一个名为 `&quot;Electrode #1&quot;` 的电极标签，显示名也为 `&quot;Electrode #1&quot;`，
+   标签位置坐标在 (0, 0, 0)，当前状态为“不可见”。
+</code></pre>
+</li>
+<li><pre><code>region &quot;Region #1&quot; 0 1 4
+region &quot;&lt;区域名称&gt;&quot; &lt;region_id&gt; &lt;material_id&gt; &lt;dimension&gt;
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - </span><br><span class="line"></span><br><span class="line">  - |<span class="string"> 参数          </span>|<span class="string"> 含义                                                         </span>|</span><br><span class="line">    |<span class="string"> ------------- </span>|<span class="string"> ------------------------------------------------------------ </span>|</span><br><span class="line">    |<span class="string"> `&quot;Region #1&quot;` </span>|<span class="string"> 区域名称（用户定义的名称，用于区分不同的材料区）。           </span>|</span><br><span class="line">    |<span class="string"> `0`           </span>|<span class="string"> 区域编号（Region ID，内部索引号）。                          </span>|</span><br><span class="line">    |<span class="string"> `1`           </span>|<span class="string"> 材料编号（Material ID，对应某种材料，例如 0=Si，1=Al，2=SiO₂ 等）。 </span>|</span><br><span class="line">    |<span class="string"> `4`           </span>|<span class="string"> 维度或几何定义模式（一般为内部用途标识；在大多数 3D 结构中固定为 4）。 </span>|</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  iso_surf_draw_mode_id 0</span><br></pre></td></tr></table></figure>
+
+- **含义**：设置等值面绘制模式（draw mode）。
+
+  **参数 0**：表示使用默认绘制模式（通常是表面平滑显示）。
+
+  **其他可能值**：有些版本中：
+
+  - `1` → 网格线模式显示；
+  - `2` → 半透明模式显示。
+
+  作用：控制等值面的可视化风格。
+</code></pre>
+</li>
+<li><pre><code>iso_surf &quot;Lattice Temperature&quot; 308
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 定义一个等值面（iso-surface），用于可视化某个物理量的特定值。</span><br><span class="line"></span><br><span class="line">  - </span><br><span class="line"></span><br><span class="line">  - |<span class="string"> 参数                    </span>|<span class="string"> 说明                                                        </span>|</span><br><span class="line">    |<span class="string"> ----------------------- </span>|<span class="string"> ----------------------------------------------------------- </span>|</span><br><span class="line">    |<span class="string"> `&quot;Lattice Temperature&quot;` </span>|<span class="string"> 等值面对应的物理量（此处为晶格温度，Lattice Temperature）。 </span>|</span><br><span class="line">    |<span class="string"> `308`                   </span>|<span class="string"> 等值面值，即在 **308 K** 处绘制温度等值面。                 </span>|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  sm_00 -0.74098267362682446</span><br><span class="line">  sm_01 0.6514888833293403</span><br><span class="line">  sm_02 0.16280943548555929</span><br><span class="line">  sm_03 12.964862421565487</span><br><span class="line">  </span><br><span class="line">  sm_10 0.33860615810181838</span><br><span class="line">  sm_11 0.5718517760587577</span><br><span class="line">  sm_12 -0.74721577600714795</span><br><span class="line">  sm_13 -51.913604071154673</span><br><span class="line">  </span><br><span class="line">  sm_20 -0.579905636358506</span><br><span class="line">  sm_21 -0.49854566602942968</span><br><span class="line">  sm_22 -0.64433040577245815</span><br><span class="line">  sm_23 291.79837201919833</span><br><span class="line">  </span><br><span class="line">  sm_30 0</span><br><span class="line">  sm_31 0</span><br><span class="line">  sm_32 0</span><br><span class="line">  sm_33 1</span><br></pre></td></tr></table></figure>
+
+- 这实际上是一个 **4×4 仿射变换矩阵**（homogeneous transformation matrix）：
+
+- ```
+  | sm_00 sm_01 sm_02 sm_03 |
+  | sm_10 sm_11 sm_12 sm_13 |
+  | sm_20 sm_21 sm_22 sm_23 |
+  | sm_30 sm_31 sm_32 sm_33 |
+  
+  <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - 前 <span class="number">3</span>×<span class="number">3</span> 子矩阵 (`sm_00` ~ `sm_22`) 控制 **旋转和缩放**。</span><br><span class="line"></span><br><span class="line">      第 <span class="number">4</span> 列 (`sm_03, sm_13, sm_23`) 控制 **平移（translation）**。</span><br><span class="line"></span><br><span class="line">      最后一行 (`sm_30~sm_33`) 为齐次坐标行，通常为 `[<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>]`。</span><br><span class="line"></span><br><span class="line">  - `sm_00, sm_01, sm_02` → X 方向在新坐标系中的投影（旋转 + 缩放）</span><br><span class="line"></span><br><span class="line">    `sm_10, sm_11, sm_12` → Y 方向在新坐标系中的投影</span><br><span class="line"></span><br><span class="line">    `sm_20, sm_21, sm_22` → Z 方向在新坐标系中的投影</span><br><span class="line"></span><br><span class="line">    `sm_03, sm_13, sm_23` → 模型在 X、Y、Z 的平移量</span><br><span class="line"></span><br><span class="line">    `sm_30~sm_33` → 齐次坐标，用于矩阵运算，固定 [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  contour_legend <span class="number">1</span></span><br><span class="line">  region_legend <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+- **`contour_legend 1`**
+
+- 控制 **等值线/等值面图例（contour legend）** 是否显示。
+- `1` → 显示等值线或等值面对应的图例，标明物理量值（如温度、电势）。
+- `0` → 不显示图例。
+
+1. **`region_legend 1`**
+
+- 控制 **区域图例（region legend）** 是否显示。
+- `1` → 显示各个材料或区域的标签颜色说明，例如 Region #1 = 铝、Region #2 = 硅。
+- `0` → 不显示区域图例。
+</code></pre>
+</li>
+<li><pre><code>show_cut_plane_x_axis 1
+show_cut_plane_y_axis 1
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **`show_cut_plane_x_axis <span class="number">1</span>`**</span><br><span class="line"></span><br><span class="line">  - 控制 **X 方向的截面平面**是否显示。</span><br><span class="line">  - `1` → 显示 X 方向截面平面</span><br><span class="line">  - `0` → 不显示 X 方向截面平面</span><br><span class="line"></span><br><span class="line">  <span class="number">1</span>. **`show_cut_plane_y_axis <span class="number">1</span>`**</span><br><span class="line"></span><br><span class="line">  - 控制 **Y 方向的截面平面**是否显示。</span><br><span class="line">  - `1` → 显示 Y 方向截面平面</span><br><span class="line">  - `0` → 不显示 Y 方向截面平面</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  mat_info <span class="string">&quot;Copper 8 1&quot;</span></span><br><span class="line">  mat_info <span class="string">&quot;Electrodes 2 1&quot;</span></span><br><span class="line">  mat_info <span class="string">&quot;Molybdenum 2 1&quot;</span></span><br><span class="line">  mat_info <span class="string">&quot;NPB 70 1&quot;</span></span><br><span class="line">  mat_info <span class="string">&quot;Titanium 67 1&quot;</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+- ```
+  mat_info &quot;MaterialName ID SomeFlag&quot;
+  <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - <span class="symbol">*</span><span class="symbol">*</span>MaterialName<span class="symbol">*</span><span class="symbol">*</span>：材料名称</span><br><span class="line"></span><br><span class="line">      - 例如 `<span class="string">&quot;Copper&quot;</span>`、`<span class="string">&quot;Molybdenum&quot;</span>`</span><br><span class="line"></span><br><span class="line">      <span class="symbol">*</span><span class="symbol">*</span>ID<span class="symbol">*</span><span class="symbol">*</span>：材料编号，对应 DevEdit / Atlas 中的区域编号，用于区分不同材料</span><br><span class="line"></span><br><span class="line">      <span class="symbol">*</span><span class="symbol">*</span>SomeFlag<span class="symbol">*</span><span class="symbol">*</span>：控制属性或显示方式的标志（通常为 1，表示激活或可见）</span><br><span class="line"></span><br><span class="line">  - </span><br><span class="line"></span><br><span class="line">  - |<span class="string"> 行                        </span>|<span class="string"> 材料名称           </span>|<span class="string"> ID   </span>|<span class="string"> 标志 </span>|<span class="string"> 说明                         </span>|</span><br><span class="line">    |<span class="string"> ------------------------- </span>|<span class="string"> ------------------ </span>|<span class="string"> ---- </span>|<span class="string"> ---- </span>|<span class="string"> ---------------------------- </span>|</span><br><span class="line">    |<span class="string"> mat_info &quot;Copper 8 1&quot;     </span>|<span class="string"> Copper（铜）       </span>|<span class="string"> 8    </span>|<span class="string"> 1    </span>|<span class="string"> 材料 8，被激活/可见          </span>|</span><br><span class="line">    |<span class="string"> mat_info &quot;Electrodes 2 1&quot; </span>|<span class="string"> Electrodes（电极） </span>|<span class="string"> 2    </span>|<span class="string"> 1    </span>|<span class="string"> 电极材料，编号 2             </span>|</span><br><span class="line">    |<span class="string"> mat_info &quot;Molybdenum 2 1&quot; </span>|<span class="string"> Molybdenum（钼）   </span>|<span class="string"> 2    </span>|<span class="string"> 1    </span>|<span class="string"> 钼材料，编号 2               </span>|</span><br><span class="line">    |<span class="string"> mat_info &quot;NPB 70 1&quot;       </span>|<span class="string"> NPB                </span>|<span class="string"> 70   </span>|<span class="string"> 1    </span>|<span class="string"> NPB 材料（可能为聚合物或膜） </span>|</span><br><span class="line">    |<span class="string"> mat_info &quot;Titanium 67 1&quot;  </span>|<span class="string"> Titanium（钛）     </span>|<span class="string"> 67   </span>|<span class="string"> 1    </span>|<span class="string"> 钛材料，编号 67              </span>|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 理解输入文件代码</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">*</span><span class="symbol">*</span>Silvaco TCAD<span class="symbol">*</span><span class="symbol">*</span>（主要使用 DevEdit 和 ATLAS 仿真平台）中的 <span class="symbol">*</span><span class="symbol">*</span>3D 热仿真<span class="symbol">*</span><span class="symbol">*</span> 模拟脚本，用于模拟两种功率晶体管的热行为。下面是详细解释：</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 🔹 **开头注释**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h1 id="c-Silvaco-Inc-2019"><a href="#c-Silvaco-Inc-2019" class="headerlink" title="(c) Silvaco Inc., 2019"></a>(c) Silvaco Inc., 2019</h1><p>go devedit</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">**版权声明**：这是</span> <span class="string">Silvaco</span> <span class="string">公司发布的代码，版本为</span> <span class="number">2019</span><span class="string">。</span></span><br><span class="line"><span class="string">*</span> <span class="string">**`go</span> <span class="string">devedit`**：启动</span> <span class="string">**DevEdit**</span> <span class="string">工具，通常用于创建和编辑</span> <span class="string">3D</span> <span class="string">结构模型。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">#### 🔹 **仿真类型和目标**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="ATLAS-3D-Thermal-simulation"><a href="#ATLAS-3D-Thermal-simulation" class="headerlink" title="ATLAS 3D Thermal simulation"></a>ATLAS 3D Thermal simulation</h1><h1 id="Two-power-transistor-simulation"><a href="#Two-power-transistor-simulation" class="headerlink" title="Two power transistor simulation"></a>Two power transistor simulation</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">这段代码的目的是进行</span> <span class="string">**3D</span> <span class="string">热仿真**，模拟</span> <span class="string">**两种功率晶体管**的热行为。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">#### 🔹 **DevEdit 版本和库设置**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>DevEdit version&#x3D;”2.0” library&#x3D;”1.14”</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">使用</span> <span class="string">**DevEdit</span> <span class="number">2.0</span><span class="string">**</span> <span class="string">版本和</span> <span class="string">**Silvaco</span> <span class="string">库版本</span> <span class="number">1.14</span><span class="string">**</span> <span class="string">来定义材料和模型。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">#### 🔹 **定义工作区域**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>work.area left&#x3D;0 top&#x3D;0 right&#x3D;200 bottom&#x3D;200</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">定义</span> <span class="string">**工作区域**，其左、上、右、下边界分别为</span> <span class="number">0</span><span class="string">,</span> <span class="number">0</span><span class="string">,</span> <span class="number">200</span><span class="string">,</span> <span class="number">200</span><span class="string">，控制模型显示区域的范围。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">#### 🔹 **定义区域（材料和区域网格）**</span></span><br><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">**区域</span> <span class="number">1</span> <span class="string">(Silicon)**：</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  region reg&#x3D;1 mat&#x3D;Silicon color&#x3D;0xffc000 pattern&#x3D;0x4 Z1&#x3D;0 Z2&#x3D;100 points&#x3D;”0,0 200,0 200,200 0,200 0,0”<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 该区域使用 <span class="strong">**硅材料**</span>，颜色为橙色 (RGB: <span class="code">`0xffc000`</span>)，区域的 <span class="strong">**高度**</span> 为 100（Z1=0, Z2=100）。</span><br><span class="line"><span class="bullet">  *</span> 定义区域的 <span class="strong">**几何形状**</span>，给出顶点坐标。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**区域 2 (Silicon)**</span>：</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>  region reg&#x3D;2 mat&#x3D;Silicon color&#x3D;0xffc000 pattern&#x3D;0x4 Z1&#x3D;0 Z2&#x3D;2 points&#x3D;”20,30 85,30 85,90 20,90 20,30”<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 该区域使用 <span class="strong">**硅材料**</span>，高度为 2（Z1=0, Z2=2），几何形状为一个矩形。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**区域 3 (Silicon)**</span>：</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>  region reg&#x3D;3 mat&#x3D;Silicon color&#x3D;0xffc000 pattern&#x3D;0x4 Z1&#x3D;0 Z2&#x3D;2 points&#x3D;”130,30 165,30 165,140 140,140 140,55 130,55 130,30”<br>  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">  *</span> 使用 <span class="strong">**硅材料**</span>，高度为 2，几何形状为一个不规则四边形。</span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> <span class="strong">**区域 4 (Aluminum)**</span>：</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>  region reg&#x3D;4 mat&#x3D;Aluminum elec.id&#x3D;1 color&#x3D;0xffc0c0 pattern&#x3D;0x7 Z1&#x3D;100 Z2&#x3D;102 points&#x3D;”0,0 200,0 200,200 0,200 0,0”<br>  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="string">*</span> <span class="string">该区域使用</span> <span class="string">**铝材料**，电极</span> <span class="string">ID</span> <span class="string">为</span> <span class="number">1</span><span class="string">，几何形状与区域</span> <span class="number">1</span> <span class="string">相同，设置了</span> <span class="string">Z</span> <span class="string">方向的高度（Z1=100,</span> <span class="string">Z2=102）。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">#### 🔹 **网格设置**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>base.mesh height&#x3D;1000000 width&#x3D;1000000</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 定义 **网格大小**，宽高非常大，可能表示不对整个区域进行细网格化，而是在某些关键区域进行局部细化。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  bound.cond !apply max.<span class="attribute">slope</span>=28 max.<span class="attribute">ratio</span>=300 rnd.<span class="attribute">unit</span>=0.001 line.<span class="attribute">straightening</span>=1 align.points <span class="attribute">when</span>=automatic</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p>- </p>
+<p>- </p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>bound.cond</strong></td>
+<td>Boundary condition（边界条件）</td>
+<td>定义几何或物理边界的条件，如形状、角度、节点排列方式</td>
+</tr>
+<tr>
+<td><strong>!apply</strong></td>
+<td>执行命令的标志（有些软件用 <code>!</code> 表示“立即执行”）</td>
+<td>表示立即对当前模型边界应用这些设置</td>
+</tr>
+<tr>
+<td><strong>max.slope&#x3D;28</strong></td>
+<td>最大允许的边界斜率或倾角</td>
+<td>限制边界线段之间的最大坡度变化，以防止过陡或异常几何导致网格畸变</td>
+</tr>
+<tr>
+<td><strong>max.ratio&#x3D;300</strong></td>
+<td>最大单元尺寸比</td>
+<td>限制相邻单元的尺寸比例，避免出现“细长”或“极不均匀”的单元</td>
+</tr>
+<tr>
+<td><strong>rnd.unit&#x3D;0.001</strong></td>
+<td>圆角或随机扰动的单位尺度（rounding unit）</td>
+<td>控制边界节点在自动拟合或平滑时的最小调整步长，通常用于消除几何噪声</td>
+</tr>
+<tr>
+<td><strong>line.straightening&#x3D;1</strong></td>
+<td>直线平滑开关（1 &#x3D; 开启）</td>
+<td>自动平滑边界线，使不规则边界更趋直，以优化网格质量</td>
+</tr>
+<tr>
+<td><strong>align.points</strong></td>
+<td>节点对齐</td>
+<td>确保边界上各网格点在相邻几何段之间位置一致，减少交界处的误差</td>
+</tr>
+<tr>
+<td><strong>when&#x3D;automatic</strong></td>
+<td>自动执行模式</td>
+<td>当程序检测到需要重新调整边界时（例如重新划分网格），自动应用这些条件</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<hr>
+<h4 id="🔹-网格优化和细化"><a href="#🔹-网格优化和细化" class="headerlink" title="🔹 网格优化和细化"></a>🔹 <strong>网格优化和细化</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">constr.mesh max.<span class="attribute">angle</span>=90 max.<span class="attribute">ratio</span>=300 max.<span class="attribute">height</span>=20 \</span><br><span class="line">	max.<span class="attribute">width</span>=20 min.<span class="attribute">height</span>=0.0001 min.<span class="attribute">width</span>=0.0001</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置网格生成的最大角度、最大比例、最大高度和宽度等参数，保证网格的质量，避免过大的网格。</li>
+</ul>
+<hr>
+<h4 id="🔹-物理属性设置"><a href="#🔹-物理属性设置" class="headerlink" title="🔹 物理属性设置"></a>🔹 <strong>物理属性设置</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">material <span class="attribute">region</span>=1 tc.<span class="attribute">const</span>=1.2</span><br><span class="line">material <span class="attribute">region</span>=2 tc.<span class="attribute">const</span>=1. <span class="attribute">power</span>=0.35</span><br><span class="line">material <span class="attribute">region</span>=3 tc.<span class="attribute">const</span>=1.1 power =0.4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>热导率</strong>（<code>tc.const</code>）设置：<ul>
+<li>区域 1 使用热导率为 1.2（硅）。</li>
+<li>区域 2 和 3 的热导率分别为 1 和 1.1，且为功率区域（<code>power</code>），分别为 0.35 和 0.4。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="🔹-热仿真模型设置"><a href="#🔹-热仿真模型设置" class="headerlink" title="🔹 热仿真模型设置"></a>🔹 <strong>热仿真模型设置</strong></h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">models thermal</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启用 <strong>热模型</strong>，用于计算热传导和温度分布。</li>
+</ul>
+<hr>
+<h4 id="🔹-求解和仿真"><a href="#🔹-求解和仿真" class="headerlink" title="🔹 求解和仿真"></a>🔹 <strong>求解和仿真</strong></h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">solve <span class="attribute">t1</span>=300 <span class="attribute">outf</span>=thermalex01_0.str</span><br><span class="line">tonyplot3d thermalex01_0.str -<span class="built_in">set</span> thermalex01_0.set</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>solve</code>**：设置仿真初始温度为 300 K，输出文件为 <code>thermalex01_0.str</code>。</li>
+<li>**<code>tonyplot3d</code>**：使用 <code>TonyPlot</code> 进行 3D 可视化，载入计算结果并显示。</li>
+</ul>
+<hr>
+<h4 id="🔹-退出"><a href="#🔹-退出" class="headerlink" title="🔹 退出"></a>🔹 <strong>退出</strong></h4><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">quit</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>结束仿真和软件会话。</li>
+</ul>
+<hr>
+<h4 id="🔹-总结"><a href="#🔹-总结" class="headerlink" title="🔹 总结"></a>🔹 <strong>总结</strong></h4><p>这段脚本用于在 <strong>Silvaco TCAD</strong> 环境中创建一个 3D 热仿真模型，模拟功率晶体管的热行为。脚本分为几个主要部分：</p>
+<ol>
+<li>定义模型区域和材料</li>
+<li>设置网格</li>
+<li>定义物理参数</li>
+<li>执行仿真计算并可视化结果</li>
+</ol>
+<p>整个过程涉及使用 <strong>DevEdit</strong> 编辑模型结构，使用 <strong>ATLAS</strong> 求解热仿真，并通过 <strong>TonyPlot</strong> 进行结果展示。</p>
+<h3 id="模拟结果"><a href="#模拟结果" class="headerlink" title="模拟结果"></a>模拟结果</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/09/21/softwares/silvaco/hemtex06/">
+        <span class="nav-arrow">← </span>
+        
+          栅压偏置下的交流参数
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/10/21/softwares/silvaco/thermalex02/">
+        
+          八功率源结构
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E5%8D%95%E5%8F%8C%E6%99%B6%E4%BD%93%E7%AE%A1%E7%83%AD%E4%BB%BF%E7%9C%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">简单双晶体管热仿真</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%BB%E5%9B%BE%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">画图格式文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">理解格式文件代码</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#c-Silvaco-Inc-2019"><span class="toc-nav-number"></span> <span class="toc-nav-text">(c) Silvaco Inc., 2019</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ATLAS-3D-Thermal-simulation"><span class="toc-nav-number"></span> <span class="toc-nav-text">ATLAS 3D Thermal simulation</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Two-power-transistor-simulation"><span class="toc-nav-number"></span> <span class="toc-nav-text">Two power transistor simulation</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E7%BD%91%E6%A0%BC%E4%BC%98%E5%8C%96%E5%92%8C%E7%BB%86%E5%8C%96"><span class="toc-nav-number">0.0.1.</span> <span class="toc-nav-text">🔹 网格优化和细化</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E7%89%A9%E7%90%86%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">0.0.2.</span> <span class="toc-nav-text">🔹 物理属性设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E7%83%AD%E4%BB%BF%E7%9C%9F%E6%A8%A1%E5%9E%8B%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">0.0.3.</span> <span class="toc-nav-text">🔹 热仿真模型设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E6%B1%82%E8%A7%A3%E5%92%8C%E4%BB%BF%E7%9C%9F"><span class="toc-nav-number">0.0.4.</span> <span class="toc-nav-text">🔹 求解和仿真</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E9%80%80%E5%87%BA"><span class="toc-nav-number">0.0.5.</span> <span class="toc-nav-text">🔹 退出</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%F0%9F%94%B9-%E6%80%BB%E7%BB%93"><span class="toc-nav-number">0.0.6.</span> <span class="toc-nav-text">🔹 总结</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">0.1.</span> <span class="toc-nav-text">模拟结果</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/09/22/softwares/silvaco/thermalex01/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

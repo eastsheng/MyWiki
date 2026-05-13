@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      AlGaAs/GaAs HEMT Id-Vgs 和 Id-Vds 特性 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>AlGaAs/GaAs HEMT Id-Vgs 和 Id-Vds 特性</h2>
+  <p class="post-date">2025-09-11 21:00:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h2 id="单量子阱-AlGaAs-x2F-GaAs-HEMT-器件的-Id-Vds-和-Id-Vgs-特性计算，主要包括："><a href="#单量子阱-AlGaAs-x2F-GaAs-HEMT-器件的-Id-Vds-和-Id-Vgs-特性计算，主要包括：" class="headerlink" title="单量子阱 AlGaAs&#x2F;GaAs HEMT 器件的 Id-Vds 和 Id-Vgs 特性计算，主要包括："></a>单量子阱 AlGaAs&#x2F;GaAs HEMT 器件的 Id-Vds 和 Id-Vgs 特性计算，主要包括：</h2><ul>
+<li>使用 Atlas 语法构建异质结结构</li>
+<li>材料与物理模型参数的设定</li>
+<li>仿真 Id-Vds 和 Id-Vgs 特性</li>
+<li>使用 TonyPlot 显示仿真结果</li>
+</ul>
+<h3 id="输入文件内容"><a href="#输入文件内容" class="headerlink" title="输入文件内容"></a>输入文件内容</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">go atlas</span><br><span class="line"></span><br><span class="line">mesh </span><br><span class="line"></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.0</span> spac=<span class="number">0.05</span></span><br><span class="line">x.mesh <span class="attr">loc</span>=<span class="number">0.75</span> spac=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">y.mesh <span class="attr">loc</span>=-<span class="number">0.02</span>   spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>= <span class="number">0.00</span>   spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>= <span class="number">0.03</span>   spac=<span class="number">0.001</span></span><br><span class="line">y.mesh <span class="attr">loc</span>= <span class="number">0.0425</span> spac=<span class="number">0.01</span></span><br><span class="line">y.mesh <span class="attr">loc</span>= <span class="number">0.055</span>  spac=<span class="number">0.001</span></span><br><span class="line">y.mesh <span class="attr">loc</span>= <span class="number">0.2</span>  spac=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">region <span class="attr">num</span>=<span class="number">1</span> material=GaAs y.min=<span class="number">0.03</span> y.max=<span class="number">0.055</span></span><br><span class="line">region <span class="attr">num</span>=<span class="number">2</span> material=AlGaAs y.max=<span class="number">0.03</span> x.composition=<span class="number">0.3</span></span><br><span class="line">region <span class="attr">num</span>=<span class="number">3</span> material=AlGaAs y.min=<span class="number">0.055</span> x.composition=<span class="number">0.3</span></span><br><span class="line">region <span class="attr">num</span>=<span class="number">4</span> oxide y.min=-<span class="number">0.02</span> y.max=<span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">elec <span class="attr">num</span>=<span class="number">1</span> name=source x.min=<span class="number">0.0</span> x.max=<span class="number">0.0</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line">elec <span class="attr">num</span>=<span class="number">2</span> name=gate   x.min=<span class="number">0.1</span> x.max=<span class="number">0.6</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.0</span></span><br><span class="line">elec <span class="attr">num</span>=<span class="number">3</span> name=drain  x.min=<span class="number">0.75</span> x.max=<span class="number">0.75</span> y.min=<span class="number">0.0</span> y.max=<span class="number">0.05</span></span><br><span class="line"></span><br><span class="line">doping uniform <span class="attr">y.min</span>=<span class="number">0</span> y.max=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping uniform <span class="attr">y.min</span>=<span class="number">0.03</span> n.type conc=<span class="number">1</span>.e15</span><br><span class="line">doping uniform <span class="attr">x.min</span>=<span class="number">0.0</span> x.max=<span class="number">0.05</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line">doping uniform <span class="attr">x.min</span>=<span class="number">0.70</span> x.max=<span class="number">0.75</span> y.min=<span class="number">0.03</span> y.max=<span class="number">0.05</span> n.type conc=<span class="number">1</span>.e18</span><br><span class="line"></span><br><span class="line">interface <span class="attr">x.min</span>=<span class="number">0</span> x.max=<span class="number">0.75</span> y.min=-<span class="number">0.01</span> y.max=<span class="number">0.005</span> qf=-<span class="number">1</span>.e12</span><br><span class="line"></span><br><span class="line">material <span class="attr">taun0</span>=<span class="number">1</span>.e-<span class="number">9</span> taup0=<span class="number">1</span>.e-<span class="number">9</span></span><br><span class="line">material <span class="attr">material</span>=AlGaAs mun=<span class="number">2000</span> mup= <span class="number">350</span> affinity=<span class="number">3.82</span>  nc300=<span class="number">5.7</span>e17</span><br><span class="line"></span><br><span class="line">model    fldmob srh  </span><br><span class="line">model <span class="attr">material</span>=GaAs conmob</span><br><span class="line"></span><br><span class="line">contact  <span class="attr">name</span>=gate workfun=<span class="number">4.73</span></span><br><span class="line"></span><br><span class="line">method gummel  newton <span class="attr">itlim</span>=<span class="number">20</span> trap  maxtrap=<span class="number">6</span> vsatmod.inc=<span class="number">0.01</span> carriers=<span class="number">1</span> elect  </span><br><span class="line">output con.band val.band </span><br><span class="line">solve <span class="attr">vgate</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">03_0</span>.str</span><br><span class="line">tonyplot hemtex03_0.str -set hemtex03_0.set</span><br><span class="line"></span><br><span class="line">log <span class="attr">outf</span>=hemtex<span class="number">03_1</span>.log  master</span><br><span class="line"></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.05</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.10</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.125</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.15</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.20</span> </span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.30</span></span><br><span class="line"><span class="comment"># （carriers=1）单载流子模型（只考虑电子或者空穴，而不是完整的双载流子（电子+空穴）输运模型。）</span></span><br><span class="line"><span class="comment"># elect 表示只解电场方程（Poisson 方程）和单载流子输运方程，用于简化计算，比如只模拟电子导电的情况，而不考虑空穴。</span></span><br><span class="line">method  newton trap <span class="attr">itlim</span>=<span class="number">35</span>  maxtrap=<span class="number">6</span>    carriers=<span class="number">1</span> elect</span><br><span class="line"></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.50</span>  vstep=<span class="number">0.25</span>  name=drain vfinal=<span class="number">3</span></span><br><span class="line"></span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">03_1</span>.str</span><br><span class="line">tonyplot  hemtex03_1.log -set  hemtex03_1log.set</span><br><span class="line"><span class="comment"># 关闭日志文件的输出</span></span><br><span class="line">log off</span><br><span class="line"></span><br><span class="line">solve init</span><br><span class="line"><span class="comment"># vsatmod.inc与速度饱和模型(vsatmod)有关，inc=0.01表示逐步增加饱和速度参数的调节因子，帮助迭代收敛。一般用于高场迁移率模型（carrier velocity saturation）的数值稳定性控制</span></span><br><span class="line">method gummel  newton trap <span class="attr">itlim</span>=<span class="number">35</span>  maxtrap=<span class="number">6</span> vsatmod.inc=<span class="number">0.01</span> carriers=<span class="number">1</span> elect</span><br><span class="line"></span><br><span class="line">solve <span class="attr">vgate</span>=-<span class="number">0.9</span>  vdrain=<span class="number">0</span></span><br><span class="line">solve <span class="attr">vdrain</span>=<span class="number">0.1</span>  vstep=<span class="number">0.1</span>  name=drain vfinal=<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">log <span class="attr">outf</span>=hemtex<span class="number">03_2</span>.log master</span><br><span class="line"></span><br><span class="line">method  newton trap <span class="attr">itlim</span>=<span class="number">35</span>  maxtrap=<span class="number">6</span>  carriers=<span class="number">1</span> elect</span><br><span class="line">solve <span class="attr">vgate</span>=-<span class="number">0.8</span>  vstep=<span class="number">0.1</span>  name=gate vfinal=<span class="number">0.6</span></span><br><span class="line"></span><br><span class="line">save <span class="attr">outf</span>=hemtex<span class="number">03_2</span>.str</span><br><span class="line">tonyplot  hemtex03_2.log -set  hemtex03_2log.set</span><br><span class="line"></span><br><span class="line">quit</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="理解输入代码"><a href="#理解输入代码" class="headerlink" title="理解输入代码"></a>理解输入代码</h3><ul>
+<li><p><strong>Silvaco Atlas</strong> 里 <code>method</code> 语句的设置，用于指定数值解算器的算法和控制参数。</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">method  newton trap itlim=35  maxtrap=6    carriers=1 elect</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong>newton</strong></p>
+<ul>
+<li>指定使用 <strong>Newton-Raphson 法</strong> 作为主要的迭代求解方法。</li>
+<li>Newton 法收敛速度快，但对初始解要求较高。</li>
+</ul>
+</li>
+<li><p><strong>trap</strong></p>
+<ul>
+<li>启用 <strong>陷阱态处理算法（trap-assisted recombination）</strong>，用于在解算时更好地处理材料中陷阱能级（如 SRH 复合中心）对载流子的影响。</li>
+</ul>
+</li>
+<li><p><strong>itlim&#x3D;35</strong></p>
+<ul>
+<li>设置单次偏压步进中的 <strong>最大迭代次数为 35</strong>。</li>
+<li>如果在 35 次迭代内仍未收敛，会报错或切换其他方法（取决于设置）。</li>
+</ul>
+</li>
+<li><p><strong>maxtrap&#x3D;6</strong></p>
+<ul>
+<li>限定 <strong>陷阱能级最多考虑 6 个</strong>。</li>
+<li>用于加快收敛，避免过多陷阱能级导致计算发散。</li>
+</ul>
+</li>
+<li><p><strong>carriers&#x3D;1</strong></p>
+<ul>
+<li>指定 <strong>单载流子模型</strong>。</li>
+<li>表示只考虑电子或者空穴（通常在某些近似条件下使用），而不是完整的双载流子（电子+空穴）输运模型。</li>
+</ul>
+</li>
+<li><p><strong>elect</strong></p>
+<ul>
+<li>表示 <strong>只解电场方程（Poisson 方程）和单载流子输运方程</strong>。</li>
+<li>这通常用于简化计算，比如只模拟电子导电的情况，而不考虑空穴。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>🔎 <strong>总结</strong>：<br>这段 <code>method</code> 设置告诉 Atlas：<br>采用 <strong>Newton-Raphson 算法</strong>进行迭代，最多迭代 35 次，考虑最多 6 个陷阱能级，只解单载流子（carriers&#x3D;1）并只考虑电子输运（elect），这样做一般是为了加快收敛和降低计算复杂度。</p>
+</li>
+<li><p>这行 <strong>Atlas 代码</strong>是 <code>method</code> 指令，配置数值求解的算法和控制参数：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">method gummel newton trap itlim=35 maxtrap=6 vsatmod.inc=0.01 carriers=1 elect</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol>
+<li><p><strong>gummel</strong></p>
+<ul>
+<li>启用 <strong>Gummel 迭代法</strong>（逐方程分解法），对初始解更稳健，收敛范围广。</li>
+<li>常用来获取器件的第一个解或在偏压变化时保持稳定。</li>
+</ul>
+</li>
+<li><p><strong>newton</strong></p>
+<ul>
+<li>同时启用 <strong>Newton-Raphson 法</strong>，在解已接近时切换到 Newton 法，提高收敛速度。</li>
+<li>两者结合 &#x3D; “Gummel-Newton” 混合法，兼顾稳定性和效率。</li>
+</ul>
+</li>
+<li><p><strong>trap</strong></p>
+<ul>
+<li>打开 <strong>陷阱态处理</strong>，考虑材料中缺陷&#x2F;陷阱能级对载流子的影响（例如 SRH 复合）。</li>
+</ul>
+</li>
+<li><p><strong>itlim&#x3D;35</strong></p>
+<ul>
+<li>设置 <strong>最大迭代次数为 35</strong>，如果 35 步内不收敛，停止计算或报错。</li>
+</ul>
+</li>
+<li><p><strong>maxtrap&#x3D;6</strong></p>
+<ul>
+<li>指定最多考虑 <strong>6 个陷阱能级</strong>，防止过多陷阱导致计算难以收敛。</li>
+</ul>
+</li>
+<li><p><strong>vsatmod.inc&#x3D;0.01</strong></p>
+<ul>
+<li>与 <strong>速度饱和模型 (vsatmod)</strong> 有关。</li>
+<li><code>inc=0.01</code> 表示逐步增加饱和速度参数的调节因子，帮助迭代收敛。</li>
+<li>一般用于高场迁移率模型（carrier velocity saturation）的数值稳定性控制。</li>
+</ul>
+</li>
+<li><p><strong>carriers&#x3D;1</strong></p>
+<ul>
+<li>使用 <strong>单载流子模型</strong>，只解电子或空穴的一类输运方程（通常是电子）。</li>
+<li>如果是 <code>carriers=2</code>，则解双载流子（电子 + 空穴）。</li>
+</ul>
+</li>
+<li><p><strong>elect</strong></p>
+<ul>
+<li>表示只解 <strong>Poisson 方程 + 单载流子输运方程</strong>，忽略另一类载流子。</li>
+<li>一般用于 n 型 HEMT 这类以电子为主导的器件。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>✅ <strong>总结</strong>：<br>这行代码设置了一个 <strong>Gummel+Newton 混合迭代法</strong>，带陷阱态处理，迭代上限 35 次，考虑最多 6 个陷阱能级，通过逐步调整速度饱和模型因子改善收敛，只解单载流子（电子）和电场方程。</p>
+</li>
+</ul>
+<h3 id="模拟结果Id-Vds-和-Id-Vgs"><a href="#模拟结果Id-Vds-和-Id-Vgs" class="headerlink" title="模拟结果Id-Vds 和 Id-Vgs"></a>模拟结果Id-Vds 和 Id-Vgs</h3><table>
+<thead>
+<tr>
+<th>净掺杂浓度</th>
+<th>漏极电压&#x2F;电流</th>
+<th>栅极电压&#x2F;漏极电流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509150950262.png" alt="hemtex02"></td>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509150949320.png" alt="hemtex03_1"></td>
+<td><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2025/202509150947534.png" alt="hemtex03_2"></td>
+</tr>
+</tbody></table>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Silvaco" >
+    <span class="tag-code">Silvaco</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#TCAD" >
+    <span class="tag-code">TCAD</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2025/09/10/softwares/silvaco/hemtex02/">
+        <span class="nav-arrow">← </span>
+        
+          晶格匹配 HEMT 击穿模拟：单量子阱晶格匹配 AlGaAs/GaAs HEMT 的雪崩击穿模拟
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2025/09/12/softwares/silvaco/hemtex04/">
+        
+          单量子阱 AlGaAs/GaAs HEMT 中采用能量平衡（EB）模型和漂移扩散（DD）模型计算 Id–Vds 特性
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8D%95%E9%87%8F%E5%AD%90%E9%98%B1-AlGaAs-x2F-GaAs-HEMT-%E5%99%A8%E4%BB%B6%E7%9A%84-Id-Vds-%E5%92%8C-Id-Vgs-%E7%89%B9%E6%80%A7%E8%AE%A1%E7%AE%97%EF%BC%8C%E4%B8%BB%E8%A6%81%E5%8C%85%E6%8B%AC%EF%BC%9A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">单量子阱 AlGaAs&#x2F;GaAs HEMT 器件的 Id-Vds 和 Id-Vgs 特性计算，主要包括：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">输入文件内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">理解输入代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A8%A1%E6%8B%9F%E7%BB%93%E6%9E%9CId-Vds-%E5%92%8C-Id-Vgs"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">模拟结果Id-Vds 和 Id-Vgs</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2025/09/11/softwares/silvaco/hemtex03/';
+    var banner = 'https://cdn.pixabay.com/photo/2018/08/18/18/42/emotions-3615255_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

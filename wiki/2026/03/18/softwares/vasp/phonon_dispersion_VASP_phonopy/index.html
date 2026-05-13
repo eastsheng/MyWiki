@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      声子色散关系计算（VASP+phonopy） | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>声子色散关系计算（VASP+phonopy）</h2>
+  <p class="post-date">2026-03-18 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<hr>
+<h1 id="声子色散-有限位移"><a href="#声子色散-有限位移" class="headerlink" title="声子色散-有限位移"></a>声子色散-有限位移</h1><hr>
+<h2 id="Step-1：结构优化"><a href="#Step-1：结构优化" class="headerlink" title="Step 1：结构优化"></a><strong>Step 1：结构优化</strong></h2><ul>
+<li><p><strong>POSCAR-unitcell</strong>：初始晶胞结构</p>
+</li>
+<li><p><strong>INCAR</strong>：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SYSTEM = SiC relax</span><br><span class="line">ENCUT = 520</span><br><span class="line">ICHARG = 2</span><br><span class="line">EDIFF = 1E-5</span><br><span class="line">EDIFFG = -0.05</span><br><span class="line"></span><br><span class="line">IBRION = 2</span><br><span class="line">ISIF = 3</span><br><span class="line">NSW = 100</span><br><span class="line"></span><br><span class="line">ISMEAR = 0</span><br><span class="line">SIGMA = 0.05</span><br><span class="line">PREC = Accurate</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>KPOINTS</strong>：推荐 Monkhorst–Pack 网格，比如 <code>6 6 6</code>。</p>
+</li>
+<li><p><strong>POTCAR</strong>：元素对应的赝势。</p>
+</li>
+</ul>
+<p>📌 运行 VASP，最后得到优化后的 <strong>CONTCAR</strong> → 作为后续 <code>POSCAR-unitcell</code>。</p>
+<hr>
+<h2 id="Step-2：生成位移超胞"><a href="#Step-2：生成位移超胞" class="headerlink" title="Step 2：生成位移超胞"></a><strong>Step 2：生成位移超胞</strong></h2><p>目标：生成有限位移所需的超胞。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonopy -d --dim=<span class="string">&quot;2 2 2&quot;</span> -c POSCAR-unitcell</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><p><code>--dim=&quot;2 2 2&quot;</code>：构造 2×2×2 的超胞。</p>
+</li>
+<li><p>输出：多个 <code>POSCAR-xxx</code> 文件，每个文件表示一个原子被轻微位移后的结构。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Step-3：VASP-批量计算"><a href="#Step-3：VASP-批量计算" class="headerlink" title="Step 3：VASP 批量计算"></a><strong>Step 3：VASP 批量计算</strong></h2><p>目标：对每个位移超胞计算。</p>
+<p>📂 输入文件（放在每个 <code>xxx</code> 目录里）：</p>
+<ul>
+<li><p><strong>POSCAR</strong> ← 从 <code>POSCAR-xxx</code> 复制而来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(<span class="built_in">seq</span> 1 8); <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">dir</span>=$(<span class="built_in">printf</span> <span class="string">&quot;%03d&quot;</span> <span class="variable">$i</span>)</span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="variable">$dir</span></span><br><span class="line">    <span class="built_in">cp</span> POSCAR-<span class="variable">$dir</span> <span class="variable">$dir</span>/POSCAR</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>INCAR</strong>：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ISMEAR = 0</span><br><span class="line">SIGMA  = 0.01</span><br><span class="line">IBRION = -1</span><br><span class="line">EDIFF  = 1E-08</span><br><span class="line">PREC   = Accurate</span><br><span class="line">ENCUT  = 500</span><br><span class="line">IALGO  = 38</span><br><span class="line">LREAL  = .FALSE.</span><br><span class="line">LWAVE  = .FALSE.</span><br><span class="line">LCHARG = .FALSE.</span><br><span class="line">ADDGRID= .TRUE.</span><br></pre></td></tr></table></figure>
+
+<p>（与声子谱有限位移计算相同，不让离子移动，仅计算力）</p>
+</li>
+<li><p><strong>KPOINTS</strong>：比如 <code>4 4 4</code>（根据超胞大小适当缩小 k 网格）。</p>
+</li>
+<li><p><strong>POTCAR</strong>：对应的赝势。</p>
+</li>
+<li><p><strong>INCAR、POTCAR、KPOINTS</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(<span class="built_in">seq</span> 1 160); <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">dir</span>=$(<span class="built_in">printf</span> <span class="string">&quot;%03d&quot;</span> <span class="variable">$i</span>)</span><br><span class="line">    <span class="built_in">cp</span> 001/INCAR 001/KPOINTS 001/POTCAR <span class="variable">$dir</span>/</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>📌 每个目录运行 VASP，得到 <code>vasprun.xml</code>。</p>
+<ul>
+<li><p><strong>run vasp</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(<span class="built_in">seq</span> 1 8); <span class="keyword">do</span></span><br><span class="line">	<span class="built_in">dir</span>=$(<span class="built_in">printf</span> <span class="string">&quot;%03d&quot;</span> <span class="variable">$i</span>)</span><br><span class="line">	<span class="built_in">cd</span> <span class="variable">$dir</span>/</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;----&quot;</span> <span class="variable">$i</span> <span class="string">&quot;----&quot;</span></span><br><span class="line">	mpirun -np 4 vasp_std</span><br><span class="line">	<span class="built_in">cd</span> ..</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="Step-4：提取力常数"><a href="#Step-4：提取力常数" class="headerlink" title="Step 4：提取力常数"></a><strong>Step 4：提取力常数</strong></h2><p>收集所有 <code>vasprun.xml</code> 文件，提取二阶 &amp; 三阶力常数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonopy -f &#123;001..008&#125;/vasprun.xml  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>{001..008}包括所有的结构</li>
+</ul>
+<hr>
+<h2 id="Step-5：后处理"><a href="#Step-5：后处理" class="headerlink" title="Step 5：后处理"></a><strong>Step 5：后处理</strong></h2><p>写 band.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ATOM_NAME = 4H-SiC</span><br><span class="line">DIM       = 2 2 2</span><br><span class="line">BAND      = 0 0 0  1/2 0.0 0.0, 1/2 0 0 1/3 1/3 0.0, 1/3 1/3 0 0.0 0.0 0.0,  0.0 0.0 0.0  0.0 0.0 1/2  </span><br><span class="line">BAND_LABELS = G M K G A</span><br></pre></td></tr></table></figure>
+
+<p>画图</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phonopy -c POSCAR-unitcell -p band.conf</span><br><span class="line"><span class="comment"># 导出画图</span></span><br><span class="line">phonopy-bandplot --gnuplot band.yaml &gt; band.dat</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有虚频一般是扩胞太小</p>
+</blockquote>
+<hr>
+<h1 id="声子色散-密度泛函微扰"><a href="#声子色散-密度泛函微扰" class="headerlink" title="声子色散-密度泛函微扰"></a>声子色散-密度泛函微扰</h1><h2 id="结构优化"><a href="#结构优化" class="headerlink" title="结构优化"></a>结构优化</h2><p>同上</p>
+<h2 id="扩胞"><a href="#扩胞" class="headerlink" title="扩胞"></a>扩胞</h2><p>同上，使用<strong>SPOSCAR</strong> </p>
+<h2 id="微扰计算"><a href="#微扰计算" class="headerlink" title="微扰计算"></a>微扰计算</h2><ul>
+<li><ul>
+<li>NSW &#x3D; 1</li>
+<li>IBRION &#x3D; 8(微扰计算，声子计算专用)</li>
+<li>NPAR,NCORE,KPAR等并行参数都<strong>关闭</strong>，不然会报错</li>
+<li>为了减小计算量，建议打开对称性开关 ISYM &#x3D; 2</li>
+</ul>
+</li>
+</ul>
+<h2 id="力常数计算"><a href="#力常数计算" class="headerlink" title="力常数计算"></a>力常数计算</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phonopy --<span class="built_in">fc</span> calc/vasprun.xml</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>得到<strong>FORCE_CONSTANTS</strong></p>
+</blockquote>
+<h2 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h2><p>同上</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phonopy -c POSCAR-unitcell -p <span class="keyword">band.conf</span></span><br><span class="line"><span class="keyword"></span><span class="comment"># 导出画图</span></span><br><span class="line">phonopy-<span class="keyword">bandplot </span>--gnuplot <span class="keyword">band.yaml </span>&gt; <span class="keyword">band.dat</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1] <a target="_blank" rel="noopener" href="https://blog.csdn.net/Piaen/article/details/148568434">https://blog.csdn.net/Piaen/article/details/148568434</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.jun997.xyz/2022/07/14/276373048e9d.html">https://www.jun997.xyz/2022/07/14/276373048e9d.html</a></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#VASP" >
+    <span class="tag-code">VASP</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#phonopy" >
+    <span class="tag-code">phonopy</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#声子谱" >
+    <span class="tag-code">声子谱</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/01/11/softwares/silvaco/powerex04/">
+        <span class="nav-arrow">← </span>
+        
+          IGBT Ic/Vce 特性
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/03/19/softwares/vasp/phonon_dispersion_VASP/">
+        
+          声子色散关系计算（VASP）
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%A3%B0%E5%AD%90%E8%89%B2%E6%95%A3-%E6%9C%89%E9%99%90%E4%BD%8D%E7%A7%BB"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">声子色散-有限位移</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Step-1%EF%BC%9A%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Step 1：结构优化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Step-2%EF%BC%9A%E7%94%9F%E6%88%90%E4%BD%8D%E7%A7%BB%E8%B6%85%E8%83%9E"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Step 2：生成位移超胞</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Step-3%EF%BC%9AVASP-%E6%89%B9%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Step 3：VASP 批量计算</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Step-4%EF%BC%9A%E6%8F%90%E5%8F%96%E5%8A%9B%E5%B8%B8%E6%95%B0"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Step 4：提取力常数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Step-5%EF%BC%9A%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Step 5：后处理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%A3%B0%E5%AD%90%E8%89%B2%E6%95%A3-%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E5%BE%AE%E6%89%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">声子色散-密度泛函微扰</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BB%93%E6%9E%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">结构优化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%89%A9%E8%83%9E"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">扩胞</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BE%AE%E6%89%B0%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">微扰计算</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8A%9B%E5%B8%B8%E6%95%B0%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">力常数计算</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">后处理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/03/18/softwares/vasp/phonon_dispersion_VASP_phonopy/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
