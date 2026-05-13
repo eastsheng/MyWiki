@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吐个槽吧</title>
+<style>
+  :root {
+    --bg: #f8f5f0; --card-bg: #ffffff; --text: #2c2416;
+    --text-secondary: #8b7e6a; --border: #e8e0d5;
+    --accent: #d4956b; --accent-hover: #c17d52; --accent-light: #fdf0e8;
+    --danger: #d35a3a; --danger-bg: #fce8e3;
+    --shadow: 0 1px 3px rgba(44,36,22,0.06); --shadow-lg: 0 4px 16px rgba(44,36,22,0.1);
+    --radius: 12px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  [data-theme="dark"] {
+    --bg: #1a1815; --card-bg: #252320; --text: #e8dfd0;
+    --text-secondary: #9b8e7a; --border: #3a3530;
+    --accent: #d4956b; --accent-hover: #e0a880; --accent-light: #3a2a20;
+    --danger: #e07050; --danger-bg: #3a2020;
+    --shadow: 0 1px 3px rgba(0,0,0,0.25); --shadow-lg: 0 4px 16px rgba(0,0,0,0.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font); background: var(--bg); color: var(--text);
+    min-height: 100vh; line-height: 1.6;
+  }
+
+  /* Layout */
+  .app { max-width: 1100px; margin: 0 auto; padding: 20px 24px 40px; }
+  .app-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .app-header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+  .header-right { display: flex; align-items: center; gap: 10px; }
+
+  .layout {
+    display: flex; gap: 28px; align-items: flex-start;
+  }
+  .feed-col { flex: 1; min-width: 0; }
+  .sidebar { width: 370px; flex-shrink: 0; position: sticky; top: 20px; }
+
+  @media (max-width: 860px) {
+    .layout { flex-direction: column-reverse; }
+    .sidebar { width: 100%; position: static; }
+    .app { padding: 12px 10px 30px; }
+    .app-header { padding: 10px 0 18px; margin-bottom: 16px; }
+    .app-header h1 { font-size: 22px; }
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 9px 20px; border: none; border-radius: 20px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: var(--font);
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-ghost {
+    background: transparent; color: var(--text-secondary);
+    padding: 6px 12px; font-weight: 500; font-size: 13px;
+  }
+  .btn-ghost:hover { color: var(--text); background: var(--border); }
+  .btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 14px; }
+
+  .icon-btn {
+    width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 50%;
+    background: var(--card-bg); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; color: var(--text-secondary); transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .icon-btn.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+  .icon-btn.small { width: 28px; height: 28px; font-size: 12px; }
+
+  /* Sidebar cards */
+  .side-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .side-card h3 {
+    font-size: 14px; font-weight: 600; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;
+  }
+
+  /* Post form */
+  .post-textarea {
+    width: 100%; min-height: 120px; border: none; outline: none;
+    resize: vertical; font-family: var(--font); font-size: 15px;
+    line-height: 1.7; color: var(--text); background: transparent;
+  }
+  .post-textarea::placeholder { color: var(--text-secondary); }
+
+  .image-previews {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+  }
+  .image-previews .preview-item {
+    position: relative; width: 80px; height: 80px;
+    border-radius: 8px; overflow: hidden; border: 1px solid var(--border);
+  }
+  .image-previews .preview-item img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .image-previews .preview-item .remove-img {
+    position: absolute; top: 2px; right: 2px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(0,0,0,0.5); color: #fff; border: none;
+    cursor: pointer; font-size: 12px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .form-toolbar {
+    display: flex; gap: 6px; margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border); align-items: center;
+  }
+  .form-toolbar .spacer { flex: 1; }
+  .char-count { font-size: 13px; color: var(--text-secondary); }
+  .char-count.warn { color: var(--danger); }
+
+  /* Emoji picker */
+  .emoji-picker {
+    display: none; flex-wrap: wrap; gap: 4px; padding: 10px;
+    max-height: 200px; overflow-y: auto; background: var(--bg);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    margin-top: 8px;
+  }
+  .emoji-picker.show { display: flex; }
+  .emoji-picker button {
+    width: 34px; height: 34px; border: none; background: transparent;
+    cursor: pointer; font-size: 20px; border-radius: 6px;
+    transition: background 0.15s; display: flex; align-items: center; justify-content: center;
+  }
+  .emoji-picker button:hover { background: var(--border); }
+
+  /* Feed */
+  .feed { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-lg); }
+
+  .card-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  .card-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent-light); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; flex-shrink: 0;
+  }
+  .card-user { font-size: 14px; font-weight: 600; }
+  .card-time {
+    font-size: 12px; color: var(--text-secondary); margin-left: auto;
+    white-space: nowrap;
+  }
+  .card-time .edited { font-style: italic; }
+
+  .card-body {
+    font-size: 15px; line-height: 1.8; white-space: pre-wrap; word-break: break-word;
+  }
+  .card-images {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
+  }
+  .card-images img {
+    max-width: 100%; max-height: 300px; border-radius: 8px;
+    border: 1px solid var(--border); cursor: pointer; object-fit: cover;
+    transition: transform 0.2s;
+  }
+  .card-images img:hover { transform: scale(1.02); }
+
+  .card-footer {
+    display: flex; align-items: center; margin-top: 14px; padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .card-footer .card-actions {
+    display: flex; gap: 4px; margin-left: auto;
+  }
+
+  /* Edit mode */
+  .edit-textarea {
+    width: 100%; min-height: 80px; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-family: var(--font);
+    font-size: 15px; line-height: 1.7; color: var(--text);
+    background: var(--bg); resize: vertical; outline: none;
+  }
+  .edit-textarea:focus { border-color: var(--accent); }
+
+  /* Daily quote */
+  .daily-quote-card { text-align: center; }
+  .daily-quote-card .quote-text {
+    font-size: 18px; line-height: 1.8; color: var(--text);
+    font-weight: 500; margin-bottom: 10px;
+    font-style: italic;
+  }
+  .daily-quote-card .quote-author {
+    font-size: 13px; color: var(--text-secondary);
+  }
+  .daily-quote-card .quote-author::before { content: '—— '; }
+
+  /* Toolbar */
+  .feed-toolbar {
+    display: flex; gap: 8px; margin-bottom: 16px; align-items: center;
+  }
+  .search-input {
+    flex: 1; padding: 8px 14px; border: 1px solid var(--border);
+    border-radius: 20px; font-size: 14px; font-family: var(--font);
+    background: var(--card-bg); color: var(--text); outline: none;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-secondary); }
+
+  /* Empty */
+  .empty {
+    text-align: center; padding: 60px 20px; color: var(--text-secondary);
+  }
+  .empty-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.6; }
+  .empty-text { font-size: 15px; }
+
+  /* Pagination */
+  .pagination {
+    display: flex; justify-content: center; align-items: center; gap: 4px;
+    margin-top: 24px; flex-wrap: wrap;
+  }
+  .pagination button {
+    min-width: 36px; height: 36px; border: 1px solid var(--border);
+    border-radius: 8px; background: var(--card-bg); cursor: pointer;
+    font-size: 13px; font-family: var(--font); color: var(--text);
+    transition: all 0.15s; display: flex; align-items: center; justify-content: center;
+    padding: 0 8px;
+  }
+  .pagination button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .pagination button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .pagination button.active {
+    background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600;
+  }
+  .pagination .page-info {
+    font-size: 13px; color: var(--text-secondary); padding: 0 8px;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    background: var(--text); color: var(--bg); padding: 10px 24px;
+    border-radius: 20px; font-size: 14px; font-weight: 500;
+    box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+    transition: opacity 0.3s; z-index: 100;
+  }
+  .toast.show { opacity: 1; }
+
+  /* Modal for image preview */
+  .lightbox {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    z-index: 200; align-items: center; justify-content: center; cursor: pointer;
+  }
+  .lightbox.show { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+
+  /* Fun animations */
+  @keyframes bounce-wobble {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    15% { transform: translateY(-8px) rotate(-3deg) scale(1.08); }
+    30% { transform: translateY(0) rotate(3deg) scale(0.95); }
+    50% { transform: translateY(-5px) rotate(-2deg) scale(1.05); }
+    70% { transform: translateY(0) rotate(2deg) scale(0.97); }
+    85% { transform: translateY(-3px) rotate(-1deg) scale(1.02); }
+  }
+  @keyframes float-spin {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(6px) rotate(-5deg); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.25); opacity: 1; }
+  }
+  .header-gif {
+    display: inline-block; font-size: 38px; margin-left: 8px;
+    animation: bounce-wobble 1.8s ease-in-out infinite;
+    cursor: default; user-select: none; vertical-align: middle;
+  }
+  .quote-gif-wrap {
+    text-align: center; margin-top: 14px; font-size: 42px;
+    animation: float-spin 3s ease-in-out infinite;
+    cursor: default; user-select: none;
+  }
+  .quote-gif-wrap .sparkle {
+    display: inline-block; animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+  .quote-gif-wrap .sparkle:nth-child(2) { animation-delay: 0.5s; }
+  .quote-gif-wrap .sparkle:nth-child(3) { animation-delay: 1s; }
+
+  /* Settings modal */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 300; align-items: center; justify-content: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px; width: 380px;
+    max-width: 90vw; box-shadow: var(--shadow-lg);
+  }
+  .modal h2 { font-size: 18px; margin-bottom: 20px; }
+  .modal label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+  .modal input {
+    width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 14px; font-family: var(--font);
+    background: var(--bg); color: var(--text); outline: none; margin-bottom: 14px;
+  }
+  .modal input:focus { border-color: var(--accent); }
+  .modal .modal-hint { font-size: 12px; color: var(--text-secondary); margin: -8px 0 14px; line-height: 1.5; }
+  .modal .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  .modal .sync-note { font-size: 13px; color: var(--accent); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- Header -->
+  <div class="app-header">
+    <h1>吐个槽吧<span class="header-gif" id="headerGif">🐸</span></h1>
+    <div class="header-right">
+      <span id="myName" style="font-size:14px;color:var(--text-secondary)"></span>
+      <button class="icon-btn" id="themeBtn" title="切换深色/浅色">🌙</button>
+      <button class="icon-btn" id="settingsBtn" title="同步设置">⚙</button>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="layout">
+    <!-- Left: Feed -->
+    <div class="feed-col">
+      <div class="feed-toolbar">
+        <input type="text" class="search-input" id="searchInput" placeholder="搜索…">
+        <span style="font-size:13px;color:var(--text-secondary);white-space:nowrap" id="stats"></span>
+      </div>
+      <div class="feed" id="feed"></div>
+      <div class="pagination" id="pagination"></div>
+      <div class="empty" id="empty">
+        <div class="empty-icon">💬</div>
+        <p class="empty-text">还没有吐槽，在右侧写第一条吧</p>
+      </div>
+    </div>
+
+    <!-- Right: Sidebar -->
+    <div class="sidebar">
+      <!-- Post form -->
+      <div class="side-card">
+        <h3>发一条吐槽</h3>
+        <textarea class="post-textarea" id="postInput" placeholder="不吐不快，尽管说…" maxlength="2000"></textarea>
+        <div class="image-previews" id="imagePreviews"></div>
+        <div class="emoji-picker" id="emojiPicker"></div>
+        <div class="form-toolbar">
+          <button class="icon-btn small" id="emojiBtn" title="表情">😊</button>
+          <button class="icon-btn small" id="imageBtn" title="插入图片">🖼</button>
+          <input type="file" id="imageFileInput" accept="image/*" multiple style="display:none">
+          <span class="spacer"></span>
+          <span class="char-count" id="charCount">0 / 2000</span>
+          <button class="btn btn-primary" id="postBtn" disabled>发布</button>
+        </div>
+      </div>
+
+      <!-- Daily quote -->
+      <div class="side-card daily-quote-card">
+        <h3>每日一言</h3>
+        <div class="quote-text" id="dailyQuote">加载中…</div>
+        <div class="quote-author" id="dailyQuoteAuthor"></div>
+        <div class="quote-gif-wrap" id="quoteGifWrap">
+          <span class="sparkle">⭐</span><span class="sparkle">✨</span><span class="sparkle">💫</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Settings modal -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal" onclick="event.stopPropagation()">
+    <h2>同步设置</h2>
+    <label>GitHub Token (gist 权限)</label>
+    <input type="password" id="modalToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    <div class="modal-hint">在 GitHub Settings → Developer settings → Tokens (classic) 创建，仅需勾选 <b>gist</b> 权限。</div>
+    <label>Gist ID</label>
+    <input type="text" id="modalGistId" placeholder="首次使用留空，保存后自动创建">
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="modalCancel">取消</button>
+      <button class="btn btn-primary" id="modalSave">保存并启用同步</button>
+    </div>
+    <div class="sync-note" id="modalNote"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt=""></div>
+
+<script>
+(function() {
+  const MAX_LENGTH = 2000;
+  const MAX_IMG_SIZE = 2 * 1024 * 1024; // 2MB per image
+  const GIST_FILENAME = 'shuoshuo-posts.json';
+  const STORAGE_KEY = 'shuoshuo_posts';
+
+  // ── DOM ──────────────────────────────
+  const $ = function(id) { return document.getElementById(id); };
+  const $feed = $('feed'), $empty = $('empty'), $postInput = $('postInput');
+  const $postBtn = $('postBtn'), $charCount = $('charCount'), $searchInput = $('searchInput');
+  const $stats = $('stats'), $toast = $('toast');
+  const $emojiPicker = $('emojiPicker'), $emojiBtn = $('emojiBtn');
+  const $imagePreviews = $('imagePreviews'), $imageBtn = $('imageBtn');
+  const $imageFileInput = $('imageFileInput');
+  const $myName = $('myName');
+  const $lightbox = $('lightbox'), $lightboxImg = $('lightboxImg');
+  const $pagination = $('pagination');
+
+  // ── State ────────────────────────────
+  const PAGE_SIZE = 6;
+  let posts = [];
+  let editingId = null;
+  let pendingImages = [];
+  let toastTimer = null;
+  let currentPage = 1;
+
+  // Username
+  const ADJ = ['快乐的','忧郁的','可爱的','自由的','安静的','温暖的','调皮的','勇敢的','温柔的','潇洒的','迷茫的','坚定的','慵懒的','热情的','冷静的','酷酷的','呆呆的','美美的','憨憨的','萌萌的'];
+  const NOUN = ['小猫','小鱼','星星','月亮','微风','阳光','叶子','云朵','小熊','小鹿','海豚','飞鸟','树懒','狐狸','兔子','仓鼠','企鹅','柴犬','布丁','奶茶'];
+
+  function randomName() {
+    const a = ADJ[Math.floor(Math.random() * ADJ.length)];
+    const n = NOUN[Math.floor(Math.random() * NOUN.length)];
+    const num = Math.floor(Math.random() * 90) + 10;
+    return a + n + num;
+  }
+
+  function getUsername() {
+    let name = localStorage.getItem('shuoshuo_username');
+    if (!name) { name = randomName(); localStorage.setItem('shuoshuo_username', name); }
+    return name;
+  }
+
+  const username = getUsername();
+  $myName.textContent = '👤 ' + username;
+
+  // ── Persistence ──────────────────────
+  function loadLocal() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      posts = raw ? JSON.parse(raw) : [];
+      posts = posts.map(normalizePost);
+    } catch (e) { posts = []; }
+  }
+
+  function saveLocal() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  }
+
+  function normalizePost(p) {
+    return {
+      id: p.id || genId(),
+      content: String(p.content || ''),
+      images: Array.isArray(p.images) ? p.images : [],
+      author: p.author || username,
+      createdAt: p.createdAt || Date.now(),
+      updatedAt: p.updatedAt || p.createdAt || Date.now()
+    };
+  }
+
+  function genId() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  }
+
+  // ── GitHub Gist Sync ────────────────
+  // Token & Gist ID are stored in localStorage only (never commit to git)
+  let githubToken = localStorage.getItem('shuoshuo_gh_token') || '';
+  let gistId = localStorage.getItem('shuoshuo_gist_id') || '';
+  let syncEnabled = !!(githubToken && gistId);
+
+  async function githubApi(path, opts = {}) {
+    const res = await fetch('https://api.github.com' + path, {
+      ...opts,
+      headers: {
+        'Authorization': 'token ' + githubToken,
+        'Accept': 'application/vnd.github.v3+json',
+        ...(opts.headers || {})
+      }
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      throw new Error(res.status + ': ' + (body || res.statusText).slice(0, 200));
+    }
+    return res.json();
+  }
+
+  async function pullFromGist() {
+    const gist = await githubApi('/gists/' + gistId);
+    const file = gist.files[GIST_FILENAME];
+    if (!file || !file.content) throw new Error('Gist 中未找到数据文件');
+    const remote = JSON.parse(file.content).map(normalizePost);
+    const remoteIds = new Set(remote.map(function(p) { return p.id; }));
+    const localOnly = posts.filter(function(p) { return !remoteIds.has(p.id); });
+    posts = remote.concat(localOnly);
+    saveLocal();
+    render();
+  }
+
+  async function pushToGist() {
+    await githubApi('/gists/' + gistId, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        files: { [GIST_FILENAME]: { content: JSON.stringify(posts) } }
+      })
+    });
+  }
+
+  async function doSync() {
+    if (!syncEnabled) return;
+    try {
+      await pullFromGist();
+      await pushToGist();
+    } catch (e) {
+      console.error('Sync error:', e);
+    }
+  }
+
+  function autoSync() {
+    if (!syncEnabled) return;
+    doSync().catch(function() {});
+  }
+
+  // ── Emoji Picker ─────────────────────
+  const EMOJIS = [
+    '😀','😃','😄','😁','😅','😂','🤣','😊','😇','🙂','😉','😌','😍','🥰','😘','😗','😋','😛','😜','🤪',
+    '😎','🤩','🥳','😏','😒','😞','😔','😟','😕','🙁','😣','😖','😫','😩','🥺','😢','😭','😤','😡','🤬',
+    '💀','☠','🤡','💩','👍','👎','👏','🙌','🤝','💪','🤞','✌','🤟','👋','🖐','✋','🫶','❤','🧡','💛',
+    '💚','💙','💜','🖤','🤍','🤎','💔','❣','💕','💞','💓','💗','💖','💝','💘','💌','💢','💥','💫','💦',
+    '✨','🌟','⭐','🔥','💧','🌈','☀','🌙','🌸','🌺','🌻','🌹','🍀','🎉','🎊','🎂','🍰','☕','🍵','🍺',
+    '🐱','🐶','🐰','🐼','🐨','🐸','🐵','🦊','🐻','🐷','🐮','🦁','🐯','🐙','🐳','🐬','🦄','🐣','🐥','🦋'
+  ];
+
+  function buildEmojiPicker() {
+    $emojiPicker.innerHTML = EMOJIS.map(function(e) {
+      return '<button data-emoji="' + e + '">' + e + '</button>';
+    }).join('');
+  }
+  buildEmojiPicker();
+
+  $emojiBtn.addEventListener('click', function() {
+    $emojiPicker.classList.toggle('show');
+    $emojiBtn.classList.toggle('active');
+  });
+
+  $emojiPicker.addEventListener('click', function(e) {
+    const btn = e.target.closest('button');
+    if (!btn || !btn.dataset.emoji) return;
+    insertAtCursor($postInput, btn.dataset.emoji);
+    $emojiPicker.classList.remove('show');
+    $emojiBtn.classList.remove('active');
+    $postInput.focus();
+  });
+
+  function insertAtCursor(textarea, text) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    textarea.value = textarea.value.slice(0, start) + text + textarea.value.slice(end);
+    textarea.selectionStart = textarea.selectionEnd = start + text.length;
+    textarea.dispatchEvent(new Event('input'));
+  }
+
+  // ── Image handling ───────────────────
+  function addPendingImage(base64) {
+    if (pendingImages.length >= 9) { showToast('最多添加 9 张图片'); return; }
+    pendingImages.push(base64);
+    renderImagePreviews();
+  }
+
+  function removePendingImage(idx) {
+    pendingImages.splice(idx, 1);
+    renderImagePreviews();
+  }
+
+  function renderImagePreviews() {
+    $imagePreviews.innerHTML = pendingImages.map(function(img, i) {
+      return '<div class="preview-item">'
+        + '<img src="' + img + '" alt="">'
+        + '<button class="remove-img" data-idx="' + i + '">&times;</button>'
+        + '</div>';
+    }).join('');
+  }
+
+  $imagePreviews.addEventListener('click', function(e) {
+    const btn = e.target.closest('.remove-img');
+    if (btn) removePendingImage(parseInt(btn.dataset.idx));
+  });
+
+  function processImageFile(file) {
+    if (!file.type.startsWith('image/')) { showToast('仅支持图片文件'); return; }
+    if (file.size > MAX_IMG_SIZE) { showToast('图片不能超过 2MB'); return; }
+    const reader = new FileReader();
+    reader.onload = function() { addPendingImage(reader.result); };
+    reader.readAsDataURL(file);
+  }
+
+  $imageBtn.addEventListener('click', function() { $imageFileInput.click(); });
+  $imageFileInput.addEventListener('change', function() {
+    Array.from(this.files).forEach(processImageFile);
+    this.value = '';
+  });
+
+  // Paste image
+  document.addEventListener('paste', function(e) {
+    if (e.target !== $postInput && e.target.tagName !== 'TEXTAREA') return;
+    const items = e.clipboardData && e.clipboardData.items;
+    if (!items) return;
+    for (const item of items) {
+      if (item.type.startsWith('image/')) {
+        e.preventDefault();
+        const blob = item.getAsFile();
+        const reader = new FileReader();
+        reader.onload = function() { addPendingImage(reader.result); };
+        reader.readAsDataURL(blob);
+      }
+    }
+  });
+
+  // Drag & drop images into post form
+  const $postFormCard = $postInput.closest('.side-card');
+  $postFormCard.addEventListener('dragover', function(e) { e.preventDefault(); });
+  $postFormCard.addEventListener('drop', function(e) {
+    e.preventDefault();
+    Array.from(e.dataTransfer.files).forEach(processImageFile);
+  });
+
+  // ── Render ───────────────────────────
+  function getFilteredPosts() {
+    const q = $searchInput.value.trim().toLowerCase();
+    if (!q) return [...posts].reverse();
+    return posts.filter(function(p) {
+      return p.content.toLowerCase().includes(q) || p.author.toLowerCase().includes(q);
+    }).reverse();
+  }
+
+  function formatTime(ts) {
+    const d = new Date(ts);
+    const now = new Date();
+    const diff = now - d;
+    if (diff < 60000) return '刚刚';
+    if (diff < 3600000) return Math.floor(diff / 60000) + ' 分钟前';
+    if (diff < 86400000) return Math.floor(diff / 3600000) + ' 小时前';
+    if (diff < 604800000) return Math.floor(diff / 86400000) + ' 天前';
+    const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const h = String(d.getHours()).padStart(2, '0');
+    const min = String(d.getMinutes()).padStart(2, '0');
+    if (y === now.getFullYear()) return m + '-' + day + ' ' + h + ':' + min;
+    return y + '-' + m + '-' + day;
+  }
+
+  function render() {
+    const filtered = getFilteredPosts();
+    const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const pageItems = filtered.slice(start, start + PAGE_SIZE);
+
+    $stats.textContent = '共 ' + posts.length + ' 条';
+
+    if (filtered.length === 0) {
+      $feed.innerHTML = '';
+      $pagination.innerHTML = '';
+      $empty.style.display = 'block';
+    } else {
+      $empty.style.display = 'none';
+      $feed.innerHTML = pageItems.map(function(p) {
+        if (editingId === p.id) return renderEditCard(p);
+        return renderCard(p);
+      }).join('');
+      renderPagination(totalPages);
+    }
+  }
+
+  function renderPagination(totalPages) {
+    if (totalPages <= 1) { $pagination.innerHTML = ''; return; }
+    var html = '';
+    html += '<button ' + (currentPage === 1 ? 'disabled' : '') + ' data-page="prev">&laquo; 上一页</button>';
+    for (var i = 1; i <= totalPages; i++) {
+      html += '<button class="' + (i === currentPage ? 'active' : '') + '" data-page="' + i + '">' + i + '</button>';
+    }
+    html += '<button ' + (currentPage === totalPages ? 'disabled' : '') + ' data-page="next">下一页 &raquo;</button>';
+    html += '<span class="page-info">' + currentPage + ' / ' + totalPages + '</span>';
+    $pagination.innerHTML = html;
+  }
+
+  function renderCard(p) {
+    const avatarText = p.author.charAt(0);
+    return '<div class="card" data-id="' + p.id + '">'
+      + '<div class="card-header">'
+        + '<div class="card-avatar">' + escapeHtml(avatarText) + '</div>'
+        + '<span class="card-user">' + escapeHtml(p.author) + '</span>'
+        + '<span class="card-time" title="' + new Date(p.createdAt).toLocaleString() + '">'
+          + formatTime(p.createdAt)
+          + (p.updatedAt !== p.createdAt ? ' <span class="edited">(编辑过)</span>' : '')
+          + '</span>'
+      + '</div>'
+      + '<div class="card-body">' + escapeHtml(p.content) + '</div>'
+      + (p.images && p.images.length ? '<div class="card-images">' + p.images.map(function(img) {
+          return '<img src="' + img + '" data-lightbox alt="图片" loading="lazy">';
+        }).join('') + '</div>' : '')
+      + '<div class="card-footer">'
+        + '<span style="font-size:12px;color:var(--text-secondary)">'
+          + (p.images ? p.images.length + ' 张图片' : '')
+          + '</span>'
+        + '<div class="card-actions">'
+          + '<button class="icon-btn small edit-btn" data-id="' + p.id + '" title="编辑">✎</button>'
+          + '<button class="icon-btn small del-btn" data-id="' + p.id + '" title="删除">🗑</button>'
+        + '</div>'
+      + '</div>'
+    + '</div>';
+  }
+
+  function renderEditCard(p) {
+    return '<div class="card" data-id="' + p.id + '">'
+      + '<textarea class="edit-textarea" id="editArea-' + p.id + '" maxlength="' + MAX_LENGTH + '">'
+        + escapeHtml(p.content)
+        + '</textarea>'
+      + '<div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">'
+        + '<button class="btn btn-ghost cancel-btn" data-id="' + p.id + '">取消</button>'
+        + '<button class="btn btn-primary save-btn" data-id="' + p.id + '">保存</button>'
+      + '</div>'
+    + '</div>';
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // ── Toast ────────────────────────────
+  function showToast(msg) {
+    $toast.textContent = msg;
+    $toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() { $toast.classList.remove('show'); }, 2000);
+  }
+
+  // ── Lightbox ─────────────────────────
+  document.addEventListener('click', function(e) {
+    const img = e.target.closest('img[data-lightbox]');
+    if (img) { $lightboxImg.src = img.src; $lightbox.classList.add('show'); }
+    if (e.target === $lightbox) $lightbox.classList.remove('show');
+  });
+  $lightbox.addEventListener('click', function() { $lightbox.classList.remove('show'); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') $lightbox.classList.remove('show');
+  });
+
+  // ── Actions ──────────────────────────
+  function addPost() {
+    const content = $postInput.value.trim();
+    if (!content && pendingImages.length === 0) return;
+    posts.push({
+      id: genId(),
+      content: content,
+      images: [...pendingImages],
+      author: username,
+      createdAt: Date.now(),
+      updatedAt: Date.now()
+    });
+    saveLocal();
+    $postInput.value = '';
+    pendingImages = [];
+    renderImagePreviews();
+    updateCharCount();
+    currentPage = 1;
+    render();
+    showToast('发布成功');
+    autoSync();
+  }
+
+  function deletePost(id) {
+    if (!confirm('确定删除这条说说吗？')) return;
+    posts = posts.filter(function(p) { return p.id !== id; });
+    saveLocal();
+    render();
+    showToast('已删除');
+    autoSync();
+  }
+
+  function startEdit(id) {
+    editingId = id;
+    render();
+    setTimeout(function() {
+      const ta = document.getElementById('editArea-' + id);
+      if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+    }, 50);
+  }
+
+  function cancelEdit() { editingId = null; render(); }
+
+  function saveEdit(id) {
+    const ta = document.getElementById('editArea-' + id);
+    if (!ta) return;
+    const content = ta.value.trim();
+    if (!content) { showToast('内容不能为空'); return; }
+    const post = posts.find(function(p) { return p.id === id; });
+    if (post) { post.content = content; post.updatedAt = Date.now(); }
+    editingId = null;
+    saveLocal();
+    render();
+    showToast('已保存');
+    autoSync();
+  }
+
+  function updateCharCount() {
+    const len = $postInput.value.length;
+    $charCount.textContent = len + ' / ' + MAX_LENGTH;
+    $charCount.classList.toggle('warn', len > MAX_LENGTH * 0.9);
+    $postBtn.disabled = (len === 0 && pendingImages.length === 0) || len > MAX_LENGTH;
+  }
+
+  // ── Export / Import ──────────────────
+  function exportData() {
+    const blob = new Blob([JSON.stringify(posts, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'shuoshuo-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('导出成功');
+  }
+
+  function importData(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!Array.isArray(data)) throw new Error('格式错误');
+        const merged = data.map(normalizePost);
+        const existingIds = new Set(posts.map(function(p) { return p.id; }));
+        const newPosts = merged.filter(function(p) { return !existingIds.has(p.id); });
+        posts = newPosts.concat(posts);
+        saveLocal();
+        currentPage = 1;
+        render();
+        showToast('导入 ' + newPosts.length + ' 条说说');
+        autoSync();
+      } catch (err) {
+        showToast('导入失败：文件格式不正确');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ── Event delegation ─────────────────
+  document.addEventListener('click', function(e) {
+    const t = e.target;
+    if (t.classList.contains('edit-btn')) startEdit(t.dataset.id);
+    else if (t.classList.contains('del-btn')) deletePost(t.dataset.id);
+    else if (t.classList.contains('save-btn')) saveEdit(t.dataset.id);
+    else if (t.classList.contains('cancel-btn')) cancelEdit();
+    // Pagination
+    if (t.closest('#pagination')) {
+      var page = t.dataset.page;
+      if (page === 'prev') { if (currentPage > 1) { currentPage--; render(); } }
+      else if (page === 'next') { currentPage++; render(); }
+      else if (page) { currentPage = parseInt(page); render(); }
+    }
+    // Close emoji picker on outside click
+    if (!$emojiPicker.contains(t) && t !== $emojiBtn) {
+      $emojiPicker.classList.remove('show');
+      $emojiBtn.classList.remove('active');
+    }
+  });
+
+  // Keyboard shortcuts
+  $postInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!$postBtn.disabled) addPost();
+    }
+  });
+  $postInput.addEventListener('input', updateCharCount);
+  $postBtn.addEventListener('click', addPost);
+  $searchInput.addEventListener('input', function() { currentPage = 1; render(); });
+
+  // ── Daily Quote ──────────────────────
+  const QUOTES = [
+    ['人生如逆旅，我亦是行人。', '苏轼'],
+    ['山重水复疑无路，柳暗花明又一村。', '陆游'],
+    ['不畏浮云遮望眼，自缘身在最高层。', '王安石'],
+    ['会当凌绝顶，一览众山小。', '杜甫'],
+    ['长风破浪会有时，直挂云帆济沧海。', '李白'],
+    ['沉舟侧畔千帆过，病树前头万木春。', '刘禹锡'],
+    ['莫愁前路无知己，天下谁人不识君。', '高适'],
+    ['海内存知己，天涯若比邻。', '王勃'],
+    ['落红不是无情物，化作春泥更护花。', '龚自珍'],
+    ['人生自古谁无死，留取丹心照汗青。', '文天祥'],
+    ['路漫漫其修远兮，吾将上下而求索。', '屈原'],
+    ['千磨万击还坚劲，任尔东西南北风。', '郑燮'],
+    ['纸上得来终觉浅，绝知此事要躬行。', '陆游'],
+    ['问渠那得清如许，为有源头活水来。', '朱熹'],
+    ['宝剑锋从磨砺出，梅花香自苦寒来。', '佚名'],
+    ['天生我材必有用，千金散尽还复来。', '李白'],
+    ['采菊东篱下，悠然见南山。', '陶渊明'],
+    ['海阔凭鱼跃，天高任鸟飞。', '佚名'],
+    ['但愿人长久，千里共婵娟。', '苏轼'],
+    ['不以物喜，不以己悲。', '范仲淹'],
+    ['桃李春风一杯酒，江湖夜雨十年灯。', '黄庭坚'],
+    ['此情可待成追忆，只是当时已惘然。', '李商隐'],
+    ['曾经沧海难为水，除却巫山不是云。', '元稹'],
+    ['两情若是久长时，又岂在朝朝暮暮。', '秦观'],
+    ['衣带渐宽终不悔，为伊消得人憔悴。', '柳永'],
+    ['众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。', '辛弃疾'],
+    ['大鹏一日同风起，扶摇直上九万里。', '李白'],
+    ['仰天大笑出门去，我辈岂是蓬蒿人。', '李白'],
+    ['醉卧沙场君莫笑，古来征战几人回。', '王翰'],
+    ['白日放歌须纵酒，青春作伴好还乡。', '杜甫'],
+    ['人生得意须尽欢，莫使金樽空对月。', '李白'],
+    ['花开堪折直须折，莫待无花空折枝。', '佚名'],
+    ['不经一番寒彻骨，怎得梅花扑鼻香。', '黄檗'],
+    ['十年磨一剑，霜刃未曾试。', '贾岛'],
+    ['老骥伏枥，志在千里。烈士暮年，壮心不已。', '曹操'],
+    ['世事洞明皆学问，人情练达即文章。', '曹雪芹'],
+    ['宠辱不惊，看庭前花开花落；去留无意，望天上云卷云舒。', '陈继儒'],
+    ['非淡泊无以明志，非宁静无以致远。', '诸葛亮'],
+    ['静以修身，俭以养德。', '诸葛亮'],
+    ['学而不思则罔，思而不学则殆。', '孔子'],
+    ['知之者不如好之者，好之者不如乐之者。', '孔子'],
+    ['三人行，必有我师焉。', '孔子'],
+    ['己所不欲，勿施于人。', '孔子'],
+    ['天行健，君子以自强不息。', '周易'],
+    ['地势坤，君子以厚德载物。', '周易'],
+    ['穷则独善其身，达则兼济天下。', '孟子'],
+    ['生于忧患，死于安乐。', '孟子'],
+    ['锲而不舍，金石可镂。', '荀子'],
+    ['千里之行，始于足下。', '老子'],
+    ['知人者智，自知者明。', '老子'],
+    ['合抱之木，生于毫末；九层之台，起于累土。', '老子'],
+  ];
+
+  function initDailyQuote() {
+    const $quoteText = document.getElementById('dailyQuote');
+    const $quoteAuthor = document.getElementById('dailyQuoteAuthor');
+    if (!$quoteText || !$quoteAuthor) return;
+    // Use date as seed so the quote stays the same all day
+    const now = new Date();
+    const seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+    const idx = seed % QUOTES.length;
+    $quoteText.textContent = QUOTES[idx][0];
+    $quoteAuthor.textContent = QUOTES[idx][1];
+  }
+
+  // ── Theme ────────────────────────────
+  const $themeBtn = document.getElementById('themeBtn');
+  function setTheme(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+    $themeBtn.textContent = dark ? '☀' : '🌙';
+    localStorage.setItem('shuoshuo_theme', dark ? 'dark' : 'light');
+  }
+  $themeBtn.addEventListener('click', function() {
+    setTheme(!document.documentElement.getAttribute('data-theme'));
+  });
+
+  // ── Settings Modal ────────────────────
+  const $settingsBtn = document.getElementById('settingsBtn');
+  const $settingsModal = document.getElementById('settingsModal');
+  const $modalToken = document.getElementById('modalToken');
+  const $modalGistId = document.getElementById('modalGistId');
+  const $modalNote = document.getElementById('modalNote');
+
+  function openSettings() {
+    $modalToken.value = githubToken;
+    $modalGistId.value = gistId;
+    $modalNote.textContent = syncEnabled ? '同步已启用' : '';
+    $settingsModal.classList.add('show');
+  }
+
+  function closeSettings() {
+    $settingsModal.classList.remove('show');
+  }
+
+  $settingsBtn.addEventListener('click', openSettings);
+  document.getElementById('modalCancel').addEventListener('click', closeSettings);
+  $settingsModal.addEventListener('click', function(e) {
+    if (e.target === $settingsModal) closeSettings();
+  });
+
+  document.getElementById('modalSave').addEventListener('click', async function() {
+    var token = $modalToken.value.trim();
+    var gid = $modalGistId.value.trim();
+    if (!token) { showToast('请输入 GitHub Token'); return; }
+    $modalNote.textContent = '正在连接…';
+
+    try {
+      if (gid) {
+        // Use existing gist
+        githubToken = token;
+        gistId = gid;
+      } else {
+        // Auto-create gist
+        githubToken = token;
+        gistId = '';
+        // Temporarily set to findOrCreate
+        var tempToken = githubToken;
+        var gists = await (await fetch('https://api.github.com/gists?per_page=100', {
+          headers: { 'Authorization': 'token ' + tempToken, 'Accept': 'application/vnd.github.v3+json' }
+        })).json();
+        if (!Array.isArray(gists)) throw new Error('Token 无效');
+        var found = gists.find(function(g) { return g.files && g.files[GIST_FILENAME]; });
+        if (found) {
+          gistId = found.id;
+        } else {
+          var created = await (await fetch('https://api.github.com/gists', {
+            method: 'POST',
+            headers: { 'Authorization': 'token ' + tempToken, 'Accept': 'application/vnd.github.v3+json' },
+            body: JSON.stringify({
+              description: '说说数据 · 自动生成',
+              public: false,
+              files: (function() { var f = {}; f[GIST_FILENAME] = { content: JSON.stringify(posts) }; return f; })()
+            })
+          })).json();
+          if (!created.id) throw new Error('创建 Gist 失败');
+          gistId = created.id;
+        }
+      }
+      localStorage.setItem('shuoshuo_gh_token', githubToken);
+      localStorage.setItem('shuoshuo_gist_id', gistId);
+      syncEnabled = true;
+      await pullFromGist();
+      await pushToGist();
+      $modalNote.textContent = '同步已启用！Gist: ' + gistId.slice(0, 8) + '…';
+      $modalGistId.value = gistId;
+      showToast('同步已启用');
+    } catch (e) {
+      $modalNote.textContent = '失败: ' + e.message;
+    }
+  });
+
+  // ── Random GIFs (refresh to change) ──
+  const HEADER_EMOJIS = ['🐸','🐱','🐶','🐰','🐼','🐨','🦊','🐻','🐷','🦁','🐯','🐙','🦄','🐣','🦋','🐵','🦉','🐬','🦩','🦚','🐲','🐳','🦭','🐥','🐮','🐴','🐌','🦎','🐙','🦀'];
+
+  const QUOTE_GIF_SETS = [
+    ['⭐','✨','💫'],
+    ['🌸','🌺','🌻'],
+    ['🎉','🎊','🎂'],
+    ['🌈','☀️','🌙'],
+    ['💖','💕','💗'],
+    ['🍀','🌿','🌱'],
+    ['🔥','💥','💫'],
+    ['🦋','🐝','🐞'],
+    ['💀','👻','🎃'],
+    ['🍕','🍔','🌮'],
+    ['🎵','🎶','🎸'],
+    ['🌍','🌎','🌏'],
+    ['💎','💍','👑'],
+    ['🍩','🍪','🍰'],
+    ['⚽','🏀','🎾'],
+  ];
+
+  function randomFrom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function initRandomGifs() {
+    // Header: pick a random emoji
+    var $headerGif = document.getElementById('headerGif');
+    if ($headerGif) $headerGif.textContent = randomFrom(HEADER_EMOJIS);
+
+    // Quote card: pick a random 3-emoji set
+    var $quoteWrap = document.getElementById('quoteGifWrap');
+    if ($quoteWrap) {
+      var set = randomFrom(QUOTE_GIF_SETS);
+      $quoteWrap.innerHTML = set.map(function(e) {
+        return '<span class="sparkle">' + e + '</span>';
+      }).join('');
+    }
+  }
+
+  // ── Init ─────────────────────────────
+  const savedTheme = localStorage.getItem('shuoshuo_theme');
+  setTheme(savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches));
+
+  // If sync is enabled, pull first, then use local
+  (async function init() {
+    loadLocal();
+    if (syncEnabled) {
+      try { await pullFromGist(); } catch (e) { console.error('Init sync error:', e); }
+    }
+    render();
+    initDailyQuote();
+    initRandomGifs();
+  })();
+})();
+</script>
+
+</body>
+</html>
