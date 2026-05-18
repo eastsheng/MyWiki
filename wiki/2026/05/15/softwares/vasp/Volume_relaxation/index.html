@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      体积弛豫 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>体积弛豫</h2>
+  <p class="post-date">2026-05-15 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<hr>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><ul>
+<li>在对晶胞进行体积弛豫时，必须格外小心。如果使用的平面波截断能（ENCUT）或 k 点网格不足，会导致能量-体积曲线出现不连续</li>
+<li>这是因为使用了未收敛的基组，产生了非物理的力，即 <strong>Pulay 应力</strong>。这种应力会使晶胞结构偏离平衡位置，通常导致体积缩小。在体积不变的弛豫中，Pulay 应力可以忽略，但在体积弛豫中则非常重要。</li>
+</ul>
+<h3 id="如何消除-Pulay-应力"><a href="#如何消除-Pulay-应力" class="headerlink" title="如何消除 Pulay 应力"></a>如何消除 Pulay 应力</h3><ul>
+<li>有多种方法可以修正 Pulay 应力。通常，通过增大 ENCUT 来使用更大的基组，直至计算结果收敛：<ol>
+<li>将 <code>ENCUT</code> 设为默认截断能的 1.3 倍，或在 VASP.4.4 中使用 <code>PREC = High</code>（注意：这是推荐的最低标准）。</li>
+<li>使用默认截断能重新运行 VASP，获得最终的弛豫位置和晶胞参数。</li>
+<li>进一步增加 <code>ENCUT</code> 并重复步骤 1 和 2，直到结构不再变化（即收敛）。</li>
+</ol>
+</li>
+<li><strong>注意</strong>：这种弛豫会沿所有晶格矢量进行。如果只想弛豫其中一个而保持其他固定（例如表面弛豫中的真空层），应使用 <code>LATTICE_CONSTRAINTS</code> 标签。它可以约束正交晶胞的任意晶格矢量，或非正交晶胞晶格矩阵中的特定行列。</li>
+</ul>
+<h2 id="方法一：直接体积弛豫"><a href="#方法一：直接体积弛豫" class="headerlink" title="方法一：直接体积弛豫"></a>方法一：直接体积弛豫</h2><blockquote>
+<p>该方法通过对一个结构进行一系列精确的弛豫计算来完成。</p>
+</blockquote>
+<h3 id="步骤-1：初始弛豫"><a href="#步骤-1：初始弛豫" class="headerlink" title="步骤 1：初始弛豫"></a>步骤 1：初始弛豫</h3><ul>
+<li><p>从初始结构开始，使用高斯或 Methfessel-Paxton 展宽（<code>ISMEAR = 0</code> 或 <code>1</code>）进行弛豫（<code>ISIF = 7</code>；<code>IBRION = 1, 2, 或 3</code>）。</p>
+</li>
+<li><p>注意：虽然也可使用 <code>ISIF = 3, 6, 8</code>，但不建议同时弛豫多个自由度。示例 <code>INCAR</code> 设置：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ISMEAR</span> = <span class="number">0</span> ; SIGMA = <span class="number">0</span>.<span class="number">05</span>   # 对于金属，改为 ISMEAR = <span class="number">1</span> ; SIGMA = <span class="number">0</span>.<span class="number">2</span></span><br><span class="line"><span class="attribute">ISIF</span> = <span class="number">7</span> ; IBRION = <span class="number">2</span> ; NSW = <span class="number">20</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="步骤-2：再次弛豫"><a href="#步骤-2：再次弛豫" class="headerlink" title="步骤 2：再次弛豫"></a>步骤 2：再次弛豫</h3><ul>
+<li><p>将步骤 1 生成的 <code>CONTCAR</code> 复制为 <code>POSCAR</code>，再次进行弛豫，设置：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ISMEAR</span> = <span class="number">0</span> ; SIGMA = <span class="number">0</span>.<span class="number">05</span>   # 对于金属，改为 ISMEAR = <span class="number">1</span> ; SIGMA = <span class="number">0</span>.<span class="number">2</span></span><br><span class="line"><span class="attribute">ISIF</span> = <span class="number">7</span> ; IBRION = <span class="number">2</span> ; NSW = <span class="number">20</span></span><br><span class="line"><span class="attribute">ISTART</span> = <span class="number">1</span>   # 保持截断能不变，但根据新晶胞体积更新平面波基组</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键</strong>：必须设置 <code>ISTART = 1</code>，这样基组会更新而截断能保持恒定。如果使用 <code>ISTART = 2</code>，基组保持不变，从而保留了人为的 Pulay 应力——这与步骤 1 完全相同的糟糕设置。</p>
+</li>
+</ul>
+<h3 id="步骤-3：单点计算获得精确能量"><a href="#步骤-3：单点计算获得精确能量" class="headerlink" title="步骤 3：单点计算获得精确能量"></a>步骤 3：单点计算获得精确能量</h3><ul>
+<li><p>将展宽方法改为四面体法（<code>ISMEAR = -5</code>），并进行单点计算（不弛豫）。这会给出非常精确的能量。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ISMEAR</span> = -<span class="number">5</span>   <span class="comment"># 四面体法</span></span><br><span class="line"><span class="attr">NSW</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="（可选）步骤-4：如果仍有问题"><a href="#（可选）步骤-4：如果仍有问题" class="headerlink" title="（可选）步骤 4：如果仍有问题"></a>（可选）步骤 4：如果仍有问题</h3><ul>
+<li><p>如果能量-体积曲线仍然呈现锯齿状，可尝试以下额外步骤：</p>
+<ul>
+<li><p><strong>步骤 4a</strong>：进一步提高 <code>ENCUT</code>，或通过设置 <code>PREC = Accurate</code> 改进 FFT 网格。</p>
+</li>
+<li><p><strong>步骤 4b</strong>：使用 <code>PSTRESS</code> 修正 Pulay 应力（避免增加截断能带来的计算成本）。Pulay 应力对体积和离子构型依赖较弱，主要由成分和基组决定。可以在输出中找到一个很好的估计值，例如：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">external</span> pressure =    -<span class="number">100</span>.<span class="number">29567</span> kB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用高截断能与默认截断能计算得到的压力差来修正。方法如下：</p>
+<ol>
+<li>分别用默认截断能和高截断能做两个单点计算。</li>
+<li>从 <code>OUTCAR</code> 中提取两次计算的外部压力值，例如：</li>
+</ol>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">external</span> pressure =    -<span class="number">1311</span>.<span class="number">32</span> kB   (默认截断)</span><br><span class="line"><span class="attribute">external</span> pressure =    -<span class="number">95</span>.<span class="number">66</span> kB     (高截断)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>计算压力差，作为 Pulay 应力的近似值：<code>-1215.66 kB</code>。</li>
+<li>在 <code>INCAR</code> 中设置 <code>PSTRESS = -1215.66</code>。<br>这样可以在默认截断能下获得接近高截断能的结构。重申：仅当无法使用高截断能时才用 <code>PSTRESS</code>，因为它只改善结构，不能提高能量精度。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="方法二：状态方程拟合"><a href="#方法二：状态方程拟合" class="headerlink" title="方法二：状态方程拟合"></a>方法二：状态方程拟合</h2><blockquote>
+<p>这是避免直接体积弛豫的另一种方法。</p>
+<p>对一系列固定体积下的结构进行离子位置和晶胞形状的弛豫，然后将这些结果拟合到状态方程（如 Murnaghan 方程）。</p>
+<p>由于 Pulay 应力几乎是各向同性的，它只会给应力张量的对角元添加一个常数值，因此固定体积下的弛豫可以给出非常准确的结构。</p>
+<p>此方法还有一个优点：同时得到体模量，并且可以使用默认截断能安全地进行。</p>
+</blockquote>
+<h3 id="步骤-0：构建初始结构"><a href="#步骤-0：构建初始结构" class="headerlink" title="步骤 0：构建初始结构"></a>步骤 0：构建初始结构</h3><ul>
+<li>使用晶胞（unit cell），如果已知，采用实验晶格参数a</li>
+</ul>
+<h3 id="步骤-1：生成不同体积的结构"><a href="#步骤-1：生成不同体积的结构" class="headerlink" title="步骤 1：生成不同体积的结构"></a>步骤 1：生成不同体积的结构</h3><ul>
+<li><p>从初始结构出发，创建晶格参数分别为 <code>0.90a</code>, <code>0.95a</code>, <code>1.0a</code>, <code>1.05a</code>, <code>1.10a</code> 的五个结构（以金刚石为例，实验晶格参数 3.567 Å，则 <code>X</code> 值分别为 3.210, 3.389, 3.567, 3.745, 3.924 Å）。示例 <code>POSCAR</code>（金刚石）：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cubic diamond</span><br><span class="line">X</span><br><span class="line"> 0.0    0.5     0.5</span><br><span class="line"> 0.5    0.0     0.5</span><br><span class="line"> 0.5    0.5     0.0</span><br><span class="line">2</span><br><span class="line">Direct</span><br><span class="line"> <span class="string">-0</span>.125 <span class="string">-0</span>.125 <span class="string">-0</span>.125</span><br><span class="line">  0.125  0.125  0.125</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="步骤-2：计算每个结构的能量"><a href="#步骤-2：计算每个结构的能量" class="headerlink" title="步骤 2：计算每个结构的能量"></a>步骤 2：计算每个结构的能量</h3><ul>
+<li><p>对每个体积的结构进行单点能计算（无需弛豫）。使用以下基本 <code>INCAR</code> 设置：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ISMEAR</span> = <span class="number">0</span> ; SIGMA = <span class="number">0</span>.<span class="number">05</span>   # 金属用 ISMEAR = <span class="number">1</span> ; SIGMA = <span class="number">0</span>.<span class="number">2</span></span><br><span class="line"><span class="attribute">IBRION</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如需极高的能量精度，可使用四面体法（<code>ISMEAR = -5</code>，不适用于金属）。</p>
+</li>
+</ul>
+<h3 id="步骤-3：提取晶格参数和能量"><a href="#步骤-3：提取晶格参数和能量" class="headerlink" title="步骤 3：提取晶格参数和能量"></a>步骤 3：提取晶格参数和能量</h3><ul>
+<li><p>写一个简单的 bash 脚本从每个计算的 <code>OUTCAR</code> 中提取数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">rm</span> -f loop_lattice_constant.dat</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> */; <span class="keyword">do</span></span><br><span class="line">  latt=$(grep <span class="string">&quot;ALAT&quot;</span> <span class="string">&quot;<span class="variable">$a</span>&quot;</span>/OUT* | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span>)</span><br><span class="line">  E=$(grep <span class="string">&quot;free  e&quot;</span> <span class="string">&quot;<span class="variable">$a</span>&quot;</span>/OUTCAR | awk <span class="string">&#x27;&#123;print $5&#125;&#x27;</span>)</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$latt</span> <span class="variable">$E</span>&quot;</span> &gt;&gt; loop_lattice_constant.dat</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="步骤-4：拟合状态方程"><a href="#步骤-4：拟合状态方程" class="headerlink" title="步骤 4：拟合状态方程"></a>步骤 4：拟合状态方程</h3><ul>
+<li><p>将晶格参数与能量绘图，并用 Murnaghan 方程（或其他如 Birch-Murnaghan 方程）进行拟合。以下是一个 Python 脚本示例（点击展开）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> curve_fit</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">murnaghan</span>(<span class="params">V, E0, V0, B0, Bp</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Murnaghan equation of state&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> E0 + (B0 * V / Bp) * (((V0 / V)**Bp) / (Bp - <span class="number">1</span>) + <span class="number">1</span>) - (B0 * V0) / (Bp - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据：volume, energy (假设已转换为体积)</span></span><br><span class="line">data = np.loadtxt(<span class="string">&#x27;loop_lattice_constant.dat&#x27;</span>)</span><br><span class="line">volumes = data[:,<span class="number">0</span>]**<span class="number">3</span>  <span class="comment"># 如果数据是晶格参数，需转换为体积</span></span><br><span class="line">energies = data[:,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合</span></span><br><span class="line">popt, _ = curve_fit(murnaghan, volumes, energies, p0=[-<span class="number">10</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">4</span>])</span><br><span class="line">E0, V0, B0, Bp = popt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘图</span></span><br><span class="line">V_fit = np.linspace(<span class="built_in">min</span>(volumes), <span class="built_in">max</span>(volumes), <span class="number">100</span>)</span><br><span class="line">E_fit = murnaghan(V_fit, *popt)</span><br><span class="line">plt.plot(volumes, energies, <span class="string">&#x27;o&#x27;</span>, label=<span class="string">&#x27;DFT&#x27;</span>)</span><br><span class="line">plt.plot(V_fit, E_fit, <span class="string">&#x27;-&#x27;</span>, label=<span class="string">&#x27;Murnaghan fit&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Volume (Å³)&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Energy (eV)&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Equilibrium volume: <span class="subst">&#123;V0:<span class="number">.3</span>f&#125;</span> Å³&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Bulk modulus: <span class="subst">&#123;B0:<span class="number">.3</span>f&#125;</span> GPa&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>在脚本中，我们显式定义了 Murnaghan 拟合。其他工具（如 <code>pymatgen</code>）也内置了状态方程。</p>
+</li>
+<li><p><strong>说明</strong>：优化后的晶格参数对应 Murnaghan 拟合的最小值。示例中用了 5 个点，建议使用更多点以改进拟合。更多细节可参考硅的教程（使用一系列晶格参数）。</p>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] <a target="_blank" rel="noopener" href="https://vasp.at/wiki/Volume_relaxation">https://vasp.at/wiki/Volume_relaxation</a></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#VASP" >
+    <span class="tag-code">VASP</span>
+  </a>
+
+  <a href="/MyWiki/MyWiki/tags#体积弛豫" >
+    <span class="tag-code">体积弛豫</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/03/19/softwares/vasp/phonon_dispersion_VASP/">
+        <span class="nav-arrow">← </span>
+        
+          声子色散关系计算（VASP）
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">引言</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E6%B6%88%E9%99%A4-Pulay-%E5%BA%94%E5%8A%9B"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">如何消除 Pulay 应力</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%9B%B4%E6%8E%A5%E4%BD%93%E7%A7%AF%E5%BC%9B%E8%B1%AB"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">方法一：直接体积弛豫</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%88%9D%E5%A7%8B%E5%BC%9B%E8%B1%AB"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">步骤 1：初始弛豫</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E5%86%8D%E6%AC%A1%E5%BC%9B%E8%B1%AB"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">步骤 2：再次弛豫</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E5%8D%95%E7%82%B9%E8%AE%A1%E7%AE%97%E8%8E%B7%E5%BE%97%E7%B2%BE%E7%A1%AE%E8%83%BD%E9%87%8F"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">步骤 3：单点计算获得精确能量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E5%A6%82%E6%9E%9C%E4%BB%8D%E6%9C%89%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">（可选）步骤 4：如果仍有问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E6%8B%9F%E5%90%88"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">方法二：状态方程拟合</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-0%EF%BC%9A%E6%9E%84%E5%BB%BA%E5%88%9D%E5%A7%8B%E7%BB%93%E6%9E%84"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">步骤 0：构建初始结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E7%94%9F%E6%88%90%E4%B8%8D%E5%90%8C%E4%BD%93%E7%A7%AF%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">步骤 1：生成不同体积的结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%BB%93%E6%9E%84%E7%9A%84%E8%83%BD%E9%87%8F"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">步骤 2：计算每个结构的能量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E6%8F%90%E5%8F%96%E6%99%B6%E6%A0%BC%E5%8F%82%E6%95%B0%E5%92%8C%E8%83%BD%E9%87%8F"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">步骤 3：提取晶格参数和能量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E6%8B%9F%E5%90%88%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">步骤 4：拟合状态方程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/05/15/softwares/vasp/Volume_relaxation/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
