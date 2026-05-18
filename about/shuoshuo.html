@@ -319,6 +319,44 @@
   .modal .modal-hint { font-size: 12px; color: var(--text-secondary); margin: -8px 0 14px; line-height: 1.5; }
   .modal .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
   .modal .sync-note { font-size: 13px; color: var(--accent); margin-top: 12px; }
+
+  /* Calendar */
+  .calendar-card .cal-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+  }
+  .calendar-card .cal-title { font-size: 14px; font-weight: 600; }
+  .calendar-card .cal-nav {
+    width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 6px;
+    background: var(--card-bg); cursor: pointer; font-size: 14px; color: var(--text);
+    display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+  }
+  .calendar-card .cal-nav:hover { border-color: var(--accent); color: var(--accent); }
+  .calendar-card table { width: 100%; border-collapse: collapse; }
+  .calendar-card th {
+    font-size: 11px; color: var(--text-secondary); padding: 4px 0; font-weight: 500;
+  }
+  .calendar-card td {
+    text-align: center; padding: 3px 0; font-size: 13px; position: relative;
+  }
+  .calendar-card td span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%; cursor: default;
+  }
+  .calendar-card td.today span {
+    background: var(--accent); color: #fff; font-weight: 700;
+  }
+  .calendar-card td.holiday span {
+    color: #e05050; font-weight: 600;
+  }
+  .calendar-card td.today.holiday span {
+    background: #e05050; color: #fff;
+  }
+  .calendar-card td.holiday span[title] { cursor: help; }
+  .calendar-card .holiday-list {
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--text-secondary); line-height: 1.8;
+  }
+  .calendar-card .holiday-list b { color: #e05050; }
 </style>
 </head>
 <body>
@@ -376,6 +414,20 @@
         <div class="quote-gif-wrap" id="quoteGifWrap">
           <span class="sparkle">⭐</span><span class="sparkle">✨</span><span class="sparkle">💫</span>
         </div>
+      </div>
+
+      <!-- Calendar -->
+      <div class="side-card calendar-card">
+        <div class="cal-header">
+          <button class="cal-nav" id="calPrev">&lt;</button>
+          <span class="cal-title" id="calTitle"></span>
+          <button class="cal-nav" id="calNext">&gt;</button>
+        </div>
+        <table>
+          <thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>
+          <tbody id="calBody"></tbody>
+        </table>
+        <div class="holiday-list" id="holidayList"></div>
       </div>
     </div>
   </div>
@@ -648,18 +700,13 @@
 
   function formatTime(ts) {
     const d = new Date(ts);
-    const now = new Date();
-    const diff = now - d;
-    if (diff < 60000) return '刚刚';
-    if (diff < 3600000) return Math.floor(diff / 60000) + ' 分钟前';
-    if (diff < 86400000) return Math.floor(diff / 3600000) + ' 小时前';
-    if (diff < 604800000) return Math.floor(diff / 86400000) + ' 天前';
-    const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0');
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
     const day = String(d.getDate()).padStart(2, '0');
     const h = String(d.getHours()).padStart(2, '0');
     const min = String(d.getMinutes()).padStart(2, '0');
-    if (y === now.getFullYear()) return m + '-' + day + ' ' + h + ':' + min;
-    return y + '-' + m + '-' + day;
+    const s = String(d.getSeconds()).padStart(2, '0');
+    return y + '-' + m + '-' + day + ' ' + h + ':' + min + ':' + s;
   }
 
   function render() {
@@ -704,7 +751,7 @@
       + '<div class="card-header">'
         + '<div class="card-avatar">' + escapeHtml(avatarText) + '</div>'
         + '<span class="card-user">' + escapeHtml(p.author) + '</span>'
-        + '<span class="card-time" title="' + new Date(p.createdAt).toLocaleString() + '">'
+        + '<span class="card-time" title="' + formatTime(p.createdAt) + '">'
           + formatTime(p.createdAt)
           + (p.updatedAt !== p.createdAt ? ' <span class="edited">(编辑过)</span>' : '')
           + '</span>'
@@ -959,6 +1006,94 @@
     $quoteAuthor.textContent = QUOTES[idx][1];
   }
 
+  // ── Calendar ──────────────────────────
+  const HOLIDAYS_2026 = {
+    '01-01': '元旦 🎉', '01-02': '元旦假期', '01-03': '元旦假期',
+    '02-14': '情人节 💕',
+    '02-16': '除夕 🧧', '02-17': '春节 🧨', '02-18': '春节假期', '02-19': '春节假期', '02-20': '春节假期', '02-21': '春节假期', '02-22': '春节假期', '02-23': '春节假期',
+    '03-03': '元宵节 🏮',
+    '03-08': '妇女节 👩',
+    '04-01': '愚人节 😜', '04-05': '清明节 🌿',
+    '05-01': '劳动节 🛠', '05-04': '青年节', '05-10': '母亲节 💐',
+    '06-01': '儿童节 🎈', '06-19': '端午节 🐲', '06-21': '父亲节 👨',
+    '07-01': '建党节 🚩',
+    '08-01': '建军节 ⭐', '08-26': '七夕 💫',
+    '09-10': '教师节 📚', '09-27': '中秋节 🥮',
+    '10-01': '国庆节 🇨🇳', '10-02': '国庆假期', '10-03': '国庆假期', '10-04': '国庆假期', '10-05': '国庆假期', '10-06': '国庆假期', '10-07': '国庆假期',
+    '10-18': '重阳节 🌺',
+    '10-31': '万圣节 🎃',
+    '11-11': '光棍节 🛒',
+    '12-24': '平安夜 🎄', '12-25': '圣诞节 🎅',
+  };
+
+  let calYear, calMonth;
+
+  function renderCalendar() {
+    var today = new Date();
+    var $calTitle = document.getElementById('calTitle');
+    var $calBody = document.getElementById('calBody');
+    var $holidayList = document.getElementById('holidayList');
+    if (calYear === undefined) { calYear = today.getFullYear(); calMonth = today.getMonth() + 1; }
+
+    var firstDay = new Date(calYear, calMonth - 1, 1);
+    var lastDay = new Date(calYear, calMonth, 0);
+    var startDow = firstDay.getDay();
+    var daysInMonth = lastDay.getDate();
+
+    $calTitle.textContent = calYear + ' 年 ' + calMonth + ' 月';
+
+    var html = '';
+    var day = 1;
+    for (var row = 0; row < 6; row++) {
+      html += '<tr>';
+      for (var col = 0; col < 7; col++) {
+        if (row === 0 && col < startDow) {
+          html += '<td></td>';
+        } else if (day <= daysInMonth) {
+          var mm = String(calMonth).padStart(2, '0');
+          var dd = String(day).padStart(2, '0');
+          var key = mm + '-' + dd;
+          var isToday = (day === today.getDate() && calMonth === today.getMonth() + 1 && calYear === today.getFullYear());
+          var isHoliday = HOLIDAYS_2026[key];
+          var cls = '';
+          if (isToday) cls += 'today ';
+          if (isHoliday) cls += 'holiday ';
+          html += '<td class="' + cls.trim() + '">'
+            + '<span' + (isHoliday ? ' title="' + isHoliday + '"' : '') + '>' + day + '</span>'
+            + '</td>';
+          day++;
+        } else {
+          html += '<td></td>';
+        }
+      }
+      html += '</tr>';
+      if (day > daysInMonth) break;
+    }
+    $calBody.innerHTML = html;
+
+    // Show this month's holidays
+    var monthHolidays = [];
+    for (var k in HOLIDAYS_2026) {
+      if (k.startsWith(mm)) monthHolidays.push(k.slice(3) + '日 ' + HOLIDAYS_2026[k].replace(/ .*/, ''));
+    }
+    if (monthHolidays.length) {
+      $holidayList.innerHTML = '<b>本月节日：</b>' + monthHolidays.map(function(h) {
+        return h.replace(/(\d+日) (.+)/, '$1 <b>$2</b>');
+      }).join(' · ');
+    } else {
+      $holidayList.innerHTML = '';
+    }
+  }
+
+  document.getElementById('calPrev').addEventListener('click', function() {
+    calMonth--; if (calMonth < 1) { calMonth = 12; calYear--; }
+    renderCalendar();
+  });
+  document.getElementById('calNext').addEventListener('click', function() {
+    calMonth++; if (calMonth > 12) { calMonth = 1; calYear++; }
+    renderCalendar();
+  });
+
   // ── Theme ────────────────────────────
   const $themeBtn = document.getElementById('themeBtn');
   function setTheme(dark) {
@@ -1096,6 +1231,7 @@
     render();
     initDailyQuote();
     initRandomGifs();
+    renderCalendar();
   })();
 })();
 </script>
