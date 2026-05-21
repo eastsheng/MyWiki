@@ -617,7 +617,7 @@
   // ── GitHub Gist Sync ────────────────
   // Token stored in localStorage only (never committed to git)
   // Gist ID is public — hardcoded as default so everyone can read
-  const DEFAULT_GIST_ID = ''; // 在此填入你的公开 Gist ID，访客即可查看
+  const DEFAULT_GIST_ID = '4692392d8973762d9d649737ac315ed7'; // 在此填入你的公开 Gist ID，访客即可查看
   const urlParams = new URLSearchParams(window.location.search);
   let githubToken = localStorage.getItem('shuoshuo_gh_token') || '';
   let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || DEFAULT_GIST_ID;
