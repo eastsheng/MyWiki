@@ -700,13 +700,13 @@
   async function doSync() {
     if (!canRead) return;
     try {
-      await pullFromGist();
-      if (canWrite) await pushToGist();
+      if (canWrite) await pushToGist(); // push first: deletions/additions go out
+      await pullFromGist();              // then pull: get others' new posts
       lastSyncError = '';
     } catch (e) {
       console.error('Sync error:', e);
       lastSyncError = e.message;
-      unsyncedCount = posts.length; // assume all unsynced on error
+      unsyncedCount = posts.length;
     }
     updateSyncDot();
   }
