@@ -163,8 +163,35 @@
   .card-time .edited { font-style: italic; }
 
   .card-body {
-    font-size: 15px; line-height: 1.8; white-space: pre-wrap; word-break: break-word;
+    font-size: 15px; line-height: 1.8; word-break: break-word;
   }
+  .card-body p { margin: 0 0 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .card-body h1, .card-body h2, .card-body h3, .card-body h4 { margin: 12px 0 6px; font-weight: 700; }
+  .card-body h1 { font-size: 20px; }
+  .card-body h2 { font-size: 18px; }
+  .card-body h3 { font-size: 16px; }
+  .card-body ul, .card-body ol { padding-left: 20px; margin: 6px 0; }
+  .card-body li { margin: 2px 0; }
+  .card-body code {
+    background: var(--bg); padding: 2px 6px; border-radius: 4px;
+    font-size: 13px; font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  }
+  .card-body pre {
+    background: var(--bg); padding: 12px 16px; border-radius: 8px;
+    overflow-x: auto; margin: 8px 0; border: 1px solid var(--border);
+  }
+  .card-body pre code { background: none; padding: 0; }
+  .card-body blockquote {
+    border-left: 3px solid var(--accent); padding: 6px 14px; margin: 8px 0;
+    color: var(--text-secondary); background: var(--bg); border-radius: 0 6px 6px 0;
+  }
+  .card-body a { color: var(--accent); text-decoration: underline; }
+  .card-body table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+  .card-body td, .card-body th { border: 1px solid var(--border); padding: 6px 10px; font-size: 13px; }
+  .card-body th { background: var(--bg); font-weight: 600; }
+  .card-body hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .card-body img { max-width: 100%; border-radius: 6px; }
   .card-images {
     display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
   }
@@ -352,12 +379,18 @@
     background: #e05050; color: #fff;
   }
   .calendar-card td.holiday span[title] { cursor: help; }
+  .calendar-card .cal-clock {
+    text-align: center; font-size: 26px; font-weight: 700; font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    letter-spacing: 1px; margin-bottom: 10px; color: var(--text);
+  }
+  .calendar-card .cal-clock .sec { font-size: 16px; color: var(--accent); }
   .calendar-card .holiday-list {
     margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
     font-size: 12px; color: var(--text-secondary); line-height: 1.8;
   }
   .calendar-card .holiday-list b { color: #e05050; }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -423,6 +456,7 @@
           <span class="cal-title" id="calTitle"></span>
           <button class="cal-nav" id="calNext">&gt;</button>
         </div>
+        <div class="cal-clock" id="calClock"></div>
         <table>
           <thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>
           <tbody id="calBody"></tbody>
@@ -455,6 +489,17 @@
 
 <script>
 (function() {
+  // Configure marked.js
+  if (typeof marked !== 'undefined') {
+    marked.setOptions({ breaks: true, gfm: true });
+    var renderer = new marked.Renderer();
+    renderer.link = function(href, title, text) {
+      var titleAttr = title ? ' title="' + title + '"' : '';
+      return '<a href="' + href + '"' + titleAttr + ' target="_blank" rel="noopener">' + text + '</a>';
+    };
+    marked.setOptions({ renderer: renderer });
+  }
+
   const MAX_LENGTH = 2000;
   const MAX_IMG_SIZE = 2 * 1024 * 1024; // 2MB per image
   const GIST_FILENAME = 'shuoshuo-posts.json';
@@ -756,7 +801,7 @@
           + (p.updatedAt !== p.createdAt ? ' <span class="edited">(编辑过)</span>' : '')
           + '</span>'
       + '</div>'
-      + '<div class="card-body">' + escapeHtml(p.content) + '</div>'
+      + '<div class="card-body">' + marked.parse(p.content) + '</div>'
       + (p.images && p.images.length ? '<div class="card-images">' + p.images.map(function(img) {
           return '<img src="' + img + '" data-lightbox alt="图片" loading="lazy">';
         }).join('') + '</div>' : '')
@@ -1006,6 +1051,18 @@
     $quoteAuthor.textContent = QUOTES[idx][1];
   }
 
+  // ── Live Clock ─────────────────────────
+  function updateClock() {
+    var $clock = document.getElementById('calClock');
+    if (!$clock) return;
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    var s = String(now.getSeconds()).padStart(2, '0');
+    $clock.innerHTML = h + ':' + m + '<span class="sec">:' + s + '</span>';
+  }
+  setInterval(updateClock, 1000);
+
   // ── Calendar ──────────────────────────
   const HOLIDAYS_2026 = {
     '01-01': '元旦 🎉', '01-02': '元旦假期', '01-03': '元旦假期',
@@ -1232,6 +1289,7 @@
     initDailyQuote();
     initRandomGifs();
     renderCalendar();
+    updateClock();
   })();
 })();
 </script>
