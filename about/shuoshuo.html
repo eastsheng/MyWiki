@@ -384,9 +384,13 @@
   .calendar-card td.holiday span[title] { cursor: help; }
   .calendar-card .cal-clock {
     text-align: center; font-size: 26px; font-weight: 700; font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-    letter-spacing: 1px; margin-bottom: 10px; color: var(--text);
+    letter-spacing: 2px; margin-bottom: 4px; color: var(--text);
   }
-  .calendar-card .cal-clock .sec { font-size: 16px; color: var(--accent); }
+  .calendar-card .cal-clock .sec { color: var(--accent); }
+  .calendar-card .cal-greeting {
+    text-align: center; font-size: 13px; color: var(--accent);
+    margin-bottom: 10px; line-height: 1.6;
+  }
   .calendar-card .holiday-list {
     margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);
     font-size: 12px; color: var(--text-secondary); line-height: 1.8;
@@ -463,6 +467,7 @@
           <button class="cal-nav" id="calNext">&gt;</button>
         </div>
         <div class="cal-clock" id="calClock"></div>
+        <div class="cal-greeting" id="calGreeting"></div>
         <table>
           <thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>
           <tbody id="calBody"></tbody>
@@ -1092,14 +1097,32 @@
   }
 
   // ── Live Clock ─────────────────────────
+  var lastGreetingHour = -1;
+
   function updateClock() {
     var $clock = document.getElementById('calClock');
+    var $greeting = document.getElementById('calGreeting');
     if (!$clock) return;
     var now = new Date();
-    var h = String(now.getHours()).padStart(2, '0');
+    var hour = now.getHours();
+    var h = String(hour).padStart(2, '0');
     var m = String(now.getMinutes()).padStart(2, '0');
     var s = String(now.getSeconds()).padStart(2, '0');
     $clock.innerHTML = h + ':' + m + '<span class="sec">:' + s + '</span>';
+
+    // Update greeting only when hour changes
+    if ($greeting && hour !== lastGreetingHour) {
+      lastGreetingHour = hour;
+      var g;
+      if (hour >= 0 && hour < 6)   g = '夜深了 🌙  早点休息，身体要紧～';
+      else if (hour < 9)           g = '早上好 ☀️  新的一天，元气满满！';
+      else if (hour < 12)          g = '上午好 🌤  专注工作，别忘了喝水～';
+      else if (hour < 14)          g = '中午好 🍜  记得吃午饭，补充能量！';
+      else if (hour < 18)          g = '下午好 🌈  坚持一下，快下班啦～';
+      else if (hour < 22)          g = '晚上好 🌆  辛苦一天了，放松一下吧';
+      else                         g = '夜深了 🌙  早点休息，身体要紧～';
+      $greeting.textContent = g;
+    }
   }
   setInterval(updateClock, 1000);
 
