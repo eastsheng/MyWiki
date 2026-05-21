@@ -192,6 +192,9 @@
   .card-body th { background: var(--bg); font-weight: 600; }
   .card-body hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
   .card-body img { max-width: 100%; border-radius: 6px; }
+  /* KaTeX overrides */
+  .card-body .katex-display { margin: 10px 0; overflow-x: auto; overflow-y: hidden; }
+  .card-body .katex { font-size: 1.05em; }
   .card-images {
     display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
   }
@@ -391,6 +394,8 @@
   .calendar-card .holiday-list b { color: #e05050; }
 </style>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 </head>
 <body>
 
@@ -473,9 +478,9 @@
     <h2>同步设置</h2>
     <label>GitHub Token (gist 权限)</label>
     <input type="password" id="modalToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-    <div class="modal-hint">在 GitHub Settings → Developer settings → Tokens (classic) 创建，仅需勾选 <b>gist</b> 权限。</div>
+    <div class="modal-hint">Token 仅发布时需要。仅查看的话，只填 Gist ID 即可（公开 Gist 人人可读）。</div>
     <label>Gist ID</label>
-    <input type="text" id="modalGistId" placeholder="首次使用留空，保存后自动创建">
+    <input type="text" id="modalGistId" placeholder="填入 Gist ID 即可加载云端数据">
     <div class="modal-actions">
       <button class="btn btn-ghost" id="modalCancel">取消</button>
       <button class="btn btn-primary" id="modalSave">保存并启用同步</button>
@@ -498,6 +503,41 @@
       return '<a href="' + href + '"' + titleAttr + ' target="_blank" rel="noopener">' + text + '</a>';
     };
     marked.setOptions({ renderer: renderer });
+  }
+
+  // Render Markdown + LaTeX → HTML
+  function renderMarkdown(text) {
+    if (!text) return '';
+    var uid = 0;
+    var blocks = {}; // placeholder → { tex, display }
+
+    // Protect $$...$$ block math
+    text = text.replace(/\$\$([\s\S]*?)\$\$/g, function(_, tex) {
+      var key = '%%KATEXBLOCK' + (uid++) + '%%';
+      blocks[key] = { tex: tex.trim(), display: true };
+      return key;
+    });
+    // Protect $...$ inline math (but not $$)
+    text = text.replace(/\$(.+?)\$/g, function(_, tex) {
+      var key = '%%KATEXINLINE' + (uid++) + '%%';
+      blocks[key] = { tex: tex.trim(), display: false };
+      return key;
+    });
+
+    // Run Markdown
+    var html = marked.parse(text);
+
+    // Restore LaTeX placeholders with KaTeX
+    for (var key in blocks) {
+      var b = blocks[key];
+      try {
+        var rendered = katex.renderToString(b.tex, { displayMode: b.display, throwOnError: false });
+        html = html.replace(key, rendered);
+      } catch (e) {
+        html = html.replace(key, '<code style="color:red">LaTeX Error: ' + e.message + '</code>');
+      }
+    }
+    return html;
   }
 
   const MAX_LENGTH = 2000;
@@ -574,20 +614,18 @@
   }
 
   // ── GitHub Gist Sync ────────────────
-  // Token & Gist ID are stored in localStorage only (never commit to git)
+  // Token & Gist ID stored in localStorage only (never committed to git)
+  // Public gist: anyone can read without token; token needed only for writing
+  const urlParams = new URLSearchParams(window.location.search);
   let githubToken = localStorage.getItem('shuoshuo_gh_token') || '';
-  let gistId = localStorage.getItem('shuoshuo_gist_id') || '';
-  let syncEnabled = !!(githubToken && gistId);
+  let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || '';
+  let canRead = !!gistId;
+  let canWrite = !!(githubToken && gistId);
 
   async function githubApi(path, opts = {}) {
-    const res = await fetch('https://api.github.com' + path, {
-      ...opts,
-      headers: {
-        'Authorization': 'token ' + githubToken,
-        'Accept': 'application/vnd.github.v3+json',
-        ...(opts.headers || {})
-      }
-    });
+    var headers = { 'Accept': 'application/vnd.github.v3+json', ...(opts.headers || {}) };
+    if (githubToken) headers['Authorization'] = 'token ' + githubToken;
+    const res = await fetch('https://api.github.com' + path, { ...opts, headers: headers });
     if (!res.ok) {
       const body = await res.text();
       throw new Error(res.status + ': ' + (body || res.statusText).slice(0, 200));
@@ -608,6 +646,7 @@
   }
 
   async function pushToGist() {
+    if (!canWrite) return;
     await githubApi('/gists/' + gistId, {
       method: 'PATCH',
       body: JSON.stringify({
@@ -617,17 +656,16 @@
   }
 
   async function doSync() {
-    if (!syncEnabled) return;
+    if (!canRead) return;
     try {
       await pullFromGist();
-      await pushToGist();
+      if (canWrite) await pushToGist();
     } catch (e) {
       console.error('Sync error:', e);
     }
   }
 
   function autoSync() {
-    if (!syncEnabled) return;
     doSync().catch(function() {});
   }
 
@@ -801,7 +839,7 @@
           + (p.updatedAt !== p.createdAt ? ' <span class="edited">(编辑过)</span>' : '')
           + '</span>'
       + '</div>'
-      + '<div class="card-body">' + marked.parse(p.content) + '</div>'
+      + '<div class="card-body">' + renderMarkdown(p.content) + '</div>'
       + (p.images && p.images.length ? '<div class="card-images">' + p.images.map(function(img) {
           return '<img src="' + img + '" data-lightbox alt="图片" loading="lazy">';
         }).join('') + '</div>' : '')
@@ -1172,7 +1210,9 @@
   function openSettings() {
     $modalToken.value = githubToken;
     $modalGistId.value = gistId;
-    $modalNote.textContent = syncEnabled ? '同步已启用' : '';
+    if (canWrite) $modalNote.textContent = '读写模式 · Gist: ' + gistId.slice(0, 8) + '…';
+    else if (canRead) $modalNote.textContent = '只读模式（无 Token，可查看不可发布）';
+    else $modalNote.textContent = '';
     $settingsModal.classList.add('show');
   }
 
@@ -1189,19 +1229,27 @@
   document.getElementById('modalSave').addEventListener('click', async function() {
     var token = $modalToken.value.trim();
     var gid = $modalGistId.value.trim();
-    if (!token) { showToast('请输入 GitHub Token'); return; }
+
+    // Read-only mode: just save gist ID, no token needed
+    if (!token && gid) {
+      gistId = gid;
+      localStorage.setItem('shuoshuo_gist_id', gistId);
+      canRead = true; canWrite = false;
+      try { await pullFromGist(); $modalNote.textContent = '只读模式已启用 · Gist: ' + gistId.slice(0, 8) + '…'; showToast('已加载云端数据'); }
+      catch (e) { $modalNote.textContent = '读取失败: ' + e.message; canRead = false; }
+      return;
+    }
+    if (!token) { showToast('请输入 GitHub Token 或 Gist ID'); return; }
+
     $modalNote.textContent = '正在连接…';
 
     try {
       if (gid) {
-        // Use existing gist
         githubToken = token;
         gistId = gid;
       } else {
-        // Auto-create gist
         githubToken = token;
         gistId = '';
-        // Temporarily set to findOrCreate
         var tempToken = githubToken;
         var gists = await (await fetch('https://api.github.com/gists?per_page=100', {
           headers: { 'Authorization': 'token ' + tempToken, 'Accept': 'application/vnd.github.v3+json' }
@@ -1215,8 +1263,8 @@
             method: 'POST',
             headers: { 'Authorization': 'token ' + tempToken, 'Accept': 'application/vnd.github.v3+json' },
             body: JSON.stringify({
-              description: '说说数据 · 自动生成',
-              public: false,
+              description: '说说数据 · 公开只读',
+              public: true,
               files: (function() { var f = {}; f[GIST_FILENAME] = { content: JSON.stringify(posts) }; return f; })()
             })
           })).json();
@@ -1226,12 +1274,12 @@
       }
       localStorage.setItem('shuoshuo_gh_token', githubToken);
       localStorage.setItem('shuoshuo_gist_id', gistId);
-      syncEnabled = true;
+      canRead = true; canWrite = true;
       await pullFromGist();
       await pushToGist();
-      $modalNote.textContent = '同步已启用！Gist: ' + gistId.slice(0, 8) + '…';
+      $modalNote.textContent = '读写模式 · Gist: ' + gistId.slice(0, 8) + '…';
       $modalGistId.value = gistId;
-      showToast('同步已启用');
+      showToast('同步已启用（可读可写）');
     } catch (e) {
       $modalNote.textContent = '失败: ' + e.message;
     }
@@ -1282,7 +1330,7 @@
   // If sync is enabled, pull first, then use local
   (async function init() {
     loadLocal();
-    if (syncEnabled) {
+    if (canRead) {
       try { await pullFromGist(); } catch (e) { console.error('Init sync error:', e); }
     }
     render();
