@@ -396,6 +396,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>💬</text></svg>">
 </head>
 <body>
 
@@ -614,11 +615,12 @@
   }
 
   // ── GitHub Gist Sync ────────────────
-  // Token & Gist ID stored in localStorage only (never committed to git)
-  // Public gist: anyone can read without token; token needed only for writing
+  // Token stored in localStorage only (never committed to git)
+  // Gist ID is public — hardcoded as default so everyone can read
+  const DEFAULT_GIST_ID = ''; // 在此填入你的公开 Gist ID，访客即可查看
   const urlParams = new URLSearchParams(window.location.search);
   let githubToken = localStorage.getItem('shuoshuo_gh_token') || '';
-  let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || '';
+  let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || DEFAULT_GIST_ID;
   let canRead = !!gistId;
   let canWrite = !!(githubToken && gistId);
 
@@ -1310,8 +1312,18 @@
 
   function initRandomGifs() {
     // Header: pick a random emoji
+    var headerEmoji = randomFrom(HEADER_EMOJIS);
     var $headerGif = document.getElementById('headerGif');
-    if ($headerGif) $headerGif.textContent = randomFrom(HEADER_EMOJIS);
+    if ($headerGif) $headerGif.textContent = headerEmoji;
+
+    // Favicon: use a random emoji (different from header)
+    var favEmoji = randomFrom(HEADER_EMOJIS);
+    var $favicon = document.getElementById('favicon');
+    if ($favicon) {
+      $favicon.href = 'data:image/svg+xml,' + encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><text y="28" font-size="28">' + favEmoji + '</text></svg>'
+      );
+    }
 
     // Quote card: pick a random 3-emoji set
     var $quoteWrap = document.getElementById('quoteGifWrap');
