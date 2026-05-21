@@ -387,6 +387,15 @@
     letter-spacing: 2px; margin-bottom: 4px; color: var(--text);
   }
   .calendar-card .cal-clock .sec { color: var(--accent); }
+  /* Sync indicator */
+  .sync-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    margin-right: 6px; vertical-align: middle; cursor: help;
+  }
+  .sync-dot.green { background: #4caf50; }
+  .sync-dot.yellow { background: #f5a623; animation: pulse-glow 1.5s ease-in-out infinite; }
+  .sync-dot.red { background: #e05050; }
+
   .calendar-card .cal-greeting {
     text-align: center; font-size: 13px; color: var(--accent);
     margin-bottom: 10px; line-height: 1.6;
@@ -409,6 +418,7 @@
   <div class="app-header">
     <h1>吐个槽吧<span class="header-gif" id="headerGif">🐸</span></h1>
     <div class="header-right">
+      <span id="syncDot" class="sync-dot" style="display:none" title="同步状态"></span>
       <span id="myName" style="font-size:14px;color:var(--text-secondary)"></span>
       <button class="icon-btn" id="themeBtn" title="切换深色/浅色">🌙</button>
       <button class="icon-btn" id="settingsBtn" title="同步设置">⚙</button>
@@ -628,6 +638,25 @@
   let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || DEFAULT_GIST_ID;
   let canRead = !!gistId;
   let canWrite = !!(githubToken && gistId);
+  let unsyncedCount = 0;
+  let lastSyncError = '';
+
+  function updateSyncDot() {
+    var $dot = document.getElementById('syncDot');
+    if (!$dot) return;
+    if (!canRead) { $dot.style.display = 'none'; return; }
+    $dot.style.display = 'inline-block';
+    if (lastSyncError) {
+      $dot.className = 'sync-dot red';
+      $dot.title = '同步错误: ' + lastSyncError;
+    } else if (unsyncedCount > 0 || !canWrite) {
+      $dot.className = 'sync-dot yellow';
+      $dot.title = unsyncedCount + ' 条未同步到云端' + (canWrite ? '' : ' (缺少 Token，只读模式)');
+    } else {
+      $dot.className = 'sync-dot green';
+      $dot.title = '已同步，云端数据完整';
+    }
+  }
 
   async function githubApi(path, opts = {}) {
     var headers = { 'Accept': 'application/vnd.github.v3+json', ...(opts.headers || {}) };
@@ -647,9 +676,11 @@
     const remote = JSON.parse(file.content).map(normalizePost);
     const remoteIds = new Set(remote.map(function(p) { return p.id; }));
     const localOnly = posts.filter(function(p) { return !remoteIds.has(p.id); });
+    unsyncedCount = localOnly.length;
     posts = remote.concat(localOnly);
     saveLocal();
     render();
+    updateSyncDot();
   }
 
   async function pushToGist() {
@@ -660,6 +691,10 @@
         files: { [GIST_FILENAME]: { content: JSON.stringify(posts) } }
       })
     });
+    // On success, clear unsynced count
+    unsyncedCount = 0;
+    lastSyncError = '';
+    updateSyncDot();
   }
 
   async function doSync() {
@@ -667,9 +702,13 @@
     try {
       await pullFromGist();
       if (canWrite) await pushToGist();
+      lastSyncError = '';
     } catch (e) {
       console.error('Sync error:', e);
+      lastSyncError = e.message;
+      unsyncedCount = posts.length; // assume all unsynced on error
     }
+    updateSyncDot();
   }
 
   function autoSync() {
@@ -1368,6 +1407,7 @@
     if (canRead) {
       try { await pullFromGist(); } catch (e) { console.error('Init sync error:', e); }
     }
+    updateSyncDot();
     render();
     initDailyQuote();
     initRandomGifs();
