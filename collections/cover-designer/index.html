@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>书籍封面设计工具</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Liu+Jian+Mao+Cao&family=Long+Cang&family=LXGW+WenKai&family=Ma+Shan+Zheng&family=Noto+Sans+HK:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=Yomogi&family=Yuji+Boku&family=Yuji+Mai&family=Yuji+Syuku&family=ZCOOL+KuaiLe&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #eef1f5;
+      --panel: #ffffff;
+      --ink: #17202a;
+      --muted: #647184;
+      --line: #d9e0ea;
+      --accent: #0d9488;
+      --accent-dark: #0f766e;
+      --danger: #c2410c;
+      --shadow: 0 18px 45px rgba(31, 42, 55, 0.12);
+      font-family: "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(13, 148, 136, 0.10), transparent 34%),
+        linear-gradient(315deg, rgba(201, 92, 68, 0.10), transparent 36%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: minmax(360px, 1fr) 390px;
+      gap: 20px;
+      min-height: 100vh;
+      padding: 22px;
+    }
+
+    .preview-shell {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+      gap: 14px;
+    }
+
+    .topbar,
+    .panel {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(217, 224, 234, 0.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+    }
+
+    .title {
+      min-width: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .canvas-wrap {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      padding: 20px;
+      border-radius: 8px;
+      background: rgba(247, 249, 252, 0.76);
+      border: 1px solid rgba(217, 224, 234, 0.95);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+      overflow: auto;
+    }
+
+    canvas {
+      display: block;
+      width: min(100%, 58vh, 800px);
+      max-height: calc(100vh - 142px);
+      aspect-ratio: 4 / 5;
+      border-radius: 4px;
+      box-shadow: 0 22px 60px rgba(24, 35, 47, 0.22);
+      cursor: grab;
+      background: #f8fafc;
+      touch-action: none;
+    }
+
+    canvas.dragging {
+      cursor: grabbing;
+    }
+
+    .panel {
+      height: calc(100vh - 44px);
+      overflow: auto;
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .section {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:first-child {
+      padding-top: 0;
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .stack {
+      display: grid;
+      gap: 11px;
+    }
+
+    .row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .row.inline {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 10px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 76px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    input[type="color"] {
+      width: 48px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      padding: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: 150ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      border-color: #9eb0c5;
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn.danger {
+      color: var(--danger);
+    }
+
+    .btn.small {
+      min-height: 32px;
+      padding: 6px 9px;
+      font-size: 13px;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .shape-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .editor-panel[hidden] {
+      display: none;
+    }
+
+    .layers {
+      display: grid;
+      gap: 8px;
+    }
+
+    .layer-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .layer-item.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.13);
+    }
+
+    .layer-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .layer-type {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hint,
+    .font-status {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .checkline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    .hidden-input {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        height: auto;
+      }
+
+      canvas {
+        width: min(100%, 70vh, 800px);
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .app {
+        padding: 12px;
+        gap: 12px;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button-grid,
+      .two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="preview-shell" aria-label="封面预览">
+      <div class="topbar">
+        <div class="title">
+          <h1>书籍封面设计工具</h1>
+          <div class="meta">画布尺寸 800 × 1000 px，拖动画布中的元素即可移动图层</div>
+        </div>
+        <button class="btn primary" id="saveBtn" type="button">保存封面</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="coverCanvas" width="800" height="1000" aria-label="书籍封面画布"></canvas>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="控制面板">
+      <section class="section">
+        <h2>背景设置</h2>
+        <div class="stack">
+          <input class="hidden-input" id="bgUpload" type="file" accept="image/*">
+          <div class="button-grid">
+            <button class="btn" id="uploadBgBtn" type="button">上传背景图</button>
+            <button class="btn" id="aiBgBtn" type="button">AI 生成背景</button>
+            <button class="btn" id="resetBgBtn" type="button">重置简洁背景</button>
+            <button class="btn" id="randomPaletteBtn" type="button">更换纯色</button>
+            <button class="btn" id="saveDesignBtn" type="button">保存当前设计</button>
+            <button class="btn danger" id="clearDesignBtn" type="button">清除本地保存</button>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="bgColorA">背景色 A</label>
+              <input id="bgColorA" type="color" value="#f4efe6">
+            </div>
+            <div class="row">
+              <label for="bgColorB">背景色 B</label>
+              <input id="bgColorB" type="color" value="#d8e7e0">
+            </div>
+          </div>
+          <div class="hint" id="storageStatus">上传图片会以居中裁切方式铺满封面；设计会自动保存在当前浏览器中。</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>
+          图层管理
+          <button class="btn small" id="addLayerBtn" type="button">添加文字</button>
+        </h2>
+        <div class="shape-grid" aria-label="添加形状">
+          <button class="btn small" data-shape="circle" type="button">圆形</button>
+          <button class="btn small" data-shape="rect" type="button">矩形</button>
+          <button class="btn small" data-shape="triangle" type="button">三角形</button>
+          <button class="btn small" id="addZhuBtn" type="button">著字</button>
+        </div>
+        <div style="height: 10px"></div>
+        <div class="layers" id="layerList"></div>
+        <div style="height: 10px"></div>
+        <button class="btn danger" id="deleteLayerBtn" type="button">删除当前图层</button>
+      </section>
+
+      <section class="section editor-panel" id="textEditor">
+        <h2>文字编辑</h2>
+        <div class="stack">
+          <div class="row">
+            <label for="textInput">文本内容</label>
+            <textarea id="textInput"></textarea>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="fontSize">字号 <span id="fontSizeValue"></span></label>
+              <input id="fontSize" type="range" min="20" max="180" value="92">
+            </div>
+            <div class="row">
+              <label for="rotation">旋转 <span id="rotationValue"></span></label>
+              <input id="rotation" type="range" min="-45" max="45" value="0">
+            </div>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="textColor">文字颜色</label>
+              <input id="textColor" type="color" value="#1f2933">
+            </div>
+            <div class="row">
+              <label for="weightSelect">字重</label>
+              <select id="weightSelect">
+                <option value="400">常规</option>
+                <option value="700">粗体</option>
+                <option value="900">特粗</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section editor-panel" id="zhuEditor" hidden>
+        <h2>著字编辑</h2>
+        <div class="stack">
+          <div class="row">
+            <label for="zhuName">图层名称</label>
+            <input id="zhuName" type="text" value="">
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="zhuTextColor">文字颜色</label>
+              <input id="zhuTextColor" type="color" value="#ffffff">
+            </div>
+            <div class="row">
+              <label for="zhuBgColor">圆形填充颜色</label>
+              <input id="zhuBgColor" type="color" value="#344054">
+            </div>
+          </div>
+          <label class="checkline">
+            <input id="zhuTransparentBg" type="checkbox">
+            透明背景，只保留圆圈
+          </label>
+          <div class="two">
+            <div class="row">
+              <label for="zhuRingColor">外围圆圈颜色</label>
+              <input id="zhuRingColor" type="color" value="#344054">
+            </div>
+            <div class="row">
+              <label for="zhuRingWidth">圆圈粗细 <span id="zhuRingWidthValue"></span></label>
+              <input id="zhuRingWidth" type="range" min="0" max="16" value="3">
+            </div>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="zhuSize">大小 <span id="zhuSizeValue"></span></label>
+              <input id="zhuSize" type="range" min="24" max="180" value="36">
+            </div>
+            <div class="row">
+              <label for="zhuOpacity">透明度 <span id="zhuOpacityValue"></span></label>
+              <input id="zhuOpacity" type="range" min="10" max="100" value="100">
+            </div>
+          </div>
+          <div class="row">
+            <label for="zhuRotation">旋转 <span id="zhuRotationValue"></span></label>
+            <input id="zhuRotation" type="range" min="-180" max="180" value="0">
+          </div>
+        </div>
+      </section>
+
+      <section class="section editor-panel" id="shapeEditor" hidden>
+        <h2>形状编辑</h2>
+        <div class="stack">
+          <div class="row">
+            <label for="shapeName">图层名称</label>
+            <input id="shapeName" type="text" value="">
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="shapeFill">填充颜色</label>
+              <input id="shapeFill" type="color" value="#0d9488">
+            </div>
+            <div class="row">
+              <label for="shapeStroke">描边颜色</label>
+              <input id="shapeStroke" type="color" value="#17202a">
+            </div>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="shapeWidth">宽度 <span id="shapeWidthValue"></span></label>
+              <input id="shapeWidth" type="range" min="20" max="720" value="180">
+            </div>
+            <div class="row">
+              <label for="shapeHeight">高度 <span id="shapeHeightValue"></span></label>
+              <input id="shapeHeight" type="range" min="20" max="720" value="180">
+            </div>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="shapeOpacity">透明度 <span id="shapeOpacityValue"></span></label>
+              <input id="shapeOpacity" type="range" min="10" max="100" value="85">
+            </div>
+            <div class="row">
+              <label for="shapeStrokeWidth">描边 <span id="shapeStrokeWidthValue"></span></label>
+              <input id="shapeStrokeWidth" type="range" min="0" max="30" value="0">
+            </div>
+          </div>
+          <div class="row">
+            <label for="shapeRotation">旋转 <span id="shapeRotationValue"></span></label>
+            <input id="shapeRotation" type="range" min="-180" max="180" value="0">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>字体选择</h2>
+        <div class="stack">
+          <div class="row">
+            <label for="fontSelect">内置免费可商用字体</label>
+            <select id="fontSelect">
+              <option value="'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif">思源黑体 / Noto Sans SC</option>
+              <option value="'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif">思源宋体 / Noto Serif SC</option>
+              <option value="'LXGW WenKai', 'KaiTi', 'STKaiti', cursive">霞鹜文楷 / LXGW WenKai</option>
+              <option value="'Ma Shan Zheng', 'KaiTi', cursive">马善政毛笔 / Ma Shan Zheng</option>
+              <option value="'Long Cang', 'KaiTi', cursive">龙藏体 / Long Cang</option>
+              <option value="'Liu Jian Mao Cao', 'KaiTi', cursive">刘建毛草 / Liu Jian Mao Cao</option>
+              <option value="'Zhi Mang Xing', 'KaiTi', cursive">志莽行书 / Zhi Mang Xing</option>
+              <option value="'ZCOOL XiaoWei', 'SimSun', serif">站酷小薇 / ZCOOL XiaoWei</option>
+              <option value="'ZCOOL QingKe HuangYou', 'Microsoft YaHei', sans-serif">站酷庆科黄油 / ZCOOL QingKe HuangYou</option>
+              <option value="'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif">站酷快乐 / ZCOOL KuaiLe</option>
+              <option value="'Noto Sans TC', 'Microsoft JhengHei', sans-serif">Noto Sans TC</option>
+              <option value="'Noto Serif TC', 'PMingLiU', serif">Noto Serif TC</option>
+              <option value="'Noto Sans HK', 'Microsoft JhengHei', sans-serif">Noto Sans HK</option>
+              <option value="'Yuji Mai', 'Yuji Syuku', 'KaiTi', cursive">游明朝舞 / Yuji Mai</option>
+              <option value="'Yuji Boku', 'Yuji Syuku', 'KaiTi', cursive">游明朝墨 / Yuji Boku</option>
+              <option value="'Yuji Syuku', 'KaiTi', cursive">游明朝熟 / Yuji Syuku</option>
+              <option value="'Klee One', 'LXGW WenKai', 'KaiTi', cursive">Klee One 手写</option>
+              <option value="'Yomogi', 'LXGW WenKai', 'KaiTi', cursive">Yomogi 手写草书</option>
+            </select>
+          </div>
+          <div class="row inline">
+            <div>
+              <label for="systemFontSelect">系统字体</label>
+              <select id="systemFontSelect">
+                <option value="">尚未加载</option>
+              </select>
+            </div>
+            <button class="btn" id="loadFontsBtn" type="button">加载系统字体</button>
+          </div>
+          <div class="font-status" id="fontStatus">Chrome/Edge 在安全上下文中可枚举本机字体；其他情况会提供常见系统字体候选。</div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("coverCanvas");
+    const ctx = canvas.getContext("2d");
+    const CANVAS_W = 800;
+    const CANVAS_H = 1000;
+    const STORAGE_KEY = "coverDesigner.savedDesign.v1";
+
+    const builtInFonts = [
+      "'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif",
+      "'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif",
+      "'LXGW WenKai', 'KaiTi', 'STKaiti', cursive",
+      "'Ma Shan Zheng', 'KaiTi', cursive",
+      "'Long Cang', 'KaiTi', cursive",
+      "'Liu Jian Mao Cao', 'KaiTi', cursive",
+      "'Zhi Mang Xing', 'KaiTi', cursive",
+      "'ZCOOL XiaoWei', 'SimSun', serif",
+      "'ZCOOL QingKe HuangYou', 'Microsoft YaHei', sans-serif",
+      "'ZCOOL KuaiLe', 'Microsoft YaHei', sans-serif",
+      "'Noto Sans TC', 'Microsoft JhengHei', sans-serif",
+      "'Noto Serif TC', 'PMingLiU', serif",
+      "'Noto Sans HK', 'Microsoft JhengHei', sans-serif",
+      "'Yuji Mai', 'Yuji Syuku', 'KaiTi', cursive",
+      "'Yuji Boku', 'Yuji Syuku', 'KaiTi', cursive",
+      "'Yuji Syuku', 'KaiTi', cursive",
+      "'Klee One', 'LXGW WenKai', 'KaiTi', cursive",
+      "'Yomogi', 'LXGW WenKai', 'KaiTi', cursive"
+    ];
+
+    const state = {
+      selectedId: "title",
+      background: {
+        mode: "gradient",
+        colorA: "#f4efe6",
+        colorB: "#d8e7e0",
+        image: null,
+        imageSrc: null,
+        textureSeed: 0
+      },
+      layers: [
+        {
+          id: "title",
+          type: "text",
+          name: "书名",
+          text: "设计的故事",
+          x: 400,
+          y: 355,
+          fontSize: 92,
+          rotation: 0,
+          color: "#1f2933",
+          fontFamily: builtInFonts[1],
+          weight: "900",
+          hasZhu: false
+        },
+        {
+          id: "author",
+          type: "text",
+          name: "作者",
+          text: "张三",
+          x: 400,
+          y: 690,
+          fontSize: 46,
+          rotation: 0,
+          color: "#344054",
+          fontFamily: builtInFonts[0],
+          weight: "700",
+          hasZhu: false
+        },
+        {
+          id: "zhu-seal",
+          type: "zhu",
+          name: "著字",
+          x: 465,
+          y: 690,
+          size: 34,
+          rotation: 0,
+          textColor: "#ffffff",
+          bgColor: "#344054",
+          transparentBg: false,
+          ringColor: "#344054",
+          ringWidth: 0,
+          opacity: 1
+        }
+      ]
+    };
+
+    const controls = {
+      layerList: document.getElementById("layerList"),
+      textEditor: document.getElementById("textEditor"),
+      shapeEditor: document.getElementById("shapeEditor"),
+      zhuEditor: document.getElementById("zhuEditor"),
+      textInput: document.getElementById("textInput"),
+      fontSize: document.getElementById("fontSize"),
+      fontSizeValue: document.getElementById("fontSizeValue"),
+      rotation: document.getElementById("rotation"),
+      rotationValue: document.getElementById("rotationValue"),
+      textColor: document.getElementById("textColor"),
+      weightSelect: document.getElementById("weightSelect"),
+      fontSelect: document.getElementById("fontSelect"),
+      systemFontSelect: document.getElementById("systemFontSelect"),
+      fontStatus: document.getElementById("fontStatus"),
+      bgColorA: document.getElementById("bgColorA"),
+      bgColorB: document.getElementById("bgColorB"),
+      bgUpload: document.getElementById("bgUpload"),
+      storageStatus: document.getElementById("storageStatus"),
+      shapeName: document.getElementById("shapeName"),
+      shapeFill: document.getElementById("shapeFill"),
+      shapeStroke: document.getElementById("shapeStroke"),
+      shapeWidth: document.getElementById("shapeWidth"),
+      shapeWidthValue: document.getElementById("shapeWidthValue"),
+      shapeHeight: document.getElementById("shapeHeight"),
+      shapeHeightValue: document.getElementById("shapeHeightValue"),
+      shapeOpacity: document.getElementById("shapeOpacity"),
+      shapeOpacityValue: document.getElementById("shapeOpacityValue"),
+      shapeStrokeWidth: document.getElementById("shapeStrokeWidth"),
+      shapeStrokeWidthValue: document.getElementById("shapeStrokeWidthValue"),
+      shapeRotation: document.getElementById("shapeRotation"),
+      shapeRotationValue: document.getElementById("shapeRotationValue"),
+      zhuName: document.getElementById("zhuName"),
+      zhuTextColor: document.getElementById("zhuTextColor"),
+      zhuBgColor: document.getElementById("zhuBgColor"),
+      zhuTransparentBg: document.getElementById("zhuTransparentBg"),
+      zhuRingColor: document.getElementById("zhuRingColor"),
+      zhuRingWidth: document.getElementById("zhuRingWidth"),
+      zhuRingWidthValue: document.getElementById("zhuRingWidthValue"),
+      zhuSize: document.getElementById("zhuSize"),
+      zhuSizeValue: document.getElementById("zhuSizeValue"),
+      zhuOpacity: document.getElementById("zhuOpacity"),
+      zhuOpacityValue: document.getElementById("zhuOpacityValue"),
+      zhuRotation: document.getElementById("zhuRotation"),
+      zhuRotationValue: document.getElementById("zhuRotationValue")
+    };
+
+    let dragging = false;
+    let dragOffset = { x: 0, y: 0 };
+    let saveTimer = null;
+
+    function getSelectedLayer() {
+      return state.layers.find(layer => layer.id === state.selectedId) || state.layers[0];
+    }
+
+    function setStorageStatus(message) {
+      controls.storageStatus.textContent = message;
+    }
+
+    function serializableState() {
+      return {
+        selectedId: state.selectedId,
+        background: {
+          mode: state.background.mode,
+          colorA: state.background.colorA,
+          colorB: state.background.colorB,
+          imageSrc: state.background.imageSrc,
+          textureSeed: state.background.textureSeed
+        },
+        layers: state.layers
+      };
+    }
+
+    function saveDesign() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(serializableState()));
+        setStorageStatus("当前设计已保存在此浏览器中，下次打开会自动恢复。");
+      } catch (error) {
+        setStorageStatus("本地保存失败：浏览器存储空间可能不足。");
+      }
+    }
+
+    function scheduleSave() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveDesign, 180);
+    }
+
+    function loadImage(src) {
+      return new Promise((resolve, reject) => {
+        if (!src) {
+          resolve(null);
+          return;
+        }
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = reject;
+        image.src = src;
+      });
+    }
+
+    async function restoreSavedDesign() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      try {
+        const saved = JSON.parse(raw);
+        if (!saved || !Array.isArray(saved.layers) || !saved.background) return;
+        state.selectedId = saved.selectedId || saved.layers[0]?.id || state.selectedId;
+        state.layers = saved.layers.map(normalizeLayer);
+        state.background = {
+          mode: saved.background.mode || "gradient",
+          colorA: saved.background.colorA || "#f4efe6",
+          colorB: saved.background.colorB || "#d8e7e0",
+          image: null,
+          imageSrc: saved.background.imageSrc || null,
+          textureSeed: saved.background.textureSeed || 0
+        };
+        if (state.background.imageSrc) {
+          state.background.image = await loadImage(state.background.imageSrc);
+        }
+        controls.bgColorA.value = state.background.colorA;
+        controls.bgColorB.value = state.background.colorB;
+        setStorageStatus("已恢复上次保存的封面设计。");
+      } catch (error) {
+        setStorageStatus("读取本地保存失败，已使用默认设计。");
+      }
+    }
+
+    function normalizeLayer(layer) {
+      if (layer.type !== "zhu") return layer;
+      return {
+        ...layer,
+        textColor: layer.textColor || "#ffffff",
+        bgColor: layer.bgColor || "#344054",
+        transparentBg: Boolean(layer.transparentBg),
+        ringColor: layer.ringColor || layer.bgColor || "#344054",
+        ringWidth: Number.isFinite(layer.ringWidth) ? layer.ringWidth : 0,
+        opacity: Number.isFinite(layer.opacity) ? layer.opacity : 1
+      };
+    }
+
+    function canvasPoint(evt) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (evt.clientX - rect.left) * (canvas.width / rect.width),
+        y: (evt.clientY - rect.top) * (canvas.height / rect.height)
+      };
+    }
+
+    function fontString(layer) {
+      return `${layer.weight} ${layer.fontSize}px ${layer.fontFamily}`;
+    }
+
+    function textLines(layer) {
+      return layer.text.split(/\n/).filter(line => line.length);
+    }
+
+    function measureLayer(layer) {
+      if (layer.type === "zhu") {
+        return {
+          width: layer.size,
+          height: layer.size,
+          lineHeight: 0,
+          lines: []
+        };
+      }
+
+      if (layer.type === "shape") {
+        return {
+          width: layer.width,
+          height: layer.height,
+          lineHeight: 0,
+          lines: []
+        };
+      }
+
+      ctx.save();
+      ctx.font = fontString(layer);
+      const lines = textLines(layer);
+      const lineHeight = layer.fontSize * 1.18;
+      const widths = lines.map(line => ctx.measureText(line).width);
+      const textWidth = Math.max(10, ...widths);
+      let width = textWidth;
+      let height = Math.max(layer.fontSize, lines.length * lineHeight);
+      ctx.restore();
+      return { width, height, lineHeight, lines, textWidth };
+    }
+
+    function drawBackground() {
+      const bg = state.background;
+      if (bg.mode === "image" && bg.image) {
+        const ratio = Math.max(CANVAS_W / bg.image.width, CANVAS_H / bg.image.height);
+        const dw = bg.image.width * ratio;
+        const dh = bg.image.height * ratio;
+        ctx.drawImage(bg.image, (CANVAS_W - dw) / 2, (CANVAS_H - dh) / 2, dw, dh);
+        return;
+      }
+
+      const gradient = ctx.createLinearGradient(0, 0, CANVAS_W, CANVAS_H);
+      gradient.addColorStop(0, bg.colorA);
+      gradient.addColorStop(1, bg.colorB);
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, CANVAS_W, CANVAS_H);
+
+      if (bg.mode === "texture") {
+        drawTexture(bg.textureSeed);
+      }
+    }
+
+    function drawTexture(seed) {
+      let value = seed || 7;
+      function next() {
+        value = (value * 9301 + 49297) % 233280;
+        return value / 233280;
+      }
+
+      ctx.save();
+      ctx.globalAlpha = 0.16;
+      for (let i = 0; i < 90; i++) {
+        const x = next() * CANVAS_W;
+        const y = next() * CANVAS_H;
+        const r = 18 + next() * 90;
+        ctx.fillStyle = i % 2 ? "#ffffff" : "#102a43";
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 0.22;
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1;
+      for (let y = 80; y < CANVAS_H; y += 92) {
+        ctx.beginPath();
+        ctx.moveTo(0, y + next() * 20);
+        ctx.bezierCurveTo(210, y - 45, 430, y + 58, CANVAS_W, y - 12);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawZhuLayer(layer, selected) {
+      const radius = layer.size / 2;
+      ctx.save();
+      ctx.translate(layer.x, layer.y);
+      ctx.rotate(layer.rotation * Math.PI / 180);
+      ctx.globalAlpha = layer.opacity;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, Math.PI * 2);
+      if (!layer.transparentBg) {
+        ctx.fillStyle = layer.bgColor;
+        ctx.fill();
+      }
+      if (layer.ringWidth > 0 || layer.transparentBg) {
+        ctx.strokeStyle = layer.ringColor || layer.bgColor;
+        ctx.lineWidth = layer.transparentBg && layer.ringWidth === 0 ? 3 : layer.ringWidth;
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = layer.textColor;
+      ctx.font = `700 ${layer.size * 0.48}px ${builtInFonts[0]}`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("著", 0, layer.size * 0.02);
+      if (selected) {
+        ctx.strokeStyle = "#0d9488";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 7]);
+        ctx.strokeRect(-radius - 10, -radius - 10, layer.size + 20, layer.size + 20);
+      }
+      ctx.restore();
+    }
+
+    function drawShapePath(layer) {
+      const width = layer.width;
+      const height = layer.height;
+
+      ctx.beginPath();
+      if (layer.shape === "circle") {
+        ctx.ellipse(0, 0, width / 2, height / 2, 0, 0, Math.PI * 2);
+      } else if (layer.shape === "triangle") {
+        ctx.moveTo(0, -height / 2);
+        ctx.lineTo(width / 2, height / 2);
+        ctx.lineTo(-width / 2, height / 2);
+        ctx.closePath();
+      } else {
+        ctx.rect(-width / 2, -height / 2, width, height);
+      }
+    }
+
+    function drawShapeLayer(layer, selected) {
+      ctx.save();
+      ctx.translate(layer.x, layer.y);
+      ctx.rotate(layer.rotation * Math.PI / 180);
+      ctx.globalAlpha = layer.opacity;
+      drawShapePath(layer);
+      ctx.fillStyle = layer.fill;
+      ctx.fill();
+      if (layer.strokeWidth > 0) {
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = layer.stroke;
+        ctx.lineWidth = layer.strokeWidth;
+        ctx.stroke();
+      }
+      if (selected) {
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = "#0d9488";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 7]);
+        ctx.strokeRect(-layer.width / 2 - 16, -layer.height / 2 - 16, layer.width + 32, layer.height + 32);
+      }
+      ctx.restore();
+    }
+
+    function drawLayer(layer, selected) {
+      if (layer.type === "zhu") {
+        drawZhuLayer(layer, selected);
+        return;
+      }
+
+      if (layer.type === "shape") {
+        drawShapeLayer(layer, selected);
+        return;
+      }
+
+      const metrics = measureLayer(layer);
+      const blockHeight = metrics.height;
+
+      ctx.save();
+      ctx.translate(layer.x, layer.y);
+      ctx.rotate(layer.rotation * Math.PI / 180);
+      ctx.font = fontString(layer);
+      ctx.fillStyle = layer.color;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      const startY = -blockHeight / 2 + metrics.lineHeight / 2;
+      metrics.lines.forEach((line, index) => {
+        ctx.fillText(line, 0, startY + index * metrics.lineHeight);
+      });
+
+      if (selected) {
+        ctx.strokeStyle = "#0d9488";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 7]);
+        ctx.strokeRect(-metrics.width / 2 - 16, -metrics.height / 2 - 16, metrics.width + 32, metrics.height + 32);
+      }
+      ctx.restore();
+    }
+
+    function render(showSelection = true) {
+      ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+      drawBackground();
+      state.layers.forEach(layer => drawLayer(layer, showSelection && layer.id === state.selectedId));
+    }
+
+    function syncPanel() {
+      const layer = getSelectedLayer();
+      const isShape = layer.type === "shape";
+      const isZhu = layer.type === "zhu";
+      controls.textEditor.hidden = isShape || isZhu;
+      controls.shapeEditor.hidden = !isShape;
+      controls.zhuEditor.hidden = !isZhu;
+
+      if (isZhu) {
+        controls.zhuName.value = layer.name;
+        controls.zhuTextColor.value = layer.textColor;
+        controls.zhuBgColor.value = layer.bgColor;
+        controls.zhuBgColor.disabled = layer.transparentBg;
+        controls.zhuTransparentBg.checked = layer.transparentBg;
+        controls.zhuRingColor.value = layer.ringColor || layer.bgColor;
+        controls.zhuRingWidth.value = layer.ringWidth;
+        controls.zhuRingWidthValue.textContent = `${layer.ringWidth}px`;
+        controls.zhuSize.value = layer.size;
+        controls.zhuSizeValue.textContent = `${layer.size}px`;
+        controls.zhuOpacity.value = Math.round(layer.opacity * 100);
+        controls.zhuOpacityValue.textContent = `${Math.round(layer.opacity * 100)}%`;
+        controls.zhuRotation.value = layer.rotation;
+        controls.zhuRotationValue.textContent = `${layer.rotation}°`;
+      } else if (isShape) {
+        controls.shapeName.value = layer.name;
+        controls.shapeFill.value = layer.fill;
+        controls.shapeStroke.value = layer.stroke;
+        controls.shapeWidth.value = layer.width;
+        controls.shapeWidthValue.textContent = `${layer.width}px`;
+        controls.shapeHeight.value = layer.height;
+        controls.shapeHeightValue.textContent = `${layer.height}px`;
+        controls.shapeOpacity.value = Math.round(layer.opacity * 100);
+        controls.shapeOpacityValue.textContent = `${Math.round(layer.opacity * 100)}%`;
+        controls.shapeStrokeWidth.value = layer.strokeWidth;
+        controls.shapeStrokeWidthValue.textContent = `${layer.strokeWidth}px`;
+        controls.shapeRotation.value = layer.rotation;
+        controls.shapeRotationValue.textContent = `${layer.rotation}°`;
+      } else {
+        controls.textInput.value = layer.text;
+        controls.fontSize.value = layer.fontSize;
+        controls.fontSizeValue.textContent = `${layer.fontSize}px`;
+        controls.rotation.value = layer.rotation;
+        controls.rotationValue.textContent = `${layer.rotation}°`;
+        controls.textColor.value = layer.color;
+        controls.weightSelect.value = layer.weight;
+        controls.fontSelect.value = builtInFonts.includes(layer.fontFamily) ? layer.fontFamily : builtInFonts[0];
+      }
+      controls.layerList.innerHTML = "";
+
+      state.layers.forEach(item => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `layer-item${item.id === state.selectedId ? " active" : ""}`;
+        const typeLabel = item.type === "zhu" ? "著字" : (item.type === "shape" ? shapeLabel(item.shape) : "文本");
+        const layerText = item.type === "text" ? `${item.name} · ${(item.text || "空文本").replace(/\n/g, " ")}` : item.name;
+        button.innerHTML = `<span class="layer-name"></span><span class="layer-type">${typeLabel}</span>`;
+        button.querySelector(".layer-name").textContent = layerText;
+        button.addEventListener("click", () => {
+          state.selectedId = item.id;
+          syncPanel();
+          render();
+        });
+        controls.layerList.appendChild(button);
+      });
+    }
+
+    function updateSelected(patch) {
+      Object.assign(getSelectedLayer(), patch);
+      syncPanel();
+      render();
+      scheduleSave();
+    }
+
+    function shapeLabel(shape) {
+      if (shape === "circle") return "圆形";
+      if (shape === "triangle") return "三角形";
+      return "矩形";
+    }
+
+    function hitTestLayer(point, layer) {
+      const metrics = measureLayer(layer);
+      const angle = -layer.rotation * Math.PI / 180;
+      const dx = point.x - layer.x;
+      const dy = point.y - layer.y;
+      const localX = dx * Math.cos(angle) - dy * Math.sin(angle);
+      const localY = dx * Math.sin(angle) + dy * Math.cos(angle);
+      return Math.abs(localX) <= metrics.width / 2 + 24 && Math.abs(localY) <= metrics.height / 2 + 24;
+    }
+
+    function pickLayer(point) {
+      for (let i = state.layers.length - 1; i >= 0; i--) {
+        if (hitTestLayer(point, state.layers[i])) return state.layers[i];
+      }
+      return null;
+    }
+
+    canvas.addEventListener("pointerdown", evt => {
+      const point = canvasPoint(evt);
+      const layer = pickLayer(point);
+      if (!layer) return;
+      state.selectedId = layer.id;
+      dragging = true;
+      dragOffset = { x: point.x - layer.x, y: point.y - layer.y };
+      canvas.classList.add("dragging");
+      canvas.setPointerCapture(evt.pointerId);
+      syncPanel();
+      render();
+    });
+
+    canvas.addEventListener("pointermove", evt => {
+      if (!dragging) return;
+      const point = canvasPoint(evt);
+      const layer = getSelectedLayer();
+      layer.x = Math.max(0, Math.min(CANVAS_W, point.x - dragOffset.x));
+      layer.y = Math.max(0, Math.min(CANVAS_H, point.y - dragOffset.y));
+      render();
+    });
+
+    canvas.addEventListener("pointerup", evt => {
+      dragging = false;
+      canvas.classList.remove("dragging");
+      if (canvas.hasPointerCapture(evt.pointerId)) canvas.releasePointerCapture(evt.pointerId);
+      scheduleSave();
+    });
+
+    canvas.addEventListener("pointercancel", () => {
+      dragging = false;
+      canvas.classList.remove("dragging");
+    });
+
+    controls.textInput.addEventListener("input", evt => updateSelected({ text: evt.target.value || " " }));
+    controls.fontSize.addEventListener("input", evt => updateSelected({ fontSize: Number(evt.target.value) }));
+    controls.rotation.addEventListener("input", evt => updateSelected({ rotation: Number(evt.target.value) }));
+    controls.textColor.addEventListener("input", evt => updateSelected({ color: evt.target.value }));
+    controls.weightSelect.addEventListener("change", evt => updateSelected({ weight: evt.target.value }));
+    controls.fontSelect.addEventListener("change", evt => updateSelected({ fontFamily: evt.target.value }));
+    controls.systemFontSelect.addEventListener("change", evt => {
+      if (evt.target.value) updateSelected({ fontFamily: `"${evt.target.value}", ${getSelectedLayer().fontFamily}` });
+    });
+    controls.shapeName.addEventListener("input", evt => updateSelected({ name: evt.target.value || shapeLabel(getSelectedLayer().shape) }));
+    controls.shapeFill.addEventListener("input", evt => updateSelected({ fill: evt.target.value }));
+    controls.shapeStroke.addEventListener("input", evt => updateSelected({ stroke: evt.target.value }));
+    controls.shapeWidth.addEventListener("input", evt => updateSelected({ width: Number(evt.target.value) }));
+    controls.shapeHeight.addEventListener("input", evt => updateSelected({ height: Number(evt.target.value) }));
+    controls.shapeOpacity.addEventListener("input", evt => updateSelected({ opacity: Number(evt.target.value) / 100 }));
+    controls.shapeStrokeWidth.addEventListener("input", evt => updateSelected({ strokeWidth: Number(evt.target.value) }));
+    controls.shapeRotation.addEventListener("input", evt => updateSelected({ rotation: Number(evt.target.value) }));
+    controls.zhuName.addEventListener("input", evt => updateSelected({ name: evt.target.value || "著字" }));
+    controls.zhuTextColor.addEventListener("input", evt => updateSelected({ textColor: evt.target.value }));
+    controls.zhuBgColor.addEventListener("input", evt => updateSelected({ bgColor: evt.target.value }));
+    controls.zhuTransparentBg.addEventListener("change", evt => updateSelected({ transparentBg: evt.target.checked }));
+    controls.zhuRingColor.addEventListener("input", evt => updateSelected({ ringColor: evt.target.value }));
+    controls.zhuRingWidth.addEventListener("input", evt => updateSelected({ ringWidth: Number(evt.target.value) }));
+    controls.zhuSize.addEventListener("input", evt => updateSelected({ size: Number(evt.target.value) }));
+    controls.zhuOpacity.addEventListener("input", evt => updateSelected({ opacity: Number(evt.target.value) / 100 }));
+    controls.zhuRotation.addEventListener("input", evt => updateSelected({ rotation: Number(evt.target.value) }));
+
+    controls.bgColorA.addEventListener("input", evt => {
+      state.background.colorA = evt.target.value;
+      state.background.mode = "gradient";
+      state.background.image = null;
+      state.background.imageSrc = null;
+      render();
+      scheduleSave();
+    });
+
+    controls.bgColorB.addEventListener("input", evt => {
+      state.background.colorB = evt.target.value;
+      state.background.mode = "gradient";
+      state.background.image = null;
+      state.background.imageSrc = null;
+      render();
+      scheduleSave();
+    });
+
+    document.getElementById("uploadBgBtn").addEventListener("click", () => controls.bgUpload.click());
+    controls.bgUpload.addEventListener("change", evt => {
+      const file = evt.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const image = new Image();
+        image.onload = () => {
+          state.background.image = image;
+          state.background.imageSrc = reader.result;
+          state.background.mode = "image";
+          render();
+          scheduleSave();
+        };
+        image.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById("aiBgBtn").addEventListener("click", () => {
+      const palettes = [
+        ["#f7d7c4", "#a7d8c9"],
+        ["#e7eef8", "#f4c7ab"],
+        ["#f3e6c8", "#86b6b1"],
+        ["#e8f0d9", "#d2a48f"]
+      ];
+      const choice = palettes[Math.floor(Math.random() * palettes.length)];
+      state.background = {
+        mode: "texture",
+        colorA: choice[0],
+        colorB: choice[1],
+        image: null,
+        imageSrc: null,
+        textureSeed: Math.floor(Math.random() * 100000)
+      };
+      controls.bgColorA.value = choice[0];
+      controls.bgColorB.value = choice[1];
+      render();
+      scheduleSave();
+    });
+
+    document.getElementById("resetBgBtn").addEventListener("click", () => {
+      state.background = { mode: "gradient", colorA: "#f4efe6", colorB: "#d8e7e0", image: null, imageSrc: null, textureSeed: 0 };
+      controls.bgColorA.value = state.background.colorA;
+      controls.bgColorB.value = state.background.colorB;
+      controls.bgUpload.value = "";
+      render();
+      scheduleSave();
+    });
+
+    document.getElementById("randomPaletteBtn").addEventListener("click", () => {
+      const colors = ["#f5efe0", "#e6f0ef", "#f4d6c5", "#dfe8f5", "#e9efd2", "#f0e2e8", "#cfded6", "#f7f1d3"];
+      const a = colors[Math.floor(Math.random() * colors.length)];
+      const b = colors[Math.floor(Math.random() * colors.length)];
+      state.background = { mode: "gradient", colorA: a, colorB: b, image: null, imageSrc: null, textureSeed: 0 };
+      controls.bgColorA.value = a;
+      controls.bgColorB.value = b;
+      render();
+      scheduleSave();
+    });
+
+    document.getElementById("addLayerBtn").addEventListener("click", () => {
+      const layer = {
+        id: `text-${Date.now()}`,
+        type: "text",
+        name: `文字 ${state.layers.length + 1}`,
+        text: "新文字",
+        x: 400,
+        y: 500,
+        fontSize: 58,
+        rotation: 0,
+        color: "#243447",
+        fontFamily: builtInFonts[0],
+        weight: "700",
+        hasZhu: false
+      };
+      state.layers.push(layer);
+      state.selectedId = layer.id;
+      syncPanel();
+      render();
+      scheduleSave();
+    });
+
+    document.querySelectorAll("[data-shape]").forEach(button => {
+      button.addEventListener("click", () => addShapeLayer(button.dataset.shape));
+    });
+
+    document.getElementById("addZhuBtn").addEventListener("click", () => {
+      const layer = {
+        id: `zhu-${Date.now()}`,
+        type: "zhu",
+        name: `著字 ${state.layers.filter(item => item.type === "zhu").length + 1}`,
+        x: 520,
+        y: 690,
+        size: 42,
+        rotation: 0,
+        textColor: "#ffffff",
+        bgColor: "#344054",
+        transparentBg: false,
+        ringColor: "#344054",
+        ringWidth: 0,
+        opacity: 1
+      };
+      state.layers.push(layer);
+      state.selectedId = layer.id;
+      syncPanel();
+      render();
+      scheduleSave();
+    });
+
+    function addShapeLayer(shape) {
+      const defaults = {
+        circle: { width: 190, height: 190, fill: "#0d9488", stroke: "#0f766e" },
+        rect: { width: 260, height: 150, fill: "#c95c44", stroke: "#8f3d2f" },
+        triangle: { width: 220, height: 190, fill: "#2f5d8c", stroke: "#1f3f61" }
+      };
+      const preset = defaults[shape] || defaults.rect;
+      const layer = {
+        id: `shape-${Date.now()}`,
+        type: "shape",
+        shape,
+        name: `${shapeLabel(shape)} ${state.layers.filter(item => item.type === "shape").length + 1}`,
+        x: 400,
+        y: 520,
+        width: preset.width,
+        height: preset.height,
+        rotation: 0,
+        fill: preset.fill,
+        stroke: preset.stroke,
+        strokeWidth: 0,
+        opacity: 0.86
+      };
+      state.layers.push(layer);
+      state.selectedId = layer.id;
+      syncPanel();
+      render();
+      scheduleSave();
+    }
+
+    document.getElementById("deleteLayerBtn").addEventListener("click", () => {
+      if (state.layers.length <= 1) {
+        alert("至少需要保留一个图层。");
+        return;
+      }
+      const index = state.layers.findIndex(layer => layer.id === state.selectedId);
+      state.layers.splice(index, 1);
+      state.selectedId = state.layers[Math.max(0, index - 1)].id;
+      syncPanel();
+      render();
+      scheduleSave();
+    });
+
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      render(false);
+      const link = document.createElement("a");
+      link.download = "book-cover.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      render(true);
+    });
+
+    document.getElementById("saveDesignBtn").addEventListener("click", saveDesign);
+
+    document.getElementById("clearDesignBtn").addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      setStorageStatus("已清除本地保存。刷新页面后会显示默认封面。");
+    });
+
+    document.getElementById("loadFontsBtn").addEventListener("click", async () => {
+      controls.fontStatus.textContent = "正在读取系统字体...";
+      const fallbackFonts = [
+        "Microsoft YaHei", "SimSun", "KaiTi", "DengXian", "FangSong",
+        "PingFang SC", "Hiragino Sans GB", "Songti SC", "Heiti SC",
+        "Arial", "Georgia", "Times New Roman", "Verdana", "Tahoma",
+        "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Serif SC"
+      ];
+      try {
+        if ("queryLocalFonts" in window) {
+          const fonts = await window.queryLocalFonts();
+          const names = [...new Set(fonts.map(font => font.family))].sort((a, b) => a.localeCompare(b));
+          populateSystemFonts(names.length ? names : fallbackFonts, true);
+        } else {
+          populateSystemFonts(fallbackFonts, false);
+        }
+      } catch (error) {
+        populateSystemFonts(fallbackFonts, false);
+      }
+    });
+
+    function populateSystemFonts(fonts, nativeList) {
+      controls.systemFontSelect.innerHTML = '<option value="">选择系统字体</option>';
+      fonts.forEach(name => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        option.style.fontFamily = `"${name}", sans-serif`;
+        controls.systemFontSelect.appendChild(option);
+      });
+      controls.fontStatus.textContent = nativeList
+        ? `已读取 ${fonts.length} 个系统字体。`
+        : "当前浏览器不能直接枚举本机字体，已加载常见系统字体候选。";
+    }
+
+    restoreSavedDesign().then(() => {
+      syncPanel();
+      render();
+      document.fonts.ready.then(() => render());
+    });
+  </script>
+</body>
+</html>
