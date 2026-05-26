@@ -65,6 +65,31 @@
   .btn-ghost:hover { color: var(--text); background: var(--border); }
   .btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 14px; }
 
+  /* Visibility toggle */
+  .vis-toggle {
+    display: flex; align-items: center; gap: 6px; cursor: pointer;
+    font-size: 13px; color: var(--text-secondary); user-select: none;
+  }
+  .vis-toggle input { display: none; }
+  .vis-toggle .track {
+    width: 36px; height: 20px; border-radius: 10px; background: var(--border);
+    position: relative; transition: background 0.2s; flex-shrink: 0;
+  }
+  .vis-toggle .track::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: 16px; height: 16px; border-radius: 50%; background: #fff;
+    transition: left 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .vis-toggle input:checked + .track { background: var(--accent); }
+  .vis-toggle input:checked + .track::after { left: 18px; }
+
+  /* Visibility badge */
+  .vis-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600;
+  }
+  .vis-badge.public { background: #e8f5e9; color: #2e7d32; }
+  .vis-badge.private { background: #fce8e3; color: var(--danger); }
+
   .icon-btn {
     width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 50%;
     background: var(--card-bg); cursor: pointer;
@@ -437,7 +462,7 @@
       <div class="pagination" id="pagination"></div>
       <div class="empty" id="empty">
         <div class="empty-icon">💬</div>
-        <p class="empty-text">还没有吐槽，在右侧写第一条吧</p>
+        <p class="empty-text" id="emptyText">还没有吐槽，在右侧写第一条吧</p>
       </div>
     </div>
 
@@ -497,6 +522,10 @@
     <div class="modal-hint">Token 仅发布时需要。仅查看的话，只填 Gist ID 即可（公开 Gist 人人可读）。</div>
     <label>Gist ID</label>
     <input type="text" id="modalGistId" placeholder="填入 Gist ID 即可加载云端数据">
+    <label class="vis-toggle" style="margin-bottom:16px">
+      <input type="checkbox" id="modalGlobalVis" checked>
+      <span class="track"></span> 公开所有说说（关闭后仅登录者可见）
+    </label>
     <div class="modal-actions">
       <button class="btn btn-ghost" id="modalCancel">取消</button>
       <button class="btn btn-primary" id="modalSave">保存并启用同步</button>
@@ -649,6 +678,8 @@
   let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || DEFAULT_GIST_ID;
   let canRead = !!gistId;
   let canWrite = !!(githubToken && gistId);
+  // Global public toggle: ON = everyone sees, OFF = only author sees
+  let globalPublic = localStorage.getItem('shuoshuo_global_public') !== 'false';
   let unsyncedCount = 0;
   let lastSyncError = '';
 
@@ -831,6 +862,8 @@
 
   // ── Render ───────────────────────────
   function getFilteredPosts() {
+    // If not public and user is not the author, show empty
+    if (!globalPublic && !canWrite) return [];
     const q = $searchInput.value.trim().toLowerCase();
     if (!q) return [...posts].reverse();
     return posts.filter(function(p) {
@@ -862,6 +895,12 @@
     if (filtered.length === 0) {
       $feed.innerHTML = '';
       $pagination.innerHTML = '';
+      var $emptyText = document.getElementById('emptyText');
+      if (!globalPublic && !canWrite) {
+        $emptyText.textContent = '说说已设为私密，仅作者可见';
+      } else {
+        $emptyText.textContent = '还没有吐槽，在右侧写第一条吧';
+      }
       $empty.style.display = 'block';
     } else {
       $empty.style.display = 'none';
@@ -1284,6 +1323,7 @@
   function openSettings() {
     $modalToken.value = githubToken;
     $modalGistId.value = gistId;
+    document.getElementById('modalGlobalVis').checked = globalPublic;
     if (canWrite) $modalNote.textContent = '读写模式 · Gist: ' + gistId.slice(0, 8) + '…';
     else if (canRead) $modalNote.textContent = '只读模式（无 Token，可查看不可发布）';
     else $modalNote.textContent = '';
@@ -1308,9 +1348,11 @@
     if (!token && gid) {
       gistId = gid;
       localStorage.setItem('shuoshuo_gist_id', gistId);
+      globalPublic = document.getElementById('modalGlobalVis').checked;
+      localStorage.setItem('shuoshuo_global_public', globalPublic);
       canRead = true; canWrite = false;
-      try { await pullFromGist(); $modalNote.textContent = '只读模式已启用 · Gist: ' + gistId.slice(0, 8) + '…'; showToast('已加载云端数据'); }
-      catch (e) { $modalNote.textContent = '读取失败: ' + e.message; canRead = false; }
+      try { await pullFromGist(); $modalNote.textContent = '只读模式已启用 · Gist: ' + gistId.slice(0, 8) + '…'; showToast('已加载云端数据'); render(); }
+      catch (e) { $modalNote.textContent = '读取失败: ' + e.message; canRead = false; render(); }
       return;
     }
     if (!token) { showToast('请输入 GitHub Token 或 Gist ID'); return; }
@@ -1348,12 +1390,15 @@
       }
       localStorage.setItem('shuoshuo_gh_token', githubToken);
       localStorage.setItem('shuoshuo_gist_id', gistId);
+      globalPublic = document.getElementById('modalGlobalVis').checked;
+      localStorage.setItem('shuoshuo_global_public', globalPublic);
       canRead = true; canWrite = true;
       await pullFromGist();
       await pushToGist();
       $modalNote.textContent = '读写模式 · Gist: ' + gistId.slice(0, 8) + '…';
       $modalGistId.value = gistId;
       showToast('同步已启用（可读可写）');
+      render();
     } catch (e) {
       $modalNote.textContent = '失败: ' + e.message;
     }
