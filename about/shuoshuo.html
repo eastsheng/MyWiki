@@ -426,6 +426,11 @@
   .sync-dot.green { background: #4caf50; }
   .sync-dot.yellow { background: #f5a623; animation: pulse-glow 1.5s ease-in-out infinite; }
   .sync-dot.red { background: #e05050; }
+  .sync-dot.spin {
+    background: transparent; border: 2px solid var(--border);
+    border-top-color: var(--accent); animation: spin 0.6s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
   .calendar-card .cal-greeting {
     text-align: center; font-size: 13px; color: var(--accent);
@@ -760,9 +765,11 @@
 
   async function doSync() {
     if (!canRead) return;
+    var $dot = document.getElementById('syncDot');
+    if ($dot) { $dot.className = 'sync-dot spin'; $dot.style.display = 'inline-block'; }
     try {
-      if (canWrite) await pushToGist(); // push first: deletions/additions go out
-      await pullFromGist();              // then pull: get others' new posts
+      if (canWrite) await pushToGist();
+      await pullFromGist();
       lastSyncError = '';
     } catch (e) {
       console.error('Sync error:', e);
@@ -1477,16 +1484,21 @@
 
   // If sync is enabled, pull first, then use local
   (async function init() {
+    // Show local data instantly — don't wait for network
     loadLocal();
-    if (canRead) {
-      try { await pullFromGist(); } catch (e) { console.error('Init sync error:', e); }
-    }
-    updateSyncDot();
     render();
     initDailyQuote();
     initRandomGifs();
     renderCalendar();
     updateClock();
+
+    // Sync from Gist in background (may be slow due to large images)
+    if (canRead) {
+      try { await pullFromGist(); } catch (e) { console.error('Init sync error:', e); }
+    }
+    updateSyncDot();
+    // If remote data was different, render() was already called by pullFromGist
+    if (!canRead) render();
   })();
 })();
 </script>
