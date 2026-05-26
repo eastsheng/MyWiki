@@ -527,6 +527,12 @@
     var uid = 0;
     var blocks = {}; // placeholder → { tex, display }
 
+    // Protect \[...\] block math (LaTeX display)
+    text = text.replace(/\\\[([\s\S]*?)\\\]/g, function(_, tex) {
+      var key = '%%KATEXBLOCK' + (uid++) + '%%';
+      blocks[key] = { tex: tex.trim(), display: true };
+      return key;
+    });
     // Protect $$...$$ block math
     text = text.replace(/\$\$([\s\S]*?)\$\$/g, function(_, tex) {
       var key = '%%KATEXBLOCK' + (uid++) + '%%';
