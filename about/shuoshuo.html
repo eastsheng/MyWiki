@@ -67,21 +67,27 @@
 
   /* Visibility toggle */
   .vis-toggle {
-    display: flex; align-items: center; gap: 6px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
     font-size: 13px; color: var(--text-secondary); user-select: none;
   }
   .vis-toggle input { display: none; }
   .vis-toggle .track {
-    width: 36px; height: 20px; border-radius: 10px; background: var(--border);
-    position: relative; transition: background 0.2s; flex-shrink: 0;
+    width: 48px; height: 26px; border-radius: 13px;
+    background: #bbb; position: relative; transition: background 0.25s;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end;
+    padding: 0 6px; font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 0.5px;
   }
+  .vis-toggle .track::before { content: 'OFF'; }
   .vis-toggle .track::after {
-    content: ''; position: absolute; top: 2px; left: 2px;
-    width: 16px; height: 16px; border-radius: 50%; background: #fff;
-    transition: left 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 20px; height: 20px; border-radius: 50%; background: #fff;
+    transition: left 0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
-  .vis-toggle input:checked + .track { background: var(--accent); }
-  .vis-toggle input:checked + .track::after { left: 18px; }
+  .vis-toggle input:checked + .track {
+    background: #4caf50; justify-content: flex-start;
+  }
+  .vis-toggle input:checked + .track::before { content: 'ON'; }
+  .vis-toggle input:checked + .track::after { left: 25px; }
 
   /* Visibility badge */
   .vis-badge {
