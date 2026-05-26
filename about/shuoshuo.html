@@ -539,8 +539,14 @@
       blocks[key] = { tex: tex.trim(), display: true };
       return key;
     });
-    // Protect $...$ inline math (but not $$)
-    text = text.replace(/\$(.+?)\$/g, function(_, tex) {
+    // Protect $...$ inline math
+    text = text.replace(/\$([^$]+)\$/g, function(_, tex) {
+      var key = '%%KATEXINLINE' + (uid++) + '%%';
+      blocks[key] = { tex: tex.trim(), display: false };
+      return key;
+    });
+    // Protect \(...\) inline math
+    text = text.replace(/\\\(([\s\S]*?)\\\)/g, function(_, tex) {
       var key = '%%KATEXINLINE' + (uid++) + '%%';
       blocks[key] = { tex: tex.trim(), display: false };
       return key;
