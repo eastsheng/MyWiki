@@ -689,10 +689,12 @@
   let gistId = localStorage.getItem('shuoshuo_gist_id') || urlParams.get('gist') || DEFAULT_GIST_ID;
   let canRead = !!gistId;
   let canWrite = !!(githubToken && gistId);
-  // Global public toggle: ON = everyone sees, OFF = only author sees
   let globalPublic = localStorage.getItem('shuoshuo_global_public') !== 'false';
   let unsyncedCount = 0;
   let lastSyncError = '';
+  let dirty = false;           // local changes need push
+  let lastRemoteETag = '';     // skip pull if remote unchanged
+  let lastRemoteTime = '';     // fallback: compare updated_at
 
   function updateSyncDot() {
     var $dot = document.getElementById('syncDot');
@@ -722,19 +724,34 @@
     return res.json();
   }
 
-  async function pullFromGist() {
-    var gist = await githubApi('/gists/' + gistId);
+  async function pullFromGist(force) {
+    // Check if remote changed since last pull (skip if unchanged)
+    var headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (githubToken) headers['Authorization'] = 'token ' + githubToken;
+    if (lastRemoteETag && !force) headers['If-None-Match'] = lastRemoteETag;
+
+    var res = await fetch('https://api.github.com/gists/' + gistId, { headers: headers });
+    if (res.status === 304) return; // Not Modified — nothing new
+    if (!res.ok) {
+      var body = await res.text();
+      throw new Error(res.status + ': ' + (body || res.statusText).slice(0, 200));
+    }
+
+    // Save ETag for next time
+    var etag = res.headers.get('ETag') || res.headers.get('etag');
+    if (etag) lastRemoteETag = etag;
+
+    var gist = await res.json();
     var file = gist.files[GIST_FILENAME];
     if (!file || !file.content) throw new Error('Gist 中未找到数据文件');
     var remote;
     try {
       remote = JSON.parse(file.content).map(normalizePost);
     } catch (e) {
-      // Remote JSON is corrupted (e.g. truncated push) — use local data as source of truth
       console.error('Gist JSON 解析失败，使用本地数据恢复:', e.message);
-      unsyncedCount = posts.length; // all local posts need re-push
+      unsyncedCount = posts.length;
+      dirty = true;
       updateSyncDot();
-      // Auto-repair: push clean local data to overwrite corrupted gist
       if (canWrite) {
         try { await pushToGist(); } catch (pe) { console.error('Auto-repair push failed:', pe); }
       }
@@ -743,23 +760,27 @@
     var remoteIds = new Set(remote.map(function(p) { return p.id; }));
     var localOnly = posts.filter(function(p) { return !remoteIds.has(p.id); });
     unsyncedCount = localOnly.length;
-    posts = remote.concat(localOnly);
-    saveLocal();
-    render();
+    if (localOnly.length > 0 || remote.length !== posts.length) {
+      posts = remote.concat(localOnly);
+      saveLocal();
+      render();
+    }
     updateSyncDot();
   }
 
   async function pushToGist() {
-    if (!canWrite) return;
+    if (!canWrite || !dirty) return;
     await githubApi('/gists/' + gistId, {
       method: 'PATCH',
       body: JSON.stringify({
         files: { [GIST_FILENAME]: { content: JSON.stringify(posts) } }
       })
     });
-    // On success, clear unsynced count
+    dirty = false;
     unsyncedCount = 0;
     lastSyncError = '';
+    // Refresh ETag since we just modified the gist
+    lastRemoteETag = '';
     updateSyncDot();
   }
 
@@ -768,13 +789,14 @@
     var $dot = document.getElementById('syncDot');
     if ($dot) { $dot.className = 'sync-dot spin'; $dot.style.display = 'inline-block'; }
     try {
-      if (canWrite) await pushToGist();
-      await pullFromGist();
+      // Only push if local has changes (dirty flag)
+      if (canWrite && dirty) await pushToGist();
+      // Pull only if remote changed (ETag check, skip 304)
+      await pullFromGist(false);
       lastSyncError = '';
     } catch (e) {
       console.error('Sync error:', e);
       lastSyncError = e.message;
-      unsyncedCount = posts.length;
     }
     updateSyncDot();
   }
@@ -1027,6 +1049,7 @@
       updatedAt: Date.now()
     });
     saveLocal();
+    dirty = true;
     $postInput.value = '';
     pendingImages = [];
     renderImagePreviews();
@@ -1041,6 +1064,7 @@
     if (!confirm('确定删除这条说说吗？')) return;
     posts = posts.filter(function(p) { return p.id !== id; });
     saveLocal();
+    dirty = true;
     render();
     showToast('已删除');
     autoSync();
@@ -1066,6 +1090,7 @@
     if (post) { post.content = content; post.updatedAt = Date.now(); }
     editingId = null;
     saveLocal();
+    dirty = true;
     render();
     showToast('已保存');
     autoSync();
