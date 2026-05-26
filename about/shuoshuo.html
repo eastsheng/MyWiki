@@ -446,7 +446,7 @@
       <!-- Post form -->
       <div class="side-card">
         <h3>发一条吐槽</h3>
-        <textarea class="post-textarea" id="postInput" placeholder="不吐不快，尽管说…" maxlength="2000"></textarea>
+        <textarea class="post-textarea" id="postInput" placeholder="不吐不快，尽管说…"></textarea>
         <div class="image-previews" id="imagePreviews"></div>
         <div class="emoji-picker" id="emojiPicker"></div>
         <div class="form-toolbar">
@@ -454,7 +454,7 @@
           <button class="icon-btn small" id="imageBtn" title="插入图片">🖼</button>
           <input type="file" id="imageFileInput" accept="image/*" multiple style="display:none">
           <span class="spacer"></span>
-          <span class="char-count" id="charCount">0 / 2000</span>
+          <span class="char-count" id="charCount">0 字</span>
           <button class="btn btn-primary" id="postBtn" disabled>发布</button>
         </div>
       </div>
@@ -556,7 +556,6 @@
     return html;
   }
 
-  const MAX_LENGTH = 2000;
   const MAX_IMG_SIZE = 2 * 1024 * 1024; // 2MB per image
   const GIST_FILENAME = 'shuoshuo-posts.json';
   const STORAGE_KEY = 'shuoshuo_posts';
@@ -903,7 +902,7 @@
 
   function renderEditCard(p) {
     return '<div class="card" data-id="' + p.id + '">'
-      + '<textarea class="edit-textarea" id="editArea-' + p.id + '" maxlength="' + MAX_LENGTH + '">'
+      + '<textarea class="edit-textarea" id="editArea-' + p.id + '">'
         + escapeHtml(p.content)
         + '</textarea>'
       + '<div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">'
@@ -997,9 +996,8 @@
 
   function updateCharCount() {
     const len = $postInput.value.length;
-    $charCount.textContent = len + ' / ' + MAX_LENGTH;
-    $charCount.classList.toggle('warn', len > MAX_LENGTH * 0.9);
-    $postBtn.disabled = (len === 0 && pendingImages.length === 0) || len > MAX_LENGTH;
+    $charCount.textContent = len + ' 字';
+    $postBtn.disabled = (len === 0 && pendingImages.length === 0);
   }
 
   // ── Export / Import ──────────────────
