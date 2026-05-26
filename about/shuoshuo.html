@@ -718,12 +718,25 @@
   }
 
   async function pullFromGist() {
-    const gist = await githubApi('/gists/' + gistId);
-    const file = gist.files[GIST_FILENAME];
+    var gist = await githubApi('/gists/' + gistId);
+    var file = gist.files[GIST_FILENAME];
     if (!file || !file.content) throw new Error('Gist 中未找到数据文件');
-    const remote = JSON.parse(file.content).map(normalizePost);
-    const remoteIds = new Set(remote.map(function(p) { return p.id; }));
-    const localOnly = posts.filter(function(p) { return !remoteIds.has(p.id); });
+    var remote;
+    try {
+      remote = JSON.parse(file.content).map(normalizePost);
+    } catch (e) {
+      // Remote JSON is corrupted (e.g. truncated push) — use local data as source of truth
+      console.error('Gist JSON 解析失败，使用本地数据恢复:', e.message);
+      unsyncedCount = posts.length; // all local posts need re-push
+      updateSyncDot();
+      // Auto-repair: push clean local data to overwrite corrupted gist
+      if (canWrite) {
+        try { await pushToGist(); } catch (pe) { console.error('Auto-repair push failed:', pe); }
+      }
+      return;
+    }
+    var remoteIds = new Set(remote.map(function(p) { return p.id; }));
+    var localOnly = posts.filter(function(p) { return !remoteIds.has(p.id); });
     unsyncedCount = localOnly.length;
     posts = remote.concat(localOnly);
     saveLocal();
