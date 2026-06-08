@@ -12,7 +12,7 @@
   
   <title>
     
-      GULP 汇总 | Eastsheng&#39;s Wiki
+      QSGSM安装 | Eastsheng&#39;s Wiki
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -187,8 +187,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>GULP 汇总</h2>
-  <p class="post-date">2019-01-22 18:11:28</p>
+  <h2>QSGSM安装</h2>
+  <p class="post-date">2023-09-18 18:11:28</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -202,27 +202,25 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><p>[toc]</p>
-<ul>
-<li>GULP (General Utility Lattice Program)<a target="_blank" href="http://gulp.curtin.edu.au/gulp/request.cfm?rel=download">晶格动力学软件</a></li>
-<li>在线<a target="_blank" rel="noopener" href="http://gulp.curtin.edu.au/gulp/help/help_52_txt.html#opennewwindow">Manual</a></li>
-</ul>
-<h4 id="1-Run-GULP-Command"><a href="#1-Run-GULP-Command" class="headerlink" title="1. Run GULP Command"></a><strong>1. Run GULP Command</strong></h4><ul>
-<li>GULP 执行命令：<directory>gulp<inputfile>outputfile</li>
-<li>例如：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /home/ubuntu/GULP/gulp-5.2/Src/gulp &lt;input.gin&gt;OUTfile</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><h4 id="gnuplot安装"><a href="#gnuplot安装" class="headerlink" title="gnuplot安装"></a>gnuplot安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnuplot</span><br></pre></td></tr></table></figure>
 
+<h4 id="boost安装"><a href="#boost安装" class="headerlink" title="boost安装"></a><a target="_blank" rel="noopener" href="https://www.boost.org/">boost</a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_83_0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> boost_1_83_0</span><br><span class="line">./bootstrap.sh</span><br><span class="line">./b2</span><br><span class="line">sudo ./b2 install</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-dispersion-amp-DOS"><a href="#2-dispersion-amp-DOS" class="headerlink" title="2. dispersion &amp; DOS"></a><strong>2. dispersion &amp; DOS</strong></h4><ul>
-<li>在计算dispersion的时候，会附带着输出DOS(Density of State)</li>
-<li>但是，如果加一条命令就可以使输出的DOS文件内容为空，即：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ shrink  24 24 1</span><br></pre></td></tr></table></figure>
+<h3 id="安装QSGSM"><a href="#安装QSGSM" class="headerlink" title="安装QSGSM"></a>安装<a target="_blank" rel="noopener" href="https://github.com/Jeff-Hugh/GenPorMed">QSGSM</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Jeff-Hugh/GenPorMed.git</span><br><span class="line"><span class="built_in">cd</span> GenPorMed</span><br><span class="line">vim CMakeCache.txt <span class="comment"># 修改Boost_DIR路径</span></span><br><span class="line">cmake ./</span><br><span class="line">make</span><br><span class="line">./run</span><br><span class="line"></span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># Grow completed, Porosity: 0.495288</span></span><br><span class="line"><span class="comment"># Output completed</span></span><br><span class="line"><span class="comment"># Totle Time : 8.17858s</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>官网给出的解释是：</li>
-<li>指定倒易空间中的收缩因子，收缩系数越高，倒空间的采样范围越广。</li>
-<li>并不清楚为什么加了这条命令之后DOS为空。</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.tecplot.com/">Tecplot</a></p>
+</li>
+<li><p>2D porous figure</p>
+<ul>
+<li><img src="https://github.com/Jeff-Hugh/GenPorMed/raw/master/fig/porous_2D_0.5.png"></li>
+</ul>
+</li>
+<li><p>3D porous figure</p>
+<ul>
+<li><img src="https://github.com/Jeff-Hugh/GenPorMed/raw/master/fig/porous_3D_0.5.png"></li>
+</ul>
+</li>
 </ul>
 </section>
     <!-- Tags and categories START -->
@@ -230,8 +228,8 @@
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/MyWiki/MyWiki/tags#GULP" >
-    <span class="tag-code">GULP</span>
+  <a href="/MyWiki/MyWiki/tags#QSGSM" >
+    <span class="tag-code">QSGSM</span>
   </a>
 
       </div>
@@ -242,17 +240,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/MyWiki/wiki/2019/01/22/softwares/gromacs/GROMACS_%E5%85%A5%E9%97%A8/">
+      <a class="nav-left" href="/MyWiki/wiki/2023/09/08/codes/python/rdkit_skills_1/">
         <span class="nav-arrow">← </span>
         
-          GROMACS 入门
+          RDKit安装与使用
         
       </a>
     
     
-      <a class="nav-right" href="/MyWiki/wiki/2019/08/05/codes/python/pip_install_mirrors/">
+      <a class="nav-right" href="/MyWiki/wiki/2023/10/01/notes/PaperReadNote2023_D/">
         
-          python镜像配置
+          论文笔记2023-冬
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -285,7 +283,7 @@
   <div class="toc-main">
 	
 	  <strong class="toc-title">Catalog</strong>
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1-Run-GULP-Command"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. Run GULP Command</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-dispersion-amp-DOS"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. dispersion &amp; DOS</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装依赖</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#gnuplot%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">gnuplot安装</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#boost%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">boost安装</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%89%E8%A3%85QSGSM"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装QSGSM</span></a></li></ol>
     
 
   </div>
@@ -296,7 +294,7 @@
 
 <script>
   (function () {
-    var url = 'https://eastsheng.github.io/MyWiki/wiki/2019/01/22/softwares/GULP/';
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2023/09/18/softwares/others/QSGS/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({

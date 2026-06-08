@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      PERTURBO 教程 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>PERTURBO 教程</h2>
+  <p class="post-date">2026-06-01 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="PERTURBO-教程"><a href="#PERTURBO-教程" class="headerlink" title="PERTURBO 教程"></a>PERTURBO 教程</h1><h2 id="Quantum-Espresso-to-Perturbo"><a href="#Quantum-Espresso-to-Perturbo" class="headerlink" title="Quantum Espresso to Perturbo"></a>Quantum Espresso to Perturbo</h2><h3 id="1-自洽SCF计算"><a href="#1-自洽SCF计算" class="headerlink" title="1. 自洽SCF计算"></a>1. 自洽SCF计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> perturbo-examples-light/example01-silicon-qe2pert/pw-ph-wann/scf</span><br><span class="line">mpirun -np 4 pw.x -i scf.in | <span class="built_in">tee</span> scf.out</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-声子计算"><a href="#2-声子计算" class="headerlink" title="2. 声子计算"></a>2. 声子计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../phonon/</span><br><span class="line"><span class="built_in">cp</span> -r ../scf/tmp ./</span><br><span class="line">mpirun -np 4 ph.x -i ph.in | <span class="built_in">tee</span> ph.out</span><br><span class="line"></span><br><span class="line">bash ph-collect.sh</span><br><span class="line"><span class="comment"># 获得save</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-nSCF计算"><a href="#3-nSCF计算" class="headerlink" title="3. nSCF计算"></a>3. nSCF计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../nscf</span><br><span class="line"><span class="built_in">cp</span> -r ../scf/tmp ./</span><br><span class="line"><span class="comment"># 可以使用 Wannier90 中 utility 文件夹内的 kmesh.pl 脚本生成 k 点列表：</span></span><br><span class="line"><span class="comment"># kmesh.pl 8 8 8 &gt;&gt; nscf.in</span></span><br><span class="line">mpirun -np 4 pw.x -i nscf.in | <span class="built_in">tee</span> nscf.out</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-Wannier90-计算"><a href="#4-Wannier90-计算" class="headerlink" title="4. Wannier90 计算"></a>4. Wannier90 计算</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../wann/</span><br><span class="line"><span class="built_in">mkdir</span> tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line"><span class="built_in">ln</span> -sf ../../nscf/tmp/si.save</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">wannier90.x -pp si</span><br><span class="line">pw2wannier90.x &lt; pw2wan.in</span><br><span class="line">wannier90.x si</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-运行-qe2pert-x"><a href="#5-运行-qe2pert-x" class="headerlink" title="5. 运行 qe2pert.x"></a>5. 运行 <code>qe2pert.x</code></h3><blockquote>
+<p>现在我们已经准备好计算粗 <code>k</code> 点（由 nSCF 步骤确定）和 <code>q</code> 点（由声子步骤确定）布里渊区网格上的 e‑ph 矩阵元。首先，将电子和声子计算结果复制或链接到当前目录。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../../qe2pert</span><br><span class="line"><span class="built_in">mkdir</span> tmp &amp;&amp; <span class="built_in">cd</span> tmp</span><br><span class="line"><span class="built_in">ln</span> -sf ../../pw-ph-wann/nscf/tmp/si.save</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">ln</span> -sf ../pw-ph-wann/wann/si_u.mat</span><br><span class="line"><span class="built_in">ln</span> -sf ../pw-ph-wann/wann/si_u_dis.mat</span><br><span class="line"><span class="built_in">ln</span> -sf ../pw-ph-wann/wann/si_centres.xyz</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> OMP_NUM_THREADS=4</span><br><span class="line">mpirun -np 2 qe2pert.x -npools 2 -i qe2pert.in | <span class="built_in">tee</span> qe2pert.out</span><br><span class="line">tree -L 1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>.<br>├── qe2pert.in<br>├── qe2pert.out<br>├── qe2pert_output.yml<br>├── si_centres.xyz -&gt; ..&#x2F;pw-ph-wann&#x2F;wann&#x2F;si_centres.xyz<br>├── si_epr.h5<br>├── si_u.mat -&gt; ..&#x2F;pw-ph-wann&#x2F;wann&#x2F;si_u.mat<br>├── si_u_dis.mat -&gt; ..&#x2F;pw-ph-wann&#x2F;wann&#x2F;si_u_dis.mat<br>└── tmp</p>
+<p>1 directory, 7 files</p>
+</blockquote>
+<ul>
+<li>已经完成了从 Quantum Espresso 和 Wannier90 生成 PERTURBO 所需 HDF5 文件的全过程。接下来便可以运行 <code>perturbo.x</code> 进行各种电子动力学和输运性质的计算。</li>
+</ul>
+<h2 id="Running-Perturbo"><a href="#Running-Perturbo" class="headerlink" title="Running Perturbo"></a>Running Perturbo</h2><h3 id="1-使用万尼尔函数插值电子能带结构"><a href="#1-使用万尼尔函数插值电子能带结构" class="headerlink" title="1. 使用万尼尔函数插值电子能带结构"></a>1. 使用万尼尔函数插值电子能带结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> example02-silicon-perturbo/perturbo/pert-bands</span><br><span class="line"><span class="built_in">cat</span> pert.in</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&amp;perturbo<br>  prefix      &#x3D; ‘si’<br>  calc_mode   &#x3D; ‘bands’<br>  fklist   &#x3D; ‘si_band.kpt’<br> &#x2F;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> si_band.kpt</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6<br>0.500 0.500 0.500  50<br>0.000 0.000 0.000  50<br>0.500 0.000 0.500  20<br>0.500 0.250 0.750  20<br>0.375 0.375 0.750  50<br>0.000 0.000 0.000  1</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line"></span><br><span class="line">mpirun -n 2 perturbo.x -npools 2 -i pert.in | <span class="built_in">tee</span> pert.out</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>后处理可视化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pip install perturbopy</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-通过对实空间原子间力常数进行傅里叶变换，插值声子色散"><a href="#2-通过对实空间原子间力常数进行傅里叶变换，插值声子色散" class="headerlink" title="2. 通过对实空间原子间力常数进行傅里叶变换，插值声子色散"></a>2. 通过对实空间原子间力常数进行傅里叶变换，插值声子色散</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../pert-phdisp/</span><br><span class="line"><span class="built_in">cat</span> pert.in</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&amp;perturbo<br>  prefix &#x3D; ‘si’<br>  calc_mode &#x3D; ‘phdisp’<br>  fqlist &#x3D; ‘si_phdisp.qpt’<br> &#x2F;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> si_phdisp.qpt</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6<br>0.5   0.5   0.5   50 !L<br>0.0   0.0   0.0   50 !G<br>0.5   0.0   0.5   25 !X<br>0.5   0.25  0.75  25 !W<br>0.375 0.375 0.75  50 !K<br>0.0   0.0   0.0   1  !G</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line">mpirun -n 1 perturbo.x -npools 1 -i pert.in | <span class="built_in">tee</span> pert.out</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>后处理perturbopy</li>
+</ul>
+<h3 id="3-使用万尼尔函数插值电子-声子（e‑ph）矩阵元"><a href="#3-使用万尼尔函数插值电子-声子（e‑ph）矩阵元" class="headerlink" title="3. 使用万尼尔函数插值电子-声子（e‑ph）矩阵元"></a>3. 使用万尼尔函数插值电子-声子（e‑ph）矩阵元</h3><blockquote>
+<ul>
+<li><code>&#39;prefix&#39;_epr.h5</code></li>
+<li><code>pert.in</code></li>
+<li><code>fklist</code>（<strong>k</strong> 点列表文件）</li>
+<li><code>fqlist</code>（<strong>q</strong> 点列表文件）</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../pert-ephmat/</span><br><span class="line"><span class="built_in">cat</span> pert.in</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>&amp;perturbo<br>  prefix &#x3D; ‘si’<br>  calc_mode &#x3D; ‘ephmat’<br>  fklist &#x3D; ‘eph.kpt’<br>  fqlist &#x3D; ‘eph.qpt’</p>
+<p>  band_min &#x3D; 2<br>  band_max &#x3D; 4</p>
+<p>  phfreq_cutoff &#x3D; 1   !meV<br> &#x2F;</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line">mpirun -n 1 perturbo.x -npools 1 -i pert.in | <span class="built_in">tee</span> pert.out</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Electron-phonon-Scattering"><a href="#Electron-phonon-Scattering" class="headerlink" title="Electron-phonon Scattering"></a>Electron-phonon Scattering</h2><blockquote>
+<p> PERTURBO 中与电子‑声子散射计算相关的三种模式：</p>
+<ul>
+<li>**<code>setup</code>**：为输运计算或载流子动力学模拟准备电子 <strong>k</strong> 网格和声子 <strong>q</strong> 网格，计算态密度并（可选）确定化学势。</li>
+<li>**<code>imsigma</code>**：计算电子‑声子自能的虚部（即散射率）。</li>
+<li>**<code>meanfp</code>**：计算电子的平均自由程、带速度和弛豫时间。</li>
+</ul>
+</blockquote>
+<h3 id="1-准备电子-k-网格和声子-q-网格（calc-mode-39-setup-39-）"><a href="#1-准备电子-k-网格和声子-q-网格（calc-mode-39-setup-39-）" class="headerlink" title="1. 准备电子 k 网格和声子 q 网格（calc_mode = &#39;setup&#39;）"></a>1. 准备电子 k 网格和声子 q 网格（<code>calc_mode = &#39;setup&#39;</code>）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../pert-setup-electron/</span><br><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line">mpirun -n 1 perturbo.x -npools 1 -i pert.in | <span class="built_in">tee</span> pert.out</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-电子‑声子自能虚部（calc-mode-39-imsigma-39-）"><a href="#2-电子‑声子自能虚部（calc-mode-39-imsigma-39-）" class="headerlink" title="2. 电子‑声子自能虚部（calc_mode = &#39;imsigma&#39;）"></a>2. 电子‑声子自能虚部（<code>calc_mode = &#39;imsigma&#39;</code>）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../pert-imsigma-electron/</span><br><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line"><span class="built_in">export</span> OMP_NUM_THREADS=4</span><br><span class="line">mpirun -n 8 perturbo.x -npools 8 -i pert.in | <span class="built_in">tee</span> pert.out</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-电子平均自由程（calc-mode-39-meanfp-39-）"><a href="#3-电子平均自由程（calc-mode-39-meanfp-39-）" class="headerlink" title="3. 电子平均自由程（calc_mode = &#39;meanfp&#39;）"></a>3. 电子平均自由程（<code>calc_mode = &#39;meanfp&#39;</code>）</h3><blockquote>
+<p>基于 <code>imsigma</code> 的结果，计算电子态的<strong>平均自由程</strong>（MFP）、<strong>弛豫时间</strong>和<strong>带速度</strong>。</p>
+<p>必须<strong>先运行 <code>imsigma</code></strong> 计算，得到 <code>&#39;prefix&#39;.imsigma</code> 文件。</p>
+<p>与 <code>imsigma</code> 完全相同，仅将 <code>calc_mode</code> 改为 <code>&#39;meanfp&#39;</code>：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../pert-meanfp-electron/</span><br><span class="line"><span class="built_in">ln</span> -sf ../../../example01-silicon-qe2pert/qe2pert/si_epr.h5 .</span><br><span class="line">mpirun -n 1 perturbo.x -npools 1 -i pert.in | <span class="built_in">tee</span> pert.out</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>输出文件</strong>：<code>si_meanfp.yml</code>。</p>
+</blockquote>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#PERTURBO" >
+    <span class="tag-code">PERTURBO</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/05/15/softwares/vasp/Volume_relaxation/">
+        <span class="nav-arrow">← </span>
+        
+          体积弛豫
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#PERTURBO-%E6%95%99%E7%A8%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">PERTURBO 教程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quantum-Espresso-to-Perturbo"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Quantum Espresso to Perturbo</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%87%AA%E6%B4%BDSCF%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">1. 自洽SCF计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%A3%B0%E5%AD%90%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">2. 声子计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-nSCF%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">3. nSCF计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-Wannier90-%E8%AE%A1%E7%AE%97"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">4. Wannier90 计算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E8%BF%90%E8%A1%8C-qe2pert-x"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">5. 运行 qe2pert.x</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Running-Perturbo"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Running Perturbo</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%BD%BF%E7%94%A8%E4%B8%87%E5%B0%BC%E5%B0%94%E5%87%BD%E6%95%B0%E6%8F%92%E5%80%BC%E7%94%B5%E5%AD%90%E8%83%BD%E5%B8%A6%E7%BB%93%E6%9E%84"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">1. 使用万尼尔函数插值电子能带结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%80%9A%E8%BF%87%E5%AF%B9%E5%AE%9E%E7%A9%BA%E9%97%B4%E5%8E%9F%E5%AD%90%E9%97%B4%E5%8A%9B%E5%B8%B8%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%EF%BC%8C%E6%8F%92%E5%80%BC%E5%A3%B0%E5%AD%90%E8%89%B2%E6%95%A3"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">2. 通过对实空间原子间力常数进行傅里叶变换，插值声子色散</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E4%BD%BF%E7%94%A8%E4%B8%87%E5%B0%BC%E5%B0%94%E5%87%BD%E6%95%B0%E6%8F%92%E5%80%BC%E7%94%B5%E5%AD%90-%E5%A3%B0%E5%AD%90%EF%BC%88e%E2%80%91ph%EF%BC%89%E7%9F%A9%E9%98%B5%E5%85%83"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">3. 使用万尼尔函数插值电子-声子（e‑ph）矩阵元</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Electron-phonon-Scattering"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Electron-phonon Scattering</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%87%86%E5%A4%87%E7%94%B5%E5%AD%90-k-%E7%BD%91%E6%A0%BC%E5%92%8C%E5%A3%B0%E5%AD%90-q-%E7%BD%91%E6%A0%BC%EF%BC%88calc-mode-39-setup-39-%EF%BC%89"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">1. 准备电子 k 网格和声子 q 网格（calc_mode &#x3D; &#39;setup&#39;）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%94%B5%E5%AD%90%E2%80%91%E5%A3%B0%E5%AD%90%E8%87%AA%E8%83%BD%E8%99%9A%E9%83%A8%EF%BC%88calc-mode-39-imsigma-39-%EF%BC%89"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">2. 电子‑声子自能虚部（calc_mode &#x3D; &#39;imsigma&#39;）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E7%94%B5%E5%AD%90%E5%B9%B3%E5%9D%87%E8%87%AA%E7%94%B1%E7%A8%8B%EF%BC%88calc-mode-39-meanfp-39-%EF%BC%89"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">3. 电子平均自由程（calc_mode &#x3D; &#39;meanfp&#39;）</span></a></li></ol></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/06/01/softwares/qe/QE_PERTURBO/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

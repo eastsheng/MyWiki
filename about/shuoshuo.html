@@ -565,7 +565,15 @@
   function renderMarkdown(text) {
     if (!text) return '';
     var uid = 0;
-    var blocks = {}; // placeholder → { tex, display }
+    var blocks = {}; // placeholder → { tex, display, mdLink }
+
+    // Protect Markdown links [text](url) and images ![alt](url) BEFORE LaTeX
+    // so $, _, \ in URLs don't get consumed by LaTeX regexes
+    text = text.replace(/(!?\[[^\[\]]*\]\([^()]*\))/g, function(match) {
+      var key = '%%MDLINK' + (uid++) + '%%';
+      blocks[key] = { tex: match, display: false, mdLink: true };
+      return key;
+    });
 
     // Protect \[...\] block math (LaTeX display)
     text = text.replace(/\\\[([\s\S]*?)\\\]/g, function(_, tex) {
@@ -592,12 +600,19 @@
       return key;
     });
 
+    // Restore Markdown links BEFORE marked.parse() so it can render them
+    for (var key in blocks) {
+      var b = blocks[key];
+      if (b.mdLink) text = text.replace(key, b.tex);
+    }
+
     // Run Markdown
     var html = marked.parse(text);
 
     // Restore LaTeX placeholders with KaTeX
     for (var key in blocks) {
       var b = blocks[key];
+      if (b.mdLink) continue;
       try {
         var rendered = katex.renderToString(b.tex, { displayMode: b.display, throwOnError: false });
         html = html.replace(key, rendered);
