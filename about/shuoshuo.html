@@ -564,6 +564,17 @@
       var titleAttr = title ? ' title="' + title + '"' : '';
       return '<a href="' + href + '"' + titleAttr + ' target="_blank" rel="noopener">' + (text || '') + '</a>';
     };
+    renderer.image = function(href, title, text) {
+      // Support both old API and marked v13+ (single token object)
+      if (typeof href === 'object' && href) {
+        text = href.text || '';
+        title = href.title || null;
+        href = href.href || '';
+      }
+      var titleAttr = title ? ' title="' + title + '"' : '';
+      // Add referrerpolicy="no-referrer" for Gitee/GitHub hotlink protection
+      return '<img src="' + href + '"' + titleAttr + ' alt="' + (text || '') + '" referrerpolicy="no-referrer">';
+    };
     marked.setOptions({ renderer: renderer });
   }
 
@@ -614,6 +625,9 @@
 
     // Run Markdown
     var html = marked.parse(text);
+
+    // Add referrerpolicy="no-referrer" to all images (fix Gitee/GitHub hotlink protection)
+    html = html.replace(/<img\s/g, '<img referrerpolicy="no-referrer" ');
 
     // Restore LaTeX placeholders with KaTeX
     for (var key in blocks) {
