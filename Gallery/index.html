@@ -1,391 +1,412 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <meta name="referrer" content="no-referrer" />
-  <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  <meta name="description" content="Eastsheng Wiki">
-  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
-  
-    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
-  
-  <title>
-    
-      Gallery | Eastsheng&#39;s Wiki
-    
-  </title>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
-  
-<link rel="stylesheet" href="/MyWiki/css/style.css">
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="按年月整理的个人摄影作品集">
+  <title>摄影作品集</title>
+  <script>
+    (()=>{const s=localStorage.getItem("gallery-theme");const d=s?s==="dark":matchMedia("(prefers-color-scheme:dark)").matches;document.documentElement.dataset.theme=d?"dark":"light"})();
+  </script>
+  <style>
+    :root{color-scheme:light;--bg:#fff;--text:#161616;--muted:#777;--line:#e5e5e5;--soft:#f4f4f4;--overlay:rgba(0,0,0,.92)}
+    html[data-theme="dark"]{color-scheme:dark;--bg:#111;--text:#eee;--muted:#999;--line:#303030;--soft:#1c1c1c;--overlay:rgba(0,0,0,.96)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
+    body.no-scroll{overflow:hidden}
+    button{font:inherit;color:inherit}
+    .intro{display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(calc(100% - 64px),1680px);margin:0 auto;padding:42px 0 34px;border-bottom:1px solid var(--line)}
+    .intro p{margin:0;font-size:clamp(.92rem,1.2vw,1.08rem);letter-spacing:.02em}
+    .theme-toggle{display:flex;align-items:center;gap:8px;flex:0 0 auto;padding:8px 12px;background:transparent;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:.75rem}
+    .theme-toggle:hover,.theme-toggle:focus-visible{background:var(--soft);outline:none}
+    .theme-icon{font-size:.95rem;line-height:1}
+    .archive{width:min(calc(100% - 64px),1680px);margin:0 auto;padding-bottom:80px}
+    .month-group{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(28px,4vw,72px);padding:56px 0;border-bottom:1px solid var(--line)}
+    .month-label{position:sticky;top:28px;align-self:start}
+    .year{display:block;margin-bottom:6px;color:var(--muted);font-size:.72rem;letter-spacing:.12em}
+    .month{display:flex;align-items:baseline;gap:8px}
+    .month strong{font-size:3.2rem;font-weight:400;letter-spacing:-.07em;line-height:1}
+    .month span{color:var(--muted);font-size:.78rem}
+    .month-total{display:block;margin-top:12px;color:var(--muted);font-size:.68rem}
+    .photo-grid{columns:3;column-gap:16px}
+    .photo-card{display:inline-block;width:100%;margin:0 0 28px;break-inside:avoid}
+    .photo-button{display:block;width:100%;padding:0;background:var(--soft);border:0;cursor:zoom-in}
+    .photo-button:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+    .photo-button img{display:block;width:100%;height:auto;object-fit:contain;transition:opacity .2s}
+    .photo-button:hover img{opacity:.88}
+    .caption{display:flex;justify-content:space-between;gap:14px;padding-top:10px}
+    .caption-main{min-width:0}
+    .caption h2{margin:0;font-size:.8rem;font-weight:500;line-height:1.5}
+    .caption p{margin:4px 0 0;color:var(--muted);font-size:.7rem;line-height:1.55}
+    .caption time{flex:0 0 auto;color:var(--muted);font-size:.66rem;line-height:1.5}
+    .pagination{display:flex;align-items:center;justify-content:center;gap:7px;padding:52px 0 0}
+    .page-button{min-width:38px;height:38px;padding:0 11px;background:transparent;border:1px solid var(--line);border-radius:50%;cursor:pointer;font-size:.75rem}
+    .page-button.wide{width:auto;border-radius:999px}
+    .page-button:hover,.page-button:focus-visible{background:var(--soft);outline:none}
+    .page-button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+    .page-button:disabled{opacity:.35;cursor:not-allowed}
+    .empty,.error{padding:100px 20px;text-align:center;color:var(--muted)}
+    .lightbox{position:fixed;z-index:100;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:18px 28px 24px;background:var(--overlay);color:#fff;opacity:0;visibility:hidden;transition:.2s}
+    .lightbox.open{opacity:1;visibility:visible}
+    .lightbox-top,.lightbox-caption{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .lightbox-top{min-height:48px;font-size:.7rem;letter-spacing:.08em}
+    .close,.nav{display:grid;place-items:center;width:40px;height:40px;padding:0;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:50%;cursor:pointer}
+    .close:hover,.nav:hover,.close:focus-visible,.nav:focus-visible{background:#fff;color:#111;outline:none}
+    .close{font-size:1.15rem}
+    .stage{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:0}
+    .image-wrap{display:grid;place-items:center;height:100%;min-width:0;min-height:0}
+    .lightbox-image{display:block;max-width:100%;max-height:calc(100vh - 170px);object-fit:contain}
+    .photo-button img,.lightbox-image{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none}
+    .lightbox-caption{min-height:54px;padding-top:12px;border-top:1px solid rgba(255,255,255,.25)}
+    .lightbox-caption strong{font-size:.82rem;font-weight:500}.lightbox-caption span{color:#aaa;font-size:.68rem}
+    @media(max-width:1000px){.photo-grid{columns:2}.month-group{grid-template-columns:120px minmax(0,1fr)}}
+    @media(max-width:640px){
+      .intro,.archive{width:calc(100% - 32px)}.intro{padding:26px 0 22px}.theme-label{display:none}
+      .month-group{grid-template-columns:1fr;gap:24px;padding:38px 0}
+      .month-label{z-index:10;top:0;display:flex;align-items:baseline;gap:10px;margin:0 -16px;padding:10px 16px;background:color-mix(in srgb,var(--bg) 92%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+      .year{margin:0}.month strong{font-size:2rem}.month-total{margin:0 0 0 auto}.month span{display:none}
+      .photo-grid{columns:1}.photo-card{margin-bottom:34px}
+      .lightbox{padding-inline:10px}.stage{grid-template-columns:1fr}.nav{position:absolute;bottom:67px}.prev{left:10px}.next{right:10px}.lightbox-caption{padding-inline:50px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}
 
-  
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
-  
-  
-  
-  
+    /* 静谧视觉主题 */
+    :root{--bg:#fff;--text:#243029;--muted:#818a84;--line:#e8ece9;--soft:#f6f8f6;--accent:#60756a}
+    html[data-theme="dark"]{--bg:#101310;--text:#e5e9e5;--muted:#8d9891;--line:#293029;--soft:#171c18;--accent:#9aada1}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.01em}
+    .intro{padding:58px 0 40px;border-bottom-color:var(--line)}
+    .intro p{color:var(--text);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:clamp(.95rem,1.2vw,1.08rem);letter-spacing:.13em;line-height:1.9}
+    .theme-toggle{padding:8px 11px;color:var(--muted);border-color:transparent;transition:color .25s,background .25s}
+    .theme-toggle:hover,.theme-toggle:focus-visible{color:var(--text);background:var(--soft)}
+    .theme-icon{font-size:.9rem}
+    .archive{padding-bottom:120px}
+    .month-group{grid-template-columns:150px minmax(0,1fr);gap:clamp(36px,5vw,84px);padding:80px 0;border-bottom-color:var(--line)}
+    .month-label{top:36px}
+    .year{margin-bottom:12px;color:var(--accent);font-size:.66rem;font-weight:500;letter-spacing:.19em}
+    .month{gap:10px}
+    .month strong{font-family:"Iowan Old Style","Noto Serif SC","Songti SC","STSong",serif;font-size:3.65rem;font-weight:400;letter-spacing:-.06em;line-height:.95}
+    .month span{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.72rem}
+    .month-total{margin-top:18px;font-size:.62rem;letter-spacing:.12em}
+    .photo-grid{column-gap:26px}
+    .photo-card{margin-bottom:46px;animation:quiet-rise .7s ease both}
+    .photo-button{background:transparent}
+    .photo-button img{background:var(--soft);transition:opacity .4s ease,transform .5s cubic-bezier(.2,.7,.2,1),filter .4s ease}
+    .photo-button:hover img{opacity:.96;transform:translateY(-2px);filter:saturate(.94)}
+    .photo-button:focus-visible{outline:1px solid var(--accent);outline-offset:5px}
+    .caption{gap:18px;padding-top:13px}
+    .caption h2{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.79rem;font-weight:500;letter-spacing:.06em;line-height:1.7}
+    .caption p{margin-top:5px;color:var(--muted);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.68rem;line-height:1.75}
+    .caption time{padding-top:2px;font-size:.61rem;letter-spacing:.08em}
+    .pagination{gap:10px;padding-top:70px}
+    .page-button{border-color:transparent;color:var(--muted);transition:color .2s,background .2s}
+    .page-button:hover,.page-button:focus-visible{color:var(--text);background:var(--soft)}
+    .page-button.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+    .page-button.wide{padding-inline:16px;border-color:var(--line)}
+    .lightbox{background:rgba(8,11,9,.96)}
+    .lightbox-caption strong{font-family:"Noto Serif SC","Songti SC","STSong",serif;letter-spacing:.08em}
+    @keyframes quiet-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @media(max-width:1000px){.month-group{grid-template-columns:120px minmax(0,1fr)}.photo-grid{column-gap:20px}}
+    @media(max-width:640px){
+      .intro{padding:34px 0 26px}.intro p{letter-spacing:.08em}
+      .month-group{grid-template-columns:1fr;gap:30px;padding:52px 0}
+      .month-label{top:0;background:color-mix(in srgb,var(--bg) 94%,transparent)}
+      .year{margin:0}.month strong{font-size:2.15rem}.month-total{margin-left:auto}
+      .photo-card{margin-bottom:48px}
+    }
+
+    /* 严格网格与日期归档 */
+    .photo-grid{columns:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:42px 26px}
+    .photo-card{display:block;width:auto;margin:0;break-inside:auto;animation:quiet-rise .7s ease both}
+    .date-days{display:block;margin-top:15px;color:var(--text);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.72rem;letter-spacing:.1em;line-height:1.7}
+    .month-total{margin-top:7px}
+    .lightbox-caption{display:none}
+    .lightbox-image{max-height:calc(100vh - 90px)}
+    @media(max-width:800px){.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:560px){.photo-grid{grid-template-columns:1fr}.date-days{margin:0 0 0 auto}.month-total{display:none}}
+
+    /* 月份首图说明 */
+    .month-description{max-width:18em;margin:18px 0 0;color:var(--muted);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.72rem;line-height:1.9;letter-spacing:.04em}
+    @media(max-width:560px){.month-description{width:100%;max-width:none;margin:8px 0 0;font-size:.68rem}.month-label{flex-wrap:wrap}}
+
+    /* 右侧对称留白 */
+    .month-group{padding-right:clamp(72px,9vw,150px)}
+    @media(max-width:1000px){.month-group{padding-right:clamp(36px,6vw,72px)}}
+    @media(max-width:800px){.month-group{padding-right:0}}
+
+    /* 末行照片居中 */
+    .photo-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:42px 26px}
+    .photo-card{flex:0 0 calc((100% - 52px)/3);min-width:0}
+    @media(max-width:800px){.photo-card{flex-basis:calc((100% - 26px)/2)}}
+    @media(max-width:560px){.photo-card{flex-basis:100%}}
 
 
-  
-  
-    
-<script src="/MyWiki/js/local-search.js"></script>
+    /* 顶部原位居中标题 */
+    .intro{position:relative;justify-content:center}
+    .intro h1{margin:0;padding-left:.38em;font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:clamp(1.55rem,2.2vw,2.1rem);font-weight:500;letter-spacing:.38em;line-height:1.5;text-align:center}
+    .intro .theme-toggle{position:absolute;right:0}
+    @media(max-width:640px){.intro h1{font-size:1.45rem}.intro .theme-toggle{right:0}}
+
+    /* 图片区域左右等距 */
+    .month-group{padding-right:calc(150px + clamp(36px,5vw,84px))}
+    @media(max-width:1000px){.month-group{padding-right:calc(120px + clamp(36px,5vw,84px))}}
+    @media(max-width:640px){.month-group{padding-right:0}}
+
+    /* 左标题右说明 */
+    .month-group{grid-template-columns:150px minmax(0,1fr) 150px;padding-right:0}
+    .month-title{margin:18px 0 0;color:var(--text);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.82rem;font-weight:500;line-height:1.75;letter-spacing:.06em}
+    .month-note{position:sticky;top:36px;align-self:start;min-width:0}
+    .month-note p{margin:0;color:var(--muted);font-family:"Noto Serif SC","Songti SC","STSong",serif;font-size:.72rem;line-height:1.95;letter-spacing:.04em}
+    @media(max-width:1000px){.month-group{grid-template-columns:120px minmax(0,1fr) 120px;padding-right:0}}
+    @media(max-width:640px){
+      .month-group{grid-template-columns:1fr;padding-right:0}
+      .month-title{width:100%;margin:8px 0 0;font-size:.76rem}
+      .month-note{position:static;order:1}
+      .month-note p{padding:0 2px;font-size:.68rem}
+      .photo-grid{order:2}
+    }
+
+    /* 站点运行页脚 */
+    .site-footer{position:relative;z-index:1;width:min(calc(100% - 64px),1680px);margin:0 auto;padding:34px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.72rem;line-height:2;text-align:center;letter-spacing:.03em}
+    .site-footer p{margin:0}
+    .site-footer a{color:var(--text);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+    .site-footer a:hover,.site-footer a:focus-visible{color:var(--accent);border-bottom-color:currentColor;outline:none}
+    @media(max-width:640px){.site-footer{width:calc(100% - 32px);padding:28px 0 38px;font-size:.68rem}}
 
 
-    <!--  修改 开始位置-->
+    /* 突出照片区域 */
+    body{overflow-x:hidden}
+    .photo-grid{padding:clamp(18px,2vw,30px);background:color-mix(in srgb,var(--soft) 78%,var(--bg));border:1px solid var(--line);border-radius:3px;box-shadow:0 18px 52px rgba(36,48,41,.09)}
+    .photo-button{box-shadow:0 6px 20px rgba(36,48,41,.1);transition:box-shadow .35s ease,transform .35s ease}
+    .photo-button:hover{box-shadow:0 11px 30px rgba(36,48,41,.16);transform:translateY(-2px)}
+    html[data-theme="dark"] .photo-grid{background:color-mix(in srgb,var(--soft) 88%,var(--bg));box-shadow:0 20px 58px rgba(0,0,0,.3)}
+    html[data-theme="dark"] .photo-button{box-shadow:0 7px 22px rgba(0,0,0,.32)}
+    @media(max-width:640px){.photo-grid{padding:14px;box-shadow:0 12px 34px rgba(36,48,41,.08)}}
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
-  <!-- 或者使用CDN -->
-<script>
-    $(document).ready(function() {
-        var mermaid_config = {
-            startOnLoad: true,
-            theme: 'default',
-            flowchart:{
-                useMaxWidth: false,
-                htmlLabels: true
-            }                
+    /* 自适应瀑布网格 */
+    .photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row dense;grid-auto-rows:7px;column-gap:26px;row-gap:11px;align-items:start}
+    .photo-card{display:block;min-width:0;margin:0;align-self:start;flex:none}
+    .photo-grid.sparse{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:26px}
+    .photo-grid.sparse .photo-card{flex:0 0 calc((100% - 52px)/3)}
+    @media(max-width:800px){
+      .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .photo-grid.sparse .photo-card{flex-basis:calc((100% - 26px)/2)}
+    }
+    @media(max-width:560px){
+      .photo-grid{grid-template-columns:1fr}
+      .photo-grid.sparse .photo-card{flex-basis:100%}
+    }
+  </style>
+</head>
+<body>
+  <section class="intro" aria-label="相册介绍">
+    <h1>相册</h1>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换黑夜模式">
+      <span class="theme-icon" aria-hidden="true">☾</span>
+      <span class="theme-label">黑夜模式</span>
+    </button>
+  </section>
+
+  <main class="archive" id="archive">
+    <div id="gallery" aria-live="polite"></div>
+    <nav class="pagination" id="pagination" aria-label="照片分页"></nav>
+  </main>
+
+
+  <footer class="site-footer">
+    <p><span id="site-runtime">⏱️正在计算稳定运行时间…</span><br>
+      Copyright © 2019-<span id="copyright-year"></span>
+      <a href="https://eastsheng.github.io/MyWiki/about">Eastsheng</a> |
+      <a href="https://eastsheng.github.io/MyWiki">返回首页</a>
+    </p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="照片大图" aria-hidden="true">
+    <div class="lightbox-top">
+      <span id="lightbox-count">01 / 01</span>
+      <button class="close" type="button" aria-label="关闭大图">×</button>
+    </div>
+    <div class="stage">
+      <button class="nav prev" type="button" aria-label="上一张">←</button>
+      <div class="image-wrap"><img class="lightbox-image" id="lightbox-image" src="" alt="" draggable="false"></div>
+      <button class="nav next" type="button" aria-label="下一张">→</button>
+    </div>
+    <div class="lightbox-caption">
+      <strong id="lightbox-title"></strong>
+      <span id="lightbox-meta"></span>
+    </div>
+  </div>
+
+  <script>
+    const PAGE_SIZE=18;
+    const gallery=document.querySelector("#gallery");
+    const pagination=document.querySelector("#pagination");
+    const themeButton=document.querySelector("#theme-toggle");
+    const lightbox=document.querySelector("#lightbox");
+    const lightboxImage=document.querySelector("#lightbox-image");
+    let photos=[],currentPage=1,activeIndex=0,lastFocus=null;
+
+    const esc=(v="")=>String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+    const parts=(v="")=>{const p=String(v).split("-");return{year:p[0]||"未知",month:(p[1]||"00").padStart(2,"0"),day:p[2]||""}};
+    const dateKey=p=>{const d=parts(p.date);return d.year+"-"+d.month+"-"+(d.day||"00")};
+
+    function buildPages(){
+      const dateGroups=[];
+      photos.forEach((p,index)=>{
+        const key=dateKey(p);
+        const last=dateGroups[dateGroups.length-1];
+        if(last&&last.key===key)last.list.push(Object.assign({},p,{globalIndex:index}));
+        else dateGroups.push({key,list:[Object.assign({},p,{globalIndex:index})]});
+      });
+      const pages=[];
+      let page=[],count=0;
+      dateGroups.forEach(group=>{
+        if(page.length&&count+group.list.length>PAGE_SIZE){pages.push(page);page=[];count=0}
+        page.push(group);count+=group.list.length;
+      });
+      if(page.length)pages.push(page);
+      return pages;
+    }
+
+    function updateThemeButton(){
+      const dark=document.documentElement.dataset.theme==="dark";
+      themeButton.querySelector(".theme-icon").textContent=dark?"☀":"☾";
+      themeButton.querySelector(".theme-label").textContent=dark?"浅色模式":"黑夜模式";
+      themeButton.setAttribute("aria-label",dark?"切换浅色模式":"切换黑夜模式");
+    }
+    themeButton.addEventListener("click",()=>{
+      const dark=document.documentElement.dataset.theme!=="dark";
+      document.documentElement.dataset.theme=dark?"dark":"light";
+      localStorage.setItem("gallery-theme",dark?"dark":"light");
+      updateThemeButton();
+    });
+    updateThemeButton();
+
+
+    function layoutMasonry(){
+      document.querySelectorAll(".photo-grid:not(.sparse)").forEach(grid=>{
+        const styles=getComputedStyle(grid);
+        const rowHeight=parseFloat(styles.gridAutoRows);
+        const rowGap=parseFloat(styles.rowGap);
+        grid.querySelectorAll(".photo-card").forEach(card=>{
+          card.style.gridRowEnd="auto";
+          const height=card.getBoundingClientRect().height;
+          card.style.gridRowEnd="span "+Math.max(1,Math.ceil((height+rowGap)/(rowHeight+rowGap)));
+        });
+      });
+    }
+
+    function setupMasonry(){
+      document.querySelectorAll(".photo-grid img").forEach(img=>{
+        if(!img.complete)img.addEventListener("load",layoutMasonry,{once:true});
+      });
+      requestAnimationFrame(layoutMasonry);
+    }
+
+    let masonryResizeTimer;
+    window.addEventListener("resize",()=>{
+      clearTimeout(masonryResizeTimer);
+      masonryResizeTimer=setTimeout(layoutMasonry,120);
+    });
+
+    function renderPage(page,scroll=false){
+      const pages=buildPages();
+      const totalPages=Math.max(1,pages.length);
+      currentPage=Math.min(Math.max(page,1),totalPages);
+      const pageGroups=pages[currentPage-1]||[];
+      const pagePhotos=pageGroups.flatMap(group=>group.list);
+
+      if(!pagePhotos.length){gallery.innerHTML='<p class="empty">还没有收录照片。</p>';pagination.innerHTML="";return}
+
+      gallery.innerHTML=pageGroups.map(group=>{
+        const key=group.key,list=group.list,d=parts(list[0].date);
+        const dayText=d.day?d.day+" 日":"";
+        const groupTitle=list[0].title||"";
+        const groupDescription=list[0].description||"";
+        const cards=list.map(p=>'<article class="photo-card"><button class="photo-button" type="button" data-index="'+p.globalIndex+'" aria-label="查看照片大图">'+
+            '<img src="'+esc(p.url)+'" alt="'+esc(p.alt||p.title||"摄影作品")+'" referrerpolicy="no-referrer" draggable="false" loading="lazy" decoding="async"></button></article>'
+        ).join("");
+        return '<section class="month-group" aria-labelledby="date-'+esc(key)+'"><div><header class="month-label" id="date-'+esc(key)+'">'+
+          '<span class="year">'+esc(d.year)+' 年</span><span class="month"><strong>'+esc(d.month)+'</strong><span>月</span></span>'+
+          '<span class="date-days">'+esc(dayText)+'</span>'+(groupTitle?'<h2 class="month-title">'+esc(groupTitle)+'</h2>':'')+'<span class="month-total">'+list.length+' 张</span></header></div><div class="photo-grid '+(list.length<3?"sparse":"")+'">'+cards+'</div><aside class="month-note">'+(groupDescription?'<p>'+esc(groupDescription)+'</p>':'')+'</aside></section>'
+      }).join("");
+
+      gallery.querySelectorAll(".photo-button").forEach(b=>b.addEventListener("click",()=>openLightbox(Number(b.dataset.index),b)));
+      setupMasonry();
+      renderPagination(totalPages);
+      if(scroll)document.querySelector("#archive").scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
+    function renderPagination(total){
+      if(total<=1){pagination.innerHTML="";return}
+      let buttons='<button class="page-button wide" data-page="'+(currentPage-1)+'" '+(currentPage===1?"disabled":"")+'>上一页</button>';
+      for(let i=1;i<=total;i++){
+        if(total>9&&i!==1&&i!==total&&Math.abs(i-currentPage)>2){
+          if(i===2||i===total-1)buttons+='<span aria-hidden="true">…</span>';
+          continue;
         }
-        mermaid.initialize(mermaid_config);
-    });
-</script>   <!-- 修改 结束位置 --> 
-
-
-<meta name="generator" content="Hexo 6.3.0"></head>
-<div class="wechat-share">
-  <img src="/css/images/logo.png" />
-</div>
-  <body>
-    <header class="header fixed-header">
-  <div class="header-container">
-    <a class="home-link" href="/MyWiki/">
-      <div class="logo"></div>
-      <span>Eastsheng's Wiki</span>
-    </a>
-    <ul class="right-list">
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/" class="item-link">Home</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/archives/" class="item-link">Archives</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/tags/" class="item-link">Tags</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/collections/" class="item-link">Collections</a>
-          
-        </li>
-      
-        <li class="list-item">
-          
-            <a href="/MyWiki/about/" class="item-link">About</a>
-          
-        </li>
-      
-      
-        <li class="menu-item menu-item-search right-list">
-    <a role="button" class="popup-trigger">
-        <i class="fa fa-search fa-fw"></i>
-    </a>
-</li>
-      
-    </ul>
-    <div class="menu">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </div>
-    <div class="menu-mask">
-      <ul class="menu-list">
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/" class="menu-link">Home</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
-            
-          </li>
-        
-          <li class="menu-item">
-            
-              <a href="/MyWiki/about/" class="menu-link">About</a>
-            
-          </li>
-        
-      </ul>
-    </div>
-    
-      <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-            <span class="search-icon">
-                <i class="fa fa-search"></i>
-            </span>
-            <div class="search-input-container">
-                <input autocomplete="off" autocapitalize="off"
-                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
-                    type="search" class="search-input">
-            </div>
-            <span class="popup-btn-close">
-                <i class="fa fa-times-circle"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-    
-  </div>
-</header>
-
-    <div id="article-banner">
-  <h2>Gallery</h2>
-
-  <div class="arrow-down">
-    <a href="javascript:;"></a>
-  </div>
-</div>
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
-
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-<main class="app-body flex-box">
-  <!-- Article START -->
-  <article class="post-article">
-    <section class="markdown-content"><h3 id="2024"><a href="#2024" class="headerlink" title="2024"></a>2024</h3><table>
-<thead>
-<tr>
-<th align="center">甲烷水合物</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0017931024002308-gr1.jpg"></td>
-</tr>
-</tbody></table>
-<h3 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h3><table>
-<thead>
-<tr>
-<th align="center">深山藏古寺</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2024/202408021555078.png" alt="img"></td>
-</tr>
-</tbody></table>
-</section>
-    <!-- Tags START -->
-    
-    <!-- Tags END -->
-    <!-- NAV START -->
-    
-    <!-- NAV END -->
-    <!-- 打赏 START -->
-    
-    <!-- 打赏 END -->
-    <!-- 二维码 START -->
-    
-    <!-- 二维码 END -->
-    
-      <!-- Utterances START -->
-      <div id="utterances"></div>
-      <script src="https://utteranc.es/client.js"
-        repo=""
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async></script>    
-      <!-- Utterances END -->
-    
-  </article>
-
-</main>
-
-<script>
-  (function () {
-    var url = 'https://eastsheng.github.io/MyWiki/Gallery/index.html';
-    var banner = 'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_1280.png'
-    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
-      $('#article-banner').css({
-        'background-image': 'url(' + banner + ')'
-      })
-    } else {
-      $('#article-banner').geopattern(url)
-    }
-    $('.header').removeClass('fixed-header')
-
-    //// error image
-    //$(".markdown-content img").on('error', function() {
-    //  $(this).attr('src', '/css/images/error_icon.png')
-    //  $(this).css({
-    //    'cursor': 'default'
-    //  })
-    //})
-
-    // zoom image
-    $(".markdown-content img").on('click', function() {
-      var src = $(this).attr('src')
-      if (src !== '/css/images/error_icon.png') {
-        var imageW = $(this).width()
-        var imageH = $(this).height()
-
-        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
-        zoom = zoom < 1 ? 1 : zoom
-        zoom = zoom > 2 ? 2 : zoom
-        var transY = (($(window).height() - imageH) / 2).toFixed(2)
-
-        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
-        $('.image-view-wrap').addClass('wrap-active')
-        $('.image-view-wrap img').css({
-          'width': `${imageW}`,
-          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
-        })
-        $('html').css('overflow', 'hidden')
-
-        $('.image-view-wrap').on('click', function() {
-          $(this).remove()
-          $('html').attr('style', '')
-        })
+        buttons+='<button class="page-button '+(i===currentPage?"active":"")+'" data-page="'+i+'" aria-label="第 '+i+' 页" '+(i===currentPage?'aria-current="page"':'')+'>'+i+'</button>'
       }
-    })
-  })();
-</script>
-
-
-
-
-
-
-
-    <div class="scroll-top">
-  <span class="arrow-icon"></span>
-</div>
-    <footer class="app-footer">
-  <p class="copyright">
-  </span>
-            <span class="nav-item">
-             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
-   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
-    <br>
-    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
-    
-  </p>
-<!--开站时间开始-->       
- <script language="javascript"> 
-    var now = new Date();
-    function createtime(){
-        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
-        now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
-        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if(String(snum).length ==1 ){snum = "0" + snum;}
-        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
-        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+      buttons+='<button class="page-button wide" data-page="'+(currentPage+1)+'" '+(currentPage===total?"disabled":"")+'>下一页</button>';
+      pagination.innerHTML=buttons;
+      pagination.querySelectorAll("button:not(:disabled)").forEach(b=>b.addEventListener("click",()=>renderPage(Number(b.dataset.page),true)));
     }
-    setInterval("createtime()",250); 
-</script> 
-</footer>
 
-<script>
-  function async(u, c) {
-    var d = document, t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
-  }
-</script>
-<script>
-  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
-    FastClick.attach(document.body);
-  })
-</script>
+    function showPhoto(index){
+      activeIndex=(index+photos.length)%photos.length;
+      const p=photos[activeIndex],d=parts(p.date);
+      lightboxImage.src=p.url;lightboxImage.alt=p.alt||p.title;
+      document.querySelector("#lightbox-title").textContent=p.title;
+      document.querySelector("#lightbox-meta").textContent=[d.year+"."+d.month+(d.day?"."+d.day:""),p.location].filter(Boolean).join(" · ");
+      document.querySelector("#lightbox-count").textContent=String(activeIndex+1).padStart(2,"0")+" / "+String(photos.length).padStart(2,"0");
+    }
+    function openLightbox(i,trigger){lastFocus=trigger;showPhoto(i);lightbox.classList.add("open");lightbox.setAttribute("aria-hidden","false");document.body.classList.add("no-scroll");lightbox.querySelector(".close").focus()}
+    function closeLightbox(){lightbox.classList.remove("open");lightbox.setAttribute("aria-hidden","true");document.body.classList.remove("no-scroll");if(lastFocus)lastFocus.focus()}
+    lightbox.querySelector(".close").addEventListener("click",closeLightbox);
+    lightbox.querySelector(".prev").addEventListener("click",()=>showPhoto(activeIndex-1));
+    lightbox.querySelector(".next").addEventListener("click",()=>showPhoto(activeIndex+1));
+    lightbox.addEventListener("click",e=>{if(e.target===lightbox||e.target.classList.contains("image-wrap"))closeLightbox()});
+    document.addEventListener("keydown",e=>{if(!lightbox.classList.contains("open"))return;if(e.key==="Escape")closeLightbox();if(e.key==="ArrowLeft")showPhoto(activeIndex-1);if(e.key==="ArrowRight")showPhoto(activeIndex+1)});
 
-<script>
-  var hasLine = 'true';
-  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
-    $('figure pre').each(function(i, block) {
-      var figure = $(this).parents('figure');
-      if (hasLine === 'false') {
-        figure.find('.gutter').hide();
-      }
-      hljs.configure({useBR: true});
-      var lang = figure.attr('class').split(' ')[1] || 'code';
-      var codeHtml = $(this).html();
-      var codeTag = document.createElement('code');
-      codeTag.className = lang;
-      codeTag.innerHTML = codeHtml;
-      $(this).attr('class', '').empty().html(codeTag);
-      figure.attr('data-lang', lang.toUpperCase());
-      hljs.highlightBlock(block);
+    document.addEventListener("contextmenu",event=>{
+      if(event.target.matches(".photo-button img,.lightbox-image")) event.preventDefault();
     });
-  })
-</script>
-<!-- Baidu Tongji -->
+    document.addEventListener("dragstart",event=>{
+      if(event.target.matches(".photo-button img,.lightbox-image")) event.preventDefault();
+    });
 
+    async function loadPhotos(){
+      try{
+        const r=await fetch("./photos.json",{cache:"no-store"});
+        if(!r.ok)throw new Error("HTTP "+r.status);
+        const data=await r.json();
+        photos=(Array.isArray(data)?data:data.photos||[]).filter(p=>p.url&&p.title).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+        renderPage(1)
+      }catch(error){
+        console.error("无法读取照片数据：",error);
+        gallery.innerHTML='<p class="error">照片数据暂时无法读取，请通过 Hexo 本地服务器或 GitHub Pages 访问。</p>'
+      }
+    }
+    loadPhotos();
+  </script>
 
-<script src="/MyWiki/js/script.js"></script>
-
-
-	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
-	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
-  </body>
+  <script>
+    (() => {
+      const startedAt = new Date("2019-01-22T18:11:28+08:00").getTime();
+      const runtime = document.querySelector("#site-runtime");
+      const pad = value => String(value).padStart(2, "0");
+      function updateSiteRuntime() {
+        const elapsed = Math.max(0, Date.now() - startedAt);
+        const days = Math.floor(elapsed / 86400000);
+        const hours = Math.floor(elapsed % 86400000 / 3600000);
+        const minutes = Math.floor(elapsed % 3600000 / 60000);
+        const seconds = Math.floor(elapsed % 60000 / 1000);
+        runtime.textContent = "⏱️已稳定运行" + days + "天" + pad(hours) + "小时" + pad(minutes) + "分" + pad(seconds) + "秒";
+      }
+      document.querySelector("#copyright-year").textContent = new Date().getFullYear();
+      updateSiteRuntime();
+      setInterval(updateSiteRuntime, 1000);
+    })();
+  </script>
+</body>
 </html>
