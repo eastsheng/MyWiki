@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-003 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-003</h2>
+  <p class="post-date">2026-09-23 19:11:36</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="给热量搭一座“纳米桥”：1-nm-过渡层如何改善-GaN-x2F-SiC-散热？"><a href="#给热量搭一座“纳米桥”：1-nm-过渡层如何改善-GaN-x2F-SiC-散热？" class="headerlink" title="给热量搭一座“纳米桥”：1 nm 过渡层如何改善 GaN&#x2F;SiC 散热？"></a>给热量搭一座“纳米桥”：1 nm 过渡层如何改善 GaN&#x2F;SiC 散热？</h1><p>高功率氮化镓器件发热时，热量需要穿过材料界面，才能进入下方的碳化硅衬底。最新一项计算研究发现：在两者之间加入约 <strong>1 nm</strong> 的富铝合金层，模拟得到的界面热导提高了约 **71%**。有趣的是，一层极薄的非晶材料也可能帮忙传热——关键在于它被放在什么样的界面上。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<h2 id="热量为什么会在界面“堵车”？"><a href="#热量为什么会在界面“堵车”？" class="headerlink" title="热量为什么会在界面“堵车”？"></a>热量为什么会在界面“堵车”？</h2><p>在 GaN-on-SiC 器件中，氮化镓（GaN）负责器件工作，碳化硅（SiC）衬底帮助热量向外扩散。可热流经过两种材料的交界处时，会遇到<strong>界面热阻</strong>，也称卡皮查热阻（Kapitza resistance）。</p>
+<p>在这些晶体中，我们可以把传热涉及的原子集体振动理解为<strong>声子</strong>。如果两侧擅长传递的振动频率不同，就像两个人使用不同的节拍传球，一部分能量到了边界便不容易继续向前。研究者于是想到加入一层 AlGaN：它能否充当连接两侧的“翻译员”？</p>
+<p>难点在于，过渡层也会带来新的界面和自身热阻。<strong>桥搭得太厚，桥本身也可能成为路障。</strong>这正是论文要解决的成分与厚度选择问题。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<h2 id="作者怎样研究这座“桥”？"><a href="#作者怎样研究这座“桥”？" class="headerlink" title="作者怎样研究这座“桥”？"></a>作者怎样研究这座“桥”？</h2><p>这是一篇<strong>模拟研究</strong>。作者先用密度泛函理论（DFT）计算原子能量和受力，再训练能够描述 Al、Ga、N、Si、C 五种元素相互作用的机器学习势 NEP。随后，他们在非平衡分子动力学（NEMD）模型的一端供热、另一端取热，根据热流和界面处的温度变化计算界面热导。</p>
+<p>研究的主要变量是 AlₓGa₁₋ₓN 中的铝比例，以及 <strong>1–5 nm</strong> 的夹层厚度；作者还考察了同样厚度范围的非晶夹层。最后，他们把原子模拟得到的界面热导输入器件级热模型，估计热点温度。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p><strong>图 1（原文 Fig. 1）</strong>展示机器学习势的训练流程：作者不仅使用规则晶体，还纳入表面、界面、应变和非晶结构。直观地说，他们让模型提前“见过”研究中可能遇到的复杂原子环境。<strong>图 2（原文 Fig. 2）</strong>进一步对照 DFT 数据，报告能量预测误差为 <strong>15.28 meV&#x2F;atom</strong>、原子力预测误差为 <strong>0.331 eV&#x2F;Å</strong>。<strong>图 3（原文 Fig. 3）</strong>则比较多种材料的热导率：NEP 的结果总体比图中对比的传统经验势更贴近实验和已有理论结果。这些图构成后续界面计算的基础，但体材料性质准确，并不自动保证每一种界面结构都同样准确。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p>[建议插入：原文 Fig. 1–3，配文“从训练原子模型，到检验其传热预测能力”。]</p>
+<h2 id="发现一：过渡层的两侧，竟然“意见相反”"><a href="#发现一：过渡层的两侧，竟然“意见相反”" class="headerlink" title="发现一：过渡层的两侧，竟然“意见相反”"></a>发现一：过渡层的两侧，竟然“意见相反”</h2><p><strong>图 4（原文 Fig. 4）</strong>先标出器件中的散热路径，以及分子动力学模型中的热源、热沉和界面位置。看模拟温度曲线时，可以把界面处的突然变化理解为：热流经过这里需要付出额外的温差“代价”。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p>真正的转折出现在<strong>图 5（原文 Fig. 5）</strong>。随着 AlGaN 中铝含量增加，<strong>SiC&#x2F;AlGaN</strong> 这一侧越来越容易传热；但 <strong>AlGaN&#x2F;GaN</strong> 这一侧却越来越难传热。两个界面不能各自单独挑“最佳答案”。</p>
+<table>
+<thead>
+<tr>
+<th>作者模拟的单界面</th>
+<th>界面热导</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SiC&#x2F;GaN</td>
+<td><strong>243 ± 3 MW·m⁻²·K⁻¹</strong></td>
+</tr>
+<tr>
+<td>SiC&#x2F;AlN</td>
+<td><strong>2224 ± 12 MW·m⁻²·K⁻¹</strong></td>
+</tr>
+<tr>
+<td>AlN&#x2F;GaN</td>
+<td><strong>584 ± 5 MW·m⁻²·K⁻¹</strong></td>
+</tr>
+</tbody></table>
+<p>这些是<strong>不同单界面</strong>的结果，不能把 SiC&#x2F;AlN 的高数值直接当成整个 SiC&#x2F;AlN&#x2F;GaN 结构的热导。图 5 的直观信息是：<strong>改善进桥的一端，还得检查出桥的一端。</strong>图中相关数据来自三次独立 NEMD 模拟，误差棒表示标准误。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p>[建议插入：原文 Fig. 4–5，重点展示 Fig. 5 中随铝含量变化、方向相反的两条趋势。]</p>
+<h2 id="发现二：1-nm-富铝合金层，在所研究范围内表现突出"><a href="#发现二：1-nm-富铝合金层，在所研究范围内表现突出" class="headerlink" title="发现二：1 nm 富铝合金层，在所研究范围内表现突出"></a>发现二：1 nm 富铝合金层，在所研究范围内表现突出</h2><p>作者接着计算完整的 SiC&#x2F;AlGaN&#x2F;GaN 三层结构。<strong>图 6（原文 Fig. 6）</strong>同时比较铝含量和夹层厚度：对合金夹层来说，层加厚通常会增加内部热阻；足够薄时，改善振动耦合的收益才能压过这笔新增“开销”。</p>
+<p>在作者研究的结构和参数范围内，<strong>1 nm Al₀.₇₅Ga₀.₂₅N</strong> 夹层对应约 <strong>417 MW·m⁻²·K⁻¹</strong> 的有效热导，相比直接 SiC&#x2F;GaN 界面的约 <strong>243 MW·m⁻²·K⁻¹</strong>，提高约 **71%**。图 6 的频谱结果显示，重要增益集中在 <strong>5–15 THz</strong>：过渡层为原本不容易衔接的振动频段提供了传热机会。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p>这里的“最优”有明确边界：它来自作者扫描的成分、<strong>1–5 nm</strong> 厚度及指定的理想原子结构，并不意味着所有实际生长的 GaN&#x2F;SiC 器件都以这一配方为全局最优。</p>
+<p>[建议插入：原文 Fig. 6，配文“左看成分与厚度，右看哪些振动频率贡献了热流”。]</p>
+<h2 id="发现三：非晶层不总是“坏消息”"><a href="#发现三：非晶层不总是“坏消息”" class="headerlink" title="发现三：非晶层不总是“坏消息”"></a>发现三：非晶层不总是“坏消息”</h2><p>通常人们担心无序结构会阻碍传热，<strong>图 7（原文 Fig. 7）</strong>却给出了更细致的答案。作者在 SiC&#x2F;GaN 界面建立非晶夹层模型：厚度为 <strong>1 nm</strong> 时，模拟热导达到 <strong>384 ± 2 MW·m⁻²·K⁻¹</strong>；增厚至 <strong>5 nm</strong> 后，降为 <strong>117 ± 3 MW·m⁻²·K⁻¹</strong>。图中的温度剖面、频谱热导和局部振动态共同支持这一变化。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p>可以把薄非晶层想成一名熟悉两种“节拍”的翻译员：在原本失配的界面，它可能提供新的振动状态；但翻译队伍排得太长，额外阻力就超过了收益。论文的 SiC&#x2F;AlN 对照也说明，这种帮助<strong>取决于原来的界面</strong>：对本来传热很好的 SiC&#x2F;AlN，加入非晶层反而降低热导。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">www.nature.com</a>)</p>
+<p>[建议插入：原文 Fig. 7，配文“薄层先改善、继续增厚又恶化”。]</p>
+<h2 id="发现四：界面改善，能让器件热点降多少？"><a href="#发现四：界面改善，能让器件热点降多少？" class="headerlink" title="发现四：界面改善，能让器件热点降多少？"></a>发现四：界面改善，能让器件热点降多少？</h2><p><strong>图 8（原文 Fig. 8）</strong>把不同温度下算得的界面热导送入有限元器件热模型。在作者设定的体积功率密度 <strong>1×10¹⁶ W·m⁻³</strong> 下，预测的峰值沟道温度如下：(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">www.nature.com</a>)</p>
+<table>
+<thead>
+<tr>
+<th>模拟结构</th>
+<th>峰值沟道温度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直接 SiC&#x2F;GaN</td>
+<td><strong>478 K</strong></td>
+</tr>
+<tr>
+<td>加入 1 nm 非晶层</td>
+<td><strong>427 K</strong></td>
+</tr>
+<tr>
+<td>加入 1 nm Al₀.₇₅Ga₀.₂₅N</td>
+<td><strong>416 K</strong></td>
+</tr>
+</tbody></table>
+<p>换句话说，在<strong>这组热源和器件模型条件下</strong>，合金层方案对应的热点比直接界面低 <strong>62 K</strong>。图 8 的温度分布把结果画得很直观：界面越容易让热通过，热量越容易向 SiC 衬底扩散，沟道附近的高温区也越弱。这是<strong>器件热仿真预测</strong>，不是实测器件降温。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">www.nature.com</a>)</p>
+<p>[建议插入：原文 Fig. 8，配文注明“模拟预测的器件温度”。]</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这篇论文最值得借鉴的思路，是把过渡层看作一条<strong>完整热流路径</strong>：既检查两端的界面，也计算中间层的代价，还用频率分辨热导追问“究竟是哪部分振动帮忙传热”。它给超薄界面设计提供了明确候选方案。</p>
+<p>下一步最关键的是实验检验：真实生长的 <strong>1 nm</strong> 层是否连续？界面键合、缺陷和应变与模拟有多接近？这些问题决定了计算中的 <strong>71%</strong> 热导提升，最终能在多大程度上转化为器件收益。(<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p><strong>论文出处：</strong>Yuwen Zhang、Zhipeng Tang、Tao Ouyang、Wu Li，<em>Achieving optimal GaN&#x2F;SiC interfacial thermal conductance via ultrathin alloy interlayers for high-power device cooling</em>，<em>npj Computational Materials</em> <strong>12</strong>, 258（2026）。<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41524-026-02134-6">DOI: 10.1038&#x2F;s41524-026-02134-6</a>。作者单位包括宁波东方理工大学、中国科学技术大学、湘潭大学和深圳大学。 (<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41524-026-02134-6?utm_source=chatgpt.com">npj Computational Materials</a>)</p>
+<p><strong>资料说明：</strong>本文依据出版社公开正文及 Fig. 1–8 图注撰写；图示解读以图注和正文描述为依据，未从无法核实的图像刻度提取额外数据。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/17/paper_reading/20260917B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-002
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BB%99%E7%83%AD%E9%87%8F%E6%90%AD%E4%B8%80%E5%BA%A7%E2%80%9C%E7%BA%B3%E7%B1%B3%E6%A1%A5%E2%80%9D%EF%BC%9A1-nm-%E8%BF%87%E6%B8%A1%E5%B1%82%E5%A6%82%E4%BD%95%E6%94%B9%E5%96%84-GaN-x2F-SiC-%E6%95%A3%E7%83%AD%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">给热量搭一座“纳米桥”：1 nm 过渡层如何改善 GaN&#x2F;SiC 散热？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%83%AD%E9%87%8F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%9C%A8%E7%95%8C%E9%9D%A2%E2%80%9C%E5%A0%B5%E8%BD%A6%E2%80%9D%EF%BC%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">热量为什么会在界面“堵车”？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E6%80%8E%E6%A0%B7%E7%A0%94%E7%A9%B6%E8%BF%99%E5%BA%A7%E2%80%9C%E6%A1%A5%E2%80%9D%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">作者怎样研究这座“桥”？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E8%BF%87%E6%B8%A1%E5%B1%82%E7%9A%84%E4%B8%A4%E4%BE%A7%EF%BC%8C%E7%AB%9F%E7%84%B6%E2%80%9C%E6%84%8F%E8%A7%81%E7%9B%B8%E5%8F%8D%E2%80%9D"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">发现一：过渡层的两侧，竟然“意见相反”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A1-nm-%E5%AF%8C%E9%93%9D%E5%90%88%E9%87%91%E5%B1%82%EF%BC%8C%E5%9C%A8%E6%89%80%E7%A0%94%E7%A9%B6%E8%8C%83%E5%9B%B4%E5%86%85%E8%A1%A8%E7%8E%B0%E7%AA%81%E5%87%BA"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">发现二：1 nm 富铝合金层，在所研究范围内表现突出</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A%E9%9D%9E%E6%99%B6%E5%B1%82%E4%B8%8D%E6%80%BB%E6%98%AF%E2%80%9C%E5%9D%8F%E6%B6%88%E6%81%AF%E2%80%9D"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">发现三：非晶层不总是“坏消息”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E7%95%8C%E9%9D%A2%E6%94%B9%E5%96%84%EF%BC%8C%E8%83%BD%E8%AE%A9%E5%99%A8%E4%BB%B6%E7%83%AD%E7%82%B9%E9%99%8D%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">发现四：界面改善，能让器件热点降多少？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/23/paper_reading/20260923A/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
