@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-004 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-004</h2>
+  <p class="post-date">2026-09-24 19:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="20-kV-碳化硅功率器件的“选型地图”：当物理仿真遇上机器学习"><a href="#20-kV-碳化硅功率器件的“选型地图”：当物理仿真遇上机器学习" class="headerlink" title="20 kV 碳化硅功率器件的“选型地图”：当物理仿真遇上机器学习"></a>20 kV 碳化硅功率器件的“选型地图”：当物理仿真遇上机器学习</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>在超高压电力电子领域，碳化硅（SiC）MOSFET 和 IGBT 之间的选择一直缺乏清晰的边界。剑桥大学 Nazareno Donato 博士的一项预印本研究，用超过 2000 次有限元器件仿真构建了一套自洽电热框架，系统比较了 20 kV 电压等级下 SiC MOSFET、SiC IGBT 以及串联 Si IGBT &#x2F; SiC MOSFET 在硬开关和软开关条件下的性能表现。研究进一步引入机器学习分类器加速“最优器件”选型地图的生成，在保持物理精度的前提下将地图生成速度提升约 2.1 倍。</p>
+<h2 id="背景：为什么超高压-SiC-器件的选型如此困难？"><a href="#背景：为什么超高压-SiC-器件的选型如此困难？" class="headerlink" title="背景：为什么超高压 SiC 器件的选型如此困难？"></a>背景：为什么超高压 SiC 器件的选型如此困难？</h2><p>碳化硅 IGBT 的研发已持续数十年，实验 demonstrations 已覆盖 10–27 kV 电压范围，包括 12 kV 模块、16 kV flip-type IE-IGBT、27 kV n-IGBT 等。然而，SiC IGBT 至今尚未实现大规模商用，瓶颈主要集中在载流子寿命工程、背面工艺、p 型接触、双极性退化以及成本等方面。</p>
+<p>更棘手的是，SiC MOSFET 向 SiC IGBT 的过渡远比硅基器件模糊。4H-SiC 双极性结的内建电压高达 2.7 V（300 K），远高于硅结的 0.7 V。这意味着 SiC IGBT 真正具有优势的电压等级，应当显著高于 Si IGBT 开始优于 Si MOSFET 的电压等级。与此同时，串联低压器件（如三个 6.5 kV SiC MOSFET 串联）也能实现超高压能力，但代价是更大的有源面积和更复杂的电压均衡控制。仅比较单个 SiC MOSFET 和单个 SiC IGBT 在某一电流点的性能，无法回答“在给定的开关频率、占空比和散热条件下，到底该用哪种器件”这一工程核心问题。</p>
+<h2 id="研究方法：物理仿真-机器学习加速"><a href="#研究方法：物理仿真-机器学习加速" class="headerlink" title="研究方法：物理仿真 + 机器学习加速"></a>研究方法：物理仿真 + 机器学习加速</h2><p>研究采用混合模式有限元 TCAD 仿真提取静态和动态特性。开关损耗通过双脉冲测试（DPT）电路获取，输出特性则用约 1 V&#x2F;s 的慢速电压斜坡瞬态模拟准静态工作。器件有源区统一归一化到 1 cm²。漂移区参数基于雪崩碰撞电离积分确定，覆盖 1.2 kV 至 20 kV 电压等级，20 kV 器件的漂移区厚度为 150 μm，掺杂浓度为 5.0 × 10¹⁴ cm⁻³。</p>
+<p>仿真中包含了 4H-SiC 的不完全电离效应（深能级掺杂剂）、各向异性碰撞电离参数以及 Auger、辐射和 Shockley–Read–Hall（SRH）复合机制。载流子寿命的温度依赖性用幂律模型描述，4H-SiC 的指数为 1.7。对于 20 kV 等级的比较，串联 Si IGBT 和串联 SiC MOSFET 均建模为三个 6.5 kV 器件串联，总有效面积假定为单个器件的三倍。</p>
+<p>电热损耗模型将总损耗分解为导通损耗和开关损耗。硬开关下开关能量为开通能量加关断能量，软开关（ZVS）下开通损耗被大幅抑制，仅计入关断能量。热阻采用包含半导体、芯片贴装、DBC 铜层、AlN 陶瓷、铜基板和外部冷却的简化多层封装模型，AlN 陶瓷厚度按 20 kV 绝缘强度（安全系数 1.2）设定为 1.2 mm。最高结温限制设为 448 K。</p>
+<p>在机器学习加速环节，研究采用 bagged 决策树集成分类器，输入特征为电流、开关频率的对数和占空比，输出为确定性电热求解器选出的最优器件类别。当分类器置信度低于 0.88 时，以及预测的器件切换边界附近，执行确定性重评估，修正比例上限为 25%。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：ZVS-条件下-SiC-IGBT-在中低频段优势明显"><a href="#发现一：ZVS-条件下-SiC-IGBT-在中低频段优势明显" class="headerlink" title="发现一：ZVS 条件下 SiC IGBT 在中低频段优势明显"></a>发现一：ZVS 条件下 SiC IGBT 在中低频段优势明显</h3><p><strong>图 1（原文 Fig. 5）：</strong> 原图暂不可用｜<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 5</a></p>
+<p>以下依据图注和正文描述。图 5(a) 展示了 20 kV 电压等级下最大允许电流的三维地图，横轴为开关频率，纵轴为占空比，颜色映射最大热可持续电流 I*；图 5(b) 给出 D &#x3D; 0.5 的切面曲线。该计算假设 ZVS 工作，开通损耗被抑制，比较主要由导通损耗和关断损耗主导。结果显示，在约 100 Hz 至 20 kHz 的宽频范围内，SiC IGBT 的最大允许电流接近 SiC MOSFET 的两倍。SiC IGBT 的优势在低频和中频段最为突出，而在低占空比和低电流条件下，SiC MOSFET 的竞争力逐渐增强。</p>
+<p>通俗地说：如果你打算在 20 kV 下做零电压开关，频率不太高，SiC IGBT 能承载的电流差不多是 SiC MOSFET 的两倍。</p>
+<h3 id="发现二：硬开关大幅压缩-SiC-IGBT-的优势区间"><a href="#发现二：硬开关大幅压缩-SiC-IGBT-的优势区间" class="headerlink" title="发现二：硬开关大幅压缩 SiC IGBT 的优势区间"></a>发现二：硬开关大幅压缩 SiC IGBT 的优势区间</h3><p><strong>图 2（原文 Fig. 6）：</strong> 原图暂不可用｜<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 6</a></p>
+<p>以下依据图注和正文描述。图 6 的结构与图 5 相同，但计入了完整的硬开关损耗。引入开通损耗后，SiC IGBT 与 SiC MOSFET 的交叉点从约 20 kHz 骤降至 1 kHz 以下。最大允许电流的峰值从 ZVS 下的约 100 A 降至低于 90 A。在 D &#x3D; 0.5 的切面上，还观察到载流子寿命为 1 μs 和 0.1 μs 的 SiC IGBT 之间的额外交叉。0.1 μs 的情况（电导调制较弱）在大部分频率范围内表现接近 SiC MOSFET。</p>
+<p>这张图传递了一个关键工程信号：如果你的变换器工作在硬开关模式下，SiC IGBT 相对于 SiC MOSFET 的电流承载优势仅仅在非常低的频率（低于约 1 kHz）下才成立。</p>
+<h3 id="发现三：6-5-kV-等级下-SiC-MOSFET-反而全面占优"><a href="#发现三：6-5-kV-等级下-SiC-MOSFET-反而全面占优" class="headerlink" title="发现三：6.5 kV 等级下 SiC MOSFET 反而全面占优"></a>发现三：6.5 kV 等级下 SiC MOSFET 反而全面占优</h3><p><strong>图 3（原文 Fig. 7）：</strong> 原图暂不可用｜<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 7</a></p>
+<p>以下依据正文描述。在 6.5 kV 电压等级下，SiC MOSFET 在硬开关和 ZVS 两种场景下均实现约 120 A 的最大电流，而 SiC IGBT 在整个频率范围内都低于 SiC MOSFET。这表明 SiC IGBT 的优势存在一个电压门槛——在较低的电压等级下，双极性器件的内建电压惩罚超过了电导调制带来的导通损耗收益。</p>
+<h3 id="发现四：串联方案各有适用场景"><a href="#发现四：串联方案各有适用场景" class="headerlink" title="发现四：串联方案各有适用场景"></a>发现四：串联方案各有适用场景</h3><p><strong>图 4（原文 Fig. 8 和 Fig. 9）：</strong> 原图暂不可用｜<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 8</a> ｜ <a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 9</a></p>
+<p>以下依据正文描述。在 20 kV 等级下，研究进一步比较了单体 SiC MOSFET、SiC IGBT、三个 6.5 kV SiC MOSFET 串联以及三个 6.5 kV Si IGBT 串联四种方案。ZVS 条件下，SiC IGBT 在广泛工作范围内优于其他方案；串联 Si IGBT 表现最差，全频段最大允许电流低于 30 A；串联 SiC MOSFET 在高频和低电流区域展现出改善的性能。需要指出的是，串联方案通常需要额外的电压裕量，且存在电压不均衡和开关能量分配不均的问题，这些因素未纳入本研究模型。</p>
+<h3 id="发现五：机器学习加速地图生成"><a href="#发现五：机器学习加速地图生成" class="headerlink" title="发现五：机器学习加速地图生成"></a>发现五：机器学习加速地图生成</h3><p><strong>图 5（原文 Fig. 10 及正文相关讨论）：</strong> 原图暂不可用｜<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/download/7141/11670.pdf">查看论文中的 Fig. 10</a></p>
+<p>以下依据正文描述。在 20 kV 电压等级下，仅使用分类器生成地图可将计算时间减少至全确定性地图的 1&#x2F;3.8；在引入低置信度和过渡边界区域的确定性修正后，混合工作流的加速比达到 2.1 倍（不含一次性训练成本）。分类器的输入为电流、开关频率对数和占空比，输出为最优器件类别，类别 0 保留给无可行器件的工况点。</p>
+<p>这一结果的意义不在于机器学习本身有多复杂，而在于它展示了一种务实的工程范式：用物理仿真生成训练标签，用分类器加速地图构建，用确定性回算守护精度边界。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p>从机理层面看，SiC IGBT 在超高压下的优势源于电导调制效应——双极性导电可以显著降低漂移区的导通电阻。但这一优势被 4H-SiC 高达 2.7 V 的内建电压所抵消，导致 SiC IGBT 在低电流和低电压等级下反而处于劣势。硬开关条件下，SiC IGBT 较大的关断损耗（双极性电荷存储）进一步压缩了其优势区间。</p>
+<p>这项工作的核心价值在于将“该用哪种器件”从直觉判断转化为可计算的工程地图。研究者明确指出，机器学习在这里的角色不是替代物理求解器，而是加速选型地图的生成，确定性修正始终在低置信度和过渡区域发挥兜底作用。</p>
+<p>需要关注的是研究的适用边界。热阻模型采用 45° 热扩散近似和单面冷却假设，作者自己也说明这“不代表完全优化的模块设计”。串联器件的电压不均衡和动态均压问题未纳入模型。此外，所有结果基于 TCAD 仿真而非实验测量，实际器件中的界面陷阱、封装寄生和可靠性退化等因素可能改变定量结论。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这项预印本研究最大的亮点，是用一套统一的物理仿真框架，为 20 kV 等级下 SiC MOSFET 与 SiC IGBT 的选择给出了可计算、可视化的工程答案，并用机器学习将这一答案的生成效率提升了一倍以上。</p>
+<p>最值得进一步验证的问题是：这些基于 TCAD 的预测结论在多大程度上能反映实际封装器件的性能？特别是 SiC IGBT 的载流子寿命在实际工艺中的可控性和重复性，将直接决定其在硬开关条件下的竞争力是否如仿真所预测的那样受限。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：Physics-Based and Machine-Learning-Assisted Performance Mapping of Ultra-High-Voltage SiC IGBTs and MOSFETs Under Hard- and Soft-Switching Conditions</li>
+<li>作者：Nazareno Donato</li>
+<li>单位：剑桥大学工程系（University of Cambridge, Department of Engineering）</li>
+<li>平台：engrXiv 预印本</li>
+<li>年份：2026</li>
+<li>DOI：<a target="_blank" rel="noopener" href="https://doi.org/10.31224/7141">https://doi.org/10.31224/7141</a></li>
+</ul>
+<p><strong>资料说明</strong></p>
+<p>本文所依据的论文全文来自 engrXiv 预印本页面（<a target="_blank" rel="noopener" href="https://engrxiv.org/preprint/view/7141">https://engrxiv.org/preprint/view/7141</a> 及 PDF 下载链接）。论文中 Fig. 1–Fig. 9 的原始图片文件未能从预印本页面直接获取可渲染的图片链接，因此文中以“原图暂不可用”格式标注，并提供了 PDF 下载链接供读者查阅原图。所有数值、图号和结论均来自论文正文、图注及摘要，未进行推测或补充。正式发布到微信公众号前，需确认 engrXiv 预印本的图片转载许可；Markdown 中的外站链接也可能无法在公众号编辑器中直接导入，建议下载获授权的原图后上传至公众号素材库。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/24/paper_reading/20260924A/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-004
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#20-kV-%E7%A2%B3%E5%8C%96%E7%A1%85%E5%8A%9F%E7%8E%87%E5%99%A8%E4%BB%B6%E7%9A%84%E2%80%9C%E9%80%89%E5%9E%8B%E5%9C%B0%E5%9B%BE%E2%80%9D%EF%BC%9A%E5%BD%93%E7%89%A9%E7%90%86%E4%BB%BF%E7%9C%9F%E9%81%87%E4%B8%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">20 kV 碳化硅功率器件的“选型地图”：当物理仿真遇上机器学习</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%B6%85%E9%AB%98%E5%8E%8B-SiC-%E5%99%A8%E4%BB%B6%E7%9A%84%E9%80%89%E5%9E%8B%E5%A6%82%E6%AD%A4%E5%9B%B0%E9%9A%BE%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：为什么超高压 SiC 器件的选型如此困难？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%EF%BC%9A%E7%89%A9%E7%90%86%E4%BB%BF%E7%9C%9F-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8A%A0%E9%80%9F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">研究方法：物理仿真 + 机器学习加速</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9AZVS-%E6%9D%A1%E4%BB%B6%E4%B8%8B-SiC-IGBT-%E5%9C%A8%E4%B8%AD%E4%BD%8E%E9%A2%91%E6%AE%B5%E4%BC%98%E5%8A%BF%E6%98%8E%E6%98%BE"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：ZVS 条件下 SiC IGBT 在中低频段优势明显</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E7%A1%AC%E5%BC%80%E5%85%B3%E5%A4%A7%E5%B9%85%E5%8E%8B%E7%BC%A9-SiC-IGBT-%E7%9A%84%E4%BC%98%E5%8A%BF%E5%8C%BA%E9%97%B4"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：硬开关大幅压缩 SiC IGBT 的优势区间</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A6-5-kV-%E7%AD%89%E7%BA%A7%E4%B8%8B-SiC-MOSFET-%E5%8F%8D%E8%80%8C%E5%85%A8%E9%9D%A2%E5%8D%A0%E4%BC%98"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：6.5 kV 等级下 SiC MOSFET 反而全面占优</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E4%B8%B2%E8%81%94%E6%96%B9%E6%A1%88%E5%90%84%E6%9C%89%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：串联方案各有适用场景</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%94%EF%BC%9A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%8A%A0%E9%80%9F%E5%9C%B0%E5%9B%BE%E7%94%9F%E6%88%90"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">发现五：机器学习加速地图生成</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/24/paper_reading/20260924B/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

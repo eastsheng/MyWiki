@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-004 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-004</h2>
+  <p class="post-date">2026-09-24 18:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="室温算得准，高温却慢了半拍：SiC-IGBT-开关模型漏掉了什么？"><a href="#室温算得准，高温却慢了半拍：SiC-IGBT-开关模型漏掉了什么？" class="headerlink" title="室温算得准，高温却慢了半拍：SiC IGBT 开关模型漏掉了什么？"></a>室温算得准，高温却慢了半拍：SiC IGBT 开关模型漏掉了什么？</h1><p>同一只碳化硅 IGBT，室温下的开关波形与模型预测相当接近；升温后，实测器件却明显更晚关断。Matsuura 等人发现，问题不能只靠修改碳化硅的材料参数解决：<strong>栅氧界面的载流子陷阱影响关断时机，基区载流子寿命则影响关断后的尾电流。</strong></p>
+<h2 id="为什么关断一只-IGBT-没有想象中简单？"><a href="#为什么关断一只-IGBT-没有想象中简单？" class="headerlink" title="为什么关断一只 IGBT 没有想象中简单？"></a>为什么关断一只 IGBT 没有想象中简单？</h2><p>IGBT 是大功率电路里的开关。栅极电压控制它何时导通，但器件内部还会储存电子和空穴。关断时，即使栅极已经收到指令，这些载流子也需要时间消失，电流才会降到零。</p>
+<p>因此，可以把它粗略理解成一扇有两套机制的门：<strong>栅极附近决定何时开始关门，内部储存的载流子决定关门后还有多少电流拖在后面。</strong>后者形成的缓慢下降部分，称为<em>尾电流</em>。</p>
+<p>这篇论文研究的是平面型、n 沟道 <strong>4H-SiC IGBT</strong>。论文指出，相关器件技术面向 <strong>6.5 kV 应用</strong>，所研究结构具有 <strong>13 kV 阻断电压</strong>。作者的目标是建立可用于电路仿真的<strong>紧凑模型</strong>（compact model），让它在室温和高温下都能跟上真实器件的开关变化。</p>
+<p><strong>图 1（原文 Fig. 1）</strong>画出器件结构，并标明模型使用的参数及 MOS 部分与双极部分的连接节点。读这张图时，重点是记住：论文随后讨论的界面陷阱与载流子寿命，主要作用在这套结构的不同位置。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr1.jpg" alt="建议插入：原文 Fig. 1"></p>
+<h2 id="从实测波形开始：温度越高，关断越晚"><a href="#从实测波形开始：温度越高，关断越晚" class="headerlink" title="从实测波形开始：温度越高，关断越晚"></a>从实测波形开始：温度越高，关断越晚</h2><p>作者使用带续流二极管和电感负载的测试电路，通过栅极输入脉冲观察关断。<strong>图 2（原文 Fig. 2）</strong>的 a 图是测试连接，b 图则给出不同温度下的集电极电流 ICI_C 和内部栅极电压 VGEV_{GE}。随着温度升高，两者的关断都明显推迟。直观地说，<strong>栅极电压和主电流一起“慢了半拍”</strong>。</p>
+<p><strong>图 3（原文 Fig. 3）</strong>比较室温实测与模型计算的电流–电压特性，用于模型参数提取。**图 4（原文 Fig. 4）**再比较室温开关波形：此时尚未加入陷阱效应的 HiSIM-IGBT 模型，已经能较好复现实测结果。可见问题不在于模型完全无法工作，而在于**室温校准成功后，高温预测仍然失准**。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr2.jpg" alt="图2"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr3.jpg" alt="图3"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr4.jpg" alt="图4"></p>
+<h2 id="第一轮排查：碳化硅自身的温度参数够不够？"><a href="#第一轮排查：碳化硅自身的温度参数够不够？" class="headerlink" title="第一轮排查：碳化硅自身的温度参数够不够？"></a>第一轮排查：碳化硅自身的温度参数够不够？</h2><p>作者首先把已有 HiSIM-IGBT 模型中的硅材料参数替换为 4H-SiC 参数。模型同时描述受栅极控制的 MOS 部分，以及存在载流子储存的双极部分。随后，他们检查两个随温度显著变化的量：<strong>本征载流子浓度</strong>和<strong>载流子寿命</strong>。</p>
+<p><strong>图 5（原文 Fig. 5）</strong>显示，模型计算的本征载流子浓度随温度变化，与论文采用的参考数据吻合。这说明模型并非漏掉了碳化硅最基本的温度性质。</p>
+<p>但<strong>图 6（原文 Fig. 6）</strong>给出了关键反例：室温下模拟与测量接近；到 <strong>250 °C</strong>，集电极电流和栅极电压的关断波形均出现明显偏差。<strong>材料参数已经随温度更新，模型却仍没抓住高温关断的主要变化。</strong></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr5.jpg" alt="图5"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr6.jpg" alt="图6"></p>
+<h2 id="第二轮排查：尾电流与“载流子能活多久”有关"><a href="#第二轮排查：尾电流与“载流子能活多久”有关" class="headerlink" title="第二轮排查：尾电流与“载流子能活多久”有关"></a>第二轮排查：尾电流与“载流子能活多久”有关</h2><p>载流子寿命 τ\tau 表示电子或空穴在复合消失前能够存在多久。寿命较长时，器件内部储存的载流子较难迅速清空，关断后的电流便可能拖得更久。</p>
+<p><strong>图 7（原文 Fig. 7）</strong>给出文献中的寿命随温度变化的数据，作者选取其中与研究对象相关的一组作为建模依据。<strong>图 8（原文 Fig. 8）</strong>把温度相关寿命加入模型后，比较 <strong>250 °C</strong> 下的新预测与测量：集电极电流尾部有所改善，但实测波形整体的明显时间偏移仍未复现。</p>
+<p>这一步很重要。它说明<strong>载流子寿命能够解释“关断后还剩多少电流”的一部分，却不足以解释“为什么整个关断过程开始得更晚”</strong>。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr7.jpg" alt="图7"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr8.jpg" alt="图8"></p>
+<h2 id="真正让开关“迟疑”的，是栅氧界面陷阱"><a href="#真正让开关“迟疑”的，是栅氧界面陷阱" class="headerlink" title="真正让开关“迟疑”的，是栅氧界面陷阱"></a>真正让开关“迟疑”的，是栅氧界面陷阱</h2><p>在栅氧化层与 SiC 的交界处，某些能态会捕获载流子，称为<strong>界面陷阱</strong>（interface traps）。可以把它们想成栅极附近临时扣留电荷的“停车位”：温度改变后，扣留和释放电荷的过程也会改变栅极对沟道的控制。</p>
+<p>作者先用二维器件模拟检验这一解释。<strong>图 9（原文 Fig. 9）</strong>给出模拟采用的文献界面陷阱态密度；<strong>图 10（原文 Fig. 10）</strong>比较不同温度下、有无陷阱时的模拟电流–电压特性，显示陷阱会显著改变器件响应。这些陷阱数据来自已有文献，并非作者对本文器件重新测得。</p>
+<p>更直接的对照在<strong>图 11（原文 Fig. 11）</strong>：不加入陷阱时，室温与 <strong>250 °C</strong> 的模拟开关差异很小；加入陷阱后，温度差异明显增强，更接近测量呈现的趋势。<strong>图 12（原文 Fig. 12）</strong>进一步展示关断过程中栅极重叠区域的电子密度：有陷阱时，高温下的电荷在栅氧下方停留更久。读图时可以把它理解为：<strong>该撤走的电荷没有立刻撤走，栅极电压的下降也被拖延。</strong></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr9.jpg" alt="图9"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr10.jpg" alt="图10"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr11.jpg" alt="图11"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr12.jpg" alt="图12"></p>
+<h2 id="把机理装进电路模型，结果怎样？"><a href="#把机理装进电路模型，结果怎样？" class="headerlink" title="把机理装进电路模型，结果怎样？"></a>把机理装进电路模型，结果怎样？</h2><p>作者没有在紧凑模型中逐个计算陷阱的捕获和释放，而是采用便于电路仿真的处理：用<strong>温度相关的阈值电压偏移</strong>表示陷阱对栅极控制的影响，再用动态电荷修正描述栅氧下方电荷消退的延迟。论文从测量中提取的阈值偏移参数为 <strong>5 mV&#x2F;K</strong>。这是所研究器件的模型参数，不能直接当作所有 SiC IGBT 的通用常数。</p>
+<p><strong>图 13（原文 Fig. 13）**是最终波形检验：在**室温、150 °C、200 °C 和 250 °C**，改进模型的开关结果与实测总体吻合。</strong>图 14（原文 Fig. 14）**继续比较相同温度下的瞬态功率损耗，模拟也较好跟随测量。换句话说，作者不仅让电流波形“看起来更像”，还检查了与电路损耗直接相关的结果。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr13.jpg" alt="图13"></p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S0038110118305069-gr14.jpg" alt="图14"></p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这篇论文最有启发性的地方，是把高温模型失准拆成两个可以检验的问题：<strong>界面陷阱主要影响关断延迟，载流子寿命主要影响尾电流。</strong>图 8 的部分改善与图 11 的有无陷阱对照，让这条解释链比单纯调参更有说服力。</p>
+<p>模型仍有边界。作者指出，高温下栅极电压尾部尚存偏差，可能与实际器件的寄生栅电容、栅电阻等有关；文中的陷阱态密度也取自较早工艺的文献数据。将模型用于另一款 SiC IGBT 时，仍需用该器件的界面与开关测量重新校准。</p>
+<p><strong>论文出处：</strong>Kai Matsuura、Yuta Tanimoto、Atsushi Saito、Yosuke Miyaoku、Takeshi Mizoguchi、Mitiko Miura-Mattausch、Hans Jürgen Mattausch，<em>Analysis and compact modeling of temperature-dependent switching in SiC IGBT circuits</em>，<em>Solid-State Electronics</em> <strong>153</strong>，59–66（2019）。作者单位：日本广岛大学。<a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.sse.2018.12.019">DOI: 10.1016&#x2F;j.sse.2018.12.019</a>。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/23/paper_reading/20260923A/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-003
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/09/24/paper_reading/20260924B/">
+        
+          论文阅读-004
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%AE%A4%E6%B8%A9%E7%AE%97%E5%BE%97%E5%87%86%EF%BC%8C%E9%AB%98%E6%B8%A9%E5%8D%B4%E6%85%A2%E4%BA%86%E5%8D%8A%E6%8B%8D%EF%BC%9ASiC-IGBT-%E5%BC%80%E5%85%B3%E6%A8%A1%E5%9E%8B%E6%BC%8F%E6%8E%89%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">室温算得准，高温却慢了半拍：SiC IGBT 开关模型漏掉了什么？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%85%B3%E6%96%AD%E4%B8%80%E5%8F%AA-IGBT-%E6%B2%A1%E6%9C%89%E6%83%B3%E8%B1%A1%E4%B8%AD%E7%AE%80%E5%8D%95%EF%BC%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">为什么关断一只 IGBT 没有想象中简单？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%8E%E5%AE%9E%E6%B5%8B%E6%B3%A2%E5%BD%A2%E5%BC%80%E5%A7%8B%EF%BC%9A%E6%B8%A9%E5%BA%A6%E8%B6%8A%E9%AB%98%EF%BC%8C%E5%85%B3%E6%96%AD%E8%B6%8A%E6%99%9A"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">从实测波形开始：温度越高，关断越晚</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E8%BD%AE%E6%8E%92%E6%9F%A5%EF%BC%9A%E7%A2%B3%E5%8C%96%E7%A1%85%E8%87%AA%E8%BA%AB%E7%9A%84%E6%B8%A9%E5%BA%A6%E5%8F%82%E6%95%B0%E5%A4%9F%E4%B8%8D%E5%A4%9F%EF%BC%9F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">第一轮排查：碳化硅自身的温度参数够不够？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%BD%AE%E6%8E%92%E6%9F%A5%EF%BC%9A%E5%B0%BE%E7%94%B5%E6%B5%81%E4%B8%8E%E2%80%9C%E8%BD%BD%E6%B5%81%E5%AD%90%E8%83%BD%E6%B4%BB%E5%A4%9A%E4%B9%85%E2%80%9D%E6%9C%89%E5%85%B3"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">第二轮排查：尾电流与“载流子能活多久”有关</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9C%9F%E6%AD%A3%E8%AE%A9%E5%BC%80%E5%85%B3%E2%80%9C%E8%BF%9F%E7%96%91%E2%80%9D%E7%9A%84%EF%BC%8C%E6%98%AF%E6%A0%85%E6%B0%A7%E7%95%8C%E9%9D%A2%E9%99%B7%E9%98%B1"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">真正让开关“迟疑”的，是栅氧界面陷阱</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8A%8A%E6%9C%BA%E7%90%86%E8%A3%85%E8%BF%9B%E7%94%B5%E8%B7%AF%E6%A8%A1%E5%9E%8B%EF%BC%8C%E7%BB%93%E6%9E%9C%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">把机理装进电路模型，结果怎样？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/24/paper_reading/20260924A/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
