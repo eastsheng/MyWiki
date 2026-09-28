@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-009:SiC MOSFET 的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？ | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-009:SiC MOSFET 的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？</h2>
+  <p class="post-date">2026-09-28 21:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="SiC-MOSFET-的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？"><a href="#SiC-MOSFET-的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？" class="headerlink" title="SiC MOSFET 的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？"></a>SiC MOSFET 的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>碳化硅（SiC）MOSFET 的栅极氧化层可靠性，一直是它能否在高压电力电子中替代硅（Si）器件的关键问题。英飞凌团队在一项系统性研究中，对平面和沟槽两种 SiC MOSFET 进行了 TDDB（时间相关介质击穿）应力测试和超快 BTI（偏置温度不稳定性）分析，并与 Si 器件进行对照。结果表明：<strong>厚 SiO₂ 栅氧的本征可靠性在 SiC 上与 Si 上一样好，沟槽器件虽然更容易发生 n-BTI，但在栅极开关应力下 ΔVth 和 Ron 退化都很小</strong>。</p>
+<h2 id="背景：SiC-的“好身体”和“坏脾气”"><a href="#背景：SiC-的“好身体”和“坏脾气”" class="headerlink" title="背景：SiC 的“好身体”和“坏脾气”"></a>背景：SiC 的“好身体”和“坏脾气”</h2><p>SiC 是宽禁带半导体，击穿场强高、热导率好，特别适合做高压功率器件。但 SiC 有一个出名的“坏脾气”：<strong>SiC&#x2F;SiO₂ 界面缺陷密度比 Si&#x2F;SiO₂ 高出几个数量级</strong>。这些界面陷阱会导致阈值电压不稳定、沟道迁移率降低，是 SiC MOSFET 可靠性研究中最头疼的问题。</p>
+<p>栅氧可靠性通常用 TDDB 来评估：在栅极加恒定电压，持续监测栅电流，直到介质击穿。击穿时间（TTF）与电场的关系可以用热化学键断裂模型（E-model）描述，其中场加速因子 γ 是关键参数。另一方面，超快 BTI 方法可以在微秒到千秒的时间尺度上，测量阈值电压漂移，进而提取界面陷阱的俘获与发射能量（CEE）分布。</p>
+<p>问题在于：平面和沟槽 SiC MOSFET 的氧化层工艺不同——平面器件通常用高温热氧化，沟槽器件因为刻蚀损伤和形貌限制，往往用低温沉积氧化层。这会不会导致两者的栅氧可靠性和界面陷阱行为有本质差别？此前缺乏系统性的对比。</p>
+<h2 id="作者如何研究：多手段“体检”-对照-Si-器件"><a href="#作者如何研究：多手段“体检”-对照-Si-器件" class="headerlink" title="作者如何研究：多手段“体检” + 对照 Si 器件"></a>作者如何研究：多手段“体检” + 对照 Si 器件</h2><p><strong>关键参数设置</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值 &#x2F; 设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>器件类型</td>
+<td>平面 SiC MOSFET、沟槽 SiC MOSFET、Si 平面电容器</td>
+</tr>
+<tr>
+<td>TDDB 应力温度</td>
+<td>175°C</td>
+</tr>
+<tr>
+<td>衬底接地，栅极加固定电压，源漏接地</td>
+<td></td>
+</tr>
+<tr>
+<td>电场范围</td>
+<td>覆盖至各自临界电场 (E_{crit}) 以下</td>
+</tr>
+<tr>
+<td>栅氧厚度</td>
+<td>沟槽器件比平面更厚</td>
+</tr>
+<tr>
+<td>超快 BTI 温度</td>
+<td>低至 80 K（为获得更慢的陷阱发射）</td>
+</tr>
+<tr>
+<td>GSI 开关频率</td>
+<td>750 kHz，50% DC，室温</td>
+</tr>
+<tr>
+<td>GSI 栅压条件</td>
+<td>(0&#x2F;+18) V 和 (-8&#x2F;+18) V</td>
+</tr>
+<tr>
+<td>GSI 循环次数</td>
+<td>最高 (3 \times 10^{13}) 次（等效 1.5 年测试时间）</td>
+</tr>
+<tr>
+<td>栅面积（寿命投影）</td>
+<td>0.1 cm² 和 0.2 cm²（Weibull 面积缩放）</td>
+</tr>
+</tbody></table>
+<p><strong>方法分工</strong></p>
+<ul>
+<li><strong>TDDB + Jg-t 监测</strong>：测量栅电流随时间的变化，提取击穿前边界和电荷俘获行为。</li>
+<li><strong>TCAD 仿真</strong>：构建电荷俘获的物理图像，包括多种俘获（MT）、陷阱辅助隧穿（TAT）和声子辅助隧穿。</li>
+<li><strong>Weibull 统计</strong>：分析 TTF 分布，提取场加速因子 γ 和形状参数 β。</li>
+<li><strong>超快 BTI（uf-BTI）</strong>：在 1 μs–10³ s 的应力&#x2F;恢复时间窗口内测量 ΔVth，提取 CEE 地图。</li>
+<li><strong>栅极开关不稳定性（GSI）</strong>：在连续开关条件下测量永久性 ΔVth 漂移。</li>
+</ul>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：沟槽栅漏电比平面高约两个数量级"><a href="#发现一：沟槽栅漏电比平面高约两个数量级" class="headerlink" title="发现一：沟槽栅漏电比平面高约两个数量级"></a>发现一：沟槽栅漏电比平面高约两个数量级</h3><p><strong>图 1（原文 Fig. 1）：</strong> <img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2026/202609282033916.png" alt="image-20260928203323296"></p>
+<p>以下依据图注和正文描述。图 1 展示了平面和沟槽 SiC MOSFET 在 25°C 和 175°C 下的 (J_g-E_{ox}) 曲线。图 1(c) 将 25°C 的平面和沟槽数据放在一起对比。在相同氧化层电场下，<strong>沟槽的栅极漏电流比平面高出约 2 个数量级</strong>。作者把原因归结为沟槽和平面 SiC 晶面的电子亲和能不同——沟槽侧壁的晶面与平面不同，势垒高度更低。同时，碰撞电离在沟槽中发生在更低的 (E_{ox})，对可靠性测试有重要影响。</p>
+<p><strong>通俗地看</strong>：图 1 告诉你，沟槽器件的栅氧在相同电场下“漏”得更厉害，但这是晶面差异导致的，不一定是氧化层质量本身差。</p>
+<h3 id="发现二：击穿前边界与电荷俘获"><a href="#发现二：击穿前边界与电荷俘获" class="headerlink" title="发现二：击穿前边界与电荷俘获"></a>发现二：击穿前边界与电荷俘获</h3><p><strong>图 2（原文 Fig. 2）：</strong> <img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2026/202609282035456.png" alt="image-20260928203435879"></p>
+<p>以下依据图注和正文描述。图 2 是 TDDB 应力下 175°C 的 (J_g-t) 曲线，横轴是对数应力的时间，纵轴是栅电流密度，数据跨域超过 7 个数量级。图中标注了“击穿前边界”（boundary for trap creation near the interface），并插入了一张图：从 (V_{th}) 漂移计算出的电荷积累与 (\log_{10}(t)) 呈线性关系。</p>
+<p>关键观察：在 TDDB 应力下，(J_g) 初始为常数（平面 SiC、斜率 n≈0）或以 n≈−0.25 下降（SiC 沟槽和 Si），独立于半导体材料和晶面。最终，所有器件都会到达同一条“限制曲线”（n≈−1），这是由界面附近陷阱产生导致的氧化层电场线性下降——<strong>这个行为只由 SiO₂ 本身决定，与半导体材料无关</strong>。</p>
+<p><strong>通俗地看</strong>：图 2 说明，无论 Si 还是 SiC、平面还是沟槽，厚 SiO₂ 在长期电场应力下的“老化剧本”最终是一样的。</p>
+<h3 id="发现三：MT-还是-TAT，取决于氧化层工艺"><a href="#发现三：MT-还是-TAT，取决于氧化层工艺" class="headerlink" title="发现三：MT 还是 TAT，取决于氧化层工艺"></a>发现三：MT 还是 TAT，取决于氧化层工艺</h3><p><strong>图 3（原文 Fig. 3）：</strong> <img src="https://gitee.com/eastsheng/VnoteFigures/raw/master/worknotes/2026/202609282038581.png" alt="image-20260928203824045"></p>
+<p>以下依据图注和正文描述。图 3 是电荷俘获的仿真框架，包含三个子图：(a) 电子从栅极到陷阱的跃迁路径；(b) 陷阱内跃迁（通过声子辅助隧穿）；(c) 带 MT 和 TAT 时间常数的陷阱能带仿真。核心结论是：<strong>标准 TAT 在短时间就预测 n≈−0.2</strong>，而 <strong>TAT + MT 组合会延长 n≈−0.2 的时间窗口</strong>，因为通过声子辅助隧穿的陷阱-栅极电荷转移被增强了。</p>
+<p>实验上，低温沉积&#x2F;生长的氧化层（SiC 沟槽、Si）表现出 n≈−0.25 的斜率，而高温热氧化（SiC 平面）只表现出 MT，斜率 n≈0。<strong>平面 SiC 中缺少 n≈−0.2 的原因，主要是隧穿电流更小，且建立 n≈−0.2 所需时间超过了 TTF</strong>。</p>
+<p><strong>通俗地看</strong>：图 3 揭示了不同氧化层工艺导致的两种漏电机制——热氧化更“干净”，沉积氧化层陷阱更多，漏电路径不同。</p>
+<h3 id="发现四：厚-SiO₂-的寿命与-Si-器件相当"><a href="#发现四：厚-SiO₂-的寿命与-Si-器件相当" class="headerlink" title="发现四：厚 SiO₂ 的寿命与 Si 器件相当"></a>发现四：厚 SiO₂ 的寿命与 Si 器件相当</h3><p><strong>图 4（原文 Fig. 4）：</strong> [建议插入：原文 Fig. 4]</p>
+<p><strong>图 5（原文 Fig. 5）：</strong> [建议插入：原文 Fig. 5]</p>
+<p>以下依据图注和正文描述。图 4 是 175°C 下平面和沟槽的 TTF Weibull 图。平面 β&#x3D;2.4，沟槽 β&#x3D;3.0，<strong>两者的场加速因子 γ 均约为 4.0 cm&#x2F;MV</strong>。图 5(a) 将 (t_{63%}) 数据汇总，空心符号来自电容器，实心符号来自晶体管。超过 7 个数量级的应力时间范围内，<strong>SiC（平面和沟槽）和 Si 的数据落在同一条曲线上，γ&#x3D;4.0 cm&#x2F;MV</strong>。</p>
+<p>作者特别强调：只有当应力电场低于各自的临界电场 (E_{crit}) 时，不同技术之间的比较才有意义。图 5(b) 投影了 (V_{g,use}&#x3D;+18) V 下的寿命：由于沟槽栅氧更厚，相同栅压下氧化层电场更低，因此<strong>沟槽器件的投影寿命比平面高约 3 个数量级（在 10 ppm 失效率下）</strong>。</p>
+<p><strong>通俗地看</strong>：图 5 是整篇论文最核心的结论——只要 SiO₂ 够厚（&gt;10 nm），SiC 的栅氧本征可靠性与 Si 没有本质区别。</p>
+<h3 id="发现五：沟槽更容易受-n-BTI-影响"><a href="#发现五：沟槽更容易受-n-BTI-影响" class="headerlink" title="发现五：沟槽更容易受 n-BTI 影响"></a>发现五：沟槽更容易受 n-BTI 影响</h3><p><strong>图 6（原文 Fig. 6）：</strong> [建议插入：原文 Fig. 6]</p>
+<p>以下依据图注和正文描述。图 6 是平面和沟槽 SiC MOSFET 在 p-BTI（(V_{gs}&#x3D;+18) V）和 n-BTI（(V_{gs}&#x3D;-5) V）下的 CEE 地图，颜色深浅表示陷阱态密度。</p>
+<p>对于 p-BTI，平面和沟槽的 CEE 地图相当相似，大多数陷阱态的发射能和俘获能接近（位于 CEE 图的对角线上）。对于 n-BTI，两者差异显著：<strong>沟槽器件的界面缺陷态具有更高的发射能（约 1 eV）但俘获能仍然较低（0.2 eV）</strong>，而平面约为 0.6 eV 和 0.2 eV。这意味着<strong>沟槽器件更容易发生 n-BTI</strong>——空穴容易被俘获（俘获能低），但很难发射（发射能高），因此会在界面停留更久。</p>
+<p><strong>通俗地看</strong>：图 6 说明，沟槽器件的界面陷阱对空穴“进门容易出门难”，所以 n-BTI 更严重。</p>
+<h3 id="发现六：栅极开关不稳定性中的两次“声子踢”"><a href="#发现六：栅极开关不稳定性中的两次“声子踢”" class="headerlink" title="发现六：栅极开关不稳定性中的两次“声子踢”"></a>发现六：栅极开关不稳定性中的两次“声子踢”</h3><p><strong>图 7（原文 Fig. 7）：</strong> [建议插入：原文 Fig. 7]</p>
+<p>以下依据图注和正文描述。图 7 是平面和沟槽 SiC MOSFET 在 (V_{gs}&#x3D;8&#x2F;+18) V 和 (0&#x2F;+18) V、750 kHz 下的 GSI ΔVth 数据，最多 (3 \times 10^{13}) 次循环。当 (V_{gs}) 在 (0&#x2F;+18) V 之间切换时，<strong>没有观察到 Vth 退化</strong>。但当切换到 (-8&#x2F;+18) V 时，深能级空穴陷阱在 (V_{gs}&#x3D;-8) V 下被填充，当电子从反型沟道进入时（(V_{gs}&#x3D;+18) V），发生电子-空穴复合，复合能量激活深氧化层缺陷态，造成永久性 Vth 漂移——这就是所谓的“声子踢”（phonon kick）。</p>
+<p>实验观察到<strong>两次声子踢</strong>：“声子踢 1”在约 (10^{12}) 次循环时饱和；“声子踢 2”在约 (5 \times 10^{12}) 次循环时开始，且至少到 (3 \times 10^{13}) 次循环仍未饱和。两种踢在平面和沟槽中都存在。虽然沟槽因为更强的“声子踢 1”表现出更高的 Vth 漂移，但当循环足够长使“声子踢 2”也加入后，<strong>两者的 Vth 退化变得相当</strong>。Ron 退化在两种器件中都很小——**(3 \times 10^{13}) 次循环后均小于 4%**。</p>
+<p><strong>通俗地看</strong>：图 7 告诉你，栅极开关应力下的 Vth 漂移不是单调恶化的，而是分两个阶段；好消息是，经过等效 1.5 年的开关测试，导通电阻几乎没怎么变。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p><strong>机理层面</strong>，论文的核心物理图像是：厚 SiO₂ 的击穿由热化学键断裂模型主导，一旦界面附近开始产生陷阱，氧化层电场就随 log(时间) 线性下降，这个行为由 SiO₂ 本身决定，与半导体材料无关。平面和沟槽的差异主要来自氧化层工艺：高温热氧化（平面）更“干净”，以 MT 为主；低温沉积氧化层（沟槽）陷阱更多，TAT 和声子辅助隧穿更显著。n-BTI 的差异则来自沟槽侧壁晶面的界面缺陷能级分布——空穴俘获能低但发射能高。</p>
+<p><strong>意义层面</strong>，这项工作的实际价值很明确：<strong>沟槽 SiC MOSFET 虽然栅漏电更高、更易发生 n-BTI，但其厚栅氧的投影寿命反而比平面更长（因为氧化层更厚，电场更低）</strong>。这为沟槽器件的可靠性评估提供了定量依据，也说明“漏电大”和“寿命短”不是一回事。</p>
+<p><strong>解决的问题与价值</strong>：该研究系统回答了“SiC 栅氧可靠性是否不如 Si”这个长期争议。答案是：<strong>对于厚 SiO₂（&gt;10 nm），SiC 的本征介质可靠性并不比 Si 差</strong>。这为 SiC MOSFET 在高压电力电子中的进一步推广扫清了部分可靠性疑虑。</p>
+<p><strong>局限与待验证的问题</strong>：第一，GSI 实验在室温下进行，高温下的声子踢行为可能不同。第二，CEE 地图的提取依赖 uf-BTI 模型假设，对更复杂的陷阱分布可能需要更精细的模型。第三，“声子踢 2”的物理机制尚未完全清楚，作者只观察到它不饱和，但没有给出完整的微观解释。第四，实验只覆盖了有限的器件批次和工艺，不同厂商的氧化层工艺可能导致定量差异。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这项工作的最大亮点，是用超过 7 个数量级的 TDDB 应力数据和等效 1.5 年的开关测试，证明了 <strong>SiC MOSFET 的厚栅氧本征可靠性与 Si 器件处于同一水平</strong>，同时清晰揭示了平面与沟槽在 n-BTI 和 GSI 行为上的差异来源。</p>
+<p>最值得保持谨慎的地方是：“声子踢 2”的长期行为尚未饱和，意味着在更长循环次数下 Vth 漂移可能继续累积；此外，所有结论基于特定工艺的器件，向其他工艺推广时需要重新验证。</p>
+<p>“声子踢”并非一个严谨的学术术语，而是对<strong>非辐射复合增强缺陷反应（Recombination-Enhanced Defect Reactions, REDRs）</strong> 这一物理过程的形象化比喻。它描述了在SiC MOSFET开关过程中，电子与空穴复合释放的能量如何像“踢”一脚那样，激活或破坏晶格中的化学键，从而产生永久性的阈值电压漂移。</p>
+<h3 id="物理机制：从“复合”到“踢”"><a href="#物理机制：从“复合”到“踢”" class="headerlink" title="物理机制：从“复合”到“踢”"></a>物理机制：从“复合”到“踢”</h3><p>这个过程的链条可以拆解为以下几步：</p>
+<ol>
+<li><strong>载流子交替聚集</strong>：在栅极开关不稳定性（GSI）应力下，栅压在高、低电平之间切换（例如从−8V到+18V）。低电平时，<strong>空穴</strong>被吸引到SiC&#x2F;SiO₂界面并被深能级陷阱俘获；高电平时，<strong>电子</strong>从反型层涌入界面。</li>
+<li><strong>非辐射复合</strong>：被俘获的空穴与涌入的电子在界面陷阱处发生<strong>非辐射复合（Non-Radiative Recombination）</strong>。与辐射复合（发光）不同，非辐射复合将能量以<strong>声子（晶格振动）</strong> 的形式释放。</li>
+<li><strong>“声子踢”发生</strong>：由于SiC是宽禁带半导体，复合释放的能量远大于Si。这股巨大的声子能量瞬间传递给周围的晶格，被形象地称为 <strong>“声子踢”（phonon kick）</strong> 。</li>
+<li><strong>缺陷反应（REDRs）</strong>：这股能量足以<strong>打断脆弱的Si-H或Si-O键</strong>，或促使氢原子从界面解离，从而<strong>生成新的界面缺陷态</strong>，或使已有缺陷的构型发生永久性改变。这个过程就是<strong>复合增强缺陷反应（REDRs）</strong> 。</li>
+</ol>
+<p>最终结果是，界面处永久性陷阱电荷增多，导致<strong>阈值电压（Vth）发生不可恢复的漂移</strong>。</p>
+<h3 id="在SiC-MOSFET中的特殊性与表现"><a href="#在SiC-MOSFET中的特殊性与表现" class="headerlink" title="在SiC MOSFET中的特殊性与表现"></a>在SiC MOSFET中的特殊性与表现</h3><p>“声子踢”效应在SiC中远比在Si中严重，根源在于：</p>
+<ul>
+<li><strong>能量更大</strong>：SiC的禁带宽度（约3.2 eV）远大于Si（约1.1 eV），复合释放的能量更高。</li>
+<li><strong>界面更脆弱</strong>：SiC&#x2F;SiO₂界面本身的缺陷密度就比Si&#x2F;SiO₂高出几个数量级，存在更多可供“踢”断的弱键。</li>
+</ul>
+<p>在实验上，Grasser等人发现GSI应力下的ΔVth漂移遵循<strong>幂律时间关系</strong>，且指数接近1，远大于普通BTI应力下的值。更关键的是，研究观察到了<strong>两次“声子踢”</strong>：</p>
+<ul>
+<li><strong>第一次声子踢</strong>：在约<strong>1×10¹²次循环</strong>后饱和，沟槽器件中更强。</li>
+<li><strong>第二次声子踢</strong>：从约<strong>5×10¹²次循环</strong>开始显现，且至少到<strong>3×10¹³次循环（等效约1.5年）仍未饱和</strong>。</li>
+</ul>
+<p>这意味着，SiC MOSFET的Vth漂移在长期开关应力下可能持续累积，其长期可靠性边界需要更长时间的测试来界定。</p>
+<h1 id="这篇论文背后，有哪些真正重要的科学问题？"><a href="#这篇论文背后，有哪些真正重要的科学问题？" class="headerlink" title="这篇论文背后，有哪些真正重要的科学问题？"></a>这篇论文背后，有哪些真正重要的科学问题？</h1><p>这篇工作表面上是平面 vs 沟槽 SiC MOSFET 的可靠性对比，但它触及了几个更深层的科学问题。下面按“界面物理 → 介质击穿 → 缺陷动力学 → 长期可靠性”四个层次来梳理。</p>
+<h2 id="一、SiC-x2F-SiO₂-界面缺陷的原子级身份是什么？"><a href="#一、SiC-x2F-SiO₂-界面缺陷的原子级身份是什么？" class="headerlink" title="一、SiC&#x2F;SiO₂ 界面缺陷的原子级身份是什么？"></a>一、SiC&#x2F;SiO₂ 界面缺陷的原子级身份是什么？</h2><p>论文明确指出：SiC&#x2F;SiO₂ 界面的缺陷密度比 Si&#x2F;SiO₂ 高出<strong>几个数量级</strong>。这是所有 Vth 不稳定和迁移率退化的根源。</p>
+<p>但 CEE 地图、uf-BTI、GSI 给出的都是<strong>电学指纹</strong>——俘获能、发射能、时间常数、密度分布。它们并没有回答：</p>
+<ul>
+<li>这些陷阱到底是<strong>碳团簇、氧空位、硅悬挂键、氢相关缺陷</strong>，还是界面应力诱导的变价态？</li>
+<li>为什么沟槽侧壁的 n-BTI 陷阱发射能高达 <strong>约 1 eV</strong>，而平面只有 <strong>约 0.6 eV</strong>？</li>
+<li>沟槽侧壁的晶面（如 a 面、m 面）与平面（Si 面）在原子终止、极性、应力上有何本质区别，导致 CEE 地图不同？</li>
+</ul>
+<p>这是当前 SiC 可靠性领域最核心的科学问题之一：<strong>把电学测到的能级分布，对应到具体的原子结构和化学键</strong>。没有这一步，工艺优化只能靠试错。</p>
+<h2 id="二、为什么厚-SiO₂-的本征击穿与半导体材料无关？"><a href="#二、为什么厚-SiO₂-的本征击穿与半导体材料无关？" class="headerlink" title="二、为什么厚 SiO₂ 的本征击穿与半导体材料无关？"></a>二、为什么厚 SiO₂ 的本征击穿与半导体材料无关？</h2><p>论文最引人注目的结论是：对于厚 SiO₂（&gt;10 nm），SiC 平面、SiC 沟槽和 Si 的 TDDB 数据落在同一条曲线上，场加速因子 <strong>γ ≈ 4.0 cm&#x2F;MV</strong>，跨域超过 <strong>7 个数量级</strong>的时间。</p>
+<p>这引出一个重要的物理问题：<strong>介质击穿的“限制曲线”（n ≈ −1）为什么只由 SiO₂ 本身决定，而与下面的半导体无关？</strong></p>
+<p>作者的解释是：一旦界面附近开始产生陷阱，氧化层电场就随 log(时间) 线性下降。但这个“限制曲线”的微观起源并不完全清楚：</p>
+<ul>
+<li>它是热化学键断裂模型的必然结果，还是缺陷产生动力学的普适吸引子？</li>
+<li>这个普适性有没有<strong>厚度下限</strong>？薄氧化层（&lt;10 nm）是否仍然成立？</li>
+<li>当氧化层薄到直接隧穿主导时，E-model 是否失效？</li>
+</ul>
+<p>论文回答了“是什么”，但没有完全回答“为什么”。</p>
+<h2 id="三、陷阱产生与填充的动力学：MT、TAT、声子辅助隧穿如何切换？"><a href="#三、陷阱产生与填充的动力学：MT、TAT、声子辅助隧穿如何切换？" class="headerlink" title="三、陷阱产生与填充的动力学：MT、TAT、声子辅助隧穿如何切换？"></a>三、陷阱产生与填充的动力学：MT、TAT、声子辅助隧穿如何切换？</h2><p>论文用 TCAD 仿真区分了三种机制：</p>
+<ul>
+<li><strong>多种俘获（MT）</strong>：电子在陷阱之间跃迁；</li>
+<li><strong>陷阱辅助隧穿（TAT）</strong>：电子从栅极通过陷阱隧穿；</li>
+<li><strong>声子辅助隧穿</strong>：陷阱与栅极之间的电荷转移被声子增强。</li>
+</ul>
+<p>实验发现：高温热氧化（平面 SiC）只表现出 MT，斜率 <strong>n ≈ 0</strong>；低温沉积氧化层（沟槽 SiC、Si）表现出 <strong>n ≈ −0.25</strong>，TAT 在短时间就预测 <strong>n ≈ −0.2</strong>。</p>
+<p>科学问题是：</p>
+<ul>
+<li>氧化层工艺如何决定<strong>陷阱的空间分布和能级深度</strong>，从而切换主导输运机制？</li>
+<li>TAT + MT 组合为什么能延长 n ≈ −0.2 的时间窗口？</li>
+<li>这些机制能否用一个<strong>统一的非平衡陷阱动力学模型</strong>描述，而不是分段拟合？</li>
+</ul>
+<p>这涉及介质中电荷输运与缺陷产生的耦合，是凝聚态物理和器件物理的交叉问题。</p>
+<h2 id="四、沟槽侧壁晶面为何导致更严重的-n-BTI？"><a href="#四、沟槽侧壁晶面为何导致更严重的-n-BTI？" class="headerlink" title="四、沟槽侧壁晶面为何导致更严重的 n-BTI？"></a>四、沟槽侧壁晶面为何导致更严重的 n-BTI？</h2><p>CEE 地图显示：沟槽器件的 n-BTI 陷阱具有<strong>高发射能（约 1 eV）、低俘获能（0.2 eV）</strong>，而平面约为 0.6 eV 和 0.2 eV。这意味着空穴“进门容易出门难”，在界面停留更久。</p>
+<p>科学问题：</p>
+<ul>
+<li>沟槽侧壁的<strong>晶面极性、原子台阶、刻蚀损伤</strong>如何产生这种能级分布？</li>
+<li>为什么 p-BTI 在平面和沟槽中相似，而 n-BTI 差异显著？</li>
+<li>界面缺陷的<strong>能级位置</strong>与<strong>俘获截面</strong>之间是否存在普适关联？</li>
+</ul>
+<p>这需要将电学 CEE 地图与<strong>原子级表征</strong>（如 XPS、TEM、EPR）和<strong>第一性原理计算</strong>对接。</p>
+<h2 id="五、“声子踢”的物理本质：REDR-如何被复合能量触发？"><a href="#五、“声子踢”的物理本质：REDR-如何被复合能量触发？" class="headerlink" title="五、“声子踢”的物理本质：REDR 如何被复合能量触发？"></a>五、“声子踢”的物理本质：REDR 如何被复合能量触发？</h2><p>“声子踢”是比喻，正式名称是<strong>非辐射复合增强缺陷反应（REDR）</strong>。在 GSI 应力下，空穴被俘获，电子涌入，二者在界面陷阱处非辐射复合，释放的能量以声子形式传递给晶格，打断 Si–H 或 Si–O 键，产生新的永久缺陷。</p>
+<p>论文观察到<strong>两次声子踢</strong>：</p>
+<ul>
+<li><strong>声子踢 1</strong>：约 <strong>10¹² 次循环</strong>饱和；</li>
+<li><strong>声子踢 2</strong>：约 <strong>5×10¹² 次循环</strong>开始，到 <strong>3×10¹³ 次循环</strong>仍未饱和。</li>
+</ul>
+<p>科学问题：</p>
+<ul>
+<li>复合释放的能量如何<strong>定量地</strong>转化为缺陷产生速率？</li>
+<li>两次声子踢分别对应什么微观过程？是<strong>氢解离</strong>、<strong>氧空位产生</strong>，还是<strong>界面态转化</strong>？</li>
+<li>为什么 kick 2 不饱和？它是否对应一个<strong>自催化或扩散限制</strong>的缺陷产生机制？</li>
+</ul>
+<p>这是非平衡缺陷物理中非常根本的问题：<strong>电子激发如何转化为永久性结构损伤</strong>。</p>
+<h2 id="六、长期寿命外推的物理基础是否可靠？"><a href="#六、长期寿命外推的物理基础是否可靠？" class="headerlink" title="六、长期寿命外推的物理基础是否可靠？"></a>六、长期寿命外推的物理基础是否可靠？</h2><p>工程上，TDDB 数据用 E-model 外推到 10 年寿命。但 GSI 中 kick 2 不饱和，意味着 Vth 漂移可能持续累积。</p>
+<p>科学问题：</p>
+<ul>
+<li>加速寿命测试的<strong>物理外推模型</strong>在什么条件下成立？</li>
+<li>当缺陷产生机制从 kick 1 过渡到 kick 2 时，<strong>激活能、场加速因子是否改变</strong>？</li>
+<li>如何建立一个<strong>基于物理的、而非纯经验的</strong>长期可靠性预测框架？</li>
+</ul>
+<p>这直接关系到 SiC MOSFET 在电动汽车、光伏逆变器等场景中的<strong>寿命承诺</strong>。</p>
+<h2 id="总结：三个最核心的科学问题"><a href="#总结：三个最核心的科学问题" class="headerlink" title="总结：三个最核心的科学问题"></a>总结：三个最核心的科学问题</h2><p>如果只选三个，我认为是：</p>
+<ol>
+<li><strong>SiC&#x2F;SiO₂ 界面缺陷的原子级身份与能级起源</strong>——从电学指纹到原子因果。</li>
+<li><strong>非辐射复合增强缺陷反应（REDR）的定量微观机制</strong>——复合能量如何“踢”出永久缺陷，两次 kick 的本质是什么。</li>
+<li><strong>厚&#x2F;薄 SiO₂ 击穿普适性与厚度缩放规律</strong>——为什么厚氧化层与半导体无关，这个结论的物理边界在哪里。</li>
+</ol>
+<p>这篇论文在工程层面回答了“平面和沟槽谁更可靠”，但它留下的科学问题，恰恰是下一代 SiC 器件能否真正突破可靠性瓶颈的关键。</p>
+<h1 id="与产热传热相关的科学问题：SiC-MOSFET-可靠性背后的“热”线索"><a href="#与产热传热相关的科学问题：SiC-MOSFET-可靠性背后的“热”线索" class="headerlink" title="与产热传热相关的科学问题：SiC MOSFET 可靠性背后的“热”线索"></a>与产热传热相关的科学问题：SiC MOSFET 可靠性背后的“热”线索</h1><p>这篇论文本身不是热输运研究，它测的是 TDDB、BTI 和 GSI 的电学退化。但它涉及的每一个关键过程——栅漏电、碰撞电离、非辐射复合、缺陷产生——都伴随<strong>能量耗散</strong>，而能量耗散最终会变成<strong>热</strong>。因此，从这篇工作可以引出一系列与产热、传热深度耦合的科学问题。下面分四个层次梳理。</p>
+<h2 id="一、产热源：电应力下的局部能量耗散在哪里发生？"><a href="#一、产热源：电应力下的局部能量耗散在哪里发生？" class="headerlink" title="一、产热源：电应力下的局部能量耗散在哪里发生？"></a>一、产热源：电应力下的局部能量耗散在哪里发生？</h2><p>SiC MOSFET 在电应力下的产热不是均匀的，而是高度局域化的：</p>
+<ul>
+<li><strong>栅漏电</strong>：沟槽器件的栅漏电比平面高约 <strong>2 个数量级</strong>（论文 Fig. 1）。这些漏电流在 SiO₂ 中直接转化为焦耳热。</li>
+<li><strong>碰撞电离</strong>：论文指出，碰撞电离在沟槽中发生在更低的氧化层电场 (E_{ox})。碰撞电离产生高能载流子，其能量最终以声子形式释放。</li>
+<li><strong>非辐射复合</strong>：GSI 应力下，电子与空穴在界面陷阱处复合，释放的能量以声子形式传给晶格——这就是“声子踢”的能量来源。</li>
+<li><strong>界面陷阱充放电</strong>：uf-BTI 中载流子在界面陷阱的俘获与发射，也伴随能量耗散。</li>
+</ul>
+<p><strong>科学问题</strong>：这些产热源在沟槽和平面中的空间分布有何不同？沟槽侧壁的晶面差异是否导致局部产热集中？产热速率与电场、电流密度、缺陷密度的定量关系是什么？</p>
+<h2 id="二、传热路径：SiC-x2F-SiO₂-界面热阻与沟槽热瓶颈"><a href="#二、传热路径：SiC-x2F-SiO₂-界面热阻与沟槽热瓶颈" class="headerlink" title="二、传热路径：SiC&#x2F;SiO₂ 界面热阻与沟槽热瓶颈"></a>二、传热路径：SiC&#x2F;SiO₂ 界面热阻与沟槽热瓶颈</h2><p>产热之后，热量必须传出去。SiC 本身热导率很高，但 <strong>SiO₂ 的热导率极低</strong>（约 1.4 W&#x2F;m·K，比 SiC 低两个数量级），是主要热瓶颈。更关键的是 <strong>SiC&#x2F;SiO₂ 界面</strong>：</p>
+<ul>
+<li>界面处存在声子模态失配，产生 <strong>界面热阻（Kapitza resistance）</strong>。</li>
+<li>界面缺陷会散射声子，进一步增加热阻。</li>
+<li>沟槽结构的热路径与平面不同：沟槽侧壁和底部的晶面取向不同，热导可能各向异性。</li>
+</ul>
+<p><strong>科学问题</strong>：</p>
+<ol>
+<li>SiC&#x2F;SiO₂ 界面热阻的微观起源是什么？它与界面缺陷密度、化学键构型有何关联？</li>
+<li>沟槽侧壁不同晶面（如 a 面、m 面）的界面热阻是否不同？这会不会导致沟槽底部形成局部热点？</li>
+<li>厚 SiO₂（&gt;10 nm）的击穿普适性是否与热效应有关？热量在氧化层中的积累是否加速缺陷产生？</li>
+</ol>
+<h2 id="三、热-电-缺陷耦合：温度如何反馈到可靠性？"><a href="#三、热-电-缺陷耦合：温度如何反馈到可靠性？" class="headerlink" title="三、热-电-缺陷耦合：温度如何反馈到可靠性？"></a>三、热-电-缺陷耦合：温度如何反馈到可靠性？</h2><p>论文的 TDDB 在 <strong>175°C</strong> 下进行，uf-BTI 低至 <strong>80 K</strong>，GSI 在 <strong>25°C</strong>。温度是这些实验的核心变量，但论文没有直接测量器件内部温度。</p>
+<ul>
+<li>TDDB 的场加速因子 γ ≈ 4.0 cm&#x2F;MV，这个参数本身可能随温度变化。</li>
+<li>uf-BTI 中，温度越低，陷阱发射越慢，因此低温测量能揭示更深的能级。</li>
+<li>GSI 中，“声子踢”本质是复合能量以声子形式释放，局部声子分布可能偏离热平衡。</li>
+</ul>
+<p><strong>科学问题</strong>：</p>
+<ol>
+<li>自热效应如何影响 Vth 漂移的测量？电学应力下的局部温升是否被低估？</li>
+<li>温度对陷阱俘获&#x2F;发射速率的影响，是否与“声子踢”中的非平衡声子过程耦合？</li>
+<li>是否存在<strong>正反馈热失控</strong>：漏电产热 → 温度升高 → 缺陷产生加快 → 漏电更大？</li>
+<li>如何从电学退化数据中<strong>解耦</strong>纯电致缺陷与热致缺陷？</li>
+</ol>
+<h2 id="四、非平衡声子与“声子踢”的热学本质"><a href="#四、非平衡声子与“声子踢”的热学本质" class="headerlink" title="四、非平衡声子与“声子踢”的热学本质"></a>四、非平衡声子与“声子踢”的热学本质</h2><p>“声子踢”这个比喻的核心，是<strong>非辐射复合释放的能量以声子形式局部沉积</strong>。这不同于宏观热传导：</p>
+<ul>
+<li>复合能量首先激发<strong>高能非平衡声子</strong>，而不是立刻热化。</li>
+<li>这些声子可能局域在界面附近，打断 Si–H 或 Si–O 键，产生永久缺陷。</li>
+<li>如果能量没有及时传走，局部晶格温度会瞬时升高，进一步促进缺陷反应。</li>
+</ul>
+<p><strong>科学问题</strong>：</p>
+<ol>
+<li>非辐射复合释放的能量如何在电子、声子、缺陷之间分配？</li>
+<li>非平衡声子的寿命、扩散长度和热化时间是多少？</li>
+<li>局部声子瓶颈是否导致界面附近的<strong>有效温度</strong>远高于晶格平均温度？</li>
+<li>两次“声子踢”是否对应不同的声子能量阈值或不同的缺陷反应路径？</li>
+</ol>
+<h2 id="五、测量与建模：如何“看见”纳米尺度的热？"><a href="#五、测量与建模：如何“看见”纳米尺度的热？" class="headerlink" title="五、测量与建模：如何“看见”纳米尺度的热？"></a>五、测量与建模：如何“看见”纳米尺度的热？</h2><p>论文用的是电学方法，没有直接测温。要回答上述问题，需要：</p>
+<ul>
+<li><strong>纳米尺度测温</strong>：如扫描热显微镜（SThM）、拉曼测温、时间分辨热反射。</li>
+<li><strong>多尺度热建模</strong>：从原子级声子输运到器件级热仿真。</li>
+<li><strong>电-热-缺陷耦合模型</strong>：把 TDDB、BTI、GSI 的缺陷动力学与局部温度场耦合起来。</li>
+</ul>
+<p><strong>科学问题</strong>：如何实验区分“电场直接导致的缺陷产生”和“局部焦耳热加速的缺陷产生”？在沟槽底部这种电场和热都集中的区域，两者的贡献比例是多少？</p>
+<h2 id="总结：三个最核心的产热传热科学问题"><a href="#总结：三个最核心的产热传热科学问题" class="headerlink" title="总结：三个最核心的产热传热科学问题"></a>总结：三个最核心的产热传热科学问题</h2><ol>
+<li><strong>SiC&#x2F;SiO₂ 界面热阻的微观机制与缺陷关联</strong>：界面缺陷如何散射声子，如何影响沟槽和平面器件的热路径？</li>
+<li><strong>非平衡声子在“声子踢”中的角色</strong>：复合能量如何转化为局部声子，是否导致界面有效温度升高并触发永久缺陷？</li>
+<li><strong>热-电-缺陷正反馈的定量边界</strong>：在什么条件下，漏电产热会加速缺陷产生，形成热失控？如何从电学退化数据中解耦热效应？</li>
+</ol>
+<p>这篇论文在电学层面回答了“平面和沟槽谁更可靠”，但它留下的热学问题，恰恰是理解 SiC MOSFET 长期可靠性边界的关键。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：On the SiC&#x2F;SiO₂ Interface and SiO₂ Gate Reliability of Planar and Trench SiC MOSFETs</li>
+<li>期刊：预印本 &#x2F; 会议投稿（PDF 未标注最终期刊，年份 2026）</li>
+<li>年份：2026</li>
+<li>DOI：未在提供内容中给出</li>
+</ul>
+<p>本文基于学术论文 <em>On the SiC&#x2F;SiO₂ Interface and SiO₂ Gate Reliability of Planar and Trench SiC MOSFETs</em>（2026）进行科学解读与转述。论文原文、图表及补充材料的版权归原作者及相应出版机构所有。本文中标注的“[建议插入：原文 Fig. X]”仅为插图位置说明，未直接复制或嵌入受版权保护的图片。如需在公众号或博客正式发布，请务必先确认图片转载许可；若无法获得授权，请仅保留文字说明，不插入原图。</p>
+<p>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容（包括文字、图片位置标注或转述）无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/28/paper_reading/20260928C/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-008
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#SiC-MOSFET-%E7%9A%84%E2%80%9C%E6%A0%85%E6%9E%81%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8A%E2%80%9D%EF%BC%9A%E5%B9%B3%E9%9D%A2%E5%92%8C%E6%B2%9F%E6%A7%BD%EF%BC%8C%E8%B0%81%E7%9A%84%E6%B0%A7%E5%8C%96%E5%B1%82%E6%9B%B4%E9%9D%A0%E5%BE%97%E4%BD%8F%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">SiC MOSFET 的“栅极体检报告”：平面和沟槽，谁的氧化层更靠得住？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9ASiC-%E7%9A%84%E2%80%9C%E5%A5%BD%E8%BA%AB%E4%BD%93%E2%80%9D%E5%92%8C%E2%80%9C%E5%9D%8F%E8%84%BE%E6%B0%94%E2%80%9D"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：SiC 的“好身体”和“坏脾气”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E5%A4%9A%E6%89%8B%E6%AE%B5%E2%80%9C%E4%BD%93%E6%A3%80%E2%80%9D-%E5%AF%B9%E7%85%A7-Si-%E5%99%A8%E4%BB%B6"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：多手段“体检” + 对照 Si 器件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E6%B2%9F%E6%A7%BD%E6%A0%85%E6%BC%8F%E7%94%B5%E6%AF%94%E5%B9%B3%E9%9D%A2%E9%AB%98%E7%BA%A6%E4%B8%A4%E4%B8%AA%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：沟槽栅漏电比平面高约两个数量级</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E5%87%BB%E7%A9%BF%E5%89%8D%E8%BE%B9%E7%95%8C%E4%B8%8E%E7%94%B5%E8%8D%B7%E4%BF%98%E8%8E%B7"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：击穿前边界与电荷俘获</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9AMT-%E8%BF%98%E6%98%AF-TAT%EF%BC%8C%E5%8F%96%E5%86%B3%E4%BA%8E%E6%B0%A7%E5%8C%96%E5%B1%82%E5%B7%A5%E8%89%BA"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：MT 还是 TAT，取决于氧化层工艺</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E5%8E%9A-SiO%E2%82%82-%E7%9A%84%E5%AF%BF%E5%91%BD%E4%B8%8E-Si-%E5%99%A8%E4%BB%B6%E7%9B%B8%E5%BD%93"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：厚 SiO₂ 的寿命与 Si 器件相当</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%94%EF%BC%9A%E6%B2%9F%E6%A7%BD%E6%9B%B4%E5%AE%B9%E6%98%93%E5%8F%97-n-BTI-%E5%BD%B1%E5%93%8D"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">发现五：沟槽更容易受 n-BTI 影响</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%85%AD%EF%BC%9A%E6%A0%85%E6%9E%81%E5%BC%80%E5%85%B3%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%B8%AD%E7%9A%84%E4%B8%A4%E6%AC%A1%E2%80%9C%E5%A3%B0%E5%AD%90%E8%B8%A2%E2%80%9D"><span class="toc-nav-number">1.4.6.</span> <span class="toc-nav-text">发现六：栅极开关不稳定性中的两次“声子踢”</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%89%A9%E7%90%86%E6%9C%BA%E5%88%B6%EF%BC%9A%E4%BB%8E%E2%80%9C%E5%A4%8D%E5%90%88%E2%80%9D%E5%88%B0%E2%80%9C%E8%B8%A2%E2%80%9D"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">物理机制：从“复合”到“踢”</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8SiC-MOSFET%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7%E4%B8%8E%E8%A1%A8%E7%8E%B0"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">在SiC MOSFET中的特殊性与表现</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E8%BF%99%E7%AF%87%E8%AE%BA%E6%96%87%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E7%9C%9F%E6%AD%A3%E9%87%8D%E8%A6%81%E7%9A%84%E7%A7%91%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">这篇论文背后，有哪些真正重要的科学问题？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81SiC-x2F-SiO%E2%82%82-%E7%95%8C%E9%9D%A2%E7%BC%BA%E9%99%B7%E7%9A%84%E5%8E%9F%E5%AD%90%E7%BA%A7%E8%BA%AB%E4%BB%BD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">一、SiC&#x2F;SiO₂ 界面缺陷的原子级身份是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8E%9A-SiO%E2%82%82-%E7%9A%84%E6%9C%AC%E5%BE%81%E5%87%BB%E7%A9%BF%E4%B8%8E%E5%8D%8A%E5%AF%BC%E4%BD%93%E6%9D%90%E6%96%99%E6%97%A0%E5%85%B3%EF%BC%9F"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">二、为什么厚 SiO₂ 的本征击穿与半导体材料无关？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E9%99%B7%E9%98%B1%E4%BA%A7%E7%94%9F%E4%B8%8E%E5%A1%AB%E5%85%85%E7%9A%84%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%9AMT%E3%80%81TAT%E3%80%81%E5%A3%B0%E5%AD%90%E8%BE%85%E5%8A%A9%E9%9A%A7%E7%A9%BF%E5%A6%82%E4%BD%95%E5%88%87%E6%8D%A2%EF%BC%9F"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">三、陷阱产生与填充的动力学：MT、TAT、声子辅助隧穿如何切换？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%9B%E3%80%81%E6%B2%9F%E6%A7%BD%E4%BE%A7%E5%A3%81%E6%99%B6%E9%9D%A2%E4%B8%BA%E4%BD%95%E5%AF%BC%E8%87%B4%E6%9B%B4%E4%B8%A5%E9%87%8D%E7%9A%84-n-BTI%EF%BC%9F"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">四、沟槽侧壁晶面为何导致更严重的 n-BTI？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%94%E3%80%81%E2%80%9C%E5%A3%B0%E5%AD%90%E8%B8%A2%E2%80%9D%E7%9A%84%E7%89%A9%E7%90%86%E6%9C%AC%E8%B4%A8%EF%BC%9AREDR-%E5%A6%82%E4%BD%95%E8%A2%AB%E5%A4%8D%E5%90%88%E8%83%BD%E9%87%8F%E8%A7%A6%E5%8F%91%EF%BC%9F"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">五、“声子踢”的物理本质：REDR 如何被复合能量触发？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%AD%E3%80%81%E9%95%BF%E6%9C%9F%E5%AF%BF%E5%91%BD%E5%A4%96%E6%8E%A8%E7%9A%84%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80%E6%98%AF%E5%90%A6%E5%8F%AF%E9%9D%A0%EF%BC%9F"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">六、长期寿命外推的物理基础是否可靠？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%89%E4%B8%AA%E6%9C%80%E6%A0%B8%E5%BF%83%E7%9A%84%E7%A7%91%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">总结：三个最核心的科学问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%B8%8E%E4%BA%A7%E7%83%AD%E4%BC%A0%E7%83%AD%E7%9B%B8%E5%85%B3%E7%9A%84%E7%A7%91%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%9ASiC-MOSFET-%E5%8F%AF%E9%9D%A0%E6%80%A7%E8%83%8C%E5%90%8E%E7%9A%84%E2%80%9C%E7%83%AD%E2%80%9D%E7%BA%BF%E7%B4%A2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">与产热传热相关的科学问题：SiC MOSFET 可靠性背后的“热”线索</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%A7%E7%83%AD%E6%BA%90%EF%BC%9A%E7%94%B5%E5%BA%94%E5%8A%9B%E4%B8%8B%E7%9A%84%E5%B1%80%E9%83%A8%E8%83%BD%E9%87%8F%E8%80%97%E6%95%A3%E5%9C%A8%E5%93%AA%E9%87%8C%E5%8F%91%E7%94%9F%EF%BC%9F"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">一、产热源：电应力下的局部能量耗散在哪里发生？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E4%BC%A0%E7%83%AD%E8%B7%AF%E5%BE%84%EF%BC%9ASiC-x2F-SiO%E2%82%82-%E7%95%8C%E9%9D%A2%E7%83%AD%E9%98%BB%E4%B8%8E%E6%B2%9F%E6%A7%BD%E7%83%AD%E7%93%B6%E9%A2%88"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">二、传热路径：SiC&#x2F;SiO₂ 界面热阻与沟槽热瓶颈</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E7%83%AD-%E7%94%B5-%E7%BC%BA%E9%99%B7%E8%80%A6%E5%90%88%EF%BC%9A%E6%B8%A9%E5%BA%A6%E5%A6%82%E4%BD%95%E5%8F%8D%E9%A6%88%E5%88%B0%E5%8F%AF%E9%9D%A0%E6%80%A7%EF%BC%9F"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">三、热-电-缺陷耦合：温度如何反馈到可靠性？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%9B%E3%80%81%E9%9D%9E%E5%B9%B3%E8%A1%A1%E5%A3%B0%E5%AD%90%E4%B8%8E%E2%80%9C%E5%A3%B0%E5%AD%90%E8%B8%A2%E2%80%9D%E7%9A%84%E7%83%AD%E5%AD%A6%E6%9C%AC%E8%B4%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">四、非平衡声子与“声子踢”的热学本质</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%94%E3%80%81%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%BB%BA%E6%A8%A1%EF%BC%9A%E5%A6%82%E4%BD%95%E2%80%9C%E7%9C%8B%E8%A7%81%E2%80%9D%E7%BA%B3%E7%B1%B3%E5%B0%BA%E5%BA%A6%E7%9A%84%E7%83%AD%EF%BC%9F"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">五、测量与建模：如何“看见”纳米尺度的热？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%89%E4%B8%AA%E6%9C%80%E6%A0%B8%E5%BF%83%E7%9A%84%E4%BA%A7%E7%83%AD%E4%BC%A0%E7%83%AD%E7%A7%91%E5%AD%A6%E9%97%AE%E9%A2%98"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">总结：三个最核心的产热传热科学问题</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/28/paper_reading/20260928D/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
