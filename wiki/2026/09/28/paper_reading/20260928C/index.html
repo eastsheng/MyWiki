@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-008 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-008</h2>
+  <p class="post-date">2026-09-28 20:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="把-GaN-HEMT-的“陷阱信号”拆开：一个能同时看清界面态和缓冲层态的紧凑模型"><a href="#把-GaN-HEMT-的“陷阱信号”拆开：一个能同时看清界面态和缓冲层态的紧凑模型" class="headerlink" title="把 GaN HEMT 的“陷阱信号”拆开：一个能同时看清界面态和缓冲层态的紧凑模型"></a>把 GaN HEMT 的“陷阱信号”拆开：一个能同时看清界面态和缓冲层态的紧凑模型</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>AlGaN&#x2F;GaN 高电子迁移率晶体管（HEMT）中的陷阱效应，一直是制约其可靠性的核心难题。<strong>陷阱分布在表面、界面、势垒和缓冲层等多个位置</strong>，传统 C–V 方法难以把界面陷阱和缓冲层陷阱的贡献分开。张等人提出了一套基于物理的紧凑建模框架，通过改进缓冲层陷阱电荷模型，把本征栅电容分解为势垒、2DEG 和陷阱三部分，并分别给出缓冲层与界面陷阱的时间常数。模型与 TCAD 仿真的均方根相对误差为 **4.59%**，与实验测量的误差仅为 **1.66%**。</p>
+<h2 id="背景：为什么-HEMT-的陷阱这么难“拆”？"><a href="#背景：为什么-HEMT-的陷阱这么难“拆”？" class="headerlink" title="背景：为什么 HEMT 的陷阱这么难“拆”？"></a>背景：为什么 HEMT 的陷阱这么难“拆”？</h2><p>GaN HEMT 凭借宽禁带、高击穿场和极化诱导的高密度二维电子气（2DEG），在高温、高压、高频领域占据重要地位。但材料生长、器件制备和有意掺杂过程中引入的陷阱，会导致阈值电压漂移、栅漏电抑制和电流崩塌，严重影响电路可靠性。</p>
+<p>传统的电流瞬态和双脉冲方法能捕捉大信号动态下的陷阱效应，但高电压驱动下的费米能级大幅摆动，响应是宽能量范围内多种陷阱动力学的“卷积”，难以区分具体陷阱类型。C–V 方法在近平衡条件下探测器件，理论上能提取本征陷阱参数，<strong>但在 GaN HEMT 中面临两个困难：一是 C–V 分析通常只适用于第二斜率区，第一斜率区（亚阈值区）的解释仍很困难；</strong>二是<strong>等效电路中的半导体电容未知，电导法依赖额外技术确定俘获截面，且难以解耦多种陷阱态。</strong></p>
+<p>物理根源在于：<strong>2DEG 的积累和陷阱电荷之间存在强耦合</strong>，两者都调制栅电容。这种耦合使得不同陷阱的贡献无法从总电容中有效分离。其中，缓冲层陷阱和界面陷阱的影响尤为突出，也是本文聚焦的两种类型。</p>
+<p>已有的紧凑模型通常把陷阱当作固定电荷中心，用经验参数或 RC 子电路调整阈值电压和接入电阻，既不考虑陷阱电荷的空间分布，也缺乏确定陷阱电荷密度的物理基础。一些模型用三角势阱近似处理缓冲层陷阱，但只限于近界面区域，忽略了更深处的缓冲层陷阱，导致俘获电荷被低估。当考虑整个缓冲层时，恒定电场假设不再成立，2DEG 结果也会失真。</p>
+<h2 id="作者如何研究：分区建模-电容分解"><a href="#作者如何研究：分区建模-电容分解" class="headerlink" title="作者如何研究：分区建模 + 电容分解"></a>作者如何研究：分区建模 + 电容分解</h2><p>作者提出的框架包含三个核心步骤。</p>
+<p><strong>第一，改进缓冲层陷阱电荷模型。</strong> 当费米能级 (E_F &gt; 0) 时，把 GaN 缓冲层分成两个区域：近界面区域（Region 1）仍用三角势阱近似，远界面区域（Region 2）则通过积分泊松方程和高斯定律处理。在 Region 2 中，2DEG 浓度已衰减数个量级，远小于陷阱电荷，因此可以忽略 2DEG 对电场的贡献。分界点 (d_1) 的选取由导带能量 (E_{c,d1} &#x3D; \alpha E_F) 控制，(\alpha) 是调节参数。当 (E_F &lt; 0) 时，近界面三角势阱贡献可忽略，只保留远区域贡献。作者引入平滑参数 (\epsilon)，保证 (E_{c,d1}) 从 0 到 (\alpha E_F) 的连续过渡。</p>
+<p><strong>第二，建立含陷阱电荷的 2DEG 模型。</strong> 自洽求解泊松方程和薛定谔方程，包含界面陷阱和缓冲层陷阱的电荷贡献。界面陷阱用受主型单能级表达式描述，缓冲层陷阱则用上述分区模型。</p>
+<p><strong>第三，建立频率色散的栅电容模型。</strong> 把本征栅电容分解为势垒电容 (C_{ox})、2DEG 电容 (C_{2DEG}) 和陷阱导纳 (Y_{buf})、(Y_{int})。势垒电容由几何参数决定，2DEG 电容在感兴趣的频率范围内视为频率无关。频率响应来自陷阱电容的频率依赖行为。采用经典的 Lehovec 导纳形式描述陷阱导纳，时间常数由 Shockley–Read–Hall（SRH）理论确定。对于缓冲层陷阱，只有费米能级附近的陷阱响应交流信号，因此采用交叉点处的电子浓度和玻尔兹曼统计获得时间常数。对于界面陷阱，交叉点位于界面处。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：器件结构与能带图"><a href="#发现一：器件结构与能带图" class="headerlink" title="发现一：器件结构与能带图"></a>发现一：器件结构与能带图</h3><p><strong>图 1（原文 Fig. 1）：</strong> <img src="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/16/11646495/11592792/zhang1-3707131-large.gif"></p>
+<p>图 1(a) 是 Schottky 栅 AlGaN&#x2F;GaN HEMT 的截面图，标注了 Si₃N₄ 钝化层、AlGaN 势垒、GaN 缓冲层、2DEG、界面受主型陷阱和缓冲层受主型陷阱。图 1(b) 是栅金属下方的能带图，虚线表示单一能级的缓冲层陷阱。图 1(c) 是近界面能带放大图，虚 线直线表示三角势阱近似，(d_1) 是 Region 1 和 Region 2 的分界点。</p>
+<p><strong>通俗地看</strong>：这张图告诉你陷阱分布在哪里，以及作者用什么近似来处理近界面和远界面的能带。</p>
+<h3 id="发现二：改进的缓冲层陷阱电荷模型更准"><a href="#发现二：改进的缓冲层陷阱电荷模型更准" class="headerlink" title="发现二：改进的缓冲层陷阱电荷模型更准"></a>发现二：改进的缓冲层陷阱电荷模型更准</h3><p><strong>图 2（原文 Fig. 2）：</strong><img src="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/16/11646495/11592792/zhang2-3707131-large.gif" alt="img"></p>
+<p>图 2(a) 是推导表面电场时的高斯面示意图，展示电荷密度分布：极化电荷 (\sigma_{polar})、2DEG (n_s)、界面陷阱 (n_{int})、缓冲层陷阱 (n_{buf})。图 2(b) 对比了 2DEG 面电荷密度 (n_s) 随栅压 (V_{gs}) 的变化，蓝色是已有模型，红色是本文模型，符号是 TCAD 仿真。图 2(c) 对比了总缓冲层陷阱电荷 (n_{buf}) 随栅压的变化。缓冲层陷阱密度设为 <strong>(5 \times 10^{17}) cm⁻³</strong>，能级为 <strong>(E_C - 0.45) eV</strong>，以反映深能级影响。</p>
+<p>以 TCAD 为基准，本文模型计算的 2DEG 密度均方根误差从已有模型的 <strong>(5.73 \times 10^{11}) cm⁻²</strong> 降至 <strong>(4.38 \times 10^{9}) cm⁻²</strong>。本文模型对陷阱电荷随栅压的描述更准确，因而给出更精确的 2DEG 浓度。</p>
+<p><strong>通俗地看</strong>：图 2 证明，把缓冲层分成两区来处理，比只用三角势阱近似更能抓住深能级陷阱的贡献。</p>
+<h3 id="发现三：电容分解与单陷阱电容"><a href="#发现三：电容分解与单陷阱电容" class="headerlink" title="发现三：电容分解与单陷阱电容"></a>发现三：电容分解与单陷阱电容</h3><p><strong>图 3（原文 Fig. 3）：</strong> [建议插入：原文 Fig. 3]</p>
+<p>图 3(a) 是本征栅电容的等效电路分解：势垒电容 (C_{ox})、2DEG 电容 (C_{2DEG})、缓冲层陷阱导纳 (Y_{buf})、界面陷阱导纳 (Y_{int})。图 3(b) 是仅存在缓冲层陷阱时的缓冲层陷阱电容 (C_{buf})，图 3(c) 是仅存在界面陷阱时的界面陷阱电容 (C_{int})。符号是 TCAD 仿真，线条是模型结果，频率从 1 Hz 到 1 MHz。</p>
+<p>陷阱电容随栅压出现峰值，对应费米能级与陷阱能级对齐、电子被俘获的过程。频率升高时，陷阱电容逐渐减小，模型能很好地描述这一趋势。作者指出，高频下缓冲层陷阱电容出现一些偏差，可能因为直接应用 Lehovec 模型时忽略了交叉点到界面有限距离带来的电容。</p>
+<p><strong>通俗地看</strong>：图 3 表明，把总电容拆成三块后，每种陷阱的“响应指纹”可以单独看清。</p>
+<h3 id="发现四：不同陷阱密度和能级下的验证"><a href="#发现四：不同陷阱密度和能级下的验证" class="headerlink" title="发现四：不同陷阱密度和能级下的验证"></a>发现四：不同陷阱密度和能级下的验证</h3><p><strong>图 4（原文 Fig. 4）：</strong> [建议插入：原文 Fig. 4]</p>
+<p>图 4(a) 和 (c) 是 2DEG 浓度 (n_s) 随栅压的变化，图 4(b) 和 (d) 是总电离缓冲层陷阱密度 (n_{buf}) 随栅压的变化。图 4(a)(b) 固定 (E_T &#x3D; 0.45) eV，(N_{buf}) 从 <strong>(10^{17}) 到 (10^{18}) cm⁻³</strong> 变化；图 4(c)(d) 固定 (N_{buf} &#x3D; 5 \times 10^{17}) cm⁻³，(E_T) 从 <strong>0.25 eV 到 0.55 eV</strong> 变化。符号是 TCAD，线条是模型。</p>
+<p>结果表明，即使对于深陷阱能级和高缓冲层陷阱浓度，模型仍保持良好精度。作者强调，仅调整阈值电压不足以描述 2DEG 的对数积累过程——那只会让曲线横向平移；而考虑栅压控制的缓冲层陷阱电荷后，模型能准确捕捉这一行为。</p>
+<p><strong>通俗地看</strong>：图 4 说明，这套模型不是只在某一组参数下碰巧准，换陷阱浓度和能级也能跟住 TCAD。</p>
+<h3 id="发现五：双陷阱体系的电容验证"><a href="#发现五：双陷阱体系的电容验证" class="headerlink" title="发现五：双陷阱体系的电容验证"></a>发现五：双陷阱体系的电容验证</h3><p><strong>图 5（原文 Fig. 5）：</strong> [建议插入：原文 Fig. 5]</p>
+<p>图 5(a) 是同时存在缓冲层陷阱和界面陷阱时的栅电容 (C_g) 随栅压的变化，频率从 1 Hz 到 1 MHz。图 5(b) 是缓冲层陷阱电容 (C_{buf})，图 5(c) 是界面陷阱电容 (C_{int})。仿真参数：缓冲层陷阱 <strong>(N_{buf} &#x3D; 5 \times 10^{17}) cm⁻³，(E_T &#x3D; 0.45) eV，(\sigma_{buf} &#x3D; 2.05 \times 10^{-15}) cm²</strong>；界面陷阱 <strong>(N_{int} &#x3D; 7 \times 10^{11}) cm⁻²，(E_{Tint} &#x3D; 0.2) eV，(\sigma_{int} &#x3D; 2.05 \times 10^{-18}) cm²</strong>。</p>
+<p>亚阈值区出现两个明显的电容峰，分别对应缓冲层陷阱（(E_C - 0.45) eV）和界面陷阱（(E_C - 0.2) eV）。在 (-4) 到 (-1) V 栅压范围内，TCAD 与模型的均方根误差为 <strong>0.132 pF</strong>，相对误差 **4.59%**。图 5(b) 中，缓冲层陷阱电容在 (-3) V 到 (-2) V 之间出现一个谷，原因是该电压范围内界面陷阱大量俘获电子，对应图 5(c) 中界面陷阱电容的峰。这体现了两种陷阱与 2DEG 之间的耦合，也解释了图 5(c) 中界面陷阱电容峰值先增后减的现象。</p>
+<p><strong>通俗地看</strong>：图 5 是“双陷阱同时在场”的压力测试——两个峰各自对应一种陷阱，模型能把它们分开。</p>
+<h3 id="发现六：实验验证与参数提取"><a href="#发现六：实验验证与参数提取" class="headerlink" title="发现六：实验验证与参数提取"></a>发现六：实验验证与参数提取</h3><p><strong>图 6（原文 Fig. 6）：</strong> [建议插入：原文 Fig. 6]</p>
+<p>图 6(a) 是 CREE CGH60015D RF HEMT 的实测栅电容与模型对比，频率范围 <strong>20 kHz 到 1 MHz</strong>，使用 Agilent B1500A，CMUH 接栅极，CMUL 接漏极，采用 Cp–Gp 模式。插图展示 (-4) 到 (-1) V 全范围，主图放大 (-3.5) 到 (-3) V 之间色散显著的区域。图 6(b) 是模型计算的缓冲层陷阱电容，图 6(c) 是界面陷阱电容。</p>
+<p>在 (-4) 到 (-1) V 栅压范围内，测量与模型的均方根误差为 <strong>0.051 pF</strong>，相对误差 **1.66%**。参数提取采用三步分层流程：先用 20 kHz 低频 C–V 曲线作为准静态极限，提取静态陷阱参数 (N_{buf})、(E_T)、(N_{int})、(E_{Tint})；再固定静态参数，拟合俘获截面和主要频率色散参数；最后全局微调其余参数。对被测器件，提取出浅能级缓冲层陷阱 <strong>(N_{buf} &#x3D; 3.25 \times 10^{16}) cm⁻³，(E_T &#x3D; 0.11) eV，(\sigma_{buf} &#x3D; 4.93 \times 10^{-17}) cm²</strong>，以及界面陷阱 <strong>(N_{int} &#x3D; 5.04 \times 10^{11}) cm⁻²，(E_{Tint} &#x3D; 0.19) eV，(\sigma_{int} &#x3D; 5.05 \times 10^{-16}) cm²</strong>。提取的陷阱能级与前人电流瞬态测量结果范围一致。</p>
+<p><strong>通俗地看</strong>：图 6 说明，这套模型不只在 TCAD 里成立，接到真实器件的多频率 C–V 数据上也能把两种陷阱的参数同时提出来。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p><strong>机理层面</strong>，核心创新是缓冲层分区处理。近界面区域电子浓度高，三角势阱近似仍适用；远界面区域 2DEG 已衰减到可忽略，陷阱电荷主导电场，需要用泊松方程积分和高斯定律求解。这样得到的表面电场包含了整个缓冲层的陷阱电荷，而不是只算近界面那一层。电容频率色散则来自陷阱导纳的 SRH 时间常数：缓冲层陷阱只有费米能级交叉点附近的陷阱响应交流信号，界面陷阱的交叉点在界面处。两种陷阱的时间常数不同，因此在 C–V 曲线上表现为不同频率下的分离峰。</p>
+<p><strong>意义层面</strong>，这项工作提供了一套从物理参数直接到电容色散的紧凑模型，能同时提取缓冲层和界面陷阱的密度、能级和俘获截面。模型结构上兼容电路级实现，适合做器件-电路协同仿真。</p>
+<p><strong>局限与待验证的问题</strong>：第一，模型采用单能级陷阱近似，实际器件中陷阱能级往往是准连续的，提取的俘获截面与频率色散参数 (\alpha_3)、(\alpha_4)、(\alpha_{1int}) 存在部分耦合。第二，推导假设小信号条件，大信号瞬态下时间常数可能不同，补充材料有初步讨论但未展开。第三，高频下缓冲层陷阱电容仍有偏差，作者归因于 Lehovec 模型忽略了交叉点到界面的有限距离。第四，实验验证只在一个器件（CREE CGH60015D）上完成，不同工艺和结构的 HEMT 是否同样适用，需要更多数据。第五，模型只考虑 (V_{ds} &#x3D; 0) V 的情况，实际开关工作中沟道电位沿程变化，色散行为可能更复杂。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这项工作的最大亮点，是用一个物理清晰的分区模型把 GaN HEMT 中“缠在一起”的界面陷阱和缓冲层陷阱拆开了，并用多频率 C–V 数据同时提取两类陷阱的密度、能级和俘获截面。与 TCAD 的 4.59% 和与实验的 1.66% 均方根相对误差，说明模型不是纸上谈兵。</p>
+<p>最值得保持谨慎的地方是：单能级近似和 Lehovec 导纳的简化在高频和真实准连续陷阱分布下会引入偏差，参数之间也存在部分耦合。下一步最值得验证的，是把这套框架推广到不同工艺的 HEMT、非零漏压条件，以及大信号开关瞬态下是否仍然成立。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：Compact Model for Accurate Decoupling of Interface and Buffer Traps in HEMTs</li>
+<li>期刊：预印本 &#x2F; 投稿论文（PDF 未标注最终期刊，年份 2026）</li>
+<li>年份：2026</li>
+<li>DOI：未在提供内容中给出</li>
+</ul>
+<p><strong>版权说明</strong></p>
+<p>本文基于学术论文 <em>Compact Model for Accurate Decoupling of Interface and Buffer Traps in HEMTs</em>（Zhang et al., 2026）进行科学解读与转述。论文原文、图表及补充材料的版权归原作者及相应出版机构所有。</p>
+<p>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容（包括文字、图片位置标注或转述）无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/28/paper_reading/20260928B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-007
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%8A%8A-GaN-HEMT-%E7%9A%84%E2%80%9C%E9%99%B7%E9%98%B1%E4%BF%A1%E5%8F%B7%E2%80%9D%E6%8B%86%E5%BC%80%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%83%BD%E5%90%8C%E6%97%B6%E7%9C%8B%E6%B8%85%E7%95%8C%E9%9D%A2%E6%80%81%E5%92%8C%E7%BC%93%E5%86%B2%E5%B1%82%E6%80%81%E7%9A%84%E7%B4%A7%E5%87%91%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">把 GaN HEMT 的“陷阱信号”拆开：一个能同时看清界面态和缓冲层态的紧凑模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88-HEMT-%E7%9A%84%E9%99%B7%E9%98%B1%E8%BF%99%E4%B9%88%E9%9A%BE%E2%80%9C%E6%8B%86%E2%80%9D%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：为什么 HEMT 的陷阱这么难“拆”？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E5%88%86%E5%8C%BA%E5%BB%BA%E6%A8%A1-%E7%94%B5%E5%AE%B9%E5%88%86%E8%A7%A3"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：分区建模 + 电容分解</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E5%99%A8%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E8%83%BD%E5%B8%A6%E5%9B%BE"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：器件结构与能带图</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E6%94%B9%E8%BF%9B%E7%9A%84%E7%BC%93%E5%86%B2%E5%B1%82%E9%99%B7%E9%98%B1%E7%94%B5%E8%8D%B7%E6%A8%A1%E5%9E%8B%E6%9B%B4%E5%87%86"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：改进的缓冲层陷阱电荷模型更准</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A%E7%94%B5%E5%AE%B9%E5%88%86%E8%A7%A3%E4%B8%8E%E5%8D%95%E9%99%B7%E9%98%B1%E7%94%B5%E5%AE%B9"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：电容分解与单陷阱电容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E4%B8%8D%E5%90%8C%E9%99%B7%E9%98%B1%E5%AF%86%E5%BA%A6%E5%92%8C%E8%83%BD%E7%BA%A7%E4%B8%8B%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：不同陷阱密度和能级下的验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%94%EF%BC%9A%E5%8F%8C%E9%99%B7%E9%98%B1%E4%BD%93%E7%B3%BB%E7%9A%84%E7%94%B5%E5%AE%B9%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">发现五：双陷阱体系的电容验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%85%AD%EF%BC%9A%E5%AE%9E%E9%AA%8C%E9%AA%8C%E8%AF%81%E4%B8%8E%E5%8F%82%E6%95%B0%E6%8F%90%E5%8F%96"><span class="toc-nav-number">1.4.6.</span> <span class="toc-nav-text">发现六：实验验证与参数提取</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/28/paper_reading/20260928C/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

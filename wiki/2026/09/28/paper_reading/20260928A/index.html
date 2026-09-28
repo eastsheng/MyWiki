@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-006 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-006</h2>
+  <p class="post-date">2026-09-28 19:11:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="当石墨烯“扭”出千倍电阻：一种能算动5000原子的新方法"><a href="#当石墨烯“扭”出千倍电阻：一种能算动5000原子的新方法" class="headerlink" title="当石墨烯“扭”出千倍电阻：一种能算动5000原子的新方法"></a>当石墨烯“扭”出千倍电阻：一种能算动5000原子的新方法</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>扭角双层石墨烯（Twisted Bilayer Graphene, TBG）是近年来凝聚态物理最炙手可热的体系之一。当两层石墨烯以特定角度堆叠，会涌现出超导、奇异金属等奇妙现象。但要定量预测其电子输运性质，计算量却大到让传统第一性原理方法束手无策。加州理工学院 David J. Abramovitch 与 Marco Bernardi 在预印本平台 arXiv 上发布的最新工作，开发了一套原子尺度电子势方法，首次在 <strong>5044 原子</strong>的 TBG 体系中计算了电子-声子耦合与声子限制电阻率，并预测从 13.2° 到 1.6°，电阻率增长<strong>两个数量级</strong>。这项工作的核心价值不在于发现了新物理，而在于<strong>把可计算的长度尺度推到了莫尔体系的真实规模</strong>。</p>
+<h2 id="背景：为什么扭角石墨烯的输运计算这么难？"><a href="#背景：为什么扭角石墨烯的输运计算这么难？" class="headerlink" title="背景：为什么扭角石墨烯的输运计算这么难？"></a>背景：为什么扭角石墨烯的输运计算这么难？</h2><p>要理解这项工作的意义，先要理解一个核心矛盾。</p>
+<p>石墨烯本身是极好的导体。但当两层石墨烯以一个小角度（比如 1.1°，即“魔角”）堆叠时，两层晶格会形成一个大周期的莫尔超晶格（moiré superlattice）。这个超晶格对电子施加了一个周期势，把原本线性的能带“压平”，让电子变得极重，强关联效应随之登场——超导、关联绝缘态、奇异金属行为都在这个舞台上出现。</p>
+<p>问题是，<strong>莫尔超晶格的周期极大</strong>。转角越小，莫尔周期越大，晶胞内的原子数越多。1.6° 转角的 TBG，一个晶胞就有 <strong>5044 个原子</strong>。而传统的第一性原理电子-声子耦合计算，受限于计算成本，目前只能处理<strong>约 100 个原子</strong>的晶胞。这就像你想用一把只能量 10 厘米的尺子去量一间房子的长度——尺子本身没问题，但根本够不着。</p>
+<p>已有的理论工作不得不用简化近似，比如把电子态当作狄拉克费米子来处理，或者忽略电子-声子耦合的动量依赖。这些近似在魔角附近是否成立，一直存在争议。这篇论文要解决的问题很直接：<strong>能不能发展一套方法，让电子-声子耦合和输运计算在几千原子的莫尔体系中变得可行，同时保持第一性原理的精度？</strong></p>
+<h2 id="作者如何研究：用“原子尺度电子势”绕开计算瓶颈"><a href="#作者如何研究：用“原子尺度电子势”绕开计算瓶颈" class="headerlink" title="作者如何研究：用“原子尺度电子势”绕开计算瓶颈"></a>作者如何研究：用“原子尺度电子势”绕开计算瓶颈</h2><p>作者的核心策略不是去硬算密度泛函理论（DFT），而是构建一个<strong>原子尺度的电子势模型</strong>。这个势包含两类电子-声子耦合项：</p>
+<ul>
+<li><strong>Holstein 型耦合</strong>：描述电子与局域声子模式（比如原子在平衡位置附近的小幅振动）的相互作用；</li>
+<li><strong>Peierls 型耦合</strong>：描述电子与声子引起的跳跃积分变化之间的耦合。</li>
+</ul>
+<p>这两类项加在一起，就构成了一个可以在数千原子体系中高效计算的“紧束缚式”模型。关键问题是：这个模型准不准？</p>
+<p>作者先在<strong>单层石墨烯</strong>和<strong>大角度 TBG</strong>上做了验证——这些体系的原子数相对较少，可以用第一性原理方法算出参考值。结果显示，原子尺度电子势能<strong>准确重现</strong>第一性原理的电子-声子耦合和电阻率。验证通过后，他们才把方法推向小角度 TBG：从 13.2° 一路算到 1.6°，晶胞尺寸从几百原子膨胀到 5044 原子。</p>
+<p>电阻率的计算在<strong>玻尔兹曼输运方程</strong>框架下进行，电子-声子散射率由原子尺度势给出。核心变量是<strong>转角</strong>，以及温度、载流子浓度（带填充）等实验可调参数。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：方法本身的精度验证"><a href="#发现一：方法本身的精度验证" class="headerlink" title="发现一：方法本身的精度验证"></a>发现一：方法本身的精度验证</h3><p><strong>图 1（原文 Fig. 1）：</strong> <img src="https://arxiv.org/html/2603.14800v1/Figure1.png"></p>
+<p>以下依据图注和正文描述。图 1 展示的是原子尺度电子势在石墨烯和大角度 TBG 中的验证结果，核心是<strong>模型计算的电子-声子耦合强度与第一性原理结果的对比</strong>。如果两者吻合良好，就意味着这套势可以放心地用到第一性原理算不动的大体系中去。</p>
+<p><strong>该怎么看</strong>：这是一张“方法合格证”——先证明尺子准，再用尺子量房子。</p>
+<h3 id="发现二：转角越小，电阻率飙升两个数量级"><a href="#发现二：转角越小，电阻率飙升两个数量级" class="headerlink" title="发现二：转角越小，电阻率飙升两个数量级"></a>发现二：转角越小，电阻率飙升两个数量级</h3><p><strong>图 2（原文 Fig. 3）：</strong> <img src="https://arxiv.org/html/2603.14800v1/Figure3.png"></p>
+<p>以下依据图注和正文描述。图 2 展示的是<strong>声子限制电阻率随转角的变化</strong>。横轴为转角，纵轴为电阻率。关键结果非常醒目：从 <strong>13.2° 到 1.6°</strong>，预测的电阻率增长了<strong>两个数量级</strong>。</p>
+<p>这个增长背后的驱动力，作者归因于<strong>电子能量尺度的渐进收缩</strong>。转角减小，莫尔超晶格周期增大，能带变得更平，电子速度降低。电子越“慢”，声子就越容易把它散射掉，电阻率随之急剧上升。</p>
+<p><strong>该怎么看</strong>：这张图告诉你，扭角石墨烯的电阻不是“稍微变大”，而是“量级式地变大”——这是莫尔物理的核心特征之一。</p>
+<h3 id="发现三：能和实验趋势对上"><a href="#发现三：能和实验趋势对上" class="headerlink" title="发现三：能和实验趋势对上"></a>发现三：能和实验趋势对上</h3><p><strong>图 3（原文 Fig. 2）：</strong> <img src="https://arxiv.org/html/2603.14800v1/Figure2.png"></p>
+<p>以下依据图注和正文描述。图 3 针对 <strong>2.0° 和 1.6° 两个具体转角</strong>，展示了电阻率及其对<strong>温度和带填充</strong>的依赖关系，并与实验趋势进行比较。实验上，约 2° 的 TBG 被观测到电阻率呈幂律温度依赖，归因于声学声子散射。作者的计算能够<strong>预测这些关键实验趋势</strong>，这说明方法不仅在方法学上可行，在物理上也抓住了主要机制。</p>
+<p><strong>该怎么看</strong>：如果理论只能算“趋势”而不能对“数值”，实用价值就打折扣。这张图表明，至少对 2° 和 1.6° 体系，理论预测落在了实验可检验的范围内。</p>
+<h3 id="发现四：方法可扩展到更广的莫尔体系"><a href="#发现四：方法可扩展到更广的莫尔体系" class="headerlink" title="发现四：方法可扩展到更广的莫尔体系"></a>发现四：方法可扩展到更广的莫尔体系</h3><p>论文没有单列一张图来展示“可扩展性”，但全文的论证逻辑是：<strong>5044 原子</strong>的计算不是终点，而是一个起点。作者在摘要中明确表示，这套方法为“莫尔材料和其他此前无法触及的长度尺度上的电子-声子相互作用与输运的定量研究”提供了可扩展的路径。</p>
+<p><strong>该怎么看</strong>：这项工作的长期价值可能不在某一个转角的电阻率数值，而在于它打开了一扇门——让莫尔体系的输运计算从“简化模型”走向“第一性原理级别”。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p><strong>机理层面</strong>，核心链条是：转角减小 → 莫尔周期增大 → 能带变平 → 电子速度降低 → 电子-声子散射增强 → 电阻率上升。这是一个<strong>运动学效应</strong>，不需要引入新的散射机制。作者明确指出，电阻率随转角的变化“由电子能量尺度的渐进收缩驱动”。这是一个作者基于计算给出的机理解释，而非直接观测。</p>
+<p><strong>意义层面</strong>，这项工作的真正突破是<strong>尺度</strong>。在此之前，第一性原理电子-声子计算只能处理约 100 原子的晶胞，而莫尔体系的真实晶胞动辄数千原子。原子尺度电子势方法把这个鸿沟填上了。对于莫尔物理领域，这意味着很多之前只能靠简化模型猜的问题——比如“魔角附近的电子-声子耦合到底有多强”“T 线性电阻率是不是声子主导的”——现在有了定量计算的工具。</p>
+<p><strong>局限与待验证的问题</strong>同样清楚。第一，方法本身仍然是一个<strong>模型势</strong>，虽然在大角度体系中经过验证，但在魔角附近（约 1.1°）是否仍然准确，论文没有给出直接证据。第二，计算的是<strong>声子限制电阻率</strong>，即假设电子只被声子散射。在魔角附近，电子-电子关联效应可能同样重要，甚至占主导。论文的电阻率预测与 2° 和 1.6° 的实验趋势吻合，但<strong>不能据此推断魔角附近的行为</strong>。第三，所有结果都是<strong>理论预测</strong>，尚未有直接的实验验证。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这项工作的最大亮点，是把电子-声子耦合与输运计算的可及尺度从<strong>百原子级</strong>推到了<strong>五千原子级</strong>，让扭角双层石墨烯的电阻率预测第一次可以在真实莫尔周期下、以第一性原理级别的精度进行。两个数量级的电阻率增长，是一个清晰且可被实验检验的预测。</p>
+<p>最值得保持谨慎的地方是：<strong>5044 原子已经很大，但魔角（约 1.1°）的晶胞比这还要大数倍</strong>。原子尺度电子势能否一路推到魔角，是这项方法真正的“压力测试”。此外，魔角附近的物理是否由声子散射主导，本身就是一个开放问题。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：Predicting Electron-Phonon Coupling and Electronic Transport at the Moiré Scale in Twisted Bilayer Graphene</li>
+<li>平台：arXiv 预印本</li>
+<li>年份：2026</li>
+<li>DOI：<a target="_blank" rel="noopener" href="https://doi.org/10.48550/arXiv.2603.14800">https://doi.org/10.48550/arXiv.2603.14800</a></li>
+</ul>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/24/paper_reading/20260924B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-005
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/09/28/paper_reading/20260928B/">
+        
+          论文阅读-007
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%BD%93%E7%9F%B3%E5%A2%A8%E7%83%AF%E2%80%9C%E6%89%AD%E2%80%9D%E5%87%BA%E5%8D%83%E5%80%8D%E7%94%B5%E9%98%BB%EF%BC%9A%E4%B8%80%E7%A7%8D%E8%83%BD%E7%AE%97%E5%8A%A85000%E5%8E%9F%E5%AD%90%E7%9A%84%E6%96%B0%E6%96%B9%E6%B3%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">当石墨烯“扭”出千倍电阻：一种能算动5000原子的新方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E6%89%AD%E8%A7%92%E7%9F%B3%E5%A2%A8%E7%83%AF%E7%9A%84%E8%BE%93%E8%BF%90%E8%AE%A1%E7%AE%97%E8%BF%99%E4%B9%88%E9%9A%BE%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：为什么扭角石墨烯的输运计算这么难？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E7%94%A8%E2%80%9C%E5%8E%9F%E5%AD%90%E5%B0%BA%E5%BA%A6%E7%94%B5%E5%AD%90%E5%8A%BF%E2%80%9D%E7%BB%95%E5%BC%80%E8%AE%A1%E7%AE%97%E7%93%B6%E9%A2%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：用“原子尺度电子势”绕开计算瓶颈</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E6%96%B9%E6%B3%95%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B2%BE%E5%BA%A6%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：方法本身的精度验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E8%BD%AC%E8%A7%92%E8%B6%8A%E5%B0%8F%EF%BC%8C%E7%94%B5%E9%98%BB%E7%8E%87%E9%A3%99%E5%8D%87%E4%B8%A4%E4%B8%AA%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：转角越小，电阻率飙升两个数量级</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A%E8%83%BD%E5%92%8C%E5%AE%9E%E9%AA%8C%E8%B6%8B%E5%8A%BF%E5%AF%B9%E4%B8%8A"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：能和实验趋势对上</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E6%96%B9%E6%B3%95%E5%8F%AF%E6%89%A9%E5%B1%95%E5%88%B0%E6%9B%B4%E5%B9%BF%E7%9A%84%E8%8E%AB%E5%B0%94%E4%BD%93%E7%B3%BB"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：方法可扩展到更广的莫尔体系</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/28/paper_reading/20260928A/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
