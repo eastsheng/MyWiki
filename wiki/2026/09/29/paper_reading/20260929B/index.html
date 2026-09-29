@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-011:给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-011:给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉</h2>
+  <p class="post-date">2026-09-29 13:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="给-SiC-MOSFET-的“黑箱模型”做一次-X-光：可解释-AI-如何验证器件物理直觉"><a href="#给-SiC-MOSFET-的“黑箱模型”做一次-X-光：可解释-AI-如何验证器件物理直觉" class="headerlink" title="给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉"></a>给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>机器学习模型在半导体器件建模中越来越常见，但它们通常像“黑箱”——预测很准，却说不清为什么。台湾阳明交通大学等机构的研究团队将人工神经网络（ANN）与可解释 AI（XAI）中的 SHAP 方法结合，用 3000 条 TCAD 仿真数据训练模型，预测 4H-SiC MOSFET 的漏电流。模型对开态电流的 Pearson 相关系数超过 <strong>0.99</strong>，SHAP 分析则揭示了沟道长度、氧化层厚度和 p-well 浓度对漏电流的定量影响，与器件物理直觉一致。这是较早将 XAI 系统应用于 SiC MOSFET 设计-性能关联分析的工作之一。</p>
+<h2 id="背景：为什么需要“可解释”的器件模型？"><a href="#背景：为什么需要“可解释”的器件模型？" class="headerlink" title="背景：为什么需要“可解释”的器件模型？"></a>背景：为什么需要“可解释”的器件模型？</h2><p>4H-SiC MOSFET 是下一代电力电子的关键器件，广泛应用于电动汽车、可再生能源和工业电机驱动。但它的设计优化很复杂：氧化层厚度、沟道长度、掺杂浓度等参数相互耦合，传统 TCAD 仿真虽然准确，但计算量大、耗时长，难以支撑大规模设计空间探索。</p>
+<p>机器学习，尤其是人工神经网络，为快速器件建模提供了新路径。但 ANN 的“黑箱”特性让物理工程师难以接受——模型预测准，但不知道它“学到了什么”。如果 ANN 说“沟道长度影响最大”，工程师会问：这符合物理吗？还是数据里的偶然相关？</p>
+<p>可解释 AI 方法，特别是 <strong>SHAP（SHapley Additive exPlanations）</strong>，提供了量化每个输入特征对预测贡献的工具。SHAP 基于博弈论中的 Shapley 值，能给出每个特征对每个样本预测的贡献值，且具有可加性——所有特征贡献之和等于预测值与基线值之差。此前 XAI 在图像和时间序列领域已有应用，但在功率半导体器件建模中仍很少见。</p>
+<p>本文要解决的问题很直接：<strong>能不能用 SHAP 解释 ANN 对 SiC MOSFET 的建模结果，并验证这些解释是否与器件物理一致？</strong></p>
+<h2 id="作者如何研究：TCAD-生成数据-ANN-建模-SHAP-解释"><a href="#作者如何研究：TCAD-生成数据-ANN-建模-SHAP-解释" class="headerlink" title="作者如何研究：TCAD 生成数据 + ANN 建模 + SHAP 解释"></a>作者如何研究：TCAD 生成数据 + ANN 建模 + SHAP 解释</h2><p><strong>关键参数设置</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>氧化层厚度 Tox</td>
+<td>0.01–0.06 μm</td>
+</tr>
+<tr>
+<td>沟道长度 Lch</td>
+<td>2–10 μm</td>
+</tr>
+<tr>
+<td>p-well 浓度 Pconc</td>
+<td>1–5 × 10¹⁶ cm⁻³</td>
+</tr>
+<tr>
+<td>N-漂移浓度 ndrift_conc</td>
+<td>2–8 × 10¹⁵ cm⁻³</td>
+</tr>
+<tr>
+<td>N+ 衬底浓度 nsub_conc</td>
+<td>1–9 × 10¹⁸ cm⁻³</td>
+</tr>
+<tr>
+<td>栅压 VG</td>
+<td>扫描范围覆盖 ID-VG 全曲线</td>
+</tr>
+</tbody></table>
+<p><strong>器件结构</strong>：平面 SiC MOSFET，p-body 接触、源漏 N+ 接触，N-漂移层厚度 11 μm，N+ 衬底厚度 350 μm。</p>
+<p><strong>数据生成</strong>：TCAD Sentaurus 仿真，采用 High-Field Saturation 迁移率模型、Lombardi Enormal 表面迁移率模型和 Incomplete Ionization 不完全电离模型。参数组合覆盖上述范围，生成 <strong>3000 条 ID-VG 曲线</strong>，其中 <strong>2400 条用于训练，600 条用于验证</strong>。</p>
+<p><strong>ANN 架构</strong>：输入层 6 个参数（5 个工艺参数 + 栅压 VG），隐藏层 5 层，ReLU 激活，输出层线性激活，输出漏电流 ID。训练采用反向传播 + Adam 优化器，损失函数为均方误差（MSE）。</p>
+<p><strong>SHAP 解释</strong>：训练完成后，用 SHAP 计算每个特征对每个预测的贡献值。全局可解释性分析特征在整个数据集上的平均影响，局部可解释性分析特定工艺条件下特征对归一化 ID 的影响。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：器件结构与掺杂分布"><a href="#发现一：器件结构与掺杂分布" class="headerlink" title="发现一：器件结构与掺杂分布"></a>发现一：器件结构与掺杂分布</h3><p><strong>图 1（原文 Fig. 1）：</strong><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-026-35179-0/MediaObjects/41598_2026_35179_Fig1_HTML.png?as=webp"></p>
+<p>以下依据图注和正文描述。图 1(a) 是 TCAD 仿真的掺杂浓度分布，标注了 Body、Source、Gate、Drain 和 N+ 接触。图 1(b) 是横向 SiC MOSFET 的示意图，标出了 p-well、N-漂移和 N+ 衬底。图中还标注了各设计参数对应的变量编号：Variable 1 对应 p-well 浓度，Variable 2 对应 N+ 衬底浓度，Variable 3 对应 N-漂移浓度，Variable 4 对应氧化层厚度，Variable 5 对应沟道长度。</p>
+<p><strong>通俗地看</strong>：这张图告诉你器件长什么样，以及五个可调参数分别对应结构的哪个部分。</p>
+<h3 id="发现二：ANN-训练收敛与-Ion-预测精度"><a href="#发现二：ANN-训练收敛与-Ion-预测精度" class="headerlink" title="发现二：ANN 训练收敛与 Ion 预测精度"></a>发现二：ANN 训练收敛与 Ion 预测精度</h3><p><strong>图 2（原文 Fig. 2）：</strong> <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-026-35179-0/MediaObjects/41598_2026_35179_Fig2_HTML.png?as=webp" alt="建议插入：原文 Fig. 2"></p>
+<p><strong>图 3（原文 Fig. 3）：</strong> <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-026-35179-0/MediaObjects/41598_2026_35179_Fig3_HTML.png?as=webp" alt="建议插入：原文 Fig. 3"></p>
+<p><strong>图 5（原文 Fig. 5）：</strong> <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-026-35179-0/MediaObjects/41598_2026_35179_Fig5_HTML.png?as=webp" alt="建议插入：原文 Fig. 4"></p>
+<p>图 3 是 ANN 建模的输入-输出示意图：输入包括 N+ 衬底、N-漂移、p-well、沟道长度、氧化层厚度和栅压，输出为漏电流。ANN 建模与可解释 AI 的流程图，SHAP 作为解释接口。</p>
+<p>图 5(a) 是训练损失随 epoch 的变化。损失值在 <strong>4000 epoch</strong> 后降至 <strong>2 × 10⁻⁶</strong>，从 4000 到 10000 epoch 变化很小，说明训练已收敛。图 5(b) 是 ANN 预测的 Ion（VG &#x3D; 10 V 时的 ID）与 TCAD 仿真结果的对比，<strong>Pearson 相关系数 R² &#x3D; 0.99</strong>，说明 ANN 对开态电流的预测精度很高。</p>
+<p><strong>通俗地看</strong>：图 5 证明 ANN 确实“学会了”从工艺参数到漏电流的映射，预测值与仿真值几乎落在对角线上。</p>
+<h3 id="发现三：全局可解释性——哪些参数真正重要？"><a href="#发现三：全局可解释性——哪些参数真正重要？" class="headerlink" title="发现三：全局可解释性——哪些参数真正重要？"></a>发现三：全局可解释性——哪些参数真正重要？</h3><p><strong>图 6（原文 Fig. 6）：</strong> <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41598-026-35179-0/MediaObjects/41598_2026_35179_Fig6_HTML.png?as=webp" alt="建议插入：原文 Fig. 6"></p>
+<p>以下依据图注和正文描述。图 5 是 SHAP 全局可解释性分析结果。横轴是 SHAP 值（影响大小和方向），纵轴是输入特征。每个点代表测试集中的一个样本，颜色从蓝到红表示特征值从低到高。</p>
+<p>关键观察：</p>
+<ul>
+<li><strong>Lch、Tox、Pconc 的 SHAP 值分布最宽</strong>，说明这三个参数对 ID 影响最大。Lch 和 Tox 增大时 SHAP 值为负（红色点集中在负值区），即漏电流减小；Lch 和 Tox 减小时 SHAP 值为正，漏电流增大。Pconc 的趋势相同。</li>
+<li><strong>ndrift_conc 和 nsub_conc 的 SHAP 值集中在零附近</strong>，说明在 VG &#x3D; 10 V 条件下，这两个参数对 ID 的影响可以忽略。</li>
+</ul>
+<p><strong>表 2（原文 Table 2）：</strong> SHAP 均值汇总</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>SHAP 均值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沟道长度 Lch</td>
+<td>0.063</td>
+</tr>
+<tr>
+<td>氧化层厚度 Tox</td>
+<td>0.055</td>
+</tr>
+<tr>
+<td>p-well 浓度 Pconc</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>N-漂移浓度 ndrift_conc</td>
+<td>0</td>
+</tr>
+<tr>
+<td>N+ 衬底浓度 nsub_conc</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><strong>通俗地看</strong>：图 6 和表 2 告诉你，在开态条件下，漏电流主要由沟道长度、氧化层厚度和 p-well 浓度决定；漂移区和衬底的掺杂浓度主要影响阻断特性，对开态电流几乎没贡献。</p>
+<h3 id="发现四：局部可解释性——SHAP-值与归一化-ID-的一致性"><a href="#发现四：局部可解释性——SHAP-值与归一化-ID-的一致性" class="headerlink" title="发现四：局部可解释性——SHAP 值与归一化 ID 的一致性"></a>发现四：局部可解释性——SHAP 值与归一化 ID 的一致性</h3><p><strong>图 7（原文 Fig. 6）</strong> </p>
+<p><strong>图 8（原文 Fig. 8）</strong> </p>
+<p>以下依据图注和正文描述。图 7 是局部可解释性分析，展示了在特定工艺条件下（Tox &#x3D; 0.01&#x2F;0.03&#x2F;0.05 μm，Lch &#x3D; 2&#x2F;4&#x2F;6 μm，Pconc &#x3D; 1&#x2F;3&#x2F;5 × 10¹⁶ cm⁻³，ndrift_conc &#x3D; 2&#x2F;5&#x2F;8 × 10¹⁵ cm⁻³，nsub_conc &#x3D; 1&#x2F;3&#x2F;5 × 10¹⁸ cm⁻³），归一化 ID 和 SHAP 值随各参数的变化。</p>
+<ul>
+<li>图 7(a)：Lch 从 2 μm 增至 6 μm，归一化 ID 下降，SHAP 值同步下降。</li>
+<li>图 7(c)：Tox 从 0.01 μm 增至 0.05 μm，归一化 ID 下降，SHAP 值同步下降。</li>
+<li>图 7(e)：Pconc 从 1 × 10¹⁶ 增至 5 × 10¹⁶ cm⁻³，归一化 ID 下降，SHAP 值同步下降。</li>
+<li>图 7(b) 和 (d)：ndrift_conc 和 nsub_conc 变化时，归一化 ID 和 SHAP 值都基本不变。</li>
+</ul>
+<p>图 8 进一步展示了 SHAP 值与归一化 ID 的相关性。<strong>Lch、Pconc 和 Tox 的 R² 分别为 0.99、0.99 和 0.96</strong>，而 ndrift_conc 和 nsub_conc 的 SHAP 值与归一化 ID 无明显相关。</p>
+<p><strong>通俗地看</strong>：图 6 和 8 说明，SHAP 值不是随便给的——它随参数的变化方向与器件物理完全一致，该降的降，该不变的就不变。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p><strong>机理层面</strong>，SHAP 分析揭示的规律与 MOS 器件物理一致。沟道长度越长，沟道电阻越大，漏电流越小；氧化层越厚，栅极对沟道的控制越弱，相同栅压下的反型层电荷越少，漏电流越小；p-well 浓度越高，体区耗尽层越难扩展，阈值电压越高，相同栅压下的漏电流越小。而 N-漂移和 N+ 衬底浓度主要影响器件的阻断电压和导通电阻的漂移区分量，在开态、低漏压条件下对沟道电流影响很小。</p>
+<p><strong>意义层面</strong>，这项工作较早将 XAI 系统应用于 SiC MOSFET 的 ANN 建模，提供了一种<strong>透明、数据驱动</strong>的器件理解框架。它的价值不在于发现新物理，而在于<strong>验证了机器学习模型确实学到了正确的物理</strong>。这对于 ML 在半导体设计中的可信度至关重要。</p>
+<p><strong>解决的问题与价值</strong>：该成果攻克了 ML 器件建模中“黑箱不可信”的痛点，用 SHAP 量化了各设计参数对漏电流的贡献，并验证了与器件物理的一致性，为 ML 辅助的 SiC MOSFET 优化提供了可信的工具。</p>
+<p><strong>局限与待验证的问题</strong>：第一，所有数据来自 TCAD 仿真，没有实验验证。ANN 学的是 TCAD 的物理模型，不是真实器件。第二，器件结构是横向的，与实际功率器件常用的垂直结构不同，结论向实际器件推广需要谨慎。第三，只分析了 ID-VG 特性，未涉及击穿电压、开关特性、温度特性等。第四，SHAP 分析揭示的是<strong>相关性</strong>，不是因果性——虽然结果与物理一致，但不能仅凭 SHAP 推断因果。第五，3000 条曲线来自参数组合的笛卡尔积，样本量对 5 层 ANN 是否充分，需要更系统的收敛性分析。</p>
+<h2 id="写在后面：严格审稿人视角的四个问题"><a href="#写在后面：严格审稿人视角的四个问题" class="headerlink" title="写在后面：严格审稿人视角的四个问题"></a>写在后面：严格审稿人视角的四个问题</h2><p><strong>第一，这篇论文真正想解决的问题是什么？</strong></p>
+<p>它想解决的是：机器学习器件模型“预测准但说不清”的问题。具体来说，就是验证 ANN 对 SiC MOSFET 的建模是否学到了正确的物理，而不是数据中的偶然相关。</p>
+<p><strong>第二，它声称的贡献是什么？</strong></p>
+<ul>
+<li>首次将 XAI（SHAP）系统应用于 SiC MOSFET 的设计-性能关联分析；</li>
+<li>ANN 对 Ion 预测的 Pearson R² &gt; 0.99；</li>
+<li>SHAP 分析揭示的规律与器件物理一致；</li>
+<li>方法可扩展到其他半导体技术。</li>
+</ul>
+<p><strong>第三，最容易被 reviewer 攻击的地方在哪里？</strong></p>
+<ul>
+<li>数据全部来自 TCAD，没有实验验证。ANN 学的是仿真器的物理，不是真实器件。</li>
+<li>器件结构是横向的，不是功率器件主流的垂直结构。</li>
+<li>只看了 ID-VG，没看击穿、开关、温度。</li>
+<li>SHAP 是相关性分析，不是因果分析，不能仅凭 SHAP 推断物理因果。</li>
+<li>“首次”的说法需要谨慎，可能有人做过类似工作。</li>
+<li>3000 条曲线对 5 层 ANN 是否足够，没有做系统的样本量收敛分析。</li>
+</ul>
+<p><strong>第四，如果我是同方向的科研工作者，哪两部分值得精读？</strong></p>
+<p><strong>值得精读一：方法部分（Methodology）的 ANN 架构与 SHAP 实现细节。</strong></p>
+<p>重点：</p>
+<ul>
+<li>输入层为何选这 6 个参数？是否涵盖了实际工艺中最重要的变量？</li>
+<li>5 层隐藏层的选择依据是什么？是否做了网络深度&#x2F;宽度的消融实验？</li>
+<li>ReLU + 线性输出层的组合在回归任务中的表现如何？</li>
+<li>SHAP 的基线参考值（中位数）如何选取？对结果有何影响？</li>
+<li>训练&#x2F;验证集的划分是否随机？是否考虑了参数空间的均匀覆盖？</li>
+</ul>
+<p><strong>值得精读二：结果部分（Results）的 SHAP 全局与局部可解释性分析。</strong></p>
+<p>重点：</p>
+<ul>
+<li>图 5 的 SHAP 值分布是否合理？Lch、Tox、Pconc 的 SHAP 值范围是否与物理预期一致？</li>
+<li>图 6 的局部可解释性中，归一化 ID 与 SHAP 值的同步变化是否在所有参数上都成立？</li>
+<li>图 8 的 R² 分别为 0.99、0.99、0.96，这个精度是否足以支撑“与物理一致”的结论？</li>
+<li>ndrift_conc 和 nsub_conc 的 SHAP 值接近零，是否因为 VG &#x3D; 10 V 条件下漂移区未耗尽？如果在更高漏压或更厚漂移层下，结论是否改变？</li>
+</ul>
+<p><strong>可以跳过</strong>：引言中关于 WBG 半导体的大段背景介绍，以及参考文献列表。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：Interpreting artificial neural network-based modeling of 4H-SiC MOSFETs using explainable AI</li>
+<li>期刊：Scientific Reports</li>
+<li>年份：2026</li>
+<li>DOI：10.1038&#x2F;s41598-026-35179-0</li>
+</ul>
+<p><strong>资料说明</strong></p>
+<p>本文依据提供的 PDF 全文撰写，所有数值、图号和结论均来自论文正文、图注和表格。由于无法确认图片转载权限，文中仅以“[建议插入：原文 Fig. X]”标注插图位置，未直接嵌入图片。论文补充材料未在提供内容中。正式发布到微信公众号或博客前，需确认图片转载许可；如无法获得授权，可仅保留插图位置说明。</p>
+<p><strong>版权说明</strong></p>
+<p>本文基于学术论文 <em>Interpreting artificial neural network-based modeling of 4H-SiC MOSFETs using explainable AI</em>（Hsiao et al., Scientific Reports, 2026, DOI: 10.1038&#x2F;s41598-026-35179-0）进行科学解读与转述。论文原文、图表及补充材料的版权归原作者及相应出版机构所有。本文中标注的“[建议插入：原文 Fig. X]”仅为插图位置说明，未直接复制或嵌入受版权保护的图片。如需在公众号或博客正式发布，请务必先确认图片转载许可；若无法获得授权，请仅保留文字说明，不插入原图。</p>
+<p>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容（包括文字、图片位置标注或转述）无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/29/paper_reading/20260929A/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-010:给晶圆“做减法”：超高压 SiC IGBT 的一条新制造路径
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BB%99-SiC-MOSFET-%E7%9A%84%E2%80%9C%E9%BB%91%E7%AE%B1%E6%A8%A1%E5%9E%8B%E2%80%9D%E5%81%9A%E4%B8%80%E6%AC%A1-X-%E5%85%89%EF%BC%9A%E5%8F%AF%E8%A7%A3%E9%87%8A-AI-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E5%99%A8%E4%BB%B6%E7%89%A9%E7%90%86%E7%9B%B4%E8%A7%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E2%80%9C%E5%8F%AF%E8%A7%A3%E9%87%8A%E2%80%9D%E7%9A%84%E5%99%A8%E4%BB%B6%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：为什么需要“可解释”的器件模型？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9ATCAD-%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE-ANN-%E5%BB%BA%E6%A8%A1-SHAP-%E8%A7%A3%E9%87%8A"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：TCAD 生成数据 + ANN 建模 + SHAP 解释</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E5%99%A8%E4%BB%B6%E7%BB%93%E6%9E%84%E4%B8%8E%E6%8E%BA%E6%9D%82%E5%88%86%E5%B8%83"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：器件结构与掺杂分布</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9AANN-%E8%AE%AD%E7%BB%83%E6%94%B6%E6%95%9B%E4%B8%8E-Ion-%E9%A2%84%E6%B5%8B%E7%B2%BE%E5%BA%A6"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：ANN 训练收敛与 Ion 预测精度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A%E5%85%A8%E5%B1%80%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E2%80%94%E2%80%94%E5%93%AA%E4%BA%9B%E5%8F%82%E6%95%B0%E7%9C%9F%E6%AD%A3%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：全局可解释性——哪些参数真正重要？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E5%B1%80%E9%83%A8%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E2%80%94%E2%80%94SHAP-%E5%80%BC%E4%B8%8E%E5%BD%92%E4%B8%80%E5%8C%96-ID-%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：局部可解释性——SHAP 值与归一化 ID 的一致性</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2%EF%BC%9A%E4%B8%A5%E6%A0%BC%E5%AE%A1%E7%A8%BF%E4%BA%BA%E8%A7%86%E8%A7%92%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面：严格审稿人视角的四个问题</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/29/paper_reading/20260929B/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
