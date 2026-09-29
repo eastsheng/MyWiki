@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-012:给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-012:给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术</h2>
+  <p class="post-date">2026-09-29 16:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术"><a href="#给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术" class="headerlink" title="给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术"></a>给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>氧化镓（Ga₂O₃）是第四代超宽禁带半导体，击穿场强和电子饱和速度都优于氮化镓和碳化硅，但它有一个致命短板：热导率极低，功率一大就“发烧”。西安电子科技大学郝跃院士团队联合香港大学等机构，提出了一种可规模化的剥离-转移工艺，把氧化镓薄膜“贴”到高导热的氮化铝（AlN）衬底上，制备出最高振荡频率达 <strong>90 GHz</strong> 的射频功率晶体管，在 2 GHz 和 6 GHz 下的输出功率密度分别达到 <strong>4.6 W&#x2F;mm 和 4.1 W&#x2F;mm</strong>，8 GHz 下最小噪声系数仅为 <strong>0.48 dB</strong>。</p>
+<h2 id="背景：氧化镓的“天赋”与“短板”"><a href="#背景：氧化镓的“天赋”与“短板”" class="headerlink" title="背景：氧化镓的“天赋”与“短板”"></a>背景：氧化镓的“天赋”与“短板”</h2><p>射频功率器件是通信、雷达、电子对抗系统的核心。从硅到砷化镓，再到氮化镓，每一代半导体材料的进步都推动着无线技术的跨越。近年来，氧化镓（β-Ga₂O₃）因其超宽禁带（约 4.8 eV）、高临界击穿场强和高电子饱和速度，被视为下一代高性能射频器件的关键候选材料。</p>
+<p>但氧化镓有一个先天缺陷：<strong>热导率极低</strong>。功率器件工作时会产生大量热量，如果热量散不出去，器件温度就会飙升，性能急剧退化甚至烧毁。此外，氧化镓的电子限域性较弱，在关断状态下电子容易“溢出”，导致漏电流增大。这两个问题叠加，使得氧化镓射频器件在输出功率、效率和频率方面始终难以与氮化镓和碳化硅竞争。</p>
+<p>已有的解决思路是异质集成——把氧化镓薄膜转移到高导热衬底上。但传统方法各有局限：离子切割法会引入氢离子注入损伤，晶圆融合法会在界面形成低热导的非晶层，胶带法只能得到微米级随机碎片，均难以兼顾晶圆级面积和界面质量。作者要解决的核心问题是：<strong>能不能发展一种既无损伤、又能规模化、且界面无低热导层的异质集成方法？</strong></p>
+<h2 id="作者如何研究：剥离-转移-界面工程"><a href="#作者如何研究：剥离-转移-界面工程" class="headerlink" title="作者如何研究：剥离-转移 + 界面工程"></a>作者如何研究：剥离-转移 + 界面工程</h2><p><strong>关键参数设置</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数值 &#x2F; 设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沟道材料</td>
+<td>β-Ga₂O₃ 薄膜，最终厚度约 60 nm</td>
+</tr>
+<tr>
+<td>衬底</td>
+<td>AlN（高导热超宽禁带半导体）</td>
+</tr>
+<tr>
+<td>转移方法</td>
+<td>剥离-转移 + 晶圆级室温键合</td>
+</tr>
+<tr>
+<td>界面导带偏移</td>
+<td>约 3.4 eV（Ga₂O₃&#x2F;AlN 界面）</td>
+</tr>
+<tr>
+<td>栅极结构</td>
+<td>T 型栅，栅长 150–300 nm</td>
+</tr>
+<tr>
+<td>器件类型</td>
+<td>射频功率 MOSFET</td>
+</tr>
+<tr>
+<td>最高振荡频率 fmax</td>
+<td>90 GHz</td>
+</tr>
+<tr>
+<td>输出功率密度 Pout</td>
+<td>4.6 W&#x2F;mm @ 2 GHz；4.1 W&#x2F;mm @ 6 GHz</td>
+</tr>
+<tr>
+<td>最小噪声系数 NFmin</td>
+<td>0.48 dB @ 8 GHz</td>
+</tr>
+<tr>
+<td>对照衬底</td>
+<td>SiC、Si&#x2F;SiO₂（用于对比）</td>
+</tr>
+</tbody></table>
+<p><strong>方法分工</strong></p>
+<ul>
+<li><strong>剥离-转移工艺</strong>：将氧化镓薄膜从原始衬底边缘剥离，通过多次键合减薄至约 500 nm，再通过晶圆级室温键合转移到 AlN 衬底上。该方法<strong>无离子注入损伤、无界面氧化物层、可晶圆级规模化</strong>。</li>
+<li><strong>界面工程</strong>：利用 Ga₂O₃&#x2F;AlN 界面处高达 <strong>3.4 eV</strong> 的导带偏移，显著增强电子限域能力。</li>
+<li><strong>器件制备</strong>：在转移后的氧化镓薄膜上制备 T 型栅射频功率晶体管。</li>
+<li><strong>射频表征</strong>：小信号 S 参数测量、大信号负载牵引测试、噪声系数测量和双音线性度测试。</li>
+</ul>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="发现一：异质集成工艺与材料质量"><a href="#发现一：异质集成工艺与材料质量" class="headerlink" title="发现一：异质集成工艺与材料质量"></a>发现一：异质集成工艺与材料质量</h3><p><strong>图 1（原文 Fig. 1）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/b1c4f10b-1c00-43cc-aebc-e030d8ba9b75/assets/images/large/sciadv.adw6167-f1.jpg" alt="建议插入：原文 Fig. 1"></p>
+<p>以下依据图注和正文描述。图 1(A) 展示了异质集成工艺流程：从 β-Ga₂O₃ 衬底边缘剥离薄膜 → 在蓝膜上形成阵列 → 多次键合减薄至约 500 nm → 最终键合到 AlN 衬底。图 1(B) 是转移到 AlN 晶圆上的 β-Ga₂O₃ 薄膜的光学显微照片。图 1(C) 是 120 条 Ga₂O₃ 薄膜的厚度分布图，<strong>平均厚度 428 nm，标准差 123 nm</strong>。图 1(D) 是原子力显微镜图像，表面均方根粗糙度仅 <strong>0.2 nm</strong>。图 1(E) 是 AlN&#x2F;Ga₂O₃ 界面的高分辨透射电镜图像，界面陡峭，无界面介质层。图 1(F) 是 XRD 图谱，仅显示 Ga₂O₃ 和 AlN 的峰。图 1(G) 是摇摆曲线，半高宽仅 <strong>80 arc sec</strong>，证实了转移后的 Ga₂O₃ 具有高晶体质量。</p>
+<p><strong>通俗地看</strong>：图 1 证明，这套“剥离-转移”工艺能制备出大面积、高均匀性、界面陡峭的 Ga₂O₃-on-AlN 异质结构。</p>
+<h3 id="发现二：击穿电压与电子限域的双重提升"><a href="#发现二：击穿电压与电子限域的双重提升" class="headerlink" title="发现二：击穿电压与电子限域的双重提升"></a>发现二：击穿电压与电子限域的双重提升</h3><p><strong>图 2（原文 Fig. 2）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/b19a29e9-0868-4065-a15e-6c847f2d72be/assets/images/large/sciadv.adw6167-f2.jpg" alt="建议插入：原文 Fig. 2"></p>
+<p>图 2(A) 对比了 Ga₂O₃-on-SiC 和 Ga₂O₃-on-AlN 的击穿电压。在电极间距 4 μm 条件下，<strong>Ga₂O₃-on-AlN 的击穿电压从 475 V 提升至 1230 V</strong>，平均电场达到 <strong>3 MV&#x2F;cm</strong>。图 2(B) 是两种异质结的能带对齐示意图，Ga₂O₃&#x2F;AlN 的导带偏移为 <strong>3.4 eV</strong>，比 Ga₂O₃&#x2F;SiC 高 2.5 eV。图 2(C) 是 T 型栅射频晶体管的 3D 示意图。图 2(D) 是器件的 SEM 截面图，<strong>栅长 150 nm，栅漏间距 0.7 μm</strong>。图 2(E) 是热阻对比，<strong>Ga₂O₃-on-AlN 的热阻仅为 3.9 mm·K&#x2F;W</strong>，与 Ga₂O₃-on-SiC 相当，比 Ga₂O₃-on-Si&#x2F;SiO₂ 低约三倍。图 2(F) 是热阻基准对比，本工作处于最低水平。</p>
+<p><strong>通俗地看</strong>：图 2 告诉你，AlN 衬底不仅提高了击穿电压，还通过高导带偏移把电子“锁”在沟道里，同时热阻很低，散热性能优异。</p>
+<h3 id="发现三：直流特性与动态特性"><a href="#发现三：直流特性与动态特性" class="headerlink" title="发现三：直流特性与动态特性"></a>发现三：直流特性与动态特性</h3><p><strong>图 3（原文 Fig. 3）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/811e47dd-50e1-4d83-83cf-353de54db88b/assets/images/large/sciadv.adw6167-f3.jpg" alt="建议插入：原文 Fig. 3"></p>
+<p>图 3(A) 是输出特性，<strong>最大漏电流 1.05 A&#x2F;mm</strong>。图 3(B) 是对数坐标转移特性，<strong>亚阈值摆幅 250 mV&#x2F;dec，开关比 5×10⁹</strong>。图 3(C) 是跨导特性，<strong>最大跨导 90 mS&#x2F;mm</strong>，且在 8.7 V 的栅压范围内保持峰值的 80%，表明良好的线性度。图 3(D) 是脉冲 I-V 特性，三种偏置条件下几乎无分散，证实了极小的载流子俘获。图 3(E) 是关态击穿特性，<strong>Ga₂O₃-on-AlN 器件在 LGD&#x3D;0.7 μm 时击穿电压 216 V，在 LGD&#x3D;1.1 μm 时达到 354 V</strong>，平均击穿场强约 3 MV&#x2F;cm。图 3(F) 是 TCAD 仿真的电场分布，<strong>AlN 衬底中的电场远低于其临界击穿场强</strong>，避免了衬底过早击穿。</p>
+<p><strong>通俗地看</strong>：图 3 表明，Ga₂O₃-on-AlN 器件不仅直流性能好，动态特性也干净，没有明显的陷阱效应，击穿电压由 Ga₂O₃ 沟道决定而非衬底。</p>
+<h3 id="发现四：射频小信号与线性度"><a href="#发现四：射频小信号与线性度" class="headerlink" title="发现四：射频小信号与线性度"></a>发现四：射频小信号与线性度</h3><p><strong>图 4（原文 Fig. 4）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/4932d9ea-fb18-4ea9-a184-454bf2580dcc/assets/images/large/sciadv.adw6167-f4.jpg" alt="建议插入：原文 Fig. 4"></p>
+<p>以下依据图注和正文描述。图 4(A) 是小信号增益特性，<strong>截止频率 fT &#x3D; 23.8 GHz，最高振荡频率 fmax &#x3D; 90 GHz</strong>。图 4(B) 是 fT 和 fmax 随漏压的变化，两者随漏压增加而上升并在 25–30 V 后饱和。图 4(C) 是双音负载牵引线性度测试，<strong>OIP3 &#x3D; 28 dBm，功率增益 20.5 dB</strong>，这是超宽禁带或氧化物射频 MOSFET 中报道的最高线性度性能。</p>
+<p><strong>通俗地看</strong>：图 4 说明，这款器件不仅跑得快（90 GHz），线性度也很好，适合做高保真射频放大。</p>
+<h3 id="发现五：大信号功率性能与基准对比"><a href="#发现五：大信号功率性能与基准对比" class="headerlink" title="发现五：大信号功率性能与基准对比"></a>发现五：大信号功率性能与基准对比</h3><p><strong>图 5（原文 Fig. 5）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/9b08698f-1f73-4d18-ad9d-caeb8d30e965/assets/images/large/sciadv.adw6167-f5.jpg" alt="建议插入：原文 Fig. 5"></p>
+<p>以下依据图注和正文描述。图 5(A) 是 2 GHz 下的大信号负载牵引结果，<strong>最大输出功率密度 4.6 W&#x2F;mm，功率附加效率 50.5%<strong>。图 5(B) 是 Pout 和 PAE 随漏压的变化，Pout 随漏压增加而上升，PAE 保持相对恒定，在 50 V 时 Pout 饱和在约 4 W&#x2F;mm。图 5(C) 是 6 GHz 下的负载牵引结果，</strong>Pout &#x3D; 4.1 W&#x2F;mm</strong>。图 5(D) 是 6 GHz 下 Pout 和 PAE 随漏压的变化，趋势与 2 GHz 一致。</p>
+<p><strong>图 6（原文 Fig. 6）：</strong> <img src="https://www.science.org/cms/10.1126/sciadv.adw6167/asset/c20b35eb-6e1e-4b4e-9fa2-fb1b2df1e5c0/assets/images/large/sciadv.adw6167-f6.jpg" alt="建议插入：原文 Fig. 6" style="zoom:80%;" /></p>
+<p>图 6(A) 是 Pout 与 PAE 的基准对比，本工作（红色星号）在超宽禁带射频器件中<strong>Pout 和 PAE 均为最高</strong>。图 6(B) 是 fmax 与 fT×VDS 的基准对比，<strong>fT×VDS &#x3D; 1 THz·V 和 fmax &#x3D; 90 GHz 均为氧化物射频晶体管中的最高纪录</strong>。</p>
+<p><strong>通俗地看</strong>：图 5 和 6 证明，把氧化镓“贴”到 AlN 上，功率密度和效率都大幅提升，在超宽禁带器件中处于领先水平。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p><strong>机理层面</strong>，核心创新有两点。第一，<strong>剥离-转移工艺</strong>解决了氧化镓热导率低的问题。AlN 的热导率远高于氧化镓本体，热量可以从氧化镓沟道快速传导到 AlN 衬底并散出。第二，<strong>导带偏移增强电子限域</strong>。Ga₂O₃&#x2F;AlN 界面处 3.4 eV 的导带偏移形成了一道能量势垒，把电子限制在氧化镓沟道内，关断时漏电流大幅降低，同时允许栅极长度缩放和沟道掺杂提高。</p>
+<p><strong>意义层面</strong>，这项工作代表了氧化镓射频器件的一次系统性突破。此前的研究要么受限于衬底热导率，要么受限于界面质量，要么无法规模化。本工作<strong>同时解决了这三个问题</strong>，并首次展示了氧化镓射频器件的低噪声潜力（0.48 dB @ 8 GHz）。论文被选为 Science Advances 同期封面论文之一。</p>
+<p><strong>解决的问题与价值</strong>：该成果攻克了氧化镓射频器件“热管理”和“电子限域”两大核心难题，为超宽禁带半导体在射频功率领域的应用提供了一条可规模化的制造路径。</p>
+<p><strong>局限与待验证的问题</strong>：第一，90 GHz 的 fmax 和 4.6 W&#x2F;mm 的 Pout 是实验室器件的最佳结果，<strong>良率和重复性</strong>尚未报道。第二，AlN 衬底的成本和晶圆尺寸兼容性需要评估。第三，长期可靠性尚未验证。第四，虽然噪声系数 0.48 dB 很低，但<strong>线性度</strong>数据（OIP3）是在 2 GHz 下测得的，高频下的线性度有待进一步验证。</p>
+<h2 id="写在后面：严格审稿人视角"><a href="#写在后面：严格审稿人视角" class="headerlink" title="写在后面：严格审稿人视角"></a>写在后面：严格审稿人视角</h2><p><strong>第一，这篇论文真正想解决的问题是什么？</strong></p>
+<p>氧化镓射频器件受限于两个瓶颈：材料本身热导率低导致自热严重，以及电子限域性弱导致关断漏电大。论文想用异质集成的方法同时解决这两个问题。</p>
+<p><strong>第二，它声称的贡献是什么？</strong></p>
+<ul>
+<li>提出了一种无损伤、可晶圆级规模化的剥离-转移异质集成方法；</li>
+<li>利用 Ga₂O₃&#x2F;AlN 界面 3.4 eV 导带偏移增强电子限域；</li>
+<li>制备出 fmax 达 90 GHz、Pout 达 4.6 W&#x2F;mm @ 2 GHz、NFmin 低至 0.48 dB @ 8 GHz 的射频功率晶体管，多项指标创氧化镓器件纪录。</li>
+</ul>
+<p><strong>第三，最容易被 reviewer 攻击的地方在哪里？</strong></p>
+<ul>
+<li><strong>“创纪录”的样本量和良率</strong>：90 GHz 和 4.6 W&#x2F;mm 是单个或少数器件的结果，没有给出统计分布和良率数据。</li>
+<li><strong>AlN 衬底的工程可行性</strong>：AlN 成本远高于 SiC 和 Si，晶圆尺寸也较小，向主流产线推广的难度未讨论。</li>
+<li><strong>缺少高频线性度数据</strong>：OIP3 仅在 2 GHz 下测量，6 GHz 及更高频率下的线性度未见报道，而这对通信应用至关重要。</li>
+<li><strong>与 GaN 的对比</strong>：GaN-on-SiC 射频器件在 6 GHz 下的 Pout 可达 5–6 W&#x2F;mm，氧化镓的 4.1 W&#x2F;mm 虽然创自身纪录，但尚未全面超越 GaN。</li>
+</ul>
+<p><strong>第四，如果我是同方向的科研工作者，哪两部分值得精读？</strong></p>
+<p><strong>值得精读一：异质集成工艺部分（Materials and Methods 中的 Heterogeneous integration 小节）。</strong></p>
+<p>重点：</p>
+<ul>
+<li>剥离-转移的具体操作步骤：从 (−201) β-Ga₂O₃ 衬底边缘剥离，初始厚度约 10 μm，通过多次键合减薄至约 500 nm，每次减薄约 20–30%；</li>
+<li>最终键合条件：室温键合，时长 3 小时，压力 3375 N；</li>
+<li>转移后的薄膜厚度分布：120 条薄膜，平均 428 nm，标准差 123 nm；</li>
+<li>与离子切割法、胶带法、晶圆融合法的定量对比（Table S1）。</li>
+</ul>
+<p><strong>值得精读二：器件性能对比与热阻分析（Fig. 2 和 Fig. 5-6）。</strong></p>
+<p>重点：</p>
+<ul>
+<li>Ga₂O₃-on-AlN 与 Ga₂O₃-on-SiC 的击穿电压对比（1230 V vs 475 V @ 4 μm 间距）；</li>
+<li>热阻对比（3.9 mm·K&#x2F;W vs Si&#x2F;SiO₂ 的约 12 mm·K&#x2F;W）；</li>
+<li>2 GHz 和 6 GHz 下的大信号性能：Pout 和 PAE 随漏压的变化趋势；</li>
+<li>基准对比图中本工作相对于 Ga₂O₃-on-SiC、Ga₂O₃-on-Ga₂O₃、金刚石、GaN 等的位置。</li>
+</ul>
+<p><strong>可以跳过</strong>：引言中关于射频半导体市场规模的宏观描述，以及参考文献列表。</p>
+<p><strong>论文信息</strong></p>
+<ul>
+<li>标题：Heterogeneous integration of ultrawide bandgap semiconductors for radio frequency power devices</li>
+<li>期刊：Science Advances</li>
+<li>年份：2025</li>
+<li>DOI：10.1126&#x2F;sciadv.adw6167</li>
+</ul>
+<p>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容（包括文字、图片位置标注或转述）无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/29/paper_reading/20260929B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-011:给 SiC MOSFET 的“黑箱模型”做一次 X 光：可解释 AI 如何验证器件物理直觉
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BB%99%E6%B0%A7%E5%8C%96%E9%95%93%E2%80%9C%E6%8D%A2%E5%9C%B0%E6%9D%BF%E2%80%9D%EF%BC%9A%E4%B8%80%E5%9C%BA%E8%AE%A9%E5%B0%84%E9%A2%91%E5%8A%9F%E7%8E%87%E5%99%A8%E4%BB%B6%E7%AA%81%E7%A0%B4%E6%95%A3%E7%83%AD%E7%93%B6%E9%A2%88%E7%9A%84%E6%9D%90%E6%96%99%E8%BD%AC%E7%A7%BB%E6%9C%AF"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">给氧化镓“换地板”：一场让射频功率器件突破散热瓶颈的材料转移术</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E6%B0%A7%E5%8C%96%E9%95%93%E7%9A%84%E2%80%9C%E5%A4%A9%E8%B5%8B%E2%80%9D%E4%B8%8E%E2%80%9C%E7%9F%AD%E6%9D%BF%E2%80%9D"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：氧化镓的“天赋”与“短板”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E5%89%A5%E7%A6%BB-%E8%BD%AC%E7%A7%BB-%E7%95%8C%E9%9D%A2%E5%B7%A5%E7%A8%8B"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：剥离-转移 + 界面工程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%80%EF%BC%9A%E5%BC%82%E8%B4%A8%E9%9B%86%E6%88%90%E5%B7%A5%E8%89%BA%E4%B8%8E%E6%9D%90%E6%96%99%E8%B4%A8%E9%87%8F"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">发现一：异质集成工艺与材料质量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%8C%EF%BC%9A%E5%87%BB%E7%A9%BF%E7%94%B5%E5%8E%8B%E4%B8%8E%E7%94%B5%E5%AD%90%E9%99%90%E5%9F%9F%E7%9A%84%E5%8F%8C%E9%87%8D%E6%8F%90%E5%8D%87"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">发现二：击穿电压与电子限域的双重提升</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%B8%89%EF%BC%9A%E7%9B%B4%E6%B5%81%E7%89%B9%E6%80%A7%E4%B8%8E%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">发现三：直流特性与动态特性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E5%9B%9B%EF%BC%9A%E5%B0%84%E9%A2%91%E5%B0%8F%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%BA%A6"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">发现四：射频小信号与线性度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%91%E7%8E%B0%E4%BA%94%EF%BC%9A%E5%A4%A7%E4%BF%A1%E5%8F%B7%E5%8A%9F%E7%8E%87%E6%80%A7%E8%83%BD%E4%B8%8E%E5%9F%BA%E5%87%86%E5%AF%B9%E6%AF%94"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">发现五：大信号功率性能与基准对比</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2%EF%BC%9A%E4%B8%A5%E6%A0%BC%E5%AE%A1%E7%A8%BF%E4%BA%BA%E8%A7%86%E8%A7%92"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面：严格审稿人视角</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/29/paper_reading/20260929C/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
