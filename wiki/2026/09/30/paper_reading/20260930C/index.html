@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-015:碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-015:碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板</h2>
+  <p class="post-date">2026-09-30 19:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板"><a href="#碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板" class="headerlink" title="碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板"></a>碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>碳化硅（SiC）功率器件常被比作电力电子领域的“超跑引擎”——理论上能跑得更快、更耐高温、更省油。但这台引擎至今大多还装在为“家用轿车”（硅器件）设计的底盘上。西安交通大学与欧洲电力电子中心合作在《Nature Reviews Electrical Engineering》发表的一篇综述指出，<strong>封装与集成技术已成为SiC器件从“材料优势”走向“系统收益”的最大瓶颈</strong>，并系统梳理了破解这一困局的材料、结构与协同设计路径。</p>
+<h2 id="背景：为什么SiC的“好”，到了系统里就打了折扣？"><a href="#背景：为什么SiC的“好”，到了系统里就打了折扣？" class="headerlink" title="背景：为什么SiC的“好”，到了系统里就打了折扣？"></a>背景：为什么SiC的“好”，到了系统里就打了折扣？</h2><p><strong>功率器件是电能变换系统的核心</strong>——从新能源汽车的电驱、光伏逆变器到智能电网的换流阀，都依赖它将电能高效地转换、调控和管理。硅（Si）材料主导这一领域数十年，但其窄禁带和低临界击穿电场的物理天花板已经触顶。</p>
+<p><strong>SiC作为宽禁带半导体，临界击穿场强约为Si的一个数量级之高，这使得其漂移层可以做得更薄、掺杂更重，从而在相同耐压下实现更低的比导通电阻。</strong>更低导通电阻又允许采用单极型器件结构（如SiC MOSFET），消除了双极型器件中少子存储带来的反向恢复和拖尾电流，实现了高速开关与低损耗的兼得。&#x3D;&#x3D;<strong>更重要的是，SiC的宽禁带使其本征载流子浓度远低于Si，在高温下仍能维持有效的电压阻断能力——对于1000 V级器件，SiC的理论最高工作温度约为Si的四倍。</strong>&#x3D;&#x3D;</p>
+<p>这些器件级优势本应转化为系统级的收益：更高开关频率缩小无源元件、更耐高温简化散热系统、更高耐压简化电路拓扑。然而综述指出，<strong>大多数SiC器件仍在沿用为Si开发的传统封装技术</strong>，而这些技术无法应对SiC带来的&#x3D;&#x3D;<strong>三个新问题：高速开关加剧电磁相互作用、小芯片面积推高热流密度、高温高压超出传统封装材料的承受极限。</strong>&#x3D;&#x3D;</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="图1：从裸片到系统的路径——SiC的优势如何逐级传递"><a href="#图1：从裸片到系统的路径——SiC的优势如何逐级传递" class="headerlink" title="图1：从裸片到系统的路径——SiC的优势如何逐级传递"></a>图1：从裸片到系统的路径——SiC的优势如何逐级传递</h3><p><strong>图1（原文Fig. 1）</strong> 描绘了SiC功率半导体从裸片到系统设备的完整路径。子图a展示了功率器件在电力电子变换系统中的应用场景；子图b则勾勒出从SiC裸片经封装形成分立器件（单管，通常用于低功率）或功率模块（多管，用于高功率），再与无源元件、热管理系统和控制电路集成为电力电子积木，最终构成完整设备的流程。</p>
+<img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44287-026-00263-0/MediaObjects/44287_2026_263_Fig1_HTML.png?as=webp" style="zoom:80%;" />
+
+<p>这张图传递的核心信息是：<strong>SiC的材料优势并非自动转化为系统优势，每一级封装和集成都可能成为“损耗点”</strong> 。相同电流等级下，<strong>SiC MOSFET芯片面积（约35 mm²）仅为Si IGBT（约140 mm²）的四分之一</strong>，这既意味着更小的寄生电容和更高的开关速度，也意味着热量被压缩在一个更小的面积上集中释放。</p>
+<h3 id="图2：三个“不可能三角”被SiC打破"><a href="#图2：三个“不可能三角”被SiC打破" class="headerlink" title="图2：三个“不可能三角”被SiC打破"></a>图2：三个“不可能三角”被SiC打破</h3><p><strong>图2（原文Fig. 2）</strong> 是理解SiC器件优越性的核心图。子图a对比了SiC与Si的禁带宽度（约3倍差距）和临界击穿场强（约10倍差距）；子图b直观展示了相同电流额定值下SiC裸片面积远小于Si裸片；子图c给出了不同功率半导体器件的比导通电阻对比，SiC单极器件在高压区展现出Si双极器件无法达到的低导通电阻。</p>
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44287-026-00263-0/MediaObjects/44287_2026_263_Fig2_HTML.png?as=webp"></p>
+<p>子图d是理解SiC高温能力的关键——它展示了本征载流子浓度随温度的变化。所有半导体在升温时本征载流子浓度都会上升，但SiC的曲线整体远低于Si，这意味着SiC可以在Si已经失去阻断能力的温度下继续正常工作。子图e和f分别对比了SiC MOSFET与Si IGBT的开关波形和损耗：SiC器件没有拖尾电流，开关过程干净利落，关断损耗显著更低。子图g汇总了常见SiC与Si功率器件的特性评估，子图h则归纳了SiC的三个系统级优势来源：高速开关、宽温工作和高压耐受。</p>
+<p>通俗地说：<strong>SiC打破了“高压就必须高导通电阻”“高频就必须高开关损耗”“高温就必须复杂散热”这三个传统权衡关系</strong>，但前提是封装技术不拖后腿。</p>
+<h3 id="图3：封装层面的三重挑战"><a href="#图3：封装层面的三重挑战" class="headerlink" title="图3：封装层面的三重挑战"></a>图3：封装层面的三重挑战</h3><p><strong>图3（原文Fig. 3）</strong> 是综述最具诊断价值的一张图，系统展示了SiC封装面临的三个核心问题。</p>
+<p>子图a展示了典型功率模块的结构——裸片通过贴片材料固定在导电基板上，顶部通过键合线引出电极，整体被绝缘材料包裹。这个为Si优化的结构在SiC面前暴露了三重脆弱性。</p>
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44287-026-00263-0/MediaObjects/44287_2026_263_Fig3_HTML.png?as=webp"></p>
+<p>子图b揭示了电磁相互作用的复杂性。图中标注了自感（L）、互感（M）、封装寄生电容（C）以及裸片寄生电容（C_GD、C_GS、C_DS）。高速开关产生的高di&#x2F;dt作用在寄生电感上，引发关断电压过冲，在多管并联的半桥拓扑中还会导致动态电流分配不均；高dv&#x2F;dt作用在寄生电容上，产生共模位移电流，造成电磁干扰。更麻烦的是“环路耦合”——<strong>共源电感同时存在于功率回路和栅极信号回路中，成为两个回路之间的耦合介质</strong>，导致栅极信号被功率回路中的高速开关“污染”，可能引发误触发。</p>
+<p>子图c展示了多管半桥拓扑中温度分布不均和电流不平衡的实测结果。子图d标出了“三相交点”（导电材料、绝缘材料和环境区域交汇处）的位置——这是电场畸变最严重的区域，也是局部放电最易起始的位置。</p>
+<p><strong>这张图传递的核心警示是：SiC的高速开关特性使其对封装寄生参数的敏感度远高于Si器件</strong>，传统封装中“可接受”的寄生电感，在SiC面前可能成为性能杀手。</p>
+<h3 id="图4：三种封装路径的取舍"><a href="#图4：三种封装路径的取舍" class="headerlink" title="图4：三种封装路径的取舍"></a>图4：三种封装路径的取舍</h3><p><strong>图4（原文Fig. 4）</strong> 对比了三种主流封装技术路线。</p>
+<p>子图a展示了四种典型封装结构：传统单面冷却键合线封装、铜夹互连封装、双面冷却（DSC）封装和嵌入封装。子图b给出了商业SiC功率模块端子间寄生电感与电流额定值的关系——<strong>电流额定值越高，封装寄生电感越低</strong>，这反映了SiC对低寄生电感的刚性需求。子图c展示了近年来在研SiC功率模块的封装回路寄生电感数据，与封装裸片导通电阻和估计电流额定值并列，可以看到学术研究中的模块正朝着更低电感的方向推进。子图d是三种封装路线的工艺流程图。</p>
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44287-026-00263-0/MediaObjects/44287_2026_263_Fig4_HTML.png?as=webp"></p>
+<p>三种路线的取舍非常清晰：<strong>键合线封装</strong>成熟、成本低，但键合线引入的寄生电感和顶部散热受限是硬伤；<strong>平面互连封装</strong>（铜夹、DSC）消除了键合线，提供顶部散热路径，但DSC封装的电磁耦合优化复杂，热阻降低不及预期（总热阻约为单面冷却的60–80%，而非理论上的50%），且布局灵活性受限；<strong>嵌入封装</strong>将裸片嵌入PCB或陶瓷基板，通过铜微孔或再分布层实现连接，寄生电感极低，且便于三维堆叠，但耐高温高压的绝缘材料有限，工艺成本和可靠性仍需验证。</p>
+<h3 id="图5：从封装到系统的热管理与集成"><a href="#图5：从封装到系统的热管理与集成" class="headerlink" title="图5：从封装到系统的热管理与集成"></a>图5：从封装到系统的热管理与集成</h3><p><strong>图5（原文Fig. 5）</strong> 将视角从封装本身扩展到系统集成。子图a将热管理分为热源（裸片）、热分配段（顶部互连）、热传输段（基板、底板、热界面材料）和热交换段（散热器）四个环节。子图b展示了功率模块与母排、电容的集成——母排的寄生电感占整个功率回路的相当比例，层叠母排结构和并联去耦电容是抑制其影响的主要手段。</p>
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44287-026-00263-0/MediaObjects/44287_2026_263_Fig5_HTML.png?as=webp"></p>
+<p>子图c–e展示了封装结构与冷却系统的集成路径：底板与散热器集成（c）、基板与散热器集成（d）、以及封装、冷却系统与其他组件的整体集成（e）。<strong>这种多功能集成的核心逻辑是缩短热传输路径、消除热界面材料</strong>——热界面材料往往占系统总热阻的相当比例。当散热器和导电基板的功能发生重叠时，通过大面积焊接或烧结将它们合并，可以显著简化热传输段。子图f归纳了集成的关键要点。</p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p>这篇综述的核心贡献不在于提出某个具体的新材料或新结构，而在于<strong>构建了一个统一的框架来理解SiC封装集成的挑战与应对</strong>。作者将问题归纳为三个层面：材料层面（高温高压下传统焊料和聚合物绝缘体失效）、结构层面（寄生电感电容引发的电磁干扰与振荡）和系统层面（电热耦合导致的电流不平衡与热应力集中）。</p>
+<p>其中最有洞察力的判断是<strong>电热协同设计（electro-thermal co-design）的必要性</strong>。在SiC器件中，电参数（如导通电阻、阈值电压）对温度高度敏感，而封装寄生参数又直接影响电流分配和损耗分布。这意味着电气设计和热设计不能分开做——一个在电气上“对称”的布局，可能在热学上因为耦合差异而变得不对称；一个在热学上“均匀”的设计，可能在电气上引入额外的寄生耦合。作者明确指出，<strong>低寄生电感封装往往尺寸更小，这会加剧裸片间的热耦合和温度不均</strong>，这是一个需要在设计阶段就权衡的核心矛盾。</p>
+<p>从实际应用的距离来看，综述坦诚地指出“完全成熟的高温封装体系尚未建立”。银纳米烧结虽然性能优异，但成本和电迁移问题限制了其大规模应用；铜纳米烧结避开了银的迁移问题，但氧化敏感性和工艺复杂性仍需解决。绝缘材料方面，聚合物基体的玻璃化转变温度提升到250 °C以上需要引入刚性链段结构，但这可能牺牲柔韧性和工艺性。高压应用中的三相交点电场管理，虽然已有高介电常数涂层和场依赖电导材料等方案，但<strong>新材料引入后可能触发新的击穿失效机制</strong>，需要进一步研究。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><strong>这篇论文真正想解决的问题是</strong>：SiC功率器件理论上很美好，但封装技术的滞后使其系统级优势大打折扣，需要一篇系统性的综述来厘清“卡在哪里”以及“往哪里走”。</p>
+<p><strong>它声称的贡献是</strong>：从材料—器件—封装—系统全链条视角，系统梳理了SiC封装的三大挑战（电磁相互作用、热流密度、高温高压材料限制），并归纳了应对这些挑战的材料方案、封装技术和电热协同设计策略。</p>
+<p><strong>最容易被审稿人攻击的地方在于</strong>：作为一篇综述，它没有提出新的实验数据或理论模型，其“统一框架”更多是分类和归纳而非定量预测。此外，电热协同设计部分虽然强调了必要性，但缺乏具体的多目标优化案例或量化设计准则来展示“协同”相对于“分开设计”的增益幅度。</p>
+<p><strong>如果我是同方向的科研工作者，值得精读的两部分是</strong>：第一，<strong>图3中关于环路耦合电磁相互作用的分析</strong>——共源电感和裸片寄生电容如何共同导致栅极信号畸变和误触发，这是SiC封装设计中必须理解的核心机制，它解释了为什么简单的“降低回路电感”不足以解决全部问题，还需要在功率回路和栅极回路之间实现解耦。第二，<strong>电热协同设计中关于并联裸片电流平衡的讨论</strong>——参数不一致、封装寄生电感不对称、热耦合差异三者之间如何形成闭环反馈，以及对称布局、多端子设计和Kelvin连接等具体策略如何打破这个反馈环。</p>
+<p><strong>可以先跳过的部分是</strong>：图2中Si与SiC材料特性的基础对比——这部分内容在多数SiC入门综述中已有充分覆盖，对于熟悉宽禁带半导体的读者而言信息增量有限。</p>
+<hr>
+<p><strong>论文信息</strong></p>
+<p>标题：Packaging and integration of silicon carbide power devices</p>
+<p>期刊：Nature Reviews Electrical Engineering</p>
+<p>年份：2026（Volume 3, pages 157–172）</p>
+<p>DOI：10.1038&#x2F;s44287-026-00263-0</p>
+<p><em>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</em></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/09/30/paper_reading/20260930B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-014:电动汽车的“动力心脏”怎么选？一篇综述讲透 Si、SiC、GaN 三种功率器件
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%A2%B3%E5%8C%96%E7%A1%85%E5%8A%9F%E7%8E%87%E5%99%A8%E4%BB%B6%E7%9A%84%E2%80%9C%E5%B0%81%E8%A3%85%E5%9B%B0%E5%B1%80%E2%80%9D%EF%BC%9A%E5%BD%93%E6%9D%90%E6%96%99%E4%BC%98%E5%8A%BF%E6%92%9E%E4%B8%8A%E4%BC%A0%E7%BB%9F%E6%8A%80%E6%9C%AF%E5%A4%A9%E8%8A%B1%E6%9D%BF"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">碳化硅功率器件的“封装困局”：当材料优势撞上传统技术天花板</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88SiC%E7%9A%84%E2%80%9C%E5%A5%BD%E2%80%9D%EF%BC%8C%E5%88%B0%E4%BA%86%E7%B3%BB%E7%BB%9F%E9%87%8C%E5%B0%B1%E6%89%93%E4%BA%86%E6%8A%98%E6%89%A3%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：为什么SiC的“好”，到了系统里就打了折扣？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE1%EF%BC%9A%E4%BB%8E%E8%A3%B8%E7%89%87%E5%88%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B7%AF%E5%BE%84%E2%80%94%E2%80%94SiC%E7%9A%84%E4%BC%98%E5%8A%BF%E5%A6%82%E4%BD%95%E9%80%90%E7%BA%A7%E4%BC%A0%E9%80%92"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">图1：从裸片到系统的路径——SiC的优势如何逐级传递</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE2%EF%BC%9A%E4%B8%89%E4%B8%AA%E2%80%9C%E4%B8%8D%E5%8F%AF%E8%83%BD%E4%B8%89%E8%A7%92%E2%80%9D%E8%A2%ABSiC%E6%89%93%E7%A0%B4"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">图2：三个“不可能三角”被SiC打破</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE3%EF%BC%9A%E5%B0%81%E8%A3%85%E5%B1%82%E9%9D%A2%E7%9A%84%E4%B8%89%E9%87%8D%E6%8C%91%E6%88%98"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">图3：封装层面的三重挑战</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE4%EF%BC%9A%E4%B8%89%E7%A7%8D%E5%B0%81%E8%A3%85%E8%B7%AF%E5%BE%84%E7%9A%84%E5%8F%96%E8%88%8D"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">图4：三种封装路径的取舍</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE5%EF%BC%9A%E4%BB%8E%E5%B0%81%E8%A3%85%E5%88%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%83%AD%E7%AE%A1%E7%90%86%E4%B8%8E%E9%9B%86%E6%88%90"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">图5：从封装到系统的热管理与集成</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/09/30/paper_reading/20260930C/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
