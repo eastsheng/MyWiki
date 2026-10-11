@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-019:氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序 | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-019:氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序</h2>
+  <p class="post-date">2026-10-11 19:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序"><a href="#氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序" class="headerlink" title="氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序"></a>氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>氮掺杂是4H-SiC实现n型导电的标配手段，但它对热输运的影响，尤其是对各向异性的调控，此前鲜有系统研究。这篇发表在 <em>Acta Materialia</em> 上的计算工作，用神经网络势结合分子动力学，揭示了一个清晰的趋势：<strong>随着氮掺杂浓度从1.43×10¹⁹ cm⁻³增加到2.98×10²¹ cm⁻³，4H-SiC的热各向异性因子从0.31单调降至0.20</strong>。更关键的是，作者从声子局域化和极化无序的角度，解释了为什么氮掺杂会“优先打击”面内热输运，从而让材料的热导率变得更加“各向同性”。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-ga1_lrg.jpg" alt="img"></p>
+<h2 id="背景：热各向异性为什么重要？"><a href="#背景：热各向异性为什么重要？" class="headerlink" title="背景：热各向异性为什么重要？"></a>背景：热各向异性为什么重要？</h2><p>4H-SiC属于六方晶系，面内对称性高、c轴方向对称性低，因此其物理性质天然存在各向异性。热导率也不例外：<strong>实验测量表明，本征4H-SiC的面内热导率（κ∥）约为415 W&#x2F;mK，面外热导率（κ⊥）约为345 W&#x2F;mK，各向异性因子约为0.20–0.33。</strong></p>
+<p>在实际功率器件中，<strong>热量主要沿垂直于衬底的方向抽出，而面内方向则负责横向扩热和温度均匀化</strong>。因此，热各向异性直接决定了热流分布和热点演化。如果掺杂只降低总热导率而不改变各向异性，器件热设计相对简单；但如果掺杂同时改变了各向异性的方向和强度，热管理策略就需要重新考虑。</p>
+<p>此前研究多关注掺杂引起的热导率整体下降，对<strong>各向异性如何随掺杂浓度演化</strong>关注不足。实验上测量掺杂SiC的各向异性热导率需要高质量单晶和精密的时域热反射（TDTR）技术，成本高、周期长。理论上，第一性原理结合ShengBTE计算精度高但计算成本极大，难以处理低掺杂浓度所需的大超胞；<strong>基于质量无序近似的Tamura模型虽然高效，却忽略了掺杂引起的局部结构和力常数扰动，预测偏差较大</strong>。</p>
+<h2 id="作者如何研究：神经网络势-分子动力学-声子分析"><a href="#作者如何研究：神经网络势-分子动力学-声子分析" class="headerlink" title="作者如何研究：神经网络势 + 分子动力学 + 声子分析"></a>作者如何研究：神经网络势 + 分子动力学 + 声子分析</h2><p>作者构建了一个统一的神经网络势（neural network potential, NNP），用于描述本征和氮掺杂4H-SiC的原子间相互作用。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>训练数据集</td>
+<td>7535个结构，涵盖4种N浓度（x&#x3D;0、0.0625、0.0278、0.0078）</td>
+</tr>
+<tr>
+<td>掺杂位点</td>
+<td>h位和k位两种取代位置</td>
+</tr>
+<tr>
+<td>超胞尺寸</td>
+<td>32、72、256原子</td>
+</tr>
+<tr>
+<td>NNP描述符</td>
+<td>DeepPot-SE，截断半径6.5 Å</td>
+</tr>
+<tr>
+<td>训练方法</td>
+<td>DeePMD-kit + DP-GEN主动学习，19轮迭代，50–600 K</td>
+</tr>
+<tr>
+<td>热导率计算</td>
+<td>平衡分子动力学 + Green-Kubo理论</td>
+</tr>
+<tr>
+<td>声子分析</td>
+<td>谱能量密度（SED）、声子参与率、模态权重因子、极化矢量投影</td>
+</tr>
+</tbody></table>
+<p>NNP的训练精度：能量RMSE为2.03 meV&#x2F;atom，力RMSE为39.98 meV&#x2F;Å，声子色散与DFT在整个布里渊区高度一致。本征4H-SiC的NNP-ShengBTE预测值为κ∥&#x3D;436.8、κ⊥&#x3D;325.5 W&#x2F;mK，与独立DFT-ShengBTE计算（452.8和323.7 W&#x2F;mK）以及实验值（415.0和345.0 W&#x2F;mK）吻合良好。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="图1：4H-SiC的晶体结构与两种掺杂位点"><a href="#图1：4H-SiC的晶体结构与两种掺杂位点" class="headerlink" title="图1：4H-SiC的晶体结构与两种掺杂位点"></a>图1：4H-SiC的晶体结构与两种掺杂位点</h3><p><strong>图1（原文Fig. 1）</strong> 展示了本征4H-SiC和两种氮掺杂构型。子图a是本征4H-SiC的ABAC堆垛结构，沿c轴方向存在两种不等价的碳位点：一种遵循ABA堆垛，具有立方特征，称为k位；另一种遵循ABC堆垛，具有六方特征，称为h位。子图b和c分别是氮原子取代k位和h位碳原子的掺杂超胞模型。</p>
+<p>这张图回答的是：<strong>氮掺杂到底取代了哪个碳原子？</strong> 答案是两种位点都可能，但后续计算表明<strong>两种位点的热输运性质差异可忽略，因此正文主要关注k位掺杂。</strong></p>
+<img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr1_lrg.jpg" alt="原文 Fig. 1" style="zoom:50%;" />
+
+<h3 id="图2：NNP的精度验证"><a href="#图2：NNP的精度验证" class="headerlink" title="图2：NNP的精度验证"></a>图2：NNP的精度验证</h3><p><strong>图2（原文Fig. 2）</strong> 验证了NNP的可靠性。子图a和b分别对比了NNP与DFT计算的能量和力，数据点几乎沿对角线分布，RMSE分别为2.03 meV&#x2F;atom和39.98 meV&#x2F;Å。子图c和d分别展示了本征和氮掺杂SiC的声子色散，NNP（红线）与DFT（黑线）在整个布里渊区高度一致，仅在高频光学支靠近A点处有微小偏差。</p>
+<p>值得关注的是，氮掺杂后低频声学声子模式出现明显软化，光学声子支之间的带隙变窄，但声子振动频率范围几乎不变。这说明<strong>氮掺杂主要影响低频声子的行为，而低频声子恰恰是热导率的主要贡献者</strong>。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr2_lrg.jpg" alt="原文 Fig. 2"></p>
+<h3 id="图3：热导率随掺杂浓度的单调下降"><a href="#图3：热导率随掺杂浓度的单调下降" class="headerlink" title="图3：热导率随掺杂浓度的单调下降"></a>图3：热导率随掺杂浓度的单调下降</h3><p><strong>图3（原文Fig. 3）</strong> 是全文最核心的定量结果，展示了四种氮掺杂浓度下热导率随关联时间的变化。子图a–d分别对应nN &#x3D; 1.43×10¹⁹、1.06×10²⁰、9.93×10²⁰、2.98×10²¹ cm⁻³。</p>
+<p>关键数据：</p>
+<ul>
+<li>在典型功率器件掺杂浓度 <strong>1.43×10¹⁹ cm⁻³</strong> 下，κ∥ &#x3D; 230.8 ± 13.0 W&#x2F;mK，κ⊥ &#x3D; 168.9 ± 13.8 W&#x2F;mK，与实验测量一致。</li>
+<li>在最高掺杂浓度 <strong>2.98×10²¹ cm⁻³</strong> 下，κ∥ &#x3D; 103.6 ± 5.7 W&#x2F;mK，κ⊥ &#x3D; 85.0 ± 5.4 W&#x2F;mK，**总热导率相比本征降低约75%**。</li>
+<li><strong>各向异性因子从0.31单调降至0.20</strong>（本征值约为0.33，第一性原理计算）。</li>
+</ul>
+<p>这张图支持的核心结论是：<strong>氮掺杂不仅降低热导率，还显著抑制各向异性，且这种抑制是方向选择性的——面内热导率被“打击”得更狠</strong>。不能据此得出的是：这个趋势不能简单外推到其他掺杂元素，因为不同掺杂原子的质量差异和化学键特性不同。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr3_lrg.jpg" alt="原文 Fig. 3"></p>
+<h3 id="图4：声子线宽展宽与寿命缩短"><a href="#图4：声子线宽展宽与寿命缩短" class="headerlink" title="图4：声子线宽展宽与寿命缩短"></a>图4：声子线宽展宽与寿命缩短</h3><p><strong>图4（原文Fig. 4）</strong> 从声子谱角度揭示机制。子图a是Γ点的谱能量密度（SED），氮掺杂后SED峰明显展宽，谷区能量增强，说明声子能量更加分散。子图b是沿Γ—M方向的投影SED，氮掺杂后的声子线宽明显大于本征，对应更强的声子-声子相互作用和更大的声子散射相空间。子图c是用洛伦兹函数拟合SED峰得到的声子弛豫时间，<strong>氮掺杂SiC的声子寿命在整个频率范围内都低于本征，尤其是带隙以下的低频模式</strong>。</p>
+<p>补充图S5进一步指出：**低于20 THz的声子贡献了约99.5%的总热导率，低于10 THz的声子贡献约86.0%**。因此，低频声子的行为决定了氮掺杂SiC的热输运性质。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr4_lrg.jpg" alt="原文 Fig. 4"></p>
+<h3 id="图5：声子局域化的空间起源"><a href="#图5：声子局域化的空间起源" class="headerlink" title="图5：声子局域化的空间起源"></a>图5：声子局域化的空间起源</h3><p><strong>图5（原文Fig. 5）</strong> 用模态权重因子（MWF）定位局域化的空间起源。作者将超胞分为两个区域：Ω1包含氮原子及其最近邻原子，Ω2包含其余原子。子图a显示，<strong>在7–17 THz范围内，氮掺杂SiC的Ω1区域MWF显著高于本征</strong>，说明振动能量强烈局域在氮原子及其周围。低于7 THz时，本征和掺杂的MWF几乎相同，说明长波声子受影响较弱，仍保持离域。</p>
+<p>子图b将Ω1的MWF投影到声子色散上，子图c给出了三个代表性局域模式的本征模图。在q&#x3D;(0.00, 0.00, 0.49)处，7.81 THz的声子支表现出高度局域化的面外振动模式；15.43 THz的模式同样以面外振动为主。<strong>这种强烈的面外极化特征有利于面外热输运，同时抑制面内热输运</strong>——这正是各向异性被抑制的微观根源。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr5_lrg.jpg" alt="原文 Fig. 5"></p>
+<h3 id="图6：极化无序——各向异性被“熨平”的直接证据"><a href="#图6：极化无序——各向异性被“熨平”的直接证据" class="headerlink" title="图6：极化无序——各向异性被“熨平”的直接证据"></a>图6：极化无序——各向异性被“熨平”的直接证据</h3><p><strong>图6（原文Fig. 6）</strong> 用单位球投影直观展示了极化矢量的分布。子图a–c分别对应三个代表性低频声子模式，每个点代表一个原子的振动方向，颜色深浅表示振幅。</p>
+<p><strong>在本征SiC中，三个模式的极化方向主要分布在单位球的赤道附近</strong>，即面内方向占主导，这与面内热导率高于面外的事实一致。<strong>氮掺杂后，极化方向变得明显无序</strong>，源于晶体对称性破缺以及质量和力常数的局部扰动。极化随机化意味着声子振动更加混乱，增强了声子散射，同时削弱了面内和面外输运的方向性差异。</p>
+<p>补充图S6的电子局域函数进一步验证：氮的电负性高于碳，驱动电子向氮原子聚集，Si–N键的电子局域化程度降低，意味着键刚度减弱，晶格的本征各向异性被削弱。</p>
+<p><img src="https://ars.els-cdn.com/content/image/1-s2.0-S1359645426008311-gr6_lrg.jpg" alt="原文 Fig. 6"></p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p>这项工作的机理可以用一个类比理解：<strong>本征4H-SiC中的声子像一支训练有素的仪仗队，大部分成员朝面内方向齐步走，所以面内热输运效率高、面外效率低，各向异性明显。氮掺杂就像在队伍中安插了一批“捣乱分子”——氮原子及其周围原子的振动方向变得杂乱无章，把原本整齐的队形打散，面内和面外的差异自然就被“熨平”了</strong>。</p>
+<p>作者直接计算的结果包括：不同掺杂浓度下的κ∥和κ⊥、各向异性因子、声子色散、SED、声子寿命、MWF和极化矢量分布。作者对机制的解释——声子局域化、极化无序、面外极化增强导致各向异性抑制——是基于这些计算结果的合理推断，但需要实验验证。</p>
+<p>需要指出的是，<strong>这是一项纯计算研究</strong>，最高掺杂浓度2.98×10²¹ cm⁻³虽然实验上已可实现，但远高于功率器件常用浓度。作者也承认，第一性原理计算受超胞尺寸限制，~10²¹ cm⁻³是理论极限。此外，NNP虽然精度高，但其训练数据基于DFT，对强非谐或高温下的表现仍需验证。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><strong>这篇论文真正想解决的问题是</strong>：氮掺杂对4H-SiC热导率各向异性的影响此前缺乏系统研究，而各向异性直接决定器件热流分布和热点演化，需要从原子尺度理解其机制。</p>
+<p><strong>它声称的贡献是</strong>：构建了统一的NNP，系统计算了四种氮掺杂浓度下4H-SiC的热导率，发现各向异性因子从0.31单调降至0.20，并从声子局域化和极化无序角度揭示了微观机制——氮掺杂增强面外极化分量、削弱面内输运，从而抑制各向异性。</p>
+<p><strong>最容易被reviewer攻击的地方在于</strong>：第一，最高掺杂浓度2.98×10²¹ cm⁻³远超器件常用浓度，虽然作者辩称这是理论极限，但结论对实际器件的指导意义有限；第二，NNP的训练数据基于DFT，虽然精度高，但对强非谐效应的描述能力未经独立验证；第三，作者将各向异性抑制归因于声子局域化和极化无序，但这两个因素之间的因果关系（谁先谁后、谁主导）并未完全厘清。</p>
+<p><strong>如果我是同方向的科研工作者，值得精读的两部分是</strong>：</p>
+<p><strong>第一部分：图5–图6的声子局域化与极化分析。</strong> 重点整理：MWF如何划分Ω1和Ω2区域、如何定义局域化阈值（0.15）、7–17 THz范围内Ω1的MWF增强意味着什么、三个代表性局域模式的本征模图如何展示面外极化特征、单位球投影如何直观呈现极化方向从“赤道集中”到“无序分布”的转变。这套“MWF + 极化矢量投影”的分析框架可以直接迁移到其他掺杂体系的热输运研究。</p>
+<p><strong>第二部分：图2–图4的NNP训练与声子谱分析。</strong> 重点整理：NNP的训练流程（7535个结构、DP-GEN主动学习、19轮迭代）、精度指标（能量RMSE 2.03 meV&#x2F;atom、力RMSE 39.98 meV&#x2F;Å）、声子色散与DFT的对比、SED线宽展宽与声子寿命缩短的定量关系、低频声子对热导率的贡献占比（&lt;20 THz贡献99.5%）。这部分对想用机器学习势研究掺杂体系热输运的读者最有价值。</p>
+<p><strong>可以先跳过的部分是</strong>：图1的晶体结构描述和图2a–b的能量&#x2F;力验证——前者是标准结构介绍，后者是NNP精度的常规验证，对熟悉4H-SiC和机器学习势的读者信息增量有限。</p>
+<hr>
+<p><strong>论文信息</strong></p>
+<p>标题：Concentration-dependent suppression of thermal anisotropy in 4H-SiC by nitrogen doping</p>
+<p>期刊：Acta Materialia</p>
+<p>年份：2026</p>
+<p>DOI：10.1016&#x2F;j.actamat.2026.122731</p>
+<p><em>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</em></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/10/08/paper_reading/20261008A/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-016:在光滑的界面上“刻”一层无序：非晶表面如何让二维材料散热快三倍
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E6%B0%AE%E6%8E%BA%E6%9D%82%E5%A6%82%E4%BD%95%E2%80%9C%E7%86%A8%E5%B9%B3%E2%80%9D%E7%A2%B3%E5%8C%96%E7%A1%85%E7%9A%84%E7%83%AD%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%EF%BC%9A%E4%BB%8E%E5%A3%B0%E5%AD%90%E5%B1%80%E5%9F%9F%E5%8C%96%E5%88%B0%E6%9E%81%E5%8C%96%E6%97%A0%E5%BA%8F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">氮掺杂如何“熨平”碳化硅的热各向异性：从声子局域化到极化无序</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E7%83%AD%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：热各向异性为什么重要？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8A%BF-%E5%88%86%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E5%A3%B0%E5%AD%90%E5%88%86%E6%9E%90"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：神经网络势 + 分子动力学 + 声子分析</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE1%EF%BC%9A4H-SiC%E7%9A%84%E6%99%B6%E4%BD%93%E7%BB%93%E6%9E%84%E4%B8%8E%E4%B8%A4%E7%A7%8D%E6%8E%BA%E6%9D%82%E4%BD%8D%E7%82%B9"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">图1：4H-SiC的晶体结构与两种掺杂位点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE2%EF%BC%9ANNP%E7%9A%84%E7%B2%BE%E5%BA%A6%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">图2：NNP的精度验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE3%EF%BC%9A%E7%83%AD%E5%AF%BC%E7%8E%87%E9%9A%8F%E6%8E%BA%E6%9D%82%E6%B5%93%E5%BA%A6%E7%9A%84%E5%8D%95%E8%B0%83%E4%B8%8B%E9%99%8D"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">图3：热导率随掺杂浓度的单调下降</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE4%EF%BC%9A%E5%A3%B0%E5%AD%90%E7%BA%BF%E5%AE%BD%E5%B1%95%E5%AE%BD%E4%B8%8E%E5%AF%BF%E5%91%BD%E7%BC%A9%E7%9F%AD"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">图4：声子线宽展宽与寿命缩短</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE5%EF%BC%9A%E5%A3%B0%E5%AD%90%E5%B1%80%E5%9F%9F%E5%8C%96%E7%9A%84%E7%A9%BA%E9%97%B4%E8%B5%B7%E6%BA%90"><span class="toc-nav-number">1.4.5.</span> <span class="toc-nav-text">图5：声子局域化的空间起源</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE6%EF%BC%9A%E6%9E%81%E5%8C%96%E6%97%A0%E5%BA%8F%E2%80%94%E2%80%94%E5%90%84%E5%90%91%E5%BC%82%E6%80%A7%E8%A2%AB%E2%80%9C%E7%86%A8%E5%B9%B3%E2%80%9D%E7%9A%84%E7%9B%B4%E6%8E%A5%E8%AF%81%E6%8D%AE"><span class="toc-nav-number">1.4.6.</span> <span class="toc-nav-text">图6：极化无序——各向异性被“熨平”的直接证据</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/10/11/paper_reading/20261011A/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>

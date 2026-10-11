@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="referrer" content="no-referrer" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Eastsheng Wiki">
+  <meta name="keyword" content="Wiki, Notes, Code, Research, Study">
+  
+    <link rel="shortcut icon" href="/MyWiki/css/images/logo.png">
+  
+  <title>
+    
+      论文阅读-018:给芯片装个“水平烟囱”：电介质流体两相冷却突破 1570 W/cm² | Eastsheng&#39;s Wiki
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  
+<link rel="stylesheet" href="/MyWiki/css/style.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  
+  
+  
+
+
+  
+  
+    
+<script src="/MyWiki/js/local-search.js"></script>
+
+
+    <!--  修改 开始位置-->
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.js"></script>
+  <!-- 或者使用CDN -->
+<script>
+    $(document).ready(function() {
+        var mermaid_config = {
+            startOnLoad: true,
+            theme: 'default',
+            flowchart:{
+                useMaxWidth: false,
+                htmlLabels: true
+            }                
+        }
+        mermaid.initialize(mermaid_config);
+    });
+</script>   <!-- 修改 结束位置 --> 
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/MyWiki/">
+      <div class="logo"></div>
+      <span>Eastsheng's Wiki</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/Links/UnitsConverter.html" class="item-link">Units converter</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/collections/" class="item-link">Collections</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/MyWiki/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/Links/UnitsConverter.html" class="menu-link">Units converter</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/collections/" class="menu-link">Collections</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/MyWiki/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>论文阅读-018:给芯片装个“水平烟囱”：电介质流体两相冷却突破 1570 W/cm²</h2>
+  <p class="post-date">2026-10-08 19:12:28</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>[toc]</p>
+<h1 id="给芯片装个“水平烟囱”：电介质流体两相冷却突破-1570-W-x2F-cm²"><a href="#给芯片装个“水平烟囱”：电介质流体两相冷却突破-1570-W-x2F-cm²" class="headerlink" title="给芯片装个“水平烟囱”：电介质流体两相冷却突破 1570 W&#x2F;cm²"></a>给芯片装个“水平烟囱”：电介质流体两相冷却突破 1570 W&#x2F;cm²</h1><h2 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h2><p>当芯片功率密度逼近千瓦每平方厘米，散热就成了性能与可靠性的生死线。水冷虽然强悍，却怕短路；电介质冷却液安全，但此前一直难以突破 1000 W&#x2F;cm² 的热流上限。这篇发表在 <em>Nature Electronics</em> 的研究提出了一种“水平向上歧管”嵌入式微通道结构，用 HFE-7100 电介质冷却液实现了 <strong>1570 W&#x2F;cm² 的临界热流密度</strong>，同时把压降控制在传统直平行微通道的 14% 以内。更关键的是，这套结构用标准硅微加工技术制造，可以直接与现有半导体工艺对接。</p>
+<h2 id="背景：芯片散热的两难——水很强，但怕漏电"><a href="#背景：芯片散热的两难——水很强，但怕漏电" class="headerlink" title="背景：芯片散热的两难——水很强，但怕漏电"></a>背景：芯片散热的两难——水很强，但怕漏电</h2><p>芯片集成度和功耗不断攀升，热流密度已经进入千瓦每平方厘米量级。传统的散热思路是加高导热材料、优化热界面，但真正能把热流上限拉高的，是<strong>嵌入式微流体冷却（embedded microfluidic cooling）</strong>——直接把微通道刻蚀进芯片衬底，让冷却液流到发热点附近，把导热热阻压到最低。</p>
+<p>用水做冷却液，最近已经演示了高达 3000 W&#x2F;cm² 的散热能力。但水是导电的，直接通到芯片上有短路风险，腐蚀性和微生物滋生也是麻烦。电介质冷却液（dielectric coolant）材料兼容性好、电阻率高、不易长菌，在数据中心浸没冷却中已经证明可行。理论上，电介质流体沸点低，可以利用汽化实现高效两相冷却。</p>
+<p>两相冷却的安全边界由<strong>临界热流密度（critical heat flux, CHF）</strong> 决定。CHF 本质上受两个物理过程控制：液体能否及时补充到加热表面，以及蒸汽能否顺利排走。池沸腾靠毛细力补液、蒸汽排出受阻，CHF 只有约 100 W&#x2F;cm²（电介质）和 500 W&#x2F;cm²（水）。喷雾冷却用外部泵强化供液和排汽，电介质可达 500 W&#x2F;cm²，水可达 1200 W&#x2F;cm²。微流体冷却通过强制流体穿过微小通道直接解决补液问题，但电介质流体要在受限空间内排汽，仍然很难突破 1000 W&#x2F;cm²。</p>
+<h2 id="作者如何研究：水平进液，垂直排汽"><a href="#作者如何研究：水平进液，垂直排汽" class="headerlink" title="作者如何研究：水平进液，垂直排汽"></a>作者如何研究：水平进液，垂直排汽</h2><p>作者设计了一种<strong>水平向上歧管微通道（horizontal-up manifold microchannel, HUMMC）</strong>。核心思路是：水平歧管入口通道把电介质冷却液高效输送到下方微通道，垂直歧管出口通道给蒸汽一条短路径排出。</p>
+<p>关键参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微通道尺寸</td>
+<td>宽 26 µm，高 200 µm</td>
+</tr>
+<tr>
+<td>微通道底部与电层之间剩余 Si 厚度</td>
+<td>100 µm</td>
+</tr>
+<tr>
+<td>加热区域</td>
+<td>3 × 3 mm²</td>
+</tr>
+<tr>
+<td>歧管入口通道宽度</td>
+<td>约 100 µm（产生射流冲击效应）</td>
+</tr>
+<tr>
+<td>冷却液</td>
+<td>HFE-7100（3M Novec）</td>
+</tr>
+<tr>
+<td>流量</td>
+<td>60–150 ml&#x2F;min</td>
+</tr>
+<tr>
+<td>入口温度</td>
+<td>23 ± 1 °C</td>
+</tr>
+<tr>
+<td>制造工艺</td>
+<td>双面抛光硅片，深反应离子刻蚀，硅-硅直接键合</td>
+</tr>
+</tbody></table>
+<p>芯片体由歧管层和微通道层组成，分别刻蚀后通过硅-硅直接键合集成，顶部歧管通道与底部微通道正交。冷却液从两侧槽对称进入入口腔，通过圆形入口进入歧管入口通道，再分配到微通道。加热后的流体向上流经垂直歧管出口通道，进入覆盖整个加热区域的出口腔。出口处设计了一个小肩部，让流通截面从微通道到出口腔逐步扩大，从 1.5 mm² 膨胀到 4.5 mm²，最终在腔体中超过 9 mm²，而传统直平行微通道（SPMC）的出口截面只有 0.6 mm²。这种渐扩结构加速蒸汽排出，防止回流。</p>
+<p>作为对照，作者还制造了相同加热面积和通道尺寸的 SPMC 芯片。实验在定制回路中进行，用 HFE-7100，流量 60 ml&#x2F;min，测量最大和平均温升、热阻、压降和性能系数（COP）。</p>
+<h2 id="核心发现与逐图解读"><a href="#核心发现与逐图解读" class="headerlink" title="核心发现与逐图解读"></a>核心发现与逐图解读</h2><h3 id="图1：芯片长什么样，怎么造出来的"><a href="#图1：芯片长什么样，怎么造出来的" class="headerlink" title="图1：芯片长什么样，怎么造出来的"></a>图1：芯片长什么样，怎么造出来的</h3><p><strong>图1（原文 Fig. 1）</strong> 展示了 HUMMC 的结构和制造。子图a是两颗测试芯片的照片，左边是电层，包含一个大的铂薄膜蛇形电阻，用于在 3×3 mm² 区域均匀加热，还有九个小的铂电阻用于分布式测温；右边是底面，有两侧大槽和中间五个小槽。子图b是微流体结构的三维示意图，蓝色表示冷液体，红色表示加热后的液-气混合物。子图c是俯视图，显示 H 形流入模式。子图d是 SEM 图像，显示水平歧管入口的圆形入口和垂直出口通道。子图e是键合微通道的截面 SEM。子图f是单元截面示意图，展示冷液体冲击进入微通道、加热后的液-气混合物垂直流出。子图g是对应的截面 SEM。</p>
+<p>这张图回答的是：<strong>这套结构到底怎么实现水平进液、垂直排汽？</strong> 关键是歧管入口通道较窄，产生类似射流冲击的效果，强化液体输运；出口通道垂直向上，截面逐步扩大，让蒸汽快速逃逸。</p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41928-026-01724-y/MediaObjects/41928_2026_1724_Fig1_HTML.png?as=webp" alt="原文 Fig. 1"></p>
+<h3 id="图2：HUMMC-比传统直通道强在哪"><a href="#图2：HUMMC-比传统直通道强在哪" class="headerlink" title="图2：HUMMC 比传统直通道强在哪"></a>图2：HUMMC 比传统直通道强在哪</h3><p><strong>图2（原文 Fig. 2）</strong> 对比了 SPMC 和 HUMMC 的热-水力性能。子图a是冷却液回路和数据采集系统示意图。子图b是测试段俯视图。子图c是温升随热流密度的变化，子图d是压降，子图e是热阻，子图f是 COP。</p>
+<p>最值得关注的数据：<strong>HUMMC 的压降始终低于 SPMC 的 14%<strong>。在热流密度约 400 W&#x2F;cm² 之后，两者的温升斜率明显下降，压降开始上升，这对应</strong>核态沸腾起始点（onset of nucleate boiling, ONB）</strong>，标志着两相冷却 regime 的开始。在两相区，HUMMC 的 CHF 约为 <strong>1200 W&#x2F;cm²</strong>，几乎是 SPMC（<strong>640 W&#x2F;cm²</strong>）的两倍。HUMMC 的温度均匀性也更好，ΔTmax 和 ΔTmean 的差距更小。COP 方面，HUMMC 在约 2500，SPMC 只有约 300。</p>
+<p>通俗地说：<strong>HUMMC 的歧管层把每根微通道分成十个小段，流程和流量都降了一个数量级，压降自然小；同时冷液通过更短路径均匀覆盖加热区，补液更及时，排汽更顺畅</strong>。</p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41928-026-01724-y/MediaObjects/41928_2026_1724_Fig2_HTML.png?as=webp" alt="原文 Fig. 2"></p>
+<h3 id="图3：极限冷却性能和运行稳定性"><a href="#图3：极限冷却性能和运行稳定性" class="headerlink" title="图3：极限冷却性能和运行稳定性"></a>图3：极限冷却性能和运行稳定性</h3><p><strong>图3（原文 Fig. 3）</strong> 探索了 HUMMC 的极限性能，流量从 60 到 150 ml&#x2F;min。子图a和b是最大和平均热阻随热流密度的变化。子图c是出口冷却液温度，子图d是压降，子图e和f是不同流量和热流下最大温度和压降的稳定性。</p>
+<p>关键结果：在单相区，热阻随流量增加明显下降，ONB 点也移向更高热流。在两相区，流量从 60 升到 90 ml&#x2F;min 时热阻大幅下降；继续升到 120 和 150 ml&#x2F;min，热阻进一步降低，但收益变小，说明超过一定阈值后，传热主要由流-固界面的流动沸腾主导。<strong>最小 Rmax 和 Rmean 分别为 0.071 和 0.065 K cm²&#x2F;W，在 150 ml&#x2F;min 下获得</strong>。热流密度较高时，热阻上翘，出现局部瞬时干涸；进一步增加热流，干涸时间和面积扩大，最终达到 CHF。所有流量下 CHF 都在 1200 W&#x2F;cm² 左右或更高，<strong>最大值 1570 W&#x2F;cm² 出现在 120 ml&#x2F;min</strong>。在最高 CHF 时，ΔTmax 约 130 K，ΔTmean 约 110 K，远低于许多高功率电子器件的最高工作温度（如 GaN 基器件约 225 °C）。在代表性热流 1000 W&#x2F;cm² 时，ΔTmax 和 ΔTmean 分别降至约 75 K 和 72 K，对硅基器件（结温上限约 100 °C）有技术参考价值。温度均匀性方面，在 120 ml&#x2F;min、热流高达 1100 W&#x2F;cm² 时，九个铂电阻温度检测器之间的标准差小于 3 K。</p>
+<p>稳定性方面，在 1000–1400 W&#x2F;cm² 下，90 和 120 ml&#x2F;min 流量下最大温度波动在 ±2.0 K 以内，压降波动在 ±1.5 kPa 以内，对应标准差分别为 0.70 K 和 0.47 kPa。</p>
+<p>子图c还揭示了一个有趣现象：流量 150 ml&#x2F;min 时，出口温度停在约 50 °C，表明发生了提前 CHF。模拟显示流量越大，流量分布越不均匀，靠近歧管入口通道的微通道流量最小，沸腾在不均匀的水力基础上发展，加剧两相不稳定，最终导致局部干涸和芯片烧毁。高流量也带来更高压降，降低冷却效率。</p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41928-026-01724-y/MediaObjects/41928_2026_1724_Fig3_HTML.png?as=webp" alt="原文 Fig. 3"></p>
+<h3 id="图4：和已有两相冷却技术比，强在哪"><a href="#图4：和已有两相冷却技术比，强在哪" class="headerlink" title="图4：和已有两相冷却技术比，强在哪"></a>图4：和已有两相冷却技术比，强在哪</h3><p><strong>图4（原文 Fig. 4）</strong> 对比了 HUMMC 与经典和最新两相冷却技术。子图a是电介质冷却液的数据，子图b是水的数据，横轴是最大热流密度，纵轴是壁面过热度。数据点来自池沸腾、喷雾冷却、单层微通道流动沸腾和歧管微通道流动沸腾。</p>
+<p>这张图的核心信息：<strong>在所有四类技术中，电介质冷却液的散热性能都远低于水</strong>。池沸腾用电介质只能耗散低于 100 W&#x2F;cm²，水可达 500 W&#x2F;cm²。喷雾冷却用电介质低于 500 W&#x2F;cm²。微流体出现后，电介质在微通道流动沸腾中推到约 800 W&#x2F;cm²，在歧管微通道中推到约 1000 W&#x2F;cm²。而 HUMMC 用 HFE-7100 达到 <strong>1570 W&#x2F;cm²</strong>，填补了电介质冷却液在超过 1000 W&#x2F;cm² 热流下的空白，性能匹配水基冷却，同时壁面过热度更低，有利于维持低芯片温度。</p>
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41928-026-01724-y/MediaObjects/41928_2026_1724_Fig4_HTML.png?as=webp" alt="原文 Fig. 4"></p>
+<h2 id="机理、意义与局限"><a href="#机理、意义与局限" class="headerlink" title="机理、意义与局限"></a>机理、意义与局限</h2><p>这项工作的机理可以用一个类比理解：<strong>传统直平行微通道像一条又长又窄的单行道，液体进去、蒸汽出来都挤在一起；HUMMC 则像在每个路口都设了水平入口和垂直出口的立体交叉，冷液从侧面短路径补充，蒸汽从头顶快速排走</strong>。歧管层把每根微通道切成十小段，流程和流量降一个数量级，压降骤减；出口截面从 1.5 mm² 逐步扩大到超过 9 mm²，蒸汽排出阻力大幅降低。</p>
+<p>作者直接测量的是：不同流量和热流下的温升、热阻、压降、COP、CHF 和稳定性。作者对机制的解释——水平入口促进补液、垂直出口加速排汽、歧管分段降低压降——是合理的，但基于实验对比和模拟辅助。需要注意的是，<strong>极限性能 1570 W&#x2F;cm² 是在特定条件（120 ml&#x2F;min、HFE-7100、环境压力）下获得的</strong>，实际应用还需要考虑长期可靠性、冷却液兼容性、封装集成和成本。</p>
+<p>与实际应用的距离：这套结构用标准硅微加工制造，具备可扩展性，但测试芯片只有 3×3 mm²，更大面积需要通过重复设计或更高层级歧管覆盖。此外，150 ml&#x2F;min 时提前 CHF 说明流量分布均匀性在高流量下会恶化，需要进一步优化歧管设计。下一步值得验证的是：在真实芯片热源分布（非均匀）下的表现、长期运行下的干涸和结垢风险，以及与现有封装工艺的兼容性。</p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p><strong>这篇论文真正想解决的问题是</strong>：电介质冷却液虽然安全，但在嵌入式两相冷却中一直难以突破 1000 W&#x2F;cm² 的热流上限，无法满足高功率芯片的散热需求。</p>
+<p><strong>它声称的贡献是</strong>：提出水平向上歧管微通道结构，通过水平入口补液和垂直出口排汽，用 HFE-7100 实现 1570 W&#x2F;cm² 的 CHF，同时压降只有传统直平行微通道的 14%，COP 高出一个数量级，并展示了 1000–1400 W&#x2F;cm² 下的运行稳定性。</p>
+<p><strong>最容易被 reviewer 攻击的地方在于</strong>：第一，CHF 最大值 1570 W&#x2F;cm² 只在 120 ml&#x2F;min 下出现，而 150 ml&#x2F;min 反而提前 CHF，说明性能对流量和流场分布高度敏感，可重复性和鲁棒性需要更多数据；第二，测试面积仅 3×3 mm²，放大到更大芯片面积时，流量分布和温度均匀性可能显著恶化；第三，长期可靠性、冷却液泄漏、材料老化和微生物滋生等实际问题未在文中评估。</p>
+<p><strong>如果我是同方向的科研工作者，值得精读的两部分是</strong>：</p>
+<p><strong>第一部分：图2–图3的热-水力性能对比与极限测试。</strong> 重点整理：HUMMC 与 SPMC 在相同微通道尺寸下的压降、热阻、COP 和 CHF 差异；ONB 点的确定；两相区热阻随流量的变化规律；最小 Rmax 和 Rmean 的取得条件；CHF 随流量的非单调变化（120 ml&#x2F;min 最高，150 ml&#x2F;min 提前 CHF）及其与流量分布不均的关联；稳定性测试中温度波动 ±2.0 K、压降波动 ±1.5 kPa 的量化结果。这套“性能对比 + 极限探索 + 稳定性验证”的实验框架可以直接借鉴。</p>
+<p><strong>第二部分：图1的结构设计与制造工艺。</strong> 重点整理：水平歧管入口如何通过 100 µm 宽度产生射流冲击；出口截面从 1.5 mm² 到 4.5 mm² 再到 9 mm² 的渐扩设计；硅-硅直接键合、深反应离子刻蚀、双面抛光硅片等工艺细节；以及 H 形流入模式如何将流程减半、降低压降。这部分对想复现或改进嵌入式微流体冷却结构的研究者最有价值。</p>
+<p><strong>可以先跳过的部分是</strong>：图4的技术对比中关于池沸腾和喷雾冷却的历史数据——这些是背景性总结，对熟悉两相冷却领域的读者信息增量有限。</p>
+<hr>
+<p><strong>论文信息</strong></p>
+<p>标题：Horizontal-up microfluidics for embedded chip cooling with a dielectric fluid</p>
+<p>期刊：Nature Electronics</p>
+<p>年份：2026</p>
+<p>DOI：未在提供文本中给出</p>
+<p><em>本文为学术传播与知识分享目的撰写，不用于商业用途。如本文任何内容无意中侵犯了您的版权，请联系我们将及时核实并删除相关内容。</em></p>
+</section>
+    <!-- Tags and categories START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/MyWiki/MyWiki/tags#Paper" >
+    <span class="tag-code">Paper</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags and categories END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/MyWiki/wiki/2026/10/08/paper_reading/20261008B/">
+        <span class="nav-arrow">← </span>
+        
+          论文阅读-017:宽度越窄，散热越差？二硫化钨纳米带里的“声子堵车”实验
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/MyWiki/wiki/2026/10/08/paper_reading/20261008A/">
+        
+          论文阅读-016:在光滑的界面上“刻”一层无序：非晶表面如何让二维材料散热快三倍
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <!-- 二维码 END -->
+    
+      <!-- Utterances START -->
+      <div id="utterances"></div>
+      <script src="https://utteranc.es/client.js"
+        repo=""
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>    
+      <!-- Utterances END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+	
+	  <strong class="toc-title">Catalog</strong>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E7%BB%99%E8%8A%AF%E7%89%87%E8%A3%85%E4%B8%AA%E2%80%9C%E6%B0%B4%E5%B9%B3%E7%83%9F%E5%9B%B1%E2%80%9D%EF%BC%9A%E7%94%B5%E4%BB%8B%E8%B4%A8%E6%B5%81%E4%BD%93%E4%B8%A4%E7%9B%B8%E5%86%B7%E5%8D%B4%E7%AA%81%E7%A0%B4-1570-W-x2F-cm%C2%B2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">给芯片装个“水平烟囱”：电介质流体两相冷却突破 1570 W&#x2F;cm²</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AF%BC%E8%AF%AD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">导语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E8%8A%AF%E7%89%87%E6%95%A3%E7%83%AD%E7%9A%84%E4%B8%A4%E9%9A%BE%E2%80%94%E2%80%94%E6%B0%B4%E5%BE%88%E5%BC%BA%EF%BC%8C%E4%BD%86%E6%80%95%E6%BC%8F%E7%94%B5"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">背景：芯片散热的两难——水很强，但怕漏电</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%9C%E8%80%85%E5%A6%82%E4%BD%95%E7%A0%94%E7%A9%B6%EF%BC%9A%E6%B0%B4%E5%B9%B3%E8%BF%9B%E6%B6%B2%EF%BC%8C%E5%9E%82%E7%9B%B4%E6%8E%92%E6%B1%BD"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">作者如何研究：水平进液，垂直排汽</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0%E4%B8%8E%E9%80%90%E5%9B%BE%E8%A7%A3%E8%AF%BB"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">核心发现与逐图解读</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE1%EF%BC%9A%E8%8A%AF%E7%89%87%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7%EF%BC%8C%E6%80%8E%E4%B9%88%E9%80%A0%E5%87%BA%E6%9D%A5%E7%9A%84"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">图1：芯片长什么样，怎么造出来的</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE2%EF%BC%9AHUMMC-%E6%AF%94%E4%BC%A0%E7%BB%9F%E7%9B%B4%E9%80%9A%E9%81%93%E5%BC%BA%E5%9C%A8%E5%93%AA"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">图2：HUMMC 比传统直通道强在哪</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE3%EF%BC%9A%E6%9E%81%E9%99%90%E5%86%B7%E5%8D%B4%E6%80%A7%E8%83%BD%E5%92%8C%E8%BF%90%E8%A1%8C%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">图3：极限冷却性能和运行稳定性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BE4%EF%BC%9A%E5%92%8C%E5%B7%B2%E6%9C%89%E4%B8%A4%E7%9B%B8%E5%86%B7%E5%8D%B4%E6%8A%80%E6%9C%AF%E6%AF%94%EF%BC%8C%E5%BC%BA%E5%9C%A8%E5%93%AA"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">图4：和已有两相冷却技术比，强在哪</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%BA%E7%90%86%E3%80%81%E6%84%8F%E4%B9%89%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">机理、意义与局限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">写在后面</span></a></li></ol></li></ol>
+    
+
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://eastsheng.github.io/MyWiki/wiki/2026/10/08/paper_reading/20261008C/';
+    var banner = 'https://cdn.pixabay.com/photo/2017/04/22/11/45/cuff-2251146_1280.jpg'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    //// error image
+    //$(".markdown-content img").on('error', function() {
+    //  $(this).attr('src', '/css/images/error_icon.png')
+    //  $(this).css({
+    //    'cursor': 'default'
+    //  })
+    //})
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+  </span>
+            <span class="nav-item">
+             <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><br>
+   Copyright &copy; 2019-2026 <a href="/MyWiki/about" target="_blank">Eastsheng</a> | <a href="/MyWiki" target="_blank">返回首页</a>
+    <br>
+    Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng/hexo-theme-vexo">vexo</a>
+    
+  </p>
+<!--开站时间开始-->       
+ <script language="javascript"> 
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("01/22/2019 18:11:28");/*---这里是网站的启用时间--*/
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "⏱️已稳定运行"+dnum+"天";
+        document.getElementById("times").innerHTML = hnum + "小时" + mnum + "分" + snum + "秒";
+    }
+    setInterval("createtime()",250); 
+</script> 
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/MyWiki/js/script.js"></script>
+
+
+	<script src="https://myhkw.cn/player/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://myhkw.cn/api/player/170030389626" id="myhk" key="170030389626" skin="player" au="0" lr="l" m="1"></script>
+  </body>
+</html>
